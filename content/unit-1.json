@@ -1,0 +1,748 @@
+{
+  "unit": 1,
+  "slug": "giris",
+  "title": { "tr": "Giriş — Su Dengesi", "en": "Introduction — Water Balance" },
+  "tagline": { "tr": "Giren − çıkan = depolamadaki değişim", "en": "Inflow minus outflow equals the change in storage" },
+  "concept": {
+    "overview": {
+      "tr": "Hidroloji, suyun atmosfer, yeryüzü ve yeraltı arasındaki dolaşımını (su döngüsünü) inceler. Bu ünitenin tek büyük fikri **su dengesi** (su bütçesi): kapalı bir bölge seç (bir havza ya da bir baraj gölü), belirli bir süre belirle (bir ay, 10 gün) ve su muhasebesi yap:\n\n$$\\Delta S = x - y$$\n\nGiren su ($x$: yağış, giren akış) ile çıkan su ($y$: çıkan akış, buharlaşma, sızma) arasındaki fark, bölgede **depolanan suyun değişimidir** ($\\Delta S$: göl seviyesi, yer altı suyu, zemin nemi).\n\nBunu kullanmak için üç küçük beceri gerekir:\n\n1. **Debi → hacim:** $V = Q \\cdot \\Delta t$. Debi m³/sn ise süreyi **saniyeye** çevir (1 gün = 86 400 sn, 30 gün = 2 592 000 sn).\n2. **Hacim → yükseklik:** $h = V/A$. Alanı m²'ye çevir (1 km² = $10^6$ m²); çıkan metreyi mm yapmak için ×1000.\n3. **İşaret:** \"alçalma\" kelimesi $\\Delta S$'nin **negatif** olduğunu söyler; \"yükselme\" pozitif.\n\nSınav sorusu hep aynı oyunu oynar: denklemdeki terimlerden birini saklar (zemin nemi, buharlaşma...), gerisini verir. Sen tüm terimleri **aynı birime** getirir (hepsi mm ya da hepsi m³), dengeyi yazar, bilinmeyeni çekersin. Hataların neredeyse tamamı birim çevirmede ve işarette çıkar — hesap makinesi kısmı kolaydır.",
+      "en": "Hydrology studies how water circulates between the atmosphere, the land surface and the ground (the water cycle). This unit has one big idea: the **water balance** (water budget). Pick a closed region (a river basin or a reservoir), fix a time period (one month, 10 days) and do the bookkeeping:\n\n$$\\Delta S = x - y$$\n\nThe difference between the water that comes in ($x$: rainfall, inflow) and the water that goes out ($y$: outflow, evaporation, seepage) is exactly the **change in the water stored** inside the region ($\\Delta S$: lake level, groundwater, soil moisture).\n\nUsing it takes three small skills:\n\n1. **Discharge → volume:** $V = Q \\cdot \\Delta t$. If discharge is in m³/s, convert the period to **seconds** (1 day = 86,400 s, 30 days = 2,592,000 s).\n2. **Volume → depth:** $h = V/A$. Convert the area to m² (1 km² = $10^6$ m²); multiply the resulting metres by 1000 to get mm.\n3. **Sign:** the word \"drop\" (alçalma) tells you $\\Delta S$ is **negative**; \"rise\" means positive.\n\nExam questions always play the same game: they hide one term of the equation (soil moisture, evaporation...) and give you the rest. You bring every term to the **same unit** (all mm or all m³), write the balance, and solve for the unknown. Almost all mistakes happen in unit conversion and signs — the calculator part is easy."
+    },
+    "keyFormulas": [
+      {
+        "name": { "tr": "Su dengesi (su bütçesi)", "en": "Water balance (water budget)" },
+        "latex": "\\Delta S = x - y",
+        "meaning": {
+          "tr": "$\\Delta S$: depolanan sudaki değişim, $x$: giren su (yağış + giren akış), $y$: çıkan su (çıkan akış + buharlaşma + sızma). Hepsi aynı birimde: ya mm ya m³.",
+          "en": "$\\Delta S$: change in stored water, $x$: inflow (rainfall + streamflow in), $y$: outflow (streamflow out + evaporation + seepage). All in the same unit: either mm or m³."
+        },
+        "whenToUse": {
+          "tr": "Kapalı bir bölge (havza, göl) + belirli bir süre + giren/çıkan miktarların çoğu verilip biri sorulduğunda. Saklanan terim ne olursa olsun denklem aynıdır.",
+          "en": "When you have a closed region (basin, lake), a fixed time period, and most in/out amounts are given while one is asked. Whichever term is hidden, the equation is the same."
+        }
+      },
+      {
+        "name": { "tr": "Debiden hacme", "en": "Discharge to volume" },
+        "latex": "V = Q \\cdot \\Delta t",
+        "meaning": {
+          "tr": "$Q$ debi (m³/sn), $\\Delta t$ süre (saniye!), $V$ hacim (m³). 1 gün = 86 400 sn; 10 gün = 864 000 sn; 30 gün = 2 592 000 sn.",
+          "en": "$Q$ is discharge (m³/s), $\\Delta t$ the duration (in seconds!), $V$ the volume (m³). 1 day = 86,400 s; 10 days = 864,000 s; 30 days = 2,592,000 s."
+        },
+        "whenToUse": {
+          "tr": "Soru debi (m³/sn) veriyorsa ama denge hacim ya da yükseklik istiyorsa. Debi bir hızdır; süreyle çarpmadan toplanamaz.",
+          "en": "Whenever the question gives a discharge (m³/s) but the balance needs a volume or depth. Discharge is a rate; it cannot be added until multiplied by time."
+        }
+      },
+      {
+        "name": { "tr": "Hacimden su yüksekliğine", "en": "Volume to equivalent depth" },
+        "latex": "h = \\frac{V}{A}",
+        "meaning": {
+          "tr": "$V$ hacim (m³), $A$ alan (m², 1 km² = $10^6$ m²), $h$ yükseklik (m). mm için 1000 ile çarp. Ters yönde: $V = h \\cdot A$.",
+          "en": "$V$ volume (m³), $A$ area (m², 1 km² = $10^6$ m²), $h$ depth (m). Multiply by 1000 for mm. In reverse: $V = h \\cdot A$."
+        },
+        "whenToUse": {
+          "tr": "mm cinsinden verilen yağış/sızma ile m³ cinsinden hesaplanan akış hacmini aynı dile getirmek için — iki yönde de çalışır.",
+          "en": "To put rainfall/seepage given in mm and streamflow volumes computed in m³ into the same language — works in both directions."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "**Süreyi saniyeye çevirmeyi unutmak.** \"Eylül ayında\" görünce otomatik 30 × 86 400 = 2 592 000 sn yaz. Ay 30 mu 31 mi gün, sorudaki aya bak (Eylül, Nisan, Haziran, Kasım = 30 gün).",
+        "en": "**Forgetting to convert the period to seconds.** When you see \"in September\", automatically write 30 × 86,400 = 2,592,000 s. Whether the month has 30 or 31 days depends on the month named (September, April, June, November = 30 days)."
+      },
+      {
+        "tr": "**mm–m–km² karmaşası.** mm'yi m yapmak için ÷1000, km²'yi m² yapmak için ×10⁶. En sık hata: $h = V/A$ sonucunun metre çıktığını unutup mm sanmak (1000 kat hata!).",
+        "en": "**mm–m–km² confusion.** Divide by 1000 to turn mm into m; multiply by 10⁶ to turn km² into m². Most common slip: forgetting that $h = V/A$ comes out in metres and reading it as mm (a factor-of-1000 error!)."
+      },
+      {
+        "tr": "**\"Alçalma\" bir çıkış DEĞİLDİR.** Yer altı suyu veya göl seviyesindeki alçalma/yükselme, sınırı geçen bir su değil, depolama değişimidir: $\\Delta S$ tarafına yazılır ve alçalma eksi işaret alır.",
+        "en": "**A \"drop\" is NOT an outflow.** A drop/rise in groundwater or lake level is not water crossing the boundary; it is a storage change: it goes on the $\\Delta S$ side, and a drop takes a minus sign."
+      },
+      {
+        "tr": "**Farklı birimleri doğrudan toplamak.** 50 mm yağışla 5 961 600 m³ akış aynı satırda toplanamaz. Önce hepsini mm'ye (veya hepsini m³'e) çevir, sonra dengeyi yaz.",
+        "en": "**Adding mixed units directly.** 50 mm of rain and 5,961,600 m³ of streamflow cannot be summed on the same line. First convert everything to mm (or everything to m³), then write the balance."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "1-1",
+      "code": "Uygulama 1.1",
+      "title": { "tr": "Havzada su dengesi — zemin nemi değişimi", "en": "Basin water balance — change in soil moisture" },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Yüzölçümü 200 km² olan bir akarsu havzasına Eylül ayında 50 mm yağış düşmüştür. Havzadan çıkan akımın ortalama debisi 2,3 m³/sn, yer altı suyu alçalması 60 mm ve evapotranspirasyon (buharlaşma + terleme) kayıpları 100 mm olduğuna göre, bu ay içerisinde zemin neminin ne kadar değiştiğini hesaplayınız.",
+        "en": "A river basin with an area of 200 km² received 50 mm of rainfall in September. The average discharge leaving the basin is 2.3 m³/s, the groundwater level dropped by 60 mm, and evapotranspiration (evaporation + transpiration) losses are 100 mm. Calculate how much the soil moisture changed during this month."
+      },
+      "given": [
+        { "symbol": "A", "value": "200\\ \\text{km}^2", "label": { "tr": "Havza alanı", "en": "Basin area" } },
+        { "symbol": "P", "value": "50\\ \\text{mm}", "label": { "tr": "Eylül ayı yağışı", "en": "September rainfall" } },
+        { "symbol": "Q", "value": "2{,}3\\ \\text{m}^3/\\text{s}", "label": { "tr": "Havzadan çıkan ortalama debi", "en": "Average discharge leaving the basin" } },
+        { "symbol": "\\Delta S_{ya}", "value": "60\\ \\text{mm (alçalma)}", "label": { "tr": "Yer altı suyu alçalması", "en": "Groundwater level drop" } },
+        { "symbol": "ET", "value": "100\\ \\text{mm}", "label": { "tr": "Evapotranspirasyon kaybı", "en": "Evapotranspiration loss" } }
+      ],
+      "goal": {
+        "tr": "Eylül ayında zemin neminin (mm cinsinden) ne kadar ve hangi yönde değiştiğini bulmak.",
+        "en": "Find how much (in mm) and in which direction the soil moisture changed during September."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Soruyu tanı: su dengesi kur", "en": "Recognize the problem: set up a water balance" },
+          "guiding": {
+            "tr": "Elinde kapalı bir bölge (havza), sabit bir süre (Eylül) ve giren/çıkan su miktarları var. Bu tablo sana hangi denklemi fısıldıyor?",
+            "en": "You have a closed region (a basin), a fixed period (September) and amounts of water going in and out. Which equation is this setup whispering to you?"
+          },
+          "hint": {
+            "tr": "Bir kutuya giren su − çıkan su = kutuda biriken (veya azalan) su. Kutu burada havzanın kendisi.",
+            "en": "Water into a box − water out of the box = water accumulated (or lost) inside the box. The box here is the basin itself."
+          },
+          "work": {
+            "tr": "Havzayı kapalı bir bölge kabul edip Eylül ayı için su dengesini yazıyoruz:\n\n$$\\Delta S = x - y$$\n\n- **Giren ($x$):** yağış $P = 50$ mm (havzaya giren başka akış yok).\n- **Çıkan ($y$):** havzadan çıkan akış + evapotranspirasyon. Bunlar havza sınırını **geçen** sulardır.\n- **Depolama ($\\Delta S$):** havzanın içinde kalan su — yer altı suyu ve zemin nemi. \"60 mm alçalma\" ve aradığımız zemin nemi değişimi buraya aittir; $y$'ye **yazılmaz**.",
+            "en": "We treat the basin as a closed region and write the water balance for September:\n\n$$\\Delta S = x - y$$\n\n- **In ($x$):** rainfall $P = 50$ mm (no other flow enters the basin).\n- **Out ($y$):** the streamflow leaving the basin + evapotranspiration. These actually **cross** the basin boundary.\n- **Storage ($\\Delta S$):** water that stays inside the basin — groundwater and soil moisture. The \"60 mm drop\" and the soil-moisture change we are after belong here; they do **not** go into $y$."
+          },
+          "why": {
+            "tr": "Sınav ipucu: \"belirli bir sürede şu kadar girdi, şu kadar çıktı, bilinmeyen bir depolama terimi var\" kalıbını görür görmez su dengesi yaz. Kritik karar bu adımda verilir: hangi terim sınırı geçiyor ($x$ veya $y$), hangisi içeride birikiyor ($\\Delta S$)? Yer altı suyu alçalmasını $y$'ye yazmak bu sorunun bir numaralı tuzağıdır.",
+            "en": "Exam cue: the moment you see \"over a fixed period, this much came in, this much went out, one storage term unknown\", write a water balance. The critical decision happens in this step: which terms cross the boundary ($x$ or $y$) and which accumulate inside ($\\Delta S$)? Putting the groundwater drop into $y$ is the number-one trap of this question."
+          },
+          "result": "\\Delta S = x - y",
+          "check": null
+        },
+        {
+          "title": { "tr": "Debiyi hacme çevir", "en": "Convert the discharge to a volume" },
+          "guiding": {
+            "tr": "2,3 m³/sn'lik akım, Eylül ayı boyunca havzadan toplam kaç m³ su götürür?",
+            "en": "How many m³ of water does a 2.3 m³/s flow carry out of the basin over the whole of September?"
+          },
+          "hint": {
+            "tr": "Hacim = debi × süre. Süre saniye cinsinden olmalı. Eylül 30 gündür; 1 gün = 24 × 60 × 60 saniye.",
+            "en": "Volume = discharge × time. The time must be in seconds. September has 30 days; 1 day = 24 × 60 × 60 seconds."
+          },
+          "work": {
+            "tr": "Eylül'de saniye sayısı: $30 \\cdot 24 \\cdot 60 \\cdot 60 = 2\\,592\\,000$ sn.\n\n$$V = Q \\cdot \\Delta t = 2{,}3 \\cdot 2\\,592\\,000 = 5\\,961\\,600\\ \\text{m}^3$$\n\nBu, ay boyunca havzayı akarsu yoluyla terk eden toplam su hacmidir.",
+            "en": "Seconds in September: $30 \\cdot 24 \\cdot 60 \\cdot 60 = 2{,}592{,}000$ s.\n\n$$V = Q \\cdot \\Delta t = 2.3 \\cdot 2\\,592\\,000 = 5\\,961\\,600\\ \\text{m}^3$$\n\nThis is the total volume of water that left the basin as streamflow during the month."
+          },
+          "why": {
+            "tr": "Dengedeki diğer terimler (yağış, ET) toplam miktarlar; debi ise anlık bir hız (m³/sn). Hızları toplamlarla toplayamazsın — önce süreyle çarpıp toplam hacme çevirmek zorundasın. Soruda m³/sn görür görmez elin 86 400'e gitmeli.",
+            "en": "The other balance terms (rainfall, ET) are totals, while discharge is a rate (m³/s). You can't add rates to totals — you must first multiply by the duration to get a total volume. The instant you see m³/s in a problem, your hand should reach for 86,400."
+          },
+          "result": "V_{akış} = 5\\,961\\,600\\ \\text{m}^3",
+          "check": {
+            "q": { "tr": "Eylül ayında kaç saniye vardır?", "en": "How many seconds are there in September?" },
+            "options": [
+              { "tr": "31 × 86 400 = 2 678 400 sn", "en": "31 × 86,400 = 2,678,400 s" },
+              { "tr": "30 × 86 400 = 2 592 000 sn", "en": "30 × 86,400 = 2,592,000 s" },
+              { "tr": "30 × 3 600 = 108 000 sn", "en": "30 × 3,600 = 108,000 s" },
+              { "tr": "30 × 1 440 = 43 200 sn", "en": "30 × 1,440 = 43,200 s" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Eylül 30 gün çeker ve 1 gün = 24 × 60 × 60 = 86 400 saniyedir; 30 × 86 400 = 2 592 000 sn. 31 gün almak Eylül'e değil Ağustos/Ekim'e ait; 3 600 sadece 1 saat, 1 440 ise gündeki dakika sayısıdır.",
+              "en": "September has 30 days and 1 day = 24 × 60 × 60 = 86,400 seconds; 30 × 86,400 = 2,592,000 s. Using 31 days belongs to August/October, not September; 3,600 is only one hour, and 1,440 is the number of minutes in a day."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Hacmi su yüksekliğine çevir", "en": "Convert the volume to an equivalent depth" },
+          "guiding": {
+            "tr": "5 961 600 m³ suyu 200 km²'lik havzanın üzerine eşit yayarsan kaç mm'lik bir tabaka olur?",
+            "en": "If you spread 5,961,600 m³ of water evenly over the 200 km² basin, how many mm deep is the layer?"
+          },
+          "hint": {
+            "tr": "$h = V/A$. Önce alanı m²'ye çevir: 1 km² = 10⁶ m². Çıkan sonuç metre olur — mm için 1000 ile çarp.",
+            "en": "$h = V/A$. First convert the area to m²: 1 km² = 10⁶ m². The result comes out in metres — multiply by 1000 for mm."
+          },
+          "work": {
+            "tr": "$$h = \\frac{5\\,961\\,600\\ \\text{m}^3}{200 \\cdot 10^6\\ \\text{m}^2} = 0{,}0298\\ \\text{m} \\approx 29{,}8\\ \\text{mm}$$\n\n(Tam değer 29,808 mm; föy gibi 29,8 mm alıyoruz.) Artık akış da yağış ve ET ile aynı dilde: mm.",
+            "en": "$$h = \\frac{5\\,961\\,600\\ \\text{m}^3}{200 \\cdot 10^6\\ \\text{m}^2} = 0.0298\\ \\text{m} \\approx 29.8\\ \\text{mm}$$\n\n(The exact value is 29.808 mm; like the course sheet we use 29.8 mm.) Now the streamflow speaks the same language as rainfall and ET: mm."
+          },
+          "why": {
+            "tr": "Dengedeki terimlerin çoğu (yağış, ET, alçalma) mm cinsinden verilmiş; azınlıkta olan akışı mm'ye çevirmek en az işlemdir. Kural: hepsi mm ya da hepsi m³ — hangisi daha az çevirme gerektiriyorsa onu seç.",
+            "en": "Most balance terms (rainfall, ET, the drop) are given in mm; converting the lone streamflow to mm is the least work. Rule: all mm or all m³ — pick whichever needs fewer conversions."
+          },
+          "result": "h_{akış} = 29{,}8\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Giren ve çıkanları listele", "en": "List the inflows and outflows" },
+          "guiding": {
+            "tr": "Bu ay havza sınırından içeri ne girdi, dışarı ne çıktı? 60 mm'lik yer altı suyu alçalması hangi tarafa yazılır?",
+            "en": "What crossed the basin boundary inward this month, and what crossed it outward? Which side does the 60 mm groundwater drop go on?"
+          },
+          "hint": {
+            "tr": "Sadece sınırı GEÇEN sular $x$ veya $y$'ye girer. Havzanın içinde yer değiştiren su (yer altı suyu, zemin nemi) depolama terimidir.",
+            "en": "Only water that CROSSES the boundary enters $x$ or $y$. Water rearranging itself inside the basin (groundwater, soil moisture) is a storage term."
+          },
+          "work": {
+            "tr": "**Giren:** $x = P = 50$ mm.\n\n**Çıkan:** $y = h_{akış} + ET = 29{,}8 + 100 = 129{,}8$ mm.\n\nYer altı suyu alçalması (60 mm) ve zemin nemi değişimi $\\Delta S$'nin içindedir — sınırı geçmezler, havzanın \"deposundaki\" değişimlerdir.",
+            "en": "**In:** $x = P = 50$ mm.\n\n**Out:** $y = h_{flow} + ET = 29.8 + 100 = 129.8$ mm.\n\nThe groundwater drop (60 mm) and the soil-moisture change live inside $\\Delta S$ — they don't cross the boundary; they are changes in the basin's \"storage tank\"."
+          },
+          "why": {
+            "tr": "Sınavda \"alçalma/yükselme\" kelimelerini gördüğünde dur: bunlar akış değil, depo seviyesi değişimidir. 60 mm'yi $y$'ye eklersen zincirleme yanlış gider. Ayırt etme sorusu şu: \"Bu su havzayı terk etti mi?\" ET ve akış evet; yer altı suyu hayır — sadece seviyesi düştü.",
+            "en": "When you see the words \"drop/rise\" in an exam, pause: these are storage-level changes, not flows. Add the 60 mm to $y$ and everything downstream goes wrong. The test question to ask: \"Did this water leave the basin?\" ET and streamflow: yes; groundwater: no — only its level fell."
+          },
+          "result": "x = 50\\ \\text{mm},\\quad y = 129{,}8\\ \\text{mm}",
+          "check": {
+            "q": {
+              "tr": "60 mm'lik yer altı suyu alçalması su dengesi denkleminde nereye yazılır?",
+              "en": "Where does the 60 mm groundwater drop go in the water balance equation?"
+            },
+            "options": [
+              { "tr": "Çıkan su tarafına ($y$) — havzadan kaybolan sudur", "en": "On the outflow side ($y$) — it is water lost from the basin" },
+              { "tr": "Depolama değişimine ($\\Delta S$) — havza içindeki bir seviye değişimidir", "en": "Into the storage change ($\\Delta S$) — it is a level change inside the basin" },
+              { "tr": "Giren su tarafına ($x$) — yer altından havzaya su verir", "en": "On the inflow side ($x$) — it feeds water to the basin from underground" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Yer altı suyu havzanın içindedir; seviyesinin düşmesi sınırdan su çıktığı anlamına gelmez, depodaki suyun azaldığı anlamına gelir → $\\Delta S$ terimi. $y$'ye yazmak en yaygın hatadır; $x$'e yazmak da yanlıştır çünkü havzaya dışarıdan su girmiyor.",
+              "en": "The groundwater is inside the basin; its level falling doesn't mean water crossed the boundary — it means the stored water decreased → a $\\Delta S$ term. Writing it in $y$ is the most common mistake; writing it in $x$ is also wrong because no water entered the basin from outside."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Toplam depolama değişimini hesapla", "en": "Compute the total storage change" },
+          "guiding": {
+            "tr": "Artık $x$ ve $y$ hazır. $\\Delta S$ kaç mm çıkar ve işareti ne anlatır?",
+            "en": "Now $x$ and $y$ are ready. How many mm is $\\Delta S$, and what does its sign tell you?"
+          },
+          "hint": {
+            "tr": "Sadece yerine koy: $\\Delta S = x - y$. Negatif çıkarsa panik yok — sadece depo azalmış demektir.",
+            "en": "Just substitute: $\\Delta S = x - y$. If it comes out negative, don't panic — it simply means storage decreased."
+          },
+          "work": {
+            "tr": "$$\\Delta S = 50 - (29{,}8 + 100) = -79{,}8\\ \\text{mm}$$\n\nİşaret negatif: Eylül'de havzada depolanan su toplamda **79,8 mm azalmıştır**. Mantıklı da — giren yalnızca 50 mm, çıkan 129,8 mm; aradaki fark depodan karşılanmış.",
+            "en": "$$\\Delta S = 50 - (29.8 + 100) = -79.8\\ \\text{mm}$$\n\nThe sign is negative: the water stored in the basin **decreased by 79.8 mm in total** during September. That makes sense — only 50 mm came in while 129.8 mm went out; the difference was supplied from storage."
+          },
+          "why": {
+            "tr": "Bu adım denklemin mekanik kısmı; asıl beceri, sonucun işaretini okuyabilmek. Çıkan > giren ise $\\Delta S$ negatif olmalı — sonucun pozitif çıkması bir işaret hatası yaptığını haber verir. Sınavda bu 5 saniyelik kontrolü hep yap.",
+            "en": "This step is the mechanical part; the real skill is reading the sign of the result. If outflow > inflow, $\\Delta S$ must be negative — getting a positive number warns you of a sign error. Always do this 5-second check in the exam."
+          },
+          "result": "\\Delta S = -79{,}8\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Depolamayı bileşenlerine ayır", "en": "Split the storage change into its parts" },
+          "guiding": {
+            "tr": "Toplam 79,8 mm'lik azalmanın 60 mm'si yer altı suyundan geldi. Geriye, yani zemin nemine ne kalıyor?",
+            "en": "Of the total 79.8 mm decrease, 60 mm came from groundwater. What is left over for the soil moisture?"
+          },
+          "hint": {
+            "tr": "$\\Delta S = \\Delta S_{ya} + \\Delta S_{zn}$. Alçalma eksi işaretlidir: $\\Delta S_{ya} = -60$ mm.",
+            "en": "$\\Delta S = \\Delta S_{gw} + \\Delta S_{sm}$. A drop carries a minus sign: $\\Delta S_{gw} = -60$ mm."
+          },
+          "work": {
+            "tr": "Havzadaki depo iki bölmeden oluşuyor: yer altı suyu ($ya$) ve zemin nemi ($zn$):\n\n$$\\Delta S = \\Delta S_{ya} + \\Delta S_{zn}$$\n\n$$-79{,}8 = -60 + \\Delta S_{zn} \\;\\Rightarrow\\; \\Delta S_{zn} = -19{,}8\\ \\text{mm}$$\n\nZemin nemi **19,8 mm azalmıştır** (föydeki $79{,}8 - 60 = 19{,}8$ mm hesabıyla aynı).",
+            "en": "The basin's storage has two compartments: groundwater ($gw$) and soil moisture ($sm$):\n\n$$\\Delta S = \\Delta S_{gw} + \\Delta S_{sm}$$\n\n$$-79.8 = -60 + \\Delta S_{sm} \\;\\Rightarrow\\; \\Delta S_{sm} = -19.8\\ \\text{mm}$$\n\nThe soil moisture **decreased by 19.8 mm** (same as the sheet's $79.8 - 60 = 19.8$ mm)."
+          },
+          "why": {
+            "tr": "Soru toplam depolamayı değil, özellikle **zemin nemini** soruyor. $-79{,}8$'de durup onu cevap sanmak puan kaybettirir. Depolamanın birden çok bölmesi varsa (göl + yer altı + zemin nemi), toplam $\\Delta S$'yi bölmelere paylaştırman gerekir — verilenler hangi bölmeye aitse yerine koy, kalanı çek.",
+            "en": "The question asks specifically for the **soil moisture**, not the total storage. Stopping at $-79.8$ and calling it the answer loses marks. When storage has several compartments (lake + groundwater + soil moisture), you must distribute the total $\\Delta S$ among them — substitute the compartments you know and solve for the rest."
+          },
+          "result": "\\Delta S_{zn} = -19{,}8\\ \\text{mm}",
+          "check": {
+            "q": {
+              "tr": "Toplam depolama 79,8 mm azaldı ve bunun 60 mm'si yer altı suyu alçalması. Zemin nemi ne yapmıştır?",
+              "en": "Total storage fell by 79.8 mm, of which 60 mm is the groundwater drop. What did the soil moisture do?"
+            },
+            "options": [
+              { "tr": "19,8 mm azalmıştır", "en": "It decreased by 19.8 mm" },
+              { "tr": "19,8 mm artmıştır", "en": "It increased by 19.8 mm" },
+              { "tr": "139,8 mm azalmıştır", "en": "It decreased by 139.8 mm" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "İki azalma aynı yönde: $-79{,}8 = -60 + \\Delta S_{zn}$ → $\\Delta S_{zn} = -19{,}8$ mm, yani 19,8 mm azalma. Artış cevabı işaretleri karıştırmaktan, 139,8 ise $-79{,}8 - 60$ yaparak alçalmayı yanlış yönde eklemekten çıkar (o durum yer altı suyu YÜKSELSEYDİ doğru olurdu).",
+              "en": "Both decreases point the same way: $-79.8 = -60 + \\Delta S_{sm}$ → $\\Delta S_{sm} = -19.8$ mm, i.e. a 19.8 mm decrease. The \"increase\" answer comes from mixing up signs; 139.8 comes from computing $-79.8 - 60$, adding the drop in the wrong direction (that would be correct only if the groundwater had RISEN)."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Sağlama yap", "en": "Check the answer" },
+          "guiding": {
+            "tr": "Bulduğun sayıları denkleme geri koysan bütçe tutuyor mu?",
+            "en": "If you plug your numbers back into the equation, does the budget close?"
+          },
+          "hint": {
+            "tr": "Giren = çıkan + depodaki azalmanın telafisi. 50 mm girdi; 129,8 mm çıktı; fark depodan gelmeli.",
+            "en": "Inflow = outflow + what the storage supplied. 50 mm came in; 129.8 mm went out; the difference must come from storage."
+          },
+          "work": {
+            "tr": "Giren: 50 mm. Çıkan: $29{,}8 + 100 = 129{,}8$ mm. Açık: $129{,}8 - 50 = 79{,}8$ mm — bu açık depodan karşılanmış: yer altı suyu 60 mm + zemin nemi 19,8 mm $= 79{,}8$ mm ✓. Bütçe kapanıyor.",
+            "en": "In: 50 mm. Out: $29.8 + 100 = 129.8$ mm. Deficit: $129.8 - 50 = 79.8$ mm — supplied from storage: groundwater 60 mm + soil moisture 19.8 mm $= 79.8$ mm ✓. The budget closes."
+          },
+          "why": {
+            "tr": "Su dengesi bir muhasebedir; muhasebe sağlaması 30 saniye sürer ve işaret hatalarını anında yakalar. Sınavda vaktin varsa her denge sorusunda bu kontrolü yap.",
+            "en": "A water balance is bookkeeping; balancing the books takes 30 seconds and instantly catches sign errors. If you have time in the exam, run this check on every balance problem."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Toplam depolama değişimi:** $\\Delta S = -79{,}8$ mm (havzadaki su 79,8 mm azaldı).\n\n**İstenen:** Zemin nemi $\\Delta S_{zn} = 79{,}8 - 60 = \\boxed{19{,}8\\ \\text{mm azalmıştır}}$.",
+        "en": "**Total storage change:** $\\Delta S = -79.8$ mm (the basin's stored water fell by 79.8 mm).\n\n**Asked:** Soil moisture $\\Delta S_{sm} = 79.8 - 60 = \\boxed{19.8\\ \\text{mm decrease}}$."
+      },
+      "traps": [
+        {
+          "tr": "60 mm'lik yer altı suyu alçalmasını çıkan su ($y$) tarafına yazmak. Alçalma bir depolama değişimidir; $y$'ye eklersen $\\Delta S = -139{,}8$ gibi anlamsız bir zincir başlar.",
+          "en": "Writing the 60 mm groundwater drop on the outflow ($y$) side. A drop is a storage change; adding it to $y$ starts a nonsense chain like $\\Delta S = -139.8$."
+        },
+        {
+          "tr": "Eylül'ü 31 gün almak: $2{,}3 \\cdot 31 \\cdot 86\\,400 = 6\\,160\\,320$ m³ → 30,8 mm çıkar ve tüm sonuçlar 1 mm kayar. Eylül 30 gündür.",
+          "en": "Taking September as 31 days: $2.3 \\cdot 31 \\cdot 86{,}400 = 6{,}160{,}320$ m³ → 30.8 mm, shifting every result by 1 mm. September has 30 days."
+        },
+        {
+          "tr": "$h = V/A$ sonucunu (0,0298 **m**) mm sanmak veya km²'yi m²'ye çevirirken $10^6$ yerine $10^3$ kullanmak — ikisi de 1000 katlık hatadır.",
+          "en": "Reading the $h = V/A$ result (0.0298 **m**) as mm, or using $10^3$ instead of $10^6$ when converting km² to m² — both are factor-of-1000 errors."
+        },
+        {
+          "tr": "$\\Delta S = -79{,}8$ mm'de durmak. Soru toplam depolamayı değil zemin nemini soruyor; son adımı (79,8 − 60 = 19,8) atlama.",
+          "en": "Stopping at $\\Delta S = -79.8$ mm. The question asks for soil moisture, not total storage; don't skip the last step (79.8 − 60 = 19.8)."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yer altı suyu 60 mm alçalmak yerine 60 mm YÜKSELSEYDİ?",
+            "en": "What if the groundwater had RISEN 60 mm instead of dropping 60 mm?"
+          },
+          "answer": {
+            "tr": "Giren-çıkanlar değişmediği için toplam yine $\\Delta S = -79{,}8$ mm olurdu. Ama paylaşım değişir: $-79{,}8 = +60 + \\Delta S_{zn}$ → $\\Delta S_{zn} = -139{,}8$ mm. Zemin nemi 139,8 mm azalırdı — hem toplam açığı hem de yer altına giden suyu zemin nemi karşılamak zorunda kalırdı. İşaret yönü tam da hocaların değiştirmeyi sevdiği ayrıntıdır.",
+            "en": "Since the ins and outs don't change, the total is still $\\Delta S = -79.8$ mm. But the split changes: $-79.8 = +60 + \\Delta S_{sm}$ → $\\Delta S_{sm} = -139.8$ mm. Soil moisture would fall by 139.8 mm — it would have to supply both the overall deficit and the water that went into the ground. Flipping this sign is exactly the detail professors love to change."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya aynı soru Eylül yerine Ekim (31 gün) için sorulsaydı?",
+            "en": "What if the same question were asked for October (31 days) instead of September?"
+          },
+          "answer": {
+            "tr": "Sadece akış hacmi değişir: $V = 2{,}3 \\cdot 31 \\cdot 86\\,400 = 6\\,160\\,320$ m³ → $h = 6\\,160\\,320 / (200 \\cdot 10^6) = 30{,}8$ mm. Denge: $\\Delta S = 50 - (30{,}8 + 100) = -80{,}8$ mm; zemin nemi $-80{,}8 + 60 = -20{,}8$ mm, yani 20,8 mm azalma. Ders: gün sayısını hep sorudaki aydan oku.",
+            "en": "Only the streamflow volume changes: $V = 2.3 \\cdot 31 \\cdot 86{,}400 = 6{,}160{,}320$ m³ → $h = 6{,}160{,}320 / (200 \\cdot 10^6) = 30.8$ mm. Balance: $\\Delta S = 50 - (30.8 + 100) = -80.8$ mm; soil moisture $-80.8 + 60 = -20.8$ mm, a 20.8 mm decrease. Lesson: always read the day count from the month in the question."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya yağış 50 mm değil 150 mm olsaydı?",
+            "en": "What if the rainfall were 150 mm instead of 50 mm?"
+          },
+          "answer": {
+            "tr": "$\\Delta S = 150 - 129{,}8 = +20{,}2$ mm — depolama bu kez ARTAR. Yer altı suyu yine 60 mm alçaldığına göre: $+20{,}2 = -60 + \\Delta S_{zn}$ → $\\Delta S_{zn} = +80{,}2$ mm, zemin nemi 80,2 mm artar. Görüldüğü gibi tek bir sayı işareti tersine çevirebilir; sonucu \"azalma\" diye ezberleme, hesaptan oku.",
+            "en": "$\\Delta S = 150 - 129.8 = +20.2$ mm — storage now INCREASES. With the groundwater still dropping 60 mm: $+20.2 = -60 + \\Delta S_{sm}$ → $\\Delta S_{sm} = +80.2$ mm, soil moisture rises by 80.2 mm. One changed number flips the sign; never memorize the answer as \"a decrease\" — read it off the calculation."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya zemin nemindeki 19,8 mm'lik azalma verilip evapotranspirasyon sorulsaydı?",
+            "en": "What if the 19.8 mm soil-moisture drop were given and evapotranspiration were asked?"
+          },
+          "answer": {
+            "tr": "Aynı denklem, farklı bilinmeyen. Önce $\\Delta S = -60 - 19{,}8 = -79{,}8$ mm kurulur; sonra $-79{,}8 = 50 - (29{,}8 + ET)$ → $ET = 50 - 29{,}8 + 79{,}8 = 100$ mm. Su dengesi sorularında hangi terimin saklandığı değişir ama çözüm şablonu hiç değişmez.",
+            "en": "Same equation, different unknown. First build $\\Delta S = -60 - 19.8 = -79.8$ mm; then $-79.8 = 50 - (29.8 + ET)$ → $ET = 50 - 29.8 + 79.8 = 100$ mm. In water-balance questions the hidden term changes, but the solution template never does."
+          }
+        }
+      ]
+    },
+    {
+      "id": "1-2",
+      "code": "Uygulama 1.2",
+      "title": { "tr": "Baraj gölünde su dengesi — buharlaşma yüksekliği", "en": "Reservoir water balance — evaporation depth" },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Alanı 50 km² olan bir baraj gölüne 10 günlük sürede 20 mm yağmur yağmıştır. Bu sürede, baraj gölüne giren ve çıkan ortalama debiler $Q_g = 11$ m³/sn, $Q_ç = 10$ m³/sn, sızma yüksekliği 10 mm ve barajdaki su seviyesindeki alçalma miktarı 8 mm olduğuna göre, bu sürede oluşan buharlaşma yüksekliğini hesaplayınız.",
+        "en": "A reservoir with a surface area of 50 km² received 20 mm of rain over a 10-day period. During this period the average inflow and outflow discharges are $Q_{in} = 11$ m³/s and $Q_{out} = 10$ m³/s, the seepage depth is 10 mm, and the water level in the reservoir dropped by 8 mm. Calculate the evaporation depth during this period."
+      },
+      "given": [
+        { "symbol": "A", "value": "50\\ \\text{km}^2", "label": { "tr": "Baraj gölü alanı", "en": "Reservoir surface area" } },
+        { "symbol": "\\Delta t", "value": "10\\ \\text{gün} = 864\\,000\\ \\text{s}", "label": { "tr": "Süre", "en": "Duration" } },
+        { "symbol": "P", "value": "20\\ \\text{mm}", "label": { "tr": "Yağış", "en": "Rainfall" } },
+        { "symbol": "Q_g", "value": "11\\ \\text{m}^3/\\text{s}", "label": { "tr": "Göle giren ortalama debi", "en": "Average inflow discharge" } },
+        { "symbol": "Q_ç", "value": "10\\ \\text{m}^3/\\text{s}", "label": { "tr": "Gölden çıkan ortalama debi", "en": "Average outflow discharge" } },
+        { "symbol": "S", "value": "10\\ \\text{mm}", "label": { "tr": "Sızma yüksekliği", "en": "Seepage depth" } },
+        { "symbol": "\\Delta h", "value": "8\\ \\text{mm (alçalma)}", "label": { "tr": "Su seviyesindeki alçalma", "en": "Drop in water level" } }
+      ],
+      "goal": {
+        "tr": "10 günlük sürede oluşan buharlaşma yüksekliğini (mm) bulmak.",
+        "en": "Find the evaporation depth (mm) over the 10-day period."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Su dengesini gölde kur", "en": "Set up the water balance on the reservoir" },
+          "guiding": {
+            "tr": "Bölgemiz artık havza değil, baraj gölünün kendisi. Giren, çıkan ve depolama terimleri neler? Bilinmeyen hangisi?",
+            "en": "Our region is now the reservoir itself, not a basin. What are the in, out and storage terms? Which one is unknown?"
+          },
+          "hint": {
+            "tr": "Sınırı geçenleri say: yağmur ve giren akarsu içeri; çıkan akarsu, sızma ve buharlaşma dışarı. Seviye değişimi ise deponun kendisi.",
+            "en": "Count what crosses the boundary: rain and the inflowing river come in; the outflowing river, seepage and evaporation go out. The level change is the storage itself."
+          },
+          "work": {
+            "tr": "$$\\Delta S = x - y$$\n\n- $x$ = yağış + giren akış\n- $y$ = çıkan akış + sızma + **buharlaşma (B, bilinmeyen)**\n- $\\Delta S$ = göl seviyesindeki değişimden bilinir: 8 mm **alçalma**.\n\nBir denklemde tek bilinmeyen var → B çözülebilir.",
+            "en": "$$\\Delta S = x - y$$\n\n- $x$ = rainfall + inflow\n- $y$ = outflow + seepage + **evaporation (B, unknown)**\n- $\\Delta S$ = known from the level change: an 8 mm **drop**.\n\nOne equation, one unknown → we can solve for B."
+          },
+          "why": {
+            "tr": "Sınav ipucu: seviye değişimi VERİLMİŞSE $\\Delta S$ artık bilinmeyen değil, veridir — bilinmeyen giren/çıkan terimlerden birine kayar (burada buharlaşma). 1.1'de $\\Delta S$ aranıyordu, burada B aranıyor; denklem aynı, rol dağılımı farklı.",
+            "en": "Exam cue: if the level change is GIVEN, $\\Delta S$ is no longer the unknown — the unknown shifts to one of the in/out terms (here, evaporation). In 1.1 we hunted $\\Delta S$; here we hunt B; same equation, different casting."
+          },
+          "result": "\\Delta S = x - y",
+          "check": null
+        },
+        {
+          "title": { "tr": "Alçalmadan ΔS'yi bul", "en": "Get ΔS from the level drop" },
+          "guiding": {
+            "tr": "Göl seviyesi 8 mm alçaldı. $\\Delta S$ pozitif mi negatif mi — ve hacim olarak kaç m³?",
+            "en": "The lake level fell 8 mm. Is $\\Delta S$ positive or negative — and how many m³ is that?"
+          },
+          "hint": {
+            "tr": "Alçalma = depo azaldı = eksi işaret. Hacim = yükseklik × göl alanı (mm'yi m'ye çevir!).",
+            "en": "A drop = storage decreased = minus sign. Volume = depth × lake area (convert mm to m!)."
+          },
+          "work": {
+            "tr": "$$\\Delta S = -8\\ \\text{mm} = -8 \\cdot 10^{-3}\\ \\text{m} \\cdot 50 \\cdot 10^{6}\\ \\text{m}^2 = -400\\,000\\ \\text{m}^3$$\n\nGölün deposu 10 günde 400 000 m³ azalmış.",
+            "en": "$$\\Delta S = -8\\ \\text{mm} = -8 \\cdot 10^{-3}\\ \\text{m} \\cdot 50 \\cdot 10^{6}\\ \\text{m}^2 = -400{,}000\\ \\text{m}^3$$\n\nThe reservoir's storage shrank by 400,000 m³ over the 10 days."
+          },
+          "why": {
+            "tr": "Bu sorunun kaderi bu işarette gizli: $-400\\,000$ yerine $+400\\,000$ yazarsan B, 35,28 yerine 19,28 mm çıkar ve tek bir yanlış işaret tüm soruyu götürür. \"Alçalma → eksi\" refleksini otomatikleştir.",
+            "en": "This question's fate hides in this sign: write $+400{,}000$ instead of $-400{,}000$ and B comes out 19.28 mm instead of 35.28 — one wrong sign kills the whole question. Make \"drop → minus\" a reflex."
+          },
+          "result": "\\Delta S = -400\\,000\\ \\text{m}^3",
+          "check": {
+            "q": {
+              "tr": "Su seviyesi 8 mm ALÇALDIĞINA göre $\\Delta S$'nin işareti nedir?",
+              "en": "The water level DROPPED 8 mm, so what is the sign of $\\Delta S$?"
+            },
+            "options": [
+              { "tr": "Pozitif — göl 8 mm su kazandı", "en": "Positive — the lake gained 8 mm of water" },
+              { "tr": "Negatif — göldeki depolanan su azaldı", "en": "Negative — the water stored in the lake decreased" },
+              { "tr": "Sıfır — seviye değişimi dengeye girmez", "en": "Zero — level changes don't enter the balance" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Alçalma, depolanan suyun azalması demektir → $\\Delta S = -8$ mm $= -400\\,000$ m³. Pozitif almak sonucu 19,28 mm'ye düşürür (yanlış); seviye değişimi dengeye girmez demek de yanlıştır — o, $\\Delta S$'nin ta kendisidir.",
+              "en": "A drop means the stored water decreased → $\\Delta S = -8$ mm $= -400{,}000$ m³. Taking it positive drags the answer down to 19.28 mm (wrong); saying level changes don't enter the balance is also wrong — the level change IS $\\Delta S$."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Giren hacmi (x) hesapla", "en": "Compute the inflow volume x" },
+          "guiding": {
+            "tr": "10 günde göle toplam kaç m³ su girdi? İki kaynak var: yağmur ve giren akarsu.",
+            "en": "How many m³ entered the lake in 10 days? There are two sources: rain and the inflowing river."
+          },
+          "hint": {
+            "tr": "Yağmur: mm × göl alanı. Akarsu: debi × saniye (10 gün = 864 000 sn).",
+            "en": "Rain: mm × lake area. River: discharge × seconds (10 days = 864,000 s)."
+          },
+          "work": {
+            "tr": "Yağış hacmi: $20 \\cdot 10^{-3} \\cdot 50 \\cdot 10^{6} = 1\\,000\\,000$ m³.\n\nGiren akış hacmi: $11 \\cdot 10 \\cdot 86\\,400 = 9\\,504\\,000$ m³.\n\n$$x = 1\\,000\\,000 + 9\\,504\\,000 = 10\\,504\\,000\\ \\text{m}^3$$",
+            "en": "Rain volume: $20 \\cdot 10^{-3} \\cdot 50 \\cdot 10^{6} = 1{,}000{,}000$ m³.\n\nInflow volume: $11 \\cdot 10 \\cdot 86{,}400 = 9{,}504{,}000$ m³.\n\n$$x = 1{,}000{,}000 + 9{,}504{,}000 = 10{,}504{,}000\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Föy bu soruyu m³ ile çözüyor; biz de öyle yapıyoruz. mm cinsindeki yağış göl alanıyla çarpılarak, m³/sn'deki debi süreyle çarpılarak hacme çevrilir — iki farklı türden veriyi ancak böyle toplayabilirsin. Süre 1 ay değil 10 gün: 864 000 sn.",
+            "en": "The sheet solves this one in m³, and so do we. Rain in mm becomes a volume via the lake area; discharge in m³/s becomes a volume via the duration — only then can two different kinds of data be added. The period is 10 days, not a month: 864,000 s."
+          },
+          "result": "x = 10\\,504\\,000\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": { "tr": "Çıkan hacmi (y) yaz", "en": "Write the outflow volume y" },
+          "guiding": {
+            "tr": "Gölden çıkan üç yol var: çıkan akış, sızma ve buharlaşma. Hangilerini sayıya dökebiliyorsun?",
+            "en": "Water leaves the lake by three routes: outflow, seepage and evaporation. Which can you turn into numbers?"
+          },
+          "hint": {
+            "tr": "Sızma da mm ile verilmiş: aynen yağmur gibi göl alanıyla çarp. Buharlaşmayı B olarak bırak.",
+            "en": "Seepage is also given in mm: multiply by the lake area, exactly like the rain. Leave evaporation as B."
+          },
+          "work": {
+            "tr": "Sızma hacmi: $10 \\cdot 10^{-3} \\cdot 50 \\cdot 10^{6} = 500\\,000$ m³.\n\nÇıkan akış hacmi: $10 \\cdot 10 \\cdot 86\\,400 = 8\\,640\\,000$ m³.\n\n$$y = 500\\,000 + 8\\,640\\,000 + B = 9\\,140\\,000 + B\\ \\text{m}^3$$",
+            "en": "Seepage volume: $10 \\cdot 10^{-3} \\cdot 50 \\cdot 10^{6} = 500{,}000$ m³.\n\nOutflow volume: $10 \\cdot 10 \\cdot 86{,}400 = 8{,}640{,}000$ m³.\n\n$$y = 500{,}000 + 8{,}640{,}000 + B = 9{,}140{,}000 + B\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Dikkat: sızma ile seviye alçalması ikisi de mm ama rolleri zıt. Sızma gölden SINIR DIŞINA (zemine) kaçan sudur → $y$'ye girer. Alçalma ise deponun kendisindeki değişim → $\\Delta S$. Bilinmeyen B'yi sembol olarak taşımak, denklemi tek satırda çözülür hale getirir.",
+            "en": "Careful: seepage and the level drop are both in mm, but their roles are opposite. Seepage is water escaping ACROSS the boundary (into the ground) → it belongs in $y$. The drop is a change of the storage itself → $\\Delta S$. Carrying the unknown B as a symbol makes the equation solvable in one line."
+          },
+          "result": "y = 9\\,140\\,000 + B\\ \\ (\\text{m}^3)",
+          "check": {
+            "q": {
+              "tr": "Sızma (10 mm) ve seviye alçalması (8 mm): hangisi çıkan su ($y$) tarafına yazılır?",
+              "en": "Seepage (10 mm) and the level drop (8 mm): which one goes on the outflow ($y$) side?"
+            },
+            "options": [
+              { "tr": "İkisi de $y$'ye yazılır", "en": "Both go into $y$" },
+              { "tr": "Sadece sızma; alçalma $\\Delta S$'dir", "en": "Only the seepage; the drop is $\\Delta S$" },
+              { "tr": "Sadece alçalma; sızma $\\Delta S$'dir", "en": "Only the drop; seepage is $\\Delta S$" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Sızma, gölden zemine kaçan yani sınırı geçen sudur → $y$. Seviye alçalması ise göldeki depolanan suyun azalmasıdır → $\\Delta S = -8$ mm. İkisini de $y$'ye yazarsan alçalmayı iki kez saymış olursun; rollerini değiştirirsen işaretler tamamen bozulur.",
+              "en": "Seepage escapes from the lake into the ground, crossing the boundary → $y$. The level drop is the decrease of the stored water itself → $\\Delta S = -8$ mm. Put both into $y$ and you double-count the drop; swap their roles and every sign breaks."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Denklemi B için çöz", "en": "Solve the equation for B" },
+          "guiding": {
+            "tr": "$\\Delta S$, $x$ ve $y$ hazır. B'yi yalnız bırak.",
+            "en": "$\\Delta S$, $x$ and $y$ are ready. Isolate B."
+          },
+          "hint": {
+            "tr": "$\\Delta S = x - y$ içine koy: $-400\\,000 = 10\\,504\\,000 - (9\\,140\\,000 + B)$. Parantezi dikkatli aç.",
+            "en": "Substitute into $\\Delta S = x - y$: $-400{,}000 = 10{,}504{,}000 - (9{,}140{,}000 + B)$. Open the bracket carefully."
+          },
+          "work": {
+            "tr": "$$-400\\,000 = 10\\,504\\,000 - (9\\,140\\,000 + B)$$\n\n$$B = 10\\,504\\,000 - 9\\,140\\,000 + 400\\,000 = 1\\,764\\,000\\ \\text{m}^3$$\n\nAlçalmanın eksi işareti, B'ye **artı** 400 000 olarak geçti: göl seviyesi düştüğüne göre buharlaşma o kadar daha fazla olmalı.",
+            "en": "$$-400{,}000 = 10{,}504{,}000 - (9{,}140{,}000 + B)$$\n\n$$B = 10{,}504{,}000 - 9{,}140{,}000 + 400{,}000 = 1{,}764{,}000\\ \\text{m}^3$$\n\nThe drop's minus sign entered B as a **plus** 400,000: since the lake level fell, evaporation must be that much larger."
+          },
+          "why": {
+            "tr": "Cebir basit ama işaret geçişi kritik: $-\\Delta S$ terimi B'yi büyütür. Fiziksel akıl yürütmeyle kontrol et — net giren su pozitifken ($x - y_{bilinen} = 1{,}364$ milyon m³) göl yine de alçaldıysa, buharlaşma net girişten de büyük olmalı. Sayı bunu doğruluyor.",
+            "en": "The algebra is easy but the sign transfer is critical: the $-\\Delta S$ term makes B bigger. Cross-check with physics — if the net known inflow is positive ($x - y_{known} = 1.364$ million m³) yet the lake still fell, evaporation must exceed that net input. The number confirms it."
+          },
+          "result": "B = 1\\,764\\,000\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": { "tr": "Hacmi buharlaşma yüksekliğine çevir", "en": "Convert the volume to an evaporation depth" },
+          "guiding": {
+            "tr": "Soru hacim değil YÜKSEKLİK istiyor. 1 764 000 m³, 50 km²'lik göl yüzeyinde kaç mm eder?",
+            "en": "The question asks for a DEPTH, not a volume. How many mm is 1,764,000 m³ over the 50 km² lake surface?"
+          },
+          "hint": {
+            "tr": "$h = V/A$; alan m² cinsinden, sonuç metre — mm'ye ×1000.",
+            "en": "$h = V/A$; area in m², result in metres — ×1000 for mm."
+          },
+          "work": {
+            "tr": "$$B = \\frac{1\\,764\\,000\\ \\text{m}^3}{50 \\cdot 10^{6}\\ \\text{m}^2} = 0{,}03528\\ \\text{m} = 35{,}28\\ \\text{mm}$$",
+            "en": "$$B = \\frac{1{,}764{,}000\\ \\text{m}^3}{50 \\cdot 10^{6}\\ \\text{m}^2} = 0.03528\\ \\text{m} = 35.28\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "Soru \"buharlaşma yüksekliği\" diyor — m³ ile bitirirsen soruyu yarım bırakmış olursun. Buharlaşma pratikte hep mm ile ifade edilir (yağış gibi), bu yüzden son çevirme adımı bu tip sorularda standarttır.",
+            "en": "The question says \"evaporation depth\" — finishing in m³ leaves it half-answered. Evaporation is conventionally expressed in mm (like rainfall), so this final conversion step is standard in such questions."
+          },
+          "result": "B = 35{,}28\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Sağlama: her şeyi mm ile çöz", "en": "Check: solve everything in mm" },
+          "guiding": {
+            "tr": "Aynı soruyu hiç m³ kullanmadan, tüm terimleri göl üzerinde mm olarak yazarak çözebilir misin?",
+            "en": "Can you solve the same problem without any m³ at all, writing every term as mm over the lake?"
+          },
+          "hint": {
+            "tr": "Debileri mm'ye çevir: $Q \\cdot \\Delta t / A$. Sonra dengeyi doğrudan mm ile yaz.",
+            "en": "Convert the discharges to mm: $Q \\cdot \\Delta t / A$. Then write the balance directly in mm."
+          },
+          "work": {
+            "tr": "Giren akış: $9\\,504\\,000 / (50 \\cdot 10^6) = 190{,}08$ mm; çıkan akış: $8\\,640\\,000 / (50 \\cdot 10^6) = 172{,}8$ mm.\n\n$$-8 = (20 + 190{,}08) - (172{,}8 + 10 + B) \\;\\Rightarrow\\; B = 35{,}28\\ \\text{mm} \\checkmark$$\n\nİki bağımsız yol aynı sayıyı verdi.",
+            "en": "Inflow: $9{,}504{,}000 / (50 \\cdot 10^6) = 190.08$ mm; outflow: $8{,}640{,}000 / (50 \\cdot 10^6) = 172.8$ mm.\n\n$$-8 = (20 + 190.08) - (172.8 + 10 + B) \\;\\Rightarrow\\; B = 35.28\\ \\text{mm} \\checkmark$$\n\nTwo independent routes give the same number."
+          },
+          "why": {
+            "tr": "Birim sistemini SEN seçersin: hepsi m³ (föyün yolu) ya da hepsi mm (bu yol). İkisi de doğrudur; yasak olan tek şey ikisini karıştırmak. Sınavda hangi birimde daha az çevirme gerekiyorsa onu seç — burada mm yolu bir adım bile kısadır.",
+            "en": "YOU choose the unit system: all m³ (the sheet's route) or all mm (this route). Both are correct; the only forbidden move is mixing them. In the exam pick whichever needs fewer conversions — here the mm route is even a step shorter."
+          },
+          "result": "B = 35{,}28\\ \\text{mm}\\ \\checkmark",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Buharlaşma:** $B = 1\\,764\\,000$ m³ $= \\boxed{35{,}28\\ \\text{mm}}$ (10 günlük sürede).",
+        "en": "**Evaporation:** $B = 1{,}764{,}000$ m³ $= \\boxed{35.28\\ \\text{mm}}$ (over the 10-day period)."
+      },
+      "traps": [
+        {
+          "tr": "Alçalmanın işaretini + almak: $\\Delta S = +400\\,000$ yazarsan $B = 964\\,000$ m³ $= 19{,}28$ mm çıkar — yanlış. \"Alçalma\" kelimesi görünce ΔS'ye eksi koy.",
+          "en": "Taking the drop with a + sign: writing $\\Delta S = +400{,}000$ gives $B = 964{,}000$ m³ $= 19.28$ mm — wrong. The word \"drop\" means a minus on ΔS."
+        },
+        {
+          "tr": "mm cinsinden verilenleri (yağış 20, sızma 10, alçalma 8) göl alanıyla çarpmadan m³'lük debi hacimleriyle toplamak. Aynı birime getirmeden toplama yok.",
+          "en": "Adding the mm-given values (rain 20, seepage 10, drop 8) to the m³ discharge volumes without multiplying by the lake area first. No adding before units match."
+        },
+        {
+          "tr": "Süreyi 10 gün yerine 30 gün (1 ay) almak: debi hacimleri 3 katına çıkar ve B tamamen sapıtır. Süreyi hep sorudan oku: 10 gün = 864 000 sn.",
+          "en": "Using 30 days (a month) instead of 10: the discharge volumes triple and B goes completely off. Always read the duration from the question: 10 days = 864,000 s."
+        },
+        {
+          "tr": "Sızmayı depolama sanmak veya alçalmayı sızma gibi $y$'ye yazmak. Sızma sınırdan çıkan su → $y$; alçalma depo değişimi → $\\Delta S$.",
+          "en": "Treating seepage as storage, or writing the drop into $y$ like seepage. Seepage crosses the boundary → $y$; the drop is a storage change → $\\Delta S$."
+        },
+        {
+          "tr": "1 764 000 m³'te durmak. Soru buharlaşma YÜKSEKLİĞİ istiyor: göl alanına bölüp 35,28 mm'ye çevirmeden bitirme.",
+          "en": "Stopping at 1,764,000 m³. The question asks for an evaporation DEPTH: don't finish before dividing by the lake area to get 35.28 mm."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya su seviyesi 8 mm alçalmak yerine 8 mm YÜKSELSEYDİ?",
+            "en": "What if the water level had RISEN 8 mm instead of dropping 8 mm?"
+          },
+          "answer": {
+            "tr": "$\\Delta S = +400\\,000$ m³ olur: $+400\\,000 = 10\\,504\\,000 - (9\\,140\\,000 + B)$ → $B = 964\\,000$ m³ $= 19{,}28$ mm. Dikkat: bu, işareti yanlış alanların bulduğu değerin ta kendisi — hoca yönü ters çevirerek işaret bilincini ölçer.",
+            "en": "$\\Delta S = +400{,}000$ m³: $+400{,}000 = 10{,}504{,}000 - (9{,}140{,}000 + B)$ → $B = 964{,}000$ m³ $= 19.28$ mm. Note: this is exactly the value students get when they botch the sign — professors flip the direction to test sign awareness."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya süre 10 gün değil 30 gün olsaydı (yağış, sızma ve alçalma aynı kalsa)?",
+            "en": "What if the period were 30 days instead of 10 (rain, seepage and drop unchanged)?"
+          },
+          "answer": {
+            "tr": "Sadece debi hacimleri 3 katına çıkar: giren $11 \\cdot 30 \\cdot 86\\,400 = 28\\,512\\,000$ m³, çıkan $25\\,920\\,000$ m³. $x = 29\\,512\\,000$, $y = 26\\,420\\,000 + B$; $-400\\,000 = x - y$ → $B = 3\\,492\\,000$ m³ $= 69{,}84$ mm. Süre yalnızca debi terimlerini ölçekler; mm ile verilen toplamlar (yağış, sızma) zaten sürenin tamamına aittir.",
+            "en": "Only the discharge volumes triple: inflow $11 \\cdot 30 \\cdot 86{,}400 = 28{,}512{,}000$ m³, outflow $25{,}920{,}000$ m³. $x = 29{,}512{,}000$, $y = 26{,}420{,}000 + B$; $-400{,}000 = x - y$ → $B = 3{,}492{,}000$ m³ $= 69.84$ mm. The duration scales only the discharge terms; the mm totals (rain, seepage) already belong to the whole period."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya giren ve çıkan debiler eşit olsaydı ($Q_g = Q_ç = 10$ m³/sn)?",
+            "en": "What if the inflow and outflow discharges were equal ($Q_{in} = Q_{out} = 10$ m³/s)?"
+          },
+          "answer": {
+            "tr": "Akış terimleri birbirini götürür ve denge mm ile tek satıra iner: $-8 = 20 - (10 + B)$ → $B = 20 - 10 + 8 = 18$ mm. Net akış sıfırsa göl yalnızca yağmur, sızma ve buharlaşma arasındaki farkla oynar — böyle sadeleşmeleri fark etmek sınavda ciddi zaman kazandırır.",
+            "en": "The flow terms cancel and the balance collapses to one line in mm: $-8 = 20 - (10 + B)$ → $B = 20 - 10 + 8 = 18$ mm. With zero net flow the lake responds only to rain, seepage and evaporation — spotting such simplifications saves serious exam time."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": { "tr": "1 gün kaç saniyedir?", "en": "How many seconds are there in one day?" },
+      "options": [
+        { "tr": "3 600 sn", "en": "3,600 s" },
+        { "tr": "43 200 sn", "en": "43,200 s" },
+        { "tr": "86 400 sn", "en": "86,400 s" },
+        { "tr": "1 440 sn", "en": "1,440 s" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "$24 \\cdot 60 \\cdot 60 = 86\\,400$ sn. 3 600 yalnızca 1 saattir; 43 200 yarım gündür; 1 440 ise gündeki DAKİKA sayısıdır. Bu sayı su dengesi sorularının anahtarıdır — ezberle.",
+        "en": "$24 \\cdot 60 \\cdot 60 = 86{,}400$ s. 3,600 is only one hour; 43,200 is half a day; 1,440 is the number of MINUTES in a day. This number is the key to water-balance problems — memorize it."
+      }
+    },
+    {
+      "q": {
+        "tr": "Ortalama debisi 5 m³/sn olan bir akarsu 10 günde toplam kaç m³ su taşır?",
+        "en": "A river with an average discharge of 5 m³/s carries how many m³ in 10 days?"
+      },
+      "options": [
+        { "tr": "72 000 m³", "en": "72,000 m³" },
+        { "tr": "432 000 m³", "en": "432,000 m³" },
+        { "tr": "4 320 000 m³", "en": "4,320,000 m³" },
+        { "tr": "43 200 000 m³", "en": "43,200,000 m³" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "$V = Q \\cdot \\Delta t = 5 \\cdot 10 \\cdot 86\\,400 = 4\\,320\\,000$ m³. 432 000, süreyi 1 gün almanın (10 unutulmuş); 72 000, saniye yerine dakika kullanmanın; 43 200 000 ise fazladan bir 10 çarpanının sonucudur.",
+        "en": "$V = Q \\cdot \\Delta t = 5 \\cdot 10 \\cdot 86{,}400 = 4{,}320{,}000$ m³. 432,000 comes from using 1 day (forgetting the 10); 72,000 from using minutes instead of seconds; 43,200,000 from an extra factor of 10."
+      }
+    },
+    {
+      "q": {
+        "tr": "2 000 000 m³ su, 100 km²'lik bir alana eşit yayılırsa su yüksekliği kaç olur?",
+        "en": "If 2,000,000 m³ of water is spread evenly over an area of 100 km², what is the water depth?"
+      },
+      "options": [
+        { "tr": "0,02 mm", "en": "0.02 mm" },
+        { "tr": "2 mm", "en": "2 mm" },
+        { "tr": "20 mm", "en": "20 mm" },
+        { "tr": "200 mm", "en": "200 mm" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "$h = V/A = 2 \\cdot 10^6 / (100 \\cdot 10^6) = 0{,}02$ m $= 20$ mm. 0,02 mm cevabı metre sonucunu mm sanmaktan; 2 mm ve 200 mm ise km²→m² çevirisinde $10^6$ yerine yanlış üs kullanmaktan doğar.",
+        "en": "$h = V/A = 2 \\cdot 10^6 / (100 \\cdot 10^6) = 0.02$ m $= 20$ mm. Answering 0.02 mm comes from reading the metre result as mm; 2 mm and 200 mm come from using the wrong power instead of $10^6$ in the km²→m² conversion."
+      }
+    },
+    {
+      "q": {
+        "tr": "25 km²'lik bir göle 12 mm yağmur yağarsa göle giren su hacmi kaç m³'tür?",
+        "en": "If 12 mm of rain falls on a 25 km² lake, what volume of water enters the lake?"
+      },
+      "options": [
+        { "tr": "3 000 m³", "en": "3,000 m³" },
+        { "tr": "30 000 m³", "en": "30,000 m³" },
+        { "tr": "300 000 m³", "en": "300,000 m³" },
+        { "tr": "3 000 000 m³", "en": "3,000,000 m³" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "$V = h \\cdot A = 12 \\cdot 10^{-3} \\cdot 25 \\cdot 10^{6} = 300\\,000$ m³. Yanlış seçenekler mm→m ($10^{-3}$) veya km²→m² ($10^{6}$) çarpanlarından birinin unutulması ya da fazladan yazılmasıyla oluşur — iki çevirmeyi de aynı satırda yap.",
+        "en": "$V = h \\cdot A = 12 \\cdot 10^{-3} \\cdot 25 \\cdot 10^{6} = 300{,}000$ m³. The wrong options come from dropping or doubling one of the factors mm→m ($10^{-3}$) or km²→m² ($10^{6}$) — do both conversions on the same line."
+      }
+    },
+    {
+      "q": {
+        "tr": "Bir su dengesi sorusunda \"göl seviyesi 5 mm yükselmiştir\" deniyor. $\\Delta S$ hakkında ne söylersin?",
+        "en": "A water-balance question says \"the lake level rose 5 mm\". What do you conclude about $\\Delta S$?"
+      },
+      "options": [
+        { "tr": "$\\Delta S = +5$ mm — depolama artmış", "en": "$\\Delta S = +5$ mm — storage increased" },
+        { "tr": "$\\Delta S = -5$ mm — depolama azalmış", "en": "$\\Delta S = -5$ mm — storage decreased" },
+        { "tr": "5 mm çıkan su ($y$) tarafına eklenir", "en": "The 5 mm is added to the outflow ($y$) side" },
+        { "tr": "5 mm giren su ($x$) tarafına eklenir", "en": "The 5 mm is added to the inflow ($x$) side" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Yükselme = depoda birikme = pozitif $\\Delta S$. Alçalma olsaydı $-5$ mm olurdu. Seviye değişimi hiçbir zaman $x$ veya $y$'ye yazılmaz; o, denklemin sol tarafının ($\\Delta S$) ta kendisidir.",
+        "en": "A rise = accumulation in storage = positive $\\Delta S$. A drop would be $-5$ mm. A level change is never written into $x$ or $y$; it IS the left-hand side ($\\Delta S$) of the equation."
+      }
+    },
+    {
+      "q": {
+        "tr": "Havza su dengesinde aşağıdakilerden hangisi çıkan su ($y$) terimi DEĞİLDİR?",
+        "en": "In a basin water balance, which of the following is NOT an outflow ($y$) term?"
+      },
+      "options": [
+        { "tr": "Havzadan çıkan akarsu akışı", "en": "Streamflow leaving the basin" },
+        { "tr": "Evapotranspirasyon", "en": "Evapotranspiration" },
+        { "tr": "Yer altı su seviyesindeki alçalma", "en": "The drop in the groundwater level" },
+        { "tr": "Gölden zemine sızma", "en": "Seepage from a lake into the ground" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Akış, ET ve sızma bölge sınırını GEÇEN sulardır → hepsi $y$'de. Yer altı suyu alçalması ise bölge içindeki deponun azalmasıdır → $\\Delta S$ terimidir. Bu ayrım, Uygulama 1.1'in kalbidir.",
+        "en": "Streamflow, ET and seepage all CROSS the region boundary → they belong in $y$. A groundwater-level drop is a decrease of the storage inside the region → a $\\Delta S$ term. This distinction is the heart of Uygulama 1.1."
+      }
+    },
+    {
+      "q": {
+        "tr": "Nisan ayı için havza su dengesi yazacaksın; debi m³/sn cinsinden. $\\Delta t$ kaç saniye alınmalı?",
+        "en": "You are writing a basin water balance for April; discharge is in m³/s. What should $\\Delta t$ be in seconds?"
+      },
+      "options": [
+        { "tr": "$31 \\cdot 86\\,400 = 2\\,678\\,400$ sn", "en": "$31 \\cdot 86{,}400 = 2{,}678{,}400$ s" },
+        { "tr": "$30 \\cdot 86\\,400 = 2\\,592\\,000$ sn", "en": "$30 \\cdot 86{,}400 = 2{,}592{,}000$ s" },
+        { "tr": "$86\\,400$ sn", "en": "$86{,}400$ s" },
+        { "tr": "$30 \\cdot 3\\,600 = 108\\,000$ sn", "en": "$30 \\cdot 3{,}600 = 108{,}000$ s" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Nisan 30 gün çeker: $30 \\cdot 86\\,400 = 2\\,592\\,000$ sn. 31 gün Mart/Mayıs içindir; 86 400 tek gündür; 108 000 ise günü saat sanmanın sonucudur. Ay adı verildiğinde gün sayısını aydan oku: Eylül, Nisan, Haziran, Kasım = 30.",
+        "en": "April has 30 days: $30 \\cdot 86{,}400 = 2{,}592{,}000$ s. 31 days belongs to March/May; 86,400 is a single day; 108,000 comes from confusing days with hours. When a month is named, read its day count: September, April, June, November = 30."
+      }
+    },
+    {
+      "q": {
+        "tr": "Bir gölde net giren su (giren − bilinen çıkanlar) pozitif olduğu hâlde göl seviyesi DÜŞMÜŞ. Bilinmeyen buharlaşma için ne söylenebilir?",
+        "en": "In a lake, the net known inflow (in − known outs) is positive, yet the level FELL. What can you say about the unknown evaporation?"
+      },
+      "options": [
+        { "tr": "Buharlaşma net girişten büyüktür", "en": "Evaporation is larger than the net inflow" },
+        { "tr": "Buharlaşma net girişten küçüktür", "en": "Evaporation is smaller than the net inflow" },
+        { "tr": "Buharlaşma sıfırdır", "en": "Evaporation is zero" },
+        { "tr": "Bu durumda denge yazılamaz", "en": "No balance can be written in this case" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Seviye düştüyse $\\Delta S < 0$, yani toplam çıkan toplam girenden fazladır. Bilinen çıkanlar girişi aşamadığına göre açığı kapatan bilinmeyen buharlaşmadır → net girişten büyük olmalı. Bu, Uygulama 1.2'deki sonucun ($B = 35{,}28$ mm > net giriş 27,28 mm) fiziksel mantığıdır — hesaptan önce yön tahmini yapmak işaret hatalarını yakalar.",
+        "en": "If the level fell, $\\Delta S < 0$: total out exceeds total in. Since the known outflows don't exceed the inflow, the unknown evaporation must close the gap → it exceeds the net inflow. This is the physical logic of Uygulama 1.2's result ($B = 35.28$ mm > net input 27.28 mm) — predicting the direction before computing catches sign errors."
+      }
+    }
+  ]
+}
