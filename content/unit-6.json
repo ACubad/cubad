@@ -1,0 +1,4310 @@
+{
+  "unit": 6,
+  "slug": "hidrograflar",
+  "title": {
+    "tr": "Hidrograflar",
+    "en": "Hydrographs"
+  },
+  "tagline": {
+    "tr": "Birim hidrograf: yağıştan taşkın hidrografına",
+    "en": "The unit hydrograph: from rainfall to the flood wave"
+  },
+  "concept": {
+    "overview": {
+      "tr": "Bir **hidrograf**, bir akarsu kesitindeki debinin ($Q$) zamanla değişimini gösteren grafiktir. Yağış başlayınca debi yükselir, **pik** yapar, sonra yavaşça çekilir. Debinin iki bileşeni vardır: yağıştan bağımsız, yeraltı suyundan gelen **taban akışı** ve yağmurdan gelen **dolaysız (yüzeysel) akış**.\n\n**Birim hidrograf (BH)**, $t_0$ süresi boyunca havzaya üniform yayılan **1 cm net (artık) yağışın** oluşturduğu *dolaysız akış* hidrografıdır. Buradaki \"süre\" ($t_0$) yağmurun süresidir; tablodaki zaman aralığı ya da hidrografın taban süresi değildir!\n\nBH'ın iki süper gücü vardır:\n\n1. **Orantılılık:** 2 cm net yağış → ordinatların 2 katı.\n2. **Süperpozisyon:** Ardışık yağış blokları, her biri *kendi yağdığı anda* başlayan mini-hidrograflar üretir; bunlar ötelenip **toplanır**.\n\nBu iki kuralla ünitenin tüm soruları çözülür:\n\n- BH + yağış → taşkın hidrografı (Uyg. 6.1, 6.2): her bloğu çarp, ötele, topla, taban akışını **en sonda** ekle.\n- Gözlenmiş hidrograf → BH (Uyg. 6.3): taban akışını çıkar, hacimden $R_d$ bul, $U=Q_d/R_d$.\n- Süre dönüşümü: $t_1$, $t_0$'ın **tam katıysa** ötele-topla-ölçekle (Uyg. 6.4); **değilse S eğrisi zorunlu** (Uyg. 6.5).\n- Hiç akım ölçümü yoksa **Snyder sentetik BH** (Uyg. 6.6).",
+      "en": "A **hydrograph** is the graph of discharge ($Q$) at a river section versus time. When rain starts, the flow rises, reaches a **peak**, then recedes slowly. Flow has two components: **base flow**, fed by groundwater and independent of the storm, and **direct (surface) runoff** coming from the rain.\n\nThe **unit hydrograph (UH)** is the *direct-runoff* hydrograph produced by **1 cm of net (effective) rainfall** spread uniformly over the basin during a duration $t_0$. That \"duration\" ($t_0$) is the duration of the rain — NOT the table's time spacing and NOT the time base of the hydrograph!\n\nThe UH has two superpowers:\n\n1. **Proportionality:** 2 cm of net rain → twice the ordinates.\n2. **Superposition:** successive rain blocks each produce a mini-hydrograph starting *when that block falls*; you lag them and **add**.\n\nThese two rules solve every question in this unit:\n\n- UH + rain → flood hydrograph (Prob. 6.1, 6.2): multiply each block, lag, add, and add base flow **at the very end**.\n- Observed hydrograph → UH (Prob. 6.3): subtract base flow, get $R_d$ from the volume, then $U=Q_d/R_d$.\n- Changing duration: if $t_1$ is an **integer multiple** of $t_0$, lag-add-rescale (Prob. 6.4); **otherwise the S-curve is mandatory** (Prob. 6.5).\n- No flow records at all? Use the **Snyder synthetic UH** (Prob. 6.6)."
+    },
+    "keyFormulas": [
+      {
+        "name": {
+          "tr": "Süperpozisyon (BH → taşkın hidrografı)",
+          "en": "Superposition (UH → flood hydrograph)"
+        },
+        "latex": "Q_d(t)=\\sum_i P_i\\,U(t-t_i),\\qquad Q(t)=Q_d(t)+Q_{taban}",
+        "meaning": {
+          "tr": "$P_i$: $i$. bloktaki net yağış (cm), $t_i$: bloğun başlama zamanı, $U$: BH ordinatı (m³/sn), $Q_{taban}$: taban akışı.",
+          "en": "$P_i$: net rain of block $i$ (cm), $t_i$: start time of the block, $U$: UH ordinate (m³/s), $Q_{taban}$: base flow."
+        },
+        "whenToUse": {
+          "tr": "BH ve ardışık net yağışlar verilip toplam akış hidrografı istendiğinde (6.1, 6.2). Her blok kendi başlangıcına ötelenir.",
+          "en": "When the UH and successive net rains are given and the total hydrograph is asked (6.1, 6.2). Each block is lagged to its own start time."
+        }
+      },
+      {
+        "name": {
+          "tr": "Dolaysız akış yüksekliği",
+          "en": "Direct-runoff depth"
+        },
+        "latex": "R_d=\\frac{V}{A}",
+        "meaning": {
+          "tr": "$V$: dolaysız akış hacmi (hidrograf altındaki alan, m³), $A$: havza alanı (m²), $R_d$: havzaya yayılmış eşdeğer su yüksekliği (sonucu cm'ye çevir!).",
+          "en": "$V$: direct-runoff volume (area under the hydrograph, m³), $A$: basin area (m²), $R_d$: equivalent depth over the basin (convert the result to cm!)."
+        },
+        "whenToUse": {
+          "tr": "Gözlenmiş hidrograftan BH türetirken; ayrıca artık yağış yüksekliği = $R_d$ olduğundan φ çizgisinin yerini belirlerken (6.3).",
+          "en": "When deriving a UH from an observed hydrograph; also because effective-rain depth = $R_d$, it locates the φ-line (6.3)."
+        }
+      },
+      {
+        "name": {
+          "tr": "BH ordinatları",
+          "en": "UH ordinates"
+        },
+        "latex": "U(t)=\\frac{Q_d(t)}{R_d}\\quad (R_d\\ \\text{cm olarak})",
+        "meaning": {
+          "tr": "Dolaysız akış ordinatları, cm cinsinden akış yüksekliğine bölününce 1 cm'e karşılık gelen BH bulunur.",
+          "en": "Dividing the direct-runoff ordinates by the runoff depth in cm gives the UH corresponding to 1 cm."
+        },
+        "whenToUse": {
+          "tr": "Gözlenmiş bir taşkından havzanın BH'ı istendiğinde (6.3). Önce taban akışı çıkarılmış olmalı.",
+          "en": "When the basin's UH is asked from an observed flood (6.3). Base flow must already be subtracted."
+        }
+      },
+      {
+        "name": {
+          "tr": "Tam kat süre dönüşümü (ötele-topla)",
+          "en": "Integer-multiple duration change (lag-and-add)"
+        },
+        "latex": "U_{t_1}(t)=\\frac{t_0}{t_1}\\sum_{k=0}^{t_1/t_0-1}U_{t_0}(t-k\\,t_0)",
+        "meaning": {
+          "tr": "$t_1/t_0$ adet kopya, $t_0$ aralıklarla ötelenip toplanır; toplam $t_0/t_1$ ile çarpılır (öteleme sayısı $=t_1/t_0-1$).",
+          "en": "$t_1/t_0$ copies are lagged at $t_0$ spacing and summed; the sum is multiplied by $t_0/t_1$ (number of lags $=t_1/t_0-1$)."
+        },
+        "whenToUse": {
+          "tr": "Sadece $t_1$, $t_0$'ın tam katıysa (6.4: 1 sa → 3 sa). Tam kat değilse bu yöntem YASAK.",
+          "en": "Only if $t_1$ is an integer multiple of $t_0$ (6.4: 1 h → 3 h). If not, this method is FORBIDDEN."
+        }
+      },
+      {
+        "name": {
+          "tr": "S eğrisi yöntemi",
+          "en": "S-curve method"
+        },
+        "latex": "S(t)=\\sum_{k\\ge 0}U_{t_0}(t-k\\,t_0),\\qquad U_{t_1}(t)=\\big[S(t)-S(t-t_1)\\big]\\frac{t_0}{t_1}",
+        "meaning": {
+          "tr": "$S(t)$: BH'ın $t_0$ aralıklarla sonsuza dek ötelenip toplanması (sürekli 1 cm/$t_0$ yağışın hidrografı). Fark alınıp $t_0/t_1$ ile ölçeklenir.",
+          "en": "$S(t)$: the UH lagged every $t_0$ and summed indefinitely (hydrograph of continuous rain at 1 cm per $t_0$). Take the difference and scale by $t_0/t_1$."
+        },
+        "whenToUse": {
+          "tr": "$t_1/t_0$ tam sayı değilse zorunlu (6.5: 3 sa → 4 sa). Süreyi kısaltmak için de kullanılabilir.",
+          "en": "Mandatory when $t_1/t_0$ is not an integer (6.5: 3 h → 4 h). Also works for shortening the duration."
+        }
+      },
+      {
+        "name": {
+          "tr": "Snyder sentetik BH",
+          "en": "Snyder synthetic UH"
+        },
+        "latex": "t_p'=0{,}75\\,C_t(L\\cdot L_c)^{0{,}3},\\quad t_r=\\frac{t_p'}{5{,}5},\\quad t_p=t_p'+0{,}25(t_0-t_r),\\quad Q_p=\\frac{2{,}78\\,C_p\\,A}{t_p}",
+        "meaning": {
+          "tr": "$L$: ana kol uzunluğu (km), $L_c$: çıkıştan havza ağırlık merkezine uzaklık (km), $A$: alan (km²), $t_p$: pike erme süresi (sa), $Q_p$: pik debi (m³/sn).",
+          "en": "$L$: main-stream length (km), $L_c$: distance from outlet to basin centroid (km), $A$: area (km²), $t_p$: time to peak (h), $Q_p$: peak discharge (m³/s)."
+        },
+        "whenToUse": {
+          "tr": "Akım ölçümü olmayan havzada BH istendiğinde (6.6). $t_r\\ne t_0$ ise $t_p$ düzeltmesi şart.",
+          "en": "When a UH is needed for an ungauged basin (6.6). If $t_r\\ne t_0$, the $t_p$ correction is required."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "BH **1 cm** net yağışa göre tanımlıdır. Yağış mm verilirse önce 10'a böl: 25 mm → ordinatları 2,5 ile çarp, 25 ile değil! Bu mm→cm kayması sonuçları 10 kat yanlış çıkarır.",
+        "en": "The UH is defined for **1 cm** of net rain. If rain is given in mm, divide by 10 first: 25 mm → multiply ordinates by 2.5, not 25! That mm→cm slip is a 10× error."
+      },
+      {
+        "tr": "Ötelemeler **yağış bloğu süresi kadar** yapılır (6.1'de 0,5 sa; 6.2'de 2 sa), 1 saat ya da tablo satır aralığı kadar değil. Gerekirse BH ordinatları enterpolasyonla sıklaştırılır.",
+        "en": "Lags equal the **rain-block duration** (0.5 h in 6.1; 2 h in 6.2) — not 1 hour and not the table row spacing. Interpolate the UH ordinates if needed."
+      },
+      {
+        "tr": "Taban akışı yönü: BH **türetirken** en başta ÇIKAR (6.3); taşkın hidrografı **kurarken** en sonda EKLE (6.1, 6.2). Sırayı karıştırmak klasik puan kaybıdır.",
+        "en": "Base-flow direction: SUBTRACT it first when **deriving** a UH (6.3); ADD it last when **building** a flood hydrograph (6.1, 6.2). Mixing this order is a classic way to lose points."
+      },
+      {
+        "tr": "$t_1/t_0$ tam sayı değilse ötele-topla kullanılamaz — S eğrisi **zorunludur**. 3 sa → 4 sa dönüşümünde (4/3 tam sayı değil) doğrudan öteleme yapan öğrenci sıfır alır.",
+        "en": "If $t_1/t_0$ is not an integer, lag-and-add cannot be used — the S-curve is **mandatory**. Students who lag directly for 3 h → 4 h (4/3 is not an integer) score zero."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "6-1",
+      "code": "Uygulama 6.1",
+      "title": {
+        "tr": "BH + ardışık yağışlar → toplam akış hidrografı (0,5 saat ötelemeli)",
+        "en": "UH + successive rains → total flow hydrograph (0.5-h lagging)"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıda 30 dakika süreli Birim Hidrograf ordinatları (U) verilmiştir. Taban akışını sabit ve 30 m³/sn alarak, bu havzada, aşağıda verilen toplam yağış yüksekliklerinin neden olacağı toplam akış hidrografını elde ediniz.",
+        "en": "The ordinates (U) of a 30-minute unit hydrograph are given below. Taking the base flow constant at 30 m³/s, obtain the total flow hydrograph that the cumulative rainfall depths given below would cause in this basin."
+      },
+      "given": [
+        {
+          "symbol": "t_0",
+          "value": "30\\ \\text{dk}",
+          "label": {
+            "tr": "BH süresi (net yağış süresi)",
+            "en": "UH duration (net-rain duration)"
+          }
+        },
+        {
+          "symbol": "Q_{taban}",
+          "value": "30\\ \\text{m}^3/\\text{sn}",
+          "label": {
+            "tr": "Sabit taban akışı",
+            "en": "Constant base flow"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Verilen kümülatif yağıştan toplam akış hidrografını (Q) 0,5 saat adımlarla elde etmek.",
+        "en": "Obtain the total flow hydrograph (Q) at 0.5-h steps from the given cumulative rainfall."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "30 dk süreli BH ordinatları",
+            "en": "30-min UH ordinates"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "rows": [
+            [
+              "U (m³/sn)",
+              "0",
+              "50",
+              "120",
+              "200",
+              "160",
+              "120",
+              "90",
+              "60",
+              "20",
+              "0"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Kümülatif net yağış",
+            "en": "Cumulative net rainfall"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "0,5",
+            "1,0",
+            "1,5",
+            "2,0",
+            "2,5",
+            "3,0",
+            "3,5"
+          ],
+          "rows": [
+            [
+              "∑P (mm)",
+              "0",
+              "15",
+              "40",
+              "60",
+              "65",
+              "65",
+              "65",
+              "65"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Süperpozisyon tablosu (0,5 sa adımlarla)",
+            "en": "Superposition table (0.5-h steps)"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "0,5",
+            "1,0",
+            "1,5",
+            "2,0",
+            "2,5",
+            "3,0",
+            "3,5",
+            "4,0",
+            "4,5",
+            "5,0",
+            "5,5",
+            "6,0",
+            "6,5",
+            "7,0",
+            "7,5",
+            "8,0",
+            "8,5",
+            "9,0",
+            "9,5",
+            "10,0",
+            "10,5"
+          ],
+          "rows": [
+            [
+              "U (enterpolasyonlu)",
+              "0",
+              "25",
+              "50",
+              "85",
+              "120",
+              "160",
+              "200",
+              "180",
+              "160",
+              "140",
+              "120",
+              "105",
+              "90",
+              "75",
+              "60",
+              "40",
+              "20",
+              "10",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "1,5·U",
+              "0",
+              "37,5",
+              "75",
+              "127,5",
+              "180",
+              "240",
+              "300",
+              "270",
+              "240",
+              "210",
+              "180",
+              "157,5",
+              "135",
+              "112,5",
+              "90",
+              "60",
+              "30",
+              "15",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "2,5·U (0,5 sa öteli)",
+              "-",
+              "0",
+              "62,5",
+              "125",
+              "212,5",
+              "300",
+              "400",
+              "500",
+              "450",
+              "400",
+              "350",
+              "300",
+              "262,5",
+              "225",
+              "187,5",
+              "150",
+              "100",
+              "50",
+              "25",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "2,0·U (1,0 sa öteli)",
+              "-",
+              "-",
+              "0",
+              "50",
+              "100",
+              "170",
+              "240",
+              "320",
+              "400",
+              "360",
+              "320",
+              "280",
+              "240",
+              "210",
+              "180",
+              "150",
+              "120",
+              "80",
+              "40",
+              "20",
+              "0",
+              "0"
+            ],
+            [
+              "0,5·U (1,5 sa öteli)",
+              "-",
+              "-",
+              "-",
+              "0",
+              "12,5",
+              "25",
+              "42,5",
+              "60",
+              "80",
+              "100",
+              "90",
+              "80",
+              "70",
+              "60",
+              "52,5",
+              "45",
+              "37,5",
+              "30",
+              "20",
+              "10",
+              "5",
+              "0"
+            ],
+            [
+              "Qd",
+              "0",
+              "37,5",
+              "137,5",
+              "302,5",
+              "505",
+              "735",
+              "982,5",
+              "1150",
+              "1170",
+              "1070",
+              "940",
+              "817,5",
+              "707,5",
+              "607,5",
+              "510",
+              "405",
+              "287,5",
+              "175",
+              "85",
+              "30",
+              "5",
+              "0"
+            ],
+            [
+              "Q = Qd+30",
+              "30",
+              "67,5",
+              "167,5",
+              "332,5",
+              "535",
+              "765",
+              "1012,5",
+              "1180",
+              "1200",
+              "1100",
+              "970",
+              "847,5",
+              "737,5",
+              "637,5",
+              "540",
+              "435",
+              "317,5",
+              "205",
+              "115",
+              "60",
+              "35",
+              "30"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "BH, dolaysız akış ve toplam akış hidrografı",
+          "en": "UH, direct runoff and total flow hydrograph"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "U (0,5 sa enterpolasyonlu)",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                0.5,
+                25
+              ],
+              [
+                1,
+                50
+              ],
+              [
+                1.5,
+                85
+              ],
+              [
+                2,
+                120
+              ],
+              [
+                2.5,
+                160
+              ],
+              [
+                3,
+                200
+              ],
+              [
+                3.5,
+                180
+              ],
+              [
+                4,
+                160
+              ],
+              [
+                4.5,
+                140
+              ],
+              [
+                5,
+                120
+              ],
+              [
+                5.5,
+                105
+              ],
+              [
+                6,
+                90
+              ],
+              [
+                6.5,
+                75
+              ],
+              [
+                7,
+                60
+              ],
+              [
+                7.5,
+                40
+              ],
+              [
+                8,
+                20
+              ],
+              [
+                8.5,
+                10
+              ],
+              [
+                9,
+                0
+              ]
+            ]
+          },
+          {
+            "name": "Qd",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                0.5,
+                37.5
+              ],
+              [
+                1,
+                137.5
+              ],
+              [
+                1.5,
+                302.5
+              ],
+              [
+                2,
+                505
+              ],
+              [
+                2.5,
+                735
+              ],
+              [
+                3,
+                982.5
+              ],
+              [
+                3.5,
+                1150
+              ],
+              [
+                4,
+                1170
+              ],
+              [
+                4.5,
+                1070
+              ],
+              [
+                5,
+                940
+              ],
+              [
+                5.5,
+                817.5
+              ],
+              [
+                6,
+                707.5
+              ],
+              [
+                6.5,
+                607.5
+              ],
+              [
+                7,
+                510
+              ],
+              [
+                7.5,
+                405
+              ],
+              [
+                8,
+                287.5
+              ],
+              [
+                8.5,
+                175
+              ],
+              [
+                9,
+                85
+              ],
+              [
+                9.5,
+                30
+              ],
+              [
+                10,
+                5
+              ],
+              [
+                10.5,
+                0
+              ]
+            ]
+          },
+          {
+            "name": "Q",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                30
+              ],
+              [
+                0.5,
+                67.5
+              ],
+              [
+                1,
+                167.5
+              ],
+              [
+                1.5,
+                332.5
+              ],
+              [
+                2,
+                535
+              ],
+              [
+                2.5,
+                765
+              ],
+              [
+                3,
+                1012.5
+              ],
+              [
+                3.5,
+                1180
+              ],
+              [
+                4,
+                1200
+              ],
+              [
+                4.5,
+                1100
+              ],
+              [
+                5,
+                970
+              ],
+              [
+                5.5,
+                847.5
+              ],
+              [
+                6,
+                737.5
+              ],
+              [
+                6.5,
+                637.5
+              ],
+              [
+                7,
+                540
+              ],
+              [
+                7.5,
+                435
+              ],
+              [
+                8,
+                317.5
+              ],
+              [
+                8.5,
+                205
+              ],
+              [
+                9,
+                115
+              ],
+              [
+                9.5,
+                60
+              ],
+              [
+                10,
+                35
+              ],
+              [
+                10.5,
+                30
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 4,
+            "y": 1200,
+            "label": {
+              "tr": "Pik: 1200 m³/sn",
+              "en": "Peak: 1200 m³/s"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Soruyu tanı: hangi oyun oynanıyor?",
+            "en": "Recognise the question: which game is this?"
+          },
+          "guiding": {
+            "tr": "Elimizde BH, yağış ve taban akışı var. Bu üçlü sana hangi işlem zincirini fısıldıyor?",
+            "en": "We have a UH, rainfall and base flow. What chain of operations does this trio whisper to you?"
+          },
+          "hint": {
+            "tr": "BH veriliyorsa ve akış hidrografı isteniyorsa, yön \"BH → hidrograf\"tır: çarp, ötele, topla, taban akışını ekle.",
+            "en": "If the UH is given and the flow hydrograph is asked, the direction is \"UH → hydrograph\": multiply, lag, add, then add base flow."
+          },
+          "work": {
+            "tr": "Verilenler: **30 dakika süreli** BH (ordinatlar 1 saat arayla listelenmiş), **kümülatif** net yağışlar ($\\sum P$, 0,5 saat arayla) ve sabit taban akışı 30 m³/sn.\n\nDikkat edilecek iki uyumsuzluk var:\n\n1. Yağış değerleri **kümülatif** — önce aralık yağışlarına çevrilmeli.\n2. Yağış blokları **0,5 saat**lik, ama BH ordinatları **1 saat** aralıklı listelenmiş — BH tablosu 0,5 saat adıma sıklaştırılmalı.\n\nPlan: (1) $\\Delta P$'leri bul, cm'ye çevir → (2) BH'ı 0,5 sa adıma enterpole et → (3) her bloğu çarp ve kendi başlangıcına ötele → (4) satır satır topla → (5) +30 m³/sn.",
+            "en": "Given: a **30-minute** UH (ordinates listed at 1-h spacing), **cumulative** net rainfalls ($\\sum P$, at 0.5-h spacing) and a constant base flow of 30 m³/s.\n\nTwo mismatches to notice:\n\n1. The rainfall values are **cumulative** — convert to interval rains first.\n2. Rain blocks are **0.5-h** long, but the UH ordinates are listed at **1-h** spacing — the UH table must be densified to 0.5-h steps.\n\nPlan: (1) get the $\\Delta P$'s, convert to cm → (2) interpolate the UH to 0.5-h steps → (3) multiply each block and lag it to its own start → (4) sum row by row → (5) add 30 m³/s."
+          },
+          "why": {
+            "tr": "Sınavda ilk 30 saniyede soru tipini teşhis etmek zaman kazandırır. \"BH verilmiş + yağış verilmiş + hidrograf isteniyor\" görür görmez süperpozisyon (konvolüsyon) tablosu kuracağını bilmelisin. Uyumsuzlukları (kümülatif yağış, farklı zaman adımı) baştan görmezsen tablo ortasında sıkışırsın.",
+            "en": "Diagnosing the question type in the first 30 seconds saves exam time. The instant you see \"UH given + rain given + hydrograph asked\", you know you will build a superposition (convolution) table. If you miss the mismatches (cumulative rain, different time steps) now, you get stuck mid-table."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Kümülatif yağışı aralık yağışlarına çevir",
+            "en": "Convert cumulative rain to interval rains"
+          },
+          "guiding": {
+            "tr": "$\\sum P$ sütununda 15, 40, 60, 65 mm okuyorsun. İkinci yarım saatte gerçekte kaç mm yağdı?",
+            "en": "You read 15, 40, 60, 65 mm in the $\\sum P$ column. How much actually fell in the second half hour?"
+          },
+          "hint": {
+            "tr": "Kümülatif seride her aralığın yağışı = (sonraki değer) − (önceki değer).",
+            "en": "In a cumulative series, each interval's rain = (next value) − (previous value)."
+          },
+          "work": {
+            "tr": "Ardışık farkları alalım:\n\n- 0,0–0,5 sa: $15-0=15$ mm\n- 0,5–1,0 sa: $40-15=25$ mm\n- 1,0–1,5 sa: $60-40=20$ mm\n- 1,5–2,0 sa: $65-60=5$ mm\n- 2,0 sa'ten sonra: $65-65=0$ (yağış bitti)\n\nBH **1 cm**'e göre tanımlı olduğu için mm'leri 10'a bölüyoruz:\n\n$$P_1=1{,}5\\ \\text{cm},\\quad P_2=2{,}5\\ \\text{cm},\\quad P_3=2{,}0\\ \\text{cm},\\quad P_4=0{,}5\\ \\text{cm}$$\n\nDört adet yarım saatlik net yağış bloğumuz var.",
+            "en": "Take successive differences:\n\n- 0.0–0.5 h: $15-0=15$ mm\n- 0.5–1.0 h: $40-15=25$ mm\n- 1.0–1.5 h: $60-40=20$ mm\n- 1.5–2.0 h: $65-60=5$ mm\n- after 2.0 h: $65-65=0$ (rain has stopped)\n\nBecause the UH is defined per **1 cm**, we divide the mm values by 10:\n\n$$P_1=1.5\\ \\text{cm},\\quad P_2=2.5\\ \\text{cm},\\quad P_3=2.0\\ \\text{cm},\\quad P_4=0.5\\ \\text{cm}$$\n\nWe have four half-hour net rain blocks."
+          },
+          "why": {
+            "tr": "BH ordinatlarını çarpacağımız sayılar *aralık* yağışlarıdır; kümülatif değerler yalnızca sayaç okuması gibidir. Ayrıca birim uyumu şart: BH'ın tanımı \"1 cm net yağış\" olduğundan çarpanlar cm cinsinden olmalı. Sınav ipucu: tablo başlığında $\\sum$ işareti görüyorsan mutlaka fark al.",
+            "en": "The numbers we will multiply the UH by are the *interval* rains; cumulative values are just meter readings. Unit consistency is also essential: the UH is defined for \"1 cm of net rain\", so multipliers must be in cm. Exam cue: whenever the table header shows a $\\sum$ sign, take differences."
+          },
+          "result": "P_1=1{,}5,\\ P_2=2{,}5,\\ P_3=2{,}0,\\ P_4=0{,}5\\ \\text{cm}",
+          "check": {
+            "q": {
+              "tr": "0,5–1,0 saat aralığındaki net yağış kaç cm'dir?",
+              "en": "What is the net rain in the 0.5–1.0 h interval, in cm?"
+            },
+            "options": [
+              {
+                "tr": "4,0 cm (kümülatif 40 mm'den)",
+                "en": "4.0 cm (from the cumulative 40 mm)"
+              },
+              {
+                "tr": "2,5 cm (40 − 15 = 25 mm = 2,5 cm)",
+                "en": "2.5 cm (40 − 15 = 25 mm = 2.5 cm)"
+              },
+              {
+                "tr": "25 cm",
+                "en": "25 cm"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Kümülatif seriden fark almalıyız: 40 − 15 = 25 mm; sonra cm'ye: 2,5 cm. İlk seçenek kümülatif değeri aralık sanma tuzağı, üçüncüsü mm→cm çevirisini unutma tuzağıdır.",
+              "en": "We must difference the cumulative series: 40 − 15 = 25 mm; then to cm: 2.5 cm. The first option is the cumulative-as-interval trap; the third forgets the mm→cm conversion."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "BH ordinatlarını 0,5 saat adıma enterpole et",
+            "en": "Interpolate the UH ordinates to 0.5-h steps"
+          },
+          "guiding": {
+            "tr": "Yağış blokları 0,5'er saat arayla başlıyor; BH tablosu ise 1 saat aralıklı. BH'ı 0,5 saat kaydırınca ordinatlar hangi zamanlara düşer?",
+            "en": "Rain blocks start 0.5 h apart; the UH table is at 1-h spacing. When you shift the UH by 0.5 h, at what times do its ordinates land?"
+          },
+          "hint": {
+            "tr": "Ara zamanlardaki (0,5; 1,5; 2,5 sa...) U değerlerini iki komşunun ortalaması (lineer enterpolasyon) olarak üret.",
+            "en": "Generate the U values at intermediate times (0.5, 1.5, 2.5 h...) as the average of the two neighbours (linear interpolation)."
+          },
+          "work": {
+            "tr": "Öteleme adımı 0,5 saat olacağı için BH'ı 0,5 saatlik ızgarada bilmemiz gerekiyor. Ara noktalar iki komşunun ortalamasıdır; örneğin $U(0{,}5)=\\frac{0+50}{2}=25$, $U(3{,}5)=\\frac{200+160}{2}=180$.\n\nSıklaştırılmış BH ($t=0$'dan 9 saate, 0,5 sa adımla):\n\n$U = 0;\\ 25;\\ 50;\\ 85;\\ 120;\\ 160;\\ 200;\\ 180;\\ 160;\\ 140;\\ 120;\\ 105;\\ 90;\\ 75;\\ 60;\\ 40;\\ 20;\\ 10;\\ 0$ m³/sn.\n\nBH'ın kendisi hâlâ *30 dakikalık* bir BH — sadece tablo sıklaştı. Yarım saatlik her yağış bloğu, 30 dakikalık BH ile birebir uyumlu: $P_i$ bloğunun mini-hidrografı $=P_i\\times U$.",
+            "en": "Since the lag step will be 0.5 h, we need the UH on a 0.5-h grid. Intermediate points are the average of the two neighbours; e.g. $U(0.5)=\\frac{0+50}{2}=25$, $U(3.5)=\\frac{200+160}{2}=180$.\n\nDensified UH (from $t=0$ to 9 h, 0.5-h steps):\n\n$U = 0;\\ 25;\\ 50;\\ 85;\\ 120;\\ 160;\\ 200;\\ 180;\\ 160;\\ 140;\\ 120;\\ 105;\\ 90;\\ 75;\\ 60;\\ 40;\\ 20;\\ 10;\\ 0$ m³/s.\n\nThe UH itself is still a *30-minute* UH — only the table got denser. Each half-hour rain block matches the 30-min UH exactly: block $P_i$'s mini-hydrograph $=P_i\\times U$."
+          },
+          "why": {
+            "tr": "Ötelemeler yağış bloğu süresi (0,5 sa) kadar yapılmak zorunda. 1 saat aralıklı bir tabloyu 0,5 saat kaydırırsan değerler satırların *arasına* düşer ve toplayamazsın. Sınavda zaman adımı uyuşmazlığı gördüğünde ilk refleks: küçük adıma enterpole et.",
+            "en": "Lags must equal the rain-block duration (0.5 h). If you shift a 1-h-spaced table by 0.5 h, the values fall *between* rows and you cannot add them. In the exam, when time steps disagree, the first reflex is: interpolate to the smaller step."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İlk bloğu çarp: 1,5 × U (ötelemesiz)",
+            "en": "Multiply the first block: 1.5 × U (no lag)"
+          },
+          "guiding": {
+            "tr": "İlk yarım saatte 1,5 cm yağdı. BH 1 cm'in cevabıysa, 1,5 cm'in cevabı nedir ve ne zaman başlar?",
+            "en": "1.5 cm fell in the first half hour. If the UH is the response to 1 cm, what is the response to 1.5 cm, and when does it start?"
+          },
+          "hint": {
+            "tr": "Orantılılık kuralı: ordinatları 1,5 ile çarp. Bu blok $t=0$'da yağdığı için ötelenmez.",
+            "en": "Proportionality: multiply the ordinates by 1.5. This block falls at $t=0$, so no lag."
+          },
+          "work": {
+            "tr": "$P_1=1{,}5$ cm yağışın mini-hidrografı $=1{,}5\\times U$, $t=0$'dan başlar:\n\n$1{,}5U = 0;\\ 37{,}5;\\ 75;\\ 127{,}5;\\ 180;\\ 240;\\ 300;\\ 270;\\ 240;\\ 210;\\ 180;\\ 157{,}5;\\ 135;\\ 112{,}5;\\ 90;\\ 60;\\ 30;\\ 15;\\ 0$\n\nBu sütun $t=9{,}0$ saatte sıfırlanır (BH'ın taban süresi kadar sürer).",
+            "en": "The mini-hydrograph of $P_1=1.5$ cm is $1.5\\times U$, starting at $t=0$:\n\n$1.5U = 0;\\ 37.5;\\ 75;\\ 127.5;\\ 180;\\ 240;\\ 300;\\ 270;\\ 240;\\ 210;\\ 180;\\ 157.5;\\ 135;\\ 112.5;\\ 90;\\ 60;\\ 30;\\ 15;\\ 0$\n\nThis column reaches zero at $t=9.0$ h (it lasts as long as the UH's time base)."
+          },
+          "why": {
+            "tr": "BH doğrusal bir sistemdir: girişini (1 cm) k katına çıkarırsan çıkışı da k katına çıkar. Her yağış bloğunu *bağımsız* bir olay gibi düşünüp kendi mini-hidrografını yazmak, süperpozisyonun ilk yarısıdır.",
+            "en": "The UH is a linear system: scale the input (1 cm) by k and the output scales by k. Treating each rain block as an *independent* event with its own mini-hydrograph is the first half of superposition."
+          },
+          "result": "(1{,}5U)_{maks}=1{,}5\\times 200=300\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İkinci bloğu ötele ve çarp: 2,5 × U, 0,5 saat kaydırılmış",
+            "en": "Lag and multiply the second block: 2.5 × U, shifted 0.5 h"
+          },
+          "guiding": {
+            "tr": "$P_2=2{,}5$ cm, $t=0{,}5$ sa'te yağmaya başladı. Havza bu yağışı ne zaman \"duymaya\" başlar?",
+            "en": "$P_2=2.5$ cm starts falling at $t=0.5$ h. When does the basin start \"hearing\" this rain?"
+          },
+          "hint": {
+            "tr": "Bir yağışın hidrografı, o yağış başlamadan başlayamaz. BH desenini 0,5 saat sağa kaydır, sonra 2,5 ile çarp.",
+            "en": "A rain's hydrograph cannot start before the rain does. Slide the UH pattern 0.5 h to the right, then multiply by 2.5."
+          },
+          "work": {
+            "tr": "Burası sorunun kalbi — yavaş gidelim. BH deseni, \"yağış başladığı andan itibaren havzanın verdiği cevap\"tır. $P_2$ yağışı $t=0{,}5$'te başladığına göre, onun cevabı da $t=0{,}5$'te başlar: BH'ın $t=0$ satırı artık $t=0{,}5$ satırına yazılır, $t=0{,}5$ satırı $t=1{,}0$'a... yani **tüm sütun bir satır (0,5 sa) aşağı kayar**.\n\n$2{,}5U$ (0,5 sa ötelenmiş): $t=0{,}5$'te 0; $t=1{,}0$'da $2{,}5\\times25=62{,}5$; $t=1{,}5$'te 125; $t=2{,}0$'de 212,5; ... ; pik $2{,}5\\times200=500$, $t=3{,}5$ saatte.\n\nDikkat: bu sütunun piki, 1. sütunun pikinden 0,5 saat *sonra* gelir — çünkü yağışı 0,5 saat sonra yağdı.",
+            "en": "This is the heart of the question — let's go slowly. The UH pattern is \"the basin's response measured from the moment the rain starts\". Since rain $P_2$ starts at $t=0.5$, its response also starts at $t=0.5$: the UH's $t=0$ row is now written into the $t=0.5$ row, the $t=0.5$ row into $t=1.0$... i.e. **the whole column slides down one row (0.5 h)**.\n\n$2.5U$ (lagged 0.5 h): 0 at $t=0.5$; $2.5\\times25=62.5$ at $t=1.0$; 125 at $t=1.5$; 212.5 at $t=2.0$; ... ; peak $2.5\\times200=500$ at $t=3.5$ h.\n\nNote: this column's peak comes 0.5 h *after* column 1's peak — because its rain fell 0.5 h later."
+          },
+          "why": {
+            "tr": "Süperpozisyonun ikinci yarısı ötelemedir: havza her yağış bloğuna aynı desenle ama **o bloğun kendi saatinden başlayarak** cevap verir. Sınavda öteleme miktarını şaşırmamak için kendine şunu sor: \"Bu blok yağışın başlangıcından kaç saat sonra yağdı?\" Cevap, sütunun kayma miktarıdır.",
+            "en": "The second half of superposition is lagging: the basin responds to every rain block with the same pattern but **starting at that block's own clock time**. To avoid wrong lags in the exam, ask yourself: \"How many hours after the storm's start did this block fall?\" That answer is the column's shift."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "$P_3=2{,}0$ cm bloğu 1,0–1,5 sa aralığında yağdı. Onun sütunu kaç saat ötelenir?",
+              "en": "Block $P_3=2.0$ cm fell during 1.0–1.5 h. By how much is its column lagged?"
+            },
+            "options": [
+              {
+                "tr": "0,5 saat",
+                "en": "0.5 h"
+              },
+              {
+                "tr": "1,0 saat",
+                "en": "1.0 h"
+              },
+              {
+                "tr": "1,5 saat",
+                "en": "1.5 h"
+              },
+              {
+                "tr": "2,0 saat",
+                "en": "2.0 h"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Blok, yağışın başlangıcından 1,0 saat sonra yağmaya başladı → sütun 1,0 saat kayar. Öteleme, bloğun *başlama* zamanıdır; bitiş zamanı (1,5 sa) değil. Her ardışık blok bir öncekinden 0,5 sa fazla ötelenir: 0; 0,5; 1,0; 1,5 sa.",
+              "en": "The block starts 1.0 h after the storm begins → the column shifts by 1.0 h. The lag is the block's *start* time, not its end time (1.5 h). Each successive block is lagged 0.5 h more than the previous: 0, 0.5, 1.0, 1.5 h."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Üçüncü ve dördüncü blokları ötele ve çarp",
+            "en": "Lag and multiply the third and fourth blocks"
+          },
+          "guiding": {
+            "tr": "Aynı mantıkla: $P_3=2{,}0$ cm ve $P_4=0{,}5$ cm sütunları nereden başlar, pikleri kaç olur?",
+            "en": "Same logic: where do the $P_3=2.0$ cm and $P_4=0.5$ cm columns start, and what are their peaks?"
+          },
+          "hint": {
+            "tr": "$P_3$: 1,0 sa ötele, 2,0 ile çarp. $P_4$: 1,5 sa ötele, 0,5 ile çarp.",
+            "en": "$P_3$: lag 1.0 h, multiply by 2.0. $P_4$: lag 1.5 h, multiply by 0.5."
+          },
+          "work": {
+            "tr": "**Sütun 5** ($2{,}0U$, 1,0 sa ötelenmiş): $t=1{,}0$'da 0; sonra 50; 100; 170; 240; 320; **400** (pik, $t=4{,}0$'da); 360; 320; 280; 240; 210; 180; 150; 120; 80; 40; 20; 0 ($t=10{,}0$'da biter).\n\n**Sütun 6** ($0{,}5U$, 1,5 sa ötelenmiş): $t=1{,}5$'te 0; sonra 12,5; 25; 42,5; 60; 80; **100** (pik, $t=4{,}5$'te); 90; 80; 70; 60; 52,5; 45; 37,5; 30; 20; 10; 5; 0 ($t=10{,}5$'te biter).\n\nSon blok 1,5 sa'te başlayıp BH'ı 9 saat sürdüğü için toplam akış $1{,}5+9=10{,}5$ saate kadar devam eder.",
+            "en": "**Column 5** ($2.0U$, lagged 1.0 h): 0 at $t=1.0$; then 50; 100; 170; 240; 320; **400** (peak, at $t=4.0$); 360; 320; 280; 240; 210; 180; 150; 120; 80; 40; 20; 0 (ends at $t=10.0$).\n\n**Column 6** ($0.5U$, lagged 1.5 h): 0 at $t=1.5$; then 12.5; 25; 42.5; 60; 80; **100** (peak, at $t=4.5$); 90; 80; 70; 60; 52.5; 45; 37.5; 30; 20; 10; 5; 0 (ends at $t=10.5$).\n\nSince the last block starts at 1.5 h and the UH lasts 9 h, the total flow continues until $1.5+9=10.5$ h."
+          },
+          "why": {
+            "tr": "Her blok için desen aynı: çarp ve kendi başlangıç saatine kaydır. Son bloğun bitişi sana hidrografın taban süresini verir: $t_{son}=$ (son bloğun başlangıcı) + (BH taban süresi). Bu, tabloyu kaç satır uzatacağını baştan söyler.",
+            "en": "The pattern is the same for every block: multiply and shift to its own start time. The last block's end gives you the hydrograph's time base: $t_{end}=$ (start of last block) + (UH time base). This tells you upfront how many rows the table needs."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Satır satır topla → dolaysız akış Qd",
+            "en": "Sum row by row → direct runoff Qd"
+          },
+          "guiding": {
+            "tr": "Aynı anda dört mini-hidrograf akıyor. $t=2{,}0$ saatte dereden geçen dolaysız akış nedir?",
+            "en": "Four mini-hydrographs flow at the same time. What is the direct runoff in the stream at $t=2.0$ h?"
+          },
+          "hint": {
+            "tr": "Süperpozisyon: her zaman satırında dört sütunu topla. $t=2{,}0$: $180+212{,}5+100+12{,}5$.",
+            "en": "Superposition: add the four columns in each time row. $t=2.0$: $180+212.5+100+12.5$."
+          },
+          "work": {
+            "tr": "Dere, dört yağışın sularını ayırt etmez — hepsi üst üste biner. Örnek satır: $t=2{,}0$ sa → $Q_d=180+212{,}5+100+12{,}5=505$ m³/sn.\n\nTüm satırlar ($t=0$'dan 10,5 sa'e, 0,5 sa adım):\n\n$Q_d = 0;\\ 37{,}5;\\ 137{,}5;\\ 302{,}5;\\ 505;\\ 735;\\ 982{,}5;\\ 1150;\\ \\mathbf{1170};\\ 1070;\\ 940;\\ 817{,}5;\\ 707{,}5;\\ 607{,}5;\\ 510;\\ 405;\\ 287{,}5;\\ 175;\\ 85;\\ 30;\\ 5;\\ 0$\n\nPik dolaysız akış $t=4{,}0$ saatte 1170 m³/sn'dir. Pikin BH pikinden (t=3) sonraya kaymasına dikkat: geç gelen büyük bloklar ($P_2$, $P_3$) piki sağa itti.",
+            "en": "The stream cannot tell the four rains' waters apart — they stack. Sample row: $t=2.0$ h → $Q_d=180+212.5+100+12.5=505$ m³/s.\n\nAll rows ($t=0$ to 10.5 h, 0.5-h steps):\n\n$Q_d = 0;\\ 37.5;\\ 137.5;\\ 302.5;\\ 505;\\ 735;\\ 982.5;\\ 1150;\\ \\mathbf{1170};\\ 1070;\\ 940;\\ 817.5;\\ 707.5;\\ 607.5;\\ 510;\\ 405;\\ 287.5;\\ 175;\\ 85;\\ 30;\\ 5;\\ 0$\n\nPeak direct runoff is 1170 m³/s at $t=4.0$ h. Note the peak moved later than the UH peak (t=3): the big late blocks ($P_2$, $P_3$) pushed it right."
+          },
+          "why": {
+            "tr": "Bu, süperpozisyon ilkesinin toplama yarısıdır: doğrusal sistemde eşzamanlı cevaplar aritmetik olarak toplanır. Satır toplamı yaparken sütunların doğru hizalandığından emin ol — kaymış bir sütun tüm tabloyu bozar.",
+            "en": "This is the adding half of superposition: in a linear system, simultaneous responses add arithmetically. When summing rows, make sure the columns are aligned correctly — one misaligned column ruins the whole table."
+          },
+          "result": "Q_{d,maks}=1170\\ \\text{m}^3/\\text{sn}\\ (t=4{,}0\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Taban akışını ekle → toplam hidrograf Q",
+            "en": "Add base flow → total hydrograph Q"
+          },
+          "guiding": {
+            "tr": "Dolaysız akış tablosu hazır. Derede yağmurdan önce de su vardı — bunu nereye koyacağız?",
+            "en": "The direct-runoff table is done. There was water in the stream before the rain — where does it go?"
+          },
+          "hint": {
+            "tr": "Her satıra sabit 30 m³/sn ekle. Hidrograf artık 0'dan değil 30'dan başlar ve 30'a döner.",
+            "en": "Add a constant 30 m³/s to every row. The hydrograph now starts from 30, not 0, and returns to 30."
+          },
+          "work": {
+            "tr": "$Q=Q_d+30$:\n\n$Q = 30;\\ 67{,}5;\\ 167{,}5;\\ 332{,}5;\\ 535;\\ 765;\\ 1012{,}5;\\ 1180;\\ \\mathbf{1200};\\ 1100;\\ 970;\\ 847{,}5;\\ 737{,}5;\\ 637{,}5;\\ 540;\\ 435;\\ 317{,}5;\\ 205;\\ 115;\\ 60;\\ 35;\\ 30$\n\n($t=0$'dan 10,5 saate, 0,5 sa adımlarla.)",
+            "en": "$Q=Q_d+30$:\n\n$Q = 30;\\ 67.5;\\ 167.5;\\ 332.5;\\ 535;\\ 765;\\ 1012.5;\\ 1180;\\ \\mathbf{1200};\\ 1100;\\ 970;\\ 847.5;\\ 737.5;\\ 637.5;\\ 540;\\ 435;\\ 317.5;\\ 205;\\ 115;\\ 60;\\ 35;\\ 30$\n\n(from $t=0$ to 10.5 h, 0.5-h steps.)"
+          },
+          "why": {
+            "tr": "BH yalnızca *dolaysız* akışı üretir; derede zaten akan taban akışı süperpozisyondan bağımsızdır ve en sonda eklenir. Sınav kontrolü: toplam hidrograf yağmurdan önce ve çok sonra taban akışına eşit olmalı — bizimki 30'la başlayıp 30'da bitiyor. ✓",
+            "en": "The UH produces only *direct* runoff; the base flow already in the stream is independent of the superposition and is added at the end. Exam check: the total hydrograph must equal the base flow before the rain and long after — ours starts at 30 and ends at 30. ✓"
+          },
+          "result": "Q_{maks}=1200\\ \\text{m}^3/\\text{sn}\\ (t=4{,}0\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sağlama yap: süreler ve sınır değerleri",
+            "en": "Verify: durations and boundary values"
+          },
+          "guiding": {
+            "tr": "Tablon doğru mu? Cevabı hesaplamadan hangi üç şeyi kontrol edebilirsin?",
+            "en": "Is your table right? Which three things can you check without recomputing?"
+          },
+          "hint": {
+            "tr": "Başlangıç/bitiş değerleri, toplam süre ve pikin makul yeri.",
+            "en": "Start/end values, total duration, and a sensible peak location."
+          },
+          "work": {
+            "tr": "1. **Sınırlar:** $t=0$'da $Q=30$ (sadece taban akışı) ve $t=10{,}5$'te $Q=30$'a dönüyor. ✓\n2. **Taban süresi:** son yağış bloğu 1,5 sa'te başladı, BH 9 saat sürüyor → $1{,}5+9=10{,}5$ sa. Tablomuz tam orada bitiyor. ✓\n3. **Pik konumu:** BH piki $t=3$'te; yağışın ağırlığı 0,5–1,5 sa aralığında yağdı → pikin 3'ten biraz sonra ($t=4$) çıkması fiziksel olarak mantıklı. ✓\n\n(Ek sağlama: $Q_d$ ordinatlarının toplamı $\\times$ 1800 sn = dolaysız akış hacmi; bu hacim havza alanı $\\times$ 6,5 cm'e eşit olmalıdır — Python ile doğrulandı.)",
+            "en": "1. **Boundaries:** $Q=30$ at $t=0$ (base flow only) and $Q$ returns to 30 at $t=10.5$. ✓\n2. **Time base:** the last rain block starts at 1.5 h and the UH lasts 9 h → $1.5+9=10.5$ h. Our table ends exactly there. ✓\n3. **Peak location:** the UH peaks at $t=3$; the bulk of the rain fell during 0.5–1.5 h → a peak slightly after 3 ($t=4$) is physically sensible. ✓\n\n(Extra check: sum of $Q_d$ ordinates $\\times$ 1800 s = direct-runoff volume; it must equal basin area $\\times$ 6.5 cm — verified with Python.)"
+          },
+          "why": {
+            "tr": "Uzun tablolu sorularda aritmetik hata kaçınılmazdır; 30 saniyelik sınır kontrolü, yanlış bir sütun hizasını ya da unutulan taban akışını anında yakalar. Hocalar da tam bu kontrol satırlarına bakar.",
+            "en": "In long-table questions arithmetic slips are inevitable; a 30-second boundary check instantly catches a misaligned column or a forgotten base flow. Graders look at exactly these rows."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Toplam akış hidrografı** ($t=0$'dan 10,5 saate, 0,5 sa adımlarla, m³/sn):\n\n$$Q = 30;\\ 67{,}5;\\ 167{,}5;\\ 332{,}5;\\ 535;\\ 765;\\ 1012{,}5;\\ 1180;\\ \\boxed{1200};\\ 1100;\\ 970;\\ 847{,}5;\\ 737{,}5;\\ 637{,}5;\\ 540;\\ 435;\\ 317{,}5;\\ 205;\\ 115;\\ 60;\\ 35;\\ 30$$\n\nPik debi **1200 m³/sn**, $t=4{,}0$ saatte. Hidrograf $t=10{,}5$ saatte taban akışına (30 m³/sn) döner.",
+        "en": "**Total flow hydrograph** ($t=0$ to 10.5 h, 0.5-h steps, m³/s):\n\n$$Q = 30;\\ 67{,}5;\\ 167{,}5;\\ 332{,}5;\\ 535;\\ 765;\\ 1012{,}5;\\ 1180;\\ \\boxed{1200};\\ 1100;\\ 970;\\ 847{,}5;\\ 737{,}5;\\ 637{,}5;\\ 540;\\ 435;\\ 317{,}5;\\ 205;\\ 115;\\ 60;\\ 35;\\ 30$$\n\nPeak discharge is **1200 m³/s** at $t=4.0$ h. The hydrograph returns to base flow (30 m³/s) at $t=10.5$ h."
+      },
+      "traps": [
+        {
+          "tr": "Yağış tablosu **kümülatif** ($\\sum P$): fark almadan 15, 40, 60, 65'i çarpan öğrenci tablonun tamamını yanlış kurar.",
+          "en": "The rain table is **cumulative** ($\\sum P$): a student who multiplies by 15, 40, 60, 65 without differencing builds the entire table wrong."
+        },
+        {
+          "tr": "mm → cm çevirisi: BH 1 cm'e göre tanımlı olduğundan çarpanlar 1,5; 2,5; 2,0; 0,5 olmalı (15; 25; 20; 5 değil — 10 kat hata!).",
+          "en": "mm → cm conversion: since the UH is per 1 cm, the multipliers must be 1.5, 2.5, 2.0, 0.5 (not 15, 25, 20, 5 — a factor-of-10 error!)."
+        },
+        {
+          "tr": "Öteleme adımı yağış bloğu süresidir (0,5 sa), BH tablosunun aralığı (1 sa) değil — bu yüzden BH önce 0,5 sa adıma enterpole edilir.",
+          "en": "The lag step is the rain-block duration (0.5 h), not the UH table spacing (1 h) — that is why the UH is first interpolated to 0.5-h steps."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya 6,5 cm'lik yağışın tamamı tek bir yarım saatte yağsaydı?",
+            "en": "What if the entire 6.5 cm fell in a single half hour?"
+          },
+          "answer": {
+            "tr": "Tek blok → öteleme yok, tablo tek sütun: $Q=6{,}5U+30$. Pik $=6{,}5\\times200+30=1330$ m³/sn olur ve BH pikiyle aynı anda, $t=3$ saatte gelir. Aynı toplam yağış daha kısa sürede yağınca pik hem büyür (1330 > 1200) hem erkene kayar — taşkın daha tehlikelidir.",
+            "en": "A single block → no lags, one column: $Q=6.5U+30$. The peak becomes $6.5\\times200+30=1330$ m³/s and arrives with the UH peak, at $t=3$ h. Same total rain in a shorter time gives a bigger (1330 > 1200) and earlier peak — a more dangerous flood."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya taban akışı 30 yerine 50 m³/sn olsaydı?",
+            "en": "What if the base flow were 50 m³/s instead of 30?"
+          },
+          "answer": {
+            "tr": "Sadece son sütun değişir: her $Q$ değeri 20 m³/sn artar. Pik $1170+50=1220$ m³/sn olur; hidrograf 50'den başlayıp 50'ye döner. Taban akışı hidrografın şeklini değil, sadece düşey konumunu değiştirir.",
+            "en": "Only the last column changes: every $Q$ rises by 20 m³/s. The peak becomes $1170+50=1220$ m³/s; the hydrograph starts and ends at 50. Base flow shifts the hydrograph vertically without changing its shape."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6-2",
+      "code": "Uygulama 6.2",
+      "title": {
+        "tr": "2 saatlik BH ile taşkın hidrografı (2 saat ötelemeli süperpozisyon)",
+        "en": "Flood hydrograph from a 2-h UH (superposition with 2-h lags)"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıda 2 saatlik Birim Hidrograf ordinatları verilmiştir. Bu havzadaki bir yağış sırasında ölçülen artık yağış yükseklikleri ilk 2 saatte 1,5 cm, ikinci iki saatte 4 cm ve son 2 saatte de 2 cm (toplam yağış süresi 6 saat) ölçüldüğüne ve taban akışı 60 m³/sn olduğuna göre, bu yağışın neden olacağı akış hidrografını belirleyiniz.",
+        "en": "The ordinates of a 2-hour unit hydrograph are given below. During a storm on this basin the measured effective (net) rainfall depths were 1.5 cm in the first 2 hours, 4 cm in the second 2 hours and 2 cm in the last 2 hours (total storm duration 6 hours). Taking the base flow as 60 m³/s, determine the flow hydrograph this storm would cause."
+      },
+      "given": [
+        {
+          "symbol": "t_0",
+          "value": "2\\ \\text{saat}",
+          "label": {
+            "tr": "BH süresi",
+            "en": "UH duration"
+          }
+        },
+        {
+          "symbol": "P_1,P_2,P_3",
+          "value": "1{,}5;\\ 4;\\ 2\\ \\text{cm}",
+          "label": {
+            "tr": "Ardışık 2 saatlik artık yağışlar",
+            "en": "Successive 2-h effective rains"
+          }
+        },
+        {
+          "symbol": "Q_{taban}",
+          "value": "60\\ \\text{m}^3/\\text{sn}",
+          "label": {
+            "tr": "Sabit taban akışı",
+            "en": "Constant base flow"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Üç yağış bloğunun oluşturacağı toplam akış hidrografını (Q) bulmak.",
+        "en": "Find the total flow hydrograph (Q) produced by the three rain blocks."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "2 saatlik BH ordinatları",
+            "en": "2-h UH ordinates"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "rows": [
+            [
+              "U (m³/sn)",
+              "0",
+              "60",
+              "200",
+              "300",
+              "220",
+              "150",
+              "90",
+              "50",
+              "20",
+              "0"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Süperpozisyon tablosu (2 sa adımlarla)",
+            "en": "Superposition table (2-h steps)"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
+          "rows": [
+            [
+              "U",
+              "0",
+              "60",
+              "200",
+              "300",
+              "220",
+              "150",
+              "90",
+              "50",
+              "20",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "1,5·U",
+              "0",
+              "90",
+              "300",
+              "450",
+              "330",
+              "225",
+              "135",
+              "75",
+              "30",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "4·U (2 sa öteli)",
+              "-",
+              "-",
+              "0",
+              "240",
+              "800",
+              "1200",
+              "880",
+              "600",
+              "360",
+              "200",
+              "80",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "2·U (4 sa öteli)",
+              "-",
+              "-",
+              "-",
+              "-",
+              "0",
+              "120",
+              "400",
+              "600",
+              "440",
+              "300",
+              "180",
+              "100",
+              "40",
+              "0"
+            ],
+            [
+              "Qd",
+              "0",
+              "90",
+              "300",
+              "690",
+              "1130",
+              "1545",
+              "1415",
+              "1275",
+              "830",
+              "500",
+              "260",
+              "100",
+              "40",
+              "0"
+            ],
+            [
+              "Q = Qd+60",
+              "60",
+              "150",
+              "360",
+              "750",
+              "1190",
+              "1605",
+              "1475",
+              "1335",
+              "890",
+              "560",
+              "320",
+              "160",
+              "100",
+              "60"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "BH ve toplam akış hidrografı",
+          "en": "UH and total flow hydrograph"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "U (2 saatlik BH)",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                60
+              ],
+              [
+                2,
+                200
+              ],
+              [
+                3,
+                300
+              ],
+              [
+                4,
+                220
+              ],
+              [
+                5,
+                150
+              ],
+              [
+                6,
+                90
+              ],
+              [
+                7,
+                50
+              ],
+              [
+                8,
+                20
+              ],
+              [
+                9,
+                0
+              ]
+            ]
+          },
+          {
+            "name": "Q",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                60
+              ],
+              [
+                1,
+                150
+              ],
+              [
+                2,
+                360
+              ],
+              [
+                3,
+                750
+              ],
+              [
+                4,
+                1190
+              ],
+              [
+                5,
+                1605
+              ],
+              [
+                6,
+                1475
+              ],
+              [
+                7,
+                1335
+              ],
+              [
+                8,
+                890
+              ],
+              [
+                9,
+                560
+              ],
+              [
+                10,
+                320
+              ],
+              [
+                11,
+                160
+              ],
+              [
+                12,
+                100
+              ],
+              [
+                13,
+                60
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 5,
+            "y": 1605,
+            "label": {
+              "tr": "Pik: 1605 m³/sn",
+              "en": "Peak: 1605 m³/s"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Kurulumu tanı: öteleme adımı kaç saat?",
+            "en": "Recognise the setup: how big is the lag step?"
+          },
+          "guiding": {
+            "tr": "BH 2 saatlik, yağışlar da 2'şer saatlik bloklar halinde. Bu uyum sana hangi kolaylığı sağlıyor?",
+            "en": "The UH is a 2-h UH and the rains come in 2-h blocks. What convenience does this match give you?"
+          },
+          "hint": {
+            "tr": "Her yağış bloğunun süresi BH süresine eşit → her blok doğrudan BH ile temsil edilir; ötelemeler 2'şer saat olur.",
+            "en": "Each rain block's duration equals the UH duration → each block is directly represented by the UH; lags are 2 h each."
+          },
+          "work": {
+            "tr": "Yağış blokları: $P_1=1{,}5$ cm ($t=0$–2 sa), $P_2=4$ cm ($t=2$–4 sa), $P_3=2$ cm ($t=4$–6 sa). Hepsi 2 saatlik ve BH da 2 saatlik BH — birebir uyum var.\n\nBH ordinatları 1 saat arayla listelenmiş; öteleme 2 saat = **tam 2 satır** olduğundan enterpolasyona gerek yok (6.1'deki gibi ara değer üretmek gerekmiyor).\n\nPlan: üç sütun → $1{,}5U$ (ötelemesiz), $4U$ (2 sa ötelenmiş), $2U$ (4 sa ötelenmiş); topla; +60.",
+            "en": "Rain blocks: $P_1=1.5$ cm ($t=0$–2 h), $P_2=4$ cm ($t=2$–4 h), $P_3=2$ cm ($t=4$–6 h). All are 2-h blocks and the UH is a 2-h UH — a perfect match.\n\nThe UH ordinates are listed hourly; the lag of 2 h = **exactly 2 rows**, so no interpolation is needed (unlike 6.1).\n\nPlan: three columns → $1.5U$ (no lag), $4U$ (lagged 2 h), $2U$ (lagged 4 h); sum; add 60."
+          },
+          "why": {
+            "tr": "İlk iş her zaman öteleme adımını belirlemektir: adım = yağış bloğu süresi. Blok süresi tablo aralığının tam katıysa tabloyu olduğu gibi kullanırsın; değilse (6.1) enterpolasyon gerekir. Bu karar 10 saniyede verilir ve tüm tabloyu şekillendirir.",
+            "en": "The first task is always to fix the lag step: step = rain-block duration. If the block duration is an integer multiple of the table spacing, use the table as is; if not (as in 6.1), interpolate. This 10-second decision shapes the whole table."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "Üçüncü blok ($P_3=2$ cm, $t=4$–6 sa'te yağıyor) kaç saat ötelenir?",
+              "en": "By how much is the third block ($P_3=2$ cm, falling at $t=4$–6 h) lagged?"
+            },
+            "options": [
+              {
+                "tr": "2 saat",
+                "en": "2 h"
+              },
+              {
+                "tr": "3 saat",
+                "en": "3 h"
+              },
+              {
+                "tr": "4 saat",
+                "en": "4 h"
+              },
+              {
+                "tr": "6 saat",
+                "en": "6 h"
+              }
+            ],
+            "correct": 2,
+            "explain": {
+              "tr": "Öteleme = bloğun başlama zamanı = 4 saat (tabloda 4 satır). 6 saat bloğun bitişidir, başlangıcı değil; 2 ve 3 saat ise satır sayısını yanlış saymaktır.",
+              "en": "Lag = the block's start time = 4 h (4 rows in the table). 6 h is the block's end, not its start; 2 and 3 h are miscounted rows."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "İlk sütunu yaz: 1,5 × U",
+            "en": "Write the first column: 1.5 × U"
+          },
+          "guiding": {
+            "tr": "İlk 2 saatte 1,5 cm yağdı. Bu bloğun mini-hidrografının ordinatları nedir?",
+            "en": "1.5 cm fell in the first 2 hours. What are the ordinates of this block's mini-hydrograph?"
+          },
+          "hint": {
+            "tr": "Orantılılık: her U değerini 1,5 ile çarp; blok $t=0$'da başladığı için kaydırma yok.",
+            "en": "Proportionality: multiply every U by 1.5; the block starts at $t=0$, so no shift."
+          },
+          "work": {
+            "tr": "$1{,}5U$ ($t=0$'dan itibaren):\n\n$0;\\ 90;\\ 300;\\ 450;\\ 330;\\ 225;\\ 135;\\ 75;\\ 30;\\ 0$\n\n($t=0,1,\\dots,9$ saatlerinde). Pik $1{,}5\\times300=450$ m³/sn, $t=3$ saatte.",
+            "en": "$1.5U$ (from $t=0$):\n\n$0;\\ 90;\\ 300;\\ 450;\\ 330;\\ 225;\\ 135;\\ 75;\\ 30;\\ 0$\n\n(at $t=0,1,\\dots,9$ h). Peak $1.5\\times300=450$ m³/s at $t=3$ h."
+          },
+          "why": {
+            "tr": "BH 1 cm'in cevabı; 1,5 cm'in cevabı 1,5 katıdır. Blok yağışın başlangıcında yağdığı için onun saati ile hidrografın saati aynıdır — ötelemesiz sütun her zaman ilk bloktur.",
+            "en": "The UH is the response to 1 cm; the response to 1.5 cm is 1.5 times it. Since this block falls at the storm's start, its clock equals the hydrograph clock — the unlagged column is always the first block."
+          },
+          "result": "(1{,}5U)_{maks}=450\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İkinci sütun: 4 × U, 2 saat ötelenmiş",
+            "en": "Second column: 4 × U, lagged 2 h"
+          },
+          "guiding": {
+            "tr": "$P_2=4$ cm bloğu $t=2$ sa'te başlıyor. Onun 4×U değerleri tabloda hangi satırlara yazılır?",
+            "en": "Block $P_2=4$ cm starts at $t=2$ h. Into which rows do its 4×U values go?"
+          },
+          "hint": {
+            "tr": "BH desenini 2 satır aşağı kaydır: U'nun $t=0$ değeri $t=2$ satırına gelir.",
+            "en": "Slide the UH pattern down 2 rows: U's $t=0$ value lands in the $t=2$ row."
+          },
+          "work": {
+            "tr": "$4U$ (2 sa ötelenmiş): $t=2$'de 0; $t=3$'te $4\\times60=240$; $t=4$'te 800; $t=5$'te **1200** (pik); $t=6$'da 880; $t=7$'de 600; $t=8$'de 360; $t=9$'da 200; $t=10$'da 80; $t=11$'de 0.\n\nEn büyük yağış bloğu bu olduğundan (4 cm), toplam hidrografın pikini bu sütun domine edecek.",
+            "en": "$4U$ (lagged 2 h): 0 at $t=2$; $4\\times60=240$ at $t=3$; 800 at $t=4$; **1200** (peak) at $t=5$; 880 at $t=6$; 600 at $t=7$; 360 at $t=8$; 200 at $t=9$; 80 at $t=10$; 0 at $t=11$.\n\nSince this is the largest rain block (4 cm), this column will dominate the total hydrograph's peak."
+          },
+          "why": {
+            "tr": "Havza her bloğa aynı desenle ama bloğun kendi başlangıç anından itibaren cevap verir. \"Blok ne zaman başladı?\" → \"sütun o kadar kayar\". 2 saat = 2 satır; satır sayısını zaman farkıyla karıştırma.",
+            "en": "The basin responds to each block with the same pattern but starting at that block's own start time. \"When did the block start?\" → \"that is the column's shift\". 2 h = 2 rows; don't confuse row counts with time differences."
+          },
+          "result": "(4U)_{maks}=1200\\ \\text{m}^3/\\text{sn}\\ (t=5\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Üçüncü sütun: 2 × U, 4 saat ötelenmiş",
+            "en": "Third column: 2 × U, lagged 4 h"
+          },
+          "guiding": {
+            "tr": "Son blok $t=4$–6 sa'te yağıyor. Sütunu nereden başlar, nerede biter?",
+            "en": "The last block falls at $t=4$–6 h. Where does its column start and end?"
+          },
+          "hint": {
+            "tr": "Başlangıç $t=4$; BH 9 saat sürdüğü için bitiş $4+9=13$ sa.",
+            "en": "Start at $t=4$; the UH lasts 9 h, so it ends at $4+9=13$ h."
+          },
+          "work": {
+            "tr": "$2U$ (4 sa ötelenmiş): $t=4$'te 0; $t=5$'te 120; $t=6$'da 400; $t=7$'de **600** (pik); $t=8$'de 440; $t=9$'da 300; $t=10$'da 180; $t=11$'de 100; $t=12$'de 40; $t=13$'te 0.\n\nToplam tablo $t=13$ saate kadar uzar: taban süresi $=$ BH taban süresi $+$ (yağış süresi $-$ $t_0$) $=9+(6-2)=13$ sa.",
+            "en": "$2U$ (lagged 4 h): 0 at $t=4$; 120 at $t=5$; 400 at $t=6$; **600** (peak) at $t=7$; 440 at $t=8$; 300 at $t=9$; 180 at $t=10$; 100 at $t=11$; 40 at $t=12$; 0 at $t=13$.\n\nThe full table extends to $t=13$ h: time base $=$ UH time base $+$ (storm duration $-$ $t_0$) $=9+(6-2)=13$ h."
+          },
+          "why": {
+            "tr": "Tabloyu kurarken kaç satır gerekeceğini son bloktan hesaplarsın: son bloğun başlangıcı + BH taban süresi. Bu formülü bilmek, sınavda tabloyu kısa kesip son ordinatları kaybetmeni önler.",
+            "en": "You compute the number of rows from the last block: its start time + the UH time base. Knowing this prevents cutting the table short and losing the final ordinates in the exam."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Satırları topla → Qd, sonra +60 → Q",
+            "en": "Sum the rows → Qd, then add 60 → Q"
+          },
+          "guiding": {
+            "tr": "Üç sütun hazır. $t=5$ saatteki dolaysız ve toplam akış nedir?",
+            "en": "Three columns are ready. What are the direct and total flows at $t=5$ h?"
+          },
+          "hint": {
+            "tr": "$t=5$: $225+1200+120$. Sonra her satıra 60 ekle.",
+            "en": "$t=5$: $225+1200+120$. Then add 60 to every row."
+          },
+          "work": {
+            "tr": "Satır satır toplayıp taban akışını ekleyelim ($t=0$'dan 13 saate):\n\n$Q_d = 0;\\ 90;\\ 300;\\ 690;\\ 1130;\\ \\mathbf{1545};\\ 1415;\\ 1275;\\ 830;\\ 500;\\ 260;\\ 100;\\ 40;\\ 0$\n\n$Q = Q_d+60 = 60;\\ 150;\\ 360;\\ 750;\\ 1190;\\ \\mathbf{1605};\\ 1475;\\ 1335;\\ 890;\\ 560;\\ 320;\\ 160;\\ 100;\\ 60$\n\nÖrnek satır ($t=5$): $Q_d=225+1200+120=1545$; $Q=1545+60=1605$ m³/sn. Pik $t=5$ saatte — büyük bloğun ($P_2$) piki ile aynı anda.",
+            "en": "Sum row by row and add the base flow ($t=0$ to 13 h):\n\n$Q_d = 0;\\ 90;\\ 300;\\ 690;\\ 1130;\\ \\mathbf{1545};\\ 1415;\\ 1275;\\ 830;\\ 500;\\ 260;\\ 100;\\ 40;\\ 0$\n\n$Q = Q_d+60 = 60;\\ 150;\\ 360;\\ 750;\\ 1190;\\ \\mathbf{1605};\\ 1475;\\ 1335;\\ 890;\\ 560;\\ 320;\\ 160;\\ 100;\\ 60$\n\nSample row ($t=5$): $Q_d=225+1200+120=1545$; $Q=1545+60=1605$ m³/s. The peak is at $t=5$ h — simultaneous with the big block's ($P_2$) peak."
+          },
+          "why": {
+            "tr": "Süperpozisyon: dere üç yağışın suyunu aynı kesitten aynı anda geçirir, debiler toplanır. Taban akışı en sonda eklenir çünkü BH yalnızca dolaysız akışı temsil eder. Kontrol: $Q$, 60'tan başlayıp 60'a dönmeli. ✓",
+            "en": "Superposition: the stream carries all three rains' water through the same section at once, so discharges add. Base flow is added last because the UH represents direct runoff only. Check: $Q$ must start at 60 and return to 60. ✓"
+          },
+          "result": "Q_{maks}=1605\\ \\text{m}^3/\\text{sn}\\ (t=5\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Hacim sağlaması yap",
+            "en": "Do a volume check"
+          },
+          "guiding": {
+            "tr": "Tablonun doğruluğunu tek satırlık bir oranla nasıl test edersin?",
+            "en": "How can you test the table with a one-line ratio?"
+          },
+          "hint": {
+            "tr": "$\\sum Q_d$ / $\\sum U$ oranı toplam net yağışı (cm) vermeli.",
+            "en": "The ratio $\\sum Q_d$ / $\\sum U$ must give the total net rain (cm)."
+          },
+          "work": {
+            "tr": "BH 1 cm'i temsil eder; toplam yağış $1{,}5+4+2=7{,}5$ cm. O halde dolaysız akış hacmi BH hacminin 7,5 katı olmalı. Ordinatlar aynı zaman adımında olduğundan hacim oranı = ordinat toplamlarının oranı:\n\n$$\\frac{\\sum Q_d}{\\sum U}=\\frac{8175}{1090}=7{,}5\\ \\checkmark$$\n\n(Python ile doğrulandı: $\\sum U=1090$, $\\sum Q_d=8175$.)",
+            "en": "The UH represents 1 cm; the total rain is $1.5+4+2=7.5$ cm. So the direct-runoff volume must be 7.5 times the UH volume. With ordinates on the same time step, the volume ratio = ratio of ordinate sums:\n\n$$\\frac{\\sum Q_d}{\\sum U}=\\frac{8175}{1090}=7.5\\ \\checkmark$$\n\n(Verified with Python: $\\sum U=1090$, $\\sum Q_d=8175$.)"
+          },
+          "why": {
+            "tr": "Doğrusallık hacimler için de geçerlidir: k cm yağış, BH hacminin k katı su üretir. Bu oran testi, çarpma ya da hizalama hatalarını tek işlemle yakalayan en hızlı sağlamadır — sınav kağıdına yazarsan hocaya da güven verir.",
+            "en": "Linearity holds for volumes too: k cm of rain produces k times the UH volume. This ratio test is the fastest single-operation check for multiplication or alignment errors — writing it on the exam paper also reassures the grader."
+          },
+          "result": "\\sum Q_d/\\sum U = 7{,}5\\ \\text{cm}\\ \\checkmark",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Toplam akış hidrografı** ($t=0,1,\\dots,13$ saat, m³/sn):\n\n$$Q = 60;\\ 150;\\ 360;\\ 750;\\ 1190;\\ \\boxed{1605};\\ 1475;\\ 1335;\\ 890;\\ 560;\\ 320;\\ 160;\\ 100;\\ 60$$\n\nPik debi **1605 m³/sn**, $t=5$ saatte. Hidrograf $t=13$ saatte taban akışına (60 m³/sn) döner. (Föyde çözüm yoktur; tüm değerler Python ile doğrulanmıştır.)",
+        "en": "**Total flow hydrograph** ($t=0,1,\\dots,13$ h, m³/s):\n\n$$Q = 60;\\ 150;\\ 360;\\ 750;\\ 1190;\\ \\boxed{1605};\\ 1475;\\ 1335;\\ 890;\\ 560;\\ 320;\\ 160;\\ 100;\\ 60$$\n\nPeak discharge is **1605 m³/s** at $t=5$ h. The hydrograph returns to base flow (60 m³/s) at $t=13$ h. (The sheet gives no solution; all values verified with Python.)"
+      },
+      "traps": [
+        {
+          "tr": "Öteleme 2'şer saattir (yağış bloğu süresi) → tabloda 2'şer satır. 1 satır kaydıran öğrenci tüm toplamları bozar.",
+          "en": "Lags are 2 h each (the rain-block duration) → 2 rows each in the table. Shifting by 1 row ruins all the sums."
+        },
+        {
+          "tr": "Taban süresi $9+4=13$ saattir; tabloyu $t=9$'da kesersen son bloğun kuyruğunu (ve 890'dan sonraki tüm değerleri) kaybedersin.",
+          "en": "The time base is $9+4=13$ h; cutting the table at $t=9$ loses the last block's tail (and every value after 890)."
+        },
+        {
+          "tr": "Yağışlar zaten cm cinsinden — 10'a bölmeye kalkma. Çevirme refleksi sadece mm verildiğinde çalışmalı.",
+          "en": "The rains are already in cm — do not divide by 10. The conversion reflex should fire only when mm are given."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yağış sırası ters olsaydı: 2 cm, sonra 4 cm, sonra 1,5 cm?",
+            "en": "What if the rain order were reversed: 2 cm, then 4 cm, then 1.5 cm?"
+          },
+          "answer": {
+            "tr": "Aynı yöntemle: $Q = 60;\\ 180;\\ 460;\\ 900;\\ 1300;\\ \\mathbf{1650};\\ 1420;\\ 1210;\\ 790;\\ 485;\\ 275;\\ 135;\\ 90;\\ 60$. Pik 1650 m³/sn olur (1605 yerine) — toplam yağış aynı kaldığı halde blokların sırası piki değiştirir, çünkü mini-hidrografların pikleri farklı şekilde üst üste biner. Hacim ise değişmez (yine 7,5 cm).",
+            "en": "Same method: $Q = 60;\\ 180;\\ 460;\\ 900;\\ 1300;\\ \\mathbf{1650};\\ 1420;\\ 1210;\\ 790;\\ 485;\\ 275;\\ 135;\\ 90;\\ 60$. The peak becomes 1650 m³/s (instead of 1605) — the block order changes the peak even though total rain is the same, because the mini-hydrograph peaks overlap differently. The volume is unchanged (still 7.5 cm)."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya 7,5 cm'in tamamı ilk 2 saatte yağsaydı?",
+            "en": "What if all 7.5 cm fell in the first 2 hours?"
+          },
+          "answer": {
+            "tr": "Tek sütun: $Q=7{,}5U+60$. Pik $7{,}5\\times300+60=2310$ m³/sn, $t=3$ saatte; hidrograf $t=9$'da 60'a döner. Aynı su, daha kısa sürede → çok daha keskin ve yüksek taşkın.",
+            "en": "One column: $Q=7.5U+60$. Peak $7.5\\times300+60=2310$ m³/s at $t=3$ h; the hydrograph returns to 60 at $t=9$. Same water in less time → a much sharper, higher flood."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6-3",
+      "code": "Uygulama 6.3",
+      "title": {
+        "tr": "Gözlenmiş taşkından BH türetme + artık yağış ve gecikme süreleri",
+        "en": "Deriving the UH from an observed flood + effective-rain and lag times"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Alanı 200 km² olan bir havzada, bir yağış sırasında kaydedilen yağış yükseklikleri ve debiler aşağıda verilmiştir. Taban akışını sabit ve 50 m³/sn alarak havzanın birim hidrografını (BH) elde ediniz. BH'ın artık yağış ve gecikme sürelerini hesaplayınız.",
+        "en": "In a basin of area 200 km², the rainfall depths and discharges recorded during a storm are given below. Taking the base flow constant at 50 m³/s, derive the basin's unit hydrograph (UH). Also compute the UH's effective-rain duration and the lag time."
+      },
+      "given": [
+        {
+          "symbol": "A",
+          "value": "200\\ \\text{km}^2",
+          "label": {
+            "tr": "Havza alanı",
+            "en": "Basin area"
+          }
+        },
+        {
+          "symbol": "Q_{taban}",
+          "value": "50\\ \\text{m}^3/\\text{sn}",
+          "label": {
+            "tr": "Sabit taban akışı",
+            "en": "Constant base flow"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "BH ordinatlarını (U), artık yağış süresini ($t_0$) ve gecikme süresini ($t_g$) bulmak.",
+        "en": "Find the UH ordinates (U), the effective-rain duration ($t_0$) and the lag time ($t_g$)."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Gözlenen yağış ve debiler",
+            "en": "Observed rainfall and discharges"
+          },
+          "headers": [
+            "t (saat)",
+            "11:00",
+            "11:30",
+            "12:00",
+            "12:30",
+            "13:00",
+            "13:30",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "20:00",
+            "22:00",
+            "24:00"
+          ],
+          "rows": [
+            [
+              "∑P (cm)",
+              "0,0",
+              "0,5",
+              "2,0",
+              "4,0",
+              "5,5",
+              "6,5",
+              "6,5",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Q (m³/sn)",
+              "50",
+              "70",
+              "100",
+              "200",
+              "300",
+              "400",
+              "450",
+              "350",
+              "220",
+              "190",
+              "150",
+              "80",
+              "60",
+              "50"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Qd ve BH ordinatları (U = Qd/2,7)",
+            "en": "Qd and UH ordinates (U = Qd/2.7)"
+          },
+          "headers": [
+            "t (saat)",
+            "11:00",
+            "11:30",
+            "12:00",
+            "12:30",
+            "13:00",
+            "13:30",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "20:00",
+            "22:00",
+            "24:00"
+          ],
+          "rows": [
+            [
+              "Qd (m³/sn)",
+              "0",
+              "20",
+              "50",
+              "150",
+              "250",
+              "350",
+              "400",
+              "300",
+              "170",
+              "140",
+              "100",
+              "30",
+              "10",
+              "0"
+            ],
+            [
+              "U",
+              "0",
+              "7,4",
+              "18,5",
+              "55,6",
+              "92,6",
+              "129,6",
+              "148,1",
+              "111,1",
+              "63,0",
+              "51,9",
+              "37,0",
+              "11,1",
+              "3,7",
+              "0"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Hiyetograf (i = ΔP/Δt)",
+            "en": "Hyetograph (i = ΔP/Δt)"
+          },
+          "headers": [
+            "t (saat)",
+            "11:00",
+            "11:30",
+            "12:00",
+            "12:30",
+            "13:00",
+            "13:30",
+            "14:00"
+          ],
+          "rows": [
+            [
+              "ΣP (cm)",
+              "0,0",
+              "0,5",
+              "2,0",
+              "4,0",
+              "5,5",
+              "6,5",
+              "6,5"
+            ],
+            [
+              "ΔP (cm)",
+              "-",
+              "0,5",
+              "1,5",
+              "2,0",
+              "1,5",
+              "1,0",
+              "0,0"
+            ],
+            [
+              "Δt (saat)",
+              "-",
+              "0,5",
+              "0,5",
+              "0,5",
+              "0,5",
+              "0,5",
+              "0,5"
+            ],
+            [
+              "i (cm/saat)",
+              "-",
+              "1",
+              "3",
+              "4",
+              "3",
+              "2",
+              "0"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Gözlenen hidrograf ve taban akışı ayrımı",
+          "en": "Observed hydrograph and base-flow separation"
+        },
+        "xLabel": "t (saat, gün içi)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Q (gözlenen)",
+            "kind": "line",
+            "points": [
+              [
+                11,
+                50
+              ],
+              [
+                11.5,
+                70
+              ],
+              [
+                12,
+                100
+              ],
+              [
+                12.5,
+                200
+              ],
+              [
+                13,
+                300
+              ],
+              [
+                13.5,
+                400
+              ],
+              [
+                14,
+                450
+              ],
+              [
+                15,
+                350
+              ],
+              [
+                16,
+                220
+              ],
+              [
+                17,
+                190
+              ],
+              [
+                18,
+                150
+              ],
+              [
+                20,
+                80
+              ],
+              [
+                22,
+                60
+              ],
+              [
+                24,
+                50
+              ]
+            ]
+          },
+          {
+            "name": "Taban akışı",
+            "kind": "line",
+            "points": [
+              [
+                11,
+                50
+              ],
+              [
+                24,
+                50
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 14,
+            "y": 450,
+            "label": {
+              "tr": "Pik 14:00",
+              "en": "Peak 14:00"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Taban akışını ayır: Qd = Q − 50",
+            "en": "Separate base flow: Qd = Q − 50"
+          },
+          "guiding": {
+            "tr": "BH yalnızca yağmur suyunun hidrografıdır. Gözlenen debilerin içindeki \"yağmurdan olmayan\" kısmı nasıl atarsın?",
+            "en": "The UH is the hydrograph of rainwater only. How do you remove the \"not-from-rain\" part of the observed flows?"
+          },
+          "hint": {
+            "tr": "Taban akışı sabit 50 m³/sn verilmiş: her ordinattan 50 çıkar.",
+            "en": "Base flow is given constant at 50 m³/s: subtract 50 from every ordinate."
+          },
+          "work": {
+            "tr": "Hidrograf 50'den başlıyor ve 50'ye dönüyor — yağmurdan önce ve sonra derede akan su taban akışıdır. Grafikte $Q=50$ hizasına yatay bir çizgi çizilir: altı taban akışı, üstü dolaysız akış.\n\n$$Q_d=Q-50$$\n\n$Q_d = 0;\\ 20;\\ 50;\\ 150;\\ 250;\\ 350;\\ 400;\\ 300;\\ 170;\\ 140;\\ 100;\\ 30;\\ 10;\\ 0$ m³/sn\n\n(11:00'den 24:00'e verilen zamanlarda).",
+            "en": "The hydrograph starts at 50 and returns to 50 — the water flowing before and after the storm is base flow. On the graph, a horizontal line is drawn at $Q=50$: below it is base flow, above it is direct runoff.\n\n$$Q_d=Q-50$$\n\n$Q_d = 0;\\ 20;\\ 50;\\ 150;\\ 250;\\ 350;\\ 400;\\ 300;\\ 170;\\ 140;\\ 100;\\ 30;\\ 10;\\ 0$ m³/s\n\n(at the given times from 11:00 to 24:00)."
+          },
+          "why": {
+            "tr": "Bu soru 6.1'in tersidir: hidrograftan BH'a gidiyoruz, o yüzden işlem sırası da terstir — taban akışı en başta ÇIKARILIR (6.1'de en sonda eklenmişti). BH tanımı gereği dolaysız akıştan türetilir; taban akışlı ordinatlarla devam edersen $R_d$ ve U tamamen yanlış çıkar.",
+            "en": "This question is the inverse of 6.1: we go from hydrograph to UH, so the operation order is also inverted — base flow is SUBTRACTED first (in 6.1 it was added last). By definition, the UH is derived from direct runoff; continuing with base-flow-laden ordinates makes $R_d$ and U completely wrong."
+          },
+          "result": "Q_{d,maks}=450-50=400\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Dolaysız akış hacmini kare sayarak bul",
+            "en": "Find the direct-runoff volume by counting squares"
+          },
+          "guiding": {
+            "tr": "Hidrograf eğrisinin altındaki alan fiziksel olarak neyi temsil eder ve grafikten nasıl ölçülür?",
+            "en": "What does the area under the hydrograph curve physically represent, and how is it measured from the graph?"
+          },
+          "hint": {
+            "tr": "Debi × zaman = hacim. Grafik kağıdında bir karenin hacmini hesapla, sonra kareleri say.",
+            "en": "Discharge × time = volume. Compute one grid square's volume, then count squares."
+          },
+          "work": {
+            "tr": "$Q_d$ eğrisinin altındaki alan = dolaysız akış hacmi $V$. Grafikte 1 kare $=1\\ \\text{saat}\\times50\\ \\text{m}^3/\\text{sn}=3600\\times50=18\\times10^4\\ \\text{m}^3$.\n\nEğrinin altında yaklaşık **30 kare** sayılır:\n\n$$V=30\\times18\\times10^4=540\\times10^4\\ \\text{m}^3$$\n\n(Sayısal kontrol: yamuk kuralıyla integral $\\approx 558\\times10^4$ m³ çıkar — kare sayma yaklaşık bir yöntemdir, %3'lük fark normaldir; föyün 30 kare değeriyle devam ediyoruz.)",
+            "en": "The area under the $Q_d$ curve = direct-runoff volume $V$. On the graph, 1 square $=1\\ \\text{h}\\times50\\ \\text{m}^3/\\text{s}=3600\\times50=18\\times10^4\\ \\text{m}^3$.\n\nAbout **30 squares** are counted under the curve:\n\n$$V=30\\times18\\times10^4=540\\times10^4\\ \\text{m}^3$$\n\n(Numerical check: trapezoidal integration gives $\\approx 558\\times10^4$ m³ — square counting is approximate, a 3% difference is normal; we continue with the sheet's 30 squares.)"
+          },
+          "why": {
+            "tr": "BH'a ölçek verecek olan şey su hacmidir: \"bu taşkın havzaya kaç cm su bıraktı?\" sorusunun payıdır. Debi-zaman grafiğinde alan her zaman hacimdir; kare sayma da sınavda integral yerine geçen pratik yoldur. Kare hacmini eksen ölçeklerinden kurmayı unutma.",
+            "en": "The water volume is what will give the UH its scale: it is the numerator of \"how many cm of water did this flood leave over the basin?\". On a discharge-time graph, area is always volume; square counting is the exam-practical substitute for integration. Remember to build the square's volume from the axis scales."
+          },
+          "result": "V=540\\times10^{4}\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Dolaysız akış yüksekliğini hesapla: Rd = V/A",
+            "en": "Compute the direct-runoff depth: Rd = V/A"
+          },
+          "guiding": {
+            "tr": "Bu hacim, 200 km²'lik havzaya eşit yayılsaydı kaç cm'lik su tabakası olurdu?",
+            "en": "If this volume were spread evenly over the 200 km² basin, how deep a water layer would it be?"
+          },
+          "hint": {
+            "tr": "$R_d=V/A$; alanı m²'ye çevir ($200\\times10^6$ m²), sonucu cm'ye çevir.",
+            "en": "$R_d=V/A$; convert the area to m² ($200\\times10^6$ m²), convert the result to cm."
+          },
+          "work": {
+            "tr": "$$R_d=\\frac{V}{A}=\\frac{540\\times10^4\\ \\text{m}^3}{200\\times10^6\\ \\text{m}^2}=0{,}027\\ \\text{m}=2{,}7\\ \\text{cm}$$\n\nBu aynı zamanda **artık (net) yağış yüksekliğidir**: yağan 6,5 cm'in yalnızca 2,7 cm'i akışa geçmiş, gerisi sızma vb. kayıplara gitmiştir.",
+            "en": "$$R_d=\\frac{V}{A}=\\frac{540\\times10^4\\ \\text{m}^3}{200\\times10^6\\ \\text{m}^2}=0.027\\ \\text{m}=2.7\\ \\text{cm}$$\n\nThis is also the **effective (net) rainfall depth**: of the 6.5 cm that fell, only 2.7 cm became runoff; the rest went to infiltration and other losses."
+          },
+          "why": {
+            "tr": "BH \"1 cm'e karşılık gelen hidrograf\" olduğuna göre, elimizdeki taşkının kaç cm'lik olduğunu bilmeliyiz — bölme faktörümüz budur. Su dengesi mantığı: hacim / alan = yükseklik. Sınav refleksi: sonucu mutlaka cm'ye çevir, çünkü BH tanımı cm ile kurulur.",
+            "en": "Since the UH is \"the hydrograph corresponding to 1 cm\", we must know how many cm our flood represents — that is our division factor. Water-balance logic: volume / area = depth. Exam reflex: always convert the result to cm, because the UH definition is built in cm."
+          },
+          "result": "R_d=2{,}7\\ \\text{cm}",
+          "check": {
+            "q": {
+              "tr": "$540\\times10^4/200\\times10^6=0{,}027$ çıktı. BH hesabında kullanılacak $R_d$ hangisi?",
+              "en": "We got $540\\times10^4/200\\times10^6=0.027$. Which $R_d$ goes into the UH computation?"
+            },
+            "options": [
+              {
+                "tr": "0,027 (birimsiz katsayı)",
+                "en": "0.027 (a unitless factor)"
+              },
+              {
+                "tr": "2,7 cm",
+                "en": "2.7 cm"
+              },
+              {
+                "tr": "27 cm",
+                "en": "27 cm"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "0,027 **metre**dir; BH 1 cm'e göre tanımlandığı için cm'ye çevrilir: 2,7 cm. $U=Q_d/2{,}7$ yazılır. 0,027'ye bölmek U'yu 100 kat büyük, 27'ye bölmek 10 kat küçük yapar.",
+              "en": "0.027 is in **metres**; since the UH is defined per 1 cm, convert to cm: 2.7 cm. We write $U=Q_d/2.7$. Dividing by 0.027 makes U 100 times too big; dividing by 27 makes it 10 times too small."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "BH ordinatlarını bul: U = Qd / 2,7",
+            "en": "Get the UH ordinates: U = Qd / 2.7"
+          },
+          "guiding": {
+            "tr": "2,7 cm'lik taşkının hidrografı elimizde. 1 cm'lik olsaydı ordinatlar ne olurdu?",
+            "en": "We have the hydrograph of a 2.7-cm flood. What would the ordinates be if it were a 1-cm flood?"
+          },
+          "hint": {
+            "tr": "Orantılılık tersten: her $Q_d$ değerini 2,7'ye böl.",
+            "en": "Proportionality in reverse: divide every $Q_d$ by 2.7."
+          },
+          "work": {
+            "tr": "$$U=\\frac{Q_d}{2{,}7}$$\n\n$U = 0;\\ 7{,}4;\\ 18{,}5;\\ 55{,}6;\\ 92{,}6;\\ 129{,}6;\\ \\mathbf{148{,}1};\\ 111{,}1;\\ 63{,}0;\\ 51{,}9;\\ 37{,}0;\\ 11{,}1;\\ 3{,}7;\\ 0$ m³/sn\n\n(11:00'den 24:00'e verilen zamanlarda; örnek: $400/2{,}7=148{,}1$.) Bu, havzanın BH'ıdır; hangi süreli olduğunu bir sonraki adımda ($t_0$) bulacağız.",
+            "en": "$$U=\\frac{Q_d}{2.7}$$\n\n$U = 0;\\ 7.4;\\ 18.5;\\ 55.6;\\ 92.6;\\ 129.6;\\ \\mathbf{148.1};\\ 111.1;\\ 63.0;\\ 51.9;\\ 37.0;\\ 11.1;\\ 3.7;\\ 0$ m³/s\n\n(at the given times from 11:00 to 24:00; e.g. $400/2.7=148.1$.) This is the basin's UH; its duration ($t_0$) is found in the next step."
+          },
+          "why": {
+            "tr": "6.1'de \"çarp\" dediğimiz kuralın tersi: 2,7 cm'in cevabını 2,7'ye bölersen 1 cm'in cevabını (BH'ı) elde edersin. Bu adım, doğrusallık varsayımının en yalın kullanımıdır ve BH türetmenin son hesap adımıdır.",
+            "en": "The reverse of the \"multiply\" rule in 6.1: dividing the response to 2.7 cm by 2.7 gives the response to 1 cm (the UH). This step is the plainest use of the linearity assumption and the last computational step of UH derivation."
+          },
+          "result": "U_{maks}=\\frac{400}{2{,}7}=148{,}1\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Hiyetografı kur: i = ΔP/Δt",
+            "en": "Build the hyetograph: i = ΔP/Δt"
+          },
+          "guiding": {
+            "tr": "$t_0$'ı bulmak için yağışın şiddet-zaman grafiği gerekir. Kümülatif $\\sum P$'den şiddete nasıl geçersin?",
+            "en": "Finding $t_0$ requires the intensity-time plot of the rain. How do you go from cumulative $\\sum P$ to intensity?"
+          },
+          "hint": {
+            "tr": "Önce ardışık farklar ($\\Delta P$), sonra her farkı aralığına böl ($\\Delta t=0{,}5$ sa).",
+            "en": "First successive differences ($\\Delta P$), then divide each by its interval ($\\Delta t=0.5$ h)."
+          },
+          "work": {
+            "tr": "Yarım saatlik farklar: $\\Delta P = 0{,}5;\\ 1{,}5;\\ 2{,}0;\\ 1{,}5;\\ 1{,}0;\\ 0{,}0$ cm ($11{:}00$'den $14{:}00$'e).\n\nŞiddetler: $i=\\Delta P/0{,}5$:\n\n$$i = 1;\\ 3;\\ 4;\\ 3;\\ 2;\\ 0\\ \\text{cm/saat}$$\n\nHiyetograf: 11:00–11:30'da 1; 11:30–12:00'de 3; 12:00–12:30'da 4; 12:30–13:00'te 3; 13:00–13:30'da 2 cm/saat'lik çubuklar. Toplam yağış $=6{,}5$ cm ✓ (kümülatif son değerle uyumlu).",
+            "en": "Half-hour differences: $\\Delta P = 0.5;\\ 1.5;\\ 2.0;\\ 1.5;\\ 1.0;\\ 0.0$ cm (from 11:00 to 14:00).\n\nIntensities: $i=\\Delta P/0.5$:\n\n$$i = 1;\\ 3;\\ 4;\\ 3;\\ 2;\\ 0\\ \\text{cm/h}$$\n\nHyetograph: bars of 1 (11:00–11:30), 3 (11:30–12:00), 4 (12:00–12:30), 3 (12:30–13:00), 2 cm/h (13:00–13:30). Total rain $=6.5$ cm ✓ (matches the last cumulative value)."
+          },
+          "why": {
+            "tr": "Artık yağış süresi $t_0$, yağışın hangi bölümünün akışa geçtiğini gösteren φ çizgisiyle bulunur; φ çizgisi ancak şiddet ekseninde çizilebilir. Kümülatif tablo gördüğünde refleks aynı: fark al, sonra $\\Delta t$'ye böl.",
+            "en": "The effective-rain duration $t_0$ is found with the φ-line, which shows which part of the rain became runoff; the φ-line can only be drawn on an intensity axis. When you see a cumulative table, same reflex: difference, then divide by $\\Delta t$."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "φ çizgisiyle artık yağış süresini (t0) bul",
+            "en": "Find the effective-rain duration (t0) with the φ-line"
+          },
+          "guiding": {
+            "tr": "Hiyetografın üzerinde öyle bir yatay çizgi olmalı ki üstünde kalan alan tam $R_d=2{,}7$ cm olsun. Bu çizgi nereden geçer?",
+            "en": "There must be a horizontal line on the hyetograph such that the area above it is exactly $R_d=2.7$ cm. Where does it sit?"
+          },
+          "hint": {
+            "tr": "1 kare $=0{,}5\\ \\text{cm/sa}\\times0{,}5\\ \\text{sa}=0{,}25$ cm → üstte $2{,}7/0{,}25=10{,}8$ kare kalmalı. 2 cm/sa hizasının üstünde sadece 8 kare var...",
+            "en": "1 square $=0.5\\ \\text{cm/h}\\times0.5\\ \\text{h}=0.25$ cm → 10.8 squares must remain above. Above the 2 cm/h level there are only 8 squares..."
+          },
+          "work": {
+            "tr": "φ çizgisinin üstünde kalan alan = akışa geçen yağış = $R_d=2{,}7$ cm olmalı.\n\nGrafikte 1 kare $=0{,}25$ cm → $2{,}7/0{,}25=10{,}8$ kare üstte kalmalı. 2 cm/sa seviyesinin üstünde 8 kare var (yetmez) → çizgi 2'nin biraz altında.\n\nÇizgi $1<\\varphi<2$ aralığındayken üstünde 3, 4, 3 ve 2 cm/sa'lik dört blok kalır:\n$$\\big[(3-\\varphi)+(4-\\varphi)+(3-\\varphi)+(2-\\varphi)\\big]\\times0{,}5=2{,}7\\ \\Rightarrow\\ \\varphi=1{,}65\\ \\text{cm/sa}$$\n\nÇizgi hiyetografı **11:30** ve **13:30**'da keser:\n\n$$t_0=13{:}30-11{:}30=2\\ \\text{saat}$$\n\nDemek ki türettiğimiz BH, **2 saat süreli** bir BH'dır.",
+            "en": "The area above the φ-line = rain that became runoff = $R_d=2.7$ cm.\n\nOn the plot 1 square $=0.25$ cm → $2.7/0.25=10.8$ squares must stay above. Above the 2 cm/h level there are only 8 squares (not enough) → the line sits slightly below 2.\n\nWith the line in $1<\\varphi<2$, four blocks (3, 4, 3 and 2 cm/h) stay above it:\n$$\\big[(3-\\varphi)+(4-\\varphi)+(3-\\varphi)+(2-\\varphi)\\big]\\times0.5=2.7\\ \\Rightarrow\\ \\varphi=1.65\\ \\text{cm/h}$$\n\nThe line cuts the hyetograph at **11:30** and **13:30**:\n\n$$t_0=13{:}30-11{:}30=2\\ \\text{h}$$\n\nSo the UH we derived is a **2-hour** UH."
+          },
+          "why": {
+            "tr": "BH'ın \"süresi\" onu üreten *net* yağışın süresidir; net yağış ise şiddeti φ'nin üstünde kalan bölümdür. φ çizgisinin yeri keyfî değildir — üstte kalan alanın $R_d$'ye eşitlenmesi, yağış ve akış hacimlerinin aynı su olduğunu söyleyen süreklilik ilkesidir. Sınavda \"BH'ın süresi nedir?\" sorusunun cevabı hiyetograftan gelir, hidrograftan değil.",
+            "en": "The UH's \"duration\" is the duration of the *net* rain that produced it; the net rain is the part whose intensity exceeds φ. The φ-line's position is not arbitrary — equating the area above it to $R_d$ is the continuity principle saying the rain and runoff volumes are the same water. In the exam, \"what is the UH's duration?\" is answered from the hyetograph, not the hydrograph."
+          },
+          "result": "t_0=2\\ \\text{saat}\\quad(\\varphi=1{,}65\\ \\text{cm/sa})",
+          "check": {
+            "q": {
+              "tr": "Yağış 11:00'den 13:30'a kadar (2,5 saat) yağdı. $t_0$ neden 2 saat?",
+              "en": "Rain fell from 11:00 to 13:30 (2.5 h). Why is $t_0$ 2 hours?"
+            },
+            "options": [
+              {
+                "tr": "Çünkü ilk yarım saatin şiddeti (1 cm/sa) φ'nin altında kalıyor; o yağış akışa geçmiyor",
+                "en": "Because the first half hour's intensity (1 cm/h) is below φ; that rain never becomes runoff"
+              },
+              {
+                "tr": "Çünkü hidrografın piki 2 saatte geliyor",
+                "en": "Because the hydrograph peaks in 2 hours"
+              },
+              {
+                "tr": "Çünkü yağış 2 saatte bitmiş kabul edilir",
+                "en": "Because rain is assumed to stop after 2 hours"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$t_0$ toplam yağış süresi değil, *artık* (net) yağışın süresidir. 11:00–11:30 bloğu (1 cm/sa < 1,65) tamamen kayıplara gider; net yağış 11:30–13:30 arasında düşer → 2 saat. Pik zamanı ya da varsayım değil, φ çizgisi belirler.",
+              "en": "$t_0$ is not the total storm duration but the duration of the *effective* (net) rain. The 11:00–11:30 block (1 cm/h < 1.65) is entirely lost; net rain falls between 11:30 and 13:30 → 2 h. It is set by the φ-line, not by peak timing or an assumption."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Gecikme süresini (tg) hesapla",
+            "en": "Compute the lag time (tg)"
+          },
+          "guiding": {
+            "tr": "Gecikme süresi neyin neyle arasındaki zamandır? İki grafikte hangi iki noktayı işaretlemelisin?",
+            "en": "The lag time is the time between what and what? Which two points do you mark on the two graphs?"
+          },
+          "hint": {
+            "tr": "Hidrografın piki ile hiyetografın ağırlık merkezi arasındaki süre.",
+            "en": "The time between the hydrograph peak and the hyetograph's centre of mass."
+          },
+          "work": {
+            "tr": "Hidrografın piki **14:00**'te (Q = 450 m³/sn).\n\nHiyetografın ağırlık merkezi: solundaki ve sağındaki yağış alanları eşit olan düşey çizgi. Toplam yağış 6,5 cm → yarısı 3,25 cm. Kümülatif tabloda 3,25 cm'e 12:00–12:30 bloğu içinde ulaşılır: $2{,}0+4\\ \\text{cm/sa}\\times\\Delta t=3{,}25\\Rightarrow\\Delta t=0{,}31$ sa → **12:19**.\n\n$$t_g=14{:}00-12{:}19=101\\ \\text{dk}\\approx1\\ \\text{sa}\\ 41\\ \\text{dk}$$",
+            "en": "The hydrograph peaks at **14:00** (Q = 450 m³/s).\n\nHyetograph centre of mass: the vertical line with equal rain areas on both sides. Total rain 6.5 cm → half is 3.25 cm. In the cumulative table, 3.25 cm is reached inside the 12:00–12:30 block: $2.0+4\\ \\text{cm/h}\\times\\Delta t=3.25\\Rightarrow\\Delta t=0.31$ h → **12:19**.\n\n$$t_g=14{:}00-12{:}19=101\\ \\text{min}\\approx1\\ \\text{h}\\ 41\\ \\text{min}$$"
+          },
+          "why": {
+            "tr": "Gecikme süresi, havzanın yağışa \"ne kadar geç\" cevap verdiğinin ölçüsüdür ve sentetik BH yöntemlerinin (Snyder, 6.6) temel parametresidir. Yağışın *başlangıcı* değil ağırlık merkezi kullanılır, çünkü yağış zamana yayılmıştır; pik ise cevabın en belirgin noktasıdır.",
+            "en": "The lag time measures \"how late\" the basin responds to rain and is the core parameter of synthetic-UH methods (Snyder, 6.6). The rain's centre of mass is used rather than its *start* because rain is spread over time; the peak is the most distinct point of the response."
+          },
+          "result": "t_g=14{:}00-12{:}19=101\\ \\text{dk}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**BH ordinatları** (m³/sn, 11:00'den 24:00'e verilen zamanlarda): $U=Q_d/2{,}7$\n\n$$U = 0;\\ 7{,}4;\\ 18{,}5;\\ 55{,}6;\\ 92{,}6;\\ 129{,}6;\\ \\boxed{148{,}1};\\ 111{,}1;\\ 63{,}0;\\ 51{,}9;\\ 37{,}0;\\ 11{,}1;\\ 3{,}7;\\ 0$$\n\nDolaysız akış hacmi $V=540\\times10^4$ m³, artık yağış yüksekliği $R_d=2{,}7$ cm. **Artık yağış süresi $t_0=2$ saat** (φ = 1,65 cm/sa; kesişimler 11:30 ve 13:30) — yani bu bir 2 saatlik BH'dır. **Gecikme süresi $t_g=101$ dk** (pik 14:00 − ağırlık merkezi 12:19).",
+        "en": "**UH ordinates** (m³/s, at the given times from 11:00 to 24:00): $U=Q_d/2.7$\n\n$$U = 0;\\ 7{,}4;\\ 18{,}5;\\ 55{,}6;\\ 92{,}6;\\ 129{,}6;\\ \\boxed{148{,}1};\\ 111{,}1;\\ 63{,}0;\\ 51{,}9;\\ 37{,}0;\\ 11{,}1;\\ 3{,}7;\\ 0$$\n\nDirect-runoff volume $V=540\\times10^4$ m³, effective-rain depth $R_d=2.7$ cm. **Effective-rain duration $t_0=2$ h** (φ = 1.65 cm/h; intersections at 11:30 and 13:30) — so this is a 2-hour UH. **Lag time $t_g=101$ min** (peak 14:00 − centre of mass 12:19)."
+      },
+      "traps": [
+        {
+          "tr": "$R_d=0{,}027$ **m** çıkar; BH hesabında cm'ye çevirip 2,7'ye bölmelisin. 0,027'ye bölmek U'yu 100 kat şişirir.",
+          "en": "$R_d$ comes out as 0.027 **m**; convert to cm and divide by 2.7 for the UH. Dividing by 0.027 inflates U by a factor of 100."
+        },
+        {
+          "tr": "Taban akışı hem hacim hesabından hem ordinatlardan çıkarılmış olmalı; unutursan hidrograf hiç sıfıra inmez — bu, hatanın alarm zilidir.",
+          "en": "Base flow must be removed both from the volume and the ordinates; if you forget, the hydrograph never returns to zero — that is the alarm bell."
+        },
+        {
+          "tr": "$t_0$, HİYETOGRAF üzerinde bulunur (φ çizgisinin üstünde kalan alan = $R_d$), hidrograftan değil. Hidrograf sadece $t_g$ (gecikme süresi) için kullanılır — ikisini karıştırmak farklı bir soruya farklı bir grafikten cevap vermek demektir.",
+          "en": "$t_0$ is found on the HYETOGRAPH (the area above the φ-line must equal $R_d$), not from the hydrograph. The hydrograph is used only for $t_g$ (the lag time) — mixing the two means answering the wrong question from the wrong graph."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya havza alanı 200 değil 100 km² olsaydı?",
+            "en": "What if the basin area were 100 km² instead of 200?"
+          },
+          "answer": {
+            "tr": "$R_d=540\\times10^4/100\\times10^6=0{,}054$ m $=5{,}4$ cm olurdu; $U=Q_d/5{,}4$ → tüm ordinatlar yarıya iner (pik $400/5{,}4=74{,}1$ m³/sn). Aynı su daha küçük havzaya yayılınca daha \"derin\" bir yağışı temsil eder; BH da ona göre küçülür.",
+            "en": "$R_d=540\\times10^4/100\\times10^6=0.054$ m $=5.4$ cm; $U=Q_d/5.4$ → all ordinates halve (peak $400/5.4=74.1$ m³/s). The same water over a smaller basin represents a \"deeper\" rain, so the UH shrinks accordingly."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya taban akışı 50 yerine 100 m³/sn olsaydı?",
+            "en": "What if the base flow were 100 m³/s instead of 50?"
+          },
+          "answer": {
+            "tr": "Her adım aynı şablonla tekrarlanır, sadece $Q_d=Q-100$ ile başlarsın. Q'nun 100'ün altında kaldığı satırlar (11:00, 11:30 ve kuyrukta 20:00, 22:00, 24:00) artık negatif $Q_d$ verir — bu, taban akışının o saatlerdeki gözlenen akıştan bile büyük olduğu, yani taşkının o saatlerde henüz başlamadığı/bittiği anlamına gelir. $Q_d$ küçüldüğü için hacim $V$ ve dolayısıyla $R_d$ de küçülür; $U=Q_d/R_d$ oranı baştan yeniden hesaplanmalıdır — sonucu ezberden tahmin etme, tabloyu $Q-100$ ile yeniden kur.",
+            "en": "Every step repeats with the same template, just starting from $Q_d=Q-100$. The rows where Q stays below 100 (11:00, 11:30, and at the tail 20:00, 22:00, 24:00) now give negative $Q_d$ — meaning the assumed base flow exceeds the observed discharge there, i.e. the flood hasn't started yet or has already ended at those times. Smaller $Q_d$ means a smaller volume $V$ and hence a smaller $R_d$; $U=Q_d/R_d$ must be recomputed from scratch — don't guess the result, rebuild the table from $Q-100$."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6-4",
+      "code": "Uygulama 6.4",
+      "title": {
+        "tr": "1 saatlik BH'tan 3 saatlik BH (ötele-topla-ölçekle)",
+        "en": "From a 1-h UH to a 3-h UH (lag-add-rescale)"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıda, 1 saat süreli BH ordinatları (U) verilmiştir. 3 saat süreli BH ordinatlarını elde ediniz.",
+        "en": "The ordinates (U) of a 1-hour UH are given below. Obtain the ordinates of the 3-hour UH."
+      },
+      "given": [
+        {
+          "symbol": "t_0",
+          "value": "1\\ \\text{saat}",
+          "label": {
+            "tr": "Verilen BH süresi",
+            "en": "Given UH duration"
+          }
+        },
+        {
+          "symbol": "t_1",
+          "value": "3\\ \\text{saat}",
+          "label": {
+            "tr": "İstenen BH süresi",
+            "en": "Target UH duration"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "3 saat süreli BH ordinatlarını bulmak.",
+        "en": "Find the ordinates of the 3-h UH."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "1 saatlik BH ordinatları",
+            "en": "1-h UH ordinates"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14"
+          ],
+          "rows": [
+            [
+              "U (m³/sn)",
+              "0",
+              "290",
+              "550",
+              "480",
+              "265",
+              "130",
+              "70",
+              "50",
+              "25",
+              "20",
+              "15",
+              "10",
+              "10",
+              "5",
+              "5"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Ötele-topla tablosu (1 sa ve 2 sa ötelemeler)",
+            "en": "Lag-and-add table (1-h and 2-h lags)"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          "rows": [
+            [
+              "U (1 sa BH)",
+              "0",
+              "290",
+              "550",
+              "480",
+              "265",
+              "130",
+              "70",
+              "50",
+              "25",
+              "20",
+              "15",
+              "10",
+              "10",
+              "5",
+              "5",
+              "-",
+              "-"
+            ],
+            [
+              "1 sa ötelenmiş U",
+              "-",
+              "0",
+              "290",
+              "550",
+              "480",
+              "265",
+              "130",
+              "70",
+              "50",
+              "25",
+              "20",
+              "15",
+              "10",
+              "10",
+              "5",
+              "5",
+              "-"
+            ],
+            [
+              "2 sa ötelenmiş U",
+              "-",
+              "-",
+              "0",
+              "290",
+              "550",
+              "480",
+              "265",
+              "130",
+              "70",
+              "50",
+              "25",
+              "20",
+              "15",
+              "10",
+              "10",
+              "5",
+              "5"
+            ],
+            [
+              "Toplam",
+              "0",
+              "290",
+              "840",
+              "1320",
+              "1295",
+              "875",
+              "465",
+              "250",
+              "145",
+              "95",
+              "60",
+              "45",
+              "35",
+              "25",
+              "20",
+              "10",
+              "5"
+            ],
+            [
+              "3 sa BH = Toplam×1/3",
+              "0",
+              "97",
+              "280",
+              "440",
+              "432",
+              "292",
+              "155",
+              "83",
+              "48",
+              "32",
+              "20",
+              "15",
+              "12",
+              "8",
+              "7",
+              "3",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "1 saatlik ve 3 saatlik BH karşılaştırması",
+          "en": "1-h vs 3-h UH comparison"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "U (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "1 saatlik BH",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                290
+              ],
+              [
+                2,
+                550
+              ],
+              [
+                3,
+                480
+              ],
+              [
+                4,
+                265
+              ],
+              [
+                5,
+                130
+              ],
+              [
+                6,
+                70
+              ],
+              [
+                7,
+                50
+              ],
+              [
+                8,
+                25
+              ],
+              [
+                9,
+                20
+              ],
+              [
+                10,
+                15
+              ],
+              [
+                11,
+                10
+              ],
+              [
+                12,
+                10
+              ],
+              [
+                13,
+                5
+              ],
+              [
+                14,
+                5
+              ]
+            ]
+          },
+          {
+            "name": "3 saatlik BH",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                97
+              ],
+              [
+                2,
+                280
+              ],
+              [
+                3,
+                440
+              ],
+              [
+                4,
+                432
+              ],
+              [
+                5,
+                292
+              ],
+              [
+                6,
+                155
+              ],
+              [
+                7,
+                83
+              ],
+              [
+                8,
+                48
+              ],
+              [
+                9,
+                32
+              ],
+              [
+                10,
+                20
+              ],
+              [
+                11,
+                15
+              ],
+              [
+                12,
+                12
+              ],
+              [
+                13,
+                8
+              ],
+              [
+                14,
+                7
+              ],
+              [
+                15,
+                3
+              ],
+              [
+                16,
+                2
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 3,
+            "y": 440,
+            "label": {
+              "tr": "3 saatlik pik: 440",
+              "en": "3-h peak: 440"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Yöntemi seç: t1/t0 tam kat mı?",
+            "en": "Choose the method: is t1/t0 an integer?"
+          },
+          "guiding": {
+            "tr": "1 saatlikten 3 saatliğe geçeceğiz. Hangi koşul sağlanırsa basit ötele-topla yöntemi kullanılabilir?",
+            "en": "We go from 1 h to 3 h. Which condition allows the simple lag-and-add method?"
+          },
+          "hint": {
+            "tr": "$t_1/t_0=3/1=3$ — tam sayı mı?",
+            "en": "$t_1/t_0=3/1=3$ — is it an integer?"
+          },
+          "work": {
+            "tr": "$t_1/t_0=3/1=3$: tam sayı ✓ → **ötele-topla-ölçekle** yöntemi geçerli.\n\nFikir: 1'er saat arayla yağan üç ardışık 1 cm'lik yağış, toplamda \"3 saatte 3 cm\" eder. Süperpozisyonla (6.1-6.2'deki gibi) bu üç yağışın hidrografı = BH'ın kendisi + 1 sa ötelenmişi + 2 sa ötelenmişi. Sonra 3 cm'i 1 cm'e indirmek için 3'e böleriz.",
+            "en": "$t_1/t_0=3/1=3$: an integer ✓ → the **lag-add-rescale** method applies.\n\nIdea: three consecutive 1-cm rains, each 1 h apart, add up to \"3 cm in 3 hours\". By superposition (as in 6.1-6.2), the hydrograph of these three rains = the UH itself + its 1-h lag + its 2-h lag. Then we divide by 3 to bring 3 cm back to 1 cm."
+          },
+          "why": {
+            "tr": "Bu kontrol sınavdaki ilk ve en kritik karardır: tam katsa bu kısa yöntem, değilse S eğrisi (6.5). Yanlış yöntem seçimi tüm soruyu götürür. \"3 saatlik yağış = üç tane ardışık 1 saatlik yağış\" cümlesini kurabiliyorsan yöntemin mantığını da anlamışsın demektir.",
+            "en": "This check is the first and most critical exam decision: integer → this short method; otherwise → S-curve (6.5). Choosing the wrong method sinks the whole question. If you can say \"a 3-h rain = three back-to-back 1-h rains\", you understand why the method works."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "Kaç öteleme yapılır (orijinal hariç kaç kaydırılmış kopya)?",
+              "en": "How many lags are made (how many shifted copies besides the original)?"
+            },
+            "options": [
+              {
+                "tr": "1",
+                "en": "1"
+              },
+              {
+                "tr": "2",
+                "en": "2"
+              },
+              {
+                "tr": "3",
+                "en": "3"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Kopya sayısı $=t_1/t_0=3$ (orijinal + 1 sa ötelenmiş + 2 sa ötelenmiş); öteleme sayısı $=(t_1-t_0)/t_0=2$'dir. 3 öteleme yapan öğrenci yanlışlıkla 4 saatlik yağışı temsil eder.",
+              "en": "The number of copies is $t_1/t_0=3$ (original + 1-h lag + 2-h lag); the number of lags is $(t_1-t_0)/t_0=2$. Making 3 lags accidentally represents a 4-hour rain."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "BH'ı 1 ve 2 saat ötele",
+            "en": "Lag the UH by 1 h and 2 h"
+          },
+          "guiding": {
+            "tr": "İkinci ve üçüncü \"hayali\" 1 cm'lik yağışların hidrografları tabloda nasıl görünür?",
+            "en": "How do the second and third \"imaginary\" 1-cm rains' hydrographs look in the table?"
+          },
+          "hint": {
+            "tr": "Aynı U dizisini bir satır ve iki satır aşağı kaydırarak iki yeni sütun yaz.",
+            "en": "Write two new columns by sliding the same U series down one row and two rows."
+          },
+          "work": {
+            "tr": "Üç sütun oluşur:\n\n- **Sütun II** — U (ötelemesiz): $0;\\ 290;\\ 550;\\ 480;\\ 265;\\ \\dots$\n- **Sütun III** — 1 sa ötelenmiş U: $t=1$'de 0; $t=2$'de 290; $t=3$'te 550; ...\n- **Sütun IV** — 2 sa ötelenmiş U: $t=2$'de 0; $t=3$'te 290; $t=4$'te 550; ...\n\nSon ötelenmiş kopya $t=2+14=16$ saatte bittiği için tablo 16 saate uzar.",
+            "en": "Three columns form:\n\n- **Column II** — U (unlagged): $0;\\ 290;\\ 550;\\ 480;\\ 265;\\ \\dots$\n- **Column III** — U lagged 1 h: 0 at $t=1$; 290 at $t=2$; 550 at $t=3$; ...\n- **Column IV** — U lagged 2 h: 0 at $t=2$; 290 at $t=3$; 550 at $t=4$; ...\n\nThe last lagged copy ends at $t=2+14=16$ h, so the table extends to 16 h."
+          },
+          "why": {
+            "tr": "Her kopya, 1 saat arayla başlayan birer 1 cm'lik yağışın cevabıdır — 6.1'deki öteleme mantığının aynısı, sadece yağışlar hayalîdir. Taban süresinin $t_1-t_0=2$ saat uzayacağını baştan bilmek tabloyu doğru boyutlandırmanı sağlar.",
+            "en": "Each copy is the response to a 1-cm rain starting 1 h later — the same lagging logic as 6.1, only the rains are imaginary. Knowing upfront that the time base grows by $t_1-t_0=2$ h lets you size the table correctly."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Üç sütunu satır satır topla",
+            "en": "Sum the three columns row by row"
+          },
+          "guiding": {
+            "tr": "Toplam sütunu neyin hidrografıdır? (İpucu: kaç cm'lik yağışın?)",
+            "en": "The sum column is the hydrograph of what? (Hint: how many cm of rain?)"
+          },
+          "hint": {
+            "tr": "$t=3$: $480+550+290=1320$. Bu, 3 saatte yağan 3 cm'in hidrografıdır.",
+            "en": "$t=3$: $480+550+290=1320$. This is the hydrograph of 3 cm falling in 3 hours."
+          },
+          "work": {
+            "tr": "Toplam (Sütun V) $=$ II $+$ III $+$ IV:\n\n$0;\\ 290;\\ 840;\\ \\mathbf{1320};\\ 1295;\\ 875;\\ 465;\\ 250;\\ 145;\\ 95;\\ 60;\\ 45;\\ 35;\\ 25;\\ 20;\\ 10;\\ 5$\n\n($t=0,\\dots,16$). Örnek: $t=4$ → $265+480+550=1295$. Bu eğri, 3 saatlik sürede 3 cm net yağışın dolaysız akışıdır — henüz BH değil!",
+            "en": "Sum (Column V) $=$ II $+$ III $+$ IV:\n\n$0;\\ 290;\\ 840;\\ \\mathbf{1320};\\ 1295;\\ 875;\\ 465;\\ 250;\\ 145;\\ 95;\\ 60;\\ 45;\\ 35;\\ 25;\\ 20;\\ 10;\\ 5$\n\n($t=0,\\dots,16$). Example: $t=4$ → $265+480+550=1295$. This curve is the direct runoff of 3 cm of net rain in 3 hours — not yet a UH!"
+          },
+          "why": {
+            "tr": "Süperpozisyonla üç yağışın ortak hidrografını kurduk. Ara sonucun \"3 cm'lik\" olduğunu unutmamak kritik: bu farkındalık son adımdaki ölçekleme katsayısını sana kendiliğinden söyler.",
+            "en": "Superposition built the joint hydrograph of the three rains. Remembering that this intermediate result is \"for 3 cm\" is critical: that awareness hands you the scaling factor of the final step."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "1/3 ile ölçekle → 3 saatlik BH",
+            "en": "Scale by 1/3 → the 3-h UH"
+          },
+          "guiding": {
+            "tr": "3 cm'lik hidrografı 1 cm'lik BH'a çevirmek için ne yaparsın?",
+            "en": "How do you turn a 3-cm hydrograph into a 1-cm UH?"
+          },
+          "hint": {
+            "tr": "Orantılılık: her toplamı $t_0/t_1=1/3$ ile çarp.",
+            "en": "Proportionality: multiply every sum by $t_0/t_1=1/3$."
+          },
+          "work": {
+            "tr": "$$U_{3\\text{sa}}=\\text{Toplam}\\times\\frac{t_0}{t_1}=\\text{Toplam}\\times\\frac{1}{3}$$\n\n$U_{3sa} = 0;\\ 97;\\ 280;\\ \\mathbf{440};\\ 432;\\ 292;\\ 155;\\ 83;\\ 48;\\ 32;\\ 20;\\ 15;\\ 12;\\ 8;\\ 7;\\ 3;\\ 2$ m³/sn\n\n($t=0,\\dots,16$; değerler tam sayıya yuvarlanmıştır, örn. $1320/3=440$, $1295/3=431{,}7\\approx432$).",
+            "en": "$$U_{3h}=\\text{Sum}\\times\\frac{t_0}{t_1}=\\text{Sum}\\times\\frac{1}{3}$$\n\n$U_{3h} = 0;\\ 97;\\ 280;\\ \\mathbf{440};\\ 432;\\ 292;\\ 155;\\ 83;\\ 48;\\ 32;\\ 20;\\ 15;\\ 12;\\ 8;\\ 7;\\ 3;\\ 2$ m³/s\n\n($t=0,\\dots,16$; values rounded to integers, e.g. $1320/3=440$, $1295/3=431.7\\approx432$)."
+          },
+          "why": {
+            "tr": "BH tanımı 1 cm ister; toplamımız 3 cm'i temsil ediyordu, o yüzden 3'e böldük. Genel kural: çarpan daima $t_0/t_1$'dir (küçük süre / büyük süre). Bu çarpanı unutan öğrenci \"BH\" diye 3 cm'lik hidrograf teslim eder — en yaygın hata.",
+            "en": "The UH definition demands 1 cm; our sum represented 3 cm, hence dividing by 3. General rule: the factor is always $t_0/t_1$ (short duration / long duration). Forgetting it hands in a 3-cm hydrograph labelled \"UH\" — the most common error."
+          },
+          "result": "U_{3sa,maks}=440\\ \\text{m}^3/\\text{sn}\\ (t=3\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sonucu yorumla ve sağla",
+            "en": "Interpret and verify the result"
+          },
+          "guiding": {
+            "tr": "3 saatlik BH, 1 saatlik BH'a göre nasıl değişti? Bu beklediğin yönde mi?",
+            "en": "How did the 3-h UH change relative to the 1-h UH? Is that the direction you expected?"
+          },
+          "hint": {
+            "tr": "Pikleri (550 → 440) ve taban sürelerini (14 → 16 sa) karşılaştır; ordinat toplamlarına bak.",
+            "en": "Compare peaks (550 → 440) and time bases (14 → 16 h); look at the ordinate sums."
+          },
+          "work": {
+            "tr": "- Pik: $550\\to440$ m³/sn (küçüldü) ve $t=2$'den $t=3$'e kaydı.\n- Taban süresi: $14\\to16$ sa (tam $t_1-t_0=2$ sa uzadı).\n- Hacim: her iki BH de 1 cm'i temsil eder; ordinat aralığı aynı (1 sa) olduğundan toplamlar eşit olmalı: $\\sum U_{1sa}=1925$ ve $\\sum(\\text{V})/3=5775/3=1925$ ✓ (Python ile doğrulandı).\n\nUzun süreli BH daha yayvan ve basıktır: aynı 1 cm su, daha uzun sürede geldiği için pik küçülür.",
+            "en": "- Peak: $550\\to440$ m³/s (smaller) and moved from $t=2$ to $t=3$.\n- Time base: $14\\to16$ h (longer by exactly $t_1-t_0=2$ h).\n- Volume: both UHs represent 1 cm; with the same ordinate spacing (1 h) the sums must match: $\\sum U_{1h}=1925$ and $\\sum(\\text{V})/3=5775/3=1925$ ✓ (verified with Python).\n\nA longer-duration UH is flatter and wider: the same 1 cm arrives over a longer time, so the peak drops."
+          },
+          "why": {
+            "tr": "Yön kontrolü ($t_1>t_0$ → pik ↓, taban ↑) ve hacim korunumu, iki satırlık ama hataların çoğunu yakalayan sağlamalardır. Sınavda pik büyümüşse ya çarpanı unuttun ya öteleme yönünü şaşırdın.",
+            "en": "The direction check ($t_1>t_0$ → peak ↓, base ↑) and volume conservation are two-line verifications that catch most errors. If your peak grew, you forgot the factor or lagged the wrong way."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**3 saatlik BH ordinatları** ($t=0,1,\\dots,16$ saat, m³/sn):\n\n$$U_{3sa} = 0;\\ 97;\\ 280;\\ \\boxed{440};\\ 432;\\ 292;\\ 155;\\ 83;\\ 48;\\ 32;\\ 20;\\ 15;\\ 12;\\ 8;\\ 7;\\ 3;\\ 2$$\n\nYöntem: U + (1 sa ötelenmiş U) + (2 sa ötelenmiş U), toplam × 1/3. Pik 440 m³/sn ($t=3$); taban süresi 16 saate uzadı.",
+        "en": "**3-h UH ordinates** ($t=0,1,\\dots,16$ h, m³/s):\n\n$$U_{3h} = 0;\\ 97;\\ 280;\\ \\boxed{440};\\ 432;\\ 292;\\ 155;\\ 83;\\ 48;\\ 32;\\ 20;\\ 15;\\ 12;\\ 8;\\ 7;\\ 3;\\ 2$$\n\nMethod: U + (U lagged 1 h) + (U lagged 2 h), sum × 1/3. Peak 440 m³/s ($t=3$); time base extended to 16 h."
+      },
+      "traps": [
+        {
+          "tr": "Öteleme sayısı $t_1/t_0-1=2$'dir (kopya sayısı 3). Fazla ya da eksik öteleme, yanlış süreli BH üretir.",
+          "en": "The number of lags is $t_1/t_0-1=2$ (3 copies). One lag too many or too few produces a UH of the wrong duration."
+        },
+        {
+          "tr": "Son çarpan $t_0/t_1=1/3$'tür, $t_1/t_0=3$ değil — ters çeviren öğrenci ordinatları 9 kat büyük bulur.",
+          "en": "The final factor is $t_0/t_1=1/3$, not $t_1/t_0=3$ — inverting it makes the ordinates 9 times too large."
+        },
+        {
+          "tr": "Bu yöntem yalnızca $t_1$, $t_0$'ın tam katıyken çalışır; 3 sa → 4 sa gibi durumlarda S eğrisi şarttır (bkz. 6.5).",
+          "en": "This method works only when $t_1$ is an integer multiple of $t_0$; for cases like 3 h → 4 h the S-curve is required (see 6.5)."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya 2 saatlik BH istenseydi?",
+            "en": "What if the 2-h UH were asked?"
+          },
+          "answer": {
+            "tr": "$2/1=2$ tam kat → 1 öteleme, topla, ×1/2: $U_{2sa}=0;\\ 145;\\ 420;\\ \\mathbf{515};\\ 372{,}5;\\ 197{,}5;\\ 100;\\ 60;\\ 37{,}5;\\ 22{,}5;\\ 17{,}5;\\ 12{,}5;\\ 10;\\ 7{,}5;\\ 5;\\ 2{,}5$. Pik 515 m³/sn ($t=3$): 1 saatlikten küçük, 3 saatlikten büyük — süre uzadıkça pik kademeli düşer.",
+            "en": "$2/1=2$ is an integer → 1 lag, add, ×1/2: $U_{2h}=0;\\ 145;\\ 420;\\ \\mathbf{515};\\ 372.5;\\ 197.5;\\ 100;\\ 60;\\ 37.5;\\ 22.5;\\ 17.5;\\ 12.5;\\ 10;\\ 7.5;\\ 5;\\ 2.5$. Peak 515 m³/s ($t=3$): below the 1-h peak, above the 3-h peak — the peak falls gradually as duration grows."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya 1 saatlik BH'tan 1,5 saatlik BH isteseydiniz — neden bu ötele-topla yöntemiyle çözülemez?",
+            "en": "What if you wanted a 1.5-h UH from the 1-h UH — why can't this be solved by lag-and-add?"
+          },
+          "answer": {
+            "tr": "$t_1/t_0=1{,}5/1=1{,}5$ tam sayı değil. Ötele-topla yöntemi ancak $t_1/t_0$ tam sayıysa (kaç kez ötelenip toplanacağı belli olduğunda) çalışır; 1,5 gibi kesirli bir oranda \"1,5 kez öteleme\" tanımsızdır. Bu durumda tek çözüm bir sonraki soruda (6.5) görülen S eğrisi yöntemidir.",
+            "en": "$t_1/t_0=1.5/1=1.5$ is not an integer. Lag-and-add only works when $t_1/t_0$ is a whole number (so the number of lag-and-sum repetitions is well defined); a fractional ratio like 1.5 makes \"1.5 lags\" undefined. The only way forward is the S-curve method, seen in the next problem (6.5)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6-5",
+      "code": "Uygulama 6.5",
+      "title": {
+        "tr": "3 saatlik BH'tan S eğrisiyle 4 saatlik BH",
+        "en": "From a 3-h UH to a 4-h UH via the S-curve"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıdaki tabloda, 3 saat süreli BH ordinatları verilmiştir. S hidrografını elde ederek, 4 saat süreli BH'ı elde ediniz.",
+        "en": "The table below gives the ordinates of a 3-hour UH. Obtain the S-hydrograph and use it to derive the 4-hour UH."
+      },
+      "given": [
+        {
+          "symbol": "t_0",
+          "value": "3\\ \\text{saat}",
+          "label": {
+            "tr": "Verilen BH süresi",
+            "en": "Given UH duration"
+          }
+        },
+        {
+          "symbol": "t_1",
+          "value": "4\\ \\text{saat}",
+          "label": {
+            "tr": "İstenen BH süresi",
+            "en": "Target UH duration"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "S hidrografını kurmak, sonra 4 saatlik BH ordinatlarını bulmak.",
+        "en": "Build the S-hydrograph, then find the 4-h UH ordinates."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "3 saatlik BH ordinatları",
+            "en": "3-h UH ordinates"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21"
+          ],
+          "rows": [
+            [
+              "U (m³/sn)",
+              "0",
+              "14",
+              "49",
+              "99",
+              "144",
+              "171",
+              "183",
+              "185",
+              "177",
+              "163",
+              "144",
+              "123",
+              "101",
+              "80",
+              "60",
+              "43",
+              "28",
+              "17",
+              "9",
+              "4",
+              "1",
+              "0"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "S hidrografı (3 sa BH'ın 7 kez ötelenip toplanması)",
+            "en": "S-hydrograph (3-h UH shifted and summed 7 times)"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21"
+          ],
+          "rows": [
+            [
+              "S",
+              "0",
+              "14",
+              "49",
+              "99",
+              "158",
+              "220",
+              "282",
+              "343",
+              "397",
+              "445",
+              "487",
+              "520",
+              "546",
+              "567",
+              "580",
+              "589",
+              "595",
+              "597",
+              "598",
+              "599",
+              "598",
+              "598"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "4 saatlik BH (S(t) − S(t−4), sonra ×3/4)",
+            "en": "4-h UH (S(t) − S(t−4), then ×3/4)"
+          },
+          "headers": [
+            "t (saat)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21"
+          ],
+          "rows": [
+            [
+              "S(t)",
+              "0",
+              "14",
+              "49",
+              "99",
+              "158",
+              "220",
+              "282",
+              "343",
+              "397",
+              "445",
+              "487",
+              "520",
+              "546",
+              "567",
+              "580",
+              "589",
+              "595",
+              "597",
+              "598",
+              "599",
+              "598",
+              "598"
+            ],
+            [
+              "S(t−4)",
+              "-",
+              "-",
+              "-",
+              "-",
+              "0",
+              "14",
+              "49",
+              "99",
+              "158",
+              "220",
+              "282",
+              "343",
+              "397",
+              "445",
+              "487",
+              "520",
+              "546",
+              "567",
+              "580",
+              "589",
+              "595",
+              "597"
+            ],
+            [
+              "Fark = S(t)−S(t−4)",
+              "0",
+              "14",
+              "49",
+              "99",
+              "158",
+              "206",
+              "233",
+              "244",
+              "239",
+              "225",
+              "205",
+              "177",
+              "149",
+              "122",
+              "93",
+              "69",
+              "49",
+              "30",
+              "18",
+              "10",
+              "3",
+              "1"
+            ],
+            [
+              "4 sa BH = Fark×3/4",
+              "0",
+              "11",
+              "37",
+              "74",
+              "119",
+              "155",
+              "175",
+              "183",
+              "179",
+              "169",
+              "154",
+              "133",
+              "112",
+              "92",
+              "70",
+              "52",
+              "37",
+              "23",
+              "14",
+              "8",
+              "2",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "3 saatlik BH, S eğrisi ve 4 saatlik BH",
+          "en": "3-h UH, S-curve and 4-h UH"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "3 saatlik BH",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                14
+              ],
+              [
+                2,
+                49
+              ],
+              [
+                3,
+                99
+              ],
+              [
+                4,
+                144
+              ],
+              [
+                5,
+                171
+              ],
+              [
+                6,
+                183
+              ],
+              [
+                7,
+                185
+              ],
+              [
+                8,
+                177
+              ],
+              [
+                9,
+                163
+              ],
+              [
+                10,
+                144
+              ],
+              [
+                11,
+                123
+              ],
+              [
+                12,
+                101
+              ],
+              [
+                13,
+                80
+              ],
+              [
+                14,
+                60
+              ],
+              [
+                15,
+                43
+              ],
+              [
+                16,
+                28
+              ],
+              [
+                17,
+                17
+              ],
+              [
+                18,
+                9
+              ],
+              [
+                19,
+                4
+              ],
+              [
+                20,
+                1
+              ],
+              [
+                21,
+                0
+              ]
+            ]
+          },
+          {
+            "name": "S eğrisi",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                14
+              ],
+              [
+                2,
+                49
+              ],
+              [
+                3,
+                99
+              ],
+              [
+                4,
+                158
+              ],
+              [
+                5,
+                220
+              ],
+              [
+                6,
+                282
+              ],
+              [
+                7,
+                343
+              ],
+              [
+                8,
+                397
+              ],
+              [
+                9,
+                445
+              ],
+              [
+                10,
+                487
+              ],
+              [
+                11,
+                520
+              ],
+              [
+                12,
+                546
+              ],
+              [
+                13,
+                567
+              ],
+              [
+                14,
+                580
+              ],
+              [
+                15,
+                589
+              ],
+              [
+                16,
+                595
+              ],
+              [
+                17,
+                597
+              ],
+              [
+                18,
+                598
+              ],
+              [
+                19,
+                599
+              ],
+              [
+                20,
+                598
+              ],
+              [
+                21,
+                598
+              ]
+            ]
+          },
+          {
+            "name": "4 saatlik BH",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                37
+              ],
+              [
+                3,
+                74
+              ],
+              [
+                4,
+                119
+              ],
+              [
+                5,
+                155
+              ],
+              [
+                6,
+                175
+              ],
+              [
+                7,
+                183
+              ],
+              [
+                8,
+                179
+              ],
+              [
+                9,
+                169
+              ],
+              [
+                10,
+                154
+              ],
+              [
+                11,
+                133
+              ],
+              [
+                12,
+                112
+              ],
+              [
+                13,
+                92
+              ],
+              [
+                14,
+                70
+              ],
+              [
+                15,
+                52
+              ],
+              [
+                16,
+                37
+              ],
+              [
+                17,
+                23
+              ],
+              [
+                18,
+                14
+              ],
+              [
+                19,
+                8
+              ],
+              [
+                20,
+                2
+              ],
+              [
+                21,
+                1
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 12,
+            "y": 546,
+            "label": {
+              "tr": "S doygunluğa yaklaşır",
+              "en": "S flattens (equilibrium)"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Neden S eğrisi? Tam kat kontrolü",
+            "en": "Why the S-curve? The integer check"
+          },
+          "guiding": {
+            "tr": "3 saatlikten 4 saatliğe geçmek istiyoruz. 6.4'teki ötele-topla yöntemi neden burada çalışmaz?",
+            "en": "We want to go from 3 h to 4 h. Why doesn't the lag-and-add method of 6.4 work here?"
+          },
+          "hint": {
+            "tr": "$t_1/t_0=4/3$: kaç kopya toplayacaksın? \"1,33 kopya\" toplanabilir mi?",
+            "en": "$t_1/t_0=4/3$: how many copies would you add? Can you add \"1.33 copies\"?"
+          },
+          "work": {
+            "tr": "$t_1/t_0=4/3=1{,}33$ — tam sayı DEĞİL. Ötele-topla, $t_1$ süresini $t_0$'lık tam bloklarla döşemeye dayanır; 4 saati 3'er saatlik bloklarla dolduramazsın (bir blok artar/eksik kalır).\n\nÇare: yağmuru hiç durdurmamak! **S eğrisi**, $t_0=3$ saatte 1 cm şiddetiyle *sonsuza dek* süren yağışın hidrografıdır. Sürekli yağıştan istediğimiz uzunlukta \"dilim\" kesebiliriz — 4 saatlik dilim de dahil. Bu yüzden hedef süre tam kat olmadığında S eğrisi **zorunludur**.",
+            "en": "$t_1/t_0=4/3=1.33$ — NOT an integer. Lag-and-add relies on tiling the duration $t_1$ with whole $t_0$ blocks; you cannot fill 4 hours with 3-hour blocks (one block overshoots or falls short).\n\nThe cure: never stop the rain! The **S-curve** is the hydrograph of rain at 1 cm per $t_0=3$ h lasting *forever*. From a continuous rain we can cut a \"slice\" of any length — including 4 hours. That is why the S-curve is **mandatory** whenever the target duration is not an integer multiple."
+          },
+          "why": {
+            "tr": "Bu, ünitenin en sevilen sınav kararıdır: hocalar bilerek 4/3, 3/2 gibi oranlar seçer. Refleks: önce $t_1/t_0$'a bak — tam sayıysa 6.4 yöntemi, değilse S eğrisi. S eğrisinin *neden* gerektiğini (sürekli yağıştan istenilen dilimi kesme fikri) anlatabilmek, ezberden öte puan getirir.",
+            "en": "This is the unit's favourite exam decision: instructors deliberately pick ratios like 4/3 or 3/2. Reflex: check $t_1/t_0$ first — integer → the 6.4 method; otherwise → S-curve. Being able to explain *why* the S-curve is needed (cutting an arbitrary slice from continuous rain) earns marks beyond memorisation."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "3 saatlik BH'tan hangileri ötele-topla ile elde edilebilir: 6 sa, 4 sa, 9 sa?",
+              "en": "From a 3-h UH, which can be obtained by lag-and-add: 6 h, 4 h, 9 h?"
+            },
+            "options": [
+              {
+                "tr": "Hepsi",
+                "en": "All of them"
+              },
+              {
+                "tr": "6 sa ve 9 sa (tam katlar); 4 sa için S eğrisi şart",
+                "en": "6 h and 9 h (integer multiples); 4 h requires the S-curve"
+              },
+              {
+                "tr": "Sadece 4 sa",
+                "en": "Only 4 h"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "$6/3=2$ ve $9/3=3$ tam sayı → ötele-topla olur. $4/3$ tam değil → S eğrisi zorunlu. (S eğrisi tam katlarda da kullanılabilir; sadece gereksiz uzundur.)",
+              "en": "$6/3=2$ and $9/3=3$ are integers → lag-and-add works. $4/3$ is not → S-curve mandatory. (The S-curve also works for integer multiples; it is just unnecessarily long.)"
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "S eğrisini kur: BH'ı 3'er saat ötele ve topla",
+            "en": "Build the S-curve: lag the UH every 3 h and add"
+          },
+          "guiding": {
+            "tr": "Sonsuz yağış = her 3 saatte yeni bir 1 cm'lik yağış. Tablo 21 saat sürdüğüne göre kaç öteleme yeterli?",
+            "en": "Endless rain = a new 1-cm rain every 3 h. The table spans 21 h; how many lags are enough?"
+          },
+          "hint": {
+            "tr": "Taban süresi / $t_0$ = 21/3 = 7 öteleme; daha sonrakiler tabloya girmez.",
+            "en": "Time base / $t_0$ = 21/3 = 7 lags; later ones don't enter the table."
+          },
+          "work": {
+            "tr": "$$S(t)=U(t)+U(t-3)+U(t-6)+U(t-9)+\\dots$$\n\n21 saatlik tablo için $21/3=7$ öteleme yeterlidir. Satır satır toplayınca:\n\n$S = 0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 220;\\ 282;\\ 343;\\ 397;\\ 445;\\ 487;\\ 520;\\ 546;\\ 567;\\ 580;\\ 589;\\ 595;\\ 597;\\ 598;\\ 599;\\ 598;\\ 598$\n\nÖrnek: $S(4)=U(4)+U(1)=144+14=158$; $S(7)=185+144+14=343$.\n\nAdına yakışır şekilde S harfi gibi: hızla yükselir, sonra **plato** yapar ($\\approx598$).",
+            "en": "$$S(t)=U(t)+U(t-3)+U(t-6)+U(t-9)+\\dots$$\n\nFor a 21-h table, $21/3=7$ lags suffice. Summing row by row:\n\n$S = 0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 220;\\ 282;\\ 343;\\ 397;\\ 445;\\ 487;\\ 520;\\ 546;\\ 567;\\ 580;\\ 589;\\ 595;\\ 597;\\ 598;\\ 599;\\ 598;\\ 598$\n\nExample: $S(4)=U(4)+U(1)=144+14=158$; $S(7)=185+144+14=343$.\n\nTrue to its name, it looks like an S: it rises fast, then **plateaus** ($\\approx598$)."
+          },
+          "why": {
+            "tr": "S eğrisi \"sürekli yağış deposu\"dur — bir kez kurunca ondan her süreli BH türetilebilir. Plato fiziksel dengeyi gösterir: havzaya giren yağış hızı = çıkan akış; artık her yeni 3 saatlik yağış, biten eskisinin yerini alır. Platoya ulaştığını görmek, ötelemeleri doğru yaptığının işaretidir.",
+            "en": "The S-curve is a \"continuous-rain warehouse\" — build it once and any duration's UH can be derived from it. The plateau is physical equilibrium: rain input rate = outflow; each new 3-h rain merely replaces an expiring one. Seeing the plateau confirms your lags are correct."
+          },
+          "result": "S_{plato}\\approx598\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Platodaki küçük dalgalanmayı yorumla",
+            "en": "Interpret the small wobble on the plateau"
+          },
+          "guiding": {
+            "tr": "S değerleri 598 → 599 → 598 diye gidip geliyor. Bu bir hesap hatası mı?",
+            "en": "The S values wander 598 → 599 → 598. Is that a computational error?"
+          },
+          "hint": {
+            "tr": "BH ordinatları tam sayıya yuvarlanmış ölçüm/okuma değerleri; toplamları da küçük oynamalar yapar.",
+            "en": "The UH ordinates are rounded measurement/reading values; their sums wobble slightly."
+          },
+          "work": {
+            "tr": "Teoride S eğrisi platoda sabitlenir. Pratikte BH ordinatlarındaki yuvarlamalar toplamda ±1-2 m³/sn'lik dalgalanma yaratır ($598,\\ 599,\\ 598$). Bu bir hata değildir; ama fark alma adımında küçük tutarsızlıklar (hatta negatif değerler) doğurabilir. Titiz çözümde platodaki değerler tek bir sabite \"düzeltilerek\" (eğri düzgünleştirilerek) devam edilir; föy değerleriyle devam edeceğiz.",
+            "en": "In theory the S-curve locks onto its plateau. In practice, rounding in the UH ordinates creates a ±1-2 m³/s wobble ($598,\\ 599,\\ 598$). It is not an error, but it can produce small inconsistencies (even negative values) in the differencing step. A careful solution smooths the plateau to a single constant; we continue with the sheet's values."
+          },
+          "why": {
+            "tr": "Sınavda S sütununda 599'dan 598'e düşüş görüp panikleyen çok olur. Nedenini bilirsen hem panik yapmaz hem de kuyrukta çıkabilecek ufak negatif BH değerlerini gönül rahatlığıyla 0'a yuvarlarsın.",
+            "en": "Many students panic on seeing S drop from 599 to 598. Knowing the cause, you neither panic nor hesitate to round the tiny negative UH values that may appear in the tail up to 0."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "S eğrisini 4 saat ötele ve farkı al",
+            "en": "Lag the S-curve by 4 h and take the difference"
+          },
+          "guiding": {
+            "tr": "Sonsuz yağıştan tam 4 saatlik bir dilim nasıl kesilir?",
+            "en": "How do you cut an exactly 4-hour slice out of the endless rain?"
+          },
+          "hint": {
+            "tr": "\"$t=0$'da başlayan sonsuz yağış\" eksi \"$t=4$'te başlayan sonsuz yağış\" = sadece 0-4 saat arasında yağan yağış.",
+            "en": "\"Endless rain starting at $t=0$\" minus \"endless rain starting at $t=4$\" = rain falling only between 0 and 4 h."
+          },
+          "work": {
+            "tr": "$$\\Delta(t)=S(t)-S(t-4)$$\n\n$\\Delta = 0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 206;\\ 233;\\ \\mathbf{244};\\ 239;\\ 225;\\ 205;\\ 177;\\ 149;\\ 122;\\ 93;\\ 69;\\ 49;\\ 30;\\ 18;\\ 10;\\ 3;\\ 1$\n\nÖrnek: $\\Delta(5)=S(5)-S(1)=220-14=206$; $\\Delta(7)=343-99=244$.\n\nBu fark, 4 saat boyunca $1\\ \\text{cm}/3\\ \\text{sa}$ şiddetiyle yağan yağışın hidrografıdır → yağış yüksekliği $=4\\times\\frac{1}{3}=\\frac{4}{3}$ cm. Henüz BH değil!",
+            "en": "$$\\Delta(t)=S(t)-S(t-4)$$\n\n$\\Delta = 0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 206;\\ 233;\\ \\mathbf{244};\\ 239;\\ 225;\\ 205;\\ 177;\\ 149;\\ 122;\\ 93;\\ 69;\\ 49;\\ 30;\\ 18;\\ 10;\\ 3;\\ 1$\n\nExample: $\\Delta(5)=S(5)-S(1)=220-14=206$; $\\Delta(7)=343-99=244$.\n\nThis difference is the hydrograph of rain at $1\\ \\text{cm}/3\\ \\text{h}$ lasting 4 hours → rain depth $=4\\times\\frac{1}{3}=\\frac{4}{3}$ cm. Not a UH yet!"
+          },
+          "why": {
+            "tr": "İki sonsuz yağışın farkı, sadece aradaki 4 saatte yağan yağmuru bırakır — süperpozisyonun çıkarma hâli. Öteleme miktarının $t_1=4$ (İSTENEN süre) olduğuna dikkat: $t_0$ ile karıştırmak en sık işlem hatasıdır.",
+            "en": "Subtracting two endless rains leaves only the rain of the 4 hours in between — superposition in subtraction form. Note the lag equals $t_1=4$ (the TARGET duration): confusing it with $t_0$ is the most frequent slip."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "S eğrisi kaç saat ötelenir ve fark hangi çarpanla BH olur?",
+              "en": "By how much is the S-curve lagged, and what factor turns the difference into a UH?"
+            },
+            "options": [
+              {
+                "tr": "3 sa ötele; ×4/3",
+                "en": "Lag 3 h; ×4/3"
+              },
+              {
+                "tr": "4 sa ötele; ×3/4",
+                "en": "Lag 4 h; ×3/4"
+              },
+              {
+                "tr": "4 sa ötele; ×4/3",
+                "en": "Lag 4 h; ×4/3"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Öteleme istenen süre kadardır ($t_1=4$ sa). Fark 4/3 cm'i temsil ettiği için 1 cm'e dönmek üzere $t_0/t_1=3/4$ ile çarpılır. ×4/3 çarpanı yağışı 16/9 cm yapar; 3 sa öteleme ise 3 saatlik BH'ı geri verir.",
+              "en": "The lag equals the target duration ($t_1=4$ h). The difference represents 4/3 cm, so multiply by $t_0/t_1=3/4$ to return to 1 cm. The ×4/3 factor would make 16/9 cm; a 3-h lag would just recover the 3-h UH."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "3/4 ile ölçekle → 4 saatlik BH",
+            "en": "Scale by 3/4 → the 4-h UH"
+          },
+          "guiding": {
+            "tr": "Fark 4/3 cm'lik yağışı temsil ediyor. 1 cm'e nasıl inersin?",
+            "en": "The difference represents 4/3 cm of rain. How do you get down to 1 cm?"
+          },
+          "hint": {
+            "tr": "$\\frac{4}{3}$ cm'i 1 cm yapmak için $\\frac{3}{4}$ ile çarp ($=t_0/t_1$).",
+            "en": "To turn $\\frac{4}{3}$ cm into 1 cm, multiply by $\\frac{3}{4}$ ($=t_0/t_1$)."
+          },
+          "work": {
+            "tr": "$$U_{4sa}(t)=\\big[S(t)-S(t-4)\\big]\\times\\frac{3}{4}$$\n\n$U_{4sa} = 0;\\ 11;\\ 37;\\ 74;\\ 119;\\ 155;\\ 175;\\ \\mathbf{183};\\ 179;\\ 169;\\ 154;\\ 133;\\ 112;\\ 92;\\ 70;\\ 52;\\ 37;\\ 23;\\ 14;\\ 8;\\ 2;\\ 1$ m³/sn\n\n($t=0,\\dots,21$; örnek: $244\\times0{,}75=183$; $158\\times0{,}75=118{,}5\\approx119$ — föyle birebir uyumlu, standart yukarı yuvarlama).",
+            "en": "$$U_{4h}(t)=\\big[S(t)-S(t-4)\\big]\\times\\frac{3}{4}$$\n\n$U_{4h} = 0;\\ 11;\\ 37;\\ 74;\\ 119;\\ 155;\\ 175;\\ \\mathbf{183};\\ 179;\\ 169;\\ 154;\\ 133;\\ 112;\\ 92;\\ 70;\\ 52;\\ 37;\\ 23;\\ 14;\\ 8;\\ 2;\\ 1$ m³/s\n\n($t=0,\\dots,21$; e.g. $244\\times0.75=183$; $158\\times0.75=118.5\\approx119$ — matching the sheet exactly, standard round-half-up)."
+          },
+          "why": {
+            "tr": "Ölçekleme katsayısı her zaman $t_0/t_1$'dir; bunu ezberlemek yerine \"dilimin yağış yüksekliği $t_1/t_0$ cm; 1 cm'e dönmek için tersiyle çarp\" diye türet. Böylece kısaltma yönünde de ($t_1<t_0$) katsayıyı asla şaşırmazsın.",
+            "en": "The scaling factor is always $t_0/t_1$; instead of memorising, derive it: \"the slice's rain depth is $t_1/t_0$ cm; multiply by its inverse to return to 1 cm\". Then you never mix it up even when shortening ($t_1<t_0$)."
+          },
+          "result": "U_{4sa,maks}=183\\ \\text{m}^3/\\text{sn}\\ (t=7\\ \\text{sa})",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sonucu karşılaştır ve sağla",
+            "en": "Compare and verify the result"
+          },
+          "guiding": {
+            "tr": "4 saatlik BH, 3 saatliğe göre nasıl olmalıydı? Beklentiyle uyuşuyor mu?",
+            "en": "How should the 4-h UH compare with the 3-h one? Does it match expectations?"
+          },
+          "hint": {
+            "tr": "Süre uzadı → pik biraz düşmeli, hidrograf biraz yayılmalı.",
+            "en": "Longer duration → slightly lower peak, slightly more spread."
+          },
+          "work": {
+            "tr": "- Pik: $185\\to183$ m³/sn (hafif düştü) ✓ — süre 3'ten 4 saate az uzadığı için düşüş de az.\n- Kuyrukta $U(21)=1$ gibi küçük artıklar S platosunun dalgalanmasından gelir; pratikte 0 kabul edilebilir.\n- Hacim kontrolü (Python): fark sütununun toplamı 2393, 3 saatlik BH toplamı 1795; oran $2393/1795\\approx4/3$ ✓ — fark gerçekten 4/3 cm'i temsil ediyor; ×3/4 sonrası 1 cm.",
+            "en": "- Peak: $185\\to183$ m³/s (slightly lower) ✓ — the duration grew only from 3 to 4 h, so the drop is small.\n- Tiny leftovers in the tail like $U(21)=1$ come from the S-plateau wobble; in practice they can be taken as 0.\n- Volume check (Python): the difference column sums to 2393 versus 1795 for the 3-h UH; the ratio $2393/1795\\approx4/3$ ✓ — the difference really represents 4/3 cm; after ×3/4 it is 1 cm."
+          },
+          "why": {
+            "tr": "Yön ve hacim kontrolleri, S eğrisi sorularında öteleme miktarı ve çarpan hatalarını saniyeler içinde yakalar. Pik yükseldiyse ya farkı ters aldın ya da çarpanı ters çevirdin.",
+            "en": "Direction and volume checks catch lag-amount and factor errors in S-curve problems within seconds. If the peak rose, you subtracted backwards or inverted the factor."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**S hidrografı** ($t=0,\\dots,21$ sa): $0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 220;\\ 282;\\ 343;\\ 397;\\ 445;\\ 487;\\ 520;\\ 546;\\ 567;\\ 580;\\ 589;\\ 595;\\ 597;\\ 598;\\ 599;\\ 598;\\ 598$\n\n**4 saatlik BH**: $U_{4sa}=[S(t)-S(t-4)]\\times3/4$:\n\n$$U_{4sa} = 0;\\ 11;\\ 37;\\ 74;\\ 119;\\ 155;\\ 175;\\ \\boxed{183};\\ 179;\\ 169;\\ 154;\\ 133;\\ 112;\\ 92;\\ 70;\\ 52;\\ 37;\\ 23;\\ 14;\\ 8;\\ 2;\\ 1$$\n\nPik 183 m³/sn ($t=7$ sa). S eğrisi zorunluydu çünkü $4/3$ tam sayı değildir.",
+        "en": "**S-hydrograph** ($t=0,\\dots,21$ h): $0;\\ 14;\\ 49;\\ 99;\\ 158;\\ 220;\\ 282;\\ 343;\\ 397;\\ 445;\\ 487;\\ 520;\\ 546;\\ 567;\\ 580;\\ 589;\\ 595;\\ 597;\\ 598;\\ 599;\\ 598;\\ 598$\n\n**4-h UH**: $U_{4h}=[S(t)-S(t-4)]\\times3/4$:\n\n$$U_{4h} = 0;\\ 11;\\ 37;\\ 74;\\ 119;\\ 155;\\ 175;\\ \\boxed{183};\\ 179;\\ 169;\\ 154;\\ 133;\\ 112;\\ 92;\\ 70;\\ 52;\\ 37;\\ 23;\\ 14;\\ 8;\\ 2;\\ 1$$\n\nPeak 183 m³/s ($t=7$ h). The S-curve was mandatory because $4/3$ is not an integer."
+      },
+      "traps": [
+        {
+          "tr": "S eğrisi kurulurken öteleme adımı $t_0=3$ sa'tir; fark alınırken öteleme $t_1=4$ sa'tir. İkisini karıştırmak en klasik hatadır.",
+          "en": "When building the S-curve the lag step is $t_0=3$ h; when differencing, the lag is $t_1=4$ h. Mixing the two is the classic error."
+        },
+        {
+          "tr": "Çarpan $t_0/t_1=3/4$'tür, $4/3$ değil. Türetme yolu: fark $4/3$ cm'lik yağışı temsil eder → 1 cm için tersiyle çarp.",
+          "en": "The factor is $t_0/t_1=3/4$, not $4/3$. Derivation: the difference represents $4/3$ cm of rain → multiply by the inverse for 1 cm."
+        },
+        {
+          "tr": "S platosundaki ±1'lik yuvarlanma dalgalanması kuyruğa küçük tutarsızlıklar taşır; negatif çıkan minik BH değerleri 0 alınır, panik gerekmez.",
+          "en": "The ±1 rounding wobble of the S plateau leaks small inconsistencies into the tail; tiny negative UH values are set to 0 — no panic needed."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya aynı S eğrisinden 2 saatlik (daha KISA süreli) BH istenseydi?",
+            "en": "What if the 2-h (SHORTER-duration) UH were asked from the same S-curve?"
+          },
+          "answer": {
+            "tr": "S eğrisi kısaltma yönünde de çalışır: $U_{2sa}=[S(t)-S(t-2)]\\times3/2$. Sonuç: $0;\\ 21;\\ 74;\\ 128;\\ 164;\\ 182;\\ \\mathbf{186};\\ 185;\\ 173;\\ 153;\\ 135;\\ 113;\\ 89;\\ 71;\\ 51;\\ 33;\\ 23;\\ 12;\\ 5;\\ 3;\\ 0;\\ -1$. Pik 186'ya çıkar (süre kısaldı → pik büyüdü) ve kuyrukta $-1$ belirir — S platosu dalgalanmasının izi; 0 alınır. Ötele-topla bu yönde asla çalışmazdı.",
+            "en": "The S-curve also works for shortening: $U_{2h}=[S(t)-S(t-2)]\\times3/2$. Result: $0;\\ 21;\\ 74;\\ 128;\\ 164;\\ 182;\\ \\mathbf{186};\\ 185;\\ 173;\\ 153;\\ 135;\\ 113;\\ 89;\\ 71;\\ 51;\\ 33;\\ 23;\\ 12;\\ 5;\\ 3;\\ 0;\\ -1$. The peak rises to 186 (shorter duration → higher peak) and a $-1$ appears in the tail — the trace of the S-plateau wobble; set it to 0. Lag-and-add could never do this direction."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "S eğrisi neden bir noktadan sonra düzleşiyor (598-599 civarında takılıp kalıyor)? Bu \"platonun\" fiziksel anlamı ne?",
+            "en": "Why does the S-curve flatten out after a point (settling around 598-599)? What is the physical meaning of that \"plateau\"?"
+          },
+          "answer": {
+            "tr": "S eğrisi, havzaya $t_0$ aralıklarla SONSUZA dek 1 cm net yağış yağdırmanın hidrografıdır. Yeterince zaman geçince havza \"denge\"ye ulaşır: her $t_0$'da giren su ile o anda çıkan su eşitlenir ve $Q$ artık sabit bir platoya oturur — bu, havzanın sürekli ve düzenli 1 cm/$t_0$ yağışı altındaki kararlı-durum (steady-state) debisidir. 598 ile 599 arasındaki ufak farklar (599, 598, 598) gerçek bir fiziksel iniş değil, ötelenmiş BH ordinatlarının toplanmasından kaynaklanan yuvarlama titremesidir — föydeki gibi bırakılır.",
+            "en": "The S-curve is the hydrograph you'd get from raining 1 cm of net rain every $t_0$ hours, forever. Given enough time the basin reaches \"equilibrium\": the water entering each $t_0$ balances what's leaving at that instant, and $Q$ settles onto a constant plateau — this is the basin's steady-state discharge under continuous, regular 1 cm/$t_0$ rainfall. The tiny wobble between 598 and 599 (599, 598, 598) isn't a real physical dip; it's rounding noise from summing lagged UH ordinates — left as-is, matching the sheet."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6-6",
+      "code": "Uygulama 6.6",
+      "title": {
+        "tr": "Snyder yöntemiyle sentetik BH (dairesel havza)",
+        "en": "Synthetic UH by the Snyder method (circular basin)"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Çapı 20 km olan daire şeklindeki bir havzada, boydan boya havzaya çap olacak şekilde bir akarsu akmaktadır. Havza için Ct=1,2 ve Cp=0,7 olduğuna göre havzanın t0=90 dk (1,5 saat) süreli BH'ını Snyder Yöntemiyle elde ediniz.",
+        "en": "In a circular basin of diameter 20 km, a river flows across the basin along its diameter. Given Ct=1.2 and Cp=0.7 for the basin, obtain the basin's UH of duration t0=90 min (1.5 h) by the Snyder method."
+      },
+      "given": [
+        {
+          "symbol": "D",
+          "value": "20\\ \\text{km}",
+          "label": {
+            "tr": "Dairesel havza çapı",
+            "en": "Circular basin diameter"
+          }
+        },
+        {
+          "symbol": "C_t",
+          "value": "1{,}2",
+          "label": {
+            "tr": "Snyder gecikme katsayısı",
+            "en": "Snyder lag coefficient"
+          }
+        },
+        {
+          "symbol": "C_p",
+          "value": "0{,}7",
+          "label": {
+            "tr": "Snyder pik katsayısı",
+            "en": "Snyder peak coefficient"
+          }
+        },
+        {
+          "symbol": "t_0",
+          "value": "90\\ \\text{dk}=1{,}5\\ \\text{saat}",
+          "label": {
+            "tr": "İstenen BH süresi",
+            "en": "Target UH duration"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "tp ve Qp'yi Snyder formülleriyle bulup boyutsuz BH tablosuyla BH'ı çizmek.",
+        "en": "Find tp and Qp with Snyder's formulas and draw the UH using the dimensionless UH table."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Boyutsuz BH (verilen) — 1. kısım",
+            "en": "Dimensionless UH (given) — part 1"
+          },
+          "headers": [
+            "t/tp",
+            "0,0",
+            "0,2",
+            "0,4",
+            "0,6",
+            "0,8",
+            "1,0",
+            "1,2",
+            "1,4",
+            "1,6",
+            "1,8",
+            "2,0"
+          ],
+          "rows": [
+            [
+              "Q/Qp",
+              "0,00",
+              "0,08",
+              "0,28",
+              "0,60",
+              "0,88",
+              "1,00",
+              "0,92",
+              "0,72",
+              "0,60",
+              "0,40",
+              "0,32"
+            ],
+            [
+              "t (saat)",
+              "0,0",
+              "0,92",
+              "1,84",
+              "2,75",
+              "3,67",
+              "4,59",
+              "5,51",
+              "6,43",
+              "7,34",
+              "8,26",
+              "9,18"
+            ],
+            [
+              "Q (m³/sn)",
+              "0,00",
+              "10,7",
+              "37,3",
+              "79,9",
+              "117,1",
+              "133,1",
+              "122,5",
+              "95,8",
+              "79,9",
+              "53,2",
+              "42,6"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Boyutsuz BH (verilen) — 2. kısım",
+            "en": "Dimensionless UH (given) — part 2"
+          },
+          "headers": [
+            "t/tp",
+            "2,2",
+            "2,4",
+            "2,6",
+            "2,8",
+            "3,0",
+            "3,2",
+            "3,4",
+            "3,6",
+            "3,8",
+            "4,0"
+          ],
+          "rows": [
+            [
+              "Q/Qp",
+              "0,17",
+              "0,14",
+              "0,10",
+              "0,08",
+              "0,06",
+              "0,05",
+              "0,04",
+              "0,03",
+              "0,02",
+              "0,01"
+            ],
+            [
+              "t (saat)",
+              "10,10",
+              "11,02",
+              "11,93",
+              "12,85",
+              "13,77",
+              "14,69",
+              "15,61",
+              "16,52",
+              "17,44",
+              "18,36"
+            ],
+            [
+              "Q (m³/sn)",
+              "22,6",
+              "18,6",
+              "13,3",
+              "10,7",
+              "7,9",
+              "6,7",
+              "5,3",
+              "4,0",
+              "2,7",
+              "1,3"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Snyder sentetik BH",
+          "en": "Snyder synthetic UH"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Sentetik BH",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                0.92,
+                10.7
+              ],
+              [
+                1.84,
+                37.3
+              ],
+              [
+                2.75,
+                79.9
+              ],
+              [
+                3.67,
+                117.1
+              ],
+              [
+                4.59,
+                133.1
+              ],
+              [
+                5.51,
+                122.5
+              ],
+              [
+                6.43,
+                95.8
+              ],
+              [
+                7.34,
+                79.9
+              ],
+              [
+                8.26,
+                53.2
+              ],
+              [
+                9.18,
+                42.6
+              ],
+              [
+                10.1,
+                22.6
+              ],
+              [
+                11.02,
+                18.6
+              ],
+              [
+                11.93,
+                13.3
+              ],
+              [
+                12.85,
+                10.7
+              ],
+              [
+                13.77,
+                7.9
+              ],
+              [
+                14.69,
+                6.7
+              ],
+              [
+                15.61,
+                5.3
+              ],
+              [
+                16.52,
+                4
+              ],
+              [
+                17.44,
+                2.7
+              ],
+              [
+                18.36,
+                1.3
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 4.59,
+            "y": 133.1,
+            "label": {
+              "tr": "tp=4,59 sa; Qp=133,1",
+              "en": "tp=4.59 h; Qp=133.1"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Geometriden L, Lc ve A'yı çıkar",
+            "en": "Extract L, Lc and A from the geometry"
+          },
+          "guiding": {
+            "tr": "Akarsu, dairenin çapı boyunca akıyor. Ana kol uzunluğu, çıkış-ağırlık merkezi uzaklığı ve alan nedir?",
+            "en": "The river flows along the circle's diameter. What are the main-stream length, the outlet-to-centroid distance, and the area?"
+          },
+          "hint": {
+            "tr": "Dairenin ağırlık merkezi tam merkezidir; çıkış noktası çapın ucudur.",
+            "en": "A circle's centroid is its exact centre; the outlet is at the end of the diameter."
+          },
+          "work": {
+            "tr": "- Ana kol uzunluğu: akarsu çap boyunca → $L=20$ km.\n- $L_c$: çıkış noktasından (çapın ucu), akarsu boyunca havza ağırlık merkezine (dairenin merkezi) uzaklık $=$ yarıçap → $L_c=20/2=10$ km.\n- Alan: $A=\\pi r^2=\\pi\\times10^2=314$ km².\n\nSnyder'ın üç girdisi hazır: $L=20$ km, $L_c=10$ km, $A=314$ km².",
+            "en": "- Main-stream length: the river runs along the diameter → $L=20$ km.\n- $L_c$: distance along the stream from the outlet (end of the diameter) to the basin centroid (the circle's centre) $=$ the radius → $L_c=20/2=10$ km.\n- Area: $A=\\pi r^2=\\pi\\times10^2=314$ km².\n\nSnyder's three inputs are ready: $L=20$ km, $L_c=10$ km, $A=314$ km²."
+          },
+          "why": {
+            "tr": "Snyder, ölçüm olmayan havzada BH'ı havza *geometrisinden* türetir; bu yüzden ilk iş haritadan (burada idealize daireden) $L$, $L_c$, $A$ okumaktır. Soru geometrik şekil verdiyse (daire, dikdörtgen), ağırlık merkezini şeklin simetrisinden bulman beklenir.",
+            "en": "Snyder derives the UH of an ungauged basin from its *geometry*; so the first task is reading $L$, $L_c$, $A$ off the map (here an idealised circle). When a question gives a geometric shape (circle, rectangle), you are expected to locate the centroid from symmetry."
+          },
+          "result": "L=20\\ \\text{km},\\ L_c=10\\ \\text{km},\\ A=314\\ \\text{km}^2",
+          "check": {
+            "q": {
+              "tr": "$L_c$ neden 10 km?",
+              "en": "Why is $L_c$ 10 km?"
+            },
+            "options": [
+              {
+                "tr": "Çünkü havzanın ağırlık merkezi dairenin merkezidir ve çıkışa uzaklığı yarıçaptır",
+                "en": "Because the basin centroid is the circle's centre, a radius away from the outlet"
+              },
+              {
+                "tr": "Çünkü Lc her zaman L'nin yarısıdır",
+                "en": "Because Lc is always half of L"
+              },
+              {
+                "tr": "Çünkü akarsuyun yarısı havza içindedir",
+                "en": "Because half the river lies inside the basin"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$L_c$ tanımı: çıkıştan, akarsu boyunca, havza ağırlık merkezinin izdüşümüne uzaklık. Dairede ağırlık merkezi = merkez → uzaklık = yarıçap = 10 km. \"Her zaman L/2\" genellemesi yanlıştır; bu sadece simetrik şekillerde rastlantıyla doğru çıkar.",
+              "en": "$L_c$'s definition: distance from the outlet, along the stream, to the projection of the basin centroid. For a circle the centroid = centre → distance = radius = 10 km. \"Always L/2\" is a false generalisation; it happens to hold only for symmetric shapes."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Standart gecikmeyi hesapla: t'p",
+            "en": "Compute the standard lag: t'p"
+          },
+          "guiding": {
+            "tr": "Snyder'ın ilk formülü havzanın \"tembelliğini\" ölçer. $t_p'$ neye bağlı?",
+            "en": "Snyder's first formula measures the basin's \"sluggishness\". What does $t_p'$ depend on?"
+          },
+          "hint": {
+            "tr": "$t_p'=0{,}75\\,C_t\\,(L\\cdot L_c)^{0{,}3}$; L ve Lc km cinsinden, sonuç saat.",
+            "en": "$t_p'=0.75\\,C_t\\,(L\\cdot L_c)^{0.3}$; L and Lc in km, result in hours."
+          },
+          "work": {
+            "tr": "$$t_p'=0{,}75\\,C_t\\,(L\\cdot L_c)^{0{,}3}=0{,}75\\times1{,}2\\times(20\\times10)^{0{,}3}$$\n\n$200^{0{,}3}=4{,}90$ → $t_p'=0{,}9\\times4{,}90=4{,}41$ saat.\n\nBu, havzanın *standart* pik gecikmesidir: yağış merkezi ile pik arasındaki tipik süre.",
+            "en": "$$t_p'=0.75\\,C_t\\,(L\\cdot L_c)^{0.3}=0.75\\times1.2\\times(20\\times10)^{0.3}$$\n\n$200^{0.3}=4.90$ → $t_p'=0.9\\times4.90=4.41$ h.\n\nThis is the basin's *standard* peak lag: the typical time between the rain's centroid and the peak."
+          },
+          "why": {
+            "tr": "$L\\cdot L_c$ büyüdükçe su çıkışa daha uzun yoldan gelir → gecikme artar; $C_t$ bölgesel bir kalibrasyon katsayısıdır. Üs $0{,}3$ **çarpımın tamamına** uygulanır — önce $L\\cdot L_c=200$'ü hesapla, sonra üssü al.",
+            "en": "As $L\\cdot L_c$ grows, water travels a longer path to the outlet → the lag rises; $C_t$ is a regional calibration coefficient. The exponent $0.3$ applies to the **whole product** — compute $L\\cdot L_c=200$ first, then raise to the power."
+          },
+          "result": "t_p'=4{,}41\\ \\text{saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Standart süreyi bul: tr = t'p/5,5",
+            "en": "Find the standard duration: tr = t'p/5.5"
+          },
+          "guiding": {
+            "tr": "Bu $t_p'$ hangi yağış süresi için geçerli? Snyder bunu nasıl tanımlar?",
+            "en": "For what rain duration is this $t_p'$ valid? How does Snyder define it?"
+          },
+          "hint": {
+            "tr": "$t_r=t_p'/5{,}5$ — Snyder'ın \"standart\" yağış süresi.",
+            "en": "$t_r=t_p'/5.5$ — Snyder's \"standard\" rain duration."
+          },
+          "work": {
+            "tr": "$$t_r=\\frac{t_p'}{5{,}5}=\\frac{4{,}41}{5{,}5}=0{,}80\\ \\text{saat}$$\n\nYani $t_p'=4{,}41$ sa'lik gecikme, ancak **0,80 saatlik** bir yağış için geçerlidir. Bizden istenen BH süresi ise $t_0=1{,}5$ saat.",
+            "en": "$$t_r=\\frac{t_p'}{5.5}=\\frac{4.41}{5.5}=0.80\\ \\text{h}$$\n\nSo the lag $t_p'=4.41$ h is valid only for a **0.80-hour** rain. But the requested UH duration is $t_0=1.5$ h."
+          },
+          "why": {
+            "tr": "Snyder'ın formülleri belirli bir \"standart\" yağış süresine kalibredir; o süre de $t_p'$'nin 5,5'te biridir. Bu adım, bir sonraki karar noktasını (düzeltme gerekli mi?) hazırlar. $t_r$'yi hesaplamadan $t_p$ düzeltmesine geçilemez.",
+            "en": "Snyder's formulas are calibrated to a specific \"standard\" rain duration, which is one 5.5th of $t_p'$. This step sets up the next decision (is a correction needed?). You cannot apply the $t_p$ correction without computing $t_r$."
+          },
+          "result": "t_r=0{,}80\\ \\text{saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Süre düzeltmesi: tr ≠ t0 → tp'yi düzelt",
+            "en": "Duration correction: tr ≠ t0 → correct tp"
+          },
+          "guiding": {
+            "tr": "İstenen süre 1,5 sa, standart süre 0,8 sa. Gecikme aynı kalır mı?",
+            "en": "The target duration is 1.5 h, the standard is 0.8 h. Does the lag stay the same?"
+          },
+          "hint": {
+            "tr": "$t_r\\ne t_0$ ise: $t_p=t_p'+0{,}25\\,(t_0-t_r)$.",
+            "en": "If $t_r\\ne t_0$: $t_p=t_p'+0.25\\,(t_0-t_r)$."
+          },
+          "work": {
+            "tr": "$t_r=0{,}80\\ \\text{sa}\\ne t_0=1{,}5$ sa → düzeltme zorunlu:\n\n$$t_p=t_p'+0{,}25\\,(t_0-t_r)=4{,}41+0{,}25\\times(1{,}5-0{,}8)=4{,}41+0{,}175=4{,}59\\ \\text{saat}$$\n\nDaha uzun yağış (1,5 > 0,8) piki biraz geciktirir — düzeltme pozitif çıktı, mantıklı.",
+            "en": "$t_r=0.80\\ \\text{h}\\ne t_0=1.5$ h → the correction is mandatory:\n\n$$t_p=t_p'+0.25\\,(t_0-t_r)=4.41+0.25\\times(1.5-0.8)=4.41+0.175=4.59\\ \\text{h}$$\n\nA longer rain (1.5 > 0.8) delays the peak a little — the correction came out positive, which makes sense."
+          },
+          "why": {
+            "tr": "Bu, sorunun kilit karar noktasıdır ve en çok atlanan adımdır: istenen BH süresi standart süreye eşit değilse $t_p$ düzeltilmeden devam edilemez. Sınav refleksi: $t_r$'yi bulur bulmaz $t_0$ ile karşılaştır; eşitse düzeltme yok, değilse formülü uygula.",
+            "en": "This is the question's key decision point and the most skipped step: if the target UH duration differs from the standard one, you cannot proceed without correcting $t_p$. Exam reflex: the moment you get $t_r$, compare it with $t_0$; equal → no correction, different → apply the formula."
+          },
+          "result": "t_p=4{,}59\\ \\text{saat}",
+          "check": {
+            "q": {
+              "tr": "$t_r=t_0$ çıksaydı ne yapardık?",
+              "en": "What would we do if $t_r=t_0$?"
+            },
+            "options": [
+              {
+                "tr": "Yine de düzeltme uygulanır",
+                "en": "Apply the correction anyway"
+              },
+              {
+                "tr": "Düzeltme gerekmez: tp = t'p alınır",
+                "en": "No correction: take tp = t'p"
+              },
+              {
+                "tr": "Qp düzeltilir",
+                "en": "Correct Qp instead"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "$t_0-t_r=0$ olduğundan düzeltme terimi kendiliğinden sıfırlanır: $t_p=t_p'$. Düzeltme daima $t_p$ üzerinde yapılır; $Q_p$ zaten düzeltilmiş $t_p$ ile hesaplandığı için dolaylı olarak etkilenir.",
+              "en": "Since $t_0-t_r=0$, the correction term vanishes: $t_p=t_p'$. The correction always acts on $t_p$; $Q_p$ is affected only indirectly because it is computed with the corrected $t_p$."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Pik debiyi hesapla: Qp",
+            "en": "Compute the peak discharge: Qp"
+          },
+          "guiding": {
+            "tr": "Pik debi neyle doğru, neyle ters orantılı olmalı?",
+            "en": "What should the peak be proportional to, and inversely proportional to?"
+          },
+          "hint": {
+            "tr": "$Q_p=\\dfrac{2{,}78\\,C_p\\,A}{t_p}$; A km², tp saat → Qp m³/sn.",
+            "en": "$Q_p=\\dfrac{2.78\\,C_p\\,A}{t_p}$; A in km², tp in hours → Qp in m³/s."
+          },
+          "work": {
+            "tr": "$$Q_p=\\frac{2{,}78\\,C_p\\,A}{t_p}=\\frac{2{,}78\\times0{,}7\\times314}{4{,}59}=133{,}1\\ \\text{m}^3/\\text{sn}$$\n\n2,78 katsayısı birim çevirisidir: 1 cm yağışın km²'lik alandan saatte boşalması m³/sn'ye böyle döner. (Tam değerlerle $A=\\pi\\cdot10^2=314{,}16$, $t_p=4{,}585$ → $Q_p=133{,}3$; %0,2'lik fark yuvarlamadandır, föy değeri 133,1 kullanılır.)",
+            "en": "$$Q_p=\\frac{2.78\\,C_p\\,A}{t_p}=\\frac{2.78\\times0.7\\times314}{4.59}=133.1\\ \\text{m}^3/\\text{s}$$\n\nThe 2.78 coefficient is a unit conversion: 1 cm of rain draining from km² of area per hour turns into m³/s this way. (With unrounded values $A=\\pi\\cdot10^2=314.16$, $t_p=4.585$ → $Q_p=133.3$; the 0.2% difference is rounding, so we keep the sheet's 133.1.)"
+          },
+          "why": {
+            "tr": "Fiziksel sezgi formülü doğrular: alan büyüdükçe daha çok su → $Q_p\\propto A$; havza yavaşladıkça ($t_p$ büyük) aynı su zamana yayılır → $Q_p\\propto1/t_p$. Birim uyarısı: 2,78 sabiti yalnızca A km² ve $t_p$ saat iken çalışır.",
+            "en": "Physical intuition validates the formula: more area → more water → $Q_p\\propto A$; a slower basin (large $t_p$) spreads the same water over time → $Q_p\\propto1/t_p$. Unit warning: the 2.78 constant works only with A in km² and $t_p$ in hours."
+          },
+          "result": "Q_p=133{,}1\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Boyutsuz BH'ı ölçekle → sentetik BH",
+            "en": "Scale the dimensionless UH → the synthetic UH"
+          },
+          "guiding": {
+            "tr": "Elimizde sadece iki sayı var: $t_p$ ve $Q_p$. Bütün bir eğri nasıl çıkar?",
+            "en": "We only have two numbers: $t_p$ and $Q_p$. How does a whole curve appear?"
+          },
+          "hint": {
+            "tr": "Verilen tabloda $t=t_p\\times(t/t_p)$ ve $Q=Q_p\\times(Q/Q_p)$.",
+            "en": "In the given table, $t=t_p\\times(t/t_p)$ and $Q=Q_p\\times(Q/Q_p)$."
+          },
+          "work": {
+            "tr": "Boyutsuz tablonun her sütununu ölçekleyelim: $t=4{,}59\\,(t/t_p)$, $Q=133{,}1\\,(Q/Q_p)$.\n\n$t$ (sa): $0;\\ 0{,}92;\\ 1{,}84;\\ 2{,}75;\\ 3{,}67;\\ \\mathbf{4{,}59};\\ 5{,}51;\\ 6{,}43;\\ 7{,}34;\\ 8{,}26;\\ 9{,}18;\\ 10{,}10;\\ 11{,}02;\\ 11{,}93;\\ 12{,}85;\\ 13{,}77;\\ 14{,}69;\\ 15{,}61;\\ 16{,}52;\\ 17{,}44;\\ 18{,}36$\n\n$Q$ (m³/sn): $0;\\ 10{,}7;\\ 37{,}3;\\ 79{,}9;\\ 117{,}1;\\ \\mathbf{133{,}1};\\ 122{,}5;\\ 95{,}8;\\ 79{,}9;\\ 53{,}2;\\ 42{,}6;\\ 22{,}6;\\ 18{,}6;\\ 13{,}3;\\ 10{,}7;\\ 7{,}9;\\ 6{,}7;\\ 5{,}3;\\ 4{,}0;\\ 2{,}7;\\ 1{,}3$",
+            "en": "Scale every column of the dimensionless table: $t=4.59\\,(t/t_p)$, $Q=133.1\\,(Q/Q_p)$.\n\n$t$ (h): $0;\\ 0.92;\\ 1.84;\\ 2.75;\\ 3.67;\\ \\mathbf{4.59};\\ 5.51;\\ 6.43;\\ 7.34;\\ 8.26;\\ 9.18;\\ 10.10;\\ 11.02;\\ 11.93;\\ 12.85;\\ 13.77;\\ 14.69;\\ 15.61;\\ 16.52;\\ 17.44;\\ 18.36$\n\n$Q$ (m³/s): $0;\\ 10.7;\\ 37.3;\\ 79.9;\\ 117.1;\\ \\mathbf{133.1};\\ 122.5;\\ 95.8;\\ 79.9;\\ 53.2;\\ 42.6;\\ 22.6;\\ 18.6;\\ 13.3;\\ 10.7;\\ 7.9;\\ 6.7;\\ 5.3;\\ 4.0;\\ 2.7;\\ 1.3$"
+          },
+          "why": {
+            "tr": "Boyutsuz BH, \"tipik hidrograf şekli\"nin şablonudur: zaman ekseni $t_p$'ye, debi ekseni $Q_p$'ye oranlanarak her havzaya uydurulur. Snyder sana iskeletin iki mıhını ($t_p$, $Q_p$) verir; şablon gerisini tamamlar. Kontrol: pik tam $t=t_p=4{,}59$'da ve $Q=Q_p=133{,}1$'de olmalı — tabloda öyle. ✓",
+            "en": "The dimensionless UH is a template of the \"typical hydrograph shape\": its time axis is normalised by $t_p$ and its discharge axis by $Q_p$, so it fits any basin. Snyder gives the skeleton's two anchors ($t_p$, $Q_p$); the template fills in the rest. Check: the peak must sit exactly at $t=t_p=4.59$ with $Q=Q_p=133.1$ — and it does. ✓"
+          },
+          "result": "t_p=4{,}59\\ \\text{sa},\\ Q_p=133{,}1\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Snyder parametreleri:** $L=20$ km, $L_c=10$ km, $A=314$ km² → $t_p'=4{,}41$ sa, $t_r=0{,}80$ sa; $t_r\\ne t_0=1{,}5$ sa olduğundan $t_p=4{,}41+0{,}25(1{,}5-0{,}8)=\\boxed{4{,}59\\ \\text{sa}}$ ve $Q_p=\\dfrac{2{,}78\\times0{,}7\\times314}{4{,}59}=\\boxed{133{,}1\\ \\text{m}^3/\\text{sn}}$.\n\n**Sentetik BH:** boyutsuz tablo $t=4{,}59(t/t_p)$, $Q=133{,}1(Q/Q_p)$ ile ölçeklenir; pik $t=4{,}59$ sa'te 133,1 m³/sn, kuyruk $t\\approx18{,}4$ sa'e uzanır.",
+        "en": "**Snyder parameters:** $L=20$ km, $L_c=10$ km, $A=314$ km² → $t_p'=4.41$ h, $t_r=0.80$ h; since $t_r\\ne t_0=1.5$ h, $t_p=4.41+0.25(1.5-0.8)=\\boxed{4{,}59\\ \\text{h}}$ and $Q_p=\\dfrac{2.78\\times0.7\\times314}{4.59}=\\boxed{133{,}1\\ \\text{m}^3/\\text{s}}$.\n\n**Synthetic UH:** the dimensionless table is scaled with $t=4.59(t/t_p)$, $Q=133.1(Q/Q_p)$; peak 133.1 m³/s at $t=4.59$ h, tail reaching $t\\approx18.4$ h."
+      },
+      "traps": [
+        {
+          "tr": "$t_r\\ne t_0$ kontrolünü atlamak: düzeltmesiz $t_p=4{,}41$ ile devam edersen $Q_p$ da yanlış (138,6) çıkar — zincirleme hata.",
+          "en": "Skipping the $t_r\\ne t_0$ check: continuing with the uncorrected $t_p=4.41$ also corrupts $Q_p$ (138.6) — a chain error."
+        },
+        {
+          "tr": "$L_c$ çıkıştan **ağırlık merkezine** uzaklıktır (yarıçap = 10 km); çap (20 km) kullanmak $t_p'$'yi büyütür.",
+          "en": "$L_c$ is the distance from the outlet **to the centroid** (the radius = 10 km); using the diameter (20 km) inflates $t_p'$."
+        },
+        {
+          "tr": "2,78 sabiti yalnızca $A$ km² ve $t_p$ saat cinsindeyken geçerli; m² veya dakika kullanan öğrenci saçma büyüklükte $Q_p$ bulur.",
+          "en": "The 2.78 constant is valid only with $A$ in km² and $t_p$ in hours; using m² or minutes yields an absurd $Q_p$."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya istenen süre $t_0=48$ dk (0,8 sa) olsaydı?",
+            "en": "What if the target duration were $t_0=48$ min (0.8 h)?"
+          },
+          "answer": {
+            "tr": "$t_r=0{,}80=t_0$ → düzeltme terimi sıfır, $t_p=t_p'=4{,}41$ sa ve $Q_p=2{,}78\\times0{,}7\\times314/4{,}41=138{,}6$ m³/sn. Daha kısa yağış → biraz daha erken ve daha yüksek pik. Boyutsuz tablo bu kez 4,41 ve 138,6 ile ölçeklenirdi.",
+            "en": "$t_r=0.80=t_0$ → the correction term is zero, $t_p=t_p'=4.41$ h and $Q_p=2.78\\times0.7\\times314/4.41=138.6$ m³/s. Shorter rain → slightly earlier and higher peak. The dimensionless table would then be scaled with 4.41 and 138.6."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya $C_t=2$ olsaydı (daha düz/yavaş tepki veren havza)?",
+            "en": "What if $C_t=2$ (a flatter, slower-responding basin)?"
+          },
+          "answer": {
+            "tr": "$t_p'=0{,}75\\times2\\times(20\\times10)^{0{,}3}=7{,}35$ sa; $t_r=t_p'/5{,}5=1{,}336$ sa; $t_r\\ne t_0=1{,}5$ olduğundan $t_p=7{,}35+0{,}25(1{,}5-1{,}336)=7{,}39$ sa; $Q_p=2{,}78\\times0{,}7\\times314/7{,}39=82{,}7$ m³/sn. $C_t$ arttıkça havza \"tembelleşir\": pik daha geç ($t_p$ büyür) ve daha alçak ($Q_p$ küçülür) gelir.",
+            "en": "$t_p'=0.75\\times2\\times(20\\times10)^{0.3}=7.35$ h; $t_r=t_p'/5.5=1.336$ h; since $t_r\\ne t_0=1.5$, $t_p=7.35+0.25(1.5-1.336)=7.39$ h; $Q_p=2.78\\times0.7\\times314/7.39=82.7$ m³/s. As $C_t$ grows the basin gets \"lazier\": the peak arrives later (larger $t_p$) and is lower ($Q_p$ shrinks)."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": {
+        "tr": "Birim hidrograf (BH), ne kadar NET yağışa verilen tepkidir?",
+        "en": "The unit hydrograph (UH) is the response to how much NET rainfall?"
+      },
+      "options": [
+        {
+          "tr": "1 mm, t0 süresi boyunca",
+          "en": "1 mm, over a duration t0"
+        },
+        {
+          "tr": "1 cm, t0 süresi boyunca",
+          "en": "1 cm, over a duration t0"
+        },
+        {
+          "tr": "Havzadaki toplam yağış, süre önemsiz",
+          "en": "The total rainfall on the basin, duration doesn't matter"
+        },
+        {
+          "tr": "1 cm, sadece 1 saatte",
+          "en": "1 cm, but only in 1 hour"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "BH'ın tanımı: havzaya t0 süresi boyunca üniform yağan 1 cm net (artık) yağışın ürettiği dolaysız akış hidrografıdır. 1 mm demek sonucu 10 kat küçültür (klasik mm/cm hatası); \"toplam yağış, süre önemsiz\" tanımı yanlıştır çünkü BH belirli bir t0'a bağlıdır; \"sadece 1 saatte\" de yanlıştır - t0 soruya göre değişir (30 dk, 2 sa, 3 sa...), 1 saat sabit değildir.",
+        "en": "By definition, the UH is the direct-runoff hydrograph produced by 1 cm of net (effective) rainfall falling uniformly over the basin during a duration t0. Saying 1 mm shrinks the result tenfold (the classic mm/cm slip); \"total rainfall, duration doesn't matter\" is wrong because the UH is tied to a specific t0; \"only in 1 hour\" is also wrong - t0 varies by problem (30 min, 2 h, 3 h...), it is not fixed at 1 hour."
+      }
+    },
+    {
+      "q": {
+        "tr": "Ardışık iki t0 bloğunda 2 cm ve 3 cm net yağış düştü. U(4)=100, U(4-t0)=150 ise Qd(4) kaçtır?",
+        "en": "Rains of 2 cm and 3 cm fall in two successive t0 blocks. If U(4)=100 and U(4-t0)=150, what is Qd(4)?"
+      },
+      "options": [
+        {
+          "tr": "2·100+3·150=650",
+          "en": "2·100+3·150=650"
+        },
+        {
+          "tr": "3·100+2·150=600",
+          "en": "3·100+2·150=600"
+        },
+        {
+          "tr": "(2+3)·100=500",
+          "en": "(2+3)·100=500"
+        },
+        {
+          "tr": "2·150+3·100=600",
+          "en": "2·150+3·100=600"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Süperpozisyonda her blok kendi düştüğü ana göre ötelenmiş BH ile çarpılır: ilk (daha erken düşen) blok U(4)'e, ikinci (t0 kadar geç düşen, dolayısıyla t0 daha az ötelenen) blok U(4-t0)'a karşılık gelir. Verilen eşleştirmeyle doğru toplam 2·100+3·150=650'dir. 600'lü seçenekler blokları ters eşleştirir; 500 ise yağışları önce toplayıp tek bir U ile çarpma hatasıdır - süperpozisyon her bloğu ayrı ayrı ötelemeyi ve çarpmayı, SONRA toplamayı gerektirir.",
+        "en": "In superposition, each rain block is multiplied by the UH lagged to its own start time: the first (earlier) block pairs with U(4), and the second (falling t0 later, hence lagged t0 less) block pairs with U(4-t0). With this pairing, the correct sum is 2·100+3·150=650. The 600 options swap which block pairs with which ordinate; 500 comes from adding the rains first and multiplying by a single U - superposition requires lagging and multiplying each block separately, THEN summing."
+      }
+    },
+    {
+      "q": {
+        "tr": "Dolaysız akış yüksekliği (Rd) formülü nedir?",
+        "en": "What is the formula for the direct-runoff depth (Rd)?"
+      },
+      "options": [
+        {
+          "tr": "Rd = V_dolaysız / A (sonuç cm'ye çevrilir)",
+          "en": "Rd = V_direct / A (result converted to cm)"
+        },
+        {
+          "tr": "Rd = Q_maks / A",
+          "en": "Rd = Q_peak / A"
+        },
+        {
+          "tr": "Rd = A / V_dolaysız",
+          "en": "Rd = A / V_direct"
+        },
+        {
+          "tr": "Rd = V_toplam / A (taban akışı dahil)",
+          "en": "Rd = V_total / A (including base flow)"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Rd, dolaysız (taban akışı çıkarılmış) akış hacminin havza alanına oranıdır; sonuç metre çıkar, cm'ye çevrilir çünkü BH ordinatları U=Qd/Rd ile 1 cm'e göre normalize edilir. Q_maks/A bir debiyi alana böler, hacim/yükseklik ilişkisi değildir; ters oran (A/V) birimleri tersine çevirir; taban akışı dahil hacim kullanmak Rd'yi (ve dolayısıyla tüm BH'ı) yanlış büyütür.",
+        "en": "Rd is the direct (base-flow-subtracted) runoff volume divided by the basin area; the result comes out in metres and is converted to cm because the UH ordinates are normalized to 1 cm via U=Qd/Rd. Q_peak/A divides a rate by an area, not a volume/depth relation; the inverted ratio (A/V) flips the units; using the volume with base flow still included inflates Rd (and the whole UH) incorrectly."
+      }
+    },
+    {
+      "q": {
+        "tr": "1 saatlik BH'tan 3 saatlik BH elde etmek için, ötelenmiş kopyaların toplamı hangi sayıyla çarpılır?",
+        "en": "Converting a 1-h UH to a 3-h UH, the sum of the lagged copies is multiplied by what?"
+      },
+      "options": [
+        {
+          "tr": "3",
+          "en": "3"
+        },
+        {
+          "tr": "1/3",
+          "en": "1/3"
+        },
+        {
+          "tr": "1",
+          "en": "1"
+        },
+        {
+          "tr": "1/9",
+          "en": "1/9"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Çarpan her zaman t0/t1 = 1/3'tür - toplam üç adet 1 cm'lik yağışı (3 cm) temsil ettiğinden, 1 cm'e (yeni BH'ın tanımına) geri dönmek için 3'e bölünür. ×3 tam tersidir ve sonucu 9 kat büyütür; ×1 hiç ölçeklememek anlamına gelir ve toplamı 3 cm'lik BH gibi bırakır; 1/9 rastgele bir çarpandır.",
+        "en": "The factor is always t0/t1 = 1/3 - the sum represents three 1-cm rains stacked together (3 cm total), so dividing by 3 brings it back to 1 cm (the new UH's definition). ×3 is the inverse and inflates the result ninefold; ×1 means no scaling at all, leaving a 3-cm UH; 1/9 is not derived from anything in the method."
+      }
+    },
+    {
+      "q": {
+        "tr": "S eğrisi yöntemi NE ZAMAN zorunludur?",
+        "en": "When is the S-curve method REQUIRED?"
+      },
+      "options": [
+        {
+          "tr": "t1, t0'ın tam katı değilse",
+          "en": "When t1 is not an integer multiple of t0"
+        },
+        {
+          "tr": "t1, t0'dan küçükse",
+          "en": "When t1 is smaller than t0"
+        },
+        {
+          "tr": "Taban akışı bilinmiyorsa",
+          "en": "When the base flow is unknown"
+        },
+        {
+          "tr": "Havza ölçümsüzse (Snyder yerine)",
+          "en": "When the basin is ungauged (instead of Snyder)"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Ötele-topla-ölçekle yöntemi sadece t1/t0 tam sayıysa çalışır (6.4: 3/1); tam sayı değilse (6.5: 4/3) sonlu sayıda ötelemeyle eşit aralıklı bir toplam elde edilemez, bu yüzden S eğrisi (sonsuz öteleme) zorunludur. t1<t0 da S eğrisiyle çözülebilir ama zorunluluk kriteri tam kat olup olmama; taban akışı ve ölçümsüz havza bambaşka konulardır (BH türetme ve Snyder sırasıyla).",
+        "en": "Lag-add-rescale only works when t1/t0 is an integer (6.4: 3/1); when it isn't (6.5: 4/3), no finite set of equally spaced lags reproduces the target duration, so the S-curve (infinite lagging) becomes mandatory. t1<t0 can also use the S-curve, but the actual trigger is a non-integer ratio; base flow and ungauged basins are separate topics (UH derivation and Snyder, respectively)."
+      }
+    },
+    {
+      "q": {
+        "tr": "Snyder yönteminde Qp'yi hangi değişiklik iki katına çıkarır (A ve tp sabitken)?",
+        "en": "In the Snyder method, which change doubles Qp (with A and tp fixed)?"
+      },
+      "options": [
+        {
+          "tr": "Cp'yi iki katına çıkarmak",
+          "en": "Doubling Cp"
+        },
+        {
+          "tr": "Ct'yi iki katına çıkarmak",
+          "en": "Doubling Ct"
+        },
+        {
+          "tr": "t0'ı iki katına çıkarmak",
+          "en": "Doubling t0"
+        },
+        {
+          "tr": "L'yi iki katına çıkarmak",
+          "en": "Doubling L"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Qp = 2,78·Cp·A/tp formülünde Cp payda değil paydadadır ve doğrudan orantılıdır: Cp iki katına çıkarsa Qp de iki katına çıkar (A, tp sabit tutulduğunda). Ct ve t0, tp'yi etkiler - ama soru tp'yi SABİT tutuyor, bu yüzden onları değiştirmek (varsayım gereği) Qp'yi bu formülle doğrudan değiştirmez; L de tp' üzerinden dolaylı etki eder, Qp'de doğrudan yer almaz.",
+        "en": "In Qp = 2.78·Cp·A/tp, Cp sits in the numerator, so it's directly proportional: doubling Cp doubles Qp (with A and tp held fixed). Ct and t0 affect tp - but the question holds tp fixed, so changing them doesn't directly move Qp under that assumption; L also only acts indirectly through tp', not directly in the Qp formula."
+      }
+    },
+    {
+      "q": {
+        "tr": "Taban akışı, BH ile çalışırken nasıl ele alınır?",
+        "en": "How is base flow handled when working with a UH?"
+      },
+      "options": [
+        {
+          "tr": "BH türetmeden önce çıkarılır; taşkın hidrografı kurulduktan sonra eklenir",
+          "en": "Subtracted before deriving the UH; added after building the flood hydrograph"
+        },
+        {
+          "tr": "Her zaman eklenir, hiç çıkarılmaz",
+          "en": "Always added, never subtracted"
+        },
+        {
+          "tr": "BH ordinatlarının içine dahil edilir, ayrı işlem gerekmez",
+          "en": "It's built into the UH ordinates, no separate step needed"
+        },
+        {
+          "tr": "Taşkın hidrografı kurmadan önce eklenir, türetmeden sonra çıkarılır",
+          "en": "Added before building the flood hydrograph, subtracted after deriving it"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "İki yön var ve sırası zıttır: gözlenen taşkından BH türetirken taban akışı en başta ÇIKARILIR (Qd = Q - Qbaz), çünkü BH sadece dolaysız akışı temsil eder; BH'tan taşkın hidrografı kurarken ise süperpozisyonun sonunda taban akışı EKLENİR. Diğer seçenekler bu sırayı ya tersine çevirir ya da taban akışını hiç ayırmaz - ikisi de BH'ı ve/veya taşkın hidrografını yanlış hesaplatır.",
+        "en": "There are two directions with opposite order: when deriving a UH from an observed flood, base flow is SUBTRACTED first (Qd = Q - Qbase), since the UH represents only direct runoff; when building a flood hydrograph from a UH, base flow is ADDED at the end of the superposition. The other options either reverse this order or skip separating base flow entirely - both corrupt the UH and/or the flood hydrograph."
+      }
+    },
+    {
+      "q": {
+        "tr": "Net yağış 25 mm ve elinde BH ordinatları var. Taşkın hidrografı için ordinatları neyle çarparsın?",
+        "en": "Net rain is 25 mm and you have UH ordinates. What do you multiply the ordinates by for the flood hydrograph?"
+      },
+      "options": [
+        {
+          "tr": "2,5 (cm'ye çevrilmiş)",
+          "en": "2.5 (converted to cm)"
+        },
+        {
+          "tr": "25 (mm cinsinden doğrudan)",
+          "en": "25 (directly in mm)"
+        },
+        {
+          "tr": "0,25",
+          "en": "0.25"
+        },
+        {
+          "tr": "250",
+          "en": "250"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "BH 1 cm'e göre tanımlıdır; 25 mm önce cm'ye çevrilir: 25/10=2,5 cm, sonra ordinatlar 2,5 ile çarpılır. Doğrudan 25 ile çarpmak sonucu 10 kat büyütür - bu ünitenin en sık yapılan hatasıdır; 0,25 mm'yi yanlış çevirmekten, 250 ise iki hatayı üst üste yapmaktan (mm/cm karışıklığı + fazladan sıfır) gelir.",
+        "en": "The UH is defined per 1 cm; 25 mm must first be converted to cm: 25/10=2.5 cm, then the ordinates are multiplied by 2.5. Multiplying directly by 25 inflates the result tenfold - the single most common mistake in this unit; 0.25 comes from mis-converting mm, and 250 stacks both errors (the mm/cm mix-up plus an extra zero)."
+      }
+    }
+  ]
+}

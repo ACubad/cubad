@@ -1,0 +1,1249 @@
+{
+  "unit": 7,
+  "slug": "taskinlar",
+  "title": { "tr": "Taşkınlar", "en": "Floods" },
+  "tagline": { "tr": "Tekerrür, risk, Gumbel ve Rasyonel yöntem", "en": "Return periods, risk, Gumbel frequency analysis and the Rational method" },
+  "concept": {
+    "overview": {
+      "tr": "\"100 yıllık taşkın\" dediğimizde, bu taşkının her yüz yılda bir olacağı anlamına gelmez. Anlamı şudur: bu büyüklükteki (ya da daha büyük) bir taşkının **her yıl** görülme olasılığı 1/100 = %1'dir. Bu yanlış anlaşılma sınavın en sevdiği tuzaktır.\n\nBu ünitenin dört büyük fikri şunlar:\n\n1. **Risk:** bir yapının proje ömrü ($n$ yıl) boyunca, tasarım tekerrür süresini ($T$ yıl) aşan en az bir taşkının görülme olasılığı. $R = 1 - e^{-n/T}$ ile hesaplanır — $n$ ile $T$'nin oranı önemlidir, çarpımı değil.\n\n2. **Gumbel dağılımı:** elimizde yıllık maksimum debilerin bir kaydı varsa (ortalama $\\bar Q$, standart sapma $S_Q$), bunları kullanarak istediğimiz herhangi bir tekerrür süresine ait taşkın debisini tahmin edebiliriz: $Q_T = \\bar Q + K_T S_Q$. $K_T$ tekerrür süresine bağlı bir katsayıdır ve çift logaritmalı bir formülle hesaplanır.\n\n3. **Rasyonel yöntem:** küçük havzalarda (özellikle akım kaydı olmayan), yağış şiddeti-süre-tekerrür (i-t-T) verisinden ve havzanın toplanma (konsantrasyon) süresinden ($t_c$, Kirpich formülüyle) taşkın debisi hesaplanır: $Q_T = C_T i_T A / 3{,}6$.\n\n4. **Bölgesel frekans analizi:** akım gözlemi olmayan (ya da kısa kayıtlı) bir havza için, komşu istasyonların verilerini kendi ortalamalarına bölerek boyutsuz hale getirir, hepsini birleştirip ortak bir eğri kurar ve bu eğriyi hedef havzanın kendi ortalama debisiyle çarparız.\n\nHer dört yöntem de aynı soruyu farklı açılardan yanıtlar: \"Bu büyüklükteki bir taşkın ne sıklıkla gelir, ve elimdeki yapı bunun karşısında ne kadar güvende?\" Sınavda sayılar değişir ama şablon hep aynıdır: önce hangi yöntemin istendiğini tanı, sonra formülü mekanik olarak uygula.",
+      "en": "Saying \"the 100-year flood\" does NOT mean this flood happens once every hundred years. It means a flood of this size (or bigger) has a 1/100 = 1% chance of happening in **any given year**. This misunderstanding is the exam's favourite trap.\n\nThis unit has four big ideas:\n\n1. **Risk:** the probability that a structure will see at least one flood exceeding its design return period ($T$ years) during its project life ($n$ years). Computed as $R = 1 - e^{-n/T}$ — what matters is the ratio of $n$ to $T$, not their product.\n\n2. **The Gumbel distribution:** if we have a record of annual maximum discharges (mean $\\bar Q$, standard deviation $S_Q$), we can use them to estimate the flood discharge for any return period we want: $Q_T = \\bar Q + K_T S_Q$. $K_T$ is a return-period-dependent factor computed with a double-logarithm formula.\n\n3. **The Rational method:** for small basins (especially ungauged ones), we compute the flood discharge from rainfall intensity-duration-frequency (i-t-T) data and the basin's time of concentration ($t_c$, via the Kirpich formula): $Q_T = C_T i_T A / 3.6$.\n\n4. **Regional frequency analysis:** for a basin with no gauge (or a short record), we make neighbouring stations' data dimensionless by dividing by each station's own mean, pool them into one common curve, and then multiply that curve by the target basin's own mean discharge.\n\nAll four methods answer the same question from different angles: \"how often does a flood of this size arrive, and how safe is my structure against it?\" The numbers change from question to question, but the template never does: first recognize which method is being asked for, then apply the formula mechanically."
+    },
+    "keyFormulas": [
+      {
+        "name": { "tr": "Taşkın riski", "en": "Flood risk" },
+        "latex": "R = 1 - e^{-n/T}",
+        "meaning": {
+          "tr": "$R$: proje ömrü boyunca en az bir kez tasarım taşkınının aşılma olasılığı, $n$: proje ömrü (yıl), $T$: tasarım tekerrür süresi (yıl). (Ders geleneği bu üstel formülü kullanır; binom formülü $R = 1-(1-1/T)^n$ de vardır ve çok yakın sonuç verir.)",
+          "en": "$R$: probability of at least one exceedance of the design flood during the project life, $n$: project life (years), $T$: design return period (years). (The course convention uses this exponential formula; a binomial version $R = 1-(1-1/T)^n$ also exists and gives a very close result.)"
+        },
+        "whenToUse": {
+          "tr": "\"T yıllık taşkına göre tasarlanan bir yapının n yıllık ömründe risk nedir\" ya da tersi (\"belirli bir risk için hangi T gerekir\") sorulduğunda.",
+          "en": "When asked \"what is the risk over an n-year life of a structure designed for the T-year flood\", or the reverse (\"what T is needed for a given risk\")."
+        }
+      },
+      {
+        "name": { "tr": "Gumbel taşkın debisi", "en": "Gumbel flood discharge" },
+        "latex": "Q_T = \\bar{Q} + K_T\\,S_Q",
+        "meaning": {
+          "tr": "$Q_T$: T yıl tekerrürlü taşkın debisi, $\\bar Q$: yıllık maksimum debilerin ortalaması, $S_Q$: standart sapmaları, $K_T$: Gumbel frekans faktörü.",
+          "en": "$Q_T$: the T-year return-period flood discharge, $\\bar Q$: the mean of the annual maximum discharges, $S_Q$: their standard deviation, $K_T$: the Gumbel frequency factor."
+        },
+        "whenToUse": {
+          "tr": "Yıllık maksimum debi kaydı (veya anahtar eğrisiyle debiye çevrilebilen seviye kaydı) verilip belirli bir T için taşkın debisi ya da belirli bir Q için T isteniyorsa.",
+          "en": "When a record of annual maximum discharges (or a level record convertible via a rating curve) is given, and either the flood discharge for a given T, or the T for a given Q, is asked."
+        }
+      },
+      {
+        "name": { "tr": "Gumbel frekans faktörü", "en": "Gumbel frequency factor" },
+        "latex": "K_T = -\\left(0.45 + \\dfrac{\\ln\\!\\left[\\ln\\dfrac{T}{T-1}\\right]}{1.2825}\\right)",
+        "meaning": {
+          "tr": "$T$: tekerrür süresi (yıl). Formül iki iç içe logaritma içerir: önce $T/(T-1)$'in doğal logaritması, sonra o sonucun doğal logaritması.",
+          "en": "$T$: return period (years). The formula has two nested logarithms: first the natural log of $T/(T-1)$, then the natural log of that result."
+        },
+        "whenToUse": {
+          "tr": "Her Gumbel hesabında $K_T$ önce bulunur; T biliniyorsa doğrudan, Q biliniyorsa denklem tersine çözülerek (iki üstel açılımla).",
+          "en": "In every Gumbel calculation $K_T$ is found first; directly if T is known, or by inverting the equation (unwrapping two exponentials) if Q is known instead."
+        }
+      },
+      {
+        "name": { "tr": "Kirpich konsantrasyon süresi", "en": "Kirpich time of concentration" },
+        "latex": "t_c = 0.00032\\,L^{0.77}\\,S^{-0.385}",
+        "meaning": {
+          "tr": "$t_c$: konsantrasyon (toplanma) süresi (saat), $L$: havza uzunluğu (**metre!**), $S$: havza eğimi (boyutsuz, m/m).",
+          "en": "$t_c$: time of concentration (hours), $L$: basin length (in **metres!**), $S$: basin slope (dimensionless, m/m)."
+        },
+        "whenToUse": {
+          "tr": "Rasyonel yöntemin ilk adımı: küçük bir havzanın L ve eğimi (ya da kot farkı) verildiğinde, yağış şiddetini okuyacağın süreyi bulmak için.",
+          "en": "The first step of the Rational method: when a small basin's length and slope (or elevation drop) are given, to find the duration at which you should read the rainfall intensity."
+        }
+      },
+      {
+        "name": { "tr": "Rasyonel yöntem debisi", "en": "Rational method discharge" },
+        "latex": "Q_T = \\dfrac{C_T\\,i_T\\,A}{3.6}\\ ,\\quad C_T = C_{100}\\left(\\dfrac{T}{100}\\right)^{x}",
+        "meaning": {
+          "tr": "$Q_T$ debi (m³/sn), $i_T$ yağış şiddeti (**mm/saat**), $A$ havza alanı (**km²**), $C_T$ akış katsayısı; $C_{100}$ 100 yıllık akış katsayısı, $x$ bölge katsayısı.",
+          "en": "$Q_T$ discharge (m³/s), $i_T$ rainfall intensity (**mm/h**), $A$ basin area (**km²**), $C_T$ runoff coefficient; $C_{100}$ the 100-year runoff coefficient, $x$ a regional exponent."
+        },
+        "whenToUse": {
+          "tr": "Küçük havza, arazi kullanımına göre akış katsayıları ve i-t-T tablosu verildiğinde. Birimler tam olarak mm/saat ve km² olmalı — aksi hâlde 3,6 katsayısı geçersizdir.",
+          "en": "For a small basin, when runoff coefficients by land use and an i-t-T table are given. Units must be exactly mm/h and km² — otherwise the 3.6 factor is invalid."
+        }
+      },
+      {
+        "name": { "tr": "Bölgesel frekans eğrisi", "en": "Regional frequency curve" },
+        "latex": "\\left(\\dfrac{Q}{\\bar Q}\\right)_T = \\overline{(Q/\\bar Q)} + K_T\\,S_{Q/\\bar Q}",
+        "meaning": {
+          "tr": "Solda T yıl tekerrürlü boyutsuz debi oranı; sağda tüm istasyonların boyutsuz ($Q/\\bar Q$) değerlerinin ortak ortalaması ve standart sapması. Akım gözlemi olmayan bir havza için $\\bar Q$, alan (A) ile bir $\\bar Q$-A log-log regresyonundan tahmin edilir.",
+          "en": "Left side: the dimensionless discharge ratio for return period T; right side: the pooled mean and standard deviation of every station's dimensionless ($Q/\\bar Q$) values. For an ungauged basin, $\\bar Q$ is estimated from a log-log $\\bar Q$-A regression against area (A)."
+        },
+        "whenToUse": {
+          "tr": "Birden çok istasyonun kısa/kısıtlı kaydı varken, ya da hiç kaydı olmayan bir havza için taşkın debisi tahmin edilmek istendiğinde.",
+          "en": "When several stations have short/limited records, or when a flood discharge is needed for a basin with no record at all."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "**Risk formülünde $n/T$ oranı kullanılır, $n \\cdot T$ çarpımı değil.** $R = 1 - e^{-n \\cdot T}$ yazmak, hiç mantıklı olmayan (neredeyse her zaman ≈1) bir risk verir.",
+        "en": "**The risk formula uses the ratio $n/T$, not the product $n \\cdot T$.** Writing $R = 1 - e^{-n \\cdot T}$ gives a nonsensical risk (almost always ≈1)."
+      },
+      {
+        "tr": "**$K_T$ çift logaritmalıdır — içeriden dışarıya hesapla.** Önce $T/(T-1)$, sonra onun doğal logaritması, sonra O sonucun doğal logaritması. Ters yönde (Q'dan T'ye) giderken de aynı sırayı tersten aç: önce üs al, sonra üs al.",
+        "en": "**$K_T$ has two nested logarithms — compute from the inside out.** First $T/(T-1)$, then its natural log, then the natural log of THAT result. Going the other way (Q to T), unwrap the same chain in reverse: exponentiate, then exponentiate again."
+      },
+      {
+        "tr": "**Rasyonel yöntemdeki 3,6 katsayısı yalnızca $i$ tam olarak mm/saat ve $A$ tam olarak km² iken geçerlidir.** Farklı birimler kullanıldığında bu sabit değişir; birimleri değiştirmeden 3,6'yı otomatik kullanma.",
+        "en": "**The 3.6 factor in the Rational method is valid only when $i$ is exactly mm/h and $A$ is exactly km².** If different units are used the constant changes; don't apply 3.6 blindly without checking units."
+      },
+      {
+        "tr": "**Kirpich formülündeki $t_c$'de $L$ METRE cinsinden, $S$ ise boyutsuzdur (m/m).** $L$'yi km bırakmak ya da $S$'yi yüzde (%) olarak bırakmak $t_c$'yi baştan yanlış çıkarır.",
+        "en": "**In the Kirpich formula, $L$ must be in METRES and $S$ is dimensionless (m/m).** Leaving $L$ in km, or leaving $S$ as a percentage, gives a wrong $t_c$ from the start."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "7-1",
+      "code": "Uygulama 7.1",
+      "title": { "tr": "Taşkın riski", "en": "Flood risk" },
+      "difficulty": 1,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Tekerrür (yineleme) süresi 100 yıl olan bir taşkına göre boyutlandırılan bir barajın proje ömrü 50 yıldır. Bu taşkının riskini hesaplayınız. Riskin %5 olması için baraj kaç yıl tekerrürlü taşkına göre boyutlandırılmalıdır?",
+        "en": "A dam is designed for a flood with a return period of 100 years, and the dam's project life is 50 years. Calculate the risk of this flood. For the risk to be 5%, for what return period should the dam be designed?"
+      },
+      "given": [
+        { "symbol": "T", "value": "100\\ \\text{yıl}", "label": { "tr": "Tasarım tekerrür süresi", "en": "Design return period" } },
+        { "symbol": "n", "value": "50\\ \\text{yıl}", "label": { "tr": "Proje ömrü", "en": "Project life" } },
+        { "symbol": "R_2", "value": "0{,}05\\ (\\%5)", "label": { "tr": "İkinci kısımda istenen risk", "en": "Target risk in the second part" } }
+      ],
+      "goal": {
+        "tr": "(a) T=100 yıl, n=50 yıl için riski bulmak; (b) risk %5 olsun istenirse gereken tekerrür süresini bulmak.",
+        "en": "(a) Find the risk for T=100 years, n=50 years; (b) find the required return period so that the risk is 5%."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Soruyu tanı: risk = en az bir aşım olasılığı", "en": "Recognize the problem: risk = probability of at least one exceedance" },
+          "guiding": {
+            "tr": "Elinde bir tasarım tekerrür süresi ($T$) ve bir proje ömrü ($n$) var. \"Risk\" kelimesi hangi denklemi çağrıştırıyor?",
+            "en": "You have a design return period ($T$) and a project life ($n$). What equation does the word \"risk\" bring to mind?"
+          },
+          "hint": {
+            "tr": "Risk, yapının ömrü boyunca tasarım taşkınının en az bir kez aşılma olasılığıdır — üstel bir formülle hesaplanır.",
+            "en": "Risk is the probability that the design flood is exceeded at least once during the structure's life — computed with an exponential formula."
+          },
+          "work": {
+            "tr": "Taşkının, proje ömrü $n$ yıl boyunca en az bir defa görülme ihtimali (riski):\n\n$$R = 1 - e^{-n/T}$$\n\nBurada $T$ tasarım tekerrür süresi, $n$ proje ömrüdür. Dikkat: üstteki kesir $n/T$'dir, $n \\cdot T$ değil.",
+            "en": "The probability (risk) that the flood is seen at least once during the $n$-year project life:\n\n$$R = 1 - e^{-n/T}$$\n\nHere $T$ is the design return period and $n$ the project life. Note: the exponent is $n/T$, not $n \\cdot T$."
+          },
+          "why": {
+            "tr": "\"T yıllık taşkın\" ve \"n yıllık ömür\" ikilisini görür görmez bu formülü yaz. Sınavın gizli tuzağı burada: \"100 yıllık taşkın\" ifadesi öğrenciye \"bu, 100 yılda bir olur, 50 yıllık ömürde olmaz\" diye yanlış bir güven verir. Oysa risk her yıl için bağımsız %1'lik bir olasılıktır ve n yıl boyunca birikir.",
+            "en": "The moment you see the pair \"T-year flood\" and \"n-year life\", write this formula. The exam's hidden trap is here: the phrase \"the 100-year flood\" gives students a false sense that \"this happens once every 100 years, so it won't happen in a 50-year life.\" In reality the risk is an independent 1% chance every single year, and it accumulates over n years."
+          },
+          "result": "R = 1 - e^{-n/T}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Riski hesapla: T=100, n=50", "en": "Compute the risk: T=100, n=50" },
+          "guiding": {
+            "tr": "n=50 ve T=100'ü yerine koyarsan risk kaç çıkar? Sonucu bir barajın \"100 yıllık taşkına göre güvenli\" olduğu sezgisiyle karşılaştır.",
+            "en": "Substituting n=50 and T=100, what risk do you get? Compare the result with the intuition that a dam \"designed for the 100-year flood\" should be safe."
+          },
+          "hint": {
+            "tr": "$R = 1 - e^{-50/100} = 1 - e^{-0{,}5}$.",
+            "en": "$R = 1 - e^{-50/100} = 1 - e^{-0.5}$."
+          },
+          "work": {
+            "tr": "$$R = 1 - e^{-50/100} = 1 - e^{-0{,}5} = 0{,}39 \\;(\\%39)$$\n\nYani 100 yıllık taşkına göre tasarlanan bu baraj, 50 yıllık ömrü boyunca bu taşkının aşılması riskini **%39** taşımaktadır.",
+            "en": "$$R = 1 - e^{-50/100} = 1 - e^{-0.5} = 0.39 \\;(39\\%)$$\n\nSo this dam, designed for the 100-year flood, carries a **39%** risk of that flood being exceeded during its 50-year life."
+          },
+          "why": {
+            "tr": "Bu, sınavın tam olarak sınamak istediği sezgidir: \"100 yıllık\" bir taşkın, 50 yıllık bir ömürde %39 gibi şaşırtıcı derecede yüksek bir olasılıkla görülebilir. Sınavda bu sayıyı gördüğünde \"mantıklı mı\" diye durup düşün — %39, \"neredeyse hiç olmaz\" sezgisinin tam tersidir ve bu yüzden soru burada sorulur.",
+            "en": "This is exactly the intuition the exam wants to test: a \"100-year\" flood can be seen with a surprisingly high probability — 39% — over just a 50-year life. When you see this number in an exam, pause and ask \"does this make sense?\" — 39% is the opposite of the \"almost never happens\" instinct, which is exactly why the question is asked here."
+          },
+          "result": "R = 0{,}39\\ (\\%39)",
+          "check": {
+            "q": { "tr": "\"T=100 yıllık taşkın\" ifadesi ne anlama gelir?", "en": "What does the phrase \"the T=100-year flood\" mean?" },
+            "options": [
+              { "tr": "Bu büyüklükteki taşkın her 100 yılda bir kez, düzenli aralıklarla gelir", "en": "A flood of this size arrives regularly, once every 100 years" },
+              { "tr": "Bu büyüklükteki (veya daha büyük) bir taşkının HER YIL görülme olasılığı %1'dir", "en": "A flood of this size (or bigger) has a 1% chance of occurring in ANY GIVEN YEAR" },
+              { "tr": "Bu taşkın 100 yıl boyunca bir daha asla tekrarlanmaz", "en": "This flood can never repeat again for 100 years" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Tekerrür süresi bir ortalama aralıktır, bir garanti değil: her yıl bağımsız olarak %1 aşılma olasılığı vardır. Bu yüzden 50 yıllık bir ömürde %39 gibi yüksek bir risk çıkar. \"Düzenli aralıkla gelir\" ya da \"bir daha tekrarlanmaz\" yorumları bu bağımsızlığı görmezden gelir.",
+              "en": "The return period is an average interval, not a guarantee: each year independently carries a 1% exceedance chance. That's exactly why a 50-year life produces a risk as high as 39%. Both \"arrives at regular intervals\" and \"can never repeat\" ignore this year-to-year independence."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Ters problem: %5 risk için gereken T", "en": "Inverse problem: the T needed for a 5% risk" },
+          "guiding": {
+            "tr": "Şimdi $R$ ve $n$ biliniyor, $T$ bilinmiyor. Aynı denklemi $T$ için nasıl çözersin?",
+            "en": "Now $R$ and $n$ are known, $T$ is unknown. How do you solve the same equation for $T$?"
+          },
+          "hint": {
+            "tr": "$0{,}05 = 1 - e^{-50/T}$'den önce $e^{-50/T}$'yi yalnız bırak, sonra doğal logaritma al.",
+            "en": "From $0.05 = 1 - e^{-50/T}$, first isolate $e^{-50/T}$, then take the natural logarithm."
+          },
+          "work": {
+            "tr": "$$0{,}05 = 1 - e^{-50/T} \\;\\Rightarrow\\; e^{-50/T} = 0{,}95 \\;\\Rightarrow\\; -\\frac{50}{T} = \\ln(0{,}95)$$\n\n$$T = \\frac{-50}{\\ln(0{,}95)} = \\frac{-50}{-0{,}05129} = 975\\ \\text{yıl}$$",
+            "en": "$$0.05 = 1 - e^{-50/T} \\;\\Rightarrow\\; e^{-50/T} = 0.95 \\;\\Rightarrow\\; -\\frac{50}{T} = \\ln(0.95)$$\n\n$$T = \\frac{-50}{\\ln(0.95)} = \\frac{-50}{-0.05129} = 975\\ \\text{years}$$"
+          },
+          "why": {
+            "tr": "Bu, ilk kısmın simetrik tersidir: orada $T,n$ verilip $R$ isteniyordu, burada $R,n$ verilip $T$ isteniyor. Aynı formülü \"hangi taraf bilinmiyor\" diye tanımak — cebirsel çözmeye başlamadan önce bu ayrımı yapmak seni zamandan kazandırır. İşaret hatası burada da en sık hatadır: üsteki eksiyi kaybetmek $T$'yi negatif ya da anlamsız çıkarır.",
+            "en": "This is the mirror image of the first part: there $T,n$ were given and $R$ was asked; here $R,n$ are given and $T$ is asked. Recognizing the same formula by \"which side is unknown\" — before you start manipulating algebra — saves time. The most common mistake here is also a sign slip: losing the minus in the exponent gives a negative or nonsensical $T$."
+          },
+          "result": "T = 975\\ \\text{yıl}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Karşılaştır: binom formülüyle sağlama", "en": "Cross-check: verify with the binomial formula" },
+          "guiding": {
+            "tr": "Ders dışında bazı kaynaklar riski $1-(1-1/T)^n$ diye de yazar. İki formül aynı hikayeyi mi anlatıyor?",
+            "en": "Some sources outside this course write risk as $1-(1-1/T)^n$ instead. Do the two formulas tell the same story?"
+          },
+          "hint": {
+            "tr": "Binom formülünü T=100, n=50 için hesapla ve üstel formülün sonucuyla karşılaştır.",
+            "en": "Compute the binomial formula for T=100, n=50 and compare with the exponential formula's result."
+          },
+          "work": {
+            "tr": "Binom (kesikli) formülle: $R = 1 - (1 - 1/100)^{50} = 1 - 0{,}99^{50} \\approx 0{,}395\\ (\\%39{,}5)$.\n\nÜstel formülle bulduğumuz $\\%39$ ile neredeyse aynı — büyük $T$ için $e^{-n/T} \\approx (1-1/T)^n$ yaklaşımı çok iyi çalışır. T=975 yıl için de aynı mantık geçerlidir: iki formül birbirine çok yakın sonuç verir.",
+            "en": "With the binomial (discrete) formula: $R = 1 - (1 - 1/100)^{50} = 1 - 0.99^{50} \\approx 0.395\\ (39.5\\%)$.\n\nThis is almost identical to the $39\\%$ we got with the exponential formula — for large $T$, the approximation $e^{-n/T} \\approx (1-1/T)^n$ works very well. The same holds for T=975 years: the two formulas give very close results."
+          },
+          "why": {
+            "tr": "Bu sağlama, sınavda hangi formülü görürsen gör paniklememen için var: ders kitabı üstel yaklaşımı (matematiksel olarak daha temiz) kullanır ama gerçek/binom formülü de var ve aynı fikri taşır. Bir soruda hangisi verilmişse onunla devam et; ikisi de aynı hikayeyi (n/T oranı → risk) anlatır.",
+            "en": "This cross-check exists so you don't panic no matter which formula you see in the exam: the textbook uses the exponential approximation (mathematically cleaner), but the exact/binomial formula also exists and carries the same idea. Whichever one a question gives you, run with it — both tell the same story (the n/T ratio drives the risk)."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**(a)** $R = 1 - e^{-50/100} = \\boxed{0{,}39\\ (\\%39)}$.\n\n**(b)** %5 risk için gereken tekerrür süresi: $T = \\boxed{975\\ \\text{yıl}}$.",
+        "en": "**(a)** $R = 1 - e^{-50/100} = \\boxed{0.39\\ (39\\%)}$.\n\n**(b)** The return period needed for a 5% risk: $T = \\boxed{975\\ \\text{years}}$."
+      },
+      "traps": [
+        {
+          "tr": "100 yıllık bir taşkının 50 yıllık bir ömürde \"neredeyse hiç görülmeyeceğini\" düşünmek. Doğru sezgi tam tersi: risk %39 gibi şaşırtıcı yüksek çıkar — sınav tam bu sezgiyi ölçmek için sorulur.",
+          "en": "Assuming a 100-year flood would \"almost never\" be seen in a 50-year life. The correct intuition is the opposite: the risk comes out a surprisingly high 39% — the exam asks this exact question to test that intuition."
+        },
+        {
+          "tr": "Üstel formülde $n/T$ yerine $n \\cdot T$ kullanmak (ya da eksi işaretini kaybetmek). $R = 1-e^{-50\\cdot100}$ neredeyse %100 anlamsız bir sonuç verir.",
+          "en": "Using $n \\cdot T$ instead of $n/T$ in the exponent (or dropping the minus sign). $R = 1-e^{-50\\cdot100}$ gives a nonsensical near-100% result."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya proje ömrü de n=100 yıl olsaydı (T=100 aynı kalsaydı)?", "en": "What if the project life were also n=100 years (T=100 unchanged)?" },
+          "answer": {
+            "tr": "$R = 1 - e^{-100/100} = 1 - e^{-1} \\approx 0{,}63\\ (\\%63)$. Ömür tasarım tekerrür süresine eşit olduğunda risk her zaman $1-e^{-1} \\approx \\%63$'e çıkar — bu, quiz'de de sorulan klasik bir sonuçtur (n=T ise oran her zaman 1).",
+            "en": "$R = 1 - e^{-100/100} = 1 - e^{-1} \\approx 0.63\\ (63\\%)$. Whenever the life equals the design return period, the risk always comes out to $1-e^{-1} \\approx 63\\%$ — this is a classic result (n=T always gives a ratio of 1), also tested in the quiz."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya n=50 yıl sabit kalıp, hedef risk %5 yerine %10 olsaydı?", "en": "What if n=50 stayed fixed but the target risk were 10% instead of 5%?" },
+          "answer": {
+            "tr": "$0{,}10 = 1 - e^{-50/T} \\Rightarrow T = -50/\\ln(0{,}9) = 475$ yıl. Daha yüksek bir riske razı olmak, gereken tekerrür süresini düşürür (975 → 475 yıl) — daha az güvenli ama daha ekonomik bir tasarım demektir.",
+            "en": "$0.10 = 1 - e^{-50/T} \\Rightarrow T = -50/\\ln(0.9) = 475$ years. Accepting a higher risk lowers the required return period (975 → 475 years) — a less safe but more economical design."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya proje ömrü n=1 yıl olsaydı?", "en": "What if the project life were n=1 year?" },
+          "answer": {
+            "tr": "$R = 1 - e^{-1/T}$; T büyük olduğunda $e^{-1/T} \\approx 1 - 1/T$ olduğundan $R \\approx 1/T$. Yani tek yıllık bir ömür için risk, tekerrür süresinin tam tersine (yıllık aşılma olasılığına) yaklaşır — tanımın kendisine geri döneriz.",
+            "en": "$R = 1 - e^{-1/T}$; for large T, $e^{-1/T} \\approx 1 - 1/T$, so $R \\approx 1/T$. In other words, for a single-year life the risk approaches the reciprocal of the return period (the annual exceedance probability) — we circle back to the very definition."
+          }
+        }
+      ]
+    },
+    {
+      "id": "7-2",
+      "code": "Uygulama 7.2",
+      "title": { "tr": "Gumbel ile taşkın debileri", "en": "Flood magnitudes by Gumbel" },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir akım gözlem istasyonunda gözlenen 30 yıllık taşkın debilerinin (yıllık maksimum debiler) ortalaması 58 m³/sn ve standart sapması 26 m³/sn'dir. Taşkınların Gumbel dağılımına uyduğunu kabul ederek, 50 yıl ve 200 yıl tekerrürlü taşkınları, ayrıca 100 m³/sn ve 160 m³/sn debisindeki taşkınların tekerrür sürelerini tahmin ediniz.",
+        "en": "At a stream gauging station, 30 years of annual maximum flood discharges have a mean of 58 m³/s and a standard deviation of 26 m³/s. Assuming the floods follow the Gumbel distribution, estimate the 50-year and 200-year floods, and also the return periods of floods with discharges of 100 m³/s and 160 m³/s."
+      },
+      "given": [
+        { "symbol": "\\bar Q", "value": "58\\ \\text{m}^3/\\text{s}", "label": { "tr": "30 yıllık yıllık maksimum debilerin ortalaması", "en": "Mean of the 30-year annual maximum discharges" } },
+        { "symbol": "S_Q", "value": "26\\ \\text{m}^3/\\text{s}", "label": { "tr": "Standart sapma", "en": "Standard deviation" } }
+      ],
+      "goal": {
+        "tr": "T=50 ve T=200 yıl için $Q_T$'yi; Q=100 ve Q=160 m³/sn için tekerrür sürelerini bulmak.",
+        "en": "Find $Q_T$ for T=50 and T=200 years; find the return periods for Q=100 and Q=160 m³/s."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Gumbel denklemini yaz", "en": "Write the Gumbel equation" },
+          "guiding": {
+            "tr": "Elinde yıllık maksimum debilerin ortalaması ve standart sapması var. Bu, hangi dağılımı ve hangi denklemi çağrıştırıyor?",
+            "en": "You have the mean and standard deviation of the annual maximum discharges. What distribution and equation does this call for?"
+          },
+          "hint": {
+            "tr": "Yıllık maksimum debi serisi + Gumbel varsayımı → $Q_T = \\bar Q + K_T S_Q$.",
+            "en": "An annual-maximum-discharge series + a Gumbel assumption → $Q_T = \\bar Q + K_T S_Q$."
+          },
+          "work": {
+            "tr": "T yıl tekerrürlü taşkın debisi Gumbel dağılımına göre:\n\n$$Q_T = \\bar Q + K_T \\cdot S_Q$$\n\n$\\bar Q = 58$ ve $S_Q = 26$ m³/sn yerine yazılırsa:\n\n$$Q_T = 58 + 26 \\cdot K_T$$\n\nDenklemde tek bilinmeyen $K_T$ kaldı; onu her T için ayrı ayrı bulacağız.",
+            "en": "The T-year flood discharge under the Gumbel distribution:\n\n$$Q_T = \\bar Q + K_T \\cdot S_Q$$\n\nSubstituting $\\bar Q = 58$ and $S_Q = 26$ m³/s:\n\n$$Q_T = 58 + 26 \\cdot K_T$$\n\nThe only unknown left is $K_T$; we'll find it separately for each T."
+          },
+          "why": {
+            "tr": "\"Yıllık maksimum debilerin ortalaması ve standart sapması verilmiş, Gumbel'e uyduğu söylenmiş\" cümlesini gördüğün an bu denklemi yaz. Bu ünitenin en çok kullanılan iskeleti budur; T=100 ya da 30 istese de mantık aynıdır, sadece $K_T$ değişir.",
+            "en": "The moment you see \"mean and standard deviation of annual maximum discharges are given, and they follow Gumbel\", write this equation. This is the most-used skeleton of this unit; whether T is 100 or 30, the logic is identical — only $K_T$ changes."
+          },
+          "result": "Q_T = 58 + 26\\,K_T",
+          "check": null
+        },
+        {
+          "title": { "tr": "K50 ve K200'ü hesapla", "en": "Compute K50 and K200" },
+          "guiding": {
+            "tr": "T=50 ve T=200'ü Gumbel frekans faktörü formülüne yerleştirirsen ne çıkar? Adım adım, içeriden dışarıya hesapla.",
+            "en": "If you plug T=50 and T=200 into the Gumbel frequency factor formula, what do you get? Work from the inside out, step by step."
+          },
+          "hint": {
+            "tr": "Önce $T/(T-1)$, sonra $\\ln[\\ldots]$, sonra $\\ln\\{\\ldots\\}$, en son $-\\left(0{,}45+\\frac{\\cdot}{1{,}2825}\\right)$.",
+            "en": "First $T/(T-1)$, then $\\ln[\\ldots]$, then $\\ln\\{\\ldots\\}$, and finally $-\\left(0.45+\\frac{\\cdot}{1.2825}\\right)$."
+          },
+          "work": {
+            "tr": "$$K_T = -\\left(0{,}45 + \\frac{\\ln\\left[\\ln\\dfrac{T}{T-1}\\right]}{1{,}2825}\\right)$$\n\nT=50 için: $(K_T)_{50} = 2{,}592$.\n\nT=200 için: $(K_T)_{200} = 3{,}679$.",
+            "en": "$$K_T = -\\left(0.45 + \\frac{\\ln\\left[\\ln\\dfrac{T}{T-1}\\right]}{1.2825}\\right)$$\n\nFor T=50: $(K_T)_{50} = 2.592$.\n\nFor T=200: $(K_T)_{200} = 3.679$."
+          },
+          "why": {
+            "tr": "İki iç içe logaritma, hesap makinesinde en çok yazım hatasının olduğu yer. Sınav taktiği: parantezleri açmadan önce her adımın sayısal sonucunu ayrı ayrı yaz (önce $T/(T-1)$, sonra iç logaritma, sonra dış logaritma), böylece bir yerde hata yaparsan geri dönüp bulabilirsin.",
+            "en": "The two nested logarithms are where most calculator typos happen. Exam tactic: write down the numeric result of each stage separately before combining them (first $T/(T-1)$, then the inner log, then the outer log), so if you make a mistake somewhere you can trace back and find it."
+          },
+          "result": "K_{50} = 2{,}592,\\quad K_{200} = 3{,}679",
+          "check": null
+        },
+        {
+          "title": { "tr": "Q50 ve Q200'ü hesapla", "en": "Compute Q50 and Q200" },
+          "guiding": {
+            "tr": "$K_T$'leri elde ettin. Şimdi $Q_T = 58 + 26K_T$'ye geri koy.",
+            "en": "You have $K_T$. Now substitute back into $Q_T = 58 + 26K_T$."
+          },
+          "hint": {
+            "tr": "Doğrudan yerine koy, sadece çarpma ve toplama var.",
+            "en": "Direct substitution — just multiplication and addition."
+          },
+          "work": {
+            "tr": "$$Q_{50} = 58 + 26 \\cdot 2{,}592 = 125\\ \\text{m}^3/\\text{s}$$\n\n$$Q_{200} = 58 + 26 \\cdot 3{,}679 = 154\\ \\text{m}^3/\\text{s}$$",
+            "en": "$$Q_{50} = 58 + 26 \\cdot 2.592 = 125\\ \\text{m}^3/\\text{s}$$\n\n$$Q_{200} = 58 + 26 \\cdot 3.679 = 154\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "$K_T$ her zaman T=2,33'ten büyük tekerrür süreleri için pozitiftir (ortalama debinin üstünde) — bu yüzden $Q_{50}$ ve $Q_{200}$ ortalamanın (58) çok üstünde çıkması beklenen ve doğrulayıcı bir işarettir. T daha büyüdükçe $K_T$ ve dolayısıyla $Q_T$ de büyür: mantıksal kontrolün budur.",
+            "en": "$K_T$ is always positive for return periods above T=2.33 (above the mean flood) — so $Q_{50}$ and $Q_{200}$ coming out well above the mean (58) is an expected, confirming sign. As T grows, $K_T$ and therefore $Q_T$ grow too: that's your sanity check."
+          },
+          "result": "Q_{50} = 125\\ \\text{m}^3/\\text{s},\\quad Q_{200} = 154\\ \\text{m}^3/\\text{s}",
+          "check": {
+            "q": { "tr": "T=2,33 yıl civarında $K_T$'nin işareti hakkında ne söylenebilir?", "en": "What can be said about the sign of $K_T$ around T=2.33 years?" },
+            "options": [
+              { "tr": "$K_T \\approx 0$; $Q_T$ ortalama yıllık taşkına yaklaşır", "en": "$K_T \\approx 0$; $Q_T$ approaches the mean annual flood" },
+              { "tr": "$K_T$ her zaman büyük ve pozitiftir", "en": "$K_T$ is always large and positive" },
+              { "tr": "$K_T$'nin işareti T ile hiç değişmez", "en": "The sign of $K_T$ never changes with T" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "T=2,33 yıl Gumbel dağılımında yaklaşık ortalama tekerrür süresidir; bu civarda $K_T \\approx 0$ olur ve $Q_T \\approx \\bar Q$ çıkar. T>2,33 için $K_T>0$ (ortalamanın üstü), T<2,33 için $K_T<0$ (ortalamanın altı) — işaret sabit değildir.",
+              "en": "T=2.33 years is approximately the mean return period under the Gumbel distribution; around it $K_T \\approx 0$ and $Q_T \\approx \\bar Q$. For T>2.33, $K_T>0$ (above the mean); for T<2.33, $K_T<0$ (below the mean) — the sign is not fixed."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Ters problem: Q=100 için T'yi bul", "en": "Inverse problem: find T for Q=100" },
+          "guiding": {
+            "tr": "Bu kez debi (100 m³/sn) veriliyor, tekerrür süresi soruluyor. Zincir hangi yönde işler?",
+            "en": "This time the discharge (100 m³/s) is given and the return period is asked. Which direction does the chain run?"
+          },
+          "hint": {
+            "tr": "Önce $Q_T = 58+26K_T$'den $K_T$'yi çek, sonra $K_T$ denklemini T için TERS çöz — bu iki üstel açılım gerektirir.",
+            "en": "First solve $Q_T = 58+26K_T$ for $K_T$, then invert the $K_T$ formula to solve for T — this requires unwrapping two exponentials."
+          },
+          "work": {
+            "tr": "Önce $K_T$: $$K_T = \\frac{100-58}{26} = 1{,}615$$\n\nSonra $K_T$ denklemini T için tersine çözüyoruz. $K_T = -\\left(0{,}45+\\frac{\\ln[\\ln(T/(T-1))]}{1{,}2825}\\right)$'den:\n\n$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1{,}2825\\,(K_T+0{,}45) = -1{,}2825\\,(1{,}615+0{,}45) = -2{,}648$$\n\n$$\\ln\\frac{T}{T-1} = e^{-2{,}648} = 0{,}0708 \\;\\Rightarrow\\; \\frac{T}{T-1} = e^{0{,}0708} = 1{,}0733$$\n\n$$T \\approx 14{,}6\\ \\text{yıl}\\ \\;(\\text{föyde yuvarlanarak } T=14\\ \\text{yıl})$$",
+            "en": "First $K_T$: $$K_T = \\frac{100-58}{26} = 1.615$$\n\nThen we invert the $K_T$ formula to solve for T. From $K_T = -\\left(0.45+\\frac{\\ln[\\ln(T/(T-1))]}{1.2825}\\right)$:\n\n$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1.2825\\,(K_T+0.45) = -1.2825\\,(1.615+0.45) = -2.648$$\n\n$$\\ln\\frac{T}{T-1} = e^{-2.648} = 0.0708 \\;\\Rightarrow\\; \\frac{T}{T-1} = e^{0.0708} = 1.0733$$\n\n$$T \\approx 14.6\\ \\text{years}\\ \\;(\\text{the sheet rounds to } T=14\\ \\text{years})$$"
+          },
+          "why": {
+            "tr": "Bu, ünitenin en çok hata yapılan basamağıdır çünkü zinciri geriye doğru açmak gerekir: normalde T'den $K_T$'ye giderken iki logaritma alırsın, tersine giderken iki üstel almalısın. Sınav taktiği: her ara adımı ($\\ln[\\cdot]$, sonra $\\ln\\{\\cdot\\}$, sonra $e^{(\\cdot)}$, sonra tekrar $e^{(\\cdot)}$) ayrı ayrı yaz, hepsini tek satırda birleştirmeye çalışma.",
+            "en": "This is the most error-prone step of the unit because you must unwrap the chain backwards: going from T to $K_T$ you take two logs, going backwards you must take two exponentials. Exam tactic: write each intermediate stage separately ($\\ln[\\cdot]$, then $\\ln\\{\\cdot\\}$, then $e^{(\\cdot)}$, then $e^{(\\cdot)}$ again) — don't try to collapse them into a single line."
+          },
+          "result": "T(Q{=}100) \\approx 14{,}6\\ \\text{yıl}\\ (\\approx 14\\ \\text{yıl})",
+          "check": null
+        },
+        {
+          "title": { "tr": "Aynı ters problemi Q=160 için tekrarla", "en": "Repeat the same inverse problem for Q=160" },
+          "guiding": {
+            "tr": "Aynı zinciri Q=160 m³/sn için baştan sona koş. Sonuç T=100 için bulduğun yüzden büyük mü küçük mü olmalı — neden?",
+            "en": "Run the same chain end to end for Q=160 m³/s. Should the result be bigger or smaller than the one for Q=100 — and why?"
+          },
+          "hint": {
+            "tr": "Daha büyük debi = daha büyük $K_T$ = daha nadir bir olay = daha büyük T. Sezgiyle sonucu tahmin edip sonra hesapla.",
+            "en": "A bigger discharge = a bigger $K_T$ = a rarer event = a bigger T. Predict the direction with intuition first, then compute."
+          },
+          "work": {
+            "tr": "$$K_T = \\frac{160-58}{26} = 3{,}923$$\n\n$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1{,}2825\\,(3{,}923+0{,}45) = -5{,}609$$\n\n$$\\ln\\frac{T}{T-1} = e^{-5{,}609} = 0{,}00367 \\;\\Rightarrow\\; \\frac{T}{T-1} = e^{0{,}00367} = 1{,}00368$$\n\n$$T \\approx 273\\ \\text{yıl}\\ \\;(\\text{föyde yuvarlanarak } T=272\\ \\text{yıl})$$\n\nBeklendiği gibi 160 m³/sn, 100 m³/sn'den çok daha nadir bir taşkın (T çok daha büyük).",
+            "en": "$$K_T = \\frac{160-58}{26} = 3.923$$\n\n$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1.2825\\,(3.923+0.45) = -5.609$$\n\n$$\\ln\\frac{T}{T-1} = e^{-5.609} = 0.00367 \\;\\Rightarrow\\; \\frac{T}{T-1} = e^{0.00367} = 1.00368$$\n\n$$T \\approx 273\\ \\text{years}\\ \\;(\\text{the sheet rounds to } T=272\\ \\text{years})$$\n\nAs expected, 160 m³/s is a much rarer flood than 100 m³/s (much larger T)."
+          },
+          "why": {
+            "tr": "Bu adımın değeri, aynı hesap zincirini iki kez çalıştırıp sonuçları karşılaştırmandır — bu, sınavda kendi kendini kontrol etme alışkanlığıdır. Debi arttıkça T'nin patlarcasına büyümesi (14,6 → 273 yıl) Gumbel eğrisinin doğasıdır: büyük taşkınlar orantısız derecede nadirdir.",
+            "en": "The value of this step is running the same chain twice and comparing the results — that's a self-checking habit for the exam. T exploding as the discharge rises (14.6 → 273 years) reflects the nature of the Gumbel curve: large floods are disproportionately rare."
+          },
+          "result": "T(Q{=}160) \\approx 273\\ \\text{yıl}\\ (\\approx 272\\ \\text{yıl})",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "$Q_{50} = \\boxed{125\\ \\text{m}^3/\\text{s}}$, $Q_{200} = \\boxed{154\\ \\text{m}^3/\\text{s}}$.\n\n$T(Q{=}100) \\approx \\boxed{14\\ \\text{yıl}}$ (hesap: 14,6), $T(Q{=}160) \\approx \\boxed{272\\ \\text{yıl}}$ (hesap: 273) — föy yuvarlamasıyla küçük fark var.",
+        "en": "$Q_{50} = \\boxed{125\\ \\text{m}^3/\\text{s}}$, $Q_{200} = \\boxed{154\\ \\text{m}^3/\\text{s}}$.\n\n$T(Q{=}100) \\approx \\boxed{14\\ \\text{years}}$ (computed: 14.6), $T(Q{=}160) \\approx \\boxed{272\\ \\text{years}}$ (computed: 273) — a small difference from the sheet's rounding."
+      },
+      "traps": [
+        {
+          "tr": "Ters problemde (Q'dan T'ye) tek bir üstel adımla sonuca varmaya çalışmak. Zincir İKİ iç içe üsteldir; adım atlarsan hesap makinesinde yön kaybedersin.",
+          "en": "Trying to reach the answer with a single exponential step in the inverse problem (Q to T). The chain has TWO nested exponentials; skip a step and you lose track on the calculator."
+        },
+        {
+          "tr": "$K_T$'nin her zaman pozitif olduğunu sanmak. T=2,33 yılın altında $K_T$ negatiftir (debi ortalamanın altındadır) — bu soruda geçmese de genel bir tuzaktır.",
+          "en": "Assuming $K_T$ is always positive. Below T=2.33 years, $K_T$ is negative (discharge below the mean) — not tested in this question, but a general trap."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya standart sapma 26 yerine 13 olsaydı (daha durgun bir nehir)?", "en": "What if the standard deviation were 13 instead of 26 (a calmer river)?" },
+          "answer": {
+            "tr": "$Q_{50} = 58 + 13 \\cdot 2{,}592 = 91{,}7$ m³/sn. Standart sapma yarıya inince, ortalamanın üstündeki tüm $Q_T$ değerleri de orantılı olarak ortalamaya yaklaşır (daha az değişken bir nehir, daha öngörülebilir taşkınlar demektir).",
+            "en": "$Q_{50} = 58 + 13 \\cdot 2.592 = 91.7$ m³/s. Halving the standard deviation pulls every $Q_T$ above the mean proportionally closer to the mean (a less variable river means more predictable floods)."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya ortalama 58 yerine 68 olsaydı (standart sapma aynı kalsa)?", "en": "What if the mean were 68 instead of 58 (standard deviation unchanged)?" },
+          "answer": {
+            "tr": "Tüm $Q_T$ değerleri aynı miktarda (10 m³/sn) yukarı kayar: $Q_{50} = 68 + 26 \\cdot 2{,}592 = 135$ m³/sn. Ortalamadaki bir kayma, tüm Gumbel eğrisini paralel olarak yukarı kaydırır — eğrinin şekli ($K_T$'ler) değişmez, sadece konumu değişir.",
+            "en": "Every $Q_T$ shifts up by the same amount (10 m³/s): $Q_{50} = 68 + 26 \\cdot 2.592 = 135$ m³/s. A shift in the mean moves the whole Gumbel curve up in parallel — the shape of the curve ($K_T$ values) doesn't change, only its position."
+          }
+        }
+      ]
+    },
+    {
+      "id": "7-3",
+      "code": "Uygulama 7.3",
+      "title": { "tr": "Seviyelerden Gumbel'e: entegre problem", "en": "From stages to Gumbel: the integrated problem" },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "a. $h_0=0{,}7$ m ve $n=1{,}2$ olan bir akarsu kesitinde çeşitli su seviyelerindeki (h) debi değerleri (Q) aşağıda verilmiştir. Anahtar eğrisi denklemini elde ediniz.\n\nb. Aynı akarsuda, 10 yıllık gözlenen yıllık maksimum su seviyeleri değerleri ($h_{max}$) aşağıda verilmiştir. Anahtar eğrisi denklemini kullanarak, yıllık maksimum debileri tahmin ediniz. Bu tahminleri kullanarak, akarsuda 10, 50 ve 100 yıl yinelemeli taşkın debilerini Gumbel Yöntemiyle tahmin ediniz.\n\nc. Ekonomik ömrü 50 yıl olan bir barajın dolu savağı 175 m³/sn debiye göre projelendirildiğine göre, barajın riskini tahmin ediniz.",
+        "en": "a. At a river cross-section with $h_0=0.7$ m and $n=1.2$, discharge values (Q) at various water stages (h) are given below. Derive the rating (key) curve equation.\n\nb. At the same river, the observed annual maximum water stages ($h_{max}$) over 10 years are given below. Using the rating curve equation, estimate the annual maximum discharges. Using these estimates, estimate the 10-, 50- and 100-year return period flood discharges by the Gumbel method.\n\nc. Given that the spillway of a dam with a 50-year economic life is designed for a discharge of 175 m³/s, estimate the risk of the dam."
+      },
+      "given": [
+        { "symbol": "h_0", "value": "0{,}7\\ \\text{m}", "label": { "tr": "Anahtar eğrisi taban seviyesi", "en": "Rating curve datum stage" } },
+        { "symbol": "n", "value": "1{,}2", "label": { "tr": "Anahtar eğrisi üssü", "en": "Rating curve exponent" } },
+        { "symbol": "n_{ömür}", "value": "50\\ \\text{yıl}", "label": { "tr": "Dolu savağın proje ömrü", "en": "Spillway project life" } },
+        { "symbol": "Q_{tasarım}", "value": "175\\ \\text{m}^3/\\text{s}", "label": { "tr": "Dolu savak tasarım debisi", "en": "Spillway design discharge" } }
+      ],
+      "goal": {
+        "tr": "(a) Anahtar eğrisi denklemini bulmak; (b) 10 yıllık seviye kaydından Q10, Q50, Q100'ü Gumbel ile tahmin etmek; (c) 175 m³/sn'lik dolu savağın 50 yıllık risk değerini bulmak.",
+        "en": "(a) Find the rating curve equation; (b) estimate Q10, Q50, Q100 via Gumbel from the 10-year stage record; (c) find the 50-year risk of a spillway designed for 175 m³/s."
+      },
+      "tables": [
+        {
+          "title": { "tr": "Seviye–debi (anahtar eğrisi) verisi", "en": "Stage–discharge (rating curve) data" },
+          "headers": ["h (m)", "0,7", "1,0", "1,5", "2,0"],
+          "rows": [["Q (m³/sn)", "4", "10", "20", "27"]]
+        },
+        {
+          "title": { "tr": "10 yıllık yıllık maksimum seviyeler ve karşılık gelen debiler", "en": "10-year annual maximum stages and the corresponding discharges" },
+          "headers": ["h_max (m)", "2,6", "3,2", "2,7", "4,1", "4,9", "3,6", "2,9", "3,9", "3,4", "3,9"],
+          "rows": [["Q_max (m³/sn)", "49,25", "69,46", "52,39", "99,02", "123,96", "91,91", "59,73", "99,63", "75,09", "92,07"]]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Anahtar eğrisindeki K'yı seviye tablosundan bul", "en": "Find the rating curve's K from the stage table" },
+          "guiding": {
+            "tr": "Anahtar eğrisi $Q = K(h-h_0)^n$ formundadır. $h-h_0=1$ olduğunda denklem nasıl sadeleşir, ve bu sana K'yı bulmak için ne fırsatı verir?",
+            "en": "The rating curve has the form $Q = K(h-h_0)^n$. When $h-h_0=1$, how does the equation simplify, and what opportunity does that give you for finding K?"
+          },
+          "hint": {
+            "tr": "$(h-h_0)^n = 1^n = 1$ olduğunda $Q = K$ olur — yani $h = h_0+1$'e karşılık gelen debiyi tablodan okursan, o direkt K'dır.",
+            "en": "When $(h-h_0)^n = 1^n = 1$, then $Q = K$ — so the discharge corresponding to $h = h_0+1$, read from the table, is directly K."
+          },
+          "work": {
+            "tr": "$h - h_0 = 1$ olduğunda $Q = K \\cdot 1^n = K$ olur. $h_0=0{,}7$ olduğuna göre: $h - 0{,}7 = 1 \\Rightarrow h = 1{,}7$ m.\n\nBu seviyeye karşılık gelen Q değeri tabloda doğrudan yok ($h=1{,}5$'te Q=20, $h=2{,}0$'de Q=27); doğrusal enterpolasyonla:\n\n$$Q(1{,}7) = 20 + \\frac{1{,}7-1{,}5}{2{,}0-1{,}5}\\,(27-20) = 20 + 0{,}4 \\cdot 7 = 22{,}8\\ \\text{m}^3/\\text{s}$$\n\nBu değer aynı zamanda $K$'dır: $K = 22{,}8$.",
+            "en": "When $h - h_0 = 1$, $Q = K \\cdot 1^n = K$. Since $h_0=0.7$: $h - 0.7 = 1 \\Rightarrow h = 1.7$ m.\n\nThe Q value at this stage isn't directly in the table ($h=1.5$ gives Q=20, $h=2.0$ gives Q=27); by linear interpolation:\n\n$$Q(1.7) = 20 + \\frac{1.7-1.5}{2.0-1.5}\\,(27-20) = 20 + 0.4 \\cdot 7 = 22.8\\ \\text{m}^3/\\text{s}$$\n\nThis value is also $K$: $K = 22.8$."
+          },
+          "why": {
+            "tr": "$Q=K(h-h_0)^n$ formundaki bir anahtar eğrisi denkleminde $n$ zaten verilmişse, tek bilinmeyen $K$'dır ve onu bulmanın en pratik yolu $(h-h_0)=1$'i seçip $K=Q$ eşitliğinden yararlanmaktır. Aradığın seviye tabloda yoksa (burada 1,7 m, 1,5 ile 2,0 arasında) enterpolasyon kaçınılmazdır — bu, ünitenin sık kullandığı bir beceridir.",
+            "en": "When the rating curve $Q=K(h-h_0)^n$ already gives you $n$, the only unknown is $K$, and the most practical way to find it is to pick $(h-h_0)=1$ and exploit $K=Q$. When the stage you need isn't directly in the table (here 1.7 m, between 1.5 and 2.0), interpolation is unavoidable — a skill this unit uses repeatedly."
+          },
+          "result": "K = 22{,}8 \\;\\Rightarrow\\; Q = 22{,}8\\,(h-0{,}7)^{1{,}2}",
+          "check": null
+        },
+        {
+          "title": { "tr": "10 yıllık seviyeleri debiye çevir", "en": "Convert the 10-year stages to discharges" },
+          "guiding": {
+            "tr": "Şimdi anahtar eğrisi elinde: her bir yıllık maksimum seviyeyi ($h_{max}$) bu denkleme sokarsan ne elde edersin?",
+            "en": "You now have the rating curve: what do you get when you plug each annual maximum stage ($h_{max}$) into it?"
+          },
+          "hint": {
+            "tr": "$Q_{max} = 22{,}8\\,(h_{max}-0{,}7)^{1{,}2}$'yi 10 seviyenin her biri için ayrı ayrı hesapla.",
+            "en": "Compute $Q_{max} = 22.8\\,(h_{max}-0.7)^{1.2}$ separately for each of the 10 stages."
+          },
+          "work": {
+            "tr": "Anahtar eğrisi denklemi $Q = 22{,}8(h-0{,}7)^{1{,}2}$'ye 10 yıllık $h_{max}$ değerleri sırayla yerleştirilerek yıllık maksimum debiler bulunur:\n\n| $h_{max}$ (m) | 2,6 | 3,2 | 2,7 | 4,1 | 4,9 | 3,6 | 2,9 | 3,9 | 3,4 | 3,9 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $Q_{max}$ (m³/sn) | 49,25 | 69,46 | 52,39 | 99,02 | 123,96 | 91,91 | 59,73 | 99,63 | 75,09 | 92,07 |",
+            "en": "Plugging the 10 years of $h_{max}$ into the rating curve $Q = 22.8(h-0.7)^{1.2}$ gives the annual maximum discharges:\n\n| $h_{max}$ (m) | 2.6 | 3.2 | 2.7 | 4.1 | 4.9 | 3.6 | 2.9 | 3.9 | 3.4 | 3.9 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $Q_{max}$ (m³/s) | 49.25 | 69.46 | 52.39 | 99.02 | 123.96 | 91.91 | 59.73 | 99.63 | 75.09 | 92.07 |"
+          },
+          "why": {
+            "tr": "Bu soru bu yüzden \"entegre\" — önce anahtar eğrisiyle seviyeyi debiye çeviriyorsun, sonra o debilerle Gumbel istatistiğine geçiyorsun. Bir seviye kaydını doğrudan Gumbel'e sokmak temel bir hatadır: Gumbel debi (ya da hacim gibi toplanabilir bir miktar) ister, seviye değil.",
+            "en": "This question is \"integrated\" precisely because you first convert stage to discharge via the rating curve, then move into Gumbel statistics with those discharges. Feeding a stage record directly into Gumbel is a fundamental mistake: Gumbel wants discharge (or another additive quantity), not stage."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": { "tr": "Ortalama ve standart sapmayı hesapla", "en": "Compute the mean and standard deviation" },
+          "guiding": {
+            "tr": "10 debi değerinin ortalaması ve standart sapması ne çıkar? Standart sapmayı hesaplarken paydada ne kullanmalısın?",
+            "en": "What are the mean and standard deviation of the 10 discharge values? What should you use in the denominator when computing the standard deviation?"
+          },
+          "hint": {
+            "tr": "Örneklem standart sapmasında payda $n-1$'dir (burada $n=10$, yani payda 9).",
+            "en": "The sample standard deviation uses $n-1$ in the denominator (here $n=10$, so the denominator is 9)."
+          },
+          "work": {
+            "tr": "10 $Q_{max}$ değerinin ortalaması ve (örneklem, $n-1$ ile) standart sapması:\n\n$$\\bar Q = 78{,}94\\ \\text{m}^3/\\text{s}, \\qquad S_Q = 23{,}15\\ \\text{m}^3/\\text{s}$$",
+            "en": "The mean and (sample, $n-1$) standard deviation of the 10 $Q_{max}$ values:\n\n$$\\bar Q = 78.94\\ \\text{m}^3/\\text{s}, \\qquad S_Q = 23.15\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "İstatistik derslerinde standart sapmayı $n$ ile bölmeye alışmış olabilirsin; hidrolojide örneklem (kayıttaki yıl sayısı sonlu) olduğu için $n-1$ kullanılır. Bu, sınavda gözden kaçan sessiz bir hatadır — bir öğrenci doğru $Q_{max}$ değerlerini bulup yanlış payda ile $S_Q$'yu küçük ya da büyük hesaplayabilir.",
+            "en": "You may be used to dividing by $n$ for standard deviation from statistics courses; in hydrology, because the record is a finite sample (a limited number of years), $n-1$ is used. This is a quiet, easily-missed exam mistake — a student can get the right $Q_{max}$ values and still compute $S_Q$ wrong with the wrong denominator."
+          },
+          "result": "\\bar Q = 78{,}94\\ \\text{m}^3/\\text{s},\\ S_Q = 23{,}15\\ \\text{m}^3/\\text{s}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Q10, Q50, Q100'ü Gumbel ile hesapla", "en": "Compute Q10, Q50, Q100 with Gumbel" },
+          "guiding": {
+            "tr": "Artık $\\bar Q$ ve $S_Q$ elinde; T=10, 50, 100 için $K_T$'leri bulup $Q_T$'lere geçebilirsin. Uygulama 7.2'de kullandığın hangi formül?",
+            "en": "You now have $\\bar Q$ and $S_Q$; find $K_T$ for T=10, 50, 100 and move to $Q_T$. Which formula from Uygulama 7.2 applies here?"
+          },
+          "hint": {
+            "tr": "Aynı $K_T$ formülü, sonra $Q_T = 78{,}94 + 23{,}15\\,K_T$.",
+            "en": "The same $K_T$ formula, then $Q_T = 78.94 + 23.15\\,K_T$."
+          },
+          "work": {
+            "tr": "T=10 için $K_{10}=1{,}305 \\Rightarrow Q_{10} = 78{,}94 + 23{,}15 \\cdot 1{,}305 = 109{,}15$ m³/sn.\n\nT=50 için $K_{50}=2{,}592 \\Rightarrow Q_{50} = 78{,}94 + 23{,}15 \\cdot 2{,}592 = 139{,}94$ m³/sn.\n\nT=100 için $K_{100}=3{,}137 \\Rightarrow Q_{100} = 78{,}94 + 23{,}15 \\cdot 3{,}137 = 151{,}56$ m³/sn.",
+            "en": "For T=10: $K_{10}=1.305 \\Rightarrow Q_{10} = 78.94 + 23.15 \\cdot 1.305 = 109.15$ m³/s.\n\nFor T=50: $K_{50}=2.592 \\Rightarrow Q_{50} = 78.94 + 23.15 \\cdot 2.592 = 139.94$ m³/s.\n\nFor T=100: $K_{100}=3.137 \\Rightarrow Q_{100} = 78.94 + 23.15 \\cdot 3.137 = 151.56$ m³/s."
+          },
+          "why": {
+            "tr": "Bu, Uygulama 7.2'yle birebir aynı mekanik — tek fark $\\bar Q$ ve $S_Q$'nun bu kez doğrudan verilmemiş, seviyelerden hesaplanmış olması. Sınavın entegre soru kurma mantığı budur: birden çok ünitenin (anahtar eğrisi + Gumbel) tekniklerini tek soruda art arda kullandırır.",
+            "en": "This is the exact same mechanics as Uygulama 7.2 — the only difference is that $\\bar Q$ and $S_Q$ weren't given directly this time, but computed from stages. This is exactly how the exam builds an integrated question: it chains techniques from multiple topics (rating curve + Gumbel) inside a single problem."
+          },
+          "result": "Q_{10}=109{,}15,\\ Q_{50}=139{,}94,\\ Q_{100}=151{,}56\\ \\text{m}^3/\\text{s}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Tasarım debisinin K'sını bul", "en": "Find the design discharge's K" },
+          "guiding": {
+            "tr": "Dolu savak 175 m³/sn'ye göre tasarlanmış. Bu debiye karşılık gelen $K_T$ nedir?",
+            "en": "The spillway is designed for 175 m³/s. What is the $K_T$ corresponding to this discharge?"
+          },
+          "hint": {
+            "tr": "$K_T = (Q_T - \\bar Q)/S_Q$ — Uygulama 7.2'nin ters problem adımıyla aynı mantık.",
+            "en": "$K_T = (Q_T - \\bar Q)/S_Q$ — the same logic as the inverse-problem step in Uygulama 7.2."
+          },
+          "work": {
+            "tr": "$$K_T = \\frac{175 - 78{,}94}{23{,}15} = 4{,}149$$",
+            "en": "$$K_T = \\frac{175 - 78.94}{23.15} = 4.149$$"
+          },
+          "why": {
+            "tr": "Dolu savağın tasarım debisi ortalamadan (78,94) çok uzak olduğu için $K_T$ büyük (4,149) çıkıyor — bu, tasarımın seyrek görülen bir taşkına göre yapıldığının bir ön işareti. Sıradaki adımda bunu T'ye çevireceğiz.",
+            "en": "Since the spillway's design discharge is far from the mean (78.94), $K_T$ comes out large (4.149) — an early signal that the design targets a rare flood. The next step converts this into T."
+          },
+          "result": "K_T = 4{,}149",
+          "check": null
+        },
+        {
+          "title": { "tr": "Tasarım debisinin tekerrür süresini bul", "en": "Find the design discharge's return period" },
+          "guiding": {
+            "tr": "$K_T=4{,}149$'u T için tersine çöz. Bu, Uygulama 7.2'de tam olarak yaptığın işlemin aynısı.",
+            "en": "Invert $K_T=4.149$ for T. This is exactly the same operation you did in Uygulama 7.2."
+          },
+          "hint": {
+            "tr": "İki üstel açılım: önce $\\ln[\\ln(T/(T-1))]$'yi bul, sonra iki kez $e^{(\\cdot)}$ al.",
+            "en": "Two exponential unwrappings: find $\\ln[\\ln(T/(T-1))]$ first, then exponentiate twice."
+          },
+          "work": {
+            "tr": "$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1{,}2825\\,(4{,}149+0{,}45) = -5{,}898$$\n\n$$\\frac{T}{T-1} = e^{e^{-5{,}898}} = 1{,}0027 \\;\\Rightarrow\\; T \\approx 364\\ \\text{yıl}$$",
+            "en": "$$\\ln\\left[\\ln\\frac{T}{T-1}\\right] = -1.2825\\,(4.149+0.45) = -5.898$$\n\n$$\\frac{T}{T-1} = e^{e^{-5.898}} = 1.0027 \\;\\Rightarrow\\; T \\approx 364\\ \\text{years}$$"
+          },
+          "why": {
+            "tr": "364 yıl, dolu savağın çok nadir bir olaya göre tasarlandığını doğrular (ekonomik ömür 50 yıl, tasarım tekerrür süresi ise onun 7 katından fazla). Bir sonraki adımda bu T'yi risk formülüne sokacağız — bu, sorunun (b) kısmından (c) kısmına köprüdür.",
+            "en": "364 years confirms the spillway is designed against a very rare event (a 50-year economic life against a design return period more than 7 times longer). In the next step we feed this T into the risk formula — this is the bridge from part (b) to part (c) of the question."
+          },
+          "result": "T \\approx 364\\ \\text{yıl}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Riski hesapla", "en": "Compute the risk" },
+          "guiding": {
+            "tr": "n=50 (ekonomik ömür) ve T=364 (tasarım tekerrür süresi) elindeyken risk formülüne dön. Uygulama 7.1'deki hangi denklemi kullanacaksın?",
+            "en": "With n=50 (economic life) and T=364 (design return period) in hand, return to the risk formula. Which equation from Uygulama 7.1 applies?"
+          },
+          "hint": {
+            "tr": "$R = 1 - e^{-n/T}$.",
+            "en": "$R = 1 - e^{-n/T}$."
+          },
+          "work": {
+            "tr": "$$R = 1 - e^{-50/364} = 1 - e^{-0{,}1374} = 0{,}128\\ (\\%12{,}8)$$",
+            "en": "$$R = 1 - e^{-50/364} = 1 - e^{-0.1374} = 0.128\\ (12.8\\%)$$"
+          },
+          "why": {
+            "tr": "Bu son adım, sorunun üç parçasının (anahtar eğrisi, Gumbel, risk) nasıl tek bir zincir oluşturduğunu gösteriyor: her kısmın çıktısı bir sonrakinin girdisi oluyor. %12,8'lik risk, Uygulama 7.1'deki %39'dan çok daha düşük — çünkü burada tasarım tekerrür süresi (364 yıl), proje ömrüne (50 yıl) göre çok daha büyük bir oran taşıyor.",
+            "en": "This final step shows how the question's three parts (rating curve, Gumbel, risk) form a single chain: each part's output feeds the next part's input. The 12.8% risk is much lower than the 39% in Uygulama 7.1 — because here the design return period (364 years) carries a far larger ratio relative to the project life (50 years)."
+          },
+          "result": "R = 0{,}128\\ (\\%12{,}8)",
+          "check": {
+            "q": { "tr": "Tasarım tekerrür süresi (364 yıl), proje ömrüne (50 yıl) göre büyüdükçe risk ne olur?", "en": "As the design return period (364 years) grows relative to the project life (50 years), what happens to the risk?" },
+            "options": [
+              { "tr": "Risk düşer — daha nadir bir olaya göre tasarım daha güvenlidir", "en": "The risk drops — designing for a rarer event is safer" },
+              { "tr": "Risk yükselir — T büyüdükçe risk de büyür", "en": "The risk rises — risk grows as T grows" },
+              { "tr": "Risk T'den bağımsızdır", "en": "The risk is independent of T" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$R=1-e^{-n/T}$'de T büyüdükçe $n/T$ oranı küçülür, dolayısıyla $e^{-n/T}$ büyür ve $R$ küçülür. Bu yüzden 364 yıllık tasarımın riski (%12,8), 100 yıllık tasarımın riskinden (Uygulama 7.1'de %39) çok daha düşüktür — daha nadir bir taşkına göre tasarlamak daha güvenlidir.",
+              "en": "In $R=1-e^{-n/T}$, as T grows the ratio $n/T$ shrinks, so $e^{-n/T}$ grows and $R$ shrinks. That's why the 364-year design's risk (12.8%) is much lower than the 100-year design's risk (39% in Uygulama 7.1) — designing for a rarer flood is safer."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**(a)** Anahtar eğrisi: $\\boxed{Q = 22{,}8\\,(h-0{,}7)^{1{,}2}}$.\n\n**(b)** $Q_{10}=109{,}15$, $Q_{50}=139{,}94$, $\\boxed{Q_{100}=151{,}56}$ m³/sn.\n\n**(c)** Dolu savağın riski: $\\boxed{R \\approx \\%12{,}8}$ (T ≈ 364 yıl).",
+        "en": "**(a)** Rating curve: $\\boxed{Q = 22.8\\,(h-0.7)^{1.2}}$.\n\n**(b)** $Q_{10}=109.15$, $Q_{50}=139.94$, $\\boxed{Q_{100}=151.56}$ m³/s.\n\n**(c)** Spillway risk: $\\boxed{R \\approx 12.8\\%}$ (T ≈ 364 years)."
+      },
+      "traps": [
+        {
+          "tr": "Bu soru sınavın tam bir entegratörüdür: anahtar eğrisi + Gumbel + risk üç ayrı ünite tekniğini tek soruda birleştirir. Herhangi bir kısmı atlamak (örneğin seviyeleri debiye çevirmeden doğrudan Gumbel'e girmek) tüm zinciri bozar.",
+          "en": "This question is a full exam integrator: rating curve + Gumbel + risk combine three separate unit techniques in one question. Skipping any part (e.g. jumping into Gumbel without converting stages to discharges first) breaks the whole chain."
+        },
+        {
+          "tr": "K'yı tablodan enterpolasyon yapmadan okumaya çalışmak. $h=1{,}7$ tabloda yok; 20 (h=1,5) ile 27 (h=2,0) arasında enterpolasyon gerekir.",
+          "en": "Trying to read K from the table without interpolating. $h=1.7$ isn't in the table; interpolation between 20 (h=1.5) and 27 (h=2.0) is required."
+        },
+        {
+          "tr": "Standart sapmayı $n$ ile bölmek $n-1$ yerine. Bu, 10 elemanlı bir örneklemde sonucu fark edilir şekilde değiştirir.",
+          "en": "Dividing the standard deviation by $n$ instead of $n-1$. With only 10 data points, this noticeably shifts the result."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya dolu savak 175 yerine 200 m³/sn'ye göre tasarlansaydı?", "en": "What if the spillway were designed for 200 m³/s instead of 175?" },
+          "answer": {
+            "tr": "$K_T = (200-78{,}94)/23{,}15 = 5{,}229$ → aynı ters zincirle $T \\approx 1457$ yıl → $R = 1-e^{-50/1457} \\approx \\%3{,}4$. Debi arttıkça hem tekerrür süresi hem güvenlik payı hızla büyür — Gumbel eğrisinin uç kısmı çok diktir.",
+            "en": "$K_T = (200-78.94)/23.15 = 5.229$ → the same inverse chain gives $T \\approx 1457$ years → $R = 1-e^{-50/1457} \\approx 3.4\\%$. As the discharge rises, both the return period and the safety margin grow fast — the tail of the Gumbel curve is very steep."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya sadece 5 yıllık bir kayıt olsaydı (10 yıl yerine)?", "en": "What if there were only 5 years of record instead of 10?" },
+          "answer": {
+            "tr": "Matematik aynen işler — ortalama, standart sapma, $K_T$, $Q_T$ hep aynı formüllerle hesaplanır. Ama kısa kayıt, $\\bar Q$ ve $S_Q$'nun gerçek popülasyon değerlerinden ne kadar saptığı konusunda güveni azaltır: sonuçlar sayısal olarak üretilebilir ama belirsizlikleri çok daha büyüktür. Sınavda bu, \"aynı yöntem, daha az güven\" diye ifade edilmelidir.",
+            "en": "The math works identically — mean, standard deviation, $K_T$, $Q_T$ all use the same formulas. But a short record reduces confidence in how close $\\bar Q$ and $S_Q$ are to the true population values: the results can still be computed, but their uncertainty is much larger. In the exam, state this as \"same method, less confidence.\""
+          }
+        }
+      ]
+    },
+    {
+      "id": "7-4",
+      "code": "Uygulama 7.4",
+      "title": { "tr": "Rasyonel yöntemle taşkın debileri", "en": "Design floods by the Rational method" },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Trabzon yakınlarındaki bir havzanın alanı $A = 1{,}5$ km², uzunluğu $L = 2{,}0$ km, giriş ve çıkış noktaları arasındaki kot farkı $\\Delta H = 50$ m'dir. Havzanın alt bölgelerinin 100 yıl tekerrürlü akış katsayıları aşağıda verildiğine ve havza için $x = 0{,}20$ olduğuna göre 5, 10, 25, 50 ve 100 yıl tekerrürlü taşkın debilerini, Rasyonel Yöntemle tahmin ediniz. (Trabzon için t=15 dakika ve t=30 dakika süreli ve çeşitli T yineleme süreli yağış şiddeti değerleri aşağıda verilmiştir.)",
+        "en": "A basin near Trabzon has an area of $A = 1.5$ km², a length of $L = 2.0$ km, and an elevation difference of $\\Delta H = 50$ m between its inlet and outlet points. Given the 100-year runoff coefficients of the basin's sub-regions below, and given that $x = 0.20$ for the basin, estimate the 5-, 10-, 25-, 50- and 100-year return period flood discharges by the Rational method. (Rainfall intensity values for t=15 minutes and t=30 minutes, at various return periods T, for Trabzon are given below.)"
+      },
+      "given": [
+        { "symbol": "A", "value": "1{,}5\\ \\text{km}^2", "label": { "tr": "Havza alanı", "en": "Basin area" } },
+        { "symbol": "L", "value": "2{,}0\\ \\text{km}", "label": { "tr": "Havza uzunluğu", "en": "Basin length" } },
+        { "symbol": "\\Delta H", "value": "50\\ \\text{m}", "label": { "tr": "Giriş-çıkış kot farkı", "en": "Inlet-outlet elevation difference" } },
+        { "symbol": "x", "value": "0{,}20", "label": { "tr": "Bölge katsayısı (CT formülü için)", "en": "Regional exponent (for the CT formula)" } }
+      ],
+      "goal": {
+        "tr": "T = 5, 10, 25, 50, 100 yıl tekerrürlü taşkın debilerini Rasyonel Yöntemle hesaplamak.",
+        "en": "Compute the T = 5, 10, 25, 50, 100-year flood discharges with the Rational method."
+      },
+      "tables": [
+        {
+          "title": { "tr": "Arazi kullanımı ve 100 yıllık akış katsayıları", "en": "Land use and 100-year runoff coefficients" },
+          "headers": ["Arazi Cinsi", "Alanı (km²)", "C100"],
+          "rows": [
+            ["Ormanlık", "0,25", "0,10"],
+            ["Mera", "0,75", "0,20"],
+            ["Sanayi Bölgesi", "0,50", "0,60"]
+          ]
+        },
+        {
+          "title": { "tr": "Trabzon için 15 ve 30 dakikalık yağış şiddetleri", "en": "15- and 30-minute rainfall intensities for Trabzon" },
+          "headers": ["T (yıl)", "5", "10", "25", "50", "100"],
+          "rows": [
+            ["i15 (mm/saat)", "66,0", "75,2", "96,9", "95,2", "103,6"],
+            ["i30 (mm/saat)", "41,4", "47,2", "54,4", "59,6", "65,0"]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Havza eğimini bul", "en": "Find the basin slope" },
+          "guiding": {
+            "tr": "Kirpich formülü eğim ($S$) istiyor. Kot farkı ve uzunluktan eğimi nasıl elde edersin — ve hangi birimlerde?",
+            "en": "The Kirpich formula needs the slope ($S$). How do you get the slope from the elevation difference and length — and in what units?"
+          },
+          "hint": {
+            "tr": "$S = \\Delta H / L$; ikisini de aynı birime (metre) getir.",
+            "en": "$S = \\Delta H / L$; bring both to the same unit (metres)."
+          },
+          "work": {
+            "tr": "$$S = \\frac{\\Delta H}{L} = \\frac{50\\ \\text{m}}{2000\\ \\text{m}} = 0{,}025\\ \\text{(boyutsuz, m/m)}$$",
+            "en": "$$S = \\frac{\\Delta H}{L} = \\frac{50\\ \\text{m}}{2000\\ \\text{m}} = 0.025\\ \\text{(dimensionless, m/m)}$$"
+          },
+          "why": {
+            "tr": "Kirpich formülü $S$'yi boyutsuz bir oran (m/m) olarak ister; $L$ kilometre değil metre olmalıdır — bu, ünitenin en kritik trapıdır. Eğimi bulur bulmaz $t_c$'ye geçmeye hazırsın.",
+            "en": "The Kirpich formula wants $S$ as a dimensionless ratio (m/m); $L$ must be in metres, not kilometres — this is the unit's most critical trap. As soon as you have the slope, you're ready to move to $t_c$."
+          },
+          "result": "S = 0{,}025",
+          "check": null
+        },
+        {
+          "title": { "tr": "Kirpich ile konsantrasyon süresini hesapla", "en": "Compute the time of concentration with Kirpich" },
+          "guiding": {
+            "tr": "$t_c$'yi Kirpich formülüne $L$'yi METRE cinsinden yerleştirerek hesapla. Sonucu hem saat hem dakika olarak ifade et.",
+            "en": "Compute $t_c$ by plugging $L$ into Kirpich in METRES. State the result in both hours and minutes."
+          },
+          "hint": {
+            "tr": "$L=2000$ m (2,0 km değil!), $S=0{,}025$.",
+            "en": "$L=2000$ m (not 2.0 km!), $S=0.025$."
+          },
+          "work": {
+            "tr": "$$t_c = 0{,}00032\\,L^{0{,}77}\\,S^{-0{,}385} = 0{,}00032 \\cdot 2000^{0{,}77} \\cdot 0{,}025^{-0{,}385}$$\n\n$$t_c = 0{,}461\\ \\text{saat} = 27{,}7\\ \\text{dakika}$$",
+            "en": "$$t_c = 0.00032\\,L^{0.77}\\,S^{-0.385} = 0.00032 \\cdot 2000^{0.77} \\cdot 0.025^{-0.385}$$\n\n$$t_c = 0.461\\ \\text{hours} = 27.7\\ \\text{minutes}$$"
+          },
+          "why": {
+            "tr": "$t_c$, havzanın en uzak noktasındaki suyun çıkışa ulaşması için gereken süredir ve Rasyonel yöntemin can alıcı varsayımı budur: tasarım yağmurunun süresi $t_c$'ye EŞİT alınır (o an havzanın tamamı akışa katkı sağlıyor demektir). Bu yüzden bir sonraki adımda yağış şiddetini tam 27,7 dakikada okuyacağız.",
+            "en": "$t_c$ is the time needed for water from the basin's farthest point to reach the outlet, and this is the crucial assumption of the Rational method: the design storm's duration is taken EQUAL to $t_c$ (at that moment the entire basin is contributing to the flow). That's why the next step reads the rainfall intensity at exactly 27.7 minutes."
+          },
+          "result": "t_c = 0{,}461\\ \\text{saat} = 27{,}7\\ \\text{dk}",
+          "check": null
+        },
+        {
+          "title": { "tr": "27,7 dakika için yağış şiddetini enterpolasyonla bul", "en": "Interpolate the rainfall intensity at 27.7 minutes" },
+          "guiding": {
+            "tr": "Tabloda sadece t=15 ve t=30 dakikalık şiddetler var. Her T için 27,7 dakikalık değeri nasıl bulursun?",
+            "en": "The table only has intensities at t=15 and t=30 minutes. How do you find the 27.7-minute value for each T?"
+          },
+          "hint": {
+            "tr": "Doğrusal enterpolasyon: $i(27{,}7) = i_{15} + \\frac{27{,}7-15}{30-15}(i_{30}-i_{15})$.",
+            "en": "Linear interpolation: $i(27.7) = i_{15} + \\frac{27.7-15}{30-15}(i_{30}-i_{15})$."
+          },
+          "work": {
+            "tr": "Örneğin T=5 yıl için: $(30-15)$ dk aralığında $(41{,}4-66{,}0)$ mm/saat değişiyor. İçler-dışlar çarpımıyla:\n\n$$12{,}7 \\cdot (-24{,}6) = 15 \\cdot (x-66) \\;\\Rightarrow\\; x = 45{,}2\\ \\text{mm/saat}$$\n\nAynı enterpolasyon her T için tekrarlanır:\n\n| T (yıl) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $i_{27{,}7}$ (mm/saat) | 45,2 | 51,5 | 59,4 | 65,1 | 70,9 |",
+            "en": "For T=5 years, for example: over the $(30-15)$ minute interval, intensity changes by $(41.4-66.0)$ mm/h. Cross-multiplying:\n\n$$12.7 \\cdot (-24.6) = 15 \\cdot (x-66) \\;\\Rightarrow\\; x = 45.2\\ \\text{mm/h}$$\n\nThe same interpolation is repeated for every T:\n\n| T (years) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $i_{27.7}$ (mm/h) | 45.2 | 51.5 | 59.4 | 65.1 | 70.9 |"
+          },
+          "why": {
+            "tr": "Rasyonel yöntemde yağış şiddeti HER ZAMAN $t=t_c$'de okunur, tabloda o süre yoksa enterpolasyon zorunludur. Dikkat çeken bir ayrıntı: ham tabloda $i_{25}(15\\text{dk})=96{,}9 > i_{50}(15\\text{dk})=95{,}2$ — yani T arttıkça şiddetin düşmesi gibi mantıksız bir görüntü var; bu föyün kendi tutarsızlığıdır. 27,7 dakikada enterpolasyon bu tuhaflığı büyük ölçüde yumuşatır ve 59,4 < 65,1 < 70,9 gibi beklenen artan bir sıra verir.",
+            "en": "In the Rational method the intensity is ALWAYS read at $t=t_c$; if the table doesn't have that exact duration, interpolation is required. A noteworthy detail: in the raw table, $i_{25}(15\\text{min})=96.9 > i_{50}(15\\text{min})=95.2$ — an illogical dip as T increases; this is the sheet's own inconsistency. Interpolating at 27.7 minutes largely smooths this quirk out, giving the expected increasing order 59.4 < 65.1 < 70.9."
+          },
+          "result": "i_{27{,}7} = 45{,}2,\\ 51{,}5,\\ 59{,}4,\\ 65{,}1,\\ 70{,}9\\ \\text{mm/saat}",
+          "check": {
+            "q": { "tr": "Rasyonel yöntemde tasarım yağmurunun süresi hangi değere eşit alınır?", "en": "In the Rational method, the design storm's duration is set equal to what?" },
+            "options": [
+              { "tr": "Havzanın konsantrasyon süresi $t_c$'ye", "en": "The basin's time of concentration $t_c$" },
+              { "tr": "Her zaman 60 dakikaya", "en": "Always 60 minutes" },
+              { "tr": "Tekerrür süresi T'ye", "en": "The return period T" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Rasyonel yöntemin temel varsayımı: yağış süresi $t_c$'ye eşit olduğunda, havzanın en uzak noktasından gelen su tam o an çıkışa ulaşır, yani havzanın tamamı akışa katılır — bu, pik debiyi verir. 60 dakika sabit bir değer değildir; T ile yağış süresi de doğrudan ilişkili değildir.",
+              "en": "The Rational method's core assumption: when the rainfall duration equals $t_c$, water from the basin's farthest point arrives at the outlet at that exact moment, meaning the entire basin contributes — this yields the peak discharge. 60 minutes is not a fixed value; T and the rainfall duration are not directly linked either."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Alan ağırlıklı bileşik C100'ü hesapla", "en": "Compute the area-weighted composite C100" },
+          "guiding": {
+            "tr": "Havza üç farklı arazi türünden oluşuyor, her birinin kendi $C_{100}$'ü var. Tek bir temsili $C_{100}$'e nasıl varılır?",
+            "en": "The basin consists of three land-use types, each with its own $C_{100}$. How do you arrive at a single representative $C_{100}$?"
+          },
+          "hint": {
+            "tr": "Alan ağırlıklı ortalama: her alt alanı kendi katsayısıyla çarp, topla, toplam alana böl.",
+            "en": "An area-weighted average: multiply each sub-area by its own coefficient, sum, and divide by the total area."
+          },
+          "work": {
+            "tr": "$$C_{100} = \\frac{\\sum A_i C_i}{\\sum A_i} = \\frac{0{,}25\\cdot0{,}10 + 0{,}75\\cdot0{,}20 + 0{,}50\\cdot0{,}60}{1{,}5} = \\frac{0{,}475}{1{,}5} = 0{,}317$$",
+            "en": "$$C_{100} = \\frac{\\sum A_i C_i}{\\sum A_i} = \\frac{0.25\\cdot0.10 + 0.75\\cdot0.20 + 0.50\\cdot0.60}{1.5} = \\frac{0.475}{1.5} = 0.317$$"
+          },
+          "why": {
+            "tr": "Havzanın tek bir akış katsayısı yoksa (farklı arazi türleri karışıksa), tek başına bir $C$ değeri seçmek keyfi olurdu. Alan ağırlıklı ortalama, her bölgenin katkısını kendi büyüklüğüyle orantılı sayarak adil bir temsili değer üretir — sanayi bölgesi küçük alanına rağmen en yüksek katsayıya (0,60) sahip olduğundan sonucu belirgin şekilde yukarı çeker.",
+            "en": "When a basin doesn't have a single runoff coefficient (mixed land uses), picking one $C$ value arbitrarily would be wrong. The area-weighted average gives each region's contribution weight proportional to its own size — the industrial zone, despite its small area, has the highest coefficient (0.60) and noticeably pulls the result up."
+          },
+          "result": "C_{100} = 0{,}317",
+          "check": null
+        },
+        {
+          "title": { "tr": "Farklı T'ler için CT'yi bul", "en": "Find CT for each T" },
+          "guiding": {
+            "tr": "$C_{100}$'den diğer tekerrür sürelerinin akış katsayısına nasıl geçilir?",
+            "en": "How do you go from $C_{100}$ to the runoff coefficient for other return periods?"
+          },
+          "hint": {
+            "tr": "$C_T = C_{100}(T/100)^x$, $x=0{,}20$ verilmiş.",
+            "en": "$C_T = C_{100}(T/100)^x$, with $x=0.20$ given."
+          },
+          "work": {
+            "tr": "$$C_T = 0{,}317 \\cdot (T/100)^{0{,}20}$$\n\nÖrneğin T=5 için: $C_5 = 0{,}317 \\cdot (5/100)^{0{,}20} = 0{,}176$.\n\nHer T için:\n\n| T (yıl) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $C_T$ | 0,176 | 0,200 | 0,240 | 0,276 | 0,317 |",
+            "en": "$$C_T = 0.317 \\cdot (T/100)^{0.20}$$\n\nFor T=5, for example: $C_5 = 0.317 \\cdot (5/100)^{0.20} = 0.176$.\n\nFor every T:\n\n| T (years) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $C_T$ | 0.176 | 0.200 | 0.240 | 0.276 | 0.317 |"
+          },
+          "why": {
+            "tr": "Sadece 100 yıllık akış katsayıları verilmiş olsa da, düşük tekerrür sürelerinde havzanın toprağı daha az doygun ve daha az yüzeysel akış üretir — bu yüzden $C_T$, T küçüldükçe küçülür ($C_5=0{,}176 < C_{100}=0{,}317$). $x$ üssü, bu azalmanın ne kadar hızlı olduğunu bölgeye özgü şekilde ayarlar.",
+            "en": "Even though only the 100-year runoff coefficients are given, at lower return periods the basin's soil is less saturated and produces less surface runoff — so $C_T$ shrinks as T shrinks ($C_5=0.176 < C_{100}=0.317$). The exponent $x$ tunes how fast this decrease happens, specific to the region."
+          },
+          "result": "C_T = 0{,}176,\\ 0{,}200,\\ 0{,}240,\\ 0{,}276,\\ 0{,}317",
+          "check": null
+        },
+        {
+          "title": { "tr": "QT'yi hesapla", "en": "Compute QT" },
+          "guiding": {
+            "tr": "Artık $C_T$, $i_T$ ve $A$ elinde. Rasyonel formülü uygula — ve 3,6 katsayısının hangi birimleri varsaydığını hatırla.",
+            "en": "You now have $C_T$, $i_T$ and $A$. Apply the Rational formula — and remember which units the 3.6 factor assumes."
+          },
+          "hint": {
+            "tr": "$Q_T = C_T i_T A / 3{,}6$; $i_T$ mm/saat, $A$ km² olduğu sürece bu formül doğrudan çalışır.",
+            "en": "$Q_T = C_T i_T A / 3.6$; as long as $i_T$ is in mm/h and $A$ in km², this formula works directly."
+          },
+          "work": {
+            "tr": "Örneğin T=5 için: $$Q_5 = \\frac{C_5 \\cdot i_5 \\cdot A}{3{,}6} = \\frac{0{,}176 \\cdot 45{,}2 \\cdot 1{,}5}{3{,}6} = 3{,}31\\ \\text{m}^3/\\text{s}$$\n\nAynı formülle diğer tekerrür süreleri:\n\n| T (yıl) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $C_T$ | 0,176 | 0,200 | 0,240 | 0,276 | 0,317 |\n| $i_T$ (mm/saat) | 45,2 | 51,5 | 59,4 | 65,1 | 70,9 |\n| $Q_T$ (m³/sn) | 3,31 | 4,29 | 5,94 | 7,49 | 9,37 |",
+            "en": "For T=5, for example: $$Q_5 = \\frac{C_5 \\cdot i_5 \\cdot A}{3.6} = \\frac{0.176 \\cdot 45.2 \\cdot 1.5}{3.6} = 3.31\\ \\text{m}^3/\\text{s}$$\n\nThe same formula for every return period:\n\n| T (years) | 5 | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|---|\n| $C_T$ | 0.176 | 0.200 | 0.240 | 0.276 | 0.317 |\n| $i_T$ (mm/h) | 45.2 | 51.5 | 59.4 | 65.1 | 70.9 |\n| $Q_T$ (m³/s) | 3.31 | 4.29 | 5.94 | 7.49 | 9.37 |"
+          },
+          "why": {
+            "tr": "3,6 katsayısı bir tesadüf değil, birim dönüşümüdür: mm/saat × km² birleşimini m³/sn'ye çevirir. $i$ farklı bir birimde (örneğin mm/dk) verilseydi 3,6 geçersiz olurdu. Sınav taktiği: formülü uygulamadan önce her zaman i'nin mm/saat, A'nın km² olduğunu doğrula.",
+            "en": "The 3.6 factor isn't arbitrary — it's a unit conversion: it turns the mm/h × km² combination into m³/s. If $i$ were given in a different unit (say mm/min), 3.6 would no longer apply. Exam tactic: always confirm i is in mm/h and A is in km² before applying the formula."
+          },
+          "result": "Q_5{=}3{,}31,\\ Q_{10}{=}4{,}29,\\ Q_{25}{=}5{,}94,\\ Q_{50}{=}7{,}49,\\ Q_{100}{=}9{,}37\\ \\text{m}^3/\\text{s}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "$Q_5 = 3{,}31$, $Q_{10} = 4{,}29$, $Q_{25} = 5{,}94$, $Q_{50} = 7{,}49$, $\\boxed{Q_{100} = 9{,}37}\\ \\text{m}^3/\\text{s}$.",
+        "en": "$Q_5 = 3.31$, $Q_{10} = 4.29$, $Q_{25} = 5.94$, $Q_{50} = 7.49$, $\\boxed{Q_{100} = 9.37}\\ \\text{m}^3/\\text{s}$."
+      },
+      "traps": [
+        {
+          "tr": "Kirpich formülünde havza uzunluğunu km olarak bırakmak. $L$ mutlaka METRE olmalı — 2,0 yerine 2000 yazılmalı.",
+          "en": "Leaving the basin length in km in the Kirpich formula. $L$ must be in METRES — write 2000, not 2.0."
+        },
+        {
+          "tr": "Yağış şiddetini $t_c$ yerine keyfi bir sürede (ör. 15 ya da 30 dk, doğrudan tablodan) okumak. Rasyonel yöntemin varsayımı yağış süresi = konsantrasyon süresidir.",
+          "en": "Reading the rainfall intensity at an arbitrary duration (e.g. straight from the table at 15 or 30 min) instead of at $t_c$. The Rational method's assumption is that rainfall duration = time of concentration."
+        },
+        {
+          "tr": "Bileşik akış katsayısını alan ağırlıklı hesaplamak yerine basit ortalama almak (üç $C_{100}$ değerini toplayıp 3'e bölmek). Doğrusu alan ağırlıklı ortalamadır.",
+          "en": "Computing the composite runoff coefficient as a simple average instead of area-weighted (summing three $C_{100}$ values and dividing by 3). The correct approach is area-weighted."
+        },
+        {
+          "tr": "Ham tablodaki $i_{25}(15\\text{dk})=96{,}9 > i_{50}(15\\text{dk})=95{,}2$ tutarsızlığını fark edip paniğe kapılmak — bu föyün kendi kusuru, 27,7 dakikaya enterpolasyonla büyük ölçüde düzelir.",
+          "en": "Panicking over the raw table's inconsistency $i_{25}(15\\text{min})=96.9 > i_{50}(15\\text{min})=95.2$ — this is the sheet's own quirk, and it largely smooths out once you interpolate to 27.7 minutes."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya havza tamamen kentleşseydi ($C_{100}=0{,}60$ her yerde)?", "en": "What if the basin were fully urbanized ($C_{100}=0.60$ everywhere)?" },
+          "answer": {
+            "tr": "$Q_{100} = 0{,}60 \\cdot 70{,}9 \\cdot 1{,}5 / 3{,}6 = 17{,}7\\ \\text{m}^3/\\text{sn}$ — yaklaşık 2 kat artış (9,37'den 17,7'ye). Kentleşme geçirimsiz yüzeyleri (asfalt, çatı) artırarak akış katsayısını yükseltir ve taşkın debisini neredeyse ikiye katlar; bu, kentleşmenin taşkın riskini büyütmesinin sayısal kanıtıdır.",
+            "en": "$Q_{100} = 0.60 \\cdot 70.9 \\cdot 1.5 / 3.6 = 17.7\\ \\text{m}^3/\\text{s}$ — roughly double (from 9.37 to 17.7). Urbanization increases impervious surfaces (asphalt, roofs), raising the runoff coefficient and nearly doubling the flood discharge; this is the numerical proof that urbanization increases flood risk."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya havza daha dik olsaydı (ΔH=100 m yerine 50 m)?", "en": "What if the basin were steeper (ΔH=100 m instead of 50)?" },
+          "answer": {
+            "tr": "$S = 100/2000 = 0{,}05$; $t_c = 0{,}461 \\cdot 2^{-0{,}385} = 0{,}353$ saat $= 21{,}2$ dakika. Daha dik havza, suyun daha hızlı akmasını sağlar → $t_c$ kısalır (27,7'den 21,2'ye). Daha kısa süreye karşılık gelen yağış şiddeti daha yüksektir (kısa süreli sağanaklar daha şiddetlidir), bu da nihayetinde daha büyük bir $Q_T$'ye götürür — eğim arttıkça taşkın debisi artar.",
+            "en": "$S = 100/2000 = 0.05$; $t_c = 0.461 \\cdot 2^{-0.385} = 0.353$ hours $= 21.2$ minutes. A steeper basin drains faster → $t_c$ shortens (from 27.7 to 21.2). The intensity corresponding to a shorter duration is higher (short bursts of rain are more intense), which ultimately leads to a bigger $Q_T$ — steeper slope means bigger flood."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya havza alanı iki katına çıksaydı (A=3,0 km²)?", "en": "What if the basin area doubled (A=3.0 km²)?" },
+          "answer": {
+            "tr": "$Q_T$, $A$ ile doğrudan orantılıdır (formülde $A$ birinci dereceden çarpan), dolayısıyla her $Q_T$ tam olarak iki katına çıkar: $Q_{100} = 2 \\cdot 9{,}37 = 18{,}74\\ \\text{m}^3/\\text{sn}$. (Not: gerçekte alan büyüdükçe $t_c$ ve dolayısıyla i de değişebilir; burada sadece A'nın doğrudan etkisini izole ediyoruz.)",
+            "en": "$Q_T$ is directly proportional to $A$ (a first-power factor in the formula), so every $Q_T$ exactly doubles: $Q_{100} = 2 \\cdot 9.37 = 18.74\\ \\text{m}^3/\\text{s}$. (Note: in reality a larger area could also change $t_c$ and hence i; here we isolate A's direct effect only.)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "7-5",
+      "code": "Uygulama 7.5",
+      "title": { "tr": "Bölgesel taşkın frekans analizi", "en": "Regional flood frequency analysis" },
+      "difficulty": 3,
+      "examLikelihood": "low",
+      "statement": {
+        "tr": "Doğu Karadeniz Bölgesi'ndeki 5 Akım Gözlem İstasyonu'nun (AGİ) 14 yıllık taşkın debileri (Q, m³/sn) ve havza alanları (A, km²) aşağıda verilmiştir. Bölgesel taşkın frekans eğrisini elde ederek, 2201 istasyonunun, ayrıca akım gözlemleri bulunmayan ve alanı 250 km² olan bir havza için 10, 25, 50 ve 100 yıl tekerrürlü taşkınları tahmin ediniz.",
+        "en": "The 14-year annual maximum flood discharges (Q, m³/s) and basin areas (A, km²) of 5 stream gauging stations (AGİ) in the Eastern Black Sea Region are given below. By deriving the regional flood frequency curve, estimate the 10-, 25-, 50- and 100-year return period floods for station 2201, and also for an ungauged basin with an area of 250 km²."
+      },
+      "given": [
+        { "symbol": "\\bar Q_{2201}", "value": "309\\ \\text{m}^3/\\text{s}", "label": { "tr": "İstasyon 2201'in verilen ortalama debisi", "en": "Given mean discharge of station 2201" } },
+        { "symbol": "\\bar Q_{2206}", "value": "92\\ \\text{m}^3/\\text{s}", "label": { "tr": "İstasyon 2206'nın verilen ortalama debisi", "en": "Given mean discharge of station 2206" } },
+        { "symbol": "\\bar Q_{2219}", "value": "194\\ \\text{m}^3/\\text{s}", "label": { "tr": "İstasyon 2219'un verilen ortalama debisi", "en": "Given mean discharge of station 2219" } },
+        { "symbol": "\\bar Q_{2239}", "value": "192\\ \\text{m}^3/\\text{s}", "label": { "tr": "İstasyon 2239'un verilen ortalama debisi", "en": "Given mean discharge of station 2239" } },
+        { "symbol": "\\bar Q_{2239^*}", "value": "122\\ \\text{m}^3/\\text{s}", "label": { "tr": "İkinci 2239 sütununun verilen ortalama debisi (föyde tekrarlanmış)", "en": "Given mean discharge of the second 2239 column (repeated in the sheet)" } },
+        { "symbol": "A_{2201..2239^*}", "value": "2750,\\ 737,\\ 955,\\ 1024,\\ 272\\ \\text{km}^2", "label": { "tr": "İstasyonların havza alanları", "en": "Basin areas of the stations" } },
+        { "symbol": "A_{ungauged}", "value": "250\\ \\text{km}^2", "label": { "tr": "Akım gözlemi olmayan havzanın alanı", "en": "Area of the ungauged basin" } }
+      ],
+      "goal": {
+        "tr": "Bölgesel frekans eğrisini kurmak; 2201 istasyonu için Q10, Q25, Q50, Q100'ü ve akım gözlemi olmayan 250 km²'lik havza için aynı tekerrür sürelerindeki taşkınları tahmin etmek.",
+        "en": "Build the regional frequency curve; estimate Q10, Q25, Q50, Q100 for station 2201, and the floods at the same return periods for the ungauged 250 km² basin."
+      },
+      "tables": [
+        {
+          "title": { "tr": "5 istasyonun 14 yıllık yıllık maksimum debileri (m³/sn)", "en": "14-year annual maximum discharges of the 5 stations (m³/s)" },
+          "headers": ["Yıl", "2201", "2206", "2219", "2239", "2239*"],
+          "rows": [
+            ["1974", "259", "126", "504", "233", "69"],
+            ["1975", "263", "69", "134", "196", "99"],
+            ["1976", "397", "76", "191", "101", "144"],
+            ["1977", "221", "51", "404", "292", "99"],
+            ["1979", "731", "103", "147", "155", "133"],
+            ["1979", "300", "99", "119", "94", "97"],
+            ["1990", "466", "91", "160", "232", "219"],
+            ["1992", "399", "71", "129", "200", "49"],
+            ["1994", "192", "59", "96", "149", "163"],
+            ["1995", "271", "177", "103", "69", "23"],
+            ["1996", "136", "49", "166", "212", "174"],
+            ["1997", "351", "93", "112", "34", "156"],
+            ["1999", "215", "135", "175", "147", "229"],
+            ["1999", "139", "97", "134", "129", "70"],
+            ["Qort (verilen)", "309", "92", "194", "192", "122"],
+            ["A (km²)", "2750", "737", "955", "1024", "272"]
+          ]
+        },
+        {
+          "title": { "tr": "Bölgesel eğri: T, KT, boyutsuz oran, Q2201, Qungauged", "en": "Regional curve: T, KT, dimensionless ratio, Q2201, Qungauged" },
+          "headers": ["T (yıl)", "10", "25", "50", "100"],
+          "rows": [
+            ["KT", "1,305", "2,044", "2,592", "3,137"],
+            ["(Q/Qort)_T", "1,580", "1,931", "2,192", "2,451"],
+            ["Q_2201 (m³/sn)", "488", "597", "677", "757"],
+            ["Q_ungauged (m³/sn)", "151", "184", "209", "234"]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Neden bölgesel analiz gerekiyor?", "en": "Why is regional analysis needed?" },
+          "guiding": {
+            "tr": "Elimizde beş istasyonun sadece 14 yıllık kaydı var ve hedef havzada hiç kayıt yok. 14 yıl, doğrudan Gumbel ile T=100 yıllık bir taşkını tahmin etmek için güvenilir mi? Alternatif ne olabilir?",
+            "en": "We only have 14 years of record at five stations, and no record at all at the target basin. Is 14 years reliable enough to directly estimate a T=100-year flood with Gumbel? What could be the alternative?"
+          },
+          "hint": {
+            "tr": "Tek başına kısa bir kayıt güvenilir değildir; ama benzer bölgedeki BİRDEN ÇOK istasyonun verisini ortak bir dilde (boyutsuz) birleştirirsen, örneklem büyür.",
+            "en": "A single short record isn't reliable on its own; but if you pool MULTIPLE stations in a similar region into a common (dimensionless) language, the effective sample grows."
+          },
+          "work": {
+            "tr": "Her istasyonun kaydı kısa (14 yıl) — bu tek başına T=100 yıllık bir taşkını güvenilir tahmin etmek için yetersizdir. Bölgesel frekans analizinin fikri: yakın bölgedeki istasyonların taşkın davranışının BENZER olduğunu varsayıp, her istasyonun debisini kendi ortalamasına bölerek **boyutsuz** hale getirmek ($Q/\\bar Q$), sonra bu boyutsuz değerleri tek bir havuzda birleştirmek. Böylece 5 istasyon × 14 yıl = 70 değerlik bir örneklem elde edilir — tek istasyonun 14'ünden çok daha güvenilir. Akım gözlemi olmayan bir havza için de aynı ortak eğri kullanılabilir; sadece o havzanın kendi $\\bar Q$'sunu (alandan tahmin ederek) eğriye ölçek olarak uygularız.",
+            "en": "Each station's record is short (14 years) — not enough on its own to reliably estimate a T=100-year flood. The idea of regional frequency analysis: assume that nearby stations behave SIMILARLY, make each station's discharge **dimensionless** by dividing by its own mean ($Q/\\bar Q$), and pool these dimensionless values into one bucket. This yields a sample of 5 stations × 14 years = 70 values — far more reliable than one station's 14. For an ungauged basin, the same pooled curve can be used; we simply scale it by that basin's own $\\bar Q$ (estimated from its area)."
+          },
+          "why": {
+            "tr": "\"Kısa kayıt\" ve \"akım gözlemi olmayan havza\" ifadelerini gördüğün an bölgesel analiz düşün. Bu yöntemin temel varsayımı, komşu havzaların taşkın DAVRANIŞININ (dağılımın şeklinin) benzer olduğu, sadece büyüklüklerinin (kendi $\\bar Q$'ları) farklı olduğudur — bu yüzden boyutsuzlaştırma işe yarar.",
+            "en": "The moment you see \"short record\" and \"ungauged basin\", think regional analysis. The method's core assumption is that neighbouring basins share similar flood BEHAVIOUR (the shape of the distribution), differing only in their own scale ($\\bar Q$) — which is exactly why making things dimensionless works."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": { "tr": "Her istasyonun debilerini boyutsuzlaştır", "en": "Make each station's discharges dimensionless" },
+          "guiding": {
+            "tr": "Her yıla ait her bir debiyi, o istasyonun KENDİ ortalamasına böldüğünde ne elde edersin? Bir örnek hesapla.",
+            "en": "When you divide each year's discharge by that station's OWN mean, what do you get? Compute one example."
+          },
+          "hint": {
+            "tr": "$q = Q/\\bar Q_{\\text{istasyon}}$; her istasyon kendi verilen $\\bar Q$'sunu kullanır (309, 92, 194, 192, 122).",
+            "en": "$q = Q/\\bar Q_{\\text{station}}$; each station uses its own given $\\bar Q$ (309, 92, 194, 192, 122)."
+          },
+          "work": {
+            "tr": "Örnek: 2201 istasyonunun 1974 değeri $259$ m³/sn; kendi $\\bar Q_{2201}=309$'a bölünürse: $$259/309 = 0{,}838$$\n\nBu işlem her istasyonun 14 yılına ayrı ayrı uygulanır (toplam $5 \\times 14 = 70$ boyutsuz değer). Örneğin 2206 istasyonunun 1974 değeri $126/92=1{,}370$; 2219'un $504/194=2{,}598$; vb.",
+            "en": "Example: station 2201's 1974 value is $259$ m³/s; dividing by its own $\\bar Q_{2201}=309$: $$259/309 = 0.838$$\n\nThis is applied to every station's 14 years separately (a total of $5 \\times 14 = 70$ dimensionless values). For example, station 2206's 1974 value is $126/92=1.370$; station 2219's is $504/194=2.598$; and so on."
+          },
+          "why": {
+            "tr": "Kritik nokta: her istasyon KENDİ ortalamasına bölünür, bölgenin ortak bir ortalamasına değil. Böylece büyük bir nehrin (2201, $\\bar Q=309$) ve küçük bir derenin (2206, $\\bar Q=92$) taşkın \"davranışları\" aynı ölçekte (ortalamanın etrafında dağılım olarak) karşılaştırılabilir hale gelir — mutlak büyüklük farkı ortadan kalkar.",
+            "en": "The critical point: each station is divided by its OWN mean, not by a shared regional mean. This makes it possible to compare the flood \"behaviour\" of a big river (2201, $\\bar Q=309$) and a small stream (2206, $\\bar Q=92$) on the same scale (as a spread around the mean) — the absolute size difference is removed."
+          },
+          "result": "q = Q/\\bar Q_{\\text{istasyon}}\\quad (\\text{ör. } 259/309 = 0{,}838)",
+          "check": null
+        },
+        {
+          "title": { "tr": "Havuzlanmış istatistikleri hesapla", "en": "Compute the pooled statistics" },
+          "guiding": {
+            "tr": "70 boyutsuz değerin hepsini tek bir örneklem gibi ele alırsan, ortalaması ve standart sapması ne çıkar?",
+            "en": "Treating all 70 dimensionless values as a single sample, what are their mean and standard deviation?"
+          },
+          "hint": {
+            "tr": "5 istasyon × 14 yıl = 70 değer; hepsini birlikte ortalayıp standart sapmasını al ($n-1$ ile).",
+            "en": "5 stations × 14 years = 70 values; average them all together and take the standard deviation (with $n-1$)."
+          },
+          "work": {
+            "tr": "70 boyutsuz $Q/\\bar Q$ değerinin havuzlanmış istatistikleri:\n\n$$\\overline{(Q/\\bar Q)} = 0{,}960, \\qquad S_{Q/\\bar Q} = 0{,}475 \\qquad (n=70)$$",
+            "en": "The pooled statistics of the 70 dimensionless $Q/\\bar Q$ values:\n\n$$\\overline{(Q/\\bar Q)} = 0.960, \\qquad S_{Q/\\bar Q} = 0.475 \\qquad (n=70)$$"
+          },
+          "why": {
+            "tr": "Bu, tüm bölgenin \"ortak taşkın karakterini\" temsil eden tek bir sayı çiftidir — artık her istasyonun kendi 14 yıllık kaydı değil, bölgenin 70 yıllık eşdeğer havuzu konuşuyor. Ortalamanın 1'e yakın çıkması (0,960) beklenir çünkü her değer zaten kendi ortalamasına bölünmüştü.",
+            "en": "This is a single pair of numbers representing the entire region's \"common flood character\" — it's no longer each station's own 14-year record speaking, but the region's 70-year-equivalent pool. The mean coming out close to 1 (0.960) is expected, since every value was already divided by its own mean."
+          },
+          "result": "\\overline{(Q/\\bar Q)} = 0{,}960,\\quad S_{Q/\\bar Q} = 0{,}475",
+          "check": null
+        },
+        {
+          "title": { "tr": "Bölgesel frekans eğrisini kur", "en": "Build the regional frequency curve" },
+          "guiding": {
+            "tr": "Havuzlanmış ortalama ve standart sapmayı Gumbel formülüne (boyutsuz versiyonuyla) sokarsan, farklı T'ler için boyutsuz oranlar ne çıkar?",
+            "en": "Plugging the pooled mean and standard deviation into the (dimensionless) Gumbel formula, what dimensionless ratios do you get for different T?"
+          },
+          "hint": {
+            "tr": "$(Q/\\bar Q)_T = 0{,}960 + 0{,}475\\,K_T$; $K_T$'ler Uygulama 7.2/7.3'teki ile aynı formülden gelir.",
+            "en": "$(Q/\\bar Q)_T = 0.960 + 0.475\\,K_T$; the $K_T$ values come from the same formula as in Uygulama 7.2/7.3."
+          },
+          "work": {
+            "tr": "$$\\left(\\frac{Q}{\\bar Q}\\right)_T = 0{,}960 + 0{,}475\\,K_T$$\n\n| T (yıl) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $K_T$ | 1,305 | 2,044 | 2,592 | 3,137 |\n| $(Q/\\bar Q)_T$ | 1,580 | 1,931 | 2,192 | 2,451 |\n\nBu, tüm bölge için geçerli TEK bir eğridir — herhangi bir istasyonun ya da havzanın kendi $\\bar Q$'suyla çarpılmaya hazır.",
+            "en": "$$\\left(\\frac{Q}{\\bar Q}\\right)_T = 0.960 + 0.475\\,K_T$$\n\n| T (years) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $K_T$ | 1.305 | 2.044 | 2.592 | 3.137 |\n| $(Q/\\bar Q)_T$ | 1.580 | 1.931 | 2.192 | 2.451 |\n\nThis is a SINGLE curve valid for the whole region — ready to be multiplied by any station's or basin's own $\\bar Q$."
+          },
+          "why": {
+            "tr": "Bu adım, bölgesel yöntemin tüm gücünü tek bir tabloya sığdırıyor: artık her istasyon için ayrı ayrı Gumbel analizi yapmaya gerek yok, tek bir bölgesel eğri var. Sıradaki adımlarda bu eğriyi sırayla iki farklı $\\bar Q$'ya (2201'in kendi ortalaması, sonra ungauged havzanın tahmini ortalaması) uygulayacağız.",
+            "en": "This step packs the whole power of the regional method into a single table: there's no need for a separate Gumbel analysis at every station anymore, just one regional curve. In the next steps we'll apply this curve to two different $\\bar Q$ values in turn (2201's own mean, then the ungauged basin's estimated mean)."
+          },
+          "result": "(Q/\\bar Q)_{10,25,50,100} = 1{,}580,\\ 1{,}931,\\ 2{,}192,\\ 2{,}451",
+          "check": null
+        },
+        {
+          "title": { "tr": "İstasyon 2201 için taşkınları bul", "en": "Find the floods for station 2201" },
+          "guiding": {
+            "tr": "Bölgesel eğriyi 2201'in kendi ortalama debisiyle nasıl \"gerçek\" debilere çevirirsin?",
+            "en": "How do you convert the regional curve into \"real\" discharges using station 2201's own mean discharge?"
+          },
+          "hint": {
+            "tr": "Boyutsuz oranı $\\bar Q_{2201}=309$ ile çarp.",
+            "en": "Multiply the dimensionless ratio by $\\bar Q_{2201}=309$."
+          },
+          "work": {
+            "tr": "$$Q_{T,2201} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot \\bar Q_{2201} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot 309$$\n\n| T (yıl) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $Q_{2201}$ (m³/sn) | 488 | 597 | 677 | 757 |",
+            "en": "$$Q_{T,2201} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot \\bar Q_{2201} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot 309$$\n\n| T (years) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $Q_{2201}$ (m³/s) | 488 | 597 | 677 | 757 |"
+          },
+          "why": {
+            "tr": "Ortak eğriyi geri gerçek debiye \"açmak\" için tek yapman gereken istasyonun KENDİ $\\bar Q$'suyla çarpmak — burada mutlaka VERİLEN $\\bar Q_{2201}=309$ kullanılır, kendi hesapladığın (varsa) bir ortalama değil. Boyutsuz eğri bölgesel, ölçekleme yerel.",
+            "en": "To \"unfold\" the common curve back into real discharge, all you need is to multiply by the station's OWN $\\bar Q$ — here you must use the GIVEN $\\bar Q_{2201}=309$, not one you might compute yourself. The dimensionless curve is regional; the scaling is local."
+          },
+          "result": "Q_{2201}: 488,\\ 597,\\ 677,\\ 757\\ \\text{m}^3/\\text{s}\\ (T{=}10,25,50,100)",
+          "check": null
+        },
+        {
+          "title": { "tr": "Akım gözlemi olmayan havza için ortalama debiyi tahmin et", "en": "Estimate the mean discharge for the ungauged basin" },
+          "guiding": {
+            "tr": "250 km²'lik havzanın akım kaydı yok — hiç $\\bar Q$'su bilinmiyor. Elindeki tek bilgi alan (A). Diğer 5 istasyonun kendi $\\bar Q$ ve A'larından nasıl bir ilişki çıkarabilirsin?",
+            "en": "The 250 km² basin has no flow record — its $\\bar Q$ is unknown. The only information you have is its area (A). What relationship can you extract from the other 5 stations' own $\\bar Q$ and A values?"
+          },
+          "hint": {
+            "tr": "5 istasyonun $(\\ln A, \\ln \\bar Q)$ çiftlerine doğrusal regresyon uygula — bu bir kuvvet fonksiyonu ($\\bar Q = a A^b$) verir.",
+            "en": "Fit a linear regression to the 5 stations' $(\\ln A, \\ln \\bar Q)$ pairs — this yields a power function ($\\bar Q = a A^b$)."
+          },
+          "work": {
+            "tr": "5 istasyonun $(A, \\bar Q)$ çiftleri: (2750, 309), (737, 92), (955, 194), (1024, 192), (272, 122). Bunların log-log regresyonu:\n\n$$\\bar Q = 8{,}34 \\cdot A^{0{,}442} \\qquad (r = 0{,}78)$$\n\n250 km² için: $$\\bar Q_{ungauged} = 8{,}34 \\cdot 250^{0{,}442} \\approx 96\\ \\text{m}^3/\\text{s}$$",
+            "en": "The 5 stations' $(A, \\bar Q)$ pairs: (2750, 309), (737, 92), (955, 194), (1024, 192), (272, 122). Their log-log regression:\n\n$$\\bar Q = 8.34 \\cdot A^{0.442} \\qquad (r = 0.78)$$\n\nFor 250 km²: $$\\bar Q_{ungauged} = 8.34 \\cdot 250^{0.442} \\approx 96\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "Havza alanı, ölçülemeyen ortalama taşkın debisiyle güçlü bir fiziksel ilişki taşır (büyük havza = daha çok yağış toplama alanı = genelde daha büyük taşkın). $r=0{,}78$ orta-güçlü bir ilişki olduğunu gösterir — mükemmel değil, ama akım gözlemi hiç olmayan bir havza için elindeki en iyi tahmin bu regresyondur.",
+            "en": "Basin area carries a strong physical relationship with the unmeasurable mean flood discharge (bigger basin = more rainfall-collecting area = generally bigger flood). $r=0.78$ shows a moderately strong relationship — not perfect, but for a basin with no flow record at all, this regression is the best estimate available."
+          },
+          "result": "\\bar Q_{ungauged} \\approx 96\\ \\text{m}^3/\\text{s}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Bölgesel eğriyi ungauged havzaya uygula", "en": "Apply the regional curve to the ungauged basin" },
+          "guiding": {
+            "tr": "Aynı bölgesel eğriyi bu kez 96 m³/sn'lik tahmini ortalamayla ölçeklersen taşkınlar ne çıkar?",
+            "en": "Scaling the same regional curve by the estimated mean of 96 m³/s this time, what floods do you get?"
+          },
+          "hint": {
+            "tr": "$Q_T = (Q/\\bar Q)_T \\cdot 96$ — 2201 adımıyla birebir aynı işlem, farklı bir $\\bar Q$ ile.",
+            "en": "$Q_T = (Q/\\bar Q)_T \\cdot 96$ — the exact same operation as the 2201 step, with a different $\\bar Q$."
+          },
+          "work": {
+            "tr": "$$Q_{T,ungauged} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot 96$$\n\n| T (yıl) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $Q_{ungauged}$ (m³/sn) | 151 | 184 | 209 | 234 |",
+            "en": "$$Q_{T,ungauged} = \\left(\\frac{Q}{\\bar Q}\\right)_T \\cdot 96$$\n\n| T (years) | 10 | 25 | 50 | 100 |\n|---|---|---|---|---|\n| $Q_{ungauged}$ (m³/s) | 151 | 184 | 209 | 234 |"
+          },
+          "why": {
+            "tr": "Bu, bölgesel frekans analizinin tüm amacıdır: hiç akım kaydı olmayan bir havza için bile, komşu istasyonların DAVRANIŞ eğrisini ve havza alanından tahmin edilen bir ölçek ($\\bar Q$) birleştirerek taşkın debisi üretebilmek. Aynı bölgesel eğri (0,960, 0,475) hem 2201'in 309'una hem ungauged'ın 96'sına uygulandı — yöntemin \"bölge ortak, ölçek yerel\" mantığının kanıtı.",
+            "en": "This is the entire point of regional frequency analysis: even for a basin with zero flow record, you can produce a flood discharge by combining neighbouring stations' BEHAVIOUR curve with a scale ($\\bar Q$) estimated from the basin's area. The same regional curve (0.960, 0.475) was applied to both 2201's 309 and the ungauged basin's 96 — proof of the method's \"region shared, scale local\" logic."
+          },
+          "result": "Q_{ungauged}: 151,\\ 184,\\ 209,\\ 234\\ \\text{m}^3/\\text{s}\\ (T{=}10,25,50,100)",
+          "check": {
+            "q": { "tr": "Bölgesel frekans analizinde her istasyonun debisi neye bölünerek boyutsuz hale getirilir?", "en": "In regional frequency analysis, what is each station's discharge divided by to make it dimensionless?" },
+            "options": [
+              { "tr": "Kendi ortalama debisine", "en": "Its own mean discharge" },
+              { "tr": "Bölgedeki tüm istasyonların ortak ortalamasına", "en": "The common mean of all stations in the region" },
+              { "tr": "Havza alanına", "en": "The basin area" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Her istasyon KENDİ ortalama debisine ($\\bar Q_{\\text{istasyon}}$) bölünür — bu, farklı büyüklükteki istasyonların taşkın davranışını aynı (birimsiz) ölçekte karşılaştırılabilir kılar. Ortak bir bölge ortalaması kullanmak, büyük ve küçük istasyonları aynı kefeye koyar ve yanlış bir eğri üretir; havza alanı ise ayrı bir adımda (ungauged $\\bar Q$ tahmininde) kullanılır, boyutsuzlaştırmada değil.",
+              "en": "Each station is divided by its OWN mean discharge ($\\bar Q_{\\text{station}}$) — this makes stations of very different sizes comparable on the same (unitless) scale. Using a shared regional mean would lump big and small stations together and produce a distorted curve; basin area is used in a separate step (estimating the ungauged $\\bar Q$), not in the dimensionless step."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**İstasyon 2201:** $Q_{10}=488$, $Q_{25}=597$, $Q_{50}=677$, $\\boxed{Q_{100}=757}\\ \\text{m}^3/\\text{s}$.\n\n**Akım gözlemi olmayan havza (250 km²):** $Q_{10}=151$, $Q_{25}=184$, $Q_{50}=209$, $\\boxed{Q_{100}=234}\\ \\text{m}^3/\\text{s}$.",
+        "en": "**Station 2201:** $Q_{10}=488$, $Q_{25}=597$, $Q_{50}=677$, $\\boxed{Q_{100}=757}\\ \\text{m}^3/\\text{s}$.\n\n**Ungauged basin (250 km²):** $Q_{10}=151$, $Q_{25}=184$, $Q_{50}=209$, $\\boxed{Q_{100}=234}\\ \\text{m}^3/\\text{s}$."
+      },
+      "traps": [
+        {
+          "tr": "İstasyonların GEREKEN $\\bar Q$'sunu (309, 92, 194, 192, 122) kullanmak yerine tabloda basılı 14 yılı kendin ortalamaya kalkışmak. Kendi hesabınla, örneğin 2219 için 183,9 ya da 2239 için 160,2 gibi VERİLENDEN (194, 192) farklı değerler çıkar — bu, föyün kendi tutarsızlığıdır (basılı yıllık değerlerin ortalaması, verilen $\\bar Q$ satırıyla tam örtüşmüyor). Sınavda her zaman VERİLEN $\\bar Q$ satırını kullan.",
+          "en": "Trying to average the 14 printed years yourself instead of using the stations' GIVEN $\\bar Q$ (309, 92, 194, 192, 122). Your own computation gives values different from what's GIVEN — e.g. 183.9 for 2219 or 160.2 for 2239, versus the given 194 and 192 — this is the sheet's own inconsistency (the printed yearly values' average doesn't perfectly match the given $\\bar Q$ row). In the exam, always use the GIVEN $\\bar Q$ row."
+        },
+        {
+          "tr": "Boyutsuz havuzlama, tüm istasyonların taşkın davranışının BENZER olduğunu varsayar. Bölgeler arasında büyük iklimsel/topografik farklar varsa bu varsayım zayıflar — bu yöntem her zaman kusursuz sonuç garanti etmez.",
+          "en": "Dimensionless pooling assumes all stations share SIMILAR flood behaviour. If there are large climatic/topographic differences between regions, this assumption weakens — the method doesn't guarantee a flawless result in every case."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya akım gözlemi olmayan havzanın alanı 250 yerine 1000 km² olsaydı?", "en": "What if the ungauged basin's area were 1000 km² instead of 250?" },
+          "answer": {
+            "tr": "$\\bar Q = 8{,}34 \\cdot 1000^{0{,}442} = 177\\ \\text{m}^3/\\text{sn}$; bölgesel eğriyle $Q_{100} = 2{,}451 \\cdot 177 = 433\\ \\text{m}^3/\\text{sn}$. Alan büyüdükçe tahmini ortalama debi (ve dolayısıyla tüm taşkın serisi) büyür — regresyonun gücü, herhangi bir alan için tek bir formülle tahmin verebilmesidir.",
+            "en": "$\\bar Q = 8.34 \\cdot 1000^{0.442} = 177\\ \\text{m}^3/\\text{s}$; with the regional curve, $Q_{100} = 2.451 \\cdot 177 = 433\\ \\text{m}^3/\\text{s}$. As the area grows, the estimated mean discharge (and hence the entire flood series) grows too — the power of the regression is that it gives an estimate for any area with a single formula."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya istasyon 2201 (en uzun/en büyük) regresyondan çıkarılsaydı?", "en": "What if station 2201 (the longest/largest) were dropped from the regression?" },
+          "answer": {
+            "tr": "Regresyon sadece 4 noktaya ($\\bar Q$-A çiftine) dayanır ve 2201, en büyük hem alan hem debi değerine sahip olduğundan regresyon doğrusunun eğimini (üssü) önemli ölçüde etkiler — onu çıkarmak $a$ ve $b$ katsayılarını belirgin şekilde değiştirir. Bu, bölgesel sonuçların istasyon setine ne kadar duyarlı olduğunu gösterir: az sayıda istasyonla çalışırken her bir istasyonun ağırlığı büyüktür.",
+            "en": "The regression would rest on only 4 points ($\\bar Q$-A pairs), and since 2201 has the largest area and discharge, it significantly influences the regression line's slope (exponent) — removing it noticeably changes the $a$ and $b$ coefficients. This shows how sensitive regional results are to the station set: with few stations, each one carries a lot of weight."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": { "tr": "\"T=100 yıl\" tekerrür süresi ne anlama gelir?", "en": "What does a \"T=100 year\" return period mean?" },
+      "options": [
+        { "tr": "Bu büyüklükteki bir taşkının HER YIL görülme olasılığı %1'dir", "en": "A flood of this size has a 1% chance of occurring in ANY GIVEN YEAR" },
+        { "tr": "Bu taşkın yüzyılda tam olarak bir kez, düzenli aralıklarla gelir", "en": "This flood arrives exactly once a century, at regular intervals" },
+        { "tr": "Bu taşkın 100 yıl boyunca bir daha asla tekrar etmez", "en": "This flood can never happen again for 100 years" },
+        { "tr": "Bu taşkının olasılığı zamanla azalır", "en": "The probability of this flood decreases over time" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Tekerrür süresi, yıllık aşılma olasılığının tersidir: T=100 → yıllık olasılık = 1/100 = %1, her yıl BAĞIMSIZ olarak geçerlidir. \"Düzenli aralık\" ve \"bir daha olmaz\" yorumları bu bağımsızlığı yok sayar — tam da bu yanılgı Uygulama 7.1'in %39'luk şaşırtıcı riskini doğurur.",
+        "en": "The return period is the reciprocal of the annual exceedance probability: T=100 → annual probability = 1/100 = 1%, holding INDEPENDENTLY every year. Both \"regular interval\" and \"never again\" ignore this independence — this exact misconception is what produces Uygulama 7.1's surprising 39% risk."
+      }
+    },
+    {
+      "q": { "tr": "T=50 yıllık bir yapının proje ömrü de n=50 yıl ise, risk kaç çıkar?", "en": "If a structure designed for T=50 years also has a project life of n=50 years, what is the risk?" },
+      "options": [
+        { "tr": "%50", "en": "50%" },
+        { "tr": "%63 ($1-e^{-1}$)", "en": "63% ($1-e^{-1}$)" },
+        { "tr": "%37 ($e^{-1}$)", "en": "37% ($e^{-1}$)" },
+        { "tr": "%100", "en": "100%" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$n=T$ olduğunda oran $n/T=1$ olur: $R=1-e^{-1}\\approx 0{,}63$ yani %63. %50, bu oranı kaba bir sezgiyle (yarı yarıya) tahmin etmekten gelir; %37 ise $1-R$'yi (aşılmama olasılığını) $R$ sanmaktan; %100 ise \"kesin olur\" gibi aşırı bir sezgiden kaynaklanır.",
+        "en": "When $n=T$, the ratio $n/T=1$: $R=1-e^{-1}\\approx 0.63$, i.e. 63%. 50% comes from a crude \"half-and-half\" guess; 37% comes from mistaking $1-R$ (the non-exceedance probability) for $R$ itself; 100% comes from an overreaching \"it's certain to happen\" intuition."
+      }
+    },
+    {
+      "q": { "tr": "Gumbel dağılımında T=2,33 yıl civarında $K_T$ değeri yaklaşık kaçtır?", "en": "In the Gumbel distribution, what is $K_T$ approximately at T=2.33 years?" },
+      "options": [
+        { "tr": "$K_T \\approx 0$; $Q_T$ ortalama yıllık taşkına ($\\bar Q$) yaklaşır", "en": "$K_T \\approx 0$; $Q_T$ approaches the mean annual flood ($\\bar Q$)" },
+        { "tr": "$K_T \\approx 1$; $Q_T$, $\\bar Q + S_Q$'ya eşit olur", "en": "$K_T \\approx 1$; $Q_T$ equals $\\bar Q + S_Q$" },
+        { "tr": "$K_T$ tanımsızdır bu T için", "en": "$K_T$ is undefined at this T" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "T=2,33 yıl, Gumbel dağılımında yaklaşık ortalama tekerrür süresidir; bu noktada $K_T \\approx 0$ olur, dolayısıyla $Q_T = \\bar Q + 0 \\cdot S_Q \\approx \\bar Q$. Bu, Uygulama 7.2'nin adımlarından çıkan genel bir sonuçtur: T büyüdükçe $K_T$ pozitif ve büyür, T küçüldükçe negatife döner.",
+        "en": "T=2.33 years is approximately the mean return period under the Gumbel distribution; at this point $K_T \\approx 0$, so $Q_T = \\bar Q + 0 \\cdot S_Q \\approx \\bar Q$. This is a general result following from Uygulama 7.2's steps: as T grows, $K_T$ becomes positive and grows; as T shrinks, it turns negative."
+      }
+    },
+    {
+      "q": { "tr": "Rasyonel yöntem formülündeki 3,6 katsayısı neden vardır?", "en": "Why does the Rational method formula have the 3.6 factor?" },
+      "options": [
+        { "tr": "mm/saat × km² birleşimini m³/sn'ye çevirmek için bir birim dönüşüm sabiti", "en": "A unit conversion constant turning mm/h × km² into m³/s" },
+        { "tr": "Deneysel olarak bulunmuş, birimden bağımsız bir güvenlik katsayısı", "en": "An empirically found, unit-independent safety factor" },
+        { "tr": "Yalnızca Trabzon bölgesine özgü bir sabit", "en": "A constant specific only to the Trabzon region" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$Q_T = C_T i_T A$ ifadesi $i$ mm/saat ve $A$ km² iken birim olarak $10^6/3600 = 277{,}8$ katsayısı taşır; bunu $/3{,}6$ ile sadeleştirmek $Q$'yu doğrudan m³/sn cinsinden verir. Katsayı bölgeye özgü değildir, saf birim dönüşümüdür — bu yüzden i ve A birimleri değişirse 3,6 de değişmelidir.",
+        "en": "The expression $Q_T = C_T i_T A$, with $i$ in mm/h and $A$ in km², carries a unit factor of $10^6/3600 = 277.8$; dividing by 3.6 simplifies this so $Q$ comes out directly in m³/s. The constant is not region-specific — it's a pure unit conversion — so if the units of i and A change, 3.6 must change too."
+      }
+    },
+    {
+      "q": { "tr": "Havzanın konsantrasyon süresi $t_c$ iki katına çıkarsa (daha yassı bir havza), $t_c$'de okunan yağış şiddeti ve buna bağlı Q ne yönde değişir?", "en": "If the basin's time of concentration $t_c$ doubles (a flatter basin), how do the rainfall intensity read at $t_c$ and the resulting Q change?" },
+      "options": [
+        { "tr": "İkisi de artar", "en": "Both increase" },
+        { "tr": "Yağış şiddeti düşer; Q genellikle azalır (daha uzun, daha zayıf tasarım sağanağı)", "en": "The rainfall intensity falls; Q generally decreases (a longer, weaker design storm)" },
+        { "tr": "İkisi de değişmez", "en": "Neither changes" },
+        { "tr": "Yağış şiddeti artar ama Q azalır", "en": "The rainfall intensity increases but Q decreases" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "i-t-T eğrileri her zaman azalandır: süre uzadıkça (t büyüdükçe) o süreye ait yağış şiddeti düşer (kısa sağanaklar daha şiddetli, uzun süreli yağışlar daha ortalama). $t_c$ arttığında daha uzun ama daha zayıf bir tasarım yağmuru okunur, bu da genellikle daha düşük bir $Q_T$'ye götürür — Uygulama 7.4'ün eğim-$t_c$-i zincirinin ters yönde çalışması.",
+        "en": "i-t-T curves always decrease: as the duration (t) grows, the intensity for that duration falls (short bursts are more intense, longer rains are more average). A larger $t_c$ means reading a longer but weaker design storm, which generally leads to a lower $Q_T$ — the slope-$t_c$-i chain of Uygulama 7.4 running in reverse."
+      }
+    },
+    {
+      "q": { "tr": "Bir havzanın yarısı çim (C=0,2), yarısı asfalt (C=0,9) ise, alan ağırlıklı bileşik akış katsayısı nedir?", "en": "If half a basin is grass (C=0.2) and half is asphalt (C=0.9), what is the area-weighted composite runoff coefficient?" },
+      "options": [
+        { "tr": "0,45 (basit ortalama)", "en": "0.45 (a simple average)" },
+        { "tr": "0,55", "en": "0.55" },
+        { "tr": "0,2 (en küçük değer)", "en": "0.2 (the smallest value)" },
+        { "tr": "0,9 (en büyük değer)", "en": "0.9 (the largest value)" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Alanlar eşit olduğundan ağırlıklı ortalama: $C = 0{,}5\\cdot0{,}2 + 0{,}5\\cdot0{,}9 = 0{,}10+0{,}45 = 0{,}55$. Bu, tesadüfen basit ortalamayla ($0{,}2+0{,}9)/2=0{,}55$) aynı çıkar çünkü alanlar eşit — ama Uygulama 7.4'te alanlar EŞİT DEĞİLDİ (0,25/0,75/0,50 km²), bu yüzden orada alan ağırlıklı ortalama basit ortalamadan farklı sonuç verirdi. En küçük ya da en büyük değeri almak, diğer arazi türünü tamamen görmezden gelmek olur.",
+        "en": "Since the areas are equal, the weighted average: $C = 0.5\\cdot0.2 + 0.5\\cdot0.9 = 0.10+0.45 = 0.55$. This happens to match a simple average ($(0.2+0.9)/2=0.55$) only because the areas are equal — but in Uygulama 7.4 the areas were NOT equal (0.25/0.75/0.50 km²), so there the area-weighted average would differ from a simple average. Taking the smallest or largest value entirely ignores the other land-use type."
+      }
+    },
+    {
+      "q": { "tr": "Bölgesel taşkın frekans analizinde, her istasyonun taşkın kaydı neye bölünerek boyutsuz hale getirilir?", "en": "In regional flood frequency analysis, what is each station's flood record divided by to make it dimensionless?" },
+      "options": [
+        { "tr": "Kendi ortalama (taşkın) debisine", "en": "Its own mean (flood) discharge" },
+        { "tr": "Bölgedeki en büyük istasyonun debisine", "en": "The discharge of the largest station in the region" },
+        { "tr": "Havzanın alanına doğrudan", "en": "The basin area directly" },
+        { "tr": "Tüm istasyonların ortalamasının ortalamasına", "en": "The average of all stations' averages" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Boyutsuzlaştırma her zaman istasyonun KENDİ ortalamasıyla ($Q/\\bar Q_{\\text{istasyon}}$) yapılır — bu, farklı büyüklükteki nehirlerin taşkın davranışını ortak bir ölçekte kıyaslanabilir kılar. En büyük istasyona bölmek küçük istasyonları anlamsızca küçültür; havza alanı ayrı bir adımda (ungauged $\\bar Q$ tahmininde) kullanılır.",
+        "en": "Making values dimensionless is always done with the station's OWN mean ($Q/\\bar Q_{\\text{station}}$) — this makes rivers of very different sizes comparable on a shared scale. Dividing by the largest station would shrink small stations meaninglessly; basin area is used in a separate step (estimating the ungauged $\\bar Q$)."
+      }
+    },
+    {
+      "q": { "tr": "Ters Gumbel probleminde (Q verilip T isteniyorsa), $K_T$ formülünü tersine çözmek kaç üstel (exponential) işlem gerektirir?", "en": "In the inverse Gumbel problem (Q given, T asked), how many exponential operations are needed to invert the $K_T$ formula?" },
+      "options": [
+        { "tr": "İki — iç içe iki $e^{(\\cdot)}$, adım adım açılmalı", "en": "Two — two nested $e^{(\\cdot)}$ operations, unwrapped step by step" },
+        { "tr": "Bir — tek bir $e^{(\\cdot)}$ yeterli", "en": "One — a single $e^{(\\cdot)}$ suffices" },
+        { "tr": "Hiç — doğrudan cebirsel bir çözüm vardır", "en": "None — there is a direct algebraic solution" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$K_T$ formülü iki iç içe logaritma içerdiğinden ($\\ln[\\ln(T/(T-1))]$), tersine çözmek de iki iç içe üstel gerektirir: önce $\\ln\\{\\ln[T/(T-1)]\\}$'yi bul, sonra $e^{(\\cdot)}$ ile iç logaritmayı, sonra tekrar $e^{(\\cdot)}$ ile T/(T-1)'i aç. Uygulama 7.2 ve 7.3'ün ters problem adımlarının ikisi de bunu adım adım gösteriyor — tek adımda atlamaya çalışmak hesap hatasına yol açar.",
+        "en": "Since the $K_T$ formula contains two nested logarithms ($\\ln[\\ln(T/(T-1))]$), inverting it also requires two nested exponentials: first find $\\ln\\{\\ln[T/(T-1)]\\}$, then unwrap the inner log with $e^{(\\cdot)}$, then unwrap $T/(T-1)$ with $e^{(\\cdot)}$ again. Both Uygulama 7.2 and 7.3's inverse-problem steps show this step by step — trying to skip to the answer in one leap leads to calculation errors."
+      }
+    }
+  ]
+}

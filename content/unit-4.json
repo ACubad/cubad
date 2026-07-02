@@ -1,0 +1,2405 @@
+{
+  "unit": 4,
+  "slug": "sizma",
+  "title": {
+    "tr": "Sızma",
+    "en": "Infiltration"
+  },
+  "tagline": {
+    "tr": "Yağmurun zemine giren kısmı: Horton denklemi ve indisler",
+    "en": "The part of rain that enters the ground: Horton's equation and indices"
+  },
+  "concept": {
+    "overview": {
+      "tr": "**Sızma** (infiltrasyon), yağan yağmurun zeminin içine giren kısmıdır. Toprak kuruyken çok hızlı su içer; zaman geçtikçe gözenekler dolar ve sızma hızı sabit bir değere, **$f_c$**'ye (nihai/son sızma kapasitesi) yaklaşır. Başlangıçtaki yüksek hız **$f_0$** ile başlar; ikisi arasındaki düşüş, **Horton denklemi** ile üstel olarak modellenir:\n\n$$f = f_c + (f_0 - f_c)\\,e^{-kt}$$\n\nBurada $f$ **sızma kapasitesi**dir — toprağın o an emebileceği MAKSİMUM hızdır, gerçekte emdiği hız değil. Bu ünitenin en önemli fikri tam burada: **kapasite** ile **gerçek sızma** farklı şeylerdir. Eğer yağış şiddeti $i$, kapasiteden büyükse ($i > f$), toprak alabildiği kadarını alır — sızma kapasiteye eşittir, Horton eğrisi geçerlidir. Ama $i < f$ ise, toprak susamıştır ve yağan yağmurun **tamamı** sızar — gerçek sızma artık yağıştan belirlenir, Horton eğrisinden değil.\n\nHorton'un $f_0$, $f_c$ ve $k$ katsayıları ya bir **infiltrometre deneyinden** (halka içine su dökülüp zamanla emilen hacim ölçülerek) ya da yalnızca iki veya üç ölçümden elde edilir; iki ölçümden $k$ bulmak için denklem $\\ln(f-f_c)$'nin $t$'ye karşı **doğrusal** olmasından yararlanır.\n\nSınavın favori kestirmesi ise **$\\varphi$ indisi**: bir yağış-akış olayında toplam akışı bildiğimizde, hiyetografın üzerine öyle bir yatay çizgi çizeriz ki çizginin ÜSTÜNDE kalan alan tam olarak akış miktarına eşit olsun. Bu çizginin yüksekliği sabit bir kayıp hızı (φ) olarak yorumlanır — Horton'un basitleştirilmiş, sınavda hızlı çözülen hali.",
+      "en": "**Infiltration** is the part of falling rain that enters the ground. Dry soil drinks water very fast; as time passes the pores fill up and the infiltration rate settles toward a constant value, **$f_c$** (the final/ultimate infiltration capacity). It starts from a high initial rate **$f_0$**; the decay between the two is modeled as an exponential curve, **Horton's equation**:\n\n$$f = f_c + (f_0 - f_c)\\,e^{-kt}$$\n\nHere $f$ is the **infiltration capacity** — the MAXIMUM rate the soil could absorb at that instant, not necessarily what it actually absorbs. That distinction is the core idea of this unit: **capacity** and **actual infiltration** are different things. If the rainfall intensity $i$ exceeds the capacity ($i > f$), the soil takes as much as it can — actual infiltration equals the capacity, and the Horton curve applies. But if $i < f$, the soil is thirstier than the rain is falling, so **all** of the rain infiltrates — actual infiltration is now set by the rainfall, not by the Horton curve.\n\nHorton's coefficients $f_0$, $f_c$ and $k$ come either from an **infiltrometer test** (water poured into a ring, the absorbed volume tracked over time) or from just two or three measured capacities; getting $k$ from two points uses the fact that $\\ln(f-f_c)$ is **linear** in $t$.\n\nThe exam's favourite shortcut is the **$\\varphi$-index**: given a storm's total runoff, we draw a horizontal line across the hyetograph so that the area ABOVE the line exactly equals the runoff depth. That line's height is read as a constant loss rate (φ) — a simplified, fast-to-solve cousin of Horton's method."
+    },
+    "keyFormulas": [
+      {
+        "name": {
+          "tr": "Horton denklemi",
+          "en": "Horton's equation"
+        },
+        "latex": "f = f_c + (f_0 - f_c)\\,e^{-kt}",
+        "meaning": {
+          "tr": "$f$: sızma kapasitesi (zamanla azalan üst sınır), $f_0$: başlangıç kapasitesi ($t=0$), $f_c$: nihai (sabit) kapasite, $k$: azalma sabiti (1/saat), $t$: zaman (SAAT).",
+          "en": "$f$: infiltration capacity (a decaying upper bound), $f_0$: initial capacity ($t=0$), $f_c$: final (constant) capacity, $k$: decay constant (1/hour), $t$: time (in HOURS)."
+        },
+        "whenToUse": {
+          "tr": "Sızma kapasitesinin zamanla nasıl değiştiğini bulmak/kullanmak gerektiğinde — $f_0$, $f_c$, $k$ verilmiş ya da bulunmuşsa.",
+          "en": "Whenever you need to find or use how the infiltration capacity changes with time — once $f_0$, $f_c$ and $k$ are given or found."
+        }
+      },
+      {
+        "name": {
+          "tr": "Horton integrali (kümülatif sızma)",
+          "en": "Horton's integral (cumulative infiltration)"
+        },
+        "latex": "F = f_c\\,t + \\dfrac{f_0-f_c}{k}\\left(1-e^{-kt}\\right)",
+        "meaning": {
+          "tr": "$F$: $0$'dan $t$'ye kadar toplam sızma yüksekliği (Horton eğrisinin altındaki alan). $f$'nin zamana göre integralidir; asla $f \\cdot t$ ile karıştırılmaz.",
+          "en": "$F$: the total infiltrated depth from $0$ to $t$ (the area under the Horton curve). It is the time-integral of $f$; never confuse it with $f \\cdot t$."
+        },
+        "whenToUse": {
+          "tr": "Kapasitenin geçerli olduğu (yani $i>f$) bir süre boyunca TOPLAM sızma miktarı isteniyorsa.",
+          "en": "Whenever the TOTAL infiltrated depth is asked over a period where the capacity governs (i.e. $i>f$)."
+        }
+      },
+      {
+        "name": {
+          "tr": "İki noktadan k (doğrusallaştırma)",
+          "en": "k from two points (linearization)"
+        },
+        "latex": "\\ln(f-f_c) = \\ln(f_0-f_c) - kt",
+        "meaning": {
+          "tr": "$\\ln(f-f_c)$'yi $t$'ye karşı çizersen doğru çıkar; doğrunun eğimi $-k$'dır. İki ölçüm noktası varsa eğim doğrudan $\\dfrac{y_2-y_1}{t_2-t_1}$'den bulunur.",
+          "en": "Plotting $\\ln(f-f_c)$ against $t$ gives a straight line whose slope is $-k$. With two measured points, the slope comes directly from $\\dfrac{y_2-y_1}{t_2-t_1}$."
+        },
+        "whenToUse": {
+          "tr": "Horton denklemindeki $k$'yı deneysel ölçümlerden (yarı-logaritmik grafik ya da iki/üç f-t çifti) çıkarmak için.",
+          "en": "To extract $k$ in Horton's equation from experimental measurements (a semi-log plot, or two/three f-t pairs)."
+        }
+      },
+      {
+        "name": {
+          "tr": "Rejim kuralı: i ile f'yi karşılaştır",
+          "en": "Regime rule: compare i with f"
+        },
+        "latex": "i>f \\Rightarrow f_{gerçek}=f \\quad;\\quad i<f \\Rightarrow f_{gerçek}=i",
+        "meaning": {
+          "tr": "$i$: yağış şiddeti, $f$: Horton'un verdiği kapasite. $i>f$ ise sızma kapasiteye eşitlenir (kapasite-kısıtlı); $i<f$ ise TÜM yağış sızar (arz-kısıtlı) ve gerçek sızma $F$'yi Horton'dan değil, doğrudan yağıştan hesaplarsın.",
+          "en": "$i$: rainfall intensity, $f$: the capacity Horton's equation gives. If $i>f$, infiltration equals the capacity (capacity-limited); if $i<f$, ALL the rain infiltrates (supply-limited) and you compute the actual $F$ directly from the rainfall, not from Horton."
+        },
+        "whenToUse": {
+          "tr": "Her sızma sorusunda, herhangi bir integral almadan ÖNCE: yağış şiddeti mi yoksa kapasite mi küçük, bunu kontrol et.",
+          "en": "In every infiltration question, BEFORE integrating anything: check whether the rainfall intensity or the capacity is smaller."
+        }
+      },
+      {
+        "name": {
+          "tr": "φ indisi",
+          "en": "The φ-index"
+        },
+        "latex": "\\text{akış} = \\sum (i-\\varphi)^{+} \\, \\Delta t",
+        "meaning": {
+          "tr": "$\\varphi$: sabit kayıp hızı (sızma + diğer kayıplar). $(i-\\varphi)^+$: $i>\\varphi$ olan aralıklarda $i-\\varphi$, değilse SIFIR (negatif olmaz). Toplam, bilinen akış yüksekliğine eşitlenip $\\varphi$ çözülür.",
+          "en": "$\\varphi$: a constant loss rate (infiltration + other losses). $(i-\\varphi)^+$: equals $i-\\varphi$ in intervals where $i>\\varphi$, and ZERO otherwise (never negative). The sum is set equal to the known runoff depth and solved for $\\varphi$."
+        },
+        "whenToUse": {
+          "tr": "Bir hiyetograf (zamana göre yağış şiddeti) ve gerçekleşmiş toplam akış (runoff) yüksekliği verilip sabit bir kayıp çizgisi isteniyorsa.",
+          "en": "When a hyetograph (rainfall intensity over time) and a known total runoff depth are given, and a constant loss line is asked for."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "**Zamanı SAAT cinsinden almayı unutmak.** Horton'daki $k$ birimi $1/\\text{saat}$'tir; $e^{-kt}$ içine dakikayı doğrudan koyarsan sonuç anlamsız çıkar. Her zaman $t$'yi önce saate çevir.",
+        "en": "**Forgetting to put time in HOURS.** Horton's $k$ has units of $1/\\text{hour}$; plugging minutes directly into $e^{-kt}$ gives nonsense. Always convert $t$ to hours first."
+      },
+      {
+        "tr": "**$i$ ile $f$'yi sadece bir noktada karşılaştırmak.** Rejim (kapasite-kısıtlı mı arz-kısıtlı mı) yağışın BAŞINDA ve SONUNDA ayrı ayrı kontrol edilmeli — uzun bir yağışta rejim ortada değişebilir (bkz. 4.3, 4.6).",
+        "en": "**Comparing $i$ and $f$ at only one point.** The regime (capacity- or supply-limited) must be checked separately at the START and the END of the storm — over a long storm the regime can flip partway through (see 4.3, 4.6)."
+      },
+      {
+        "tr": "**F'yi $f \\cdot t$ ile karıştırmak.** $F$, $f$'nin zamana göre İNTEGRALİDİR; $f$ sabit değilse (Horton'da hep değişir) $f \\cdot t$ yanlış sonuç verir. Doğru formül Horton integralidir.",
+        "en": "**Confusing F with $f \\cdot t$.** $F$ is the time-INTEGRAL of $f$; unless $f$ is constant (Horton's $f$ never is), $f \\cdot t$ gives the wrong number. The correct formula is Horton's integral."
+      },
+      {
+        "tr": "**φ çizgisinin altındaki aralıkları eksi almak.** Hiyetografta $i<\\varphi$ olan bir aralık akışa HİÇ katkı vermez (sıfır, negatif değil). Bu aralığı $(i-\\varphi)$ olarak eksiyle toplarsan yanlış (ve genelde çok küçük) bir φ bulursun.",
+        "en": "**Taking intervals below the φ line as negative.** An interval where $i<\\varphi$ contributes NOTHING to runoff (zero, not negative). Summing it as $(i-\\varphi)$ with a minus sign gives a wrong (usually far too small) φ."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "4-1",
+      "code": "Uygulama 4.1",
+      "title": {
+        "tr": "İnfiltrometre deneyinden Horton denklemi",
+        "en": "Horton's equation from an infiltrometer test"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "İç çapı 34,8 cm olan bir infiltrometre ile yapılan bir deneyde aşağıdaki değerler elde edilmiştir. Zaman (dakika): 0, 2, 5, 10, 20, 30, 60, 90, 150; toplam eklenen su hacmi (cm³): 0, 278, 658, 1173, 1924, 2500, 3345, 3875, 4595. a) Sızma kapasitesinin zamanla değişimini belirleyerek standart sızma eğrisini çiziniz. b) Horton denklemini elde ediniz. c) 10 ve 30. dakikalarda sızma kapasitelerini tahmin ediniz. d) Başlangıçtan 3 saat sonraki toplam sızma hacmini bulunuz. e) Verilen zaman aralıkları için Horton denklemi yardımıyla toplam sızma miktarlarını hesaplayıp ölçümlerle karşılaştırınız.",
+        "en": "An infiltrometer test with an inner diameter of 34.8 cm gave the following data. Time (minutes): 0, 2, 5, 10, 20, 30, 60, 90, 150; cumulative added water volume (cm³): 0, 278, 658, 1173, 1924, 2500, 3345, 3875, 4595. (a) Determine how the infiltration capacity changes with time and plot the standard infiltration curve. (b) Derive Horton's equation. (c) Estimate the infiltration capacities at the 10th and 30th minutes. (d) Find the total infiltrated volume 3 hours after the start. (e) Using Horton's equation, compute the total infiltration for the given time intervals and compare with the measurements."
+      },
+      "given": [
+        {
+          "symbol": "D",
+          "value": "34{,}8\\ \\text{cm}",
+          "label": {
+            "tr": "İnfiltrometre iç çapı",
+            "en": "Infiltrometer inner diameter"
+          }
+        },
+        {
+          "symbol": "t",
+          "value": "0,2,5,10,20,30,60,90,150\\ \\text{dk}",
+          "label": {
+            "tr": "Ölçüm zamanları",
+            "en": "Measurement times"
+          }
+        },
+        {
+          "symbol": "V",
+          "value": "0,278,658,1173,1924,2500,3345,3875,4595\\ \\text{cm}^3",
+          "label": {
+            "tr": "Kümülatif eklenen su hacmi",
+            "en": "Cumulative added water volume"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Horton denklemini ($f_0$, $f_c$, $k$) bulmak; 10 ve 30. dakikadaki $f$ değerlerini, 3 saat sonundaki toplam sızma hacmini hesaplamak ve Horton tahminini ölçümlerle karşılaştırmak.",
+        "en": "Find Horton's equation ($f_0$, $f_c$, $k$); compute $f$ at 10 and 30 minutes, the total infiltrated volume after 3 hours, and compare Horton's estimate with the measurements."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Ölçümlerden sızma kapasitesinin türetilmesi",
+            "en": "Deriving the infiltration capacity from the measurements"
+          },
+          "headers": [
+            "t (dk)",
+            "Δt (saat)",
+            "ΔV (cm³)",
+            "ΔF=ΔV/951 (cm)",
+            "f=ΔF/Δt (cm/saat)"
+          ],
+          "rows": [
+            [
+              "0–2",
+              "0,033",
+              "278",
+              "0,293",
+              "8,79"
+            ],
+            [
+              "2–5",
+              "0,050",
+              "380",
+              "0,400",
+              "8,00"
+            ],
+            [
+              "5–10",
+              "0,0833",
+              "515",
+              "0,542",
+              "6,504"
+            ],
+            [
+              "10–20",
+              "0,167",
+              "751",
+              "0,791",
+              "4,476"
+            ],
+            [
+              "20–30",
+              "0,167",
+              "576",
+              "0,606",
+              "3,636"
+            ],
+            [
+              "30–60",
+              "0,50",
+              "845",
+              "0,889",
+              "1,778"
+            ],
+            [
+              "60–90",
+              "0,50",
+              "530",
+              "0,558",
+              "1,116"
+            ],
+            [
+              "90–150",
+              "1,00",
+              "720",
+              "0,758",
+              "0,758"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Horton ile hesaplanan sızma hacminin ölçümlerle karşılaştırılması",
+            "en": "Comparison of Horton-predicted infiltration volume with measurements"
+          },
+          "headers": [
+            "t (dk)",
+            "F (cm)",
+            "V_hesap=951·F (cm³)",
+            "V_ölçülen (cm³)",
+            "V_hesap/V_ölçülen"
+          ],
+          "rows": [
+            [
+              "2",
+              "0,284",
+              "270",
+              "278",
+              "0,971"
+            ],
+            [
+              "5",
+              "0,677",
+              "644",
+              "658",
+              "0,979"
+            ],
+            [
+              "10",
+              "1,254",
+              "1193",
+              "1173",
+              "1,017"
+            ],
+            [
+              "20",
+              "2,173",
+              "2067",
+              "1924",
+              "1,074"
+            ],
+            [
+              "30",
+              "2,855",
+              "2715",
+              "2500",
+              "1,086"
+            ],
+            [
+              "60",
+              "4,092",
+              "3891",
+              "3345",
+              "1,163"
+            ],
+            [
+              "90",
+              "4,768",
+              "4534",
+              "3875",
+              "1,170"
+            ],
+            [
+              "150",
+              "5,665",
+              "5387",
+              "4595",
+              "1,172"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Standart sızma eğrisi",
+          "en": "Standard infiltration curve"
+        },
+        "xLabel": "t (dakika)",
+        "yLabel": "f (cm/saat)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "f (ölçülen)",
+            "kind": "line",
+            "points": [
+              [
+                2,
+                8.79
+              ],
+              [
+                5,
+                8.0
+              ],
+              [
+                10,
+                6.504
+              ],
+              [
+                20,
+                4.476
+              ],
+              [
+                30,
+                3.636
+              ],
+              [
+                60,
+                1.778
+              ],
+              [
+                90,
+                1.116
+              ],
+              [
+                150,
+                0.758
+              ]
+            ]
+          }
+        ],
+        "annotations": []
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "İnfiltrometrenin kesit alanını hesapla",
+            "en": "Compute the infiltrometer's cross-section area"
+          },
+          "guiding": {
+            "tr": "Halkaya eklenen su hacmini bir sızma YÜKSEKLİĞİNE çevirmek için neye bölmen gerekir?",
+            "en": "To turn the volume of water added to the ring into an infiltration DEPTH, what do you need to divide by?"
+          },
+          "hint": {
+            "tr": "Hacim = alan × yükseklik. Alanı çember formülüyle bul: $A=\\pi D^2/4$.",
+            "en": "Volume = area × depth. Find the area from the circle formula: $A=\\pi D^2/4$."
+          },
+          "work": {
+            "tr": "İnfiltrometrenin iç çapı $D=34{,}8$ cm olduğuna göre yüzey alanı:\n\n$$A = \\frac{\\pi \\cdot 34{,}8^2}{4} = 951\\ \\text{cm}^2$$\n\nBundan sonraki her hacim farkını bu alana bölerek doğrudan bir su yüksekliğine (cm) çevireceğiz.",
+            "en": "With inner diameter $D=34.8$ cm, the surface area is:\n\n$$A = \\frac{\\pi \\cdot 34.8^2}{4} = 951\\ \\text{cm}^2$$\n\nFrom now on we divide every volume difference by this area to convert it directly into a water depth (cm)."
+          },
+          "why": {
+            "tr": "Deney bize hacim (cm³) veriyor ama Horton denklemi bir YÜKSEKLİK/zaman hızı olan $f$'yi kullanır. Hacmi yüksekliğe çevirmenin köprüsü infiltrometrenin alanıdır — bu adımı atlarsan tüm f değerleri 951 kat büyük çıkar.",
+            "en": "The experiment gives us a volume (cm³), but Horton's equation works with $f$, a DEPTH/time rate. The bridge from volume to depth is the infiltrometer's area — skip this step and every f value comes out 951 times too large."
+          },
+          "result": "A = 951\\ \\text{cm}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Her aralık için sızma kapasitesini (f) türet",
+            "en": "Derive the infiltration capacity (f) for each interval"
+          },
+          "guiding": {
+            "tr": "Art arda gelen iki ölçüm arasındaki hacim farkını (ΔV), sırasıyla alana ve zaman farkına bölersen ne elde edersin?",
+            "en": "If you divide the volume difference (ΔV) between two consecutive readings first by the area, then by the time difference, what do you get?"
+          },
+          "hint": {
+            "tr": "Önce $\\Delta F=\\Delta V/A$ (cm), sonra $f=\\Delta F/\\Delta t$ (cm/saat). Δt'yi SAATE çevirmeyi unutma.",
+            "en": "First $\\Delta F=\\Delta V/A$ (cm), then $f=\\Delta F/\\Delta t$ (cm/h). Don't forget to convert Δt to HOURS."
+          },
+          "work": {
+            "tr": "Ardışık ölçümler arasındaki hacim farklarını (ΔV) alana bölüp sızma yüksekliğine ($\\Delta F$), sonra saat cinsinden zaman farkına ($\\Delta t$) bölüp sızma kapasitesine ($f$) çeviriyoruz. Örneğin ilk aralık (0–2 dk, $\\Delta t=0{,}033$ saat):\n\n$$\\Delta F = \\frac{278}{951} = 0{,}293\\ \\text{cm}, \\qquad f = \\frac{0{,}293}{0{,}033} = 8{,}79\\ \\text{cm/saat}$$\n\nAynı işlemi tüm aralıklar için tekrarlayınca (tabloya bakınız):\n\n$$f: \\ 8{,}79,\\ 8{,}00,\\ 6{,}504,\\ 4{,}476,\\ 3{,}636,\\ 1{,}778,\\ 1{,}116,\\ 0{,}758\\ \\text{cm/saat}$$",
+            "en": "We divide the volume differences (ΔV) between consecutive readings by the area to get an infiltration depth ($\\Delta F$), then by the time difference in hours ($\\Delta t$) to get the infiltration capacity ($f$). For example, the first interval (0–2 min, $\\Delta t=0.033$ h):\n\n$$\\Delta F = \\frac{278}{951} = 0.293\\ \\text{cm}, \\qquad f = \\frac{0.293}{0.033} = 8.79\\ \\text{cm/h}$$\n\nRepeating this for every interval (see the table):\n\n$$f: \\ 8.79,\\ 8.00,\\ 6.504,\\ 4.476,\\ 3.636,\\ 1.778,\\ 1.116,\\ 0.758\\ \\text{cm/h}$$"
+          },
+          "why": {
+            "tr": "Bu, standart sızma eğrisinin ham verisidir: her aralıktaki ORTALAMA sızma hızı. Değerlerin zamanla düzenli biçimde küçüldüğüne dikkat et — bu, toprağın doyuma yaklaştığının işareti ve Horton denkleminin fiziksel olarak mantıklı olduğunun ilk kanıtıdır.",
+            "en": "This is the raw data behind the standard infiltration curve: the AVERAGE infiltration rate in each interval. Notice the values shrink steadily with time — that's the sign the soil is approaching saturation, and the first proof that a Horton-shaped curve makes physical sense here."
+          },
+          "result": "f:\\ 8{,}79,\\ 8{,}00,\\ 6{,}504,\\ 4{,}476,\\ 3{,}636,\\ 1{,}778,\\ 1{,}116,\\ 0{,}758\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "f0 ve fc'yi eğriden oku",
+            "en": "Read f0 and fc off the curve"
+          },
+          "guiding": {
+            "tr": "Horton eğrisinde f, zamanla iki değer arasında hareket eder. Bu iki uç değer, senin tablonda nerede?",
+            "en": "In Horton's curve, f moves between two bounding values over time. Where are those two extremes in your table?"
+          },
+          "hint": {
+            "tr": "f0: deneyin en başındaki (ilk aralıktaki) değer. fc: deney en uzun sürdüğünde ulaşılan en son (sabitlenen) değer.",
+            "en": "f0: the value at the very start of the test (the first interval). fc: the last (settled) value reached once the test has run longest."
+          },
+          "work": {
+            "tr": "Tablodaki ilk değer $f_0=8{,}79$ cm/saat ($t=0$'a en yakın ölçüm) ve son değer $f_c=0{,}758$ cm/saat (150. dakikada eğri düzleşmiş, artık sabit) olarak alınır.",
+            "en": "We take the first tabulated value $f_0=8.79$ cm/h (the measurement closest to $t=0$) and the last value $f_c=0.758$ cm/h (by the 150th minute the curve has flattened and become constant)."
+          },
+          "why": {
+            "tr": "Horton denkleminin iki sabiti doğrudan verilerden okunur — hesaplama gerekmez, sadece eğrinin başını ve sonunu tanımak gerekir. Sınav ipucu: eğri düzleşmeye başladığında (art arda gelen f değerleri birbirine çok yaklaştığında) o değeri $f_c$ olarak al.",
+            "en": "Two of Horton's three constants are read straight off the data — no calculation, just recognizing the start and end of the curve. Exam cue: once the curve visibly flattens (consecutive f values get very close to each other), take that value as $f_c$."
+          },
+          "result": "f_0=8{,}79\\ \\text{cm/saat},\\quad f_c=0{,}758\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Yarı-logaritmik grafikle k'yı bul",
+            "en": "Find k from the semi-log line"
+          },
+          "guiding": {
+            "tr": "$f-f_c$'nin t'ye karşı grafiği neden bir DOĞRU değil de $\\ln(f-f_c)$'nin t'ye karşı grafiği doğru çıkar? Bu doğrunun eğimi sana neyi verir?",
+            "en": "Why does plotting $\\ln(f-f_c)$ against t give a STRAIGHT line rather than $f-f_c$ itself? What does that line's slope give you?"
+          },
+          "hint": {
+            "tr": "Horton denklemini $f-f_c=(f_0-f_c)e^{-kt}$ olarak yaz, iki tarafın da doğal logaritmasını al: $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$. Bu bir $y=a+bx$ doğrusudur, eğim $b=-k$.",
+            "en": "Write Horton's equation as $f-f_c=(f_0-f_c)e^{-kt}$ and take the natural log of both sides: $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$. This is a line $y=a+bx$ with slope $b=-k$."
+          },
+          "work": {
+            "tr": "Her t için $f-0{,}758$ değerinin doğal logaritmasını alıp bir doğruya oturtuyoruz:\n\n| t (saat) | 0,033 | 0,083 | 0,167 | 0,333 | 0,50 | 1,00 | 1,50 |\n|---|---|---|---|---|---|---|---|\n| $\\ln(f-f_c)$ | 2,083 | 1,980 | 1,749 | 1,383 | 1,057 | 0,020 | −1,027 |\n\nDoğrunun eğimi (ilk ve son noktadan):\n\n$$k = \\frac{2{,}083-(-1{,}027)}{1{,}5-0{,}033} = 2{,}12\\ \\text{1/saat}$$",
+            "en": "Taking the natural log of $f-0.758$ at each t and fitting a line:\n\n| t (h) | 0.033 | 0.083 | 0.167 | 0.333 | 0.50 | 1.00 | 1.50 |\n|---|---|---|---|---|---|---|---|\n| $\\ln(f-f_c)$ | 2.083 | 1.980 | 1.749 | 1.383 | 1.057 | 0.020 | −1.027 |\n\nThe line's slope (from the first and last points):\n\n$$k = \\frac{2.083-(-1.027)}{1.5-0.033} = 2.12\\ \\text{1/h}$$"
+          },
+          "why": {
+            "tr": "Horton'un üstel şekli çıplak gözle doğrusal görünmez; ln almak onu doğrulaştırır ve k'yı bir eğim ölçme işine indirger. Sınavda \"yarı-log grafik/doğrusallaştırma\" görürsen bu ln dönüşümünü yap; grafik çizemesen bile eğimi iki uç noktadan hesaplayabilirsin.",
+            "en": "Horton's exponential shape doesn't look linear to the naked eye; taking the log straightens it and reduces finding k to measuring a slope. Whenever you see \"semi-log plot / linearization\" on the exam, apply this ln transform; even without drawing the graph you can compute the slope from the two end points."
+          },
+          "result": "k = 2{,}12\\ \\text{1/saat}",
+          "check": {
+            "q": {
+              "tr": "Horton denklemini doğrusallaştırmak için hangi işlem yapılır?",
+              "en": "What operation linearizes Horton's equation?"
+            },
+            "options": [
+              {
+                "tr": "$f$'nin karesini almak",
+                "en": "Squaring $f$"
+              },
+              {
+                "tr": "$(f-f_c)$'nin doğal logaritmasını almak",
+                "en": "Taking the natural log of $(f-f_c)$"
+              },
+              {
+                "tr": "$f$'yi doğrudan $t$'ye bölmek",
+                "en": "Dividing $f$ directly by $t$"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "$f-f_c=(f_0-f_c)e^{-kt}$ üstel bir ifadedir; ln alınca üs aşağı iner ve $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ elde edilir — bu, eğimi $-k$ olan bir doğrudur. Kareleme ya da $f/t$ Horton'un üstel yapısını doğrusallaştırmaz.",
+              "en": "$f-f_c=(f_0-f_c)e^{-kt}$ is exponential; taking the log brings the exponent down to give $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ — a line with slope $-k$. Squaring or $f/t$ does not linearize Horton's exponential form."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Horton denklemini yaz ve 10, 30. dakika değerlerini bul",
+            "en": "Write Horton's equation and evaluate at 10 and 30 minutes"
+          },
+          "guiding": {
+            "tr": "f0, fc ve k elindeyken artık her t için f'yi doğrudan hesaplayabilirsin. 10 ve 30 dakika kaç saat eder?",
+            "en": "With f0, fc and k in hand you can now compute f directly for any t. What are 10 and 30 minutes in hours?"
+          },
+          "hint": {
+            "tr": "10 dk = 0,167 saat, 30 dk = 0,5 saat. Bu değerleri $f=0{,}758+8{,}032e^{-2{,}12t}$ içine koy.",
+            "en": "10 min = 0.167 h, 30 min = 0.5 h. Substitute these into $f=0.758+8.032e^{-2.12t}$."
+          },
+          "work": {
+            "tr": "$$f = f_c + (f_0-f_c)e^{-kt} = 0{,}758 + 8{,}032\\,e^{-2{,}12t}$$\n\n$t=10$ dk $=0{,}167$ saat:\n\n$$f_{10} = 0{,}758 + 8{,}032\\,e^{-2{,}12\\times0{,}167} = 6{,}40\\ \\text{cm/saat}$$\n\n$t=30$ dk $=0{,}5$ saat:\n\n$$f_{30} = 0{,}758 + 8{,}032\\,e^{-2{,}12\\times0{,}5} = 3{,}54\\ \\text{cm/saat}$$",
+            "en": "$$f = f_c + (f_0-f_c)e^{-kt} = 0.758 + 8.032\\,e^{-2.12t}$$\n\n$t=10$ min $=0.167$ h:\n\n$$f_{10} = 0.758 + 8.032\\,e^{-2.12\\times0.167} = 6.40\\ \\text{cm/h}$$\n\n$t=30$ min $=0.5$ h:\n\n$$f_{30} = 0.758 + 8.032\\,e^{-2.12\\times0.5} = 3.54\\ \\text{cm/h}$$"
+          },
+          "why": {
+            "tr": "Denklem tamamlanınca artık ölçülmemiş herhangi bir t için sızma kapasitesini tahmin edebilirsin — Horton'un asıl gücü budur. Kritik ayrıntı: t'yi dakika olarak bırakırsan (0,167 yerine 10 yazarsan) üs devasa negatif çıkar ve f neredeyse sıfıra düşer; bu, birim hatasının en sık yakalandığı yerdir.",
+            "en": "Once the equation is complete you can estimate the infiltration capacity at any t, not just the measured ones — that's Horton's real power. Critical detail: leave t in minutes (write 10 instead of 0.167) and the exponent becomes hugely negative, crashing f to nearly zero; this is where the unit mistake gets caught most often."
+          },
+          "result": "f_{10}=6{,}40\\ \\text{cm/saat},\\quad f_{30}=3{,}54\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "3 saat sonundaki toplam sızma hacmini bul",
+            "en": "Find the total infiltrated volume after 3 hours"
+          },
+          "guiding": {
+            "tr": "Toplam sızma, f'nin altındaki ALAN'dır — o zaman f(3 saat) ile çarpmak mı, yoksa integralini almak mı doğru?",
+            "en": "Total infiltration is the AREA under f — so is it right to multiply by f(3 hours), or should you integrate?"
+          },
+          "hint": {
+            "tr": "$F=f_c t + \\dfrac{f_0-f_c}{k}(1-e^{-kt})$ formülünü $t=3$ saat için kullan; sonra $V=F\\cdot A$.",
+            "en": "Use $F=f_c t + \\dfrac{f_0-f_c}{k}(1-e^{-kt})$ with $t=3$ hours; then $V=F\\cdot A$."
+          },
+          "work": {
+            "tr": "$$F(3) = f_c\\cdot 3 + \\frac{f_0-f_c}{k}\\left(1-e^{-k\\cdot 3}\\right) = 0{,}758\\cdot3 + \\frac{8{,}032}{2{,}12}\\left(1-e^{-2{,}12\\times3}\\right) = 6{,}063\\ \\text{cm}$$\n\nBu yüksekliği infiltrometrenin alanıyla çarparsak hacme döneriz:\n\n$$V = 6{,}063 \\times 951 = 5766\\ \\text{cm}^3$$",
+            "en": "$$F(3) = f_c\\cdot 3 + \\frac{f_0-f_c}{k}\\left(1-e^{-k\\cdot 3}\\right) = 0.758\\cdot3 + \\frac{8.032}{2.12}\\left(1-e^{-2.12\\times3}\\right) = 6.063\\ \\text{cm}$$\n\nMultiplying this depth by the infiltrometer's area converts it back to a volume:\n\n$$V = 6.063 \\times 951 = 5766\\ \\text{cm}^3$$"
+          },
+          "why": {
+            "tr": "f zamanla değiştiği için $F \\ne f\\cdot t$; toplam sızma her an biraz farklı bir hızla biriken suyun toplamıdır, yani Horton'un zamana göre integralidir. Bu ünitenin en sık düşülen tuzağı burada gizlidir: F ve f'yi doğrudan çarpmak.",
+            "en": "Since f changes with time, $F \\ne f\\cdot t$; the total infiltration is the sum of water accumulating at a slightly different rate every instant — that is, Horton's time-integral. This unit's most common trap hides right here: multiplying F and f directly."
+          },
+          "result": "F(3) = 6{,}063\\ \\text{cm}\\ (V=5766\\ \\text{cm}^3)",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Horton tahminini ölçümlerle karşılaştır",
+            "en": "Compare Horton's prediction with the measurements"
+          },
+          "guiding": {
+            "tr": "Her ara zaman için aynı F formülünü kullanıp ölçülen hacimlerle oranlarsan, Horton denklemi ne kadar iyi bir uyum sağlıyor?",
+            "en": "If you apply the same F formula at every intermediate time and compare with the measured volumes, how well does Horton's equation fit?"
+          },
+          "hint": {
+            "tr": "Oran $V_{hesap}/V_{ölçülen}$'i her satırda hesapla; 1'e ne kadar yakınsa uyum o kadar iyidir.",
+            "en": "Compute the ratio $V_{calc}/V_{measured}$ for each row; the closer to 1, the better the fit."
+          },
+          "work": {
+            "tr": "Tablodaki her t için $F$'yi Horton integraliyle hesaplayıp $V_{hesap}=951\\cdot F$ bulduk ve ölçülen hacimle oranladık (tabloya bakınız). Oranlar $0{,}971$'den (2 dk) $1{,}172$'ye (150 dk) kadar değişiyor; ortalama sapma yaklaşık **%8**, en kötü durumda (150 dk) **%17**. Zamanla fark büyüyor çünkü deneysel ölçümler Horton'un ideal üstel şekline tam uymuyor.",
+            "en": "For every t in the table we computed $F$ from Horton's integral, found $V_{calc}=951\\cdot F$, and compared it with the measured volume (see the table). The ratios range from $0.971$ (2 min) to $1.172$ (150 min); the average deviation is about **8%**, worst-case (150 min) **17%**. The gap grows with time because the real measurements don't follow Horton's ideal exponential shape exactly."
+          },
+          "why": {
+            "tr": "Bu son adım, Horton'un yalnızca bir MODEL olduğunu hatırlatır — gerçek verilere kabaca uyar ama birebir tutmaz. Sınavda \"karşılaştır\" sorusu görürsen, sadece sayıları yan yana koymak yetmez: oran alıp %kaç hata olduğunu ve bu hatanın kabul edilebilir olup olmadığını (genelde %10-20 altı kabul edilir) yorumlaman beklenir.",
+            "en": "This last step reminds you that Horton is only a MODEL — it fits the real data roughly, not exactly. When you see a \"compare\" question on the exam, just listing numbers side by side isn't enough: you're expected to take the ratio, state the percent error, and judge whether it's acceptable (generally under 10-20% is fine)."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "150. dakikada Horton'un hesapladığı sızma hacmi ile ölçülen hacim arasındaki oran 1,172. Bu ne anlama gelir?",
+              "en": "At the 150th minute, the ratio of Horton's calculated volume to the measured volume is 1.172. What does that mean?"
+            },
+            "options": [
+              {
+                "tr": "Horton denklemi gerçek sızmayı yaklaşık %17 fazla tahmin ediyor",
+                "en": "Horton's equation overestimates the actual infiltration by about 17%"
+              },
+              {
+                "tr": "Deney hatalı yapılmış, sonuç geçersiz",
+                "en": "The experiment was done wrong and the result is invalid"
+              },
+              {
+                "tr": "k değeri yanlış hesaplanmış olmalı",
+                "en": "The k value must have been computed incorrectly"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Oran 1'den büyükse hesaplanan (Horton) değer ölçülenden büyüktür; 1,172, yaklaşık %17'lik bir fazla tahmini gösterir. Bu, kabul edilebilir bir model hatasıdır — deneyin hatalı olduğu ya da k'nın yanlış hesaplandığı anlamına gelmez, sadece Horton'un ideal eğrisinin gerçek toprağı birebir yakalayamadığını gösterir.",
+              "en": "A ratio above 1 means the calculated (Horton) value exceeds the measured one; 1.172 shows about a 17% over-prediction. That is an acceptable model error — it does not mean the experiment was flawed or k was computed wrong, just that Horton's idealized curve doesn't capture the real soil exactly."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Horton denklemi:** $f = 0{,}758 + 8{,}032\\,e^{-2{,}12t}$ (cm/saat, $t$ saat).\n\n**c)** $f_{10}=6{,}40$ cm/saat, $f_{30}=3{,}54$ cm/saat.\n\n**d)** $\\boxed{F(3\\ \\text{saat}) = 6{,}063\\ \\text{cm}\\ (V=5766\\ \\text{cm}^3)}$.\n\n**e)** Horton tahmini ölçümlerden ortalama %8, en fazla %17 sapıyor — kabul edilebilir.",
+        "en": "**Horton's equation:** $f = 0.758 + 8.032\\,e^{-2.12t}$ (cm/h, $t$ in hours).\n\n**(c)** $f_{10}=6.40$ cm/h, $f_{30}=3.54$ cm/h.\n\n**(d)** $\\boxed{F(3\\ \\text{h}) = 6.063\\ \\text{cm}\\ (V=5766\\ \\text{cm}^3)}$.\n\n**(e)** Horton's estimate deviates from the measurements by 8% on average, 17% at worst — acceptable."
+      },
+      "traps": [
+        {
+          "tr": "$\\Delta t$'yi dakika olarak bırakıp $f=\\Delta F/\\Delta t$ hesaplamak. Sızma kapasitesi cm/SAAT istenir; her $\\Delta t$'yi saate çevirmeden f hesaplarsan tüm sütun 60 kat yanlış çıkar.",
+          "en": "Leaving $\\Delta t$ in minutes when computing $f=\\Delta F/\\Delta t$. The infiltration capacity is asked in cm/HOUR; forgetting to convert every $\\Delta t$ to hours makes the whole column off by a factor of 60."
+        },
+        {
+          "tr": "$f_0$'ı deneyin İLK aralığından değil, t=0'daki (var olmayan, ekstrapolasyon gerektiren) bir değerden almaya çalışmak. Föyün yolu basit: ilk ölçülen aralığı $f_0$ olarak al.",
+          "en": "Trying to get $f_0$ from a (nonexistent, extrapolated) value at t=0 instead of the FIRST measured interval. The sheet's approach is simple: take the first measured interval as $f_0$."
+        },
+        {
+          "tr": "k'yı bulurken $\\ln(f)$'yi değil, mutlaka $\\ln(f-f_c)$'yi kullanmak gerekir — $f_c$'yi çıkarmadan log almak doğrusal bir çizgi vermez.",
+          "en": "When finding k you must use $\\ln(f-f_c)$, never plain $\\ln(f)$ — taking the log without first subtracting $f_c$ does not give a straight line."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Toprak daha iri taneli (kumlu) olsaydı, standart sızma eğrisi nasıl değişirdi?",
+            "en": "What if the soil were coarser (sandier) — how would the standard infiltration curve change?"
+          },
+          "answer": {
+            "tr": "Kumlu bir toprak suyu daha kolay geçirdiği için doyduktan sonra bile yüksek bir sızma hızında kalır: eğrinin TABANI ($f_c$) yükselir. Aynı zamanda gözenekler arasında su daha hızlı hareket ettiği için azalma da genelde daha hızlı olur, yani $k$ büyür. Sonuç: eğri daha yüksek bir platoya daha çabuk iner.",
+            "en": "Sandy soil lets water pass more easily, so even after saturating it keeps a higher infiltration rate: the FLOOR of the curve ($f_c$) rises. Because water also moves faster between the larger pores, the decay is usually quicker too, i.e. $k$ increases. Net effect: the curve drops to a higher plateau, and does so faster."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya 1 ile 3. saat arasındaki (ilk 1 saati hariç tutan) sızma miktarı sorulsaydı?",
+            "en": "What if the question asked for the infiltration between the 1st and 3rd hour (excluding the first hour)?"
+          },
+          "answer": {
+            "tr": "Horton integralini iki farklı üst sınırla hesaplayıp farkını alırsın: $F(1)=0{,}758\\cdot1+3{,}789(1-e^{-2{,}12})=4{,}10$ cm; $F(3)=6{,}063$ cm. Aradaki fark: $F(3)-F(1)=6{,}063-4{,}10=1{,}96$ cm. Bu, \"a'dan b'ye\" tipi sorularda hep aynı numaradır: integrali iki noktada hesapla, çıkar.",
+            "en": "You evaluate Horton's integral at two upper limits and subtract: $F(1)=0.758\\cdot1+3.789(1-e^{-2.12})=4.10$ cm; $F(3)=6.063$ cm. The difference: $F(3)-F(1)=6.063-4.10=1.96$ cm. This is always the trick for \"from a to b\" questions: evaluate the integral at both points, then subtract."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4-2",
+      "code": "Uygulama 4.2",
+      "title": {
+        "tr": "Yağış (i=3/√t) ve Horton: dolaysız akış",
+        "en": "Rainfall i=3/√t vs Horton: direct runoff"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Yüzölçümü 2 km² olan bir havzada 45 dakika süren bir yağışın şiddetinin zamanla değişimi $i=3/t^{0{,}5}$ şeklindedir ($i$ mm/saat, $t$ saat). a) Toplam yağış eğrisinin denklemini elde ederek, yağış sonundaki toplam yağış yüksekliğini hesaplayınız. b) Yağış boyunca sızma kapasitesinin Horton denklemine göre değiştiğini kabul ederek ve $f_c=2$ mm/saat, $f_0=4$ mm/saat ve $k=0{,}5$ alarak, yağış boyunca meydana gelen sızma yüksekliğini hesaplayınız. c) Yağıştan meydana gelen dolaysız akış yüksekliğini ve havzanın sızma indisini hesaplayınız.",
+        "en": "In a basin with an area of 2 km², a 45-minute storm has an intensity that varies with time as $i=3/t^{0.5}$ ($i$ in mm/h, $t$ in hours). (a) Derive the cumulative-rainfall equation and compute the total rainfall depth at the end of the storm. (b) Assuming the infiltration capacity follows Horton's equation during the storm with $f_c=2$ mm/h, $f_0=4$ mm/h and $k=0.5$, compute the infiltrated depth during the storm. (c) Compute the direct-runoff depth produced by the rainfall and the basin's infiltration index."
+      },
+      "given": [
+        {
+          "symbol": "A",
+          "value": "2\\ \\text{km}^2",
+          "label": {
+            "tr": "Havza alanı",
+            "en": "Basin area"
+          }
+        },
+        {
+          "symbol": "t_{yağış}",
+          "value": "45\\ \\text{dk} = 0{,}75\\ \\text{saat}",
+          "label": {
+            "tr": "Yağış süresi",
+            "en": "Storm duration"
+          }
+        },
+        {
+          "symbol": "i(t)",
+          "value": "3/t^{0{,}5}\\ \\text{mm/saat}",
+          "label": {
+            "tr": "Yağış şiddeti",
+            "en": "Rainfall intensity"
+          }
+        },
+        {
+          "symbol": "f_c",
+          "value": "2\\ \\text{mm/saat}",
+          "label": {
+            "tr": "Nihai sızma kapasitesi",
+            "en": "Final infiltration capacity"
+          }
+        },
+        {
+          "symbol": "f_0",
+          "value": "4\\ \\text{mm/saat}",
+          "label": {
+            "tr": "Başlangıç sızma kapasitesi",
+            "en": "Initial infiltration capacity"
+          }
+        },
+        {
+          "symbol": "k",
+          "value": "0{,}5\\ \\text{1/saat}",
+          "label": {
+            "tr": "Horton azalma sabiti",
+            "en": "Horton decay constant"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Toplam yağış yüksekliğini (P), yağış boyunca toplam sızmayı (F), dolaysız akışı ve sızma indisini bulmak.",
+        "en": "Find the total rainfall depth (P), the total infiltration during the storm (F), the direct runoff, and the infiltration index."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Yağış şiddetini integre ederek toplam yağışı bul",
+            "en": "Integrate the intensity to get total rainfall"
+          },
+          "guiding": {
+            "tr": "$i=dP/dt$ olduğuna göre, $P(t)$'yi bulmak için $i$'ye ne yapman gerekir?",
+            "en": "Since $i=dP/dt$, what operation turns $i$ into $P(t)$?"
+          },
+          "hint": {
+            "tr": "$i$'yi zamana göre integre et: $\\int 3t^{-0{,}5}\\,dt$.",
+            "en": "Integrate $i$ with respect to time: $\\int 3t^{-0.5}\\,dt$."
+          },
+          "work": {
+            "tr": "Yağış şiddeti, yağış yüksekliğinin zamana göre türevidir: $i=dP/dt=3t^{-0{,}5}$. Her iki tarafı integre edersek:\n\n$$P = \\int 3t^{-0{,}5}\\,dt = \\frac{3}{0{,}5}t^{0{,}5} = 6\\sqrt{t}\\ \\text{mm}$$\n\nYağış $t=0{,}75$ saat sonunda biter; bu değeri yerine koyarsak:\n\n$$P(0{,}75) = 6\\sqrt{0{,}75} = 5{,}20\\ \\text{mm}$$",
+            "en": "Rainfall intensity is the time-derivative of cumulative rainfall: $i=dP/dt=3t^{-0.5}$. Integrating both sides:\n\n$$P = \\int 3t^{-0.5}\\,dt = \\frac{3}{0.5}t^{0.5} = 6\\sqrt{t}\\ \\text{mm}$$\n\nThe storm ends at $t=0.75$ h; substituting:\n\n$$P(0.75) = 6\\sqrt{0.75} = 5.20\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "Yağış şiddeti verilip toplam yağış istendiğinde ilk refleks integral almaktır — i, P'nin \"anlık hızı\"dır, tıpkı debinin hacmin hızı olması gibi. \"i(t) verildi, P sorulu\" kalıbını görür görmez elin integrale gitmeli.",
+            "en": "Whenever intensity is given and total rainfall is asked, the first reflex is to integrate — i is P's \"instantaneous rate,\" just like discharge is the rate of volume. Seeing \"i(t) given, P asked\" should send your hand straight to the integral."
+          },
+          "result": "P(0{,}75) = 5{,}20\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Horton denklemini yaz",
+            "en": "Write down Horton's equation"
+          },
+          "guiding": {
+            "tr": "$f_c$, $f_0$ ve $k$ zaten verilmiş. Bunları Horton kalıbına yerleştirirsen ne elde edersin?",
+            "en": "$f_c$, $f_0$ and $k$ are already given. What do you get by plugging them into Horton's template?"
+          },
+          "hint": {
+            "tr": "$f=f_c+(f_0-f_c)e^{-kt}$; sayıları doğrudan yerine koy.",
+            "en": "$f=f_c+(f_0-f_c)e^{-kt}$; substitute the numbers directly."
+          },
+          "work": {
+            "tr": "$$f = f_c + (f_0-f_c)e^{-kt} = 2 + (4-2)e^{-0{,}5t} = 2 + 2\\,e^{-0{,}5t}\\ \\text{mm/saat}$$",
+            "en": "$$f = f_c + (f_0-f_c)e^{-kt} = 2 + (4-2)e^{-0.5t} = 2 + 2\\,e^{-0.5t}\\ \\text{mm/h}$$"
+          },
+          "why": {
+            "tr": "Bu soruda deneysel veriden f0/fc/k türetmene gerek yok — hoca doğrudan vermiş. Sınavda bu üç sabit hazır verilmişse zaman kaybetme, doğrudan Horton kalıbına yerleştir ve bir sonraki adıma (rejim kontrolü) geç.",
+            "en": "Here you don't need to derive f0/fc/k from experimental data — the professor gives them directly. When these three constants are handed to you on the exam, don't waste time; plug them straight into Horton's template and move to the next step (the regime check)."
+          },
+          "result": "f = 2 + 2\\,e^{-0{,}5t}\\ \\text{mm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Rejim kontrolü: yağış boyunca i, f'den büyük mü?",
+            "en": "Regime check: is i greater than f throughout the storm?"
+          },
+          "guiding": {
+            "tr": "Horton integralini almadan önce doğrulaman gereken şey ne? Yağışın başında ve sonunda i ile f'yi karşılaştır.",
+            "en": "What must you verify before integrating Horton's equation? Compare i and f at both the start and end of the storm."
+          },
+          "hint": {
+            "tr": "$t\\to0$ tam sıfır olamayacağı için pratikte $t=0{,}01$ saat gibi çok küçük bir değerle başlangıcı, $t=0{,}75$ ile sonu kontrol et.",
+            "en": "Since $t\\to0$ can't literally be zero, check the start with a very small $t=0.01$ h and the end with $t=0.75$ h."
+          },
+          "work": {
+            "tr": "Başlangıçta ($t\\approx0{,}01$ saat): $i_{başlangıç}=3/\\sqrt{0{,}01}\\approx30$ mm/saat, $f_{başlangıç}=2+2e^{-0{,}5\\times0{,}01}\\approx3{,}99$ mm/saat.\n\nSonda ($t=0{,}75$ saat): $i_{son}=3/\\sqrt{0{,}75}=3{,}46$ mm/saat, $f_{son}=2+2e^{-0{,}5\\times0{,}75}=3{,}37$ mm/saat.\n\nHer iki uçta da $i>f$: yağış boyunca yağış şiddeti sızma kapasitesinden büyük kalıyor, toprak hep kapasitesiyle sızdırıyor.",
+            "en": "At the start ($t\\approx0.01$ h): $i_{start}=3/\\sqrt{0.01}\\approx30$ mm/h, $f_{start}=2+2e^{-0.5\\times0.01}\\approx3.99$ mm/h.\n\nAt the end ($t=0.75$ h): $i_{end}=3/\\sqrt{0.75}=3.46$ mm/h, $f_{end}=2+2e^{-0.5\\times0.75}=3.37$ mm/h.\n\nAt both ends $i>f$: the rainfall intensity stays above the infiltration capacity throughout the storm, so the soil infiltrates at its capacity the whole time."
+          },
+          "why": {
+            "tr": "Bu adım bu sorunun asıl notlandırılan kısmıdır — atlarsan mantık zincirin kopar. i>f olduğunu göstermeden doğrudan Horton integraline geçmek, \"neden bu formülü kullanabildiğimi\" hiç sorgulamamak demektir; hoca tam da bunu arar. Kritik nokta: kontrolü SADECE bir noktada değil, hem başta hem sonda yap — aradaki bir yerde rejim değişebilirdi (bkz. 4.3, 4.6).",
+            "en": "This step is the actual graded core of the question — skip it and your logical chain breaks. Jumping straight to Horton's integral without showing $i>f$ means never questioning \"why am I even allowed to use this formula,\" which is exactly what's being tested. Critical point: check it at BOTH the start and the end, not just one point — the regime could have flipped somewhere in between (see 4.3, 4.6)."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "Yağışın başında ve sonunda i>f bulundu. Bu, Horton integralinin kullanımı hakkında ne söyler?",
+              "en": "You found i>f at both the start and end of the storm. What does this tell you about using Horton's integral?"
+            },
+            "options": [
+              {
+                "tr": "Horton integrali yağışın TAMAMI için geçerlidir, doğrudan kullanılabilir",
+                "en": "Horton's integral is valid for the WHOLE storm and can be used directly"
+              },
+              {
+                "tr": "Horton integrali hiçbir zaman kullanılamaz, çünkü i her zaman f'den büyük",
+                "en": "Horton's integral can never be used because i is always greater than f"
+              },
+              {
+                "tr": "Sadece başlangıç ve bitiş noktalarında Horton kullanılabilir, arada kullanılamaz",
+                "en": "Horton can only be used at the start and end points, not in between"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "i>f, toprağın kapasitesiyle sızdırdığı (kapasite-kısıtlı rejim) anlamına gelir — bu tam olarak Horton integralinin geçerlilik koşuludur. İki uçta da sağlandığı ve aradaki değerler de benzer şekilde davrandığı için (i, f'den her zaman büyük kalıyor) integral yağışın başından sonuna kadar tek parça olarak uygulanabilir.",
+              "en": "i>f means the soil is infiltrating at its capacity (capacity-limited regime) — that is exactly the validity condition for Horton's integral. Since it holds at both ends (and i stays above f in between as well), the integral can be applied as a single piece from the start of the storm to its end."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Horton integraliyle toplam sızmayı bul",
+            "en": "Get total infiltration from Horton's integral"
+          },
+          "guiding": {
+            "tr": "i>f her yerde geçerli olduğuna göre, F'yi hangi tek formülle hesaplarsın?",
+            "en": "Since i>f holds everywhere, which single formula gives you F?"
+          },
+          "hint": {
+            "tr": "$F=f_c t+\\dfrac{f_0-f_c}{k}(1-e^{-kt})$, $t=0{,}75$ saat.",
+            "en": "$F=f_c t+\\dfrac{f_0-f_c}{k}(1-e^{-kt})$, $t=0.75$ h."
+          },
+          "work": {
+            "tr": "$$F = f_c\\cdot t + \\frac{f_0-f_c}{k}\\left(1-e^{-kt}\\right) = 2\\cdot0{,}75 + \\frac{2}{0{,}5}\\left(1-e^{-0{,}5\\times0{,}75}\\right) = 2{,}75\\ \\text{mm}$$",
+            "en": "$$F = f_c\\cdot t + \\frac{f_0-f_c}{k}\\left(1-e^{-kt}\\right) = 2\\cdot0.75 + \\frac{2}{0.5}\\left(1-e^{-0.5\\times0.75}\\right) = 2.75\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "Rejim onaylandıktan sonra bu adım mekanik: 4-1'de gördüğümüz aynı integral formülü, sadece yeni sabitlerle. Bu tekrar, sınavda formülü ezbere yazabilecek kadar tanıdık gelmesi gerektiğini gösteriyor.",
+            "en": "Once the regime is confirmed this step is mechanical: the same integral formula from 4-1, just with new constants. This repetition is the point — by exam day the formula should be familiar enough to write from memory."
+          },
+          "result": "F = 2{,}75\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Dolaysız akışı hesapla",
+            "en": "Compute the direct runoff"
+          },
+          "guiding": {
+            "tr": "Yağan suyun bir kısmı toprağa sızdı, geri kalanı nereye gitti?",
+            "en": "Some of the rain infiltrated into the ground — where did the rest go?"
+          },
+          "hint": {
+            "tr": "Akış = toplam yağış − toplam sızma.",
+            "en": "Runoff = total rainfall − total infiltration."
+          },
+          "work": {
+            "tr": "$$\\text{Akış} = P - F = 5{,}20 - 2{,}75 = 2{,}45\\ \\text{mm}$$\n\nToprağa sızmayan bu 2,45 mm, yüzeyden akışa geçen dolaysız akıştır.",
+            "en": "$$\\text{Runoff} = P - F = 5.20 - 2.75 = 2.45\\ \\text{mm}$$\n\nThis 2.45 mm that did not infiltrate becomes direct surface runoff."
+          },
+          "why": {
+            "tr": "Bu, sızmanın havzadaki en pratik sonucu: yağan yağmurun kaderi ya toprağa girmek ya da akışa dönüşmektir (diğer kayıpları burada ihmal ediyoruz). P ve F elindeyken akış otomatik gelir — bu basit çıkarma, sınavda sızma sorularının neredeyse hepsinin son sorusudur.",
+            "en": "This is infiltration's most practical payoff for a basin: the fate of falling rain is either soaking into the ground or turning into runoff (other losses are ignored here). Once you have P and F, runoff follows automatically — this simple subtraction is the closing question of nearly every infiltration problem on the exam."
+          },
+          "result": "\\text{Akış} = 2{,}45\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sızma indisini hesapla",
+            "en": "Compute the infiltration index"
+          },
+          "guiding": {
+            "tr": "Sızma indisi, sızmanın 'ortalama hızı'dır. Toplam sızmayı neye bölersin?",
+            "en": "The infiltration index is the 'average rate' of infiltration. What do you divide the total infiltration by?"
+          },
+          "hint": {
+            "tr": "Sızma indisi $=F/t_{yağış}$.",
+            "en": "Infiltration index $=F/t_{storm}$."
+          },
+          "work": {
+            "tr": "$$\\text{Sızma indisi} = \\frac{F}{t} = \\frac{2{,}75}{0{,}75} = 3{,}67\\ \\text{mm/saat}$$\n\nBu, yağış boyunca geçerli olan DEĞİŞKEN Horton kapasitesi yerine kullanılan tek, ortalama bir sızma hızıdır.",
+            "en": "$$\\text{Infiltration index} = \\frac{F}{t} = \\frac{2.75}{0.75} = 3.67\\ \\text{mm/h}$$\n\nThis is a single, average infiltration rate used in place of the VARYING Horton capacity that actually governed the storm."
+          },
+          "why": {
+            "tr": "Sızma indisi, karmaşık Horton eğrisini büyük ölçekli hesaplarda (örneğin bir havza akış hidrografı çıkarırken) kullanışlı tek bir sayıya indirger. \"Sızma indisi\" ifadesini gördüğünde formülü hemen tanı: F'yi toplam süreye böl — φ indisinden farklı olarak burada F zaten Horton'dan biliniyor, hiyetograf denemesi gerekmiyor.",
+            "en": "The infiltration index collapses the more complex Horton curve into a single convenient number for large-scale calculations (like deriving a basin's runoff hydrograph). Recognize the formula on sight when you see \"infiltration index\": divide F by the total duration — unlike the φ-index, here F is already known from Horton, so no hyetograph trial-and-error is needed."
+          },
+          "result": "\\text{Sızma indisi} = 3{,}67\\ \\text{mm/saat}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**a)** $P=6\\sqrt{t}$ mm, yağış sonunda $P=5{,}20$ mm.\n\n**b)** Rejim kontrolü ($i>f$ hem başta hem sonda) → Horton integrali geçerli: $F=2{,}75$ mm.\n\n**c)** Dolaysız akış $=5{,}20-2{,}75=\\boxed{2{,}45\\ \\text{mm}}$; sızma indisi $=2{,}75/0{,}75=\\boxed{3{,}67\\ \\text{mm/saat}}$.",
+        "en": "**(a)** $P=6\\sqrt{t}$ mm, at the end of the storm $P=5.20$ mm.\n\n**(b)** Regime check ($i>f$ at both start and end) → Horton's integral applies: $F=2.75$ mm.\n\n**(c)** Direct runoff $=5.20-2.75=\\boxed{2.45\\ \\text{mm}}$; infiltration index $=2.75/0.75=\\boxed{3.67\\ \\text{mm/h}}$."
+      },
+      "traps": [
+        {
+          "tr": "Rejim kontrolünü (adım 3) atlayıp doğrudan Horton integraline geçmek. Bu sorunun asıl notlandırılan kısmı budur — atlarsan mantıksal gerekçen eksik kalır, sonuç doğru çıksa bile.",
+          "en": "Skipping the regime check (step 3) and jumping straight to Horton's integral. This is the graded core of the question — without it your justification is missing, even if the final number happens to be right."
+        },
+        {
+          "tr": "45 dakikayı her yerde 0,75 saat olarak kullanmayı unutmak: $i=3/t^{0{,}5}$'te t saat cinsindendir, dakikayı doğrudan koyarsan tüm hesap bozulur.",
+          "en": "Forgetting to use 0.75 h everywhere for the 45 minutes: in $i=3/t^{0.5}$, t is in hours; plugging in minutes directly wrecks the whole calculation."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yağış 45 dakika yerine 3 saat sürseydi?",
+            "en": "What if the storm lasted 3 hours instead of 45 minutes?"
+          },
+          "answer": {
+            "tr": "Sonu kontrol et: $i(3)=3/\\sqrt3=1{,}73$ mm/saat, $f(3)=2+2e^{-1{,}5}=2{,}45$ mm/saat → artık $i<f$! Rejim yağış ortasında değişmiş demektir. Böyle bir durumda tek F formülü yetmez: önce $i=f$ olan geçiş anını (t*) sayısal olarak bulmalı, sonra integrali tıpkı Uygulama 4.3'teki gibi iki parçaya bölmelisin — $t<t^*$'ta f>i olduğundan tüm yağış sızar, $t>t^*$'ta Horton integrali geçerlidir.",
+            "en": "Check the end: $i(3)=3/\\sqrt3=1.73$ mm/h, $f(3)=2+2e^{-1.5}=2.45$ mm/h → now $i<f$! The regime has flipped partway through the storm. In that case a single F formula isn't enough: you must first find the crossing time (t*) where $i=f$ numerically, then split the integral into two pieces exactly like Uygulama 4.3 — before $t^*$, f>i so all rain infiltrates; after $t^*$, Horton's integral applies."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya $f_0=10$ mm/saat olsaydı (daha kuru/emici bir toprak)?",
+            "en": "What if $f_0=10$ mm/h (a drier, thirstier soil)?"
+          },
+          "answer": {
+            "tr": "$f_{başlangıç}=2+8e^{-0{,}005}\\approx9{,}98$ mm/saat, hâlâ $i_{başlangıç}=30$'dan küçük, rejim aynı görünüyor. Ama F'yi hesaplarsan: $F=2\\cdot0{,}75+\\frac{8}{0{,}5}(1-e^{-0{,}375})=6{,}50$ mm çıkar — bu, toplam yağış $P=5{,}20$ mm'den BÜYÜK! Fiziksel olarak imkânsız: toprak yağandan fazlasını sızdıramaz. Ders: F, P'yi geçerse hesap tutarsızdır; bu genelde f0 çok büyükken kapasitenin aslında hiç doyurulamadığı, yani sızmanın P tarafından SINIRLANDIĞI anlamına gelir — o zaman F=P alınır ve akış sıfırdır.",
+            "en": "$f_{start}=2+8e^{-0.005}\\approx9.98$ mm/h, still below $i_{start}=30$, so the regime looks the same. But computing F: $F=2\\cdot0.75+\\frac{8}{0.5}(1-e^{-0.375})=6.50$ mm — that EXCEEDS the total rainfall $P=5.20$ mm! Physically impossible: soil cannot infiltrate more than what fell. Lesson: whenever computed F exceeds P, the calculation is inconsistent; it usually means the capacity was never actually reached and infiltration is instead LIMITED by P — so you'd take F=P and runoff = 0."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Sonuçları hacim (m³) olarak istese ne olurdu?",
+            "en": "What if the results were asked in volume (m³) instead of depth?"
+          },
+          "answer": {
+            "tr": "Akış yüksekliğini havza alanıyla çarpman yeterli: $V_{akış}=2{,}45\\ \\text{mm}\\times2\\ \\text{km}^2 = 2{,}45\\times10^{-3}\\ \\text{m}\\times2\\times10^6\\ \\text{m}^2 = 4900\\ \\text{m}^3$. Aynı çevrim, Ünite 1'deki $V=h\\cdot A$ formülü.",
+            "en": "Just multiply the runoff depth by the basin area: $V_{runoff}=2.45\\ \\text{mm}\\times2\\ \\text{km}^2 = 2.45\\times10^{-3}\\ \\text{m}\\times2\\times10^6\\ \\text{m}^2 = 4900\\ \\text{m}^3$. Same conversion as Unit 1's $V=h\\cdot A$ formula."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4-3",
+      "code": "Uygulama 4.3",
+      "title": {
+        "tr": "İki ölçümden Horton + bölgeli sızma",
+        "en": "Horton from two readings + two-regime infiltration"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Toplam yüksekliği zamana bağlı olarak $P=4{,}167\\,t^{0{,}6}$ şeklinde değişen ($P$ cm, $t$ saat) yağmur, 90 dakika süre ile, başlangıçtan 12 dakika sonraki sızma kapasitesi 6,117 cm/saat ve başlangıçtan 48 dakika sonraki sızma kapasitesi de 2,966 cm/saat olan zemine ($k=1{,}58$) sızmıştır. a) Yağış şiddetinin ve sızma kapasitesinin zamanla değişiminin formüllerini elde ediniz. b) Yağış boyunca 15'er dakika ara ile yağış şiddeti ve sızma kapasitesi değerlerini hesaplayıp zamanla değişimlerini çiziniz. c) Yağış sonunda toplam yağış, toplam sızma ve yüzeysel akış yüksekliklerini hesaplayınız.",
+        "en": "A rainstorm's cumulative depth varies as $P=4.167\\,t^{0.6}$ ($P$ in cm, $t$ in hours) and lasts 90 minutes. It falls onto a soil whose infiltration capacity is 6.117 cm/h at 12 minutes and 2.966 cm/h at 48 minutes after the start ($k=1.58$). (a) Derive the formulas for how rainfall intensity and infiltration capacity change with time. (b) Compute the intensity and capacity every 15 minutes throughout the storm and plot them against time. (c) Compute the total rainfall, total infiltration and surface-runoff depths at the end of the storm."
+      },
+      "given": [
+        {
+          "symbol": "P(t)",
+          "value": "4{,}167\\,t^{0{,}6}\\ \\text{cm}",
+          "label": {
+            "tr": "Kümülatif yağış eğrisi",
+            "en": "Cumulative rainfall curve"
+          }
+        },
+        {
+          "symbol": "t_{yağış}",
+          "value": "90\\ \\text{dk} = 1{,}5\\ \\text{saat}",
+          "label": {
+            "tr": "Yağış süresi",
+            "en": "Storm duration"
+          }
+        },
+        {
+          "symbol": "f(0{,}2)",
+          "value": "6{,}117\\ \\text{cm/saat}\\ (t=12\\ \\text{dk})",
+          "label": {
+            "tr": "12. dakikadaki sızma kapasitesi",
+            "en": "Infiltration capacity at 12 min"
+          }
+        },
+        {
+          "symbol": "f(0{,}8)",
+          "value": "2{,}966\\ \\text{cm/saat}\\ (t=48\\ \\text{dk})",
+          "label": {
+            "tr": "48. dakikadaki sızma kapasitesi",
+            "en": "Infiltration capacity at 48 min"
+          }
+        },
+        {
+          "symbol": "k",
+          "value": "1{,}58\\ \\text{1/saat}",
+          "label": {
+            "tr": "Horton azalma sabiti",
+            "en": "Horton decay constant"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "i(t) ve f(t) denklemlerini bulmak; yağış sonunda toplam yağış, toplam sızma ve yüzeysel akış yüksekliklerini hesaplamak.",
+        "en": "Find i(t) and f(t); compute the total rainfall, total infiltration and surface-runoff depths at the end of the storm."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "15 dakikalık aralıklarla i ve f",
+            "en": "i and f at 15-minute intervals"
+          },
+          "headers": [
+            "t (saat)",
+            "i (cm/saat)",
+            "f (cm/saat)"
+          ],
+          "rows": [
+            [
+              "0,25",
+              "4,35",
+              "5,73"
+            ],
+            [
+              "0,50",
+              "3,30",
+              "4,17"
+            ],
+            [
+              "0,75",
+              "2,80",
+              "3,13"
+            ],
+            [
+              "1,00",
+              "2,50",
+              "2,42"
+            ],
+            [
+              "1,25",
+              "2,29",
+              "1,95"
+            ],
+            [
+              "1,50",
+              "2,13",
+              "1,63"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Yağış şiddeti ve sızma kapasitesinin zamanla değişimi",
+          "en": "Rainfall intensity and infiltration capacity over time"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "i, f (cm/saat)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "i (yağış şiddeti)",
+            "kind": "line",
+            "points": [
+              [
+                0.25,
+                4.35
+              ],
+              [
+                0.5,
+                3.3
+              ],
+              [
+                0.75,
+                2.8
+              ],
+              [
+                1,
+                2.5
+              ],
+              [
+                1.25,
+                2.29
+              ],
+              [
+                1.5,
+                2.13
+              ]
+            ]
+          },
+          {
+            "name": "f (sızma kapasitesi)",
+            "kind": "line",
+            "points": [
+              [
+                0.25,
+                5.73
+              ],
+              [
+                0.5,
+                4.17
+              ],
+              [
+                0.75,
+                3.13
+              ],
+              [
+                1,
+                2.42
+              ],
+              [
+                1.25,
+                1.95
+              ],
+              [
+                1.5,
+                1.63
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 0.95,
+            "y": 2.55,
+            "label": {
+              "tr": "i = f kesişimi",
+              "en": "i = f crossing"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Yağış şiddeti denklemini türet",
+            "en": "Derive the rainfall intensity equation"
+          },
+          "guiding": {
+            "tr": "$P(t)$ elindeyken $i(t)$'yi bulmak için ne yapman gerekir — integral mi, türev mi?",
+            "en": "With $P(t)$ in hand, do you integrate or differentiate to get $i(t)$?"
+          },
+          "hint": {
+            "tr": "$i=dP/dt$; kuvvet kuralıyla türev al: $\\frac{d}{dt}t^{0{,}6}=0{,}6\\,t^{-0{,}4}$.",
+            "en": "$i=dP/dt$; use the power rule: $\\frac{d}{dt}t^{0.6}=0.6\\,t^{-0.4}$."
+          },
+          "work": {
+            "tr": "$$i = \\frac{dP}{dt} = 0{,}6\\times4{,}167\\,t^{-0{,}4} = \\frac{2{,}5}{t^{0{,}4}}\\ \\text{cm/saat}$$",
+            "en": "$$i = \\frac{dP}{dt} = 0.6\\times4.167\\,t^{-0.4} = \\frac{2.5}{t^{0.4}}\\ \\text{cm/h}$$"
+          },
+          "why": {
+            "tr": "Bu, 4-2'nin tersi yönü: orada i verilip P isteniyordu (integral), burada P verilip i isteniyor (türev). İkisi de aynı ilişkinin ($i=dP/dt$) farklı yönde kullanılışı — hangisinin verilip hangisinin istendiğini görüp doğru işlemi (türev ya da integral) seçmek bu ünitenin temel refleksidir.",
+            "en": "This is the reverse of 4-2: there i was given and P asked (integrate), here P is given and i asked (differentiate). Both use the same relationship ($i=dP/dt$) in opposite directions — spotting which one is given and which is asked, and picking the right operation, is this unit's core reflex."
+          },
+          "result": "i(t) = 2{,}5\\,t^{-0{,}4}\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İki ölçümden Horton'un iki denklemini kur",
+            "en": "Set up Horton's two equations from the two readings"
+          },
+          "guiding": {
+            "tr": "Burada f0 ve fc doğrudan verilmemiş, sadece iki (t,f) çifti var. Bu iki çiftten kaç bilinmeyenli kaç denklem çıkarabilirsin?",
+            "en": "Here f0 and fc aren't given directly, only two (t,f) pairs. How many equations in how many unknowns can you build from them?"
+          },
+          "hint": {
+            "tr": "Her ölçüm Horton kalıbına ($f=f_c+(f_0-f_c)e^{-kt}$) ayrı ayrı yerleştirilir; k zaten verilmiş, bilinmeyenler sadece $f_0$ ve $f_c$.",
+            "en": "Substitute each measurement separately into Horton's template ($f=f_c+(f_0-f_c)e^{-kt}$); k is already given, so the only unknowns are $f_0$ and $f_c$."
+          },
+          "work": {
+            "tr": "$t=12$ dk $=0{,}2$ saat ve $t=48$ dk $=0{,}8$ saat için Horton kalıbını yazarsak:\n\n$$6{,}117 = f_c + (f_0-f_c)e^{-1{,}58\\times0{,}2} = 0{,}271\\,f_c + 0{,}729\\,f_0$$\n\n$$2{,}966 = f_c + (f_0-f_c)e^{-1{,}58\\times0{,}8} = 0{,}717\\,f_c + 0{,}283\\,f_0$$\n\nİki bilinmeyenli ($f_0$, $f_c$) iki denklem elde ettik.",
+            "en": "For $t=12$ min $=0.2$ h and $t=48$ min $=0.8$ h, Horton's template gives:\n\n$$6.117 = f_c + (f_0-f_c)e^{-1.58\\times0.2} = 0.271\\,f_c + 0.729\\,f_0$$\n\n$$2.966 = f_c + (f_0-f_c)e^{-1.58\\times0.8} = 0.717\\,f_c + 0.283\\,f_0$$\n\nWe now have two equations in two unknowns ($f_0$, $f_c$)."
+          },
+          "why": {
+            "tr": "Bu, 4-1'in yarı-log yöntemine bir alternatif: sadece İKİ ölçüm noktan varsa (ve k biliniyorsa) grafik çizmeye gerek yok — Horton kalıbını iki kez yazıp bir denklem sistemi çözersin. Sınavda k'nın hazır verildiğini görürsen bu yöntemi tanı.",
+            "en": "This is an alternative to 4-1's semi-log method: with only TWO measured points (and k already known), you don't need to plot anything — write Horton's template twice and solve a system of equations. Recognize this method whenever k is handed to you ready-made on the exam."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "2×2 sistemi çöz: f0 ve fc'yi bul",
+            "en": "Solve the 2x2 system for f0 and fc"
+          },
+          "guiding": {
+            "tr": "İki denklemi elimine yöntemiyle çözmek için hangi katsayıları eşitlemen (ya da birbirinin negatifi yapman) gerekir?",
+            "en": "To eliminate one unknown, which coefficients do you need to match (or make into negatives of each other)?"
+          },
+          "hint": {
+            "tr": "İlk denklemi 0,717 ile, ikinciyi −0,271 ile çarpıp topla — $f_c$ terimleri birbirini götürür.",
+            "en": "Multiply the first equation by 0.717 and the second by −0.271, then add — the $f_c$ terms cancel."
+          },
+          "work": {
+            "tr": "İlk denklemi $0{,}717$, ikinciyi $-0{,}271$ ile çarpıp topluyoruz ($f_c$ terimleri götürülür):\n\n$$0{,}717\\times6{,}117 = 0{,}194\\,f_c+0{,}523\\,f_0 \\;\\Rightarrow\\; 4{,}386 = 0{,}194\\,f_c+0{,}523\\,f_0$$\n$$-0{,}271\\times2{,}966 = -0{,}194\\,f_c-0{,}077\\,f_0 \\;\\Rightarrow\\; -0{,}804 = -0{,}194\\,f_c-0{,}077\\,f_0$$\n\nAlt alta toplarsak: $3{,}582=0{,}446\\,f_0 \\;\\Rightarrow\\; f_0=8{,}032$ cm/saat.\n\nBu değeri denklemlerden birine geri koyarsak: $f_c=0{,}967$ cm/saat.",
+            "en": "Multiply the first equation by $0.717$ and the second by $-0.271$, then add (the $f_c$ terms cancel):\n\n$$0.717\\times6.117 = 0.194\\,f_c+0.523\\,f_0 \\;\\Rightarrow\\; 4.386 = 0.194\\,f_c+0.523\\,f_0$$\n$$-0.271\\times2.966 = -0.194\\,f_c-0.077\\,f_0 \\;\\Rightarrow\\; -0.804 = -0.194\\,f_c-0.077\\,f_0$$\n\nAdding: $3.582=0.446\\,f_0 \\;\\Rightarrow\\; f_0=8.032$ cm/h.\n\nSubstituting back into either equation: $f_c=0.967$ cm/h."
+          },
+          "why": {
+            "tr": "Bu, klasik elimine yöntemi — sınavın Horton kısmında karşına çıkacak en cebirsel adım. Sonuçları sağlamak için: 8,032 ve 0,967'yi orijinal iki denklemin İKİSİNE de geri koy, ikisi de tutmalı. Bu tutarlılık kontrolü, çarpanlarda bir işaret hatası yapıp yapmadığını hemen gösterir.",
+            "en": "This is the classic elimination method — the most algebra-heavy step you'll meet in the Horton part of the exam. To check: substitute 8.032 and 0.967 back into BOTH original equations; both must hold. That consistency check instantly reveals a sign slip in the multipliers."
+          },
+          "result": "f_0 = 8{,}032\\ \\text{cm/saat},\\quad f_c = 0{,}967\\ \\text{cm/saat}",
+          "check": {
+            "q": {
+              "tr": "İki bilinmeyenli iki denklemi çözerken $f_c$'yi elimine etmek için katsayılar ne yapılır?",
+              "en": "When eliminating $f_c$ from the two equations, what is done to the coefficients?"
+            },
+            "options": [
+              {
+                "tr": "Bir denklem diğerinin $f_c$ katsayısıyla, diğeri birincinin $f_c$ katsayısının negatifiyle çarpılır",
+                "en": "One equation is multiplied by the other's $f_c$ coefficient, and the other by the negative of the first's $f_c$ coefficient"
+              },
+              {
+                "tr": "Her iki denklem de aynı sabitle çarpılır",
+                "en": "Both equations are multiplied by the same constant"
+              },
+              {
+                "tr": "Denklemler doğrudan birbirinden çıkarılır, çarpım gerekmez",
+                "en": "The equations are simply subtracted from each other, no multiplication needed"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Elimine yönteminde bir terimin (burada $f_c$) katsayılarını eşit büyüklükte ama zıt işaretli yapman gerekir; bunun için her denklemi diğerinin ilgili katsayısıyla (biri eksi işaretle) çarparsın. Aynı sabitle çarpmak oranı değiştirmez; doğrudan çıkarma katsayılar zaten eşit değilse işe yaramaz.",
+              "en": "In elimination you must make one term's (here $f_c$'s) coefficients equal in size but opposite in sign; you do this by multiplying each equation by the other's relevant coefficient (one of them negated). Multiplying both by the same constant doesn't change the ratio; direct subtraction doesn't work unless the coefficients already match."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "f(t) tablosunu 15 dakikalık aralarla doldur ve kesişimi tespit et",
+            "en": "Fill the f(t) table every 15 minutes and locate the crossing"
+          },
+          "guiding": {
+            "tr": "i ve f'yi tabloya döktüğünde, aradığın en önemli şey ne — hangi satırda roller değişiyor?",
+            "en": "Once you tabulate i and f, what's the one thing you're really looking for — at which row do the roles swap?"
+          },
+          "hint": {
+            "tr": "t=0,75'te hangisi büyük, t=1,00'de hangisi büyük? Aralarında bir yerde eşitlenmiş olmalılar.",
+            "en": "At t=0.75 which is bigger, at t=1.00 which is bigger? They must cross somewhere in between."
+          },
+          "work": {
+            "tr": "$f=0{,}967+7{,}065\\,e^{-1{,}58t}$ ve $i=2{,}5\\,t^{-0{,}4}$ denklemleriyle 15 dakikalık aralarla hesaplanan değerler:\n\n(tabloya bakınız) — $t=0{,}75$ saatte hâlâ $f=3{,}13>i=2{,}80$; $t=1{,}00$ saatte artık $f=2{,}42<i=2{,}50$. Demek ki $f$ ile $i$ bu ikisinin arasında bir yerde eşitleniyor. Grafikten (ya da ara değer denemesinden) kesişim noktası $t\\approx0{,}95$ saat, $i=f\\approx2{,}55$ cm/saat olarak okunur.",
+            "en": "With $f=0.967+7.065\\,e^{-1.58t}$ and $i=2.5\\,t^{-0.4}$, the values every 15 minutes are shown in the table — at $t=0.75$ h, still $f=3.13>i=2.80$; at $t=1.00$ h, now $f=2.42<i=2.50$. So $f$ and $i$ cross somewhere between the two. From the graph (or interval trial), the crossing is read at $t\\approx0.95$ h, $i=f\\approx2.55$ cm/h."
+          },
+          "why": {
+            "tr": "Bu adım, 4-2'nin whatIf'inde uyardığımız 'rejim ortada değişebilir' durumunun tam örneğidir. $t=0,25$'te $f>i$, $t=1,50$'de $f<i$ — bu tersine dönüş, tek bir Horton integraliyle tüm süreyi hesaplamanın YANLIŞ olduğunu gösteriyor. Kesişim noktasını bulmadan devam edersen, ya toprağın kapasitesiyle sızdığını (yanlış) ya da tüm yağışın sızdığını (yanlış) varsaymış olursun.",
+            "en": "This step is the concrete example of the 'the regime can flip mid-storm' warning from 4-2's whatIf. At $t=0.25$, $f>i$; at $t=1.50$, $f<i$ — that reversal shows a single Horton integral over the whole duration would be WRONG. Without locating the crossing first, you'd either wrongly assume the soil infiltrates at capacity throughout, or wrongly assume all the rain infiltrates throughout."
+          },
+          "result": "t^{*}\\approx0{,}95\\ \\text{saat}\\ (i=f\\approx2{,}55\\ \\text{cm/saat})",
+          "check": {
+            "q": {
+              "tr": "t=0,75 saatte f=3,13>i=2,80 iken t=1,00 saatte f=2,42<i=2,50. Bu ne anlama gelir?",
+              "en": "At t=0.75 h, f=3.13>i=2.80, but at t=1.00 h, f=2.42<i=2.50. What does this mean?"
+            },
+            "options": [
+              {
+                "tr": "Hesap hatalıdır, f her zaman i'den büyük olmalıydı",
+                "en": "There's a calculation error — f should always exceed i"
+              },
+              {
+                "tr": "Rejim bu iki zaman arasında değişmiştir; tek bir formülle tüm süreyi hesaplamak yanlış olur",
+                "en": "The regime has flipped between these two times; using a single formula for the whole duration would be wrong"
+              },
+              {
+                "tr": "Sadece ölçüm hatasıdır, göz ardı edilebilir",
+                "en": "It's just a measurement error and can be ignored"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "f ve i'nin sıralaması iki farklı zamanda ters yönde olduğuna göre aralarında mutlaka bir kesişim vardır — bu bir hata değil, sızmanın gerçek fiziğidir. Bu durumda tüm yağış süresini tek bir rejimle (ya hep Horton ya hep 'tüm yağış sızıyor') hesaplamak yanlış sonuç verir; süreyi kesişim noktasında ikiye bölmek gerekir.",
+              "en": "Since the ordering of f and i reverses between two times, a crossing must exist between them — this is not an error but the actual physics of infiltration. Treating the whole storm duration under a single regime (either always Horton, or always 'all rain infiltrates') gives the wrong answer; you must split the duration at the crossing point."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Kesişimden önce: toplam sızma yağıştan gelir",
+            "en": "Before the crossing: infiltration equals the rainfall"
+          },
+          "guiding": {
+            "tr": "0 ile 0,95 saat arasında f, i'den büyük. Toprak yağandan fazlasını sızdırabilir mi — o zaman gerçekte ne kadarı sızar?",
+            "en": "Between 0 and 0.95 h, f exceeds i. Can the soil infiltrate more than what falls — so how much actually infiltrates?"
+          },
+          "hint": {
+            "tr": "f>i olduğu her aralıkta gerçek sızma İ ile sınırlıdır, kapasiteyle değil. O yüzden bu parçada sızma = yağış.",
+            "en": "Wherever f>i, actual infiltration is limited by i (the rain), not the capacity. So in this segment, infiltration = rainfall."
+          },
+          "work": {
+            "tr": "$0<t<0{,}95$ saat aralığında $f>i$: toprak, yağanın tamamını yutabilecek kapasiteye sahip, dolayısıyla bu aralıkta yağan yağmurun TAMAMI sızar; sızma hızı kapasiteye değil, yağış şiddetine eşittir. Bu yüzden bu parçadaki sızma miktarı doğrudan yağıştan okunur:\n\n$$F_1 = P(0{,}95) = 4{,}167\\times0{,}95^{0{,}6} = 4{,}041\\ \\text{cm}$$",
+            "en": "In the interval $0<t<0.95$ h, $f>i$: the soil has more than enough capacity to absorb everything falling, so ALL the rain in this interval infiltrates; the infiltration rate equals the rainfall intensity, not the capacity. So the infiltration in this segment is read directly from the rainfall:\n\n$$F_1 = P(0.95) = 4.167\\times0.95^{0.6} = 4.041\\ \\text{cm}$$"
+          },
+          "why": {
+            "tr": "Bu, ünitenin en sık unutulan kuralı: f>i iken Horton denklemi (ya da onun integrali) GEÇERSİZDİR, çünkü toprak zaten kapasitesiyle çalışmıyor — arzla (yağışla) sınırlı. Bu aralıkta F'yi Horton integraliyle hesaplamaya kalkarsan gerçekte sızmayan bir suyu sızmış gibi sayarsın ve F, P'yi geçebilir (4-2'nin whatIf'indeki gibi imkânsız bir sonuç).",
+            "en": "This is the unit's most commonly forgotten rule: while f>i, Horton's equation (or its integral) is INVALID, because the soil isn't working at capacity — it's supply-limited (limited by the rain). Try computing F with Horton's integral in this interval and you'd count water as infiltrated that never actually fell in excess — F could even exceed P (the same impossible outcome as 4-2's whatIf)."
+          },
+          "result": "F_1 = 4{,}041\\ \\text{cm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Kesişimden sonra: Horton integralini uygula",
+            "en": "After the crossing: apply Horton's integral"
+          },
+          "guiding": {
+            "tr": "0,95 ile 1,5 saat arasında artık i>f. Bu parçada sızmayı hangi formülle, hangi sınırlarla hesaplarsın?",
+            "en": "Between 0.95 and 1.5 h, now i>f. Which formula, with which limits, gives infiltration in this segment?"
+          },
+          "hint": {
+            "tr": "Horton integralini $t_1=0{,}95$ ile $t_2=1{,}5$ arasında değerlendir: $F_2=f_c(t_2-t_1)+\\frac{f_0-f_c}{k}(e^{-kt_1}-e^{-kt_2})$.",
+            "en": "Evaluate Horton's integral between $t_1=0.95$ and $t_2=1.5$: $F_2=f_c(t_2-t_1)+\\frac{f_0-f_c}{k}(e^{-kt_1}-e^{-kt_2})$."
+          },
+          "work": {
+            "tr": "$0{,}95<t<1{,}5$ saat aralığında artık $i>f$: toprak kapasitesiyle sızdırıyor, Horton integrali bu parçada geçerli. Sınırları $t_1=0{,}95$, $t_2=1{,}5$ alıp integrali hesaplıyoruz:\n\n$$F_2 = f_c(t_2-t_1) + \\frac{f_0-f_c}{k}\\left(e^{-kt_1}-e^{-kt_2}\\right) = 0{,}967(1{,}5-0{,}95) + \\frac{8{,}032-0{,}967}{1{,}58}\\left(e^{-1{,}58\\times0{,}95}-e^{-1{,}58\\times1{,}5}\\right) = 1{,}11\\ \\text{cm}$$\n\n(Not: föyde bu satırda üstel ifadelerden biri yanlışlıkla $e^{-1{,}5\\times0{,}95}$ olarak basılmış; doğru üs $-1{,}58\\times0{,}95$'tir — hesap doğru üsle yapılmıştır.)",
+            "en": "In the interval $0.95<t<1.5$ h, now $i>f$: the soil infiltrates at capacity, so Horton's integral applies here. Using limits $t_1=0.95$, $t_2=1.5$:\n\n$$F_2 = f_c(t_2-t_1) + \\frac{f_0-f_c}{k}\\left(e^{-kt_1}-e^{-kt_2}\\right) = 0.967(1.5-0.95) + \\frac{8.032-0.967}{1.58}\\left(e^{-1.58\\times0.95}-e^{-1.58\\times1.5}\\right) = 1.11\\ \\text{cm}$$\n\n(Note: the course sheet misprints one exponent on this line as $e^{-1.5\\times0.95}$; the correct exponent is $-1.58\\times0.95$ — the calculation above uses the correct exponent.)"
+          },
+          "why": {
+            "tr": "Bölgeli sızma sorularının ikinci yarısı hep aynı kalıbı izler: kesişimden sonuna kadar Horton integralini AL, ama alt sınırı sıfır değil kesişim noktasıdır. Bu, tanıdık F formülünün 'a'dan b'ye' genelleştirilmiş hali — Uygulama 4-1'in whatIf'inde gördüğümüz $F(3)-F(1)$ mantığıyla birebir aynı.",
+            "en": "The second half of a two-regime infiltration question always follows the same pattern: take Horton's integral from the crossing point to the end, but the lower limit is the crossing time, not zero. This is the 'a to b' generalization of the familiar F formula — exactly the same logic as $F(3)-F(1)$ from Uygulama 4-1's whatIf."
+          },
+          "result": "F_2 = 1{,}11\\ \\text{cm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Toplamları ve yüzeysel akışı hesapla",
+            "en": "Compute the totals and the surface runoff"
+          },
+          "guiding": {
+            "tr": "İki parçadaki sızmayı topladığında ve toplam yağışı bulduğunda, akış nasıl çıkar?",
+            "en": "Once you add the two infiltration pieces and find total rainfall, how do you get the runoff?"
+          },
+          "hint": {
+            "tr": "$\\Sigma F=F_1+F_2$; $\\Sigma P=P(1{,}5)$; akış $=\\Sigma P-\\Sigma F$.",
+            "en": "$\\Sigma F=F_1+F_2$; $\\Sigma P=P(1.5)$; runoff $=\\Sigma P-\\Sigma F$."
+          },
+          "work": {
+            "tr": "$$\\Sigma F = F_1+F_2 = 4{,}041+1{,}11 = 5{,}151\\ \\text{cm}$$\n\nToplam yağış, yağış eğrisinde $t=1{,}5$ saat konularak:\n\n$$\\Sigma P = 4{,}167\\times1{,}5^{0{,}6} = 5{,}315\\ \\text{cm}$$\n\nYüzeysel akış:\n\n$$\\text{Akış} = \\Sigma P - \\Sigma F = 5{,}315 - 5{,}151 = 0{,}164\\ \\text{cm}$$",
+            "en": "$$\\Sigma F = F_1+F_2 = 4.041+1.11 = 5.151\\ \\text{cm}$$\n\nTotal rainfall, from the rainfall curve at $t=1.5$ h:\n\n$$\\Sigma P = 4.167\\times1.5^{0.6} = 5.315\\ \\text{cm}$$\n\nSurface runoff:\n\n$$\\text{Runoff} = \\Sigma P - \\Sigma F = 5.315 - 5.151 = 0.164\\ \\text{cm}$$"
+          },
+          "why": {
+            "tr": "Bölgeli sızmanın toplam etkisi hep aynı: F'yi parça parça topla, sonra tek bir P'den çıkar. Sonucun küçüklüğüne (0,164 cm) dikkat et — bu, toprağın süreyin büyük kısmında (0,95 saate kadar) yağan HER ŞEYİ yutması sayesindedir; akış ancak toprak doyduktan sonra, kısa bir pencerede oluşur.",
+            "en": "The overall effect of two-regime infiltration is always the same: sum F piece by piece, then subtract from a single total P. Notice how small the runoff is (0.164 cm) — that's because the soil swallowed EVERYTHING falling for most of the duration (up to 0.95 h); runoff only appears in a short window after the soil saturates."
+          },
+          "result": "\\Sigma F = 5{,}151\\ \\text{cm},\\quad \\Sigma P = 5{,}315\\ \\text{cm},\\quad \\text{Akış} = 0{,}164\\ \\text{cm}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**a)** $i=2{,}5\\,t^{-0{,}4}$ cm/saat; $f=0{,}967+7{,}065\\,e^{-1{,}58t}$ cm/saat.\n\n**c)** Kesişim $t^*\\approx0{,}95$ saat. $\\Sigma F=5{,}151$ cm, $\\Sigma P=5{,}315$ cm, $\\boxed{\\text{Akış}=0{,}164\\ \\text{cm}}$.",
+        "en": "**(a)** $i=2.5\\,t^{-0.4}$ cm/h; $f=0.967+7.065\\,e^{-1.58t}$ cm/h.\n\n**(c)** Crossing $t^*\\approx0.95$ h. $\\Sigma F=5.151$ cm, $\\Sigma P=5.315$ cm, $\\boxed{\\text{Runoff}=0.164\\ \\text{cm}}$."
+      },
+      "traps": [
+        {
+          "tr": "$0<t<0{,}95$ saat aralığında Horton denklemini (ya da integralini) kullanmak. Bu aralıkta $f>i$'dir — toprak henüz kapasitesine ulaşmamış, yağan HER ŞEY sızıyor. Sızma burada P'den okunur, Horton'dan değil.",
+          "en": "Using Horton's equation (or its integral) in the $0<t<0.95$ h interval. There $f>i$ — the soil hasn't reached its capacity yet, and EVERYTHING falling infiltrates. Infiltration here is read from P, not from Horton."
+        },
+        {
+          "tr": "2×2 denklem sistemini çözerken elimine katsayılarında işaret hatası yapmak. Sonucu mutlaka her iki orijinal denklemde de kontrol et.",
+          "en": "Making a sign error in the elimination coefficients when solving the 2x2 system. Always verify the result in both original equations."
+        },
+        {
+          "tr": "Föydeki üstel ifade yazım hatasını ($e^{-1{,}5\\times0{,}95}$) olduğu gibi kopyalamak. Doğru üs $k=1{,}58$ ile $-1{,}58\\times0{,}95$'tir, $-1{,}5\\times0{,}95$ değil.",
+          "en": "Copying the sheet's exponent typo ($e^{-1.5\\times0.95}$) verbatim. The correct exponent uses $k=1.58$: $-1.58\\times0.95$, not $-1.5\\times0.95$."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya $f(12\\ \\text{dk})$ ölçümü 6,117 yerine daha küçük bir değer olsaydı?",
+            "en": "What if the $f(12\\ \\text{min})$ reading were smaller than 6.117?"
+          },
+          "answer": {
+            "tr": "Daha küçük bir başlangıç kapasitesi, sızma eğrisinin daha aşağıdan başlaması demektir — bu da eğrinin yağış şiddeti eğrisiyle daha ERKEN kesişmesine yol açar. Kesişim erken gerçekleşince Horton'un geçerli olduğu (i>f) süre uzar, ama f zaten düşük olduğundan bu süredeki sızma da az olur; toplamda daha fazla yağış akışa döner — runoff artar.",
+            "en": "A smaller initial capacity means the infiltration curve starts lower — which makes it cross the rainfall-intensity curve EARLIER. An earlier crossing means the Horton-valid (i>f) period is longer, but since f is already low there, less infiltrates during it; overall more rainfall converts to runoff — runoff increases."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya yağış 90 dakika değil sadece 60 dakika sürseydi?",
+            "en": "What if the storm lasted only 60 minutes instead of 90?"
+          },
+          "answer": {
+            "tr": "Kesişim ($t^*=0{,}95$ saat) hâlâ 60 dakikadan (1,0 saat) ÖNCE gerçekleşiyor, yani iki rejim de yine devrede: $F_1=4{,}041$ cm (değişmez), ama $F_2$ artık $t_1=0{,}95$'ten $t_2=1{,}0$'a kadar: $F_2=0{,}967\\times0{,}05+\\frac{7{,}065}{1{,}58}(e^{-1{,}58\\times0{,}95}-e^{-1{,}58\\times1{,}0})=0{,}124$ cm. $\\Sigma F=4{,}165$ cm, $\\Sigma P=4{,}167\\times1{,}0^{0{,}6}=4{,}167$ cm; akış $\\approx4{,}167-4{,}165\\approx0{,}002$ cm — neredeyse sıfır, çünkü yağış kesişimin hemen ardından bitiyor ve toprağın 'fazlayı akışa çevirecek' zamanı kalmıyor.",
+            "en": "The crossing ($t^*=0.95$ h) still occurs BEFORE 60 minutes (1.0 h), so both regimes still apply: $F_1=4.041$ cm (unchanged), but $F_2$ now runs from $t_1=0.95$ to $t_2=1.0$: $F_2=0.967\\times0.05+\\frac{7.065}{1.58}(e^{-1.58\\times0.95}-e^{-1.58\\times1.0})=0.124$ cm. $\\Sigma F=4.165$ cm, $\\Sigma P=4.167\\times1.0^{0.6}=4.167$ cm; runoff $\\approx4.167-4.165\\approx0.002$ cm — nearly zero, because the storm ends right after the crossing and the soil has almost no time to turn the excess into runoff."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4-4",
+      "code": "Uygulama 4.4",
+      "title": {
+        "tr": "φ indisi",
+        "en": "The φ-index"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir yağış sırasında kaydedilen toplam yağış yükseklikleri aşağıda verilmiştir. Hiyetografı çizerek, 10 mm akış yüksekliği için φ indisini hesaplayınız. Zaman (dakika): 0, 20, 40, 60, 80, 100, 120, 140, 160; kümülatif yağış $\\Sigma P$ (mm): 0, 8, 18, 36, 53, 61, 65, 67, 67.",
+        "en": "The cumulative rainfall depths recorded during a storm are given below. Plot the hyetograph and compute the φ-index for a runoff depth of 10 mm. Time (minutes): 0, 20, 40, 60, 80, 100, 120, 140, 160; cumulative rainfall $\\Sigma P$ (mm): 0, 8, 18, 36, 53, 61, 65, 67, 67."
+      },
+      "given": [
+        {
+          "symbol": "\\Delta t",
+          "value": "20\\ \\text{dk} = 1/3\\ \\text{saat}",
+          "label": {
+            "tr": "Ölçüm aralığı",
+            "en": "Measurement interval"
+          }
+        },
+        {
+          "symbol": "\\Sigma P",
+          "value": "0,8,18,36,53,61,65,67,67\\ \\text{mm}",
+          "label": {
+            "tr": "Kümülatif yağış",
+            "en": "Cumulative rainfall"
+          }
+        },
+        {
+          "symbol": "\\text{Akış}",
+          "value": "10\\ \\text{mm}",
+          "label": {
+            "tr": "Toplam yüzeysel akış yüksekliği",
+            "en": "Total surface runoff depth"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "10 mm'lik akışı veren sabit kayıp hızını (φ indisini) bulmak.",
+        "en": "Find the constant loss rate (φ-index) that produces 10 mm of runoff."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Hiyetografın türetilmesi",
+            "en": "Deriving the hyetograph"
+          },
+          "headers": [
+            "t (dk)",
+            "ΔP (mm)",
+            "i=ΔP/Δt (mm/saat)"
+          ],
+          "rows": [
+            [
+              "0–20",
+              "8",
+              "24"
+            ],
+            [
+              "20–40",
+              "10",
+              "30"
+            ],
+            [
+              "40–60",
+              "18",
+              "54"
+            ],
+            [
+              "60–80",
+              "17",
+              "51"
+            ],
+            [
+              "80–100",
+              "8",
+              "24"
+            ],
+            [
+              "100–120",
+              "4",
+              "12"
+            ],
+            [
+              "120–140",
+              "2",
+              "6"
+            ],
+            [
+              "140–160",
+              "0",
+              "0"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "bar",
+        "title": {
+          "tr": "Hiyetograf ve φ çizgisi",
+          "en": "Hyetograph and the φ line"
+        },
+        "xLabel": "t (dakika)",
+        "yLabel": "i (mm/saat)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "i (mm/saat)",
+            "kind": "bar",
+            "points": [
+              [
+                10,
+                24
+              ],
+              [
+                30,
+                30
+              ],
+              [
+                50,
+                54
+              ],
+              [
+                70,
+                51
+              ],
+              [
+                90,
+                24
+              ],
+              [
+                110,
+                12
+              ],
+              [
+                130,
+                6
+              ],
+              [
+                150,
+                0
+              ]
+            ]
+          }
+        ],
+        "barWidths": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "annotations": [
+          {
+            "x": 80,
+            "y": 37.5,
+            "label": {
+              "tr": "φ = 37,5 mm/saat",
+              "en": "φ = 37.5 mm/h"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Kümülatif yağıştan aralık yağışlarını (ΔP) çıkar",
+            "en": "Extract interval rainfall (ΔP) from the cumulative curve"
+          },
+          "guiding": {
+            "tr": "Elindeki veri KÜMÜLATİF (toplam). Her 20 dakikalık aralıkta gerçekte ne kadar yağdığını bulmak için ardışık değerlere ne yaparsın?",
+            "en": "The data you have is CUMULATIVE (running total). To find how much fell in each 20-minute interval, what do you do to consecutive values?"
+          },
+          "hint": {
+            "tr": "Bir sonraki kümülatif değerden bir öncekini çıkar: $\\Delta P = P(t_2)-P(t_1)$.",
+            "en": "Subtract the previous cumulative value from the next: $\\Delta P = P(t_2)-P(t_1)$."
+          },
+          "work": {
+            "tr": "Ardışık $\\Sigma P$ değerlerinin farkını alıyoruz:\n\n$$\\Delta P:\\ 8-0=8,\\ 18-8=10,\\ 36-18=18,\\ 53-36=17,\\ 61-53=8,\\ 65-61=4,\\ 67-65=2,\\ 67-67=0\\ \\text{mm}$$",
+            "en": "We take the difference of consecutive $\\Sigma P$ values:\n\n$$\\Delta P:\\ 8-0=8,\\ 18-8=10,\\ 36-18=18,\\ 53-36=17,\\ 61-53=8,\\ 65-61=4,\\ 67-65=2,\\ 67-67=0\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "Sınav verileri sıklıkla kümülatif olarak verilir (her aralıktaki yağış değil, o ana kadarki toplam) çünkü ölçüm aleti bunu böyle kaydeder. \"Kümülatif\" veya \"$\\Sigma P$\" gördüğünde önce farkları al — hiyetografı doğrudan bu kümülatif eğriden çizemezsin.",
+            "en": "Exam data is often given cumulatively (not per-interval rainfall, but the running total up to that moment) because that's how the gauge records it. Whenever you see \"cumulative\" or \"$\\Sigma P$\", take differences first — you cannot draw the hyetograph directly from the cumulative curve."
+          },
+          "result": "\\Delta P: 8, 10, 18, 17, 8, 4, 2, 0\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Hiyetografı çiz: ΔP'yi şiddete (i) çevir",
+            "en": "Draw the hyetograph: convert ΔP to intensity (i)"
+          },
+          "guiding": {
+            "tr": "Hiyetograf, ZAMANA karşı YAĞIŞ ŞİDDETİ grafiğidir, yükseklik değil. ΔP'den i'ye nasıl geçersin?",
+            "en": "A hyetograph plots INTENSITY against time, not depth. How do you get from ΔP to i?"
+          },
+          "hint": {
+            "tr": "$i=\\Delta P/\\Delta t$; $\\Delta t=20$ dk $=1/3$ saat olduğuna dikkat et.",
+            "en": "$i=\\Delta P/\\Delta t$; note that $\\Delta t=20$ min $=1/3$ h."
+          },
+          "work": {
+            "tr": "Her $\\Delta P$'yi $\\Delta t=1/3$ saate bölerek saatlik şiddete çeviriyoruz:\n\n$$i = \\frac{\\Delta P}{\\Delta t} = \\Delta P \\times 3$$\n\n$$i:\\ 24,\\ 30,\\ 54,\\ 51,\\ 24,\\ 12,\\ 6,\\ 0\\ \\text{mm/saat}$$\n\nBu değerler, her aralığın ORTASINA karşılık gelen sabit yükseklikli bir çubuk (bar) olarak çizilir — hiyetograf budur.",
+            "en": "We divide each $\\Delta P$ by $\\Delta t=1/3$ h to get hourly intensity:\n\n$$i = \\frac{\\Delta P}{\\Delta t} = \\Delta P \\times 3$$\n\n$$i:\\ 24,\\ 30,\\ 54,\\ 51,\\ 24,\\ 12,\\ 6,\\ 0\\ \\text{mm/h}$$\n\nThese values are drawn as flat-topped bars over each interval — that is the hyetograph."
+          },
+          "why": {
+            "tr": "$\\Delta t=20$ dakika $=1/3$ saat gibi tekli olmayan kesirli bir çevrim, bu sorunun en sık atlanan tuzağıdır. 20/60 yerine yanlışlıkla 20 ya da 0,2 kullanmak tüm i değerlerini yanlış ölçekler ve φ sonucu tamamen kayar.",
+            "en": "The awkward, non-round fractional conversion $\\Delta t=20$ min $=1/3$ h is this question's most commonly skipped trap. Using 20 or 0.2 instead of 20/60 by mistake rescales every i value and shifts the final φ completely."
+          },
+          "result": "i: 24, 30, 54, 51, 24, 12, 6, 0\\ \\text{mm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "φ'nin fikrini anla: çizginin ÜSTÜNDE kalan alan = akış",
+            "en": "Understand the idea of φ: the area ABOVE the line = runoff"
+          },
+          "guiding": {
+            "tr": "Hiyetografın üzerine yatay bir φ çizgisi çizsen, bu çizginin üstünde kalan kısım neyi temsil eder?",
+            "en": "If you draw a horizontal φ line across the hyetograph, what does the part above the line represent?"
+          },
+          "hint": {
+            "tr": "φ, sabit bir kayıp (sızma) hızıdır. i>φ olduğu her aralıkta, farkın altında kalan alan akışa dönüşür.",
+            "en": "φ is a constant loss (infiltration) rate. In every interval where i>φ, the area under the difference becomes runoff."
+          },
+          "work": {
+            "tr": "φ indisi, hiyetografın üzerine yatay bir çizgi olarak düşünülür. Çizginin ALTINDA kalan kısım (yani $i\\le\\varphi$ olan yükseklik) sızıyor kabul edilir; çizginin ÜSTÜNDE kalan kısım ($i>\\varphi$ olduğu aralıklarda $i-\\varphi$ yüksekliği) akışa dönüşür. Çizgiyi öyle bir yükseklikte çizmeliyiz ki üstteki toplam alan tam 10 mm'ye eşit olsun.",
+            "en": "The φ-index is imagined as a horizontal line across the hyetograph. The part BELOW the line (the height where $i\\le\\varphi$) is treated as infiltrated; the part ABOVE the line (height $i-\\varphi$ in intervals where $i>\\varphi$) turns into runoff. We must draw the line at a height where the total area above it exactly equals 10 mm."
+          },
+          "why": {
+            "tr": "Bu, φ indisinin tüm mantığıdır ve çoğu öğrenci burada karışıklık yaşar: φ tek bir sayı değil, bir SEVİYE'dir; her aralığı tek tek değil, aralıkla bu seviyenin FARKINI toplarsın. Çizginin altında kalan aralıklar hikayeye hiç girmez — onlar zaten tamamen sızmış sayılır.",
+            "en": "This is the entire logic of the φ-index, and most students get confused here: φ is not a single number but a LEVEL; you sum the DIFFERENCE between each interval and this level, not each interval by itself. Intervals falling entirely below the line don't enter the story at all — they're treated as fully infiltrated."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "En büyük iki bloğu dene ve φ'yi çöz",
+            "en": "Try the two biggest blocks and solve for φ"
+          },
+          "guiding": {
+            "tr": "φ'nin, en büyük şiddetlerin (54 ve 51) ÜSTÜNDE ama daha küçüklerin (30, 24...) ALTINDA kalacağını tahmin edersen, hangi iki bloğu denklemine katarsın?",
+            "en": "If you guess φ sits ABOVE the biggest intensities (54 and 51) but BELOW the smaller ones (30, 24...), which two blocks go into your equation?"
+          },
+          "hint": {
+            "tr": "Sadece 54 ve 51'lik bloklar φ'den büyük olsun diye dene: $(54-\\varphi)\\cdot\\frac{1}{3}+(51-\\varphi)\\cdot\\frac{1}{3}=10$.",
+            "en": "Try assuming only the 54 and 51 blocks exceed φ: $(54-\\varphi)\\cdot\\frac{1}{3}+(51-\\varphi)\\cdot\\frac{1}{3}=10$."
+          },
+          "work": {
+            "tr": "En yüksek iki blok (54 ve 51 mm/saat) φ çizgisinin üstünde kalıyor kabul edip deniyoruz (her biri $\\Delta t=1/3$ saat genişliğinde):\n\n$$(54-\\varphi)\\cdot\\tfrac{1}{3} + (51-\\varphi)\\cdot\\tfrac{1}{3} = 10$$\n\n$$105 - 2\\varphi = 30 \\;\\Rightarrow\\; \\varphi = 37{,}5\\ \\text{mm/saat}$$",
+            "en": "We try assuming only the two highest blocks (54 and 51 mm/h) sit above the φ line (each is $\\Delta t=1/3$ h wide):\n\n$$(54-\\varphi)\\cdot\\tfrac{1}{3} + (51-\\varphi)\\cdot\\tfrac{1}{3} = 10$$\n\n$$105 - 2\\varphi = 30 \\;\\Rightarrow\\; \\varphi = 37.5\\ \\text{mm/saat}$$"
+          },
+          "why": {
+            "tr": "φ'yi bulmak deneme-yanılmadır: kaç bloğun çizginin üstünde kaldığını ÖNCEDEN bilemezsin, bir tahminle başlarsın (genelde en büyük bloklardan). İki blok yeterli mi diye önce bunu dener, sonucu kontrol edersin — bir sonraki adımda bu kontrolü yapıyoruz.",
+            "en": "Finding φ is trial and error: you can't know in advance how many blocks sit above the line, so you start with a guess (usually the biggest blocks). Here we try two blocks first and will verify the result is self-consistent in the next step."
+          },
+          "result": "\\varphi = 37{,}5\\ \\text{mm/saat}",
+          "check": {
+            "q": {
+              "tr": "φ hesaplanırken 30 mm/saat'lik blok neden denkleme katılmadı?",
+              "en": "Why wasn't the 30 mm/h block included in the φ equation?"
+            },
+            "options": [
+              {
+                "tr": "Çünkü 30, bulunacak φ'den (37,5) küçük çıkacağı öngörülüyor, yani bu aralık tamamen sızıyor",
+                "en": "Because 30 is expected to be smaller than the resulting φ (37.5), so this interval infiltrates entirely"
+              },
+              {
+                "tr": "Çünkü 30 mm/saat, tablodaki ilk değerlerden biri olduğu için otomatik hariç tutulur",
+                "en": "Because 30 mm/h is one of the first values in the table, so it's automatically excluded"
+              },
+              {
+                "tr": "Çünkü 30 mm/saat negatif bir değerdir",
+                "en": "Because 30 mm/h is a negative value"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "φ indisini bulurken sadece φ'den BÜYÜK olacağını düşündüğün blokları denkleme katarsın; 30, tahmini 37,5'ten küçük olduğu için bu aralığın tamamen sızdığı varsayılır ve akışa katkısı sıfırdır. Bu bir konum ya da işaret meselesi değil, tamamen büyüklük karşılaştırmasıdır.",
+              "en": "When finding the φ-index you only include blocks you expect to exceed φ; since 30 is smaller than the trial value 37.5, that interval is assumed to infiltrate entirely and contributes zero to runoff. This is purely a magnitude comparison, not a matter of position or sign."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Tutarlılığı doğrula",
+            "en": "Verify consistency"
+          },
+          "guiding": {
+            "tr": "φ=37,5 bulundu. Bunun doğru olması için hangi koşulun sağlanması gerekir?",
+            "en": "You found φ=37.5. What condition must hold for this to be the correct answer?"
+          },
+          "hint": {
+            "tr": "Denkleme KATMADIĞIN en büyük blok (30 mm/saat), bulduğun φ'den küçük mü kaldı?",
+            "en": "Is the largest block you did NOT include (30 mm/h) still smaller than the φ you found?"
+          },
+          "work": {
+            "tr": "Denkleme almadığımız bir sonraki en büyük değer 30 mm/saat idi. Kontrol: $30 < 37{,}5$ ✓ — varsayımımız tutarlı, yani gerçekten sadece 54 ve 51'lik bloklar çizginin üstünde. Eğer 30, 37,5'ten büyük çıksaydı, onu da denkleme katıp üç blokla yeniden çözmemiz gerekirdi.",
+            "en": "The next largest value we left out of the equation was 30 mm/h. Check: $30 < 37.5$ ✓ — our assumption is self-consistent, so indeed only the 54 and 51 blocks sit above the line. Had 30 turned out larger than 37.5, we would have had to include it too and re-solve with three blocks."
+          },
+          "why": {
+            "tr": "Bu doğrulama adımı, φ sorularının olmazsa olmazıdır — atlarsan yanlış sayıda blok varsaymış olabilirsin ve sonuç tutmaz. Sınavda her zaman şunu sor: \"dışarıda bıraktığım en büyük değer, bulduğum φ'den gerçekten küçük mü?\" Değilse, o değeri de içeri alıp yeniden çöz.",
+            "en": "This verification step is mandatory in φ questions — skip it and you might have assumed the wrong number of blocks, making the result inconsistent. Always ask on the exam: \"is the largest value I left out really smaller than the φ I found?\" If not, bring it in and re-solve."
+          },
+          "result": "30 < 37{,}5\\ \\checkmark",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "En büyük iki blok (54, 51 mm/saat) çizginin üstünde: $(105-2\\varphi)/3=10 \\Rightarrow \\boxed{\\varphi = 37{,}5\\ \\text{mm/saat}}$. Tutarlılık: $30<37{,}5$ ✓.",
+        "en": "The two biggest blocks (54, 51 mm/h) sit above the line: $(105-2\\varphi)/3=10 \\Rightarrow \\boxed{\\varphi = 37.5\\ \\text{mm/h}}$. Consistency: $30<37.5$ ✓."
+      },
+      "traps": [
+        {
+          "tr": "$\\Delta t=20$ dakikayı saate çevirirken $1/3$ yerine $20$ ya da $0{,}2$ kullanmak — tüm i değerleri ve dolayısıyla φ yanlış çıkar.",
+          "en": "Using 20 or 0.2 instead of $1/3$ when converting $\\Delta t=20$ minutes to hours — every i value, and hence φ, comes out wrong."
+        },
+        {
+          "tr": "φ'den küçük kalan aralıkları eksi işaretle denkleme katmak (örneğin 30'u $(30-37{,}5)$ olarak eklemek). Bu aralıklar akışa SIFIR katkı verir, negatif değil — böyle bir hata φ'yi olduğundan küçük gösterir.",
+          "en": "Including intervals smaller than φ with a minus sign (e.g. adding 30 as $(30-37.5)$). Those intervals contribute ZERO to runoff, not a negative amount — this mistake makes φ come out smaller than it should."
+        },
+        {
+          "tr": "Tutarlılık kontrolünü (adım 5) atlamak. Eğer 3 ya da 4 bloğun çizginin üstünde olduğu bir senaryoda sadece 2 blokla çözersen (ya da tam tersi), yanlış φ ile sınava devam edersin.",
+          "en": "Skipping the consistency check (step 5). If the real scenario needs 3 or 4 blocks above the line but you solved with only 2 (or vice versa), you carry a wrong φ into the rest of the exam."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya akış 10 mm yerine 20 mm olsaydı?",
+            "en": "What if the runoff were 20 mm instead of 10?"
+          },
+          "answer": {
+            "tr": "Daha büyük bir akış, daha fazla bloğun çizginin üstünde kalmasını gerektirir. Önce üç blok deneriz (54, 51, 30): $(54+51+30-3\\varphi)/3=20 \\Rightarrow 135-3\\varphi=60 \\Rightarrow \\varphi=25$. Kontrol: bir sonraki en büyük dışarıda bırakılan değer 24; $24<25$ ✓ tutarlı. Demek ki $\\varphi=25$ mm/saat.",
+            "en": "A bigger runoff requires more blocks above the line. Try three blocks first (54, 51, 30): $(54+51+30-3\\varphi)/3=20 \\Rightarrow 135-3\\varphi=60 \\Rightarrow \\varphi=25$. Check: the next largest excluded value is 24; $24<25$ ✓ consistent. So $\\varphi=25$ mm/h."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya akış 5 mm olsaydı?",
+            "en": "What if the runoff were 5 mm?"
+          },
+          "answer": {
+            "tr": "Daha küçük bir akış, daha az bloğun (ya da daha yüksek bir φ'nin) yeterli olacağı anlamına gelir. İki blokla dene: $(54+51-2\\varphi)/3=5 \\Rightarrow 105-2\\varphi=15 \\Rightarrow \\varphi=45$. Kontrol: $45<51$ ve $45<54$ ✓ tutarlı (her iki blok da hâlâ çizginin üstünde). $\\varphi=45$ mm/saat.",
+            "en": "A smaller runoff means fewer blocks (or a higher φ) are needed. Try two blocks: $(54+51-2\\varphi)/3=5 \\Rightarrow 105-2\\varphi=15 \\Rightarrow \\varphi=45$. Check: $45<51$ and $45<54$ ✓ consistent (both blocks still exceed the line). $\\varphi=45$ mm/h."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya yağan yağmurun TAMAMI akışa dönüşseydi (67 mm akış)?",
+            "en": "What if ALL the rain had turned into runoff (67 mm of runoff)?"
+          },
+          "answer": {
+            "tr": "Bu, toprağın hiç sızdırmadığı (geçirimsiz yüzey) durumdur: $\\varphi=0$ mm/saat. Tüm bloklar çizginin (sıfır seviyesinin) üstünde kalır ve akış toplamı doğrudan toplam yağışa ($\\Sigma P=67$ mm) eşit olur.",
+            "en": "This is the impermeable-surface case: $\\varphi=0$ mm/h. Every block sits above the line (zero level), and total runoff simply equals the total rainfall ($\\Sigma P=67$ mm)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4-5",
+      "code": "Uygulama 4.5",
+      "title": {
+        "tr": "Üç ölçümden Horton",
+        "en": "Horton from three capacities"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir sızma deneyinde, başlangıçtaki, başlangıçtan 2 saat sonraki ve deney sonundaki sızma kapasiteleri sırasıyla 4,0 cm/saat, 1,5 cm/saat ve 1,0 cm/saat olduğuna göre Horton denklemini elde ediniz. Bu denklemi kullanarak, başlangıçtan 2 saat sonraki toplam sızma yüksekliğini ve sızma kapasitesinin 1,1 cm/saat olması için gerekli olan süreyi hesaplayınız.",
+        "en": "In an infiltration test, the infiltration capacities at the start, 2 hours after the start, and at the end of the test are 4.0 cm/h, 1.5 cm/h and 1.0 cm/h respectively. Derive Horton's equation. Then, using this equation, compute the total infiltration depth 2 hours after the start and the time required for the capacity to fall to 1.1 cm/h."
+      },
+      "given": [
+        {
+          "symbol": "f(0)",
+          "value": "4{,}0\\ \\text{cm/saat}",
+          "label": {
+            "tr": "Başlangıç sızma kapasitesi",
+            "en": "Initial infiltration capacity"
+          }
+        },
+        {
+          "symbol": "f(2)",
+          "value": "1{,}5\\ \\text{cm/saat}\\ (t=2\\ \\text{saat})",
+          "label": {
+            "tr": "2 saat sonraki sızma kapasitesi",
+            "en": "Infiltration capacity at 2 hours"
+          }
+        },
+        {
+          "symbol": "f(\\infty)",
+          "value": "1{,}0\\ \\text{cm/saat}",
+          "label": {
+            "tr": "Deney sonundaki (nihai) sızma kapasitesi",
+            "en": "Final (end-of-test) infiltration capacity"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Horton denklemini bulmak; F(2 saat)'i ve f=1,1 cm/saat'e ulaşılan zamanı hesaplamak.",
+        "en": "Find Horton's equation; compute F(2 hours) and the time at which f=1.1 cm/h."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "f0 ve fc'yi üç ölçümden tanı",
+            "en": "Identify f0 and fc from the three readings"
+          },
+          "guiding": {
+            "tr": "Üç sızma kapasitesi verilmiş: başlangıç, 2 saat sonra, deney sonu. Hangisi $f_0$, hangisi $f_c$?",
+            "en": "Three capacities are given: at the start, 2 hours later, and at the end of the test. Which one is $f_0$, which is $f_c$?"
+          },
+          "hint": {
+            "tr": "\"Deney sonu\" ifadesi, eğrinin düzleştiği yer demektir — bu, üçüncü bir bilinmeyen değil, doğrudan $f_c$'dir.",
+            "en": "The phrase \"end of test\" means the point where the curve has flattened — this is not a third unknown, it is directly $f_c$."
+          },
+          "work": {
+            "tr": "Horton eğrisinin iki ucu doğrudan verilmiş: $t=0$'daki değer $f_0=4{,}0$ cm/saat; deney sonunda (yeterince uzun süre sonra eğri sabitlendiğinde) ulaşılan değer $f_c=1{,}0$ cm/saat. 2 saatteki $f=1{,}5$ cm/saat ise ara bir ölçüm — bunu k'yı bulmak için kullanacağız.",
+            "en": "The two ends of Horton's curve are given directly: the value at $t=0$ is $f_0=4.0$ cm/h; the value reached at the end of the test (once the curve has settled after long enough) is $f_c=1.0$ cm/h. The 2-hour reading $f=1.5$ cm/h is an intermediate measurement — we'll use it to find k."
+          },
+          "why": {
+            "tr": "Bu sorunun tuzağı tam burada: \"deney sonu\" kelimesini görüp bunu üçüncü bir bilinmeyenmiş gibi bir denkleme sokmaya çalışmak zaman kaybettirir. \"Sonunda\" ifadesi Horton'un tanımı gereği $f_c$'nin ta kendisidir — sızma eğrisi zamanla hep bu sabit değere yaklaşır.",
+            "en": "The trap in this question is right here: seeing \"end of test\" and trying to plug it into an equation as a third unknown wastes time. By Horton's own definition, \"at the end\" IS $f_c$ — the infiltration curve always settles toward this constant value over time."
+          },
+          "result": "f_0 = 4{,}0\\ \\text{cm/saat},\\quad f_c = 1{,}0\\ \\text{cm/saat}",
+          "check": {
+            "q": {
+              "tr": "\"Deney sonundaki sızma kapasitesi\" ifadesi Horton denkleminde hangi sabite karşılık gelir?",
+              "en": "What does \"the infiltration capacity at the end of the test\" correspond to in Horton's equation?"
+            },
+            "options": [
+              {
+                "tr": "$f_0$ — başlangıç kapasitesi",
+                "en": "$f_0$ — the initial capacity"
+              },
+              {
+                "tr": "$f_c$ — nihai (sabit) kapasite",
+                "en": "$f_c$ — the final (constant) capacity"
+              },
+              {
+                "tr": "$k$ — azalma sabiti",
+                "en": "$k$ — the decay constant"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Sızma kapasitesi zamanla azalıp sabit bir değerde düzleşir; deneyin sonunda ölçülen bu sabit değer, tanım gereği $f_c$'dir. $f_0$ başlangıçtaki (t=0) değerdir, $k$ ise bir hız değil bir sabittir — hiçbir zaman doğrudan bir sızma kapasitesi ölçümüyle karışmaz.",
+              "en": "Infiltration capacity decays over time and flattens at a constant value; the constant value measured at the end of the test is, by definition, $f_c$. $f_0$ is the value at t=0, and $k$ is not a rate at all — it should never be confused with a directly measured infiltration capacity."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Ara ölçümden k'yı çöz",
+            "en": "Solve for k from the intermediate reading"
+          },
+          "guiding": {
+            "tr": "f0 ve fc bilindiğine göre, 2 saatteki f=1,5 değeri Horton kalıbına konunca tek bilinmeyen ne kalır?",
+            "en": "With f0 and fc known, once you plug the 2-hour reading f=1.5 into Horton's template, what's the only unknown left?"
+          },
+          "hint": {
+            "tr": "$1{,}5=1+3e^{-2k}$ denklemini kur, önce üstel terimi yalnız bırak, sonra ln al.",
+            "en": "Set up $1.5=1+3e^{-2k}$, isolate the exponential term first, then take ln."
+          },
+          "work": {
+            "tr": "Horton kalıbına $t=2$ saat, $f=1{,}5$ yerleştirilir:\n\n$$1{,}5 = 1 + 3\\,e^{-2k} \\;\\Rightarrow\\; 0{,}5 = 3\\,e^{-2k} \\;\\Rightarrow\\; e^{-2k}=\\frac{1}{6}$$\n\nHer iki tarafın ln'sini alıp k'yı yalnız bırakıyoruz:\n\n$$-2k = \\ln\\left(\\frac{1}{6}\\right) \\;\\Rightarrow\\; k = \\frac{\\ln 6}{2} = 0{,}896\\ \\text{1/saat}$$",
+            "en": "Substitute $t=2$ h, $f=1.5$ into Horton's template:\n\n$$1.5 = 1 + 3\\,e^{-2k} \\;\\Rightarrow\\; 0.5 = 3\\,e^{-2k} \\;\\Rightarrow\\; e^{-2k}=\\frac{1}{6}$$\n\nTaking the natural log of both sides and isolating k:\n\n$$-2k = \\ln\\left(\\frac{1}{6}\\right) \\;\\Rightarrow\\; k = \\frac{\\ln 6}{2} = 0.896\\ \\text{1/h}$$"
+          },
+          "why": {
+            "tr": "Sadece BİR ara ölçüm varsa (4-3'teki gibi iki ara ölçüm değil), tek bilinmeyenli tek denklem yeter — cebir 4-1'in yarı-log yöntemine göre çok daha hızlı. Sıradan hata: üstel terimi yalnız bırakmadan doğrudan ln almak; önce $e^{-2k}$'yı tek başına bırakmalısın.",
+            "en": "With only ONE intermediate reading (not two like in 4-3), a single equation in a single unknown is enough — much faster algebra than 4-1's semi-log method. Common mistake: taking the ln before isolating the exponential term; you must first leave $e^{-2k}$ alone on one side."
+          },
+          "result": "k = 0{,}896\\ \\text{1/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Horton denklemini yaz",
+            "en": "Write down Horton's equation"
+          },
+          "guiding": {
+            "tr": "Artık üç sabit de elinde. Tam Horton denklemi nedir?",
+            "en": "You now have all three constants. What is the full Horton equation?"
+          },
+          "hint": {
+            "tr": "$f=f_c+(f_0-f_c)e^{-kt}$'ye sayıları yerleştir.",
+            "en": "Substitute the numbers into $f=f_c+(f_0-f_c)e^{-kt}$."
+          },
+          "work": {
+            "tr": "$$f = f_c + (f_0-f_c)e^{-kt} = 1 + (4-1)e^{-0{,}896t} = 1 + 3\\,e^{-0{,}896t}\\ \\text{cm/saat}$$",
+            "en": "$$f = f_c + (f_0-f_c)e^{-kt} = 1 + (4-1)e^{-0.896t} = 1 + 3\\,e^{-0.896t}\\ \\text{cm/h}$$"
+          },
+          "why": {
+            "tr": "Üç sabit toplanınca denklem tamamlanır — bundan sonraki her şey (F hesaplama, belirli bir f'ye ulaşma zamanı) bu tek satırlık formülden çıkar. Bu, sorunun asıl \"ürünüdür\"; sonraki adımlar sadece onu kullanmaktır.",
+            "en": "With the three constants assembled, the equation is complete — everything after this (computing F, finding the time for a given f) comes from this one line. This is the question's actual \"product\"; the remaining steps just use it."
+          },
+          "result": "f = 1 + 3\\,e^{-0{,}896t}\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "F(2 saat)'i Horton integraliyle bul",
+            "en": "Get F(2 hours) from Horton's integral"
+          },
+          "guiding": {
+            "tr": "Toplam sızmayı bulmak için f'yi mi, yoksa integralini mi kullanman gerekiyor?",
+            "en": "To find total infiltration, do you use f itself, or its integral?"
+          },
+          "hint": {
+            "tr": "$F=f_c t+\\frac{f_0-f_c}{k}(1-e^{-kt})$, $t=2$ saat.",
+            "en": "$F=f_c t+\\frac{f_0-f_c}{k}(1-e^{-kt})$, $t=2$ h."
+          },
+          "work": {
+            "tr": "$$F(2) = f_c\\cdot2 + \\frac{f_0-f_c}{k}\\left(1-e^{-k\\times2}\\right) = 1\\times2 + \\frac{3}{0{,}896}\\left(1-e^{-1{,}792}\\right) = 4{,}79\\ \\text{cm}$$",
+            "en": "$$F(2) = f_c\\cdot2 + \\frac{f_0-f_c}{k}\\left(1-e^{-k\\times2}\\right) = 1\\times2 + \\frac{3}{0.896}\\left(1-e^{-1.792}\\right) = 4.79\\ \\text{cm}$$"
+          },
+          "why": {
+            "tr": "Bu sorunun kendisi $i$ (yağış şiddeti) vermiyor, yani rejim kontrolü (i>f mi?) yapılamaz — soru doğrudan \"Horton denklemi geçerliyse\" diye sorduğu için integral doğrudan uygulanır. Sınavda i verilmeden f/F sorulursa, sızma kapasitesinin doğrudan gerçekleştiğini varsaymak beklenir.",
+            "en": "This question doesn't give $i$ (rainfall intensity), so no regime check (is i>f?) is possible — since the question directly asks \"using Horton's equation\", the integral is applied straightforwardly. When f/F is asked without i being given, you're expected to assume the capacity is realized directly."
+          },
+          "result": "F(2) = 4{,}79\\ \\text{cm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "f=1,1 cm/saat olan zamanı çöz",
+            "en": "Solve for the time when f=1.1 cm/h"
+          },
+          "guiding": {
+            "tr": "Bu sefer f biliniyor, t bilinmiyor — Horton denklemini hangi yönde çözersin?",
+            "en": "This time f is known and t is unknown — which direction do you solve Horton's equation in?"
+          },
+          "hint": {
+            "tr": "$1{,}1=1+3e^{-0{,}896t}$'ten üstel terimi yalnız bırak, ln al, t'yi çek.",
+            "en": "From $1.1=1+3e^{-0.896t}$, isolate the exponential, take ln, solve for t."
+          },
+          "work": {
+            "tr": "$$1{,}1 = 1+3\\,e^{-0{,}896t} \\;\\Rightarrow\\; 0{,}1 = 3\\,e^{-0{,}896t} \\;\\Rightarrow\\; e^{-0{,}896t} = \\frac{1}{30}$$\n\n$$-0{,}896t = \\ln\\left(\\frac{1}{30}\\right) \\;\\Rightarrow\\; t = \\frac{\\ln 30}{0{,}896} = 3{,}80\\ \\text{saat}\\ (\\approx228\\ \\text{dakika})$$",
+            "en": "$$1.1 = 1+3\\,e^{-0.896t} \\;\\Rightarrow\\; 0.1 = 3\\,e^{-0.896t} \\;\\Rightarrow\\; e^{-0.896t} = \\frac{1}{30}$$\n\n$$-0.896t = \\ln\\left(\\frac{1}{30}\\right) \\;\\Rightarrow\\; t = \\frac{\\ln 30}{0.896} = 3.80\\ \\text{h}\\ (\\approx228\\ \\text{min})$$"
+          },
+          "why": {
+            "tr": "Bu, adım 2'deki k çözümüyle AYNI cebirsel hareket, sadece bilinmeyen değişti (orada k, burada t). Horton denklemi ne yöne çözülürse çözülsün — f için, t için ya da k için — hep aynı üç adımlık iskelet: üstel terimi yalnız bırak, ln al, kalanı çek.",
+            "en": "This is the SAME algebraic move as solving for k in step 2, just with a different unknown (there k, here t). No matter which direction you solve Horton's equation — for f, for t, or for k — it's always the same three-step skeleton: isolate the exponential, take ln, solve for what's left."
+          },
+          "result": "t = 3{,}80\\ \\text{saat}\\ (\\approx228\\ \\text{dk})",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "$f = 1 + 3\\,e^{-0{,}896t}$ cm/saat. $\\boxed{F(2\\ \\text{saat}) = 4{,}79\\ \\text{cm}}$. $\\boxed{t\\ (f=1{,}1) = 3{,}80\\ \\text{saat}\\ (\\approx228\\ \\text{dk})}$.",
+        "en": "$f = 1 + 3\\,e^{-0.896t}$ cm/h. $\\boxed{F(2\\ \\text{h}) = 4.79\\ \\text{cm}}$. $\\boxed{t\\ (f=1.1) = 3.80\\ \\text{h}\\ (\\approx228\\ \\text{min})}$."
+      },
+      "traps": [
+        {
+          "tr": "\"Deney sonu\" ifadesini üçüncü bir bilinmeyen sanıp gereksiz bir denklem kurmaya çalışmak. Bu ifade doğrudan $f_c$'dir — hiçbir hesap gerektirmez.",
+          "en": "Treating \"end of test\" as a third unknown and trying to build an unnecessary equation. This phrase is directly $f_c$ — it requires no calculation at all."
+        },
+        {
+          "tr": "$e^{-2k}=1/6$'dan k'yı çekerken ln'yi yanlış tarafa uygulamak (örneğin $k=\\ln(6)/(-2)$ gibi eksi işaretini kaybetmek). Denklemi $-2k=\\ln(1/6)=-\\ln6$ olarak yaz, sonra k'yı çek: $k=\\ln6/2$ (pozitif).",
+          "en": "Mishandling the sign when solving $e^{-2k}=1/6$ for k (e.g. losing the minus sign as in $k=\\ln(6)/(-2)$). Write the equation as $-2k=\\ln(1/6)=-\\ln6$, then solve for k: $k=\\ln6/2$ (positive)."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya 2 saat sonraki sızma kapasitesi 1,5 yerine 2,0 cm/saat olsaydı?",
+            "en": "What if the 2-hour capacity were 2.0 cm/h instead of 1.5?"
+          },
+          "answer": {
+            "tr": "$2{,}0=1+3e^{-2k} \\Rightarrow e^{-2k}=1/3 \\Rightarrow k=\\ln3/2=0{,}549$ 1/saat — daha küçük bir k, yani daha YAVAŞ bir azalma (2 saatte kapasite daha az düşmüş). $F(2)=1\\times2+\\frac{3}{0{,}549}(1-e^{-1{,}099})=2+5{,}464\\times0{,}667=5{,}65$ cm — yavaş azalan bir eğri, aynı 2 saatte daha FAZLA su sızdırır çünkü kapasite daha uzun süre yüksek kalır.",
+            "en": "$2.0=1+3e^{-2k} \\Rightarrow e^{-2k}=1/3 \\Rightarrow k=\\ln3/2=0.549$ 1/h — a smaller k means SLOWER decay (the capacity dropped less over 2 hours). $F(2)=1\\times2+\\frac{3}{0.549}(1-e^{-1.099})=2+5.464\\times0.667=5.65$ cm — a slower-decaying curve infiltrates MORE water over the same 2 hours because the capacity stays high longer."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya çok uzun bir süre (t büyük) için toplam sızma sorulsaydı?",
+            "en": "What if total infiltration were asked for a very large t?"
+          },
+          "answer": {
+            "tr": "t büyüdükçe $e^{-kt}\\to0$ olur, yani Horton integralindeki üstel terim kaybolur ve $F\\approx f_c\\cdot t + \\frac{f_0-f_c}{k}$ (sabit bir kayma artı doğrusal bir terim) olur. Yani uzun vadede F, EĞİMİ $f_c$ olan bir doğru gibi büyür — bu, quiz sorusu 4'ün de cevabıdır.",
+            "en": "As t grows, $e^{-kt}\\to0$, so the exponential term in Horton's integral vanishes and $F\\approx f_c\\cdot t + \\frac{f_0-f_c}{k}$ (a constant offset plus a linear term). So in the long run F grows like a straight LINE of slope $f_c$ — this is also the answer to quiz question 4."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4-6",
+      "code": "Uygulama 4.6",
+      "title": {
+        "tr": "Analitik yağış + Horton: toplam sızma ve akış",
+        "en": "Analytic rainfall + Horton: total infiltration & runoff"
+      },
+      "difficulty": 3,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Yağış yüksekliği $P=2{,}6\\,t^{0{,}7}$ ve sızma kapasitesi $f=1+5\\,e^{-t}$ ($P$ cm, $f$ cm/saat, $t$ saat) şeklinde değişen bir havzada, $t=5$ saatin sonunda oluşacak toplam sızma ve yüzeysel akış yüksekliklerini sızma dışındaki kayıpları ihmal ederek hesaplayınız.",
+        "en": "In a basin where cumulative rainfall varies as $P=2.6\\,t^{0.7}$ and the infiltration capacity as $f=1+5\\,e^{-t}$ ($P$ in cm, $f$ in cm/h, $t$ in hours), compute the total infiltration and surface-runoff depths at the end of $t=5$ hours, ignoring losses other than infiltration."
+      },
+      "given": [
+        {
+          "symbol": "P(t)",
+          "value": "2{,}6\\,t^{0{,}7}\\ \\text{cm}",
+          "label": {
+            "tr": "Kümülatif yağış eğrisi",
+            "en": "Cumulative rainfall curve"
+          }
+        },
+        {
+          "symbol": "f(t)",
+          "value": "1+5\\,e^{-t}\\ \\text{cm/saat}\\ (k=1)",
+          "label": {
+            "tr": "Sızma kapasitesi (Horton, k=1)",
+            "en": "Infiltration capacity (Horton, k=1)"
+          }
+        },
+        {
+          "symbol": "t_{yağış}",
+          "value": "5\\ \\text{saat}",
+          "label": {
+            "tr": "Yağış süresi",
+            "en": "Storm duration"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "5 saatin sonunda toplam sızma yüksekliğini ve yüzeysel akış yüksekliğini bulmak.",
+        "en": "Find the total infiltration depth and the surface-runoff depth at the end of 5 hours."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Yağış şiddeti denklemini türet",
+            "en": "Derive the rainfall intensity equation"
+          },
+          "guiding": {
+            "tr": "P(t) verilmiş, i(t) isteniyor — bu ilişkiyi kuran işlem nedir?",
+            "en": "P(t) is given, i(t) is wanted — which operation connects them?"
+          },
+          "hint": {
+            "tr": "$i=dP/dt$; $P=2{,}6\\,t^{0{,}7}$'nin türevini al.",
+            "en": "$i=dP/dt$; differentiate $P=2.6\\,t^{0.7}$."
+          },
+          "work": {
+            "tr": "$$i = \\frac{dP}{dt} = 0{,}7\\times2{,}6\\,t^{-0{,}3} = 1{,}82\\,t^{-0{,}3}\\ \\text{cm/saat}$$",
+            "en": "$$i = \\frac{dP}{dt} = 0.7\\times2.6\\,t^{-0.3} = 1.82\\,t^{-0.3}\\ \\text{cm/h}$$"
+          },
+          "why": {
+            "tr": "Aynı 4-3'teki gibi: P verilip i isteniyorsa türev alınır. Bu adımı otomatikleştir — sızma sorularının neredeyse tamamı i(t) ile başlar, ve i(t) ya doğrudan verilir ya da P(t)'den türetilir.",
+            "en": "Same as in 4-3: when P is given and i is wanted, differentiate. Make this automatic — almost every infiltration question starts from i(t), and i(t) is either given directly or derived from P(t)."
+          },
+          "result": "i(t) = 1{,}82\\,t^{-0{,}3}\\ \\text{cm/saat}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İki uçta rejimi kontrol et: kesişim var mı?",
+            "en": "Check the regime at both ends: is there a crossing?"
+          },
+          "guiding": {
+            "tr": "t=1 ve t=5'te i ile f'yi karşılaştırdığında, rejim aynı mı kalıyor yoksa değişiyor mu?",
+            "en": "Comparing i and f at t=1 and t=5, does the regime stay the same or change?"
+          },
+          "hint": {
+            "tr": "$i(1)$ ile $f(1)$'i, sonra $i(5)$ ile $f(5)$'i karşılaştır.",
+            "en": "Compare $i(1)$ with $f(1)$, then $i(5)$ with $f(5)$."
+          },
+          "work": {
+            "tr": "$t=1$ saatte: $i(1)=1{,}82\\times1^{-0{,}3}=1{,}82$ cm/saat, $f(1)=1+5e^{-1}=2{,}84$ cm/saat $\\Rightarrow i<f$.\n\n$t=5$ saatte: $i(5)=1{,}82\\times5^{-0{,}3}=1{,}12$ cm/saat, $f(5)=1+5e^{-5}=1{,}03$ cm/saat $\\Rightarrow i>f$.\n\nBaşta $i<f$, sonda $i>f$: rejim mutlaka bir yerde tersine dönüyor, yani bir kesişim ($i=f$) var.",
+            "en": "At $t=1$ h: $i(1)=1.82\\times1^{-0.3}=1.82$ cm/h, $f(1)=1+5e^{-1}=2.84$ cm/h $\\Rightarrow i<f$.\n\nAt $t=5$ h: $i(5)=1.82\\times5^{-0.3}=1.12$ cm/h, $f(5)=1+5e^{-5}=1.03$ cm/h $\\Rightarrow i>f$.\n\nAt the start $i<f$, at the end $i>f$: the regime must flip somewhere in between — a crossing ($i=f$) exists."
+          },
+          "why": {
+            "tr": "Bu, 4-3'ün aynı fikrinin tekrarıdır: uzun süren yağışlarda rejim kontrolünü SADECE bir noktada değil, birkaç noktada yapmalısın. Burada özellikle t=1'de f>i olması, yağışın erken kısmında toprağın yağandan fazlasını yutabildiğini, yani o kısımda TÜM yağmurun sızdığını gösteriyor.",
+            "en": "This repeats 4-3's core idea: for long storms, don't check the regime at only one point — check several. Here, f>i at t=1 specifically shows that early in the storm the soil can absorb more than what's falling, meaning ALL the rain infiltrates in that early stretch."
+          },
+          "result": "i(1)<f(1),\\quad i(5)>f(5)\\ \\Rightarrow\\ \\text{kesişim var}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Kesişim zamanını sayısal olarak bul",
+            "en": "Find the crossing time numerically"
+          },
+          "guiding": {
+            "tr": "i(t)=f(t) denkleminin kapalı (analitik) bir çözümü yok — bu durumda kesişimi nasıl bulursun?",
+            "en": "$i(t)=f(t)$ has no closed-form solution — so how do you find the crossing?"
+          },
+          "hint": {
+            "tr": "Birkaç t değeri dene, $i-f$'nin işaret değiştirdiği aralığı daralt (deneme-yanılma / tablo).",
+            "en": "Try several t values and narrow down the interval where $i-f$ changes sign (trial and error / tabulation)."
+          },
+          "work": {
+            "tr": "$i(t)-f(t)$'yi birkaç noktada deneyerek daraltıyoruz: $t=2$'de $i=1{,}48$, $f=1{,}68$ ($i<f$); $t=3$'te $i=1{,}31$, $f=1{,}25$ ($i>f$). Aradaki bölgeyi inceleyince kesişim $t^*\\approx2{,}62$ saatte bulunur (bu noktada $i\\approx f\\approx1{,}36$ cm/saat).\n\n(Not: aslında $t\\to0$ yakınında $i\\to\\infty$ olduğundan çok erken, $t<0{,}02$ saat gibi ihmal edilebilir küçük bir aralıkta da teorik olarak $i>f$ olabilir; bu, pratik sınav çözümü açısından önemsizdir ve göz ardı edilir.)",
+            "en": "We narrow it down by trying a few points: at $t=2$, $i=1.48$, $f=1.68$ ($i<f$); at $t=3$, $i=1.31$, $f=1.25$ ($i>f$). Zooming into the region in between, the crossing is found at $t^*\\approx2.62$ h (where $i\\approx f\\approx1.36$ cm/h).\n\n(Note: strictly, since $i\\to\\infty$ as $t\\to0$, there is theoretically also a tiny early window, $t<0.02$ h, where $i>f$; this is negligible for exam purposes and is ignored.)"
+          },
+          "why": {
+            "tr": "Bu, sınavda karşılaşacağın en \"gerçekçi\" sızma sorusu tipi: kesişim kapalı formülle çözülemez, sadece deneme-yanılma (ya da grafikten okuma) ile bulunur. Bu tür bir soruda hocanın beklediği, kesin ondalıklara kadar hesap makinesiyle iterasyon değil, mantıklı bir aralığı daraltıp makul bir t* değeri vermendir.",
+            "en": "This is the most \"realistic\" type of infiltration question you'll meet on the exam: the crossing has no closed-form solution, only trial-and-error (or reading it off a graph). What's expected here isn't calculator iteration to many decimals, but narrowing a sensible interval and reporting a reasonable t*."
+          },
+          "result": "t^{*}\\approx2{,}62\\ \\text{saat}",
+          "check": {
+            "q": {
+              "tr": "i(t)=f(t) denklemi burada neden sayısal olarak (deneme-yanılma ile) çözülüyor, 4-3'teki gibi grafikten değil?",
+              "en": "Why is $i(t)=f(t)$ solved numerically (by trial and error) here rather than from a graph as in 4-3?"
+            },
+            "options": [
+              {
+                "tr": "Çünkü i ve f burada karmaşık üstel/kuvvet ifadeleri içeriyor ve denklem kapalı biçimde çözülemiyor",
+                "en": "Because here i and f involve complex power/exponential expressions and the equation has no closed-form solution"
+              },
+              {
+                "tr": "Çünkü bu soruda hiçbir zaman bir kesişim yoktur",
+                "en": "Because there is never a crossing in this question"
+              },
+              {
+                "tr": "Çünkü k değeri bilinmiyor",
+                "en": "Because the value of k is unknown"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$1{,}82t^{-0{,}3}=1+5e^{-t}$ denklemi bir kuvvet fonksiyonu ile bir üstel fonksiyonu eşitliyor; bu tür karma denklemler cebirsel olarak t için çözülemez, sadece sayısal yöntemlerle (deneme-yanılma, iterasyon, grafik) yaklaşık çözülebilir. k burada zaten verilmiş (k=1); kesişimin var olduğunu da adım 2'de zaten gösterdik.",
+              "en": "The equation $1.82t^{-0.3}=1+5e^{-t}$ sets a power function equal to an exponential function; such mixed equations cannot be solved algebraically for t, only approximated numerically (trial and error, iteration, or reading a graph). k is already given here (k=1); we already showed the crossing exists in step 2."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Kesişimden önce: sızma yağıştan gelir (F1)",
+            "en": "Before the crossing: infiltration from the rainfall (F1)"
+          },
+          "guiding": {
+            "tr": "0 ile 2,62 saat arasında f>i. Bu aralıkta gerçek sızma neye eşit?",
+            "en": "Between 0 and 2.62 h, f>i. What does actual infiltration equal in this interval?"
+          },
+          "hint": {
+            "tr": "f>i olduğu her aralıkta tüm yağış sızar: $F_1=P(t^*)$.",
+            "en": "Whenever f>i, all the rain infiltrates: $F_1=P(t^*)$."
+          },
+          "work": {
+            "tr": "$0<t<2{,}62$ saat aralığında $f>i$ olduğundan yağan yağmurun tamamı sızar; bu parçadaki sızma doğrudan yağış eğrisinden okunur:\n\n$$F_1 = P(2{,}62) = 2{,}6\\times2{,}62^{0{,}7} = 5{,}10\\ \\text{cm}$$",
+            "en": "In $0<t<2.62$ h, $f>i$, so all the rain infiltrates; infiltration in this segment is read directly from the rainfall curve:\n\n$$F_1 = P(2{,}62) = 2.6\\times2.62^{0.7} = 5.10\\ \\text{cm}$$"
+          },
+          "why": {
+            "tr": "Bu, 4-3'te öğrendiğimiz kuralın birebir tekrarı: f>i iken Horton'un integrali GEÇERSİZ, çünkü toprak arzla (yağışla) sınırlıdır, kapasiteyle değil. F1'i P'den okumak, bu ünitenin en temel ayırt etme becerisidir.",
+            "en": "This is a direct repeat of the rule learned in 4-3: while f>i, Horton's integral is INVALID, because the soil is supply-limited (by the rain), not capacity-limited. Reading F1 from P is this unit's most fundamental discrimination skill."
+          },
+          "result": "F_1 = 5{,}10\\ \\text{cm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Kesişimden sonra: Horton integralini uygula (F2)",
+            "en": "After the crossing: apply Horton's integral (F2)"
+          },
+          "guiding": {
+            "tr": "2,62 ile 5 saat arasında artık i>f. Bu parçanın integralini nasıl kurarsın? f=1+5e^{-t}'nin integrali neye benzer?",
+            "en": "Between 2.62 and 5 h, now i>f. How do you set up this segment's integral? What does the integral of f=1+5e^{-t} look like?"
+          },
+          "hint": {
+            "tr": "$\\int f\\,dt = \\int(1+5e^{-t})dt = t-5e^{-t}$; bunu $t_1=2{,}62$ ve $t_2=5$ sınırları arasında değerlendir.",
+            "en": "$\\int f\\,dt = \\int(1+5e^{-t})dt = t-5e^{-t}$; evaluate this between limits $t_1=2.62$ and $t_2=5$."
+          },
+          "work": {
+            "tr": "$2{,}62<t<5$ saat aralığında $i>f$, toprak kapasitesiyle sızdırıyor; Horton'un ($k=1$ özel durumuyla) integralini bu sınırlar arasında alıyoruz:\n\n$$F_2 = \\int_{2{,}62}^{5} (1+5e^{-t})\\,dt = \\Big[t-5e^{-t}\\Big]_{2{,}62}^{5} = (5-2{,}62) + 5\\left(e^{-2{,}62}-e^{-5}\\right)$$\n\n$$F_2 = 2{,}38 + 5(0{,}0727-0{,}0067) = 2{,}38+5\\times0{,}0660 = 2{,}71\\ \\text{cm}$$",
+            "en": "In $2.62<t<5$ h, $i>f$, the soil infiltrates at capacity; we integrate Horton's equation (the $k=1$ special case) between these limits:\n\n$$F_2 = \\int_{2.62}^{5} (1+5e^{-t})\\,dt = \\Big[t-5e^{-t}\\Big]_{2.62}^{5} = (5-2.62) + 5\\left(e^{-2.62}-e^{-5}\\right)$$\n\n$$F_2 = 2.38 + 5(0.0727-0.0067) = 2.38+5\\times0.0660 = 2.71\\ \\text{cm}$$"
+          },
+          "why": {
+            "tr": "k=1 olduğu için Horton'un standart integral formülündeki $\\frac{f_0-f_c}{k}$ terimi sadeleşiyor, ama fikir aynı: kesişimden sonuna kadar Horton'u integre et. 4-3'teki $F_2$ adımıyla aynı şablon — sadece burada integral, kesirli üsler yerine düz üstel fonksiyonla alınıyor.",
+            "en": "Since $k=1$, the $\\frac{f_0-f_c}{k}$ term in Horton's standard integral simplifies, but the idea is identical: integrate Horton from the crossing to the end. Same template as the $F_2$ step in 4-3 — just here the integral uses a plain exponential instead of fractional powers."
+          },
+          "result": "F_2 = 2{,}71\\ \\text{cm}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Toplamları ve yüzeysel akışı hesapla",
+            "en": "Compute the totals and the surface runoff"
+          },
+          "guiding": {
+            "tr": "İki parçadaki sızmayı toplayıp toplam yağıştan çıkarınca ne bulursun?",
+            "en": "Once you add the two infiltration pieces and subtract from total rainfall, what do you get?"
+          },
+          "hint": {
+            "tr": "$\\Sigma F=F_1+F_2$; $\\Sigma P=P(5)$; akış $=\\Sigma P-\\Sigma F$.",
+            "en": "$\\Sigma F=F_1+F_2$; $\\Sigma P=P(5)$; runoff $=\\Sigma P-\\Sigma F$."
+          },
+          "work": {
+            "tr": "$$\\Sigma F = F_1+F_2 = 5{,}10+2{,}71 = 7{,}81\\ \\text{cm}$$\n\nToplam yağış: $\\Sigma P = 2{,}6\\times5^{0{,}7}=8{,}02$ cm.\n\n$$\\text{Akış} = \\Sigma P - \\Sigma F = 8{,}02 - 7{,}81 = 0{,}21\\ \\text{cm}$$\n\n(Sızmanın çok erken kısmındaki teorik $i>f$ penceresini de titizlikle hesaba katan tam çözüm $F\\approx7{,}76$ cm, akış $\\approx0{,}26$ cm verir; sınavdaki beklenen yol yukarıdaki sadeleştirilmiş, iki bölgeli çözümdür.)",
+            "en": "$$\\Sigma F = F_1+F_2 = 5.10+2.71 = 7.81\\ \\text{cm}$$\n\nTotal rainfall: $\\Sigma P = 2.6\\times5^{0.7}=8.02$ cm.\n\n$$\\text{Runoff} = \\Sigma P - \\Sigma F = 8.02 - 7.81 = 0.21\\ \\text{cm}$$\n\n(A fully rigorous treatment that also accounts for the tiny early-time $i>f$ window gives $F\\approx7.76$ cm, runoff $\\approx0.26$ cm; the expected exam route is the simplified two-region solution above.)"
+          },
+          "why": {
+            "tr": "Bu final adım, F1+F2 ve ΣP−ΣF ile tüm çözümü kapatır — 4-3'ün tam aynı iskeleti. Sınavda \"neden çok küçük bir erken pencereyi ihmal ediyoruz?\" sorusuna cevap: teorik olarak var ama pratik değeri (süresi milisaniyeler mertebesinde) ihmal edilebilir; hoca bu inceliği genelde not olarak bekler, ayrı bir hesap olarak değil.",
+            "en": "This final step closes the whole solution with F1+F2 and ΣP−ΣF — exactly the same skeleton as 4-3. Answering \"why do we ignore the tiny early window?\": it exists in theory but its practical duration (on the order of milliseconds) is negligible; the professor typically expects this nuance as a footnote, not a separate calculation."
+          },
+          "result": "\\Sigma F \\approx 7{,}81\\ \\text{cm},\\quad \\text{Akış} \\approx 0{,}21\\ \\text{cm}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "Kesişim $t^*\\approx2{,}62$ saat. $F_1=5{,}10$ cm, $F_2=2{,}71$ cm $\\Rightarrow \\boxed{\\Sigma F\\approx7{,}81\\ \\text{cm}}$; $\\Sigma P=8{,}02$ cm $\\Rightarrow \\boxed{\\text{Akış}\\approx0{,}21\\ \\text{cm}}$. (Erken pencereyi de içeren tam çözüm: F≈7,76 cm, akış≈0,26 cm.)",
+        "en": "Crossing $t^*\\approx2.62$ h. $F_1=5.10$ cm, $F_2=2.71$ cm $\\Rightarrow \\boxed{\\Sigma F\\approx7.81\\ \\text{cm}}$; $\\Sigma P=8.02$ cm $\\Rightarrow \\boxed{\\text{Runoff}\\approx0.21\\ \\text{cm}}$. (Fully rigorous solution including the early window: F≈7.76 cm, runoff≈0.26 cm.)"
+      },
+      "traps": [
+        {
+          "tr": "Kesişim zamanını kapalı bir formülle bulmaya çalışmak. $1{,}82t^{-0{,}3}=1+5e^{-t}$ analitik olarak çözülemez; deneme-yanılma veya grafik gerekir.",
+          "en": "Trying to find the crossing time from a closed-form formula. $1.82t^{-0.3}=1+5e^{-t}$ cannot be solved analytically; trial-and-error or a graph is required."
+        },
+        {
+          "tr": "$\\int f\\,dt=t-5e^{-t}$'yi $t_1=0$'dan almak (4-1/4-2'deki tam integral formülüyle karıştırmak). Burada alt sınır kesişim noktası $t^*=2{,}62$'dir, sıfır değil.",
+          "en": "Evaluating $\\int f\\,dt=t-5e^{-t}$ from $t_1=0$ (confusing it with the full-storm integral formula in 4-1/4-2). Here the lower limit is the crossing point $t^*=2.62$, not zero."
+        },
+        {
+          "tr": "Çok erken ($t<0{,}02$ saat) teorik $i>f$ penceresini \"büyük bir hata\" sanıp zaman kaybederek tam olarak hesaplamaya çalışmak. Sınav seviyesinde bu not olarak belirtilir, ayrı bir entegrasyon gerektirmez.",
+          "en": "Mistaking the tiny early ($t<0.02$ h) theoretical $i>f$ window for \"a major error\" and wasting time trying to integrate it exactly. At exam level this is noted as a footnote, not a separate integration."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yağış 5 saat yerine sadece 2 saat sürseydi?",
+            "en": "What if the storm lasted only 2 hours instead of 5?"
+          },
+          "answer": {
+            "tr": "Kesişim $t^*=2{,}62$ saat, 2 saatten SONRA gerçekleşiyor — yani yağış hiç bitmeden kesişime ulaşmıyoruz, rejim boyunca hep $f>i$. O zaman TÜM yağış boyunca tüm yağmur sızar: $F=P(2)=2{,}6\\times2^{0{,}7}=4{,}22$ cm, akış $=0$. Kısa yağışlarda toprağın hiç doymayabileceğini gösteren güzel bir örnek.",
+            "en": "The crossing $t^*=2.62$ h occurs AFTER 2 hours — so the storm ends before ever reaching the crossing, and $f>i$ holds throughout. Then ALL the rain infiltrates for the entire storm: $F=P(2)=2.6\\times2^{0.7}=4.22$ cm, runoff $=0$. A clean example showing that in short storms the soil may never saturate at all."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya sızma kapasitesinin tabanı fc=0,5 olsaydı (f=0,5+5,5e^{-t})?",
+            "en": "What if the infiltration capacity floor were fc=0.5 (f=0.5+5.5e^{-t})?"
+          },
+          "answer": {
+            "tr": "Daha düşük bir taban, eğrinin genel olarak daha aşağıda seyretmesi demektir — bu da kesişimin (i=f) DAHA ERKEN gerçekleşmesine yol açar (yaklaşık hesap gerektirir, sayı vermeye gerek yok). Kesişim erken olunca Horton'un (kapasite-kısıtlı) geçerli olduğu bölge uzar, ama f zaten düşük olduğu için o bölgede az su sızar — sonuçta toplam sızma azalır, akış artar. Yöntem aynı kalır: yeni i-f karşılaştırmasını yap, yeni t*'ı bul, iki parçalı integrali tekrarla.",
+            "en": "A lower floor means the curve generally sits lower — which makes the crossing (i=f) happen EARLIER (this needs an approximate re-calculation, no exact number required here). An earlier crossing lengthens the Horton-valid (capacity-limited) region, but since f is already lower there, less water infiltrates in it — overall infiltration decreases and runoff increases. The method stays the same: redo the i-f comparison, find the new t*, repeat the two-piece integral."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": {
+        "tr": "Horton denkleminde $t=0$ anında sızma kapasitesi neye eşittir?",
+        "en": "In Horton's equation, what is the infiltration capacity at $t=0$?"
+      },
+      "options": [
+        {
+          "tr": "$f_0$",
+          "en": "$f_0$"
+        },
+        {
+          "tr": "$f_c$",
+          "en": "$f_c$"
+        },
+        {
+          "tr": "$f_0-f_c$",
+          "en": "$f_0-f_c$"
+        },
+        {
+          "tr": "Sonsuz",
+          "en": "Infinite"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$t=0$ konursa $e^{-k\\times0}=1$ olur, dolayısıyla $f=f_c+(f_0-f_c)\\times1=f_0$. $f_c$ ancak $t\\to\\infty$'da yaklaşılan değerdir; $f_0-f_c$ sadece üstel terimin katsayısıdır, tek başına bir kapasite değildir; \"sonsuz\" hiçbir noktada anlamlı değildir çünkü Horton eğrisi her zaman sonlu bir üst sınırdan başlar.",
+        "en": "Setting $t=0$ gives $e^{-k\\times0}=1$, so $f=f_c+(f_0-f_c)\\times1=f_0$. $f_c$ is only approached as $t\\to\\infty$; $f_0-f_c$ is merely the coefficient of the exponential term, not a capacity on its own; \"infinite\" is never meaningful since Horton's curve always starts from a finite upper bound."
+      }
+    },
+    {
+      "q": {
+        "tr": "Bir aralıkta $i=10$ mm/saat, $f=20$ mm/saat ise gerçek sızma hızı kaçtır?",
+        "en": "In an interval, $i=10$ mm/h and $f=20$ mm/h. What is the actual infiltration rate?"
+      },
+      "options": [
+        {
+          "tr": "10 mm/saat (arz-kısıtlı: tüm yağış sızar)",
+          "en": "10 mm/h (supply-limited: all the rain infiltrates)"
+        },
+        {
+          "tr": "20 mm/saat (kapasiteye eşit)",
+          "en": "20 mm/h (equal to the capacity)"
+        },
+        {
+          "tr": "15 mm/saat (ikisinin ortalaması)",
+          "en": "15 mm/h (the average of the two)"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$i<f$ olduğunda toprak yağandan daha fazlasını emebilecek durumdadır; bu yüzden gerçek sızma, KAPASİTE değil, YAĞAN miktar kadardır: 10 mm/saat. 20 mm/saat cevabı $i>f$ olsaydı doğru olurdu; ortalama almak bu ünitede hiçbir formülde yer almaz.",
+        "en": "When $i<f$, the soil could absorb more than what's falling; so actual infiltration equals the RAINFALL, not the capacity: 10 mm/h. The 20 mm/h answer would be correct only if $i>f$; averaging the two appears in no formula in this unit."
+      }
+    },
+    {
+      "q": {
+        "tr": "Horton denklemindeki $k$ sabitinin birimi nedir?",
+        "en": "What is the unit of the constant $k$ in Horton's equation?"
+      },
+      "options": [
+        {
+          "tr": "cm/saat",
+          "en": "cm/h"
+        },
+        {
+          "tr": "1/saat",
+          "en": "1/hour"
+        },
+        {
+          "tr": "Birimsiz",
+          "en": "Dimensionless"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$e^{-kt}$ ifadesindeki üs birimsiz olmak zorundadır; $t$ saat cinsindense $k$'nın $1/\\text{saat}$ olması gerekir ki çarpım birimsiz kalsın. cm/saat, $f$'nin birimidir, $k$'nın değil; \"birimsiz\" olsaydı $t$ ile çarpımı hâlâ saat biriminde kalır ve üs anlamsızlaşırdı.",
+        "en": "The exponent in $e^{-kt}$ must be dimensionless; if $t$ is in hours, $k$ must be $1/\\text{hour}$ so the product cancels units. cm/h is the unit of $f$, not $k$; if $k$ were dimensionless, multiplying it by $t$ would leave units of hours and the exponent would be meaningless."
+      }
+    },
+    {
+      "q": {
+        "tr": "Çok uzun bir süre sonra ($t$ büyük), toplam sızma F nasıl büyür?",
+        "en": "After a very long time (large $t$), how does total infiltration F grow?"
+      },
+      "options": [
+        {
+          "tr": "$f_c$ eğimli bir doğru gibi",
+          "en": "Like a straight line of slope $f_c$"
+        },
+        {
+          "tr": "$f_0$ eğimli bir doğru gibi",
+          "en": "Like a straight line of slope $f_0$"
+        },
+        {
+          "tr": "Sabit bir değerde durur, hiç artmaz",
+          "en": "It stays at a constant value and never increases"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "t büyüdükçe Horton integralindeki $e^{-kt}$ terimi sıfıra gider, geriye $F\\approx f_c\\cdot t+\\text{sabit}$ kalır — yani F, eğimi $f_c$ olan bir doğru gibi büyür (Uygulama 4.5'in whatIf'inde görüldüğü gibi). $f_0$ sadece başlangıçtaki anlık hızdır, uzun vadeli eğimi belirlemez; F asla sabitte durmaz çünkü $f_c>0$ olduğu sürece sızma sürekli devam eder.",
+        "en": "As t grows, the $e^{-kt}$ term in Horton's integral vanishes, leaving $F\\approx f_c\\cdot t+\\text{constant}$ — so F grows like a line of slope $f_c$ (as seen in Uygulama 4.5's whatIf). $f_0$ is only the instantaneous rate at the start and doesn't set the long-term slope; F never stays constant since infiltration keeps happening as long as $f_c>0$."
+      }
+    },
+    {
+      "q": {
+        "tr": "Bir hiyetografta iki blok var: 40 mm/saat ve 30 mm/saat, her biri 0,5 saat; üçüncü blok 10 mm/saat, 0,5 saat. Toplam akış 15 mm ise φ kaçtır?",
+        "en": "A hyetograph has two blocks: 40 mm/h and 30 mm/h, each 0.5 h; a third block is 10 mm/h, 0.5 h. If total runoff is 15 mm, what is φ?"
+      },
+      "options": [
+        {
+          "tr": "15 mm/saat",
+          "en": "15 mm/h"
+        },
+        {
+          "tr": "20 mm/saat",
+          "en": "20 mm/h"
+        },
+        {
+          "tr": "25 mm/saat",
+          "en": "25 mm/h"
+        },
+        {
+          "tr": "10 mm/saat",
+          "en": "10 mm/h"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "İlk iki bloğun (40, 30) çizginin üstünde kaldığını dene: $(40-\\varphi+30-\\varphi)\\times0{,}5=15 \\Rightarrow 70-2\\varphi=30 \\Rightarrow \\varphi=20$ mm/saat. Kontrol: dışarıda bırakılan 10 mm/saat, $20$'den küçük ✓ tutarlı. 15 mm/saat üç bloğu da (10 dahil) üstte varsayarsa çıkar ama $10<15$ olmadığından tutarsızdır; 25 ve 10 mm/saat ise hatalı blok seçimlerinden gelir.",
+        "en": "Try assuming the first two blocks (40, 30) sit above the line: $(40-\\varphi+30-\\varphi)\\times0.5=15 \\Rightarrow 70-2\\varphi=30 \\Rightarrow \\varphi=20$ mm/h. Check: the excluded 10 mm/h is less than 20 ✓ consistent. 15 mm/h would come from wrongly assuming all three blocks (including the 10) sit above the line, but that's inconsistent since $10<15$ fails; 25 and 10 mm/h come from other wrong block choices."
+      }
+    },
+    {
+      "q": {
+        "tr": "Uygulama 4.2'de kullanılan \"sızma indisi\" tanımı hangisidir?",
+        "en": "What is the definition of the \"infiltration index\" used in Uygulama 4.2?"
+      },
+      "options": [
+        {
+          "tr": "Yağış boyunca ortalama sızma kapasitesi: $F/t$",
+          "en": "The average infiltration capacity over the storm: $F/t$"
+        },
+        {
+          "tr": "Yağış başındaki anlık sızma kapasitesi: $f_0$",
+          "en": "The instantaneous infiltration capacity at the start of the storm: $f_0$"
+        },
+        {
+          "tr": "Sızma kapasitesinin azalma hızı: $k$",
+          "en": "The decay rate of the infiltration capacity: $k$"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Sızma indisi, yağış boyunca gerçekleşen TOPLAM sızmayı (F) yağışın TOPLAM SÜRESİNE (t) bölerek elde edilen tek, ortalama bir kapasitedir — Uygulama 4.2'de $F/t=2{,}75/0{,}75=3{,}67$ mm/saat olarak bulundu. $f_0$ sadece başlangıç değeridir, ortalama değildir; $k$ ise bir azalma sabitidir, bir hız değil.",
+        "en": "The infiltration index is a single, average capacity obtained by dividing the TOTAL infiltration (F) over the storm by the TOTAL DURATION (t) — in Uygulama 4.2 it was found as $F/t=2.75/0.75=3.67$ mm/h. $f_0$ is only the starting value, not an average; $k$ is a decay constant, not a rate."
+      }
+    },
+    {
+      "q": {
+        "tr": "Horton'un F integrali hangi durumda GEÇERSİZ olur?",
+        "en": "When is Horton's F-integral INVALID?"
+      },
+      "options": [
+        {
+          "tr": "$i<f$ olduğunda (tüm yağış sızıyor)",
+          "en": "When $i<f$ (all the rain infiltrates)"
+        },
+        {
+          "tr": "$i>f$ olduğunda (kapasite-kısıtlı)",
+          "en": "When $i>f$ (capacity-limited)"
+        },
+        {
+          "tr": "Sadece $f_c=0$ ise",
+          "en": "Only when $f_c=0$"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$i<f$ iken toprak yağandan fazlasını emebilecek durumdadır; gerçek sızma artık kapasite tarafından değil, yağış tarafından belirlenir (arz-kısıtlı). Bu durumda Horton'un integrali \"sızma kapasiteye eşit\" varsayımına dayandığından geçersizdir — sızma doğrudan P'den okunmalıdır (bkz. 4.3, 4.6). $i>f$ tam tersine Horton'un GEÇERLİ olduğu durumdur; $f_c=0$ özel bir durumdur ama geçersizlik koşulunu belirlemez.",
+        "en": "When $i<f$, the soil could absorb more than what's falling; actual infiltration is now set by the rainfall, not the capacity (supply-limited). Horton's integral assumes \"infiltration equals capacity,\" so it is invalid here — infiltration must be read directly from P instead (see 4.3, 4.6). $i>f$ is, on the contrary, exactly when Horton IS valid; $f_c=0$ is a special case but doesn't define the invalidity condition."
+      }
+    },
+    {
+      "q": {
+        "tr": "$(f-f_c)$'nin $t$'ye karşı yarı-logaritmik grafiği çizilirse doğrunun eğimi neye eşittir?",
+        "en": "If you plot $(f-f_c)$ against $t$ on a semi-log graph, what does the line's slope equal?"
+      },
+      "options": [
+        {
+          "tr": "$-k$",
+          "en": "$-k$"
+        },
+        {
+          "tr": "$k$",
+          "en": "$k$"
+        },
+        {
+          "tr": "$f_0-f_c$",
+          "en": "$f_0-f_c$"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ bir $y=a+bx$ doğrusudur; eğim $b=-k$'dır (negatif, çünkü kapasite zamanla azalır). $+k$ eğimin işaretini yanlış alır; $f_0-f_c$ ise doğrunun eğimi değil, dikey eksen kesim noktasının ($a=\\ln(f_0-f_c)$) İÇİNDEKİ ifadedir, kendisi değil.",
+        "en": "$\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ is a line $y=a+bx$; the slope is $b=-k$ (negative, since capacity decays over time). $+k$ gets the sign of the slope wrong; $f_0-f_c$ is not the slope at all — it's the expression INSIDE the intercept term ($a=\\ln(f_0-f_c)$)."
+      }
+    }
+  ]
+}

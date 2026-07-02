@@ -1,0 +1,519 @@
+{
+  "unit": 8,
+  "slug": "yeralti-suyu",
+  "title": { "tr": "Yeraltı Suyu", "en": "Groundwater" },
+  "tagline": { "tr": "Akiferler, kuyular ve Dupuit kuyu denklemleri", "en": "Aquifers, wells, and the Dupuit well equations" },
+  "concept": {
+    "overview": {
+      "tr": "Yağışın bir kısmı zemine sızar ve geçirimli tabakalarda birikir. Su taşıyan bu tabakalara **akifer** denir. İki tip vardır:\n\n1. **Serbest yüzeyli akifer**: Üst sınırı, atmosfer basıncındaki **yeraltı su yüzeyidir** (su tablası). Su seviyesi serbestçe iner-çıkar.\n2. **Basınçlı akifer**: Altta ve üstte **geçirimsiz** tabakalar arasına sıkışmıştır; içindeki su basınç altındadır. Bu akifere kuyu açılınca su, akiferin tavanının **üstüne** yükselir (piyezometre seviyesi).\n\nBir kuyudan sabit $Q$ debisiyle su çekilince kuyu çevresinde bir **alçalma konisi** oluşur; yeterli süre sonra akım kararlı hale gelir. Bu durumda kuyu çevresindeki her silindirik yüzeyden aynı $Q$ geçer. Darcy yasası ($V = k \\cdot i$) ile süreklilik birleştirilip iki yarıçap arasında integre edilirse **kuyu denklemleri** çıkar.\n\n**Dupuit kabulleri** (serbest yüzeyli akım için): (a) akım çizgileri yatay kabul edilir, (b) hidrolik eğim, su yüzeyinin eğimine ($dh/dr$) eşittir, (c) eğimler küçüktür. Bu kabuller kuyudan uzakta çok iyi çalışır; kuyu cidarında (eğim dikleştiği için) yaklaşıktır ama sınavda beklenen yöntem budur.\n\n**Hangi formül?** İfadede *serbest yüzeyli* geçiyorsa $h^2$ farkı, *basınçlı* geçiyorsa $b$ kalınlığıyla $h$ farkı kullanılır. Verilen sayının **alçalma** ($s$) mı yoksa **su yüksekliği** ($h$) mi olduğuna dikkat: $s = H - h$.",
+      "en": "Part of the rainfall infiltrates and collects in permeable layers. A water-bearing layer is called an **aquifer**. There are two types:\n\n1. **Unconfined aquifer**: its upper boundary is the **water table**, at atmospheric pressure. The water surface is free to rise and fall.\n2. **Confined aquifer**: squeezed between **impervious** layers above and below; the water inside is under pressure. When a well is drilled, water rises **above** the top of the aquifer (the piezometric level).\n\nWhen a well pumps at a constant rate $Q$, a **cone of depression** forms around it; after enough time the flow becomes steady. Then the same $Q$ crosses every cylindrical surface around the well. Combining Darcy's law ($V = k \\cdot i$) with continuity and integrating between two radii gives the **well equations**.\n\n**Dupuit assumptions** (for unconfined flow): (a) flow lines are taken as horizontal, (b) the hydraulic gradient equals the slope of the water table ($dh/dr$), (c) slopes are small. These work very well away from the well; right at the well face (where the gradient steepens) they are approximate — but this is the method expected in the exam.\n\n**Which formula?** If the statement says *unconfined* (serbest yüzeyli), use the difference of $h^2$; if it says *confined* (basınçlı), use the thickness $b$ and the difference of $h$. Watch whether a given number is a **drawdown** ($s$) or a **water height** ($h$): $s = H - h$."
+    },
+    "keyFormulas": [
+      {
+        "name": { "tr": "Darcy yasası", "en": "Darcy's law" },
+        "latex": "V = k \\cdot i",
+        "meaning": { "tr": "$V$: görünür (Darcy) hızı, $k$: hidrolik iletkenlik (permeabilite) [m/s], $i$: hidrolik eğim (boyutsuz).", "en": "$V$: apparent (Darcy) velocity, $k$: hydraulic conductivity (permeability) [m/s], $i$: hydraulic gradient (dimensionless)." },
+        "whenToUse": { "tr": "Tüm yeraltı suyu akımlarının temeli; kuyu denklemleri bundan türetilir. $k$ istendiğinde birimin m/s çıkacağını hatırlatır.", "en": "The basis of all groundwater flow; the well equations are derived from it. Reminds you that $k$ comes out in m/s." }
+      },
+      {
+        "name": { "tr": "Serbest yüzeyli akiferde kuyu (Dupuit)", "en": "Well in an unconfined aquifer (Dupuit)" },
+        "latex": "Q = \\frac{\\pi k \\left(h_2^2 - h_1^2\\right)}{\\ln(r_2/r_1)}",
+        "meaning": { "tr": "$Q$: kuyudan çekilen debi [m³/s], $k$: hidrolik iletkenlik, $h_1, h_2$: kuyu eksenine $r_1 < r_2$ uzaklıklarındaki **su yükseklikleri** (geçirimsiz tabandan itibaren) [m].", "en": "$Q$: pumping rate [m³/s], $k$: hydraulic conductivity, $h_1, h_2$: **water heights** (measured from the impervious base) at distances $r_1 < r_2$ from the well axis [m]." },
+        "whenToUse": { "tr": "İfadede 'serbest yüzeyli akifer' geçiyorsa. Dikkat: yüksekliklerin **kareleri** farkı! Denklem herhangi iki yarıçap çifti için yazılabilir (kuyu cidarı $r_w, h_w$ dahil).", "en": "When the statement says 'unconfined aquifer'. Careful: difference of the **squares** of the heights! The equation holds between any two radii (including the well face $r_w, h_w$)." }
+      },
+      {
+        "name": { "tr": "Basınçlı akiferde kuyu (Thiem)", "en": "Well in a confined aquifer (Thiem)" },
+        "latex": "Q = \\frac{2 \\pi k b \\left(h_2 - h_1\\right)}{\\ln(r_2/r_1)}",
+        "meaning": { "tr": "$b$: akifer kalınlığı [m], $h_1, h_2$: $r_1 < r_2$ uzaklıklarındaki **piyezometre seviyeleri** [m]. Diğer semboller aynı.", "en": "$b$: aquifer thickness [m], $h_1, h_2$: **piezometric levels** at distances $r_1 < r_2$ [m]. Other symbols as before." },
+        "whenToUse": { "tr": "İfadede 'basınçlı akifer' geçiyorsa. Akım kesiti $2\\pi r b$ sabit kalınlıkta olduğundan fark **birinci kuvvetten**dir ($h$, $h^2$ değil).", "en": "When the statement says 'confined aquifer'. Because the flow section $2\\pi r b$ has constant thickness, the difference is **first power** ($h$, not $h^2$)." }
+      },
+      {
+        "name": { "tr": "Alçalma – su yüksekliği ilişkisi", "en": "Drawdown – water height relation" },
+        "latex": "s = H - h",
+        "meaning": { "tr": "$s$: alçalma (düşüm) [m], $H$: pompajdan önceki su yüksekliği (serbest yüzeyli akiferde akifer kalınlığı) [m], $h$: pompaj sırasındaki su yüksekliği [m].", "en": "$s$: drawdown [m], $H$: water height before pumping (the saturated thickness in an unconfined aquifer) [m], $h$: water height during pumping [m]." },
+        "whenToUse": { "tr": "Soru 'su yüzeyleri ... m alçaldı' diyorsa önce $h = H - s$ ile yüksekliğe çevir; formüller $h$ ile çalışır.", "en": "If the problem says 'the water levels dropped by ... m', first convert with $h = H - s$; the formulas work with $h$." }
+      },
+      {
+        "name": { "tr": "İletimlilik (transmisivite)", "en": "Transmissivity" },
+        "latex": "T = k \\cdot b",
+        "meaning": { "tr": "$T$: akiferin birim genişlikten geçirebileceği debiyi ölçer [m²/s]; $k$ iletkenlik, $b$ akifer kalınlığı.", "en": "$T$: measures the flow an aquifer can transmit per unit width [m²/s]; $k$ conductivity, $b$ aquifer thickness." },
+        "whenToUse": { "tr": "Basınçlı akifer sorularında $k$ ve $b$'den türetilen pratik büyüklük; bazı formüller $2\\pi T$ ile yazılır.", "en": "A practical quantity derived from $k$ and $b$ in confined-aquifer problems; some write the formula with $2\\pi T$." }
+      }
+    ],
+    "traps": [
+      { "tr": "Debi hemen hemen her zaman lt/sn verilir: **1000'e böl** ve m³/s'ye çevir (30 lt/sn = 0,03 m³/s). Çevirmezsen $k$ bin kat büyük çıkar.", "en": "Discharge is almost always given in L/s: **divide by 1000** to get m³/s (30 L/s = 0.03 m³/s). Forgetting this makes $k$ a thousand times too big." },
+      { "tr": "Serbest yüzeyli akifer $\\Rightarrow h_2^2 - h_1^2$ (kareler farkı); basınçlı akifer $\\Rightarrow h_2 - h_1$ (düz fark) ve $2\\pi k b$. İkisini karıştırmak bu ünitenin bir numaralı hatasıdır.", "en": "Unconfined aquifer $\\Rightarrow h_2^2 - h_1^2$ (difference of squares); confined aquifer $\\Rightarrow h_2 - h_1$ (plain difference) with $2\\pi k b$. Mixing them up is the number-one error in this unit." },
+      { "tr": "Soru bazen **alçalma** ($s$), bazen **su yüksekliği** ($h$) verir. Formüle girmeden önce hepsini $h = H - s$ ile aynı dile çevir.", "en": "Problems sometimes give the **drawdown** ($s$), sometimes the **water height** ($h$). Convert everything to $h$ with $h = H - s$ before touching the formula." },
+      { "tr": "Kuyu için verilen 50 cm **yarıçap** mı **çap** mı, dikkatle oku. Logaritmanın içine yarıçap ($r_w$) girer.", "en": "Read carefully whether the well's 50 cm is a **radius** or a **diameter**. The radius ($r_w$) goes into the logarithm." },
+      { "tr": "Kuyudan uzaklaştıkça alçalma **azalır**, su yüksekliği **artar**: büyük $r$ ile büyük $h$ eşleşmeli. Ters eşlersen $\\ln$'li ifade negatif çıkar — bu bir alarm işaretidir.", "en": "Away from the well the drawdown **decreases** and the water height **increases**: the larger $r$ must pair with the larger $h$. If you pair them backwards, the $\\ln$ expression goes negative — treat that as an alarm." }
+    ]
+  },
+  "questions": [
+    {
+      "id": "8-1",
+      "code": "Uygulama 8.1",
+      "title": { "tr": "Serbest yüzeyli akiferde kuyu: k ve kuyudaki alçalma", "en": "Well in an unconfined aquifer: k and drawdown at the well" },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "50 cm yarıçaplı bir kuyu ile, 40 m kalınlığındaki bir serbest yüzeyli akiferden 30 lt/sn debisinde su çekilmektedir. Pompaj başlangıcından yeterli bir süre sonra kuyudan 20 m ve 60 m uzaklıktaki iki gözlem kuyusunda su yüzeyleri 5 m ve 2 m alçaldığına göre, zeminin hidrolik iletkenliğini ve pompaj kuyusundaki alçalma miktarını hesaplayınız.",
+        "en": "Water is pumped at 30 L/s from a well of 50 cm radius in an unconfined aquifer 40 m thick. A sufficient time after pumping begins, the water levels in two observation wells located 20 m and 60 m from the well have dropped by 5 m and 2 m, respectively. Compute the hydraulic conductivity of the soil and the drawdown at the pumping well."
+      },
+      "given": [
+        { "symbol": "r_w", "value": "0{,}5\\ \\text{m}", "label": { "tr": "Pompaj kuyusunun yarıçapı (50 cm)", "en": "Radius of the pumping well (50 cm)" } },
+        { "symbol": "H", "value": "40\\ \\text{m}", "label": { "tr": "Akifer kalınlığı = pompajdan önceki su yüksekliği", "en": "Aquifer thickness = water height before pumping" } },
+        { "symbol": "Q", "value": "30\\ \\text{lt/sn} = 0{,}03\\ \\text{m}^3/\\text{s}", "label": { "tr": "Kuyudan çekilen debi", "en": "Pumping rate" } },
+        { "symbol": "r_1,\\ s_1", "value": "20\\ \\text{m},\\ 5\\ \\text{m}", "label": { "tr": "1. gözlem kuyusu: uzaklık ve alçalma", "en": "Observation well 1: distance and drawdown" } },
+        { "symbol": "r_2,\\ s_2", "value": "60\\ \\text{m},\\ 2\\ \\text{m}", "label": { "tr": "2. gözlem kuyusu: uzaklık ve alçalma", "en": "Observation well 2: distance and drawdown" } }
+      ],
+      "goal": { "tr": "Zeminin hidrolik iletkenliği $k$ ile pompaj kuyusundaki alçalma $s_w$ isteniyor.", "en": "Find the hydraulic conductivity $k$ and the drawdown $s_w$ at the pumping well." },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Akifer tipini teşhis et", "en": "Identify the aquifer type" },
+          "guiding": { "tr": "İfadedeki hangi kelime, hangi kuyu formülünü kullanacağını söylüyor?", "en": "Which word in the statement tells you which well formula to use?" },
+          "hint": { "tr": "'Serbest yüzeyli' mi yazıyor, 'basınçlı' mı? Bu tek kelime formülü belirler.", "en": "Does it say 'unconfined' (serbest yüzeyli) or 'confined' (basınçlı)? That single word picks the formula." },
+          "work": {
+            "tr": "İfade **'serbest yüzeyli akifer'** diyor. Yani akiferin üst sınırı serbest su yüzeyi; pompajla bu yüzey kuyuya doğru alçalır ve bir alçalma konisi oluşur. 'Pompaj başlangıcından yeterli bir süre sonra' ifadesi de akımın **kararlı** (dengeye ulaşmış) olduğunu söylüyor. O halde serbest yüzeyli akifer için Dupuit kuyu denklemini kullanacağız:\n\n$$Q = \\frac{\\pi k \\left(h_2^2 - h_1^2\\right)}{\\ln(r_2/r_1)}$$\n\nBurada $h$'ler geçirimsiz tabandan ölçülen **su yükseklikleri**, $r$'ler kuyu ekseninden **uzaklıklar**dır.",
+            "en": "The statement says **'unconfined aquifer'**. So the top of the aquifer is a free water surface; pumping lowers it toward the well, forming a cone of depression. The phrase 'a sufficient time after pumping begins' tells us the flow is **steady** (equilibrium reached). So we will use the Dupuit well equation for an unconfined aquifer:\n\n$$Q = \\frac{\\pi k \\left(h_2^2 - h_1^2\\right)}{\\ln(r_2/r_1)}$$\n\nHere the $h$'s are **water heights** measured from the impervious base and the $r$'s are **distances** from the well axis."
+          },
+          "why": {
+            "tr": "Formül seçimi bu ünitedeki İLK sınav kararıdır. 'Serbest yüzeyli' $\\Rightarrow h^2$ farkı; 'basınçlı' $\\Rightarrow h$ farkı ve $2\\pi k b$. Kelimeyi görür görmez doğru denklemi yazmalısın; yanlış model seçersen bütün sayılar boşa gider.",
+            "en": "Choosing the formula is the FIRST exam decision in this unit. 'Unconfined' $\\Rightarrow$ difference of $h^2$; 'confined' $\\Rightarrow$ difference of $h$ with $2\\pi k b$. Spot the keyword and write the right equation immediately; with the wrong model, all your arithmetic is wasted."
+          },
+          "result": null,
+          "check": {
+            "q": { "tr": "Serbest yüzeyli akiferdeki kuyu için doğru denklem hangisi?", "en": "Which is the correct equation for a well in an unconfined aquifer?" },
+            "options": [
+              { "tr": "$Q = \\dfrac{2\\pi k b (h_2 - h_1)}{\\ln(r_2/r_1)}$", "en": "$Q = \\dfrac{2\\pi k b (h_2 - h_1)}{\\ln(r_2/r_1)}$" },
+              { "tr": "$Q = \\dfrac{\\pi k (h_2^2 - h_1^2)}{\\ln(r_2/r_1)}$", "en": "$Q = \\dfrac{\\pi k (h_2^2 - h_1^2)}{\\ln(r_2/r_1)}$" },
+              { "tr": "$Q = \\pi k (h_2 - h_1)(r_2 - r_1)$", "en": "$Q = \\pi k (h_2 - h_1)(r_2 - r_1)$" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Serbest yüzeyli akiferde akım kesitinin yüksekliği de $h$ ile değişir; integrasyon $h\\,dh$ verir ve sonuçta **kareler farkı** çıkar. İlk seçenek basınçlı akifer (Thiem) denklemidir; üçüncüde $\\ln$ yok — yarıçaplar hiçbir kuyu formülünde düz fark olarak girmez.",
+              "en": "In an unconfined aquifer the height of the flow section itself varies with $h$; the integration gives $h\\,dh$, hence a **difference of squares**. The first option is the confined (Thiem) equation; the third has no $\\ln$ — radii never enter a well formula as a plain difference."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Birimleri çevir ve verileri sırala", "en": "Convert units and organize the data" },
+          "guiding": { "tr": "Formüle girmeden önce hangi büyüklüğün birimi 'yanlış' duruyor?", "en": "Before plugging in, which quantity has the 'wrong' unit?" },
+          "hint": { "tr": "Debi lt/sn cinsinden; ayrıca kuyu ölçüsü santimetre cinsinden verilmiş.", "en": "The discharge is in L/s; also the well size is given in centimetres." },
+          "work": {
+            "tr": "Her şeyi **metre ve saniyeye** çevirelim ki $k$ doğrudan m/s çıksın:\n\n- $Q = 30\\ \\text{lt/sn} = \\dfrac{30}{1000} = 0{,}03\\ \\text{m}^3/\\text{s}$\n- $r_w = 50\\ \\text{cm} = 0{,}5\\ \\text{m}$ (dikkat: **yarıçap** olarak verilmiş, çap değil)\n- $H = 40\\ \\text{m}$ (pompajdan önceki su yüksekliği = akifer kalınlığı)\n- Gözlem kuyuları: $r_1 = 20\\ \\text{m}$'de alçalma $s_1 = 5\\ \\text{m}$; $r_2 = 60\\ \\text{m}$'de alçalma $s_2 = 2\\ \\text{m}$.",
+            "en": "Convert everything to **metres and seconds** so that $k$ comes out directly in m/s:\n\n- $Q = 30\\ \\text{L/s} = \\dfrac{30}{1000} = 0.03\\ \\text{m}^3/\\text{s}$\n- $r_w = 50\\ \\text{cm} = 0.5\\ \\text{m}$ (careful: it is given as a **radius**, not a diameter)\n- $H = 40\\ \\text{m}$ (water height before pumping = aquifer thickness)\n- Observation wells: drawdown $s_1 = 5\\ \\text{m}$ at $r_1 = 20\\ \\text{m}$; drawdown $s_2 = 2\\ \\text{m}$ at $r_2 = 60\\ \\text{m}$."
+          },
+          "why": {
+            "tr": "Kuyu denklemleri tutarlı birim ister. lt/sn'yi çevirmeyi unutmak, $k$'yı bin kat büyük yapar — sınavdaki en yaygın 'sessiz' hata. Veri listesi yapmak, sonraki adımlarda hangi sayının nereye gireceğini netleştirir.",
+            "en": "Well equations need consistent units. Forgetting to convert L/s makes $k$ a thousand times too big — the most common 'silent' mistake in the exam. Listing the data makes it clear which number goes where in the next steps."
+          },
+          "result": "Q = 0{,}03\\ \\text{m}^3/\\text{s},\\quad r_w = 0{,}5\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Alçalmaları su yüksekliklerine çevir", "en": "Convert drawdowns to water heights" },
+          "guiding": { "tr": "Formül $h$ (su yüksekliği) ister, ama soru alçalma vermiş. Nasıl geçersin?", "en": "The formula wants $h$ (water height), but the problem gives drawdowns. How do you convert?" },
+          "hint": { "tr": "Su yüzeyi $H = 40$ m'den başlıyor ve $s$ kadar alçalıyor: $h = H - s$.", "en": "The water surface starts at $H = 40$ m and drops by $s$: $h = H - s$." },
+          "work": {
+            "tr": "Su yüksekliği = başlangıç yüksekliği $-$ alçalma, yani $h = H - s$:\n\n- $r_1 = 20\\ \\text{m}$'de: $h_1 = 40 - 5 = 35\\ \\text{m}$\n- $r_2 = 60\\ \\text{m}$'de: $h_2 = 40 - 2 = 38\\ \\text{m}$\n\n**Yön kontrolü:** Kuyudan uzaklaştıkça alçalma küçülmeli, su yükselmeli. Gerçekten de $r_2 = 60 > r_1 = 20$ için $h_2 = 38 > h_1 = 35$. Eşleştirme doğru. ✓",
+            "en": "Water height = initial height $-$ drawdown, i.e. $h = H - s$:\n\n- At $r_1 = 20\\ \\text{m}$: $h_1 = 40 - 5 = 35\\ \\text{m}$\n- At $r_2 = 60\\ \\text{m}$: $h_2 = 40 - 2 = 38\\ \\text{m}$\n\n**Direction check:** moving away from the well, the drawdown must shrink and the water level must rise. Indeed for $r_2 = 60 > r_1 = 20$ we get $h_2 = 38 > h_1 = 35$. The pairing is right. ✓"
+          },
+          "why": {
+            "tr": "Kuyu denklemleri **su yükseklikleriyle** yazılır; alçalmalarla değil. Soru 'su yüzeyleri 5 m ve 2 m alçaldı' dediği anda '$h = H - s$ yapmalıyım' refleksi gelmeli. Ayrıca büyük $r$ ile büyük $h$'ın eşleştiğini görmek, kareler farkının pozitif çıkacağını garanti eder.",
+            "en": "Well equations are written with **water heights**, not drawdowns. The moment the problem says 'the water levels dropped by 5 m and 2 m', your reflex should be '$h = H - s$'. Also, seeing that the larger $r$ pairs with the larger $h$ guarantees the difference of squares will come out positive."
+          },
+          "result": "h_1 = 35\\ \\text{m},\\quad h_2 = 38\\ \\text{m}",
+          "check": {
+            "q": { "tr": "$r = 60$ m'deki gözlem kuyusunda su yüksekliği kaç metredir?", "en": "What is the water height in the observation well at $r = 60$ m?" },
+            "options": [
+              { "tr": "$2$ m", "en": "$2$ m" },
+              { "tr": "$35$ m", "en": "$35$ m" },
+              { "tr": "$38$ m", "en": "$38$ m" }
+            ],
+            "correct": 2,
+            "explain": {
+              "tr": "Uzak kuyuda alçalma 2 m'dir; su yüksekliği $40 - 2 = 38$ m. '2 m' alçalmanın kendisidir (formüle böyle girmek klasik tuzak); '35 m' ise yakın kuyunun ($r=20$ m) yüksekliğidir.",
+              "en": "At the far well the drawdown is 2 m, so the water height is $40 - 2 = 38$ m. '2 m' is the drawdown itself (plugging it in raw is the classic trap); '35 m' is the height at the near well ($r=20$ m)."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Dupuit denklemini iki gözlem kuyusu arasında yaz", "en": "Write the Dupuit equation between the two observation wells" },
+          "guiding": { "tr": "Denklemi hangi iki nokta arasında yazarsan bilinmeyen olarak sadece $k$ kalır?", "en": "Between which two points can you write the equation so that only $k$ is unknown?" },
+          "hint": { "tr": "İki gözlem kuyusunda $r$ ve $h$ değerlerinin dördü de biliniyor; kuyu cidarında ise $h_w$ bilinmiyor.", "en": "At the two observation wells all four of the $r$ and $h$ values are known; at the well face, $h_w$ is unknown." },
+          "work": {
+            "tr": "Dupuit denklemi kuyu çevresindeki **herhangi iki yarıçap** arasında geçerlidir. İki gözlem kuyusunu seçersek her şey bilinir, sadece $k$ kalır:\n\n$$Q = \\frac{\\pi k \\left(h_2^2 - h_1^2\\right)}{\\ln(r_2/r_1)} \\quad\\Rightarrow\\quad k = \\frac{Q \\, \\ln(r_2/r_1)}{\\pi \\left(h_2^2 - h_1^2\\right)}$$\n\nSembollerin tümü tanımlı: $Q = 0{,}03$ m³/s, $r_1 = 20$ m, $r_2 = 60$ m, $h_1 = 35$ m, $h_2 = 38$ m.",
+            "en": "The Dupuit equation holds between **any two radii** around the well. Choosing the two observation wells, everything is known except $k$:\n\n$$Q = \\frac{\\pi k \\left(h_2^2 - h_1^2\\right)}{\\ln(r_2/r_1)} \\quad\\Rightarrow\\quad k = \\frac{Q \\, \\ln(r_2/r_1)}{\\pi \\left(h_2^2 - h_1^2\\right)}$$\n\nAll symbols are defined: $Q = 0.03$ m³/s, $r_1 = 20$ m, $r_2 = 60$ m, $h_1 = 35$ m, $h_2 = 38$ m."
+          },
+          "why": {
+            "tr": "Strateji her zaman aynı: **denklemi, bilinmeyeni tek bırakan nokta çifti arasında yaz.** İki gözlem kuyusu tam da bunun için delinir — sahada $k$ böyle ölçülür (pompaj deneyi). Sınavda 'iki gözlem kuyusu + $k$ isteniyor' gördüğünde bu düzenlemeyi doğrudan yazabilirsin.",
+            "en": "The strategy is always the same: **write the equation between the pair of points that leaves a single unknown.** Two observation wells are drilled precisely for this — it is how $k$ is measured in the field (pumping test). In the exam, 'two observation wells + find $k$' should trigger this rearrangement immediately."
+          },
+          "result": "k = \\frac{Q \\ln(r_2/r_1)}{\\pi\\left(h_2^2 - h_1^2\\right)}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Hidrolik iletkenliği hesapla", "en": "Compute the hydraulic conductivity" },
+          "guiding": { "tr": "Önce $h_2^2 - h_1^2$ ve $\\ln(r_2/r_1)$ değerlerini ayrı ayrı bul; sonra böl.", "en": "First evaluate $h_2^2 - h_1^2$ and $\\ln(r_2/r_1)$ separately; then divide." },
+          "hint": { "tr": "$38^2 = 1444$, $35^2 = 1225$; $60/20 = 3$ ve $\\ln 3 \\approx 1{,}0986$.", "en": "$38^2 = 1444$, $35^2 = 1225$; $60/20 = 3$ and $\\ln 3 \\approx 1.0986$." },
+          "work": {
+            "tr": "Parçaları hazırlayalım:\n\n- $h_2^2 - h_1^2 = 38^2 - 35^2 = 1444 - 1225 = 219\\ \\text{m}^2$\n- $\\ln(r_2/r_1) = \\ln(60/20) = \\ln 3 = 1{,}0986$\n\nYerine koyalım:\n\n$$k = \\frac{0{,}03 \\times 1{,}0986}{\\pi \\times 219} = \\frac{0{,}03296}{688{,}0} = 4{,}79 \\times 10^{-5}\\ \\text{m/s}$$\n\n(Günlük birimle $k \\approx 4{,}1$ m/gün — orta incelikte kum için makul bir değer.)",
+            "en": "Prepare the pieces:\n\n- $h_2^2 - h_1^2 = 38^2 - 35^2 = 1444 - 1225 = 219\\ \\text{m}^2$\n- $\\ln(r_2/r_1) = \\ln(60/20) = \\ln 3 = 1.0986$\n\nSubstitute:\n\n$$k = \\frac{0.03 \\times 1.0986}{\\pi \\times 219} = \\frac{0.03296}{688.0} = 4.79 \\times 10^{-5}\\ \\text{m/s}$$\n\n(In daily units $k \\approx 4.1$ m/day — a reasonable value for a medium sand.)"
+          },
+          "why": {
+            "tr": "Sayıları parça parça hesaplamak (önce kareler farkı, sonra logaritma) hem işlem hatasını azaltır hem de kısmi puan kazandırır. Sonucun $10^{-4}$–$10^{-6}$ m/s aralığında çıkması beklenir; $10^{-2}$ gibi bir değer görürsen birim çevirisini unutmuşsundur.",
+            "en": "Computing the pieces separately (squares first, then the log) reduces slips and earns partial credit. The result should land in the $10^{-4}$–$10^{-6}$ m/s range; if you see something like $10^{-2}$, you probably skipped a unit conversion."
+          },
+          "result": "k = 4{,}79 \\times 10^{-5}\\ \\text{m/s}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Aynı denklemi kuyu cidarı için kur", "en": "Set up the same equation at the well face" },
+          "guiding": { "tr": "Artık $k$ biliniyor. Kuyudaki su yüksekliği $h_w$'yi bulmak için denklemi hangi iki nokta arasında yazarsın?", "en": "Now $k$ is known. Between which two points do you write the equation to find the water height $h_w$ at the well?" },
+          "hint": { "tr": "Bir ucu kuyu cidarı ($r_w$, $h_w$), diğer ucu bilinen herhangi bir gözlem kuyusu olabilir.", "en": "One end is the well face ($r_w$, $h_w$); the other end can be either known observation well." },
+          "work": {
+            "tr": "Denklem her yarıçap çifti için geçerli olduğundan bu kez ($r_w = 0{,}5$ m, $h_w = ?$) ile ($r_1 = 20$ m, $h_1 = 35$ m) arasında yazalım:\n\n$$Q = \\frac{\\pi k \\left(h_1^2 - h_w^2\\right)}{\\ln(r_1/r_w)}$$\n\n$h_w$ için düzenleyelim:\n\n$$h_w^2 = h_1^2 - \\frac{Q \\, \\ln(r_1/r_w)}{\\pi k}$$\n\nDikkat: burada iç nokta kuyu olduğundan pay $h_1^2 - h_w^2$, logaritma $\\ln(r_1/r_w)$ oldu — her zaman *dıştaki eksi içteki*.",
+            "en": "Since the equation holds for any pair of radii, this time write it between ($r_w = 0.5$ m, $h_w = ?$) and ($r_1 = 20$ m, $h_1 = 35$ m):\n\n$$Q = \\frac{\\pi k \\left(h_1^2 - h_w^2\\right)}{\\ln(r_1/r_w)}$$\n\nRearranged for $h_w$:\n\n$$h_w^2 = h_1^2 - \\frac{Q \\, \\ln(r_1/r_w)}{\\pi k}$$\n\nNote: with the well as the inner point, the numerator became $h_1^2 - h_w^2$ and the log $\\ln(r_1/r_w)$ — always *outer minus inner*."
+          },
+          "why": {
+            "tr": "Soru kuyudaki alçalmayı istiyor ama kuyuda ölçüm yok. Çözüm: az önce bulduğumuz $k$ ile denklemi bu kez kuyu cidarına kadar 'uzatmak'. İki bilinmeyenli tek problem yerine, iki tek-bilinmeyenli problem — sıralı çözüm bu ünitenin standart kalıbıdır.",
+            "en": "The question asks for the drawdown at the well, but there is no measurement there. The fix: use the $k$ we just found and 'extend' the equation down to the well face. Instead of one problem with two unknowns, two problems with one unknown each — this sequential pattern is the standard template of the unit."
+          },
+          "result": "h_w^2 = h_1^2 - \\frac{Q\\ln(r_1/r_w)}{\\pi k}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Kuyudaki su yüksekliğini hesapla", "en": "Compute the water height at the well" },
+          "guiding": { "tr": "$\\ln(r_1/r_w)$ kaçtır? Sonra terimleri yerine koy.", "en": "What is $\\ln(r_1/r_w)$? Then substitute the terms." },
+          "hint": { "tr": "$r_1/r_w = 20/0{,}5 = 40$; $\\ln 40 \\approx 3{,}689$. $\\pi k$'yı bir önceki adımdan al.", "en": "$r_1/r_w = 20/0.5 = 40$; $\\ln 40 \\approx 3.689$. Take $\\pi k$ from the previous step." },
+          "work": {
+            "tr": "Parçalar:\n\n- $\\ln(r_1/r_w) = \\ln(20/0{,}5) = \\ln 40 = 3{,}689$\n- $\\dfrac{Q \\ln 40}{\\pi k} = \\dfrac{0{,}03 \\times 3{,}689}{\\pi \\times 4{,}79 \\times 10^{-5}} = \\dfrac{0{,}1107}{1{,}505 \\times 10^{-4}} = 735{,}4\\ \\text{m}^2$\n\nYerine koyalım:\n\n$$h_w^2 = 35^2 - 735{,}4 = 1225 - 735{,}4 = 489{,}6\\ \\text{m}^2$$\n\n$$h_w = \\sqrt{489{,}6} = 22{,}13\\ \\text{m}$$\n\n**Sağlama:** Aynı işlemi 2. gözlem kuyusuyla yaparsak ($h_2^2 - Q\\ln(r_2/r_w)/\\pi k = 38^2 - Q\\ln 120/\\pi k$) yine $h_w = 22{,}13$ m çıkar — iki yol da aynı sonucu veriyor. ✓",
+            "en": "Pieces:\n\n- $\\ln(r_1/r_w) = \\ln(20/0.5) = \\ln 40 = 3.689$\n- $\\dfrac{Q \\ln 40}{\\pi k} = \\dfrac{0.03 \\times 3.689}{\\pi \\times 4.79 \\times 10^{-5}} = \\dfrac{0.1107}{1.505 \\times 10^{-4}} = 735.4\\ \\text{m}^2$\n\nSubstitute:\n\n$$h_w^2 = 35^2 - 735.4 = 1225 - 735.4 = 489.6\\ \\text{m}^2$$\n\n$$h_w = \\sqrt{489.6} = 22.13\\ \\text{m}$$\n\n**Verification:** repeating with observation well 2 ($h_2^2 - Q\\ln(r_2/r_w)/\\pi k = 38^2 - Q\\ln 120/\\pi k$) again gives $h_w = 22.13$ m — both routes agree. ✓"
+          },
+          "why": {
+            "tr": "Kareyi bulduktan sonra **karekök almayı unutma** — $h_w^2 = 489{,}6$'yı cevap sanmak sık yapılan bir dalgınlıktır. Sonucu anında sına: kuyudaki su, en yakın gözlem kuyusundakinden daha alçak ama sıfırdan yüksek olmalı, yani $0 < h_w < h_1 = 35$ m ($22{,}13$ m bu aralıkta ✓). $h_w^2$ negatif çıkarsa $k$'yı ya da logaritmayı yanlış almışsındır. İkinci gözlem kuyusuyla sağlama da hem $k$'yı hem bu adımı birlikte test eden bedava bir kontroldür.",
+            "en": "After getting the square, **don't forget the square root** — mistaking $h_w^2 = 489.6$ for the answer is a common slip. Test the result instantly: the water in the well must sit lower than at the nearest observation well but above zero, i.e. $0 < h_w < h_1 = 35$ m ($22.13$ m fits ✓). A negative $h_w^2$ means a wrong $k$ or a wrong logarithm. Verifying with the second observation well is also a free check that tests both $k$ and this step at once."
+          },
+          "result": "h_w = 22{,}13\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Kuyudaki alçalmayı bul", "en": "Find the drawdown at the well" },
+          "guiding": { "tr": "Soru su yüksekliğini mi, alçalmayı mı istiyordu?", "en": "Did the question ask for the water height or the drawdown?" },
+          "hint": { "tr": "Alçalma = başlangıç seviyesi $-$ şimdiki seviye: $s_w = H - h_w$.", "en": "Drawdown = initial level $-$ current level: $s_w = H - h_w$." },
+          "work": {
+            "tr": "Soru **alçalma miktarını** istiyor:\n\n$$s_w = H - h_w = 40 - 22{,}13 = 17{,}87\\ \\text{m} \\approx 17{,}9\\ \\text{m}$$\n\n**Mantık kontrolü:** Kuyudaki alçalma (17,9 m), 20 m'deki alçalmadan (5 m) çok daha büyük — alçalma konisi kuyuya yaklaştıkça hızla derinleşir, çünkü aynı $Q$ giderek küçülen silindir yüzeylerinden geçmek zorundadır. Ayrıca $h_w = 22{,}13 > 0$: kuyu kurumamış, çözüm fiziksel olarak tutarlı.",
+            "en": "The question asks for the **drawdown**:\n\n$$s_w = H - h_w = 40 - 22.13 = 17.87\\ \\text{m} \\approx 17.9\\ \\text{m}$$\n\n**Sense check:** the drawdown at the well (17.9 m) is much larger than at 20 m (5 m) — the cone of depression steepens sharply near the well because the same $Q$ must pass through ever-smaller cylindrical surfaces. Also $h_w = 22.13 > 0$: the well has not run dry; the solution is physically consistent."
+          },
+          "why": {
+            "tr": "Son adımda soruya geri dön: '$h_w$ mı istendi, $s_w$ mi?' Burada alçalma istendiği için $H$'den çıkarıyoruz. Cevabı yazmadan önce istenen büyüklüğün adını kontrol etmek, doğru hesabı yanlış cevaba dönüştürmekten korur.",
+            "en": "In the last step, go back to the question: 'was $h_w$ asked, or $s_w$?' Here the drawdown is wanted, so we subtract from $H$. Checking the name of the requested quantity before writing the answer protects a correct calculation from becoming a wrong answer."
+          },
+          "result": "s_w = 17{,}87\\ \\text{m}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Sonuçlar:**\n\n- Hidrolik iletkenlik: $k = \\dfrac{0{,}03 \\times \\ln 3}{\\pi \\times 219} = \\boxed{4{,}79 \\times 10^{-5}\\ \\text{m/s}}$ ($\\approx 4{,}1$ m/gün)\n- Kuyudaki su yüksekliği: $h_w = \\sqrt{1225 - 735{,}4} = 22{,}13\\ \\text{m}$\n- Pompaj kuyusundaki alçalma: $s_w = 40 - 22{,}13 = \\boxed{17{,}87\\ \\text{m} \\approx 17{,}9\\ \\text{m}}$",
+        "en": "**Results:**\n\n- Hydraulic conductivity: $k = \\dfrac{0.03 \\times \\ln 3}{\\pi \\times 219} = \\boxed{4.79 \\times 10^{-5}\\ \\text{m/s}}$ ($\\approx 4.1$ m/day)\n- Water height at the well: $h_w = \\sqrt{1225 - 735.4} = 22.13\\ \\text{m}$\n- Drawdown at the pumping well: $s_w = 40 - 22.13 = \\boxed{17.87\\ \\text{m} \\approx 17.9\\ \\text{m}}$"
+      },
+      "traps": [
+        { "tr": "5 m ve 2 m **alçalmadır**, su yüksekliği değildir. Formüle $h_1 = 35$, $h_2 = 38$ girmelisin; 5 ve 2'yi doğrudan koymak sıfır puan demektir.", "en": "5 m and 2 m are **drawdowns**, not water heights. You must plug in $h_1 = 35$, $h_2 = 38$; using 5 and 2 raw scores zero." },
+        { "tr": "50 cm burada **yarıçap**; soru 'çaplı' deseydi $r_w = 0{,}25$ m alman gerekirdi. $r_w$ logaritmada olduğu için sonucu görünür biçimde değiştirir.", "en": "Here 50 cm is a **radius**; if the problem had said 'diameter', you would take $r_w = 0.25$ m. Because $r_w$ sits inside a logarithm, this visibly changes the answer." },
+        { "tr": "$h_w^2 = 489{,}6$ bulduktan sonra karekök almayı unutma; ve son cevap $h_w$ değil $s_w = H - h_w$'dir.", "en": "After finding $h_w^2 = 489.6$, don't forget the square root; and the final answer is $s_w = H - h_w$, not $h_w$." },
+        { "tr": "Dupuit kabulleri kuyu cidarında yaklaşıktır (gerçek alçalma hesaplanandan biraz farklı olabilir) ama sınavda beklenen yöntem budur — kabulleri bir cümleyle anmak artı puan getirebilir.", "en": "The Dupuit assumptions are approximate right at the well face (the real drawdown can differ slightly), but this is the method expected in the exam — mentioning the assumptions in one sentence can earn bonus credit." }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya soru '50 cm çaplı' deseydi ($r_w = 0{,}25$ m)?", "en": "What if the problem said '50 cm diameter' ($r_w = 0.25$ m)?" },
+          "answer": { "tr": "$k$ değişmez (gözlem kuyularından bulunuyor). Ama $\\ln(r_1/r_w) = \\ln 80 = 4{,}382$ olur; $h_w^2 = 1225 - 873{,}5 = 351{,}5$, $h_w = 18{,}75$ m ve $s_w = 40 - 18{,}75 = 21{,}25$ m. Kuyu inceldikçe aynı debiyi geçirmek için cidarda daha büyük düşüm gerekir — yarıçap/çap okuma hatası cevabı 3,4 m değiştiriyor!", "en": "$k$ is unchanged (it comes from the observation wells). But $\\ln(r_1/r_w) = \\ln 80 = 4.382$; then $h_w^2 = 1225 - 873.5 = 351.5$, $h_w = 18.75$ m and $s_w = 40 - 18.75 = 21.25$ m. A thinner well needs a larger drop at its face to pass the same discharge — a radius/diameter misread shifts the answer by 3.4 m!" }
+        },
+        {
+          "scenario": { "tr": "Ya akifer aynı verilerle **basınçlı** olsaydı (kalınlık $b = 40$ m)?", "en": "What if the aquifer were **confined** with the same data (thickness $b = 40$ m)?" },
+          "answer": { "tr": "O zaman Thiem denklemi kullanılırdı: $k = \\dfrac{Q\\ln(r_2/r_1)}{2\\pi b (h_2 - h_1)} = \\dfrac{0{,}03 \\times 1{,}0986}{2\\pi \\times 40 \\times 3} = 4{,}37 \\times 10^{-5}$ m/s. Sayı buradaki $4{,}79 \\times 10^{-5}$'e yakın çıksa da bu bir tesadüf — formüller farklıdır ve sınavda hangisini seçtiğin puanın kendisidir.", "en": "Then you would use the Thiem equation: $k = \\dfrac{Q\\ln(r_2/r_1)}{2\\pi b (h_2 - h_1)} = \\dfrac{0.03 \\times 1.0986}{2\\pi \\times 40 \\times 3} = 4.37 \\times 10^{-5}$ m/s. The number happens to be close to our $4.79 \\times 10^{-5}$, but that is a coincidence — the formulas differ and choosing the right one is what earns the marks." }
+        },
+        {
+          "scenario": { "tr": "Ya $r_1$ ile $h_2$'yi yanlış eşleştirseydin (20 m ↔ 38 m)?", "en": "What if you paired $r_1$ with $h_2$ by mistake (20 m ↔ 38 m)?" },
+          "answer": { "tr": "Pay $35^2 - 38^2 = -219$ olur ve $k$ **negatif** çıkar. Negatif iletkenlik fiziksel olarak imkânsızdır — bunu gördüğün anda eşleştirmeyi kontrol et: kuyudan uzaklaştıkça su yükselir, yani büyük $r$ büyük $h$ ile gider.", "en": "The numerator becomes $35^2 - 38^2 = -219$ and $k$ comes out **negative**. Negative conductivity is physically impossible — the moment you see it, re-check the pairing: water rises with distance from the well, so the larger $r$ goes with the larger $h$." }
+        },
+        {
+          "scenario": { "tr": "Ya debi iki katına, 60 lt/sn'ye çıkarılsaydı — kuyudaki alçalma da ikiye katlanır mıydı?", "en": "What if the pumping rate were doubled to 60 L/s — would the drawdown at the well simply double?" },
+          "answer": { "tr": "Hayır! Serbest yüzeyli akiferde $Q$ ile doğru orantılı olan $s$ değil, $H^2 - h^2$ farkıdır. Mevcut çözümde etki yarıçapı $R \\approx 131$ m çıkar; $Q = 0{,}06$ m³/s için $h_w^2 = 1600 - 2 \\times (1600-489{,}6) < 0$ olur — yani bu akifer o debiyi bu kuyudan **veremez**, kuyu kurur. Alçalma-debi ilişkisi doğrusal değildir; bu, serbest yüzeyli akiferlerin en önemli pratik sonucudur.", "en": "No! In an unconfined aquifer it is $H^2 - h^2$, not $s$, that is proportional to $Q$. With the current solution the radius of influence is $R \\approx 131$ m; for $Q = 0.06$ m³/s we get $h_w^2 = 1600 - 2 \\times (1600-489.6) < 0$ — the aquifer simply **cannot deliver** that rate through this well; it would run dry. Drawdown is not linear in discharge — the most important practical lesson of unconfined aquifers." }
+        }
+      ]
+    },
+    {
+      "id": "8-2",
+      "code": "Uygulama 8.2",
+      "title": { "tr": "Basınçlı akiferde kuyu: akifer kalınlığı", "en": "Well in a confined aquifer: aquifer thickness" },
+      "difficulty": 1,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Hidrolik iletkenliği $2 \\times 10^{-4}$ m/sn olan basınçlı bir akiferde açılan bir kuyudan 0,25 m³/sn debisinde su alınmaktadır. Kuyudan 15 m ve 25 m uzaklıktaki gözlem kuyularında su yükseklikleri 28 m ve 33 m olduğuna göre akiferin kalınlığını hesaplayınız.",
+        "en": "Water is withdrawn at 0.25 m³/s from a well drilled in a confined aquifer whose hydraulic conductivity is $2 \\times 10^{-4}$ m/s. Given that the water levels in observation wells 15 m and 25 m from the well are 28 m and 33 m, compute the thickness of the aquifer."
+      },
+      "given": [
+        { "symbol": "k", "value": "2 \\times 10^{-4}\\ \\text{m/s}", "label": { "tr": "Hidrolik iletkenlik", "en": "Hydraulic conductivity" } },
+        { "symbol": "Q", "value": "0{,}25\\ \\text{m}^3/\\text{s}", "label": { "tr": "Kuyudan alınan debi", "en": "Pumping rate" } },
+        { "symbol": "r_1,\\ h_1", "value": "15\\ \\text{m},\\ 28\\ \\text{m}", "label": { "tr": "1. gözlem kuyusu: uzaklık ve su yüksekliği (piyezometre seviyesi)", "en": "Observation well 1: distance and water height (piezometric level)" } },
+        { "symbol": "r_2,\\ h_2", "value": "25\\ \\text{m},\\ 33\\ \\text{m}", "label": { "tr": "2. gözlem kuyusu: uzaklık ve su yüksekliği (piyezometre seviyesi)", "en": "Observation well 2: distance and water height (piezometric level)" } }
+      ],
+      "goal": { "tr": "Akiferin kalınlığı $b$ isteniyor.", "en": "Find the thickness $b$ of the aquifer." },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Akifer tipini teşhis et ve doğru denklemi seç", "en": "Identify the aquifer type and pick the right equation" },
+          "guiding": { "tr": "Bu soru bir öncekinden hangi kritik kelimeyle ayrılıyor?", "en": "Which critical word distinguishes this problem from the previous one?" },
+          "hint": { "tr": "İfadede 'basınçlı bir akifer' yazıyor. Basınçlı akiferde akım kesitinin kalınlığı sabittir.", "en": "The statement says 'a confined aquifer'. In a confined aquifer the thickness of the flow section is constant." },
+          "work": {
+            "tr": "İfade **'basınçlı akifer'** diyor. Basınçlı akifer, iki geçirimsiz tabaka arasında sıkışmıştır; su, akiferin sabit $b$ kalınlığındaki kesiti içinde akar ve ölçülen 'su yükseklikleri' aslında **piyezometre seviyeleridir** (basınç yüzü). Kararlı radyal akım için Thiem denklemi:\n\n$$Q = \\frac{2 \\pi k b \\left(h_2 - h_1\\right)}{\\ln(r_2/r_1)}$$\n\nDikkat: fark **birinci kuvvetten** ($h_2 - h_1$), kareler değil — çünkü akım kesiti $2\\pi r b$'de $b$ sabittir; serbest yüzeyli durumdaki gibi kesit yüksekliği $h$ ile değişmez.",
+            "en": "The statement says **'confined aquifer'**. A confined aquifer is squeezed between two impervious layers; water flows through a section of constant thickness $b$, and the measured 'water levels' are actually **piezometric levels** (pressure heads). For steady radial flow, the Thiem equation:\n\n$$Q = \\frac{2 \\pi k b \\left(h_2 - h_1\\right)}{\\ln(r_2/r_1)}$$\n\nNote: the difference is **first power** ($h_2 - h_1$), not squares — because in the flow section $2\\pi r b$ the thickness $b$ is constant; it does not vary with $h$ as in the unconfined case."
+          },
+          "why": {
+            "tr": "'Basınçlı' kelimesi görüldüğü anda $2\\pi k b$'li denklem yazılmalı. Fiziksel sebep, formülü ezberden kurtarır: kesit sabitse integralde $dh$ kalır (düz fark); kesit $h$ ile büyüyorsa $h\\,dh$ gelir (kareler farkı).",
+            "en": "The word 'confined' should instantly trigger the $2\\pi k b$ equation. The physical reason frees you from memorization: constant section leaves $dh$ in the integral (plain difference); a section growing with $h$ gives $h\\,dh$ (difference of squares)."
+          },
+          "result": null,
+          "check": {
+            "q": { "tr": "Basınçlı akifer denkleminde su yükseklikleri nasıl girer?", "en": "How do the water levels enter the confined-aquifer equation?" },
+            "options": [
+              { "tr": "Kareleri alınarak: $h_2^2 - h_1^2$", "en": "Squared: $h_2^2 - h_1^2$" },
+              { "tr": "Düz fark olarak: $h_2 - h_1$", "en": "As a plain difference: $h_2 - h_1$" },
+              { "tr": "Toplam olarak: $h_1 + h_2$", "en": "As a sum: $h_1 + h_2$" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Basınçlı akiferde akım kesitinin kalınlığı sabit $b$ olduğundan integrasyon $dh$ üzerinden yapılır ve düz fark çıkar. Kareler farkı serbest yüzeyli akifere aittir; toplam ise hiçbir kuyu formülünde yoktur.",
+              "en": "In a confined aquifer the flow section has constant thickness $b$, so the integration runs over $dh$ and gives a plain difference. The difference of squares belongs to the unconfined case; a sum appears in no well formula."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Verileri sırala ve kontrol et", "en": "Organize and check the data" },
+          "guiding": { "tr": "Bu kez birim çevirisi gerekiyor mu? Verilen 28 ve 33 m alçalma mı, yükseklik mi?", "en": "Is any unit conversion needed this time? Are 28 and 33 m drawdowns or heights?" },
+          "hint": { "tr": "Debi zaten m³/sn, $k$ zaten m/sn. Soru 'su yükseklikleri' diyor — yani bunlar doğrudan $h$ değerleri.", "en": "The discharge is already in m³/s and $k$ in m/s. The problem says 'water levels' — these are the $h$ values directly." },
+          "work": {
+            "tr": "Veriler zaten SI biriminde — çeviri yok:\n\n- $k = 2 \\times 10^{-4}\\ \\text{m/s}$, $Q = 0{,}25\\ \\text{m}^3/\\text{s}$\n- $r_1 = 15\\ \\text{m}$'de $h_1 = 28\\ \\text{m}$; $r_2 = 25\\ \\text{m}$'de $h_2 = 33\\ \\text{m}$\n\nBu kez 28 ve 33 **su yükseklikleridir** (8.1'deki gibi alçalma değil) — doğrudan formüle girerler.\n\n**Yön kontrolü:** $r_2 = 25 > r_1 = 15$ ve $h_2 = 33 > h_1 = 28$ — uzaktaki kuyuda su daha yüksek. Eşleştirme tutarlı. ✓",
+            "en": "The data are already in SI units — no conversion:\n\n- $k = 2 \\times 10^{-4}\\ \\text{m/s}$, $Q = 0.25\\ \\text{m}^3/\\text{s}$\n- $h_1 = 28\\ \\text{m}$ at $r_1 = 15\\ \\text{m}$; $h_2 = 33\\ \\text{m}$ at $r_2 = 25\\ \\text{m}$\n\nThis time 28 and 33 are **water heights** (not drawdowns as in 8.1) — they go straight into the formula.\n\n**Direction check:** $r_2 = 25 > r_1 = 15$ and $h_2 = 33 > h_1 = 28$ — the water is higher at the farther well. The pairing is consistent. ✓"
+          },
+          "why": {
+            "tr": "8.1 ile kıyasla iki fark var: debi zaten m³/sn (bölme yok) ve verilenler yükseklik (çıkarma yok). Sınavda her soruda bu iki kontrolü yeniden yap — bir önceki sorunun alışkanlığıyla gereksiz işlem yapmak da hatadır.",
+            "en": "Compared with 8.1 there are two differences: the discharge is already in m³/s (no division) and the givens are heights (no subtraction). Redo these two checks in every problem — carrying over habits from the previous question is itself an error."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": { "tr": "Denklemi kalınlık için düzenle", "en": "Rearrange the equation for the thickness" },
+          "guiding": { "tr": "Thiem denkleminde bilinmeyen hangisi? Onu yalnız bırak.", "en": "Which symbol in the Thiem equation is unknown? Isolate it." },
+          "hint": { "tr": "$Q$, $k$, $h$'ler ve $r$'ler biliniyor; tek bilinmeyen $b$.", "en": "$Q$, $k$, the $h$'s and the $r$'s are known; the only unknown is $b$." },
+          "work": {
+            "tr": "8.1'de bilinmeyen $k$ idi; burada $k$ verilmiş, bilinmeyen **akifer kalınlığı $b$**. Denklemi $b$ için çözelim:\n\n$$Q = \\frac{2 \\pi k b \\left(h_2 - h_1\\right)}{\\ln(r_2/r_1)} \\quad\\Rightarrow\\quad b = \\frac{Q \\, \\ln(r_2/r_1)}{2 \\pi k \\left(h_2 - h_1\\right)}$$\n\nAynı denklem, farklı bilinmeyen — kuyu problemlerinin hepsi 'tek denklem, tek bilinmeyen' oyunudur.",
+            "en": "In 8.1 the unknown was $k$; here $k$ is given and the unknown is the **aquifer thickness $b$**. Solve for $b$:\n\n$$Q = \\frac{2 \\pi k b \\left(h_2 - h_1\\right)}{\\ln(r_2/r_1)} \\quad\\Rightarrow\\quad b = \\frac{Q \\, \\ln(r_2/r_1)}{2 \\pi k \\left(h_2 - h_1\\right)}$$\n\nSame equation, different unknown — every well problem is a 'one equation, one unknown' game."
+          },
+          "why": {
+            "tr": "Bilinmeyeni teşhis etmenin sinyali verilenlerdedir: soru $k$'yı **vermiş** ve 'kalınlığını hesaplayınız' diyor — demek ki Thiem denkleminde tek bilinmeyen $b$. Sınavda kuyu denklemindeki beş büyüklükten ($Q, k, b, h$'ler, $r$'ler) herhangi biri sorulabilir; verilenleri listeleyince eksik kalan sembol kendini gösterir ve denklemi onun için düzenlersin.",
+            "en": "The signal for the unknown sits in the givens: the problem **provides** $k$ and asks to 'compute the thickness' — so $b$ is the only unknown left in the Thiem equation. In the exam, any of the five quantities in the well equation ($Q, k, b$, the $h$'s, the $r$'s) can be asked; once you list the givens, the missing symbol identifies itself and you rearrange for it."
+          },
+          "result": "b = \\frac{Q \\ln(r_2/r_1)}{2\\pi k \\left(h_2 - h_1\\right)}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Sayısal parçaları hazırla", "en": "Prepare the numerical pieces" },
+          "guiding": { "tr": "$\\ln(r_2/r_1)$ ve $(h_2 - h_1)$ kaçtır? Payda ne olur?", "en": "What are $\\ln(r_2/r_1)$ and $(h_2 - h_1)$? What is the denominator?" },
+          "hint": { "tr": "$25/15 = 5/3$; $\\ln(5/3) \\approx 0{,}511$. Fark $33 - 28 = 5$ m.", "en": "$25/15 = 5/3$; $\\ln(5/3) \\approx 0.511$. The difference is $33 - 28 = 5$ m." },
+          "work": {
+            "tr": "Parçaları tek tek hesaplayalım:\n\n- $\\ln(r_2/r_1) = \\ln(25/15) = \\ln(5/3) = 0{,}5108$\n- $h_2 - h_1 = 33 - 28 = 5\\ \\text{m}$\n- Pay: $Q \\ln(r_2/r_1) = 0{,}25 \\times 0{,}5108 = 0{,}1277\\ \\text{m}^3/\\text{s}$\n- Payda: $2\\pi k (h_2 - h_1) = 2\\pi \\times 2 \\times 10^{-4} \\times 5 = 6{,}283 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$",
+            "en": "Compute the pieces one by one:\n\n- $\\ln(r_2/r_1) = \\ln(25/15) = \\ln(5/3) = 0.5108$\n- $h_2 - h_1 = 33 - 28 = 5\\ \\text{m}$\n- Numerator: $Q \\ln(r_2/r_1) = 0.25 \\times 0.5108 = 0.1277\\ \\text{m}^3/\\text{s}$\n- Denominator: $2\\pi k (h_2 - h_1) = 2\\pi \\times 2 \\times 10^{-4} \\times 5 = 6.283 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$"
+          },
+          "why": {
+            "tr": "Logaritmaya **oran** girer ($25/15$), fark değil ($25-15=10$ ile $\\ln 10$ almak sık görülen bir hata). Parçaları ayrı yazmak hem hesap makinesi hatasını azaltır hem hoca kısmi puan verebilsin diye iz bırakır.",
+            "en": "The logarithm takes a **ratio** ($25/15$), not a difference (taking $\\ln 10$ from $25-15=10$ is a frequent error). Writing the pieces separately reduces calculator slips and leaves a trail for partial credit."
+          },
+          "result": "\\ln(5/3) = 0{,}5108,\\quad h_2 - h_1 = 5\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Kalınlığı hesapla", "en": "Compute the thickness" },
+          "guiding": { "tr": "Payı paydaya böl. Birimlerin metre verdiğini görebiliyor musun?", "en": "Divide the numerator by the denominator. Can you see the units give metres?" },
+          "hint": { "tr": "$0{,}1277 / 0{,}006283 \\approx ?$ (yaklaşık 20'ye yakın bir sayı beklemelisin).", "en": "$0.1277 / 0.006283 \\approx ?$ (expect something near 20)." },
+          "work": {
+            "tr": "$$b = \\frac{0{,}25 \\times 0{,}5108}{2\\pi \\times 2 \\times 10^{-4} \\times 5} = \\frac{0{,}1277}{6{,}283 \\times 10^{-3}} = 20{,}33\\ \\text{m}$$\n\nBirim kontrolü: $\\dfrac{\\text{m}^3/\\text{s}}{(\\text{m/s}) \\cdot \\text{m}} = \\text{m}$ ✓\n\n$$b \\approx 20{,}3\\ \\text{m}$$",
+            "en": "$$b = \\frac{0.25 \\times 0.5108}{2\\pi \\times 2 \\times 10^{-4} \\times 5} = \\frac{0.1277}{6.283 \\times 10^{-3}} = 20.33\\ \\text{m}$$\n\nUnit check: $\\dfrac{\\text{m}^3/\\text{s}}{(\\text{m/s}) \\cdot \\text{m}} = \\text{m}$ ✓\n\n$$b \\approx 20.3\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Payda $10^{-3}$ mertebesinde — bu bölmede en kolay hata üs kaydırmaktır. $b$ 2 m ya da 2000 m çıkarsa virgülü yanlış koymuşsundur: akifer kalınlıkları tipik olarak **onlarca metre**dir. Birim analizi de bedava sağlamadır: $\\dfrac{\\text{m}^3/\\text{s}}{(\\text{m/s})\\cdot\\text{m}}$ metre vermiyorsa formülde ya da çevirmede hata var demektir.",
+            "en": "The denominator is of order $10^{-3}$ — slipping a power of ten is the easiest mistake in this division. If $b$ comes out as 2 m or 2000 m, you misplaced the decimal: aquifer thicknesses are typically **tens of metres**. The unit check is also free insurance: if $\\dfrac{\\text{m}^3/\\text{s}}{(\\text{m/s})\\cdot\\text{m}}$ does not reduce to metres, there is a formula or conversion error."
+          },
+          "result": "b = 20{,}33\\ \\text{m} \\approx 20{,}3\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Sonucu fiziksel olarak yorumla", "en": "Interpret the result physically" },
+          "guiding": { "tr": "Su yükseklikleri (28 ve 33 m) akifer kalınlığından (20,3 m) büyük çıktı. Bu bir çelişki mi?", "en": "The water levels (28 and 33 m) exceed the aquifer thickness (20.3 m). Is that a contradiction?" },
+          "hint": { "tr": "Basınçlı akiferde ölçülen seviye, suyun gerçek üst yüzü değil, basıncın yükseltebildiği seviyedir.", "en": "In a confined aquifer the measured level is not the actual top of the water; it is the level the pressure can push water up to." },
+          "work": {
+            "tr": "$h_1 = 28$ m ve $h_2 = 33$ m, akifer kalınlığı $b = 20{,}3$ m'den **büyük** — ve bu tamamen normal! Basınçlı akiferde gözlem kuyusundaki su, basınç nedeniyle akiferin tavanının üstüne yükselir; ölçülen $h$'ler **piyezometre seviyeleridir**. Hatta bu durum ($h > b$) akiferin gerçekten basınçlı olduğunun sayısal kanıtıdır. Serbest yüzeyli akiferde ise $h$ hiçbir zaman akifer kalınlığını aşamaz.\n\n(İsteğe bağlı ek: iletimlilik $T = k \\cdot b = 2 \\times 10^{-4} \\times 20{,}33 = 4{,}07 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$.)",
+            "en": "$h_1 = 28$ m and $h_2 = 33$ m are **larger** than the aquifer thickness $b = 20.3$ m — and that is perfectly normal! In a confined aquifer, water in an observation well rises above the aquifer top because of pressure; the measured $h$'s are **piezometric levels**. In fact $h > b$ is numerical proof that the aquifer really is confined. In an unconfined aquifer, $h$ can never exceed the saturated thickness.\n\n(Optional extra: the transmissivity $T = k \\cdot b = 2 \\times 10^{-4} \\times 20.33 = 4.07 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$.)"
+          },
+          "why": {
+            "tr": "Sonucu yorumlamak, modeli doğru seçtiğini kanıtlar. '$h > b$ nasıl olur?' diye panikleyip çözümü silen öğrenci, doğru cevabı çöpe atar. Basınçlı akiferin tanım özelliği tam da budur: piyezometre seviyesi akifer tavanının üzerindedir.",
+            "en": "Interpreting the result proves you chose the right model. A student who panics at '$h > b$?!' and erases the solution throws away a correct answer. This is precisely the defining feature of a confined aquifer: the piezometric level sits above the aquifer top."
+          },
+          "result": null,
+          "check": {
+            "q": { "tr": "Gözlem kuyusundaki su seviyesinin akifer kalınlığından büyük olması ne anlama gelir?", "en": "What does it mean when the water level in an observation well exceeds the aquifer thickness?" },
+            "options": [
+              { "tr": "Hesap yanlıştır; $h$ asla $b$'yi aşamaz", "en": "The calculation is wrong; $h$ can never exceed $b$" },
+              { "tr": "Akifer basınçlıdır; ölçülen seviye piyezometre seviyesidir", "en": "The aquifer is confined; the measured level is the piezometric level" },
+              { "tr": "Akifer serbest yüzeylidir ve taşmaktadır", "en": "The aquifer is unconfined and overflowing" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Basınçlı akiferde su basınç altında olduğundan kuyuda akifer tavanının üstüne yükselir — $h > b$ doğal ve beklenen bir durumdur. Serbest yüzeyli akiferde ise su yüksekliği doygun kalınlığın kendisidir ve onu aşamaz; 'taşma' diye bir kavram burada yoktur.",
+              "en": "In a confined aquifer the water is under pressure, so it rises above the aquifer top in a well — $h > b$ is natural and expected. In an unconfined aquifer the water height IS the saturated thickness and cannot exceed it; 'overflowing' is not a concept here."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Sonuç:**\n\n$$b = \\frac{Q \\ln(r_2/r_1)}{2\\pi k (h_2 - h_1)} = \\frac{0{,}25 \\times \\ln(25/15)}{2\\pi \\times 2 \\times 10^{-4} \\times (33-28)} = \\boxed{20{,}3\\ \\text{m}}$$\n\n(Su seviyelerinin 28 ve 33 m ile kalınlığı aşması, akiferin basınçlı olduğunu doğrular.)",
+        "en": "**Result:**\n\n$$b = \\frac{Q \\ln(r_2/r_1)}{2\\pi k (h_2 - h_1)} = \\frac{0.25 \\times \\ln(25/15)}{2\\pi \\times 2 \\times 10^{-4} \\times (33-28)} = \\boxed{20.3\\ \\text{m}}$$\n\n(The water levels of 28 and 33 m exceeding the thickness confirms the aquifer is confined.)"
+      },
+      "traps": [
+        { "tr": "'Basınçlı' kelimesini kaçırıp serbest yüzeyli formülü ($h^2$ farkı) kullanmak en büyük tuzak: o formülde $b$ zaten yoktur, soruyu çözemezsin bile.", "en": "Missing the word 'confined' and using the unconfined formula (difference of $h^2$) is the biggest trap: that formula does not even contain $b$, so you cannot answer the question at all." },
+        { "tr": "Logaritmaya $25 - 15 = 10$ farkını değil, $25/15$ **oranını** koy: $\\ln(5/3) = 0{,}511$, $\\ln 10 = 2{,}30$ — dörtte birlik değil, dört buçuk katlık fark!", "en": "Put the **ratio** $25/15$ into the log, not the difference $25 - 15 = 10$: $\\ln(5/3) = 0.511$ vs $\\ln 10 = 2.30$ — an error of more than a factor of four!" },
+        { "tr": "Bu soruda 28 ve 33 m **su yükseklikleridir**, alçalma değil — 8.1'in tersi. Her soruda verilenin adını yeniden oku.", "en": "In this problem 28 and 33 m are **water heights**, not drawdowns — the opposite of 8.1. Re-read what the given quantity is called in every problem." },
+        { "tr": "$h > b$ görünce hesabından şüphelenme: basınçlı akiferde piyezometre seviyesi akifer tavanının üzerindedir.", "en": "Do not doubt your calculation when you see $h > b$: in a confined aquifer the piezometric level lies above the aquifer top." }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya gözlem kuyuları 30 m ve 50 m uzaklıkta olsaydı (aynı su yükseklikleriyle)?", "en": "What if the observation wells were at 30 m and 50 m (with the same water levels)?" },
+          "answer": { "tr": "$\\ln(50/30) = \\ln(5/3) = 0{,}5108$ — oran değişmediği için sonuç aynen $b = 20{,}3$ m kalır! Kuyu denklemlerinde uzaklıklar yalnızca **oran** olarak girer; mutlak değerleri tek başına önemsizdir. Bu, 'iki uzaklığı da iki katına çıkarsam ne olur?' tipi sınav sorularının cevabıdır: hiçbir şey.", "en": "$\\ln(50/30) = \\ln(5/3) = 0.5108$ — since the ratio is unchanged, the answer stays exactly $b = 20.3$ m! Distances enter well equations only as a **ratio**; their absolute values alone do not matter. This answers the exam-favourite 'what if both distances were doubled?': nothing changes." }
+        },
+        {
+          "scenario": { "tr": "Ya yanlışlıkla serbest yüzeyli (Dupuit) formülünü kullansaydın?", "en": "What if you had used the unconfined (Dupuit) formula by mistake?" },
+          "answer": { "tr": "O formülde $b$ olmadığından ancak $k$ çekebilirdin: $k = \\dfrac{0{,}25 \\times 0{,}5108}{\\pi (33^2 - 28^2)} = 1{,}33 \\times 10^{-4}$ m/s. Ama soru zaten $k = 2 \\times 10^{-4}$ veriyor — bulduğunla verilenin çelişmesi, yanlış model seçtiğinin işaretidir. Verilen bir büyüklüğü 'yeniden bulduysan' dur ve soruyu tekrar oku.", "en": "Since that formula has no $b$, you could only extract $k$: $k = \\dfrac{0.25 \\times 0.5108}{\\pi (33^2 - 28^2)} = 1.33 \\times 10^{-4}$ m/s. But the problem already gives $k = 2 \\times 10^{-4}$ — a clash between what you 'found' and what is given signals a wrong model. If you ever 're-derive' a given quantity, stop and re-read the problem." }
+        },
+        {
+          "scenario": { "tr": "Ya debi yarıya, 0,125 m³/sn'ye düşürülseydi — gerçek akiferde ne değişirdi?", "en": "What if the pumping rate were halved to 0.125 m³/s — what would change in the real aquifer?" },
+          "answer": { "tr": "$b$ akiferin fiziksel özelliğidir, değişmez! Basınçlı akiferde $h_2 - h_1 \\propto Q$ olduğundan seviye farkı yarıya, $5/2 = 2{,}5$ m'ye iner (ör. 30,5 ve 33 m gibi). Formüle eski farkla $Q = 0{,}125$ koyup $b = 10{,}2$ m bulmak, hangi büyüklüklerin veriye, hangilerinin zemine ait olduğunu karıştırmaktır.", "en": "$b$ is a physical property of the aquifer — it cannot change! In a confined aquifer $h_2 - h_1 \\propto Q$, so the level difference would halve to $5/2 = 2.5$ m (e.g. 30.5 and 33 m). Plugging $Q = 0.125$ with the old difference and getting $b = 10.2$ m confuses which quantities belong to the data and which to the ground." }
+        },
+        {
+          "scenario": { "tr": "Ya soru akiferin iletimliliğini (transmisivitesini) sorsaydı?", "en": "What if the problem asked for the transmissivity of the aquifer?" },
+          "answer": { "tr": "$T = k \\cdot b = 2 \\times 10^{-4} \\times 20{,}33 = 4{,}07 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$. Thiem denklemi $Q = \\dfrac{2\\pi T (h_2 - h_1)}{\\ln(r_2/r_1)}$ biçiminde de yazılabilir; bu formda $T$ tek adımda çıkar, sonra istenirse $b = T/k$.", "en": "$T = k \\cdot b = 2 \\times 10^{-4} \\times 20.33 = 4.07 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$. The Thiem equation can also be written $Q = \\dfrac{2\\pi T (h_2 - h_1)}{\\ln(r_2/r_1)}$; in that form $T$ comes out in one step, and then $b = T/k$ if needed." }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": { "tr": "Bir kuyu problemi 'serbest yüzeyli akifer' diyor. Su yükseklikleri denkleme nasıl girer?", "en": "A well problem says 'unconfined aquifer'. How do the water heights enter the equation?" },
+      "options": [
+        { "tr": "$h_2 - h_1$ (düz fark)", "en": "$h_2 - h_1$ (plain difference)" },
+        { "tr": "$h_2^2 - h_1^2$ (kareler farkı)", "en": "$h_2^2 - h_1^2$ (difference of squares)" },
+        { "tr": "$\\ln(h_2/h_1)$ (oranın logaritması)", "en": "$\\ln(h_2/h_1)$ (log of the ratio)" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Serbest yüzeyli akiferde akım kesitinin yüksekliği su yüzeyiyle birlikte değişir; Darcy + süreklilik integre edilince $h\\,dh$'den kareler farkı çıkar. Düz fark basınçlı akifere (sabit kesitli, $2\\pi k b$) aittir; logaritma yüksekliklere değil, yarıçap oranına uygulanır.",
+        "en": "In an unconfined aquifer the flow-section height varies with the water surface; integrating Darcy + continuity gives $h\\,dh$, hence a difference of squares. The plain difference belongs to the confined case (constant section, $2\\pi k b$); the logarithm applies to the radius ratio, not to the heights."
+      }
+    },
+    {
+      "q": { "tr": "Kuyudan 45 lt/sn su çekiliyor. Formüle girecek debi kaç m³/sn'dir?", "en": "A well pumps 45 L/s. What discharge in m³/s goes into the formula?" },
+      "options": [
+        { "tr": "$45$", "en": "$45$" },
+        { "tr": "$0{,}45$", "en": "$0.45$" },
+        { "tr": "$0{,}045$", "en": "$0.045$" },
+        { "tr": "$4{,}5$", "en": "$4.5$" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "1 m³ = 1000 litre olduğundan lt/sn'yi 1000'e bölersin: $45/1000 = 0{,}045$ m³/sn. $0{,}45$ yalnızca 100'e bölmektir (litreyi desimetreküple karıştırma hatası); 45'i olduğu gibi koymak $k$'yı bin kat şişirir.",
+        "en": "Since 1 m³ = 1000 litres, divide L/s by 1000: $45/1000 = 0.045$ m³/s. $0.45$ is dividing by only 100; keeping 45 as-is inflates $k$ by a factor of a thousand."
+      }
+    },
+    {
+      "q": { "tr": "Pompaj yapılan kuyudan uzaklaştıkça gözlem kuyularındaki su seviyesi ne yapar?", "en": "As you move away from a pumping well, what does the water level in observation wells do?" },
+      "options": [
+        { "tr": "Yükselir (alçalma azalır)", "en": "It rises (drawdown decreases)" },
+        { "tr": "Alçalır (alçalma artar)", "en": "It falls (drawdown increases)" },
+        { "tr": "Değişmez", "en": "It stays the same" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Alçalma konisi kuyuda en derin, uzaklaştıkça sığdır: aynı $Q$ kuyu yakınında küçücük silindir yüzeylerinden geçmek için dik eğim ister. Bu yüzden büyük $r$, büyük $h$ ile eşleşir. 'Alçalır' cevabı koniyi tersten hayal etmektir; 'değişmez' ancak etki yarıçapının ötesinde doğrudur.",
+        "en": "The cone of depression is deepest at the well and shallower away from it: the same $Q$ needs a steep gradient to pass through tiny cylinders near the well. That is why larger $r$ pairs with larger $h$. 'It falls' imagines the cone backwards; 'stays the same' is true only beyond the radius of influence."
+      }
+    },
+    {
+      "q": { "tr": "Bir pompaj deneyinde her iki gözlem kuyusunun uzaklığı da iki katına çıkarılıyor; ölçülen su yükseklikleri aynı kalıyor. Hesaplanan $k$ ne olur?", "en": "In a pumping test both observation distances are doubled; the measured water heights stay the same. What happens to the computed $k$?" },
+      "options": [
+        { "tr": "İki katına çıkar", "en": "It doubles" },
+        { "tr": "Yarıya iner", "en": "It halves" },
+        { "tr": "Değişmez", "en": "It is unchanged" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Uzaklıklar denkleme sadece $\\ln(r_2/r_1)$ oranı içinde girer; ikisi de iki katına çıkınca oran ($2r_2/2r_1 = r_2/r_1$) değişmez, dolayısıyla $k$ da değişmez. 'İki katına çıkar' ve 'yarıya iner' cevapları, $r$'lerin tek tek etkili olduğu yanılgısına dayanır.",
+        "en": "Distances enter the equation only through the ratio $\\ln(r_2/r_1)$; doubling both leaves the ratio ($2r_2/2r_1 = r_2/r_1$) unchanged, so $k$ is unchanged. 'Doubles' and 'halves' assume the radii matter individually — they don't."
+      }
+    },
+    {
+      "q": { "tr": "Dupuit kabullerinden biri hangisidir?", "en": "Which of these is one of the Dupuit assumptions?" },
+      "options": [
+        { "tr": "Akım çizgileri yatay kabul edilir ve hidrolik eğim su yüzeyinin eğimine eşittir", "en": "Flow lines are taken as horizontal and the hydraulic gradient equals the water-table slope" },
+        { "tr": "Akım çizgileri düşeydir ve su yüzeyi sabittir", "en": "Flow lines are vertical and the water table is fixed" },
+        { "tr": "Hidrolik eğim her noktada aynıdır", "en": "The hydraulic gradient is the same everywhere" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Dupuit, eğimlerin küçük olduğu durumda akımı yatay sayar ve eğimi $dh/dr$ (su yüzeyinin eğimi) alır — kuyu denklemleri bu sayede integre edilebilir. Düşey akım kabulü Dupuit'in tam tersidir; eğim de sabit değildir, kuyuya yaklaştıkça dikleşir (koninin biçimi zaten bundan gelir).",
+        "en": "Dupuit treats the flow as horizontal when slopes are small and takes the gradient as $dh/dr$ (the water-table slope) — that is what makes the well equations integrable. Vertical flow is the exact opposite of Dupuit; and the gradient is not constant — it steepens toward the well (that is what shapes the cone)."
+      }
+    },
+    {
+      "q": { "tr": "Kalınlığı $b = 25$ m, hidrolik iletkenliği $k = 2 \\times 10^{-4}$ m/s olan akiferin iletimliliği $T$ kaçtır?", "en": "An aquifer has thickness $b = 25$ m and conductivity $k = 2 \\times 10^{-4}$ m/s. What is its transmissivity $T$?" },
+      "options": [
+        { "tr": "$5 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$", "en": "$5 \\times 10^{-3}\\ \\text{m}^2/\\text{s}$" },
+        { "tr": "$8 \\times 10^{-6}\\ \\text{m}^2/\\text{s}$", "en": "$8 \\times 10^{-6}\\ \\text{m}^2/\\text{s}$" },
+        { "tr": "$1{,}25 \\times 10^{5}\\ \\text{m}^2/\\text{s}$", "en": "$1.25 \\times 10^{5}\\ \\text{m}^2/\\text{s}$" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "$T = k \\cdot b = 2 \\times 10^{-4} \\times 25 = 5 \\times 10^{-3}$ m²/s. İkinci seçenek $k/b$ ile bölme, üçüncüsü $b/k$ ile bölme hatasıdır — birim kontrolü ($\\text{m/s} \\times \\text{m} = \\text{m}^2/\\text{s}$) doğru işlemi hemen gösterir.",
+        "en": "$T = k \\cdot b = 2 \\times 10^{-4} \\times 25 = 5 \\times 10^{-3}$ m²/s. The second option is $k/b$, the third is $b/k$ — a quick unit check ($\\text{m/s} \\times \\text{m} = \\text{m}^2/\\text{s}$) reveals the right operation immediately."
+      }
+    },
+    {
+      "q": { "tr": "Pompajdan önce su yüksekliği 30 m olan serbest yüzeyli akiferde, bir gözlem kuyusunda 4 m alçalma ölçülüyor. Kuyu denklemine girecek $h$ kaçtır?", "en": "In an unconfined aquifer with 30 m of water before pumping, an observation well shows 4 m of drawdown. What $h$ goes into the well equation?" },
+      "options": [
+        { "tr": "$4$ m", "en": "$4$ m" },
+        { "tr": "$26$ m", "en": "$26$ m" },
+        { "tr": "$34$ m", "en": "$34$ m" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$h = H - s = 30 - 4 = 26$ m. Alçalmayı ($4$ m) doğrudan koymak bu ünitenin klasik tuzağıdır; $34$ m ise alçalmayı yanlışlıkla *eklemektir* — pompaj su seviyesini yükseltmez, düşürür.",
+        "en": "$h = H - s = 30 - 4 = 26$ m. Plugging the drawdown ($4$ m) straight in is the unit's classic trap; $34$ m *adds* the drawdown by mistake — pumping lowers the water level, it does not raise it."
+      }
+    },
+    {
+      "q": { "tr": "Bir kuyu probleminde gözlem kuyusundaki su yüksekliği (35 m), hesaplanan akifer kalınlığından (22 m) büyük çıkıyor. En doğru yorum hangisidir?", "en": "In a well problem the water level in an observation well (35 m) exceeds the computed aquifer thickness (22 m). What is the best interpretation?" },
+      "options": [
+        { "tr": "Hesap hatalıdır; su seviyesi kalınlığı aşamaz", "en": "The calculation is wrong; the water level cannot exceed the thickness" },
+        { "tr": "Akifer basınçlıdır; su basınçla akifer tavanının üstüne yükselmiştir", "en": "The aquifer is confined; pressure pushes the water above the aquifer top" },
+        { "tr": "Akifer serbest yüzeylidir ve beslenme fazladır", "en": "The aquifer is unconfined with excess recharge" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Basınçlı akiferde ölçülen seviye piyezometre seviyesidir ve akifer tavanının üstüne çıkabilir — $h > b$ basınçlı akiferin imzasıdır. Serbest yüzeyli akiferde su yüksekliği doygun kalınlığın kendisi olduğundan onu aşamaz; ilk seçenek ise doğru bir hesabı çöpe attırır.",
+        "en": "In a confined aquifer the measured level is the piezometric level and can rise above the aquifer top — $h > b$ is the signature of confinement. In an unconfined aquifer the water height IS the saturated thickness and cannot exceed it; the first option would make you discard a correct calculation."
+      }
+    }
+  ]
+}

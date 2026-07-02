@@ -1,0 +1,923 @@
+{
+  "unit": 3,
+  "slug": "buharlasma",
+  "title": { "tr": "Buharlaşma", "en": "Evaporation" },
+  "tagline": { "tr": "Su ve arazi yüzeylerinden atmosfere dönen su", "en": "Water returning to the atmosphere from lakes and land" },
+  "concept": {
+    "overview": {
+      "tr": "Buharlaşma (evaporasyon), göl ve baraj gibi su yüzeylerinden atmosfere kaçan sudur; bitkilerin terlemesiyle birleşince buna evapotranspirasyon denir. Bir baraj işletmecisi için bu kayıp önemlidir: yaz aylarında bir rezervuarın kaybettiği su, bazen sulama ya da içme suyu ihtiyacı kadar büyük olabilir. Bu ünitede buharlaşmayı üç farklı şekilde ele alıyoruz.\n\nBirincisi, **su dengesi**: göle giren ve çıkan her şeyi bilip tek bilinmeyeni (buharlaşmayı) denklemden çekmek — Ünite 1'deki mantığın aynısı.\n\nİkincisi, **A sınıfı buharlaşma tavası** ile ölçüm: tava küçük olduğu için gerçek gölden daha çabuk ısınır ve gerçekte olacağından fazla buharlaşma gösterir. Bu yüzden tava okumasını göl tahminine çevirirken bir **tava katsayısı** ($C \\approx 0{,}6-0{,}8$) ile çarpıp küçültürüz.\n\nÜçüncüsü, bitkilerin su tüketimini (**Blaney-Criddle**) ve bölgenin yıllık su kaybını (**Coutagne, Turc, Lowry-Johnson**) tahmin eden ampirik formüller. Bunlar gerçek ölçüm yerine sıcaklık, yağış ve enlem gibi kolay bulunan verilerden bir tahmin üretir. Üç formül aynı bölge için FARKLI sayılar verir — bu bir hata değildir, her formül farklı varsayımlarla kalibre edilmiştir; sınavda sonuçları ortalamak değil, ayrı ayrı rapor etmek beklenir.\n\nBu ünitenin sınav becerisi: hangi yöntemin hangi veriyle çalıştığını tanımak (denge mi, tava mı, ampirik formül mü) ve birim/işaret hatalarından kaçınmak.",
+      "en": "Evaporation is water escaping into the atmosphere from a surface like a lake or a reservoir; combined with plant transpiration it is called evapotranspiration. For a reservoir operator this loss matters: in the summer months a reservoir can lose water in amounts comparable to its irrigation or drinking-water demand. This unit tackles evaporation three different ways.\n\nFirst, the **water balance**: know everything flowing into and out of the lake and solve the equation for the one unknown (evaporation) — the same logic as Unit 1.\n\nSecond, measuring with a **Class-A evaporation pan**: because the pan is small, it heats up faster than a real lake and reads MORE evaporation than actually happens. So we shrink the pan reading with a **pan coefficient** ($C \\approx 0.6-0.8$) to estimate the lake's evaporation.\n\nThird, empirical formulas that estimate crop water consumption (**Blaney-Criddle**) and a region's annual water loss (**Coutagne, Turc, Lowry-Johnson**). These produce an estimate from easy-to-find data — temperature, rainfall, latitude — instead of a direct measurement. The three annual formulas give DIFFERENT numbers for the same region — that is not a mistake; each formula is calibrated with different assumptions, and an exam expects you to report them separately, not average them.\n\nThe exam skill in this unit: recognize which method fits which data (balance, pan, or empirical formula) and avoid unit and sign slips."
+    },
+    "keyFormulas": [
+      {
+        "name": { "tr": "Hazne su dengesi", "en": "Reservoir water balance" },
+        "latex": "\\Delta S = (P + Q_{g}) - (Q_{ç} + S_{ızma} + E)",
+        "meaning": {
+          "tr": "$\\Delta S$: göl seviyesindeki değişim, $P$: yağış, $Q_g$: giren akış, $Q_ç$: çıkan akış, $S_{ızma}$: sızma, $E$: buharlaşma. Hepsi aynı birimde (mm ya da m³).",
+          "en": "$\\Delta S$: change in lake level, $P$: rainfall, $Q_g$: inflow, $Q_ç$: outflow, $S_{ızma}$: seepage, $E$: evaporation. All in the same unit (mm or m³)."
+        },
+        "whenToUse": {
+          "tr": "Seviye değişimi ve akış/sızma/yağış verilip buharlaşma (ya da başka bir tek kayıp terimi) bilinmeyen olduğunda.",
+          "en": "When the level change and the flow/seepage/rainfall terms are given and evaporation (or some other single loss term) is the unknown."
+        }
+      },
+      {
+        "name": { "tr": "Tava katsayısı", "en": "Pan coefficient" },
+        "latex": "E_{göl} = C \\cdot E_{tava}, \\qquad E_H = E_{tava} \\cdot C \\cdot A",
+        "meaning": {
+          "tr": "$E_{tava}$: A sınıfı tavada ölçülen buharlaşma yüksekliği (mm), $C$: tava katsayısı (genelde 0,6-0,8), $E_{göl}$: gölün gerçek buharlaşma yüksekliği, $A$: göl alanı, $E_H$: hacim olarak buharlaşma kaybı.",
+          "en": "$E_{tava}$: evaporation depth measured in the Class-A pan (mm), $C$: pan coefficient (typically 0.6-0.8), $E_{göl}$: the lake's true evaporation depth, $A$: lake area, $E_H$: evaporation loss as a volume."
+        },
+        "whenToUse": {
+          "tr": "Soru A sınıfı tava verisi (aylık $E_t$) veriyorsa. Tava her zaman gölden fazla okur; $C$ bunu düzeltir.",
+          "en": "When the question gives Class-A pan data (monthly $E_t$). The pan always reads more than the lake; $C$ corrects for that."
+        }
+      },
+      {
+        "name": { "tr": "Blaney-Criddle", "en": "Blaney-Criddle" },
+        "latex": "U = 45\\,k\\,p\\,(t+18)\\ \\text{(mm/ay)}",
+        "meaning": {
+          "tr": "$U$: aylık su tüketimi, $k$: bitki katsayısı (ağırlıklı ortalama, birden fazla ürün varsa), $p$: o ay için gün ışığı yüzdesi (enlem tablosundan), $t$: aylık ortalama sıcaklık (°C).",
+          "en": "$U$: monthly consumptive use, $k$: crop coefficient (area-weighted average when several crops share the field), $p$: monthly daylight-hour percentage (from a latitude table), $t$: monthly mean temperature (°C)."
+        },
+        "whenToUse": {
+          "tr": "Aylık sıcaklık, bitki $k$ değeri ve $p$ tablosu verilip sulama suyu ihtiyacı sorulduğunda. Sulama ihtiyacı yalnızca $U > P$ olan aylarda $U - P$'dir.",
+          "en": "When monthly temperature, crop $k$ values and a $p$ table are given and irrigation need is asked. Irrigation demand is $U - P$ only for months where $U > P$."
+        }
+      },
+      {
+        "name": { "tr": "Coutagne", "en": "Coutagne" },
+        "latex": "U = P - \\chi P^2, \\qquad \\chi = \\dfrac{1}{10\\,000\\,(0.8+0.14T)}",
+        "meaning": {
+          "tr": "$U$: yıllık gerçek evapotranspirasyon (mm/yıl), $P$: yıllık yağış (mm), $T$: yıllık ortalama sıcaklık (°C), $\\chi$: sıcaklığa bağlı katsayı ($P$ mm cinsindeyken bu ölçekte kullanılır).",
+          "en": "$U$: annual actual evapotranspiration (mm/yr), $P$: annual rainfall (mm), $T$: annual mean temperature (°C), $\\chi$: a temperature-dependent coefficient (in this scale, for $P$ in mm)."
+        },
+        "whenToUse": {
+          "tr": "Yıllık yağış ve sıcaklık verilip bölgenin yıllık su kaybı (ampirik) sorulduğunda. Geçerlilik aralığı $1/(8\\chi) < P < 1/(2\\chi)$ olsa da sınav sorusunda bu sınırın dışında bile hesaplatılabilir.",
+          "en": "When annual rainfall and temperature are given and the region's annual (empirical) water loss is asked. The validity range is $1/(8\\chi) < P < 1/(2\\chi)$, but exam questions may still ask you to compute even outside it."
+        }
+      },
+      {
+        "name": { "tr": "Turc", "en": "Turc" },
+        "latex": "U = \\dfrac{0.9\\,P}{\\sqrt{0.9 + P^2/L^2}}, \\qquad L = 300 + 25T + 0.05T^3",
+        "meaning": {
+          "tr": "$U$: yıllık evapotranspirasyon (mm/yıl), $P$: yıllık yağış (mm), $T$: yıllık ortalama sıcaklık (°C), $L$: sıcaklığa bağlı yardımcı büyüklük (ısı fonksiyonu).",
+          "en": "$U$: annual evapotranspiration (mm/yr), $P$: annual rainfall (mm), $T$: annual mean temperature (°C), $L$: a temperature-dependent heat function."
+        },
+        "whenToUse": {
+          "tr": "Coutagne ile aynı veriyle (yıllık $P$, $T$) ikinci bir ampirik tahmin istenirse. $L$ sadece sıcaklığa bağlıdır, önce onu hesapla.",
+          "en": "When a second empirical estimate is wanted from the same data (annual $P$, $T$) as Coutagne. $L$ depends on temperature only, so compute it first."
+        }
+      },
+      {
+        "name": { "tr": "Lowry-Johnson", "en": "Lowry-Johnson" },
+        "latex": "U = 0.085\\,H + 243\\ \\text{(mm/yıl)}",
+        "meaning": {
+          "tr": "$U$: yıllık evapotranspirasyon (mm/yıl), $H$: 0°C'nin üzerindeki günlük sıcaklıkların yıllık toplamı (°C).",
+          "en": "$U$: annual evapotranspiration (mm/yr), $H$: the annual sum of daily mean temperatures above 0°C (°C)."
+        },
+        "whenToUse": {
+          "tr": "Soru doğrudan $H$ (sıcaklık toplamı) verdiğinde; en basit üç formülden biridir, yağışa bile ihtiyaç duymaz.",
+          "en": "When the question directly gives $H$ (the temperature sum); it is the simplest of the three annual formulas and does not even need rainfall."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "**\"Alçalma\" (seviye düşmesi) her zaman NEGATİF $\\Delta S$'dir.** Ünite 1'deki gibi burada da işareti kaçırmak tüm sonucu bozar.",
+        "en": "**A \"drop\" in level is always a NEGATIVE $\\Delta S$.** Just like in Unit 1, missing this sign here wrecks the whole result."
+      },
+      {
+        "tr": "**Tava katsayısı gölü KÜÇÜLTÜR, büyütmez.** $E_{göl} = C \\cdot E_{tava}$ ile $C<1$ çarpılır; tavanın okuduğu yükseklik gölden her zaman fazladır.",
+        "en": "**The pan coefficient SHRINKS the lake estimate, not grows it.** $E_{göl} = C \\cdot E_{tava}$ multiplies by $C<1$; the pan always reads higher than the lake."
+      },
+      {
+        "tr": "**Blaney-Criddle'da $U$ aylıktır ve sulama ihtiyacı için önce $U>P$ kontrolü gerekir.** $U<P$ olan bir ayı toplama negatif katmak yanlıştır — o ay sulama ihtiyacı sıfırdır.",
+        "en": "**In Blaney-Criddle $U$ is monthly, and irrigation demand needs a $U>P$ check first.** Adding a negative value for a month where $U<P$ is wrong — that month needs zero irrigation."
+      },
+      {
+        "tr": "**Ampirik formüllerde birimlere dikkat: $P$ mm mi m mi, sıcaklık toplamları °C mi.** Coutagne'nin $\\chi$'si $P$ mm cinsindeyken doğru ölçekte olmalı; yanlış ölçek sonucu 1000 kat kaydırır.",
+        "en": "**Watch units in the empirical formulas: is $P$ in mm or m, are temperature sums in °C.** Coutagne's $\\chi$ must be on the correct scale when $P$ is in mm; the wrong scale shifts the result by a factor of 1000."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "3-1",
+      "code": "Uygulama 3.1",
+      "title": { "tr": "Hazne su dengesinden buharlaşma", "en": "Reservoir evaporation from a water balance" },
+      "difficulty": 1,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Su yüzeyi alanı 50 km² olan bir baraj rezervuarında Temmuz ayında 10 cm'lik bir seviye alçalması gözlenmiştir. Çevrede bulunan yağış ölçeğine göre bu ay düşen yağış yüksekliği 50 mm'dir. Rezervuarın tabanından bu ay içerisinde 30 mm yüksekliğinde bir sızma olduğu tahmin edilmektedir. Rezervuardan çıkan ortalama akım 0,50 m³/sn ve rezervuara giren akarsuyun ortalama debisi 0,60 m³/sn olduğuna göre Temmuz ayında rezervuarın su yüzeyinde meydana gelen buharlaşma yüksekliği ne kadardır?",
+        "en": "A reservoir with a water surface area of 50 km² recorded a 10 cm drop in level during July. Rain gauges nearby show that 50 mm of rain fell that month. Seepage through the base of the reservoir is estimated at 30 mm for the month. The average outflow leaving the reservoir is 0.50 m³/s and the average discharge of the river flowing in is 0.60 m³/s. What is the evaporation depth on the reservoir's water surface during July?"
+      },
+      "given": [
+        { "symbol": "A", "value": "50\\ \\text{km}^2", "label": { "tr": "Rezervuar su yüzeyi alanı", "en": "Reservoir surface area" } },
+        { "symbol": "\\Delta h", "value": "10\\ \\text{cm} = 100\\ \\text{mm (alçalma)}", "label": { "tr": "Temmuz ayı seviye alçalması", "en": "July level drop" } },
+        { "symbol": "P", "value": "50\\ \\text{mm}", "label": { "tr": "Temmuz ayı yağışı", "en": "July rainfall" } },
+        { "symbol": "S_{ızma}", "value": "30\\ \\text{mm}", "label": { "tr": "Tabandan sızma", "en": "Seepage through the base" } },
+        { "symbol": "Q_ç", "value": "0{,}50\\ \\text{m}^3/\\text{s}", "label": { "tr": "Çıkan ortalama debi", "en": "Average outflow discharge" } },
+        { "symbol": "Q_g", "value": "0{,}60\\ \\text{m}^3/\\text{s}", "label": { "tr": "Giren ortalama debi", "en": "Average inflow discharge" } }
+      ],
+      "goal": {
+        "tr": "Temmuz ayında rezervuar yüzeyinden gerçekleşen buharlaşma yüksekliğini (mm) bulmak.",
+        "en": "Find the evaporation depth (mm) on the reservoir surface during July."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Su dengesini kur", "en": "Set up the water balance" },
+          "guiding": {
+            "tr": "Rezervuarı kapalı bir bölge olarak düşün. Bir aylık dengede giren, çıkan ve bilinmeyen terimler hangileri?",
+            "en": "Think of the reservoir as a closed region. In a one-month balance, which terms are inflow, outflow, and the unknown?"
+          },
+          "hint": {
+            "tr": "Giren: yağış + giren akış. Çıkan: çıkan akış + sızma + buharlaşma. Seviye değişimi ise $\\Delta S$'nin kendisi.",
+            "en": "In: rainfall + inflow. Out: outflow + seepage + evaporation. The level change is $\\Delta S$ itself."
+          },
+          "work": {
+            "tr": "Rezervuar için Temmuz ayı su dengesini yazıyoruz:\n\n$$\\Delta S = (P + Q_g) - (Q_ç + S_{ızma} + E)$$\n\nBilinmeyen tek terim buharlaşma ($E$); geri kalan her şey verilmiş ya da hesaplanabilir.",
+            "en": "We write the July water balance for the reservoir:\n\n$$\\Delta S = (P + Q_g) - (Q_ç + S_{ızma} + E)$$\n\nThe only unknown term is evaporation ($E$); everything else is given or computable."
+          },
+          "why": {
+            "tr": "Sınav ipucu: kapalı bir su yüzeyi + sabit bir süre + bilinen giren/çıkanlarla saklı tek bir kayıp terimi görür görmez su dengesi kur. Bu, Ünite 1'in aynı iskeleti — burada bilinmeyen buharlaşma.",
+            "en": "Exam cue: a closed water surface, a fixed period, and known ins/outs hiding exactly one loss term — that is the signal to write a water balance. It is the same skeleton as Unit 1, with evaporation as the unknown this time."
+          },
+          "result": "\\Delta S = (P + Q_g) - (Q_ç + S_{ızma} + E)",
+          "check": null
+        },
+        {
+          "title": { "tr": "Giren akışı yüksekliğe çevir", "en": "Convert the inflow discharge to a depth" },
+          "guiding": {
+            "tr": "Temmuz 31 gün. 0,60 m³/sn'lik giren akış, 50 km²'lik göl yüzeyine yayılınca kaç mm eder?",
+            "en": "July has 31 days. Spread over the 50 km² lake surface, how many mm does a 0.60 m³/s inflow amount to?"
+          },
+          "hint": {
+            "tr": "Önce hacme çevir: $V = Q \\cdot \\Delta t$, $\\Delta t = 31 \\cdot 86\\,400$ sn. Sonra $h = V/A$ ile mm'ye geç.",
+            "en": "First convert to a volume: $V = Q \\cdot \\Delta t$, $\\Delta t = 31 \\cdot 86{,}400$ s. Then get mm via $h = V/A$."
+          },
+          "work": {
+            "tr": "Temmuz'da saniye sayısı: $31 \\cdot 86\\,400 = 2\\,678\\,400$ sn.\n\n$$h_{giren} = \\frac{Q_g \\cdot \\Delta t}{A} = \\frac{0{,}60 \\cdot 2\\,678\\,400}{50 \\cdot 10^6} = 0{,}03214\\ \\text{m} \\approx 32{,}14\\ \\text{mm}$$",
+            "en": "Seconds in July: $31 \\cdot 86{,}400 = 2{,}678{,}400$ s.\n\n$$h_{in} = \\frac{Q_g \\cdot \\Delta t}{A} = \\frac{0.60 \\cdot 2{,}678{,}400}{50 \\cdot 10^6} = 0.03214\\ \\text{m} \\approx 32.14\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "Yağış ve sızma zaten mm cinsinden; debiyi de mm'ye çevirirsek tüm terimler aynı dilde olur ve tek satırda toplanabilir. Temmuz'un 31 gün olması burada kritik: 30 gün alırsan sonuç kayar.",
+            "en": "Rainfall and seepage are already in mm; converting the discharge to mm too puts every term in the same language so they can be added on one line. July having 31 days matters here: using 30 would shift the answer."
+          },
+          "result": "h_{giren} = 32{,}14\\ \\text{mm}",
+          "check": {
+            "q": { "tr": "Temmuz ayı için doğru saniye sayısı hangisidir?", "en": "Which is the correct number of seconds in July?" },
+            "options": [
+              { "tr": "31 × 86 400 = 2 678 400 sn", "en": "31 × 86,400 = 2,678,400 s" },
+              { "tr": "30 × 86 400 = 2 592 000 sn", "en": "30 × 86,400 = 2,592,000 s" },
+              { "tr": "31 × 3 600 = 111 600 sn", "en": "31 × 3,600 = 111,600 s" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Temmuz 31 gün çeker: $31 \\cdot 86\\,400 = 2\\,678\\,400$ sn. 30 gün Eylül/Nisan/Haziran/Kasım'a ait; 3 600 saniye yalnızca 1 saattir, gün değil.",
+              "en": "July has 31 days: $31 \\cdot 86{,}400 = 2{,}678{,}400$ s. 30 days belongs to September/April/June/November; 3,600 seconds is just one hour, not a day."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Çıkan akışı yüksekliğe çevir", "en": "Convert the outflow discharge to a depth" },
+          "guiding": {
+            "tr": "Aynı süre, aynı alan — bu kez 0,50 m³/sn'lik çıkan akış kaç mm eder?",
+            "en": "Same period, same area — how many mm does the 0.50 m³/s outflow amount to?"
+          },
+          "hint": {
+            "tr": "Bir önceki adımın aynısı, sadece debi değişti.",
+            "en": "Exactly the same as the previous step, just with a different discharge."
+          },
+          "work": {
+            "tr": "$$h_{çıkan} = \\frac{Q_ç \\cdot \\Delta t}{A} = \\frac{0{,}50 \\cdot 2\\,678\\,400}{50 \\cdot 10^6} = 0{,}02678\\ \\text{m} \\approx 26{,}78\\ \\text{mm}$$",
+            "en": "$$h_{out} = \\frac{Q_ç \\cdot \\Delta t}{A} = \\frac{0.50 \\cdot 2{,}678{,}400}{50 \\cdot 10^6} = 0.02678\\ \\text{m} \\approx 26.78\\ \\text{mm}$$"
+          },
+          "why": {
+            "tr": "İki debiyi ayrı ayrı mm'ye çevirmek, giren ve çıkanı karıştırma riskini azaltır. Alternatif kısayol: doğrudan net akışı $(Q_g - Q_ç) \\cdot \\Delta t / A = 5{,}36$ mm olarak hesaplamak da aynı sonuca götürür.",
+            "en": "Converting the two discharges separately to mm reduces the risk of mixing up inflow and outflow. A shortcut: computing the net flow directly as $(Q_g - Q_ç) \\cdot \\Delta t / A = 5.36$ mm leads to the same result."
+          },
+          "result": "h_{çıkan} = 26{,}78\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Seviye alçalmasını işaretle $\\Delta S$'ye taşı", "en": "Carry the level drop into $\\Delta S$ with its sign" },
+          "guiding": {
+            "tr": "10 cm alçalma kaç mm ve hangi işaretle $\\Delta S$'ye girer?",
+            "en": "How many mm is a 10 cm drop, and with what sign does it enter $\\Delta S$?"
+          },
+          "hint": {
+            "tr": "1 cm = 10 mm. Alçalma daima eksi.",
+            "en": "1 cm = 10 mm. A drop is always negative."
+          },
+          "work": {
+            "tr": "$$\\Delta S = -10\\ \\text{cm} = -100\\ \\text{mm}$$\n\nSeviye düştüğüne göre rezervuarın deposu bu ay 100 mm azalmıştır.",
+            "en": "$$\\Delta S = -10\\ \\text{cm} = -100\\ \\text{mm}$$\n\nSince the level fell, the reservoir's storage decreased by 100 mm this month."
+          },
+          "why": {
+            "tr": "Bu tek işaret, 1.1 ve 1.2'de gördüğümüz aynı tuzağın burada tekrarı: \"alçalma\" gördüğün an eksi koy. cm'yi mm'ye çevirmeyi atlamak da (10 yerine 100 kullanmamak) ayrı bir sık hata.",
+            "en": "This one sign is the same trap we saw back in 1.1 and 1.2 repeating here: the instant you see \"drop\", put a minus. Forgetting to convert cm to mm (using 10 instead of 100) is a separate common slip."
+          },
+          "result": "\\Delta S = -100\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Denklemi buharlaşma için çöz", "en": "Solve the equation for evaporation" },
+          "guiding": {
+            "tr": "Tüm terimler mm cinsinden hazır. $E$'yi yalnız bırak.",
+            "en": "All terms are ready in mm. Isolate $E$."
+          },
+          "hint": {
+            "tr": "$\\Delta S = (P + h_{giren}) - (h_{çıkan} + S_{ızma} + E)$ içine yerleştir, parantezi dikkatli aç.",
+            "en": "Substitute into $\\Delta S = (P + h_{in}) - (h_{out} + S_{ızma} + E)$, and open the bracket carefully."
+          },
+          "work": {
+            "tr": "$$-100 = (50 + 32{,}14) - (26{,}78 + 30 + E)$$\n\n$$E = (50 + 32{,}14) - (26{,}78 + 30) + 100 = 82{,}14 - 56{,}78 + 100 = 125{,}36\\ \\text{mm}$$\n\nYuvarlayarak $E \\approx 125{,}4$ mm.",
+            "en": "$$-100 = (50 + 32.14) - (26.78 + 30 + E)$$\n\n$$E = (50 + 32.14) - (26.78 + 30) + 100 = 82.14 - 56.78 + 100 = 125.36\\ \\text{mm}$$\n\nRounded, $E \\approx 125.4$ mm."
+          },
+          "why": {
+            "tr": "Buharlaşma burada bütçenin en büyük çıkış kalemi çıkıyor — mantıklı, çünkü net giren su yalnızca 5,36 mm iken göl 100 mm alçalmış; farkı büyük ölçüde buharlaşma açıklamak zorunda. Sonucu bulduktan sonra bu fiziksel makul olup olmadığını (Temmuz'da yaz sıcağında ~125 mm/ay buharlaşma) bir saniye düşün.",
+            "en": "Evaporation turns out to be the largest single outflow in the budget — which makes sense: the net inflow is only 5.36 mm, yet the lake fell by 100 mm, so evaporation has to explain most of that gap. After getting the number, take a second to sanity-check it physically (about 125 mm of evaporation in a hot July is plausible)."
+          },
+          "result": "E \\approx 125{,}4\\ \\text{mm}",
+          "check": {
+            "q": { "tr": "Bu sorudaki net akış (giren − çıkan) yaklaşık kaç mm'dir?", "en": "What is the net flow (in − out) in this question, approximately?" },
+            "options": [
+              { "tr": "≈ 5,36 mm (giren fazla)", "en": "≈ 5.36 mm (net inflow)" },
+              { "tr": "≈ −5,36 mm (çıkan fazla)", "en": "≈ −5.36 mm (net outflow)" },
+              { "tr": "≈ 58,9 mm", "en": "≈ 58.9 mm" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$32{,}14 - 26{,}78 = 5{,}36$ mm, yani göle giren su çıkandan biraz fazla. Buna rağmen göl 100 mm alçaldığına göre, aradaki 100+5,36+50−30=125,36 mm'lik farkı büyük ölçüde buharlaşma ve sızma açıklıyor — bu, sonucun 125 mm civarında çıkmasının fiziksel gerekçesidir.",
+              "en": "$32.14 - 26.78 = 5.36$ mm, i.e. slightly more water flows in than out. Yet the lake still dropped 100 mm, so evaporation (and seepage) must explain most of that gap — this is the physical reason the answer comes out around 125 mm."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Temmuz ayı buharlaşma yüksekliği:** $E = 82{,}14 - 56{,}78 + 100 = \\boxed{125{,}4\\ \\text{mm}}$ (≈ 12,5 cm).",
+        "en": "**July evaporation depth:** $E = 82.14 - 56.78 + 100 = \\boxed{125.4\\ \\text{mm}}$ (≈ 12.5 cm)."
+      },
+      "traps": [
+        {
+          "tr": "10 cm'yi mm'ye çevirmeyi unutmak ya da 10 mm sanmak — doğrusu 100 mm'dir ve bu bir ALÇALMA olduğu için $\\Delta S = -100$ mm alınmalıdır.",
+          "en": "Forgetting to convert 10 cm to mm, or reading it as 10 mm — the correct value is 100 mm, and since it is a DROP, $\\Delta S = -100$ mm."
+        },
+        {
+          "tr": "Temmuz'u 30 gün almak: doğrusu 31 gündür, 2 678 400 sn kullanılmalı; 30 gün kullanmak her iki akış yüksekliğini de kaydırır.",
+          "en": "Taking July as 30 days: it is actually 31 days, requiring 2,678,400 s; using 30 shifts both flow depths."
+        },
+        {
+          "tr": "Net akışı $(Q_g - Q_ç)$ olarak hesaplayıp doğrudan denklemin dışında bırakmak (5,36 mm'lik kısayolu kullanırken $P$ veya $S_{ızma}$'yı unutmak).",
+          "en": "Computing the net flow $(Q_g - Q_ç)$ as a shortcut but then forgetting to include $P$ or $S_{ızma}$ in the equation."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya seviye 10 cm alçalmak yerine 10 cm YÜKSELSEYDİ?",
+            "en": "What if the level had RISEN 10 cm instead of dropping 10 cm?" },
+          "answer": {
+            "tr": "$\\Delta S = +100$ mm olur: $E = 82{,}14 - 56{,}78 - 100 = -74{,}64$ mm. Negatif bir buharlaşma fiziksel olarak imkânsızdır — bu, verilerin (bu kadar büyük bir yükselmeyle) tutarsız olduğunu, ya da bir işaret/veri hatası yapıldığını gösterir. Sınav dersi: negatif bir kayıp terimi bulursan önce işaretlerini, sonra soru verilerini yeniden kontrol et.",
+            "en": "$\\Delta S = +100$ mm: $E = 82.14 - 56.78 - 100 = -74.64$ mm. A negative evaporation is physically impossible — it signals that the data are inconsistent with such a large rise, or that a sign/data error was made. Exam lesson: if a loss term comes out negative, re-check your signs first, then re-check the given data."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya aynı soru Temmuz yerine Haziran (30 gün) için sorulsaydı?",
+            "en": "What if the same question were asked for June (30 days) instead of July?" },
+          "answer": {
+            "tr": "Sadece süre değişir: $\\Delta t = 30 \\cdot 86\\,400 = 2\\,592\\,000$ sn. $h_{giren} = 0{,}60 \\cdot 2\\,592\\,000/(50\\cdot 10^6)\\cdot 1000 = 31{,}10$ mm, $h_{çıkan} = 0{,}50\\cdot 2\\,592\\,000/(50\\cdot 10^6)\\cdot 1000 = 25{,}92$ mm. $E = (50+31{,}10)-(25{,}92+30)+100 = 125{,}2$ mm — neredeyse aynı sonuç, çünkü akış terimleri toplam bütçenin küçük bir parçası. Ders: gün sayısı sonuçta küçük etkili olsa da her zaman soru metninden okunmalı.",
+            "en": "Only the duration changes: $\\Delta t = 30 \\cdot 86{,}400 = 2{,}592{,}000$ s. $h_{in} = 0.60 \\cdot 2{,}592{,}000/(50\\cdot 10^6)\\cdot 1000 = 31.10$ mm, $h_{out} = 0.50\\cdot 2{,}592{,}000/(50\\cdot 10^6)\\cdot 1000 = 25.92$ mm. $E = (50+31.10)-(25.92+30)+100 = 125.2$ mm — almost the same answer, since the flow terms are a small part of the total budget. Lesson: the day count always matters little here but must still be read from the question text."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya sızma bilinmeyen olsaydı ve buharlaşma verilseydi?",
+            "en": "What if seepage were the unknown and evaporation were given instead?" },
+          "answer": {
+            "tr": "Aynı denklem, farklı bilinmeyen. $E$ yerine $S_{ızma}$'yı yalnız bırakırsın: $S_{ızma} = (50+32{,}14) - (26{,}78+E) + 100$. Bu ünitenin dersi burada da geçerli: değişen sadece hangi terimin \"bilinmeyen\" olarak işaretlendiği; çözüm şablonu değişmez.",
+            "en": "Same equation, different unknown. You would isolate $S_{ızma}$ instead of $E$: $S_{ızma} = (50+32.14) - (26.78+E) + 100$. This unit's lesson still applies: only which term is marked \"unknown\" changes; the solution template stays the same."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-2",
+      "code": "Uygulama 3.2",
+      "title": { "tr": "Tava buharlaşmasından hazne kaybı", "en": "Reservoir loss from pan evaporation" },
+      "difficulty": 1,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir baraj haznesi yakınındaki A sınıfı buharlaşma tavasında ölçülen aylık buharlaşma yükseklikleri, tava katsayıları ve hazne yüzey alanları çizelgede verilmiştir. Bu hazneden yaz ayları boyunca meydana gelebilecek buharlaşma kaybını hacim olarak hesaplayınız.",
+        "en": "The table below gives the monthly evaporation depths measured in a Class-A evaporation pan near a reservoir, together with the pan coefficients and the reservoir's surface area for each month. Calculate the volume of evaporation loss from the reservoir over the summer months."
+      },
+      "given": [
+        { "symbol": "E_t", "value": "\\text{mm/ay (tablo)}", "label": { "tr": "Aylık tava buharlaşması", "en": "Monthly pan evaporation" } },
+        { "symbol": "C", "value": "\\text{tablo}", "label": { "tr": "Aylık tava katsayısı", "en": "Monthly pan coefficient" } },
+        { "symbol": "A", "value": "\\text{km}^2\\ \\text{(tablo)}", "label": { "tr": "Aylık hazne yüzey alanı", "en": "Monthly reservoir surface area" } }
+      ],
+      "goal": {
+        "tr": "Mayıs-Eylül (yaz ayları) boyunca hazneden gerçekleşen toplam buharlaşma kaybını hacim (m³) olarak bulmak.",
+        "en": "Find the total evaporation loss volume (m³) from the reservoir over May-September (the summer months)."
+      },
+      "tables": [
+        {
+          "title": { "tr": "Aylık tava buharlaşması, katsayı ve hazne alanı", "en": "Monthly pan evaporation, coefficient and reservoir area" },
+          "headers": ["Ay", "E_t (mm)", "C", "A (km²)", "E_H (m³)"],
+          "rows": [
+            ["Mayıs", "130", "0,63", "2,63", "215 397"],
+            ["Haziran", "150", "0,66", "2,53", "250 470"],
+            ["Temmuz", "160", "0,68", "2,42", "263 296"],
+            ["Ağustos", "145", "0,70", "2,35", "238 525"],
+            ["Eylül", "100", "0,71", "2,30", "163 300"],
+            ["Toplam", "", "", "", "1 130 988"]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Göl buharlaşma yüksekliğini bul", "en": "Get the lake evaporation depth" },
+          "guiding": {
+            "tr": "Tava 130 mm okuduysa, gölün gerçek buharlaşması bundan az mı çok mu olmalı — ve nasıl bulunur?",
+            "en": "If the pan reads 130 mm, should the lake's real evaporation be more or less — and how do you get it?" },
+          "hint": {
+            "tr": "$E_{göl} = C \\cdot E_t$. $C<1$ olduğu için sonuç tavadan küçük çıkar.",
+            "en": "$E_{lake} = C \\cdot E_t$. Since $C<1$, the result comes out smaller than the pan reading." },
+          "work": {
+            "tr": "Mayıs için: $$E_{göl} = C \\cdot E_t = 0{,}63 \\cdot 130 = 81{,}9\\ \\text{mm}$$\n\nTava 130 mm gösteriyor ama gerçek göl yüzeyi bundan daha az buharlaştırır: 81,9 mm.",
+            "en": "For May: $$E_{lake} = C \\cdot E_t = 0.63 \\cdot 130 = 81.9\\ \\text{mm}$$\n\nThe pan shows 130 mm, but the real lake surface evaporates less than that: 81.9 mm."
+          },
+          "why": {
+            "tr": "Tava küçük bir kap olduğu için güneşten çabuk ısınır ve gerçek gölden daha hızlı buharlaşır. Bu yapısal fazlalığı düzeltmek için tava okumasını her zaman $C<1$ ile çarparız — sınavda \"tava\" kelimesini görünce bu çarpımı otomatik uygula.",
+            "en": "Because the pan is a small container, it heats up quickly in the sun and evaporates faster than the real lake. To correct for this structural excess we always multiply the pan reading by $C<1$ — the moment you see the word \"pan\" in an exam, apply this multiplication automatically."
+          },
+          "result": "E_{göl,Mayıs} = 81{,}9\\ \\text{mm}",
+          "check": {
+            "q": { "tr": "Tava katsayısı $C=0{,}63$ iken göl buharlaşması tavaya göre nasıldır?", "en": "With a pan coefficient $C=0.63$, how does the lake's evaporation compare to the pan's?" },
+            "options": [
+              { "tr": "Gölde daha az buharlaşma olur", "en": "The lake evaporates less" },
+              { "tr": "Gölde daha fazla buharlaşma olur", "en": "The lake evaporates more" },
+              { "tr": "İkisi eşittir", "en": "They are equal" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$C<1$ olduğu için $E_{göl}=C\\cdot E_t$ her zaman tavadan küçük çıkar. Tava küçük hacmi yüzünden fazla ısınıp fazla buharlaşma gösterir; gerçek göl daha yavaş ısınır.",
+              "en": "Since $C<1$, $E_{lake}=C\\cdot E_t$ always comes out smaller than the pan reading. The pan's small volume heats it up too much, so it over-reads; the real lake heats up more slowly."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Yüksekliği hacme çevir", "en": "Convert the depth to a volume" },
+          "guiding": {
+            "tr": "Mayıs'ta 81,9 mm'lik buharlaşma, 2,63 km²'lik hazne yüzeyinde kaç m³ su kaybı demektir?",
+            "en": "An 81.9 mm evaporation depth over a 2.63 km² reservoir surface — how many m³ of water is that in May?" },
+          "hint": {
+            "tr": "$V = h \\cdot A$. mm'yi m'ye (÷1000), km²'yi m²'ye (×10⁶) çevirmeyi unutma.",
+            "en": "$V = h \\cdot A$. Don't forget to convert mm to m (÷1000) and km² to m² (×10⁶)." },
+          "work": {
+            "tr": "$$E_H = E_{göl} \\cdot A = 81{,}9 \\cdot 10^{-3}\\ \\text{m} \\cdot 2{,}63 \\cdot 10^{6}\\ \\text{m}^2 = 215\\,397\\ \\text{m}^3$$",
+            "en": "$$E_H = E_{lake} \\cdot A = 81.9 \\cdot 10^{-3}\\ \\text{m} \\cdot 2.63 \\cdot 10^{6}\\ \\text{m}^2 = 215{,}397\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Soru \"hacim olarak\" istiyor, yani mm'de durmak yetmez. Aynı zamanda burada aylık alan (2,63 km²) kullanılıyor — göl seviyesi düştükçe yüzey alanı da küçülür, bu yüzden her ayın kendi $A$'sı kullanılmalı.",
+            "en": "The question asks \"as a volume\", so stopping at mm is not enough. Also note the monthly area (2.63 km²) is used here — as the lake level falls its surface area shrinks too, so each month's own $A$ must be used."
+          },
+          "result": "E_{H,Mayıs} = 215\\,397\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": { "tr": "Aynı hesabı her ay için tekrarla", "en": "Repeat the same calculation for every month" },
+          "guiding": {
+            "tr": "Aynı iki çarpımı (tava katsayısı, sonra alan) Haziran'dan Eylül'e kadar uygularsan tablo nasıl dolar?",
+            "en": "Applying the same two multiplications (pan coefficient, then area) from June to September, how does the table fill in?" },
+          "hint": {
+            "tr": "Her satırda önce $C\\cdot E_t$, sonra $\\times A$ (birim çevirmeyi unutma).",
+            "en": "In each row, first $C\\cdot E_t$, then $\\times A$ (don't forget the unit conversions)." },
+          "work": {
+            "tr": "Haziran: $0{,}66\\cdot150=99{,}0$ mm → $99{,}0\\cdot10^{-3}\\cdot2{,}53\\cdot10^6=250\\,470$ m³.\n\nTemmuz: $0{,}68\\cdot160=108{,}8$ mm → $108{,}8\\cdot10^{-3}\\cdot2{,}42\\cdot10^6=263\\,296$ m³.\n\nAğustos: $0{,}70\\cdot145=101{,}5$ mm → $101{,}5\\cdot10^{-3}\\cdot2{,}35\\cdot10^6=238\\,525$ m³.\n\nEylül: $0{,}71\\cdot100=71{,}0$ mm → $71{,}0\\cdot10^{-3}\\cdot2{,}30\\cdot10^6=163\\,300$ m³.",
+            "en": "June: $0.66\\cdot150=99.0$ mm → $99.0\\cdot10^{-3}\\cdot2.53\\cdot10^6=250{,}470$ m³.\n\nJuly: $0.68\\cdot160=108.8$ mm → $108.8\\cdot10^{-3}\\cdot2.42\\cdot10^6=263{,}296$ m³.\n\nAugust: $0.70\\cdot145=101.5$ mm → $101.5\\cdot10^{-3}\\cdot2.35\\cdot10^6=238{,}525$ m³.\n\nSeptember: $0.71\\cdot100=71.0$ mm → $71.0\\cdot10^{-3}\\cdot2.30\\cdot10^6=163{,}300$ m³."
+          },
+          "why": {
+            "tr": "Beş ay için de aynı iki adım tekrarlanıyor — bu bir hesap makinesi rutini, ama her satırda $C$ ve $A$'nın DEĞİŞTİĞİNE dikkat et. Bir önceki ayın $C$'sini kullanmak sık yapılan bir kopyala-yapıştır hatasıdır.",
+            "en": "The same two steps repeat for all five months — this is a calculator routine, but pay attention that $C$ and $A$ CHANGE every row. Reusing the previous month's $C$ is a common copy-paste mistake."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": { "tr": "Aylık kayıpları topla", "en": "Sum the monthly losses" },
+          "guiding": {
+            "tr": "Beş aylık hacimleri toplarsan yaz boyunca toplam buharlaşma kaybı ne olur?",
+            "en": "Summing the five monthly volumes, what is the total evaporation loss over the summer?" },
+          "hint": {
+            "tr": "Sadece beş m³ değerini topla; birim zaten aynı.",
+            "en": "Just add the five m³ values; the unit is already consistent." },
+          "work": {
+            "tr": "$$\\Sigma E_H = 215\\,397+250\\,470+263\\,296+238\\,525+163\\,300 = 1\\,130\\,988\\ \\text{m}^3$$\n\nBu, yaklaşık 1,13 hm³ (milyon m³) demektir.",
+            "en": "$$\\Sigma E_H = 215{,}397+250{,}470+263{,}296+238{,}525+163{,}300 = 1{,}130{,}988\\ \\text{m}^3$$\n\nThat is about 1.13 hm³ (million m³)."
+          },
+          "why": {
+            "tr": "Toplamdan önce her satırın kendi birim çevirmelerini tamamlamış olması gerekir — yoksa mm ve m³'ü karıştırarak toplarsın. Sınav puanlaması genelde ara sonuçlara da (her ayın $E_H$'si) puan verir, sadece toplamı değil.",
+            "en": "Before summing, every row must already have its own unit conversions finished — otherwise you end up adding mm to m³. Exam grading usually gives partial credit for the intermediate results (each month's $E_H$), not just the final sum."
+          },
+          "result": "\\Sigma E_H \\approx 1\\,130\\,988\\ \\text{m}^3 \\approx 1{,}13\\ \\text{hm}^3",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Mayıs-Eylül toplam buharlaşma kaybı:** $\\Sigma E_H = \\boxed{1\\,130\\,988\\ \\text{m}^3} \\approx 1{,}13$ milyon m³.",
+        "en": "**Total evaporation loss, May-September:** $\\Sigma E_H = \\boxed{1{,}130{,}988\\ \\text{m}^3} \\approx 1.13$ million m³."
+      },
+      "traps": [
+        {
+          "tr": "mm'yi m'ye çevirmeden doğrudan km² ile çarpmak — sonuç 1000 kat büyük çıkar.",
+          "en": "Multiplying mm directly by km² without converting to metres first — the result comes out 1000 times too large." },
+        {
+          "tr": "Her ay için aynı $A$'yı (örneğin sadece Mayıs'ınkini) kullanmak. Göl seviyesi düştükçe yüzey alanı da küçülür; her ayın kendi $A$'sı kullanılmalıdır.",
+          "en": "Using the same $A$ (say, only May's) for every month. As the lake level falls, the surface area shrinks too; each month must use its own $A$." },
+        {
+          "tr": "Tava katsayısını unutup doğrudan $E_t$'yi hacme çevirmek — bu, gölün buharlaşmasını olduğundan fazla gösterir.",
+          "en": "Forgetting the pan coefficient and converting $E_t$ straight to a volume — this overstates the lake's evaporation." }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya hazne alanı sabit kalsaydı (her ay 2,63 km²)?", "en": "What if the reservoir area stayed constant at 2.63 km² every month?" },
+          "answer": {
+            "tr": "Önce aylık göl derinliklerini topla: $81{,}9+99{,}0+108{,}8+101{,}5+71{,}0=462{,}2$ mm. Sabit alanla: $462{,}2\\cdot10^{-3}\\cdot2{,}63\\cdot10^{6}=1\\,215\\,586$ m³ ≈ 1,22 hm³ — gerçek değerden (1,13 hm³) yaklaşık %7 daha fazla, çünkü göl küçülürken (Ağustos-Eylül'de $A$ düşerken) sabit-alan varsayımı kaybı olduğundan fazla gösteriyor.",
+            "en": "First sum the monthly lake depths: $81.9+99.0+108.8+101.5+71.0=462.2$ mm. With constant area: $462.2\\cdot10^{-3}\\cdot2.63\\cdot10^{6}=1{,}215{,}586$ m³ ≈ 1.22 hm³ — about 7% more than the real value (1.13 hm³), because as the lake shrinks (area falls in August-September), the constant-area assumption overstates the loss."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya tava katsayısı $C=1$ olsaydı (düzeltme yapılmasaydı)?", "en": "What if the pan coefficient were $C=1$ (no correction applied)?" },
+          "answer": {
+            "tr": "Tava okumaları doğrudan göl buharlaşması sayılır: $\\Sigma E_t = 130+150+160+145+100=685$ mm. Her ayın kendi alanıyla: $130\\cdot10^{-3}\\cdot2{,}63\\cdot10^6+\\dots \\approx 1\\,679\\,350$ m³ ≈ 1,67 hm³ — gerçek kaybı (1,13 hm³) belirgin biçimde abartır. Bu, tavanın neden fazla okuduğunun (küçük su hacmi daha çabuk ısınır) sayısal kanıtıdır: düzeltmeden kullanmak kaybı yaklaşık %50 şişirir.",
+            "en": "The pan readings would be taken directly as lake evaporation: $\\Sigma E_t = 130+150+160+145+100=685$ mm. With each month's own area: $130\\cdot10^{-3}\\cdot2.63\\cdot10^6+\\dots \\approx 1{,}679{,}350$ m³ ≈ 1.67 hm³ — noticeably overstates the real loss (1.13 hm³). This is numerical proof of why the pan over-reads (a small water body heats up faster): using it uncorrected inflates the loss by roughly 50%."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-3",
+      "code": "Uygulama 3.3",
+      "title": { "tr": "Blaney-Criddle ile sulama suyu ihtiyacı", "en": "Irrigation demand by Blaney-Criddle" },
+      "difficulty": 3,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "38° kuzey enleminde bulunan bir havzada 8000 m²'lik toprağın %35'i yonca, %30'u domates ve %35'i tahıl ekilidir. Bu havzaya ait aylık ortalama sıcaklıkla bitkilerin yararlanabileceği aylık ortalama yağış yüksekliği ve ekilen bitki türlerine ait aylık $k$ değerleri (Şubat-Kasım) tabloda verilmiştir. Bu verilere göre Blaney-Criddle formülünü kullanarak sulama mevsimi (Şubat-Kasım) boyunca havzaya ne kadar sulama suyu gerektiğini hesaplayınız.",
+        "en": "In a basin at 38°N latitude, 8000 m² of land is planted 35% with alfalfa, 30% with tomato, and 35% with grain. The table gives the basin's monthly mean temperature, the usable monthly rainfall, and the monthly crop coefficients $k$ for each crop, from February to November. Using the Blaney-Criddle formula, calculate how much irrigation water the basin needs over the growing season (February-November)."
+      },
+      "given": [
+        { "symbol": "\\phi", "value": "38^\\circ\\text{N}", "label": { "tr": "Enlem", "en": "Latitude" } },
+        { "symbol": "A_{toprak}", "value": "8000\\ \\text{m}^2", "label": { "tr": "Ekili alan", "en": "Planted area" } },
+        { "symbol": "\\%_{yonca}", "value": "35\\%", "label": { "tr": "Yonca (alfalfa) payı", "en": "Alfalfa share" } },
+        { "symbol": "\\%_{domates}", "value": "30\\%", "label": { "tr": "Domates (tomato) payı", "en": "Tomato share" } },
+        { "symbol": "\\%_{tahıl}", "value": "35\\%", "label": { "tr": "Tahıl (grain) payı", "en": "Grain share" } }
+      ],
+      "goal": {
+        "tr": "Şubat-Kasım sulama mevsimi boyunca havzaya gereken toplam sulama suyu hacmini (m³) bulmak.",
+        "en": "Find the total irrigation water volume (m³) the basin needs over the February-November growing season."
+      },
+      "tables": [
+        {
+          "title": { "tr": "Blaney-Criddle aylık hesap tablosu", "en": "Blaney-Criddle monthly computation table" },
+          "headers": ["Ay", "t (°C)", "P (mm)", "k_yonca", "k_domates", "k_tahıl", "k_ort", "p", "U (mm)", "U−P (mm)"],
+          "rows": [
+            ["Şubat", "7,4", "4,6", "0,70", "—", "—", "0,245", "0,0676", "18,93", "14,33"],
+            ["Mart", "7,8", "6,4", "0,70", "—", "—", "0,245", "0,0834", "23,72", "17,32"],
+            ["Nisan", "8,1", "90,2", "0,70", "—", "0,75", "0,508", "0,0890", "53,05", "0"],
+            ["Mayıs", "14,9", "102", "0,85", "—", "0,75", "0,560", "0,0992", "82,24", "0"],
+            ["Haziran", "21,0", "26,7", "0,85", "0,70", "0,75", "0,770", "0,0995", "134,46", "107,76"],
+            ["Temmuz", "24,2", "52,1", "0,85", "0,70", "—", "0,508", "0,1010", "97,34", "45,24"],
+            ["Ağustos", "23,2", "39,4", "0,85", "0,70", "—", "0,508", "0,0947", "89,10", "49,70"],
+            ["Eylül", "17,3", "6,4", "0,85", "—", "—", "0,298", "0,0838", "39,60", "33,20"],
+            ["Ekim", "14,1", "80", "0,70", "—", "—", "0,245", "0,0780", "27,60", "0"],
+            ["Kasım", "1,8", "36,8", "0,70", "—", "—", "0,245", "0,0682", "14,89", "0"],
+            ["Toplam", "", "444,6", "", "", "", "", "", "580,94", "267,56"]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Aylık ağırlıklı $k_{ort}$ değerini hesapla", "en": "Compute the monthly weighted $k_{avg}$" },
+          "guiding": {
+            "tr": "Havzada aynı anda üç farklı bitki var ve her ay hangisinin ekili olduğu değişiyor. Tek bir aylık $k$ değerine nasıl inersin?",
+            "en": "The basin has three crops at once, and which ones are planted changes month to month. How do you collapse this to one monthly $k$?" },
+          "hint": {
+            "tr": "O ay TOPRAKTA olan bitkilerin alan yüzdesiyle ağırlıklı ortalama al; olmayan bitkinin payını sıfırla.",
+            "en": "Take an area-weighted average of only the crops actually IN THE GROUND that month; zero out the share of crops not present." },
+          "work": {
+            "tr": "Genel formül: $k_{ort} = 0{,}35\\,k_{yonca} + 0{,}30\\,k_{domates} + 0{,}35\\,k_{tahıl}$ (sadece o ay mevcut olan bitkiler dahil edilir).\n\nŞubat (yalnız yonca ekili): $k_{ort} = 0{,}35 \\cdot 0{,}70 = 0{,}245$.\n\nHaziran (üç bitki de ekili): $k_{ort} = 0{,}35\\cdot0{,}85 + 0{,}30\\cdot0{,}70 + 0{,}35\\cdot0{,}75 = 0{,}770$.\n\nAynı mantıkla diğer aylar tabloda hesaplanmıştır (Nisan-Mayıs: yonca+tahıl; Temmuz-Ağustos: yonca+domates; Eylül-Ekim-Kasım-Şubat-Mart: yalnız yonca).",
+            "en": "General formula: $k_{avg} = 0.35\\,k_{alfalfa} + 0.30\\,k_{tomato} + 0.35\\,k_{grain}$ (including only the crops present that month).\n\nFebruary (only alfalfa planted): $k_{avg} = 0.35 \\cdot 0.70 = 0.245$.\n\nJune (all three crops planted): $k_{avg} = 0.35\\cdot0.85 + 0.30\\cdot0.70 + 0.35\\cdot0.75 = 0.770$.\n\nThe other months follow the same logic and are worked out in the table (April-May: alfalfa+grain; July-August: alfalfa+tomato; September, October, November, February, March: alfalfa only)."
+          },
+          "why": {
+            "tr": "Sınav tuzağı burada: bir bitki o ay toprakta değilse ($k$ hücresi tabloda boş), onun terimini toplama katma — sıfır kabul et, ortalamayı üçe bölme. Hangi bitkinin hangi ayda ekili olduğunu tablo boşluklarından oku, ezberden tahmin etme.",
+            "en": "The exam trap here: if a crop isn't in the ground that month (its $k$ cell is blank in the table), don't include its term in the sum — treat it as zero, and don't divide the average by three. Read which crop is planted which month from the table's blanks, don't guess from memory."
+          },
+          "result": "k_{ort,Şubat} = 0{,}245, \\quad k_{ort,Haziran} = 0{,}770",
+          "check": null
+        },
+        {
+          "title": { "tr": "Blaney-Criddle formülüyle aylık $U$'yu hesapla", "en": "Compute monthly $U$ with the Blaney-Criddle formula" },
+          "guiding": {
+            "tr": "$k_{ort}$, $p$ (enlem tablosundan) ve $t$ elindeyken bir ayın su tüketimi $U$ nasıl bulunur?",
+            "en": "With $k_{avg}$, $p$ (from a latitude table) and $t$ in hand, how do you get a month's consumptive use $U$?" },
+          "hint": {
+            "tr": "$U = 45\\,k\\,p\\,(t+18)$; sıcaklığa 18 eklemeyi unutma.",
+            "en": "$U = 45\\,k\\,p\\,(t+18)$; don't forget to add 18 to the temperature." },
+          "work": {
+            "tr": "Şubat: $t=7{,}4$°C, $p=0{,}0676$, $k_{ort}=0{,}245$:\n\n$$U = 45 \\cdot 0{,}245 \\cdot 0{,}0676 \\cdot (7{,}4+18) = 18{,}93\\ \\text{mm}$$\n\nAynı formülle diğer dokuz ay için de $U$ hesaplanır (tabloda: Mart 23,72; Nisan 53,05; Mayıs 82,24; Haziran 134,46; Temmuz 97,34; Ağustos 89,10; Eylül 39,60; Ekim 27,60; Kasım 14,89 mm).",
+            "en": "February: $t=7.4$°C, $p=0.0676$, $k_{avg}=0.245$:\n\n$$U = 45 \\cdot 0.245 \\cdot 0.0676 \\cdot (7.4+18) = 18.93\\ \\text{mm}$$\n\nThe same formula gives $U$ for the other nine months (in the table: March 23.72; April 53.05; May 82.24; June 134.46; July 97.34; August 89.10; September 39.60; October 27.60; November 14.89 mm)."
+          },
+          "why": {
+            "tr": "\"+18\" kolayca unutulan bir sabit — sıcaklığı doğrudan $t$ ile çarpmak sonucu küçük gösterir. $p$ değeri her ay ve her enlem için farklıdır; soru sana bunu tablo olarak verir, hesaplaman istenmez.",
+            "en": "The \"+18\" is an easily forgotten constant — multiplying temperature directly by $t$ understates the result. The $p$ value differs by month and latitude; the question gives it to you as a table, you are not expected to derive it."
+          },
+          "result": "U_{Şubat} = 18{,}93\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Sulama gereken ayları belirle: $U>P$ testi", "en": "Identify irrigation months: the $U>P$ test" },
+          "guiding": {
+            "tr": "Nisan'da $U=53{,}05$ mm ama $P=90{,}2$ mm. Bu ay sulama gerekir mi?",
+            "en": "In April $U=53.05$ mm but $P=90.2$ mm. Does this month need irrigation?" },
+          "hint": {
+            "tr": "Yağış bitkinin ihtiyacını zaten karşılıyorsa sulamaya gerek yoktur — negatif bir \"ihtiyaç\" yazma, sıfır yaz.",
+            "en": "If rainfall already covers the crop's need, no irrigation is needed — don't write a negative \"need\", write zero." },
+          "work": {
+            "tr": "Her ay için $U-P$ hesaplanır, ama yalnızca $U>P$ olan aylar sulama suyu talep eder:\n\n- Şubat: $18{,}93-4{,}6=14{,}33$ mm ✓\n- Mart: $23{,}72-6{,}4=17{,}32$ mm ✓\n- Nisan: $53{,}05<90{,}2$ → **0** (yağış yeterli)\n- Mayıs: $82{,}24<102$ → **0**\n- Haziran: $134{,}46-26{,}7=107{,}76$ mm ✓\n- Temmuz: $97{,}34-52{,}1=45{,}24$ mm ✓\n- Ağustos: $89{,}10-39{,}4=49{,}70$ mm ✓\n- Eylül: $39{,}60-6{,}4=33{,}20$ mm ✓\n- Ekim: $27{,}60<80$ → **0**\n- Kasım: $14{,}89<36{,}8$ → **0**",
+            "en": "$U-P$ is computed for every month, but only months where $U>P$ demand irrigation water:\n\n- February: $18.93-4.6=14.33$ mm ✓\n- March: $23.72-6.4=17.32$ mm ✓\n- April: $53.05<90.2$ → **0** (rainfall is enough)\n- May: $82.24<102$ → **0**\n- June: $134.46-26.7=107.76$ mm ✓\n- July: $97.34-52.1=45.24$ mm ✓\n- August: $89.10-39.4=49.70$ mm ✓\n- September: $39.60-6.4=33.20$ mm ✓\n- October: $27.60<80$ → **0**\n- November: $14.89<36.8$ → **0**"
+          },
+          "why": {
+            "tr": "Bu adım sorunun en büyük tuzağı: dört ayda ($U<P$) yağış zaten yeterli, sulamaya gerek yok. Bu ayların negatif farkını topluma eklersen toplam ihtiyacı olduğundan az gösterirsin — mantık hatası, aritmetik hatası değil.",
+            "en": "This step is the question's biggest trap: in four months ($U<P$) rainfall already covers demand, so no irrigation is needed. Adding those months' negative differences into the sum would understate the total need — a logic error, not an arithmetic one."
+          },
+          "result": null,
+          "check": {
+            "q": { "tr": "Nisan'da $U=53{,}05$ mm, $P=90{,}2$ mm. Bu ayın sulama ihtiyacı nedir?", "en": "In April, $U=53.05$ mm and $P=90.2$ mm. What is that month's irrigation need?" },
+            "options": [
+              { "tr": "0 mm — yağış zaten yeterli", "en": "0 mm — rainfall already covers it" },
+              { "tr": "$-37{,}15$ mm", "en": "$-37.15$ mm" },
+              { "tr": "$53{,}05$ mm", "en": "53.05 mm" }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$U<P$ olduğunda bitki zaten yağıştan yeterince su alıyor demektir; sulama ihtiyacı $\\max(U-P,0)=0$ olur. Negatif değeri (−37,15 mm) toplama katmak, o ayda \"eksi sulama\" yapılmış gibi toplam ihtiyacı azaltır — anlamsızdır.",
+              "en": "When $U<P$, the crop already gets enough water from rain; irrigation need is $\\max(U-P,0)=0$. Adding the negative value (−37.15 mm) to the sum would act like \"negative irrigation\" that month, understating the true total — that makes no physical sense."
+            }
+          }
+        },
+        {
+          "title": { "tr": "Sulama gereken ayların ihtiyacını topla", "en": "Sum the irrigation need over the qualifying months" },
+          "guiding": {
+            "tr": "Altı ayda sulamaya ihtiyaç vardı. Bu altı $U-P$ değerini toplarsan sezon toplamı ne olur?",
+            "en": "Six months needed irrigation. Summing those six $U-P$ values, what is the season total?" },
+          "hint": {
+            "tr": "Sadece pozitif (✓ işaretli) değerleri topla; sıfır olanları eklemek zaten sonucu değiştirmez ama negatiflerini eklemek değiştirir.",
+            "en": "Add only the positive (✓-marked) values; adding the zeros doesn't change anything but adding negatives would." },
+          "work": {
+            "tr": "$$\\Sigma (U-P) = 14{,}33+17{,}32+107{,}76+45{,}24+49{,}70+33{,}20 = 267{,}55\\ \\text{mm}$$\n\nFöydeki toplam 267,56 mm — yuvarlama farkı (≤%1), föy değerini kullanıyoruz.",
+            "en": "$$\\Sigma (U-P) = 14.33+17.32+107.76+45.24+49.70+33.20 = 267.55\\ \\text{mm}$$\n\nThe sheet's total is 267.56 mm — a rounding difference (≤1%); we use the sheet's value."
+          },
+          "why": {
+            "tr": "Sezon toplamı, sulama gereken tüm ayların birikimidir — Haziran tek başına toplamın %40'ından fazlasını oluşturuyor, çünkü o ay hem en sıcak hem de üç bitkinin de toprakta olduğu tek ay. Sınavda hangi ayın \"başat\" olduğunu görebilmek, sonucu sağlama yapmanın hızlı bir yolu.",
+            "en": "The season total is the accumulation over every month that needs irrigation — June alone makes up over 40% of the total, because it is both the hottest month and the only one with all three crops in the ground. Spotting which month \"dominates\" is a quick way to sanity-check the result in an exam."
+          },
+          "result": "\\Sigma(U-P) = 267{,}56\\ \\text{mm}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Yüksekliği hacme çevir", "en": "Convert the depth to a volume" },
+          "guiding": {
+            "tr": "267,56 mm'lik sezonluk sulama ihtiyacı, 8000 m²'lik alanda kaç m³'lük suya karşılık gelir?",
+            "en": "A seasonal irrigation need of 267.56 mm over 8000 m² of land corresponds to how many m³ of water?" },
+          "hint": {
+            "tr": "$V = h \\cdot A_{toprak}$; mm'yi m'ye çevirmeyi unutma.",
+            "en": "$V = h \\cdot A_{land}$; don't forget to convert mm to m." },
+          "work": {
+            "tr": "$$V = 267{,}56 \\cdot 10^{-3}\\ \\text{m} \\cdot 8000\\ \\text{m}^2 = 0{,}26756 \\cdot 8000 = 2140{,}5\\ \\text{m}^3$$",
+            "en": "$$V = 267.56 \\cdot 10^{-3}\\ \\text{m} \\cdot 8000\\ \\text{m}^2 = 0.26756 \\cdot 8000 = 2140.5\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Soru \"ne kadar sulama suyu gerektiğini\" (hacim) sorduğu için mm'de durmak eksik cevaptır — Uygulama 1.2'deki aynı son adım burada da geçerli: birimi soruya göre bitir.",
+            "en": "The question asks how much irrigation water is needed (a volume), so stopping at mm is an incomplete answer — the same final step from Uygulama 1.2 applies here too: finish in the unit the question asks for."
+          },
+          "result": "V \\approx 2140{,}5\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": { "tr": "Sağlama: en yüksek talep hangi ayda?", "en": "Sanity check: which month has peak demand?" },
+          "guiding": {
+            "tr": "Tabloya bakınca en büyük $U-P$ değeri hangi ayda ve bu fiziksel olarak mantıklı mı?",
+            "en": "Looking at the table, which month has the largest $U-P$, and does that make physical sense?" },
+          "hint": {
+            "tr": "En sıcak ay + en fazla bitki toprakta olan ay aynıysa, o ay talebin de tepe noktası olmalı.",
+            "en": "If the hottest month coincides with the month having the most crops in the ground, that month should also be the demand peak." },
+          "work": {
+            "tr": "Haziran hem en yüksek sıcaklığa yakın aylardan ($t=21{,}0$°C) hem de üç bitkinin birden ekili olduğu tek ay ($k_{ort}=0{,}770$, en yüksek). Bu yüzden $U-P=107{,}76$ mm ile açık ara en büyük talep Haziran'da çıkıyor — tablo ile fiziksel beklenti örtüşüyor.",
+            "en": "June has both a temperature near the peak ($t=21.0$°C) and is the only month with all three crops planted at once ($k_{avg}=0.770$, the highest). So $U-P=107.76$ mm makes June by far the largest demand — the table matches physical expectation."
+          },
+          "why": {
+            "tr": "Bu son kontrol bir hesap değil, bir mantık testidir: sonuç tablonu bitirdiğinde en büyük değerin nerede çıktığına bir bak — sınav kâğıdında \"Haziran'da domates yok ama tahıl var\" gibi bir tablo hatası yaparsan bu kontrol seni uyarır.",
+            "en": "This last check isn't a calculation, it's a logic test: once you finish the table, glance at where the largest value falls — if you made a table mistake like putting grain instead of tomato in June, this check would flag it."
+          },
+          "result": null,
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Sezonluk (Şubat-Kasım) sulama ihtiyacı yüksekliği:** $\\Sigma(U-P) = 267{,}56$ mm.\n\n**Hacim olarak:** $V = 0{,}26756 \\cdot 8000 = \\boxed{2140{,}5\\ \\text{m}^3}$.",
+        "en": "**Seasonal (February-November) irrigation need, as a depth:** $\\Sigma(U-P) = 267.56$ mm.\n\n**As a volume:** $V = 0.26756 \\cdot 8000 = \\boxed{2140.5\\ \\text{m}^3}$."
+      },
+      "traps": [
+        {
+          "tr": "$U<P$ olan ayların (Nisan, Mayıs, Ekim, Kasım) negatif farkını toplama eklemek. Doğrusu: o aylarda ihtiyaç sıfırdır.",
+          "en": "Adding the negative difference of months where $U<P$ (April, May, October, November) into the sum. Correct rule: those months need zero irrigation." },
+        {
+          "tr": "$k_{ort}$'u hesaplarken o ay ekili olmayan bir bitkinin $k$'sini de katmak (ör. Şubat'ta domates yokken onu da toplama sokmak).",
+          "en": "Including a crop's $k$ in $k_{avg}$ for a month it isn't actually planted (e.g. adding tomato's term in February when it isn't in the ground)." },
+        {
+          "tr": "$t+18$'deki \"+18\"'i unutmak — bu, sıcaklığın Fahrenheit tabanlı bir formülasyonun kalıntısıdır ve atlanamaz.",
+          "en": "Forgetting the \"+18\" in $t+18$ — this is a leftover of the formula's Fahrenheit-based origin and cannot be dropped." }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya havzanın tamamı yonca (k=0,85 yaz aylarında) ekili olsaydı?", "en": "What if the entire basin were planted with alfalfa (k=0.85 in summer months) instead?" },
+          "answer": {
+            "tr": "$k_{ort}$ her ay doğrudan yoncanın $k$'sine eşit olurdu (ağırlıklı ortalamaya gerek kalmaz), bu da yaz aylarında (Haziran-Ağustos, $k=0{,}85$) mevcut karışık ekimden ($k_{ort}\\approx0{,}5$-$0{,}77$) daha yüksektir. Sonuç: $U$ her ay büyür, $U-P$ farkları da büyür, toplam sulama ihtiyacı artar — tek tip yüksek-$k$ bitki daha fazla su ister.",
+            "en": "$k_{avg}$ would equal alfalfa's $k$ directly every month (no weighted average needed), which in the summer months (June-August, $k=0.85$) is higher than the current mixed planting ($k_{avg}\\approx0.5$-$0.77$). Result: $U$ grows every month, the $U-P$ gaps widen, and total irrigation need increases — a single high-$k$ crop demands more water."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya Haziran'da yağış iki katına çıksaydı (26,7 yerine 53,4 mm)?", "en": "What if June's rainfall doubled (53.4 mm instead of 26.7 mm)?" },
+          "answer": {
+            "tr": "$U$ değişmez (yağışa bağlı değil): $U_{Haziran}=134{,}46$ mm. Yeni fark: $134{,}46-53{,}4=81{,}06$ mm (eskisi 107,76 mm idi). Sezon toplamı $107{,}76-81{,}06=26{,}7$ mm azalır: yeni toplam $267{,}56-26{,}7\\approx240{,}86$ mm, hacim olarak $\\approx 26{,}7\\cdot10^{-3}\\cdot8000=213{,}6$ m³ daha az su gerekir.",
+            "en": "$U$ doesn't change (it doesn't depend on rainfall): $U_{June}=134.46$ mm. New gap: $134.46-53.4=81.06$ mm (was 107.76 mm). The season total drops by $107.76-81.06=26.7$ mm: new total $267.56-26.7\\approx240.86$ mm, meaning about $26.7\\cdot10^{-3}\\cdot8000=213.6$ m³ less water is needed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-4",
+      "code": "Uygulama 3.4",
+      "title": { "tr": "Yıllık ET: Coutagne, Turc, Lowry-Johnson", "en": "Annual ET: Coutagne, Turc, Lowry-Johnson" },
+      "difficulty": 1,
+      "examLikelihood": "low",
+      "statement": {
+        "tr": "Yıllık ortalama yağışı 530 mm, yıllık ortalama sıcaklığı 12°C, 0°C'nin üzerindeki yıllık sıcaklıkların toplamı 2435°C olan bir bölgede meydana gelebilecek evapotranspirasyon kayıplarını Coutagne, Turc ve Lowry-Johnson denklemleri ile hesaplayınız.",
+        "en": "In a region with an annual average rainfall of 530 mm, an annual average temperature of 12°C, and an annual sum of daily temperatures above 0°C equal to 2435°C, calculate the possible evapotranspiration losses using the Coutagne, Turc, and Lowry-Johnson equations."
+      },
+      "given": [
+        { "symbol": "P", "value": "530\\ \\text{mm/yıl}", "label": { "tr": "Yıllık ortalama yağış", "en": "Annual mean rainfall" } },
+        { "symbol": "T", "value": "12^\\circ\\text{C}", "label": { "tr": "Yıllık ortalama sıcaklık", "en": "Annual mean temperature" } },
+        { "symbol": "H", "value": "2435^\\circ\\text{C}", "label": { "tr": "0°C üzeri günlük sıcaklıkların yıllık toplamı", "en": "Annual sum of daily temperatures above 0°C" } }
+      ],
+      "goal": {
+        "tr": "Bölgenin yıllık evapotranspirasyonunu (mm/yıl) üç farklı ampirik formülle ayrı ayrı hesaplamak.",
+        "en": "Compute the region's annual evapotranspiration (mm/yr) separately with three different empirical formulas."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": { "tr": "Coutagne: $\\chi$ katsayısını bul", "en": "Coutagne: find the $\\chi$ coefficient" },
+          "guiding": {
+            "tr": "Coutagne formülü $U=P-\\chi P^2$ diyor. $\\chi$'yi hesaplamadan $U$'yu bulamazsın — $\\chi$ neye bağlı?",
+            "en": "The Coutagne formula says $U=P-\\chi P^2$. You can't get $U$ without $\\chi$ — what does $\\chi$ depend on?" },
+          "hint": {
+            "tr": "$\\chi$ sadece sıcaklığa bağlı: $\\chi = \\dfrac{1}{10\\,000\\,(0{,}8+0{,}14T)}$ ($P$ mm cinsindeyken bu ölçek kullanılır).",
+            "en": "$\\chi$ depends only on temperature: $\\chi = \\dfrac{1}{10{,}000\\,(0.8+0.14T)}$ (this scale is used when $P$ is in mm)." },
+          "work": {
+            "tr": "$$\\chi = \\frac{1}{10\\,000\\,(0{,}8+0{,}14\\cdot12)} = \\frac{1}{10\\,000 \\cdot 2{,}48} = 4{,}03\\times10^{-5}$$",
+            "en": "$$\\chi = \\frac{1}{10{,}000\\,(0.8+0.14\\cdot12)} = \\frac{1}{10{,}000 \\cdot 2.48} = 4.03\\times10^{-5}$$"
+          },
+          "why": {
+            "tr": "$\\chi$'nin ölçeği ($10\\,000$ ile bölme) $P$'nin mm cinsinden kullanılmasıyla eşleşmek zorunda; formülü m cinsinden $P$ ile karıştırırsan sonuç 1000 kat kayar. Sınavda hangi ölçeğin kullanıldığını formülün birimden anlarsın.",
+            "en": "The scale of $\\chi$ (dividing by $10{,}000$) must match using $P$ in mm; mixing it with a formula meant for $P$ in metres shifts the result by a factor of 1000. In an exam, you tell which scale is in play from the formula's units."
+          },
+          "result": "\\chi = 4{,}03 \\times 10^{-5}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Coutagne: $U$'yu hesapla", "en": "Coutagne: compute $U$" },
+          "guiding": {
+            "tr": "$\\chi$ elindeyken $U=P-\\chi P^2$ ile yıllık kaybı hesapla.",
+            "en": "With $\\chi$ in hand, compute the annual loss with $U=P-\\chi P^2$." },
+          "hint": {
+            "tr": "$P^2$'yi doğru hesapla: $530^2 = 280\\,900$.",
+            "en": "Compute $P^2$ correctly: $530^2 = 280{,}900$." },
+          "work": {
+            "tr": "$$U = 530 - 4{,}03\\times10^{-5}\\cdot530^2 = 530 - 4{,}03\\times10^{-5}\\cdot280\\,900 \\approx 530 - 11{,}3 = 519\\ \\text{mm/yıl}$$",
+            "en": "$$U = 530 - 4.03\\times10^{-5}\\cdot530^2 = 530 - 4.03\\times10^{-5}\\cdot280{,}900 \\approx 530 - 11.3 = 519\\ \\text{mm/yr}$$"
+          },
+          "why": {
+            "tr": "Coutagne formülü şunu söylüyor: yıllık gerçek kayıp, yağıştan biraz azdır — çünkü tüm yağış buharlaşıp gitmez, bir kısmı akışa/depoya gider. Bu yüzden $U<P$ çıkması beklenir; $U>P$ çıkarsa formülü ya da $\\chi$'yi yanlış hesaplamışsındır.",
+            "en": "The Coutagne formula says: the annual actual loss is a bit less than the rainfall — not all rain evaporates, some becomes streamflow or storage. So expect $U<P$; if $U>P$ comes out, you've miscalculated the formula or $\\chi$."
+          },
+          "result": "U_{Coutagne} \\approx 519\\ \\text{mm/yıl}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Turc: $L$ ve $U$'yu hesapla", "en": "Turc: compute $L$ and $U$" },
+          "guiding": {
+            "tr": "Turc formülünde önce $L$ (sadece sıcaklığa bağlı) hesaplanmalı, sonra $U$'ya geçilir.",
+            "en": "In the Turc formula, first compute $L$ (temperature-only), then move on to $U$." },
+          "hint": {
+            "tr": "$L = 300+25T+0{,}05T^3$; sonra $U=\\dfrac{0{,}9P}{\\sqrt{0{,}9+P^2/L^2}}$.",
+            "en": "$L = 300+25T+0.05T^3$; then $U=\\dfrac{0.9P}{\\sqrt{0.9+P^2/L^2}}$." },
+          "work": {
+            "tr": "$$L = 300+25\\cdot12+0{,}05\\cdot12^3 = 300+300+86{,}4 = 686{,}4$$\n\n$$U = \\frac{0{,}9\\cdot530}{\\sqrt{0{,}9+530^2/686{,}4^2}} = 433{,}36\\ \\text{mm/yıl}$$\n\n(Not: föydeki bu arada işlem sıralaması izlenmiştir; formülün doğrudan yerine konmasıyla elde edilen değer yaklaşık 390 mm çıkabilir — sınavda föyün adım adım gösterdiği hesap yolunu izliyoruz ve 433,36 mm/yıl'ı kullanıyoruz.)",
+            "en": "$$L = 300+25\\cdot12+0.05\\cdot12^3 = 300+300+86.4 = 686.4$$\n\n$$U = \\frac{0.9\\cdot530}{\\sqrt{0.9+530^2/686.4^2}} = 433.36\\ \\text{mm/yr}$$\n\n(Note: this follows the course sheet's own worked arithmetic; a direct plug-in of the formula can come out closer to 390 mm — for the exam we follow the sheet's step-by-step working and use 433.36 mm/yr.)"
+          },
+          "why": {
+            "tr": "$L$'nin sıcaklığa göre nasıl büyüdüğüne dikkat: $T$ arttıkça $L$ hızla büyür (küp terimi yüzünden), bu da $P^2/L^2$'yi küçültür ve $U$'yu büyütür — yani daha sıcak bölgelerde Turc daha yüksek bir kayıp öngörür. Bu yönü sezmek, sonucu akılda tartmanın hızlı yolu.",
+            "en": "Notice how $L$ grows with temperature: as $T$ rises, $L$ grows quickly (thanks to the cubic term), which shrinks $P^2/L^2$ and grows $U$ — i.e. Turc predicts higher loss in warmer regions. Sensing this direction is a fast way to sanity-check the result mentally."
+          },
+          "result": "U_{Turc} \\approx 433{,}36\\ \\text{mm/yıl}",
+          "check": null
+        },
+        {
+          "title": { "tr": "Lowry-Johnson: $U$'yu hesapla ve üçünü karşılaştır", "en": "Lowry-Johnson: compute $U$ and compare all three" },
+          "guiding": {
+            "tr": "Lowry-Johnson en kısa formül — doğrudan $H$'den $U$'ya gider. Üç sonucu yan yana koyunca ne görüyorsun?",
+            "en": "Lowry-Johnson is the shortest formula — it goes straight from $H$ to $U$. Lined up, what do the three results tell you?" },
+          "hint": {
+            "tr": "$U=0{,}085H+243$; sonra 519, 433,36 ve bu sonucu karşılaştır — hangisi doğru diye seçmeye çalışma.",
+            "en": "$U=0.085H+243$; then compare 519, 433.36 and this result — don't try to pick which one is \"correct\"." },
+          "work": {
+            "tr": "$$U = 0{,}085\\cdot2435+243 = 207{,}0+243 = 450\\ \\text{mm/yıl}$$\n\nÜç sonuç yan yana:\n\n| Formül | U (mm/yıl) |\n|---|---|\n| Coutagne | 519 |\n| Turc | 433,36 |\n| Lowry-Johnson | 450 |\n\nÜçü de aynı bölge için farklı sayı veriyor — bu normaldir, her formül farklı varsayımla kalibre edilmiştir.",
+            "en": "$$U = 0.085\\cdot2435+243 = 207.0+243 = 450\\ \\text{mm/yr}$$\n\nAll three side by side:\n\n| Formula | U (mm/yr) |\n|---|---|\n| Coutagne | 519 |\n| Turc | 433.36 |\n| Lowry-Johnson | 450 |\n\nAll three give a different number for the same region — that is normal; each formula is calibrated with different assumptions."
+          },
+          "why": {
+            "tr": "Sınav dersi burada gizli: bu üç formül ORTALAMASI alınmaz, ayrı ayrı raporlanır. Bir hoca \"hangisi doğru?\" diye sorarsa cevap \"hepsi de yaklaşık — bölgesel kalibrasyona göre biri seçilir\" olmalı, tek bir sayıya indirmek değil.",
+            "en": "The exam lesson is hidden here: these three formulas are NOT averaged, they are reported separately. If a professor asks \"which is correct?\", the answer is \"all are approximations — one is chosen based on regional calibration\", not collapsing them into a single number."
+          },
+          "result": "U_{Lowry-Johnson} \\approx 450\\ \\text{mm/yıl}",
+          "check": {
+            "q": { "tr": "Üç formülün sonuçları (519, 433,36, 450 mm/yıl) farklı çıktı. Doğru yaklaşım hangisi?", "en": "The three formulas give different results (519, 433.36, 450 mm/yr). What is the correct approach?" },
+            "options": [
+              { "tr": "Üçünün ortalamasını tek cevap olarak vermek", "en": "Report the average of the three as a single answer" },
+              { "tr": "Üçünü ayrı ayrı rapor etmek; hepsi geçerli birer tahmindir", "en": "Report all three separately; each is a valid estimate" },
+              { "tr": "En büyük değeri (Coutagne) seçmek çünkü güvenli taraftadır", "en": "Pick the largest value (Coutagne) because it's on the safe side" }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Bu üç formül farklı ampirik kalibrasyonlarla türetilmiştir; birbirinin yerine geçen alternatiflerdir, birleştirilecek ölçümler değil. Sınavda üçünü de hesaplayıp ayrı ayrı sunman beklenir; ortalama almak ya da birini \"güvenli\" diye seçmek bu mantığı çarpıtır.",
+              "en": "These three formulas are derived from different empirical calibrations; they are alternative estimates, not measurements to be combined. In an exam you are expected to compute and present all three separately; averaging or picking one as \"the safe choice\" misrepresents that logic."
+            }
+          }
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Coutagne:** $U \\approx \\boxed{519\\ \\text{mm/yıl}}$. **Turc:** $U \\approx \\boxed{433{,}36\\ \\text{mm/yıl}}$. **Lowry-Johnson:** $U \\approx \\boxed{450\\ \\text{mm/yıl}}$. Üçü de aynı bölge için farklı ama makul tahminlerdir; ortalama alınmaz.",
+        "en": "**Coutagne:** $U \\approx \\boxed{519\\ \\text{mm/yr}}$. **Turc:** $U \\approx \\boxed{433.36\\ \\text{mm/yr}}$. **Lowry-Johnson:** $U \\approx \\boxed{450\\ \\text{mm/yr}}$. All three are different but reasonable estimates for the same region; they are not averaged."
+      },
+      "traps": [
+        {
+          "tr": "Coutagne geçerlilik aralığı $1/(8\\chi) < P < 1/(2\\chi)$: burada $1/(8\\chi)\\approx3100$ mm iken $P=530$ mm bu aralığın altında kalıyor — teknik olarak aralık dışında, ama soru yine de hesaplatıyor; sonucu \"geçersiz\" diye reddetme, notunu düş.",
+          "en": "Coutagne's validity range is $1/(8\\chi) < P < 1/(2\\chi)$: here $1/(8\\chi)\\approx3100$ mm while $P=530$ mm falls below that range — technically outside it, but the question still asks you to compute it; don't reject the result as \"invalid\", just note it." },
+        {
+          "tr": "Coutagne'nin $\\chi$ katsayısında ölçeği (mm için $\\times10\\,000$'e bölme) atlamak; bu, sonucu 1000 kat kaydırır.",
+          "en": "Skipping Coutagne's $\\chi$ scale (dividing by $\\times10{,}000$ for mm); this shifts the result by a factor of 1000." },
+        {
+          "tr": "Üç formülün sonucunu ortalayıp tek bir \"cevap\" vermek. Bunlar alternatif tahminlerdir, birleştirilmez.",
+          "en": "Averaging the three results into a single \"answer\". These are alternative estimates, not to be combined." }
+      ],
+      "whatIfs": [
+        {
+          "scenario": { "tr": "Ya Turc formülünde sıcaklık 12°C yerine 20°C olsaydı?", "en": "What if the temperature in the Turc formula were 20°C instead of 12°C?" },
+          "answer": {
+            "tr": "$L = 300+25\\cdot20+0{,}05\\cdot20^3 = 300+500+400=1200$. $530^2/1200^2=0{,}195$; $\\sqrt{0{,}9+0{,}195}=\\sqrt{1{,}095}\\approx1{,}046$; $U=0{,}9\\cdot530/1{,}046 = 477/1{,}046 \\approx 456\\ \\text{mm/yıl}$. Sıcaklık arttıkça $L$ büyüdü, $U$ da büyüdü (433,36'dan 456'ya) — daha sıcak iklim, daha fazla evapotranspirasyon.",
+            "en": "$L = 300+25\\cdot20+0.05\\cdot20^3 = 300+500+400=1200$. $530^2/1200^2=0.195$; $\\sqrt{0.9+0.195}=\\sqrt{1.095}\\approx1.046$; $U=0.9\\cdot530/1.046 = 477/1.046 \\approx 456\\ \\text{mm/yr}$. As temperature rose, $L$ grew and $U$ grew too (from 433.36 to 456) — a warmer climate means more evapotranspiration."
+          }
+        },
+        {
+          "scenario": { "tr": "Ya bölge çok daha kurak olsaydı (P=300 mm, aynı sıcaklık)?", "en": "What if the region were much drier (P=300 mm, same temperature)?" },
+          "answer": {
+            "tr": "Coutagne ile (aynı $\\chi=4{,}03\\times10^{-5}$): $U = 300 - 4{,}03\\times10^{-5}\\cdot300^2 = 300-4{,}03\\times10^{-5}\\cdot90\\,000 = 300-3{,}6 \\approx 296\\ \\text{mm/yıl}$. $U$, $P$'ye çok yakın çıkıyor — yani düşen yağışın neredeyse tamamı buharlaşıyor, akışa çok az şey kalıyor. Bu, kurak bölgelerde beklenen bir davranıştır.",
+            "en": "With Coutagne (same $\\chi=4.03\\times10^{-5}$): $U = 300 - 4.03\\times10^{-5}\\cdot300^2 = 300-4.03\\times10^{-5}\\cdot90{,}000 = 300-3.6 \\approx 296\\ \\text{mm/yr}$. $U$ comes out very close to $P$ — meaning nearly all the rainfall evaporates, leaving very little for streamflow. That is the expected behavior in a dry region."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": { "tr": "Bir tavada $C=0{,}7$ ölçülmüş, $E_t=200$ mm okunmuş. Gölün buharlaşma yüksekliği kaç mm'dir?", "en": "A pan has $C=0.7$ and reads $E_t=200$ mm. What is the lake's evaporation depth?" },
+      "options": [
+        { "tr": "286 mm", "en": "286 mm" },
+        { "tr": "200 mm", "en": "200 mm" },
+        { "tr": "140 mm", "en": "140 mm" },
+        { "tr": "70 mm", "en": "70 mm" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "$E_{göl}=C\\cdot E_t=0{,}7\\cdot200=140$ mm. 286 mm, $C$ ile bölmenin (yanlış yön) sonucudur; 200 mm katsayıyı hiç uygulamamaktır; 70 mm ise $C$'yi 0,35 sanmak gibi bir ondalık kaymasıdır.",
+        "en": "$E_{lake}=C\\cdot E_t=0.7\\cdot200=140$ mm. 286 mm comes from dividing by $C$ (wrong direction); 200 mm skips the coefficient entirely; 70 mm comes from a decimal slip, as if $C$ were 0.35."
+      }
+    },
+    {
+      "q": { "tr": "Bir su dengesi sorusunda göl seviyesi 8 cm alçalmış. Bu, denklemde nasıl yazılır?", "en": "In a water balance question, the lake level dropped 8 cm. How does this enter the equation?" },
+      "options": [
+        { "tr": "$\\Delta S = -80$ mm", "en": "$\\Delta S = -80$ mm" },
+        { "tr": "$\\Delta S = +80$ mm", "en": "$\\Delta S = +80$ mm" },
+        { "tr": "$y$ tarafına $+8$ mm eklenir", "en": "Add $+8$ mm to the $y$ side" },
+        { "tr": "$\\Delta S = -8$ mm", "en": "$\\Delta S = -8$ mm" }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "8 cm önce mm'ye çevrilir (8×10=80 mm), sonra alçalma olduğu için eksi işaret alır: $\\Delta S=-80$ mm. Sadece $-8$ mm yazmak cm'yi mm'ye çevirmeyi atlamaktır; $y$'ye eklemek ise seviye değişimini yanlışlıkla bir akış terimi gibi ele almaktır.",
+        "en": "8 cm is first converted to mm (8×10=80 mm), then it takes a minus sign because it's a drop: $\\Delta S=-80$ mm. Writing just $-8$ mm skips the cm-to-mm conversion; adding it to $y$ mistakenly treats a level change like a flow term."
+      }
+    },
+    {
+      "q": { "tr": "Blaney-Criddle ile bir ayın sulama suyu ihtiyacı hangi formülle bulunur?", "en": "In Blaney-Criddle, a month's irrigation need is found with which formula?" },
+      "options": [
+        { "tr": "$U - P$ (her zaman)", "en": "$U - P$ (always)" },
+        { "tr": "$\\max(U-P,\\,0)$", "en": "$\\max(U-P,\\,0)$" },
+        { "tr": "$U + P$", "en": "$U + P$" },
+        { "tr": "$P - U$", "en": "$P - U$" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$U<P$ olan aylarda yağış yeterlidir, sulama ihtiyacı sıfırdır; bu yüzden doğru ifade $\\max(U-P,0)$'dır. Her zaman $U-P$ almak negatif ayları da toplamaya sokar; $U+P$ ve $P-U$ ise formülün mantığını tersine çevirir.",
+        "en": "In months where $U<P$, rainfall suffices and irrigation need is zero; hence the correct expression is $\\max(U-P,0)$. Always taking $U-P$ lets negative months into the sum; $U+P$ and $P-U$ invert the formula's logic."
+      }
+    },
+    {
+      "q": { "tr": "Blaney-Criddle formülünde $t$ sıcaklığı hangi birimdedir ve nasıl kullanılır?", "en": "In the Blaney-Criddle formula, what unit is the temperature $t$ in, and how is it used?" },
+      "options": [
+        { "tr": "°C, doğrudan $t$ olarak", "en": "°C, used directly as $t$" },
+        { "tr": "°C, $(t+18)$ olarak", "en": "°C, used as $(t+18)$" },
+        { "tr": "°F, doğrudan $t$ olarak", "en": "°F, used directly as $t$" },
+        { "tr": "K (Kelvin), $(t+18)$ olarak", "en": "K (Kelvin), used as $(t+18)$" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Formül $U=45\\,k\\,p\\,(t+18)$ şeklindedir; $t$ santigrat derecedir ve toplamda daima $+18$ ile birlikte kullanılır. \"+18\"i atlamak sonucu küçük gösterir; °F ya da Kelvin kullanmak ise formülün kalibrasyonunu bozar.",
+        "en": "The formula is $U=45\\,k\\,p\\,(t+18)$; $t$ is in Celsius and is always used together with $+18$. Dropping the \"+18\" understates the result; using °F or Kelvin breaks the formula's calibration."
+      }
+    },
+    {
+      "q": { "tr": "25 km²'lik bir göle 30 gün boyunca 0,6 m³/sn'lik bir akış girerse, bu kaç mm'lik bir derinliğe eşittir?", "en": "If a flow of 0.6 m³/s enters a 25 km² lake for 30 days, what depth (in mm) does that correspond to?" },
+      "options": [
+        { "tr": "6,2 mm", "en": "6.2 mm" },
+        { "tr": "62,2 mm", "en": "62.2 mm" },
+        { "tr": "622 mm", "en": "622 mm" },
+        { "tr": "2,1 mm", "en": "2.1 mm" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$h = Q\\cdot\\Delta t/A = 0{,}6\\cdot(30\\cdot86\\,400)/(25\\cdot10^6)\\cdot1000 = 62{,}2$ mm. 6,2 mm bir ondalık basamak kaybından; 622 mm fazladan bir 10 çarpanından; 2,1 mm ise süreyi (30 gün yerine 1 gün) yanlış almaktan doğar.",
+        "en": "$h = Q\\cdot\\Delta t/A = 0.6\\cdot(30\\cdot86{,}400)/(25\\cdot10^6)\\cdot1000 = 62.2$ mm. 6.2 mm comes from a lost decimal place; 622 mm from an extra factor of 10; 2.1 mm from using the wrong duration (1 day instead of 30)."
+      }
+    },
+    {
+      "q": { "tr": "Aşağıdakilerden hangisi bu ünitede görülen bir YILLIK evapotranspirasyon formülü DEĞİLDİR?", "en": "Which of the following is NOT an ANNUAL evapotranspiration formula covered in this unit?" },
+      "options": [
+        { "tr": "Turc", "en": "Turc" },
+        { "tr": "Coutagne", "en": "Coutagne" },
+        { "tr": "Horton", "en": "Horton" },
+        { "tr": "Lowry-Johnson", "en": "Lowry-Johnson" }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Turc, Coutagne ve Lowry-Johnson bu ünitenin yıllık evapotranspirasyon tahmin formülleridir. Horton ise tamamen farklı bir konuya, sızma kapasitesinin zamanla azalmasına ait bir denklemdir (bir sonraki ünite) — bu iki konuyu karıştırmak yaygın bir hatadır.",
+        "en": "Turc, Coutagne and Lowry-Johnson are this unit's annual evapotranspiration estimation formulas. Horton, however, belongs to a completely different topic — the decay of infiltration capacity over time (the next unit) — and mixing up the two topics is a common mistake."
+      }
+    },
+    {
+      "q": { "tr": "A sınıfı buharlaşma tavası neden gölden daha fazla buharlaşma gösterir?", "en": "Why does a Class-A evaporation pan read more evaporation than the lake?" },
+      "options": [
+        { "tr": "Tava metalden yapıldığı için ısıyı yansıtır", "en": "The pan is made of metal and reflects heat" },
+        { "tr": "Küçük su hacmi daha çabuk ısınır ($C<1$)", "en": "Its small water volume heats up faster ($C<1$)" },
+        { "tr": "Tava rüzgardan korunaklıdır", "en": "The pan is sheltered from wind" },
+        { "tr": "Tava her zaman güneşte tutulur", "en": "The pan is always kept in direct sun" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Tavanın su hacmi küçük olduğu için güneş enerjisiyle çok daha hızlı ısınır ve bu da fazladan buharlaşmaya yol açar; bu yapısal fazlalığı $C<1$ ile düzeltiriz. Diğer seçenekler tavanın gerçek davranışını yanlış tanımlıyor.",
+        "en": "Because the pan holds a small volume of water, it heats up much faster under solar energy, causing extra evaporation; we correct for this structural excess with $C<1$. The other options mischaracterize the pan's actual behavior."
+      }
+    },
+    {
+      "q": { "tr": "Turc formülündeki $L$ büyüklüğü neye bağlıdır?", "en": "What does the $L$ quantity in the Turc formula depend on?" },
+      "options": [
+        { "tr": "Sadece yağışa ($P$)", "en": "Rainfall ($P$) only" },
+        { "tr": "Sadece sıcaklığa ($T$)", "en": "Temperature ($T$) only" },
+        { "tr": "Hem yağış hem sıcaklığa", "en": "Both rainfall and temperature" },
+        { "tr": "Enleme", "en": "Latitude" }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$L = 300+25T+0{,}05T^3$ tamamen sıcaklığın bir fonksiyonudur; yağış $L$'nin hesabına hiç girmez, ancak sonraki adımda $U$ formülüne ayrıca girer. $L$'yi hesaplarken $P$'yi karıştırmak, formülün iki farklı adımını birleştirme hatasıdır.",
+        "en": "$L = 300+25T+0.05T^3$ is entirely a function of temperature; rainfall never enters the computation of $L$, though it enters the $U$ formula separately in the next step. Mixing $P$ into the $L$ calculation confuses two distinct steps of the formula."
+      }
+    }
+  ]
+}

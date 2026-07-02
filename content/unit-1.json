@@ -274,8 +274,8 @@
             "en": "In: 50 mm. Out: $29.8 + 100 = 129.8$ mm. Deficit: $129.8 - 50 = 79.8$ mm — supplied from storage: groundwater 60 mm + soil moisture 19.8 mm $= 79.8$ mm ✓. The budget closes."
           },
           "why": {
-            "tr": "Su dengesi bir muhasebedir; muhasebe sağlaması 30 saniye sürer ve işaret hatalarını anında yakalar. Sınavda vaktin varsa her denge sorusunda bu kontrolü yap.",
-            "en": "A water balance is bookkeeping; balancing the books takes 30 seconds and instantly catches sign errors. If you have time in the exam, run this check on every balance problem."
+            "tr": "Bu kontrolün sınav değeri şu: bu sorunun en yaygın iki hatası — alçalmayı $y$'ye yazmak ve işaret karıştırmak — bütçeyi KAPATMAZ; açık (79,8 mm) ile depo bileşenlerinin toplamı birbirini tutmaz ve hatayı kâğıdı teslim etmeden yakalarsın. Refleks: bulduğun bilinmeyeni denkleme geri koy, \"giren = çıkan + depodaki azalma\" eşitliği tutuyor mu diye bak.",
+            "en": "The exam value of this check: the two most common errors in this question — writing the drop into $y$ and mixing up signs — leave the budget OPEN; the deficit (79.8 mm) and the sum of the storage parts stop matching, so you catch the mistake before handing in your paper. Reflex: substitute the unknown you found back into the equation and test whether \"inflow = outflow + storage loss\" holds."
           },
           "result": null,
           "check": null
@@ -444,8 +444,8 @@
             "en": "Rain volume: $20 \\cdot 10^{-3} \\cdot 50 \\cdot 10^{6} = 1{,}000{,}000$ m³.\n\nInflow volume: $11 \\cdot 10 \\cdot 86{,}400 = 9{,}504{,}000$ m³.\n\n$$x = 1{,}000{,}000 + 9{,}504{,}000 = 10{,}504{,}000\\ \\text{m}^3$$"
           },
           "why": {
-            "tr": "Föy bu soruyu m³ ile çözüyor; biz de öyle yapıyoruz. mm cinsindeki yağış göl alanıyla çarpılarak, m³/sn'deki debi süreyle çarpılarak hacme çevrilir — iki farklı türden veriyi ancak böyle toplayabilirsin. Süre 1 ay değil 10 gün: 864 000 sn.",
-            "en": "The sheet solves this one in m³, and so do we. Rain in mm becomes a volume via the lake area; discharge in m³/s becomes a volume via the duration — only then can two different kinds of data be added. The period is 10 days, not a month: 864,000 s."
+            "tr": "Verilenler listesinde iki farklı \"para birimi\" var: mm (yağış, sızma) ve m³/sn (debiler). Bu karışımı görmek, toplamadan önce ortak birime çevir sinyalidir — föy m³'ü seçmiş, biz de onu izliyoruz. İkinci sınav ipucu: süreyi soru metninden oku. \"10 günlük sürede\" ifadesi $\\Delta t = 864\\,000$ sn demektir; ay refleksiyle 30 gün yazmak buradaki en pahalı dalgınlıktır.",
+            "en": "The given list mixes two \"currencies\": mm (rain, seepage) and m³/s (discharges). Spotting that mixture is the signal to convert to a common unit before adding anything — the sheet picks m³ and we follow it. Second exam cue: read the duration from the question text. \"Over a 10-day period\" means $\\Delta t = 864{,}000$ s; writing 30 days out of month-reflex is the most expensive slip here."
           },
           "result": "x = 10\\,504\\,000\\ \\text{m}^3",
           "check": null
@@ -522,8 +522,8 @@
             "en": "$$B = \\frac{1{,}764{,}000\\ \\text{m}^3}{50 \\cdot 10^{6}\\ \\text{m}^2} = 0.03528\\ \\text{m} = 35.28\\ \\text{mm}$$"
           },
           "why": {
-            "tr": "Soru \"buharlaşma yüksekliği\" diyor — m³ ile bitirirsen soruyu yarım bırakmış olursun. Buharlaşma pratikte hep mm ile ifade edilir (yağış gibi), bu yüzden son çevirme adımı bu tip sorularda standarttır.",
-            "en": "The question says \"evaporation depth\" — finishing in m³ leaves it half-answered. Evaporation is conventionally expressed in mm (like rainfall), so this final conversion step is standard in such questions."
+            "tr": "Çözmeye başlamadan sorunun İSTEDİĞİ birimi işaretle: \"buharlaşma yüksekliği\" = mm. m³ ile çözdüysen sonunda mutlaka $h = V/A$ ile geri dön — puanlayıcı son satırdaki birimi arar. Hızlı mantık kontrolü: $35{,}28$ mm / 10 gün ≈ günde 3,5 mm buharlaşma; bir göl için makul. Sonucun saçma olup olmadığını sınavda böyle sezersin.",
+            "en": "Before you start solving, underline the unit the question ASKS for: \"evaporation depth\" = mm. If you solved in m³, you must return via $h = V/A$ at the end — the grader looks for the unit on the last line. Quick sanity check: $35.28$ mm / 10 days ≈ 3.5 mm per day of evaporation; plausible for a lake. That is how you sense in the exam whether a result is absurd."
           },
           "result": "B = 35{,}28\\ \\text{mm}",
           "check": null

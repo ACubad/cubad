@@ -1,0 +1,3173 @@
+{
+  "unit": 5,
+  "slug": "akim",
+  "title": {
+    "tr": "Akım Ölçümleri ve Yüzeysel Akış",
+    "en": "Streamflow Measurement & Runoff"
+  },
+  "tagline": {
+    "tr": "Debi ölçümü, anahtar eğrisi, süreklilik ve hazne hesabı",
+    "en": "Measuring discharge, rating curves, duration curves and storage"
+  },
+  "concept": {
+    "overview": {
+      "tr": "Bir akarsuyun debisini (Q, m³/sn) doğrudan ölçemeyiz; onu **iki adımda** buluruz. Önce kesiti dilimlere bölüp her dilimde muline (pervaneli hız ölçer) ile hız ölçeriz: muline bir sürede kaç tur attıysa (n, dakikadaki devir sayısı), hız $v = a + bn$ ile bulunur. Derinliği 0,5 m'den az olan dilimlerde tek noktadan (0,6h), derin dilimlerde iki noktadan (0,2h ve 0,8h) ölçüp ortalarız. Her dilimin alanını hızıyla çarpıp toplarsak $Q = \\sum A_i v_{ort,i}$ çıkar. Bu, mühendislik ölçümünün ta kendisi — pahalı ve zaman alıcı.\n\nBir kez Q'yu debi-seviye çiftleri hâlinde ölçtükten sonra, ikinci adım bu ilişkiyi bir eğriye oturtmaktır: **anahtar eğrisi** (rating curve), $Q = K(h-h_0)^n$. Artık her gün sadece seviyeyi (h) okuyup Q'yu bu denklemden hesaplarız — muline taşımaya gerek kalmaz. Eğrinin ölçülmediği yüksek seviyeler için **logaritmik uzatma** kullanılır: $\\log Q$'yu $\\log(h-h_0)$'a karşı çizince doğru çıkar, doğrunun eğimi n'i, kesimi K'yı verir.\n\nUzun süreli Q kayıtları elimizde olduğunda iki soru sorarız. \"Belli bir debi yılın kaç gününde mevcuttur?\" sorusuna **debi süreklilik eğrisi** (flow-duration curve) cevap verir — değerleri büyükten küçüğe sıralayıp Weibull formülüyle aşılma olasılığı ($p = m/(N+1)$) hesaplanır. \"Baraj rezervuarını ne kadar büyük yapmalıyım?\" sorusuna ise **toplam debi çizgisi** (mass curve, kümülatif hacim) cevap verir: talep doğrusuna paralel iki teğet çizilir, aralarındaki düşey mesafe gereken hazne hacmidir.",
+      "en": "We can't measure a river's discharge (Q, m³/s) directly; we find it in **two steps**. First we split the cross-section into slices and measure velocity in each with a current meter: however many revolutions the meter makes per unit time (n, revolutions per minute), velocity comes from $v = a + bn$. In slices shallower than 0.5 m we measure at one point (0.6h); in deeper slices at two points (0.2h and 0.8h) and average them. Multiply each slice's area by its velocity and sum: $Q = \\sum A_i v_{avg,i}$. This is the actual field measurement — expensive and slow.\n\nOnce we have Q measured as stage-discharge pairs, the second step is to fit this relationship to a curve: the **rating curve**, $Q = K(h-h_0)^n$. From then on we only read the stage (h) each day and compute Q from the equation — no more carrying the current meter. For high stages that were never measured, we use **logarithmic extension**: plotting $\\log Q$ against $\\log(h-h_0)$ gives a straight line whose slope is n and intercept gives K.\n\nOnce we have a long Q record, we ask two questions. \"How many days a year is a given discharge available?\" is answered by the **flow-duration curve** — sort the values from largest to smallest and use the Weibull formula for exceedance probability ($p = m/(N+1)$). \"How big should I build my reservoir?\" is answered by the **mass curve** (cumulative volume): draw two tangent lines parallel to the demand line, and the vertical gap between them is the required storage."
+    },
+    "keyFormulas": [
+      {
+        "name": {
+          "tr": "Muline hızı",
+          "en": "Current-meter velocity"
+        },
+        "latex": "v = a + b\\,n",
+        "meaning": {
+          "tr": "$v$: noktasal akım hızı (m/sn), $a,b$: mulinenin kalibrasyon katsayıları, $n$: **dakikadaki** devir sayısı. Ölçüm süresi 1 dakika değilse, önce sayımı dakikaya normalize et.",
+          "en": "$v$: point velocity (m/s), $a,b$: the current meter's calibration coefficients, $n$: revolutions **per minute**. If the measurement time isn't exactly one minute, normalize the count to per-minute first."
+        },
+        "whenToUse": {
+          "tr": "Muline ile hız ölçümü sorularında, devir sayısı ve ölçüm süresi verildiğinde her zaman.",
+          "en": "Whenever a current-meter question gives you a revolution count and a measurement time."
+        }
+      },
+      {
+        "name": {
+          "tr": "Ortalama hız kuralı",
+          "en": "Mean-velocity rule"
+        },
+        "latex": "v_{ort} = \\begin{cases} v_{0.6h} & \\bar h < 0.5\\ \\text{m} \\\\ \\tfrac{1}{2}(v_{0.2h}+v_{0.8h}) & \\bar h \\geq 0.5\\ \\text{m} \\end{cases}",
+        "meaning": {
+          "tr": "$\\bar h$: dilimin ortalama derinliği. Sığ dilimde tek ölçüm yeterli (yüzeye yakın türbülans azdır); derin dilimde hız profili yüzeyden tabana değiştiği için iki noktanın ortalaması gerekir.",
+          "en": "$\\bar h$: the slice's average depth. In a shallow slice a single reading suffices; in a deep slice the velocity profile changes from surface to bed, so you average two points."
+        },
+        "whenToUse": {
+          "tr": "Her dilimin ortalama hızını hesaplarken — önce dilimin ortalama derinliğine bak, sonra kaç noktadan hız verildiğine bak.",
+          "en": "When computing each slice's mean velocity — first check the slice's mean depth, then check how many velocity points you were given."
+        }
+      },
+      {
+        "name": {
+          "tr": "Kesit debisi",
+          "en": "Cross-section discharge"
+        },
+        "latex": "Q = \\sum A_i\\,v_{ort,i}",
+        "meaning": {
+          "tr": "$A_i$: her dilimin kesit alanı (uç dilimler üçgen, aradakiler yamuk), $v_{ort,i}$: o dilimin ortalama hızı. Toplam debi, dilimlerin katkılarının toplamıdır.",
+          "en": "$A_i$: each slice's cross-sectional area (end slices are triangles, interior slices are trapezoids), $v_{avg,i}$: that slice's mean velocity. Total discharge is the sum of the slices' contributions."
+        },
+        "whenToUse": {
+          "tr": "Tüm dilimlerin alanı ve ortalama hızı bulunduktan sonra, kesitin toplam debisini elde etmek için.",
+          "en": "After every slice's area and mean velocity are known, to get the section's total discharge."
+        }
+      },
+      {
+        "name": {
+          "tr": "Anahtar eğrisi",
+          "en": "Rating curve"
+        },
+        "latex": "Q = K\\,(h-h_0)^n",
+        "meaning": {
+          "tr": "$h$: okunan seviye, $h_0$: sıfır-akış seviyesi (debinin teorik olarak sıfır olduğu kot), $K,n$: eğri sabitleri. $h-h_0=1$ olduğunda $Q=K$ — eğrinin en kullanışlı özelliği budur.",
+          "en": "$h$: the observed stage, $h_0$: the zero-flow stage (the elevation where discharge is theoretically zero), $K,n$: curve constants. When $h-h_0=1$, $Q=K$ — this is the curve's most useful property."
+        },
+        "whenToUse": {
+          "tr": "Seviye-debi (h,Q) verileri verilip eğri denklemi, ekstrapolasyon (ölçülmemiş yüksek/düşük seviyeler) ya da h₀ isteniyorsa.",
+          "en": "Whenever stage-discharge (h,Q) data is given and you need the curve equation, an extrapolation (unmeasured high/low stages), or h₀."
+        }
+      },
+      {
+        "name": {
+          "tr": "Aşılma olasılığı (Weibull)",
+          "en": "Exceedance probability (Weibull)"
+        },
+        "latex": "p = \\frac{m}{N+1}\\ ,\\quad \\text{gün} = p \\cdot 365",
+        "meaning": {
+          "tr": "$m$: değeri büyükten küçüğe sıraladığında sıra numarası, $N$: toplam veri sayısı, $p$: o değerin ya da daha büyüğünün aşılma olasılığı. **N+1**, N değil — payda +1 alır.",
+          "en": "$m$: the rank when values are sorted from largest to smallest, $N$: total number of data points, $p$: the probability that value (or a larger one) is exceeded. **N+1**, not N — the denominator gets a +1."
+        },
+        "whenToUse": {
+          "tr": "Debi süreklilik eğrisi çizerken ya da \"bu debi yılın kaç gününde mevcuttur\" tipi sorularda.",
+          "en": "When drawing a flow-duration curve, or answering \"how many days a year is this discharge available\" questions."
+        }
+      },
+      {
+        "name": {
+          "tr": "Hazne hacmi (toplam debi çizgisi)",
+          "en": "Reservoir storage (mass curve)"
+        },
+        "latex": "V_{hazne} = \\max\\big(\\Sigma V_{teğet,üst} - \\Sigma V_{teğet,alt}\\big)",
+        "meaning": {
+          "tr": "Kümülatif hacim eğrisine, talep eğiminde (ortalama debi) iki paralel teğet çizilir — biri en üstteki tepe noktasından, biri en alttaki çukur noktasından. Aralarındaki düşey mesafe, hazneyi boşaltmadan talebi karşılamak için gereken hacimdir.",
+          "en": "Two lines parallel to the demand slope (mean discharge) are drawn tangent to the cumulative-volume curve — one from the highest peak, one from the lowest trough. The vertical distance between them is the storage needed to meet demand without the reservoir running dry."
+        },
+        "whenToUse": {
+          "tr": "Aylık ortalama debilerden, sabit bir talebi (genelde yıllık ortalama) sürekli karşılayacak minimum hazne hacmi soruluyorsa.",
+          "en": "When monthly average discharges are given and you need the minimum reservoir volume that continuously meets a fixed demand (usually the annual mean)."
+        }
+      }
+    ],
+    "traps": [
+      {
+        "tr": "$v=a+bn$ formülündeki n **dakikadaki** devir sayısıdır. Ölçüm 2 dakika sürdüyse sayımı 2'ye böl; ölçüm 45 saniye sürdüyse ×(60/45) ile dakikaya çevir. Ham devir sayısını doğrudan n yerine koymak en sık hatadır.",
+        "en": "The n in $v=a+bn$ is revolutions **per minute**. If the measurement lasted 2 minutes, divide the count by 2; if it lasted 45 seconds, scale by (60/45) to get per-minute. Plugging the raw revolution count straight in as n is the most common mistake."
+      },
+      {
+        "tr": "Anahtar eğrisinde $Q=K$ tam olarak $h-h_0=1$ iken olur — bu, K veya h₀'ı bulmak için tek satırlık bir kısayoldur; ezberle.",
+        "en": "On a rating curve, $Q=K$ happens exactly when $h-h_0=1$ — this is a one-line shortcut for finding either K or h₀; memorize it."
+      },
+      {
+        "tr": "Debi süreklilik eğrisinde p, N değil **N+1** ile bölünür (Weibull). N kullanmak sıra 12/12 için p=%100 gibi imkânsız bir uç verir.",
+        "en": "On the flow-duration curve, p is divided by **N+1**, not N (Weibull). Using N gives an impossible edge case like p=100% for rank 12 of 12."
+      },
+      {
+        "tr": "Toplam debi çizgisinde hazne hacmi iki teğet arasındaki mesafe **düşey** (dikey) olarak okunur — eğik ya da yatay mesafe değil. Bu mesafe doğrudan milyon m³ cinsindendir.",
+        "en": "On the mass curve, the storage volume is read as the **vertical** distance between the two tangents — not a slanted or horizontal distance. That distance is directly in million m³."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "5-1",
+      "code": "Uygulama 5.1",
+      "title": {
+        "tr": "Muline ile debi ölçümü (11 dilim)",
+        "en": "Current-meter gauging (11 slices)"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir akarsuda hız ölçümü için kullanılan mulinenin katsayıları a=0,26 ve b=0,04'tür. Akarsuyun bir kenarından ölçülen mesafeler (x, m) ve bu mesafelerdeki derinlikler (h, m) ile, 2 dk süreyle yapılan hız ölçümlerinde mulinedeki dönme sayıları (d) aşağıda verilmiştir.\n\na) Düşey ölçek 1/50, yatay ölçek 1/133,3 olacak şekilde akarsu kesitini çiziniz.\n\nb) Her bir dilimin orta kesitinde hız ölçümü yapıldığını kabul ederek, her dilimin ortalama hızını, kesit alanını ve debisini; ayrıca tüm kesitin toplam debi ve alanını ve ortalama hızını hesaplayınız. Her bir dilim için V/Vort ve 100·(Qi/Qort) değerini hesaplayınız ve kesitteki değişimlerini yorumlayınız.\n\nc) Başka bir muline ile ölçüm yapılırken, v=1,28 m/sn iken n=18, v=1,64 m/sn iken de n=24 olarak ölçülmüştür. Muline katsayılarını ve hız formülünü elde ediniz. Bu muline ile yapılan bir ölçümde 45 saniyede muline 30 dönüş yaptığına göre akım hızını hesaplayınız.",
+        "en": "The coefficients of a current meter used to measure velocity in a river are a=0.26 and b=0.04. Distances measured from one bank (x, m), the depths at those distances (h, m), and the number of revolutions of the meter (d) recorded over a 2-minute measurement are given below.\n\na) Draw the river cross-section using a vertical scale of 1/50 and a horizontal scale of 1/133.3.\n\nb) Assuming velocity was measured at the mid-section of each slice, compute each slice's mean velocity, cross-sectional area and discharge; also compute the total discharge, total area and mean velocity of the whole section. Compute V/Vavg and 100·(Qi/Qavg) for each slice and comment on how they vary across the section.\n\nc) With a different current meter, v=1.28 m/s was measured at n=18, and v=1.64 m/s at n=24. Find the meter's coefficients and its velocity formula. If this meter makes 30 revolutions in 45 seconds during a measurement, find the flow velocity."
+      },
+      "given": [
+        {
+          "symbol": "a",
+          "value": "0{,}26",
+          "label": {
+            "tr": "Muline katsayısı",
+            "en": "Current-meter coefficient"
+          }
+        },
+        {
+          "symbol": "b",
+          "value": "0{,}04",
+          "label": {
+            "tr": "Muline katsayısı",
+            "en": "Current-meter coefficient"
+          }
+        },
+        {
+          "symbol": "t_{ölçüm}",
+          "value": "2\\ \\text{dk}",
+          "label": {
+            "tr": "Her noktadaki ölçüm süresi",
+            "en": "Measurement time at each point"
+          }
+        },
+        {
+          "symbol": "x",
+          "value": "0,2,4,\\ldots,22\\ \\text{m}\\ (\\Delta x = 2\\ \\text{m})",
+          "label": {
+            "tr": "Kıyıdan uzaklıklar (11 dilim sınırı)",
+            "en": "Distances from bank (11 slice boundaries)"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Her dilimin alanını, ortalama hızını ve debisini; tüm kesitin toplam alanını, toplam debisini ve ortalama hızını bulmak; ayrıca ikinci bir muline için a, b katsayılarını ve verilen bir ölçümden akım hızını hesaplamak.",
+        "en": "Find each slice's area, mean velocity and discharge; the whole section's total area, total discharge and mean velocity; and, for a second current meter, find a, b and the velocity from a given measurement."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Ölçüm verileri (11 dilim)",
+            "en": "Measurement data (11 slices)"
+          },
+          "headers": [
+            "Dilim",
+            "x (m)",
+            "h (m)",
+            "d₁ (2 dk)",
+            "d₂ (2 dk)"
+          ],
+          "rows": [
+            [
+              "1",
+              "0",
+              "0,0",
+              "7",
+              "-"
+            ],
+            [
+              "2",
+              "2",
+              "0,8",
+              "10",
+              "7"
+            ],
+            [
+              "3",
+              "4",
+              "1,4",
+              "13",
+              "9"
+            ],
+            [
+              "4",
+              "6",
+              "1,9",
+              "18",
+              "14"
+            ],
+            [
+              "5",
+              "8",
+              "2,3",
+              "28",
+              "20"
+            ],
+            [
+              "6",
+              "10",
+              "2,8",
+              "30",
+              "23"
+            ],
+            [
+              "7",
+              "12",
+              "2,7",
+              "24",
+              "20"
+            ],
+            [
+              "8",
+              "14",
+              "2,2",
+              "17",
+              "14"
+            ],
+            [
+              "9",
+              "16",
+              "1,7",
+              "14",
+              "8"
+            ],
+            [
+              "10",
+              "18",
+              "1,2",
+              "8",
+              "5"
+            ],
+            [
+              "11",
+              "20",
+              "0,7",
+              "5",
+              "-"
+            ],
+            [
+              "-",
+              "22",
+              "0,0",
+              "-",
+              "-"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Sonuçlar",
+            "en": "Results"
+          },
+          "headers": [
+            "Dilim",
+            "Ai (m²)",
+            "n₁ (dev/dk)",
+            "n₂ (dev/dk)",
+            "v₁ (m/sn)",
+            "v₂ (m/sn)",
+            "vort (m/sn)",
+            "qi (m³/sn)",
+            "vort/Vort",
+            "100·qi/Q"
+          ],
+          "rows": [
+            [
+              "1",
+              "0,8",
+              "3,5",
+              "-",
+              "0,40",
+              "-",
+              "0,40",
+              "0,320",
+              "0,66",
+              "1,5"
+            ],
+            [
+              "2",
+              "2,2",
+              "5",
+              "3,5",
+              "0,46",
+              "0,40",
+              "0,43",
+              "0,946",
+              "0,71",
+              "4,4"
+            ],
+            [
+              "3",
+              "3,3",
+              "6,5",
+              "4,5",
+              "0,52",
+              "0,44",
+              "0,48",
+              "1,584",
+              "0,79",
+              "7,4"
+            ],
+            [
+              "4",
+              "4,2",
+              "9",
+              "7",
+              "0,62",
+              "0,54",
+              "0,58",
+              "2,436",
+              "0,96",
+              "11,3"
+            ],
+            [
+              "5",
+              "5,1",
+              "14",
+              "10",
+              "0,82",
+              "0,66",
+              "0,74",
+              "3,774",
+              "1,22",
+              "17,6"
+            ],
+            [
+              "6",
+              "5,5",
+              "15",
+              "11,5",
+              "0,86",
+              "0,72",
+              "0,79",
+              "4,375",
+              "1,30",
+              "20,4"
+            ],
+            [
+              "7",
+              "4,9",
+              "12",
+              "10",
+              "0,74",
+              "0,66",
+              "0,70",
+              "3,430",
+              "1,15",
+              "16,0"
+            ],
+            [
+              "8",
+              "3,9",
+              "8,5",
+              "7",
+              "0,60",
+              "0,54",
+              "0,57",
+              "2,223",
+              "0,94",
+              "10,4"
+            ],
+            [
+              "9",
+              "2,9",
+              "7",
+              "4",
+              "0,54",
+              "0,42",
+              "0,48",
+              "1,392",
+              "0,79",
+              "6,5"
+            ],
+            [
+              "10",
+              "1,9",
+              "4",
+              "2,5",
+              "0,42",
+              "0,36",
+              "0,39",
+              "0,741",
+              "0,64",
+              "3,5"
+            ],
+            [
+              "11",
+              "0,7",
+              "2,5",
+              "-",
+              "0,36",
+              "-",
+              "0,36",
+              "0,252",
+              "0,59",
+              "1,2"
+            ],
+            [
+              "Σ / ort",
+              "35,4",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "21,47",
+              "-",
+              "-"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Dilim alanlarını çiz ve hesapla",
+            "en": "Draw and compute the slice areas"
+          },
+          "guiding": {
+            "tr": "Kesit 11 dilime bölünmüş, uç dilimler (1. ve 11.) ile aradaki dilimler farklı geometriler. Alan formülleri neler?",
+            "en": "The section is split into 11 slices, and the end slices (1st and 11th) have a different geometry than the interior ones. What are the area formulas?"
+          },
+          "hint": {
+            "tr": "Kıyıya bitişik dilimler (derinlik sıfırdan başlar) üçgendir: $A = \\tfrac{1}{2}\\Delta x \\cdot h$. Aradaki dilimler yamuktur: $A = \\tfrac{\\Delta x}{2}(h_{sol}+h_{sağ})$.",
+            "en": "The slices touching the bank (depth starts at zero) are triangles: $A = \\tfrac{1}{2}\\Delta x \\cdot h$. Interior slices are trapezoids: $A = \\tfrac{\\Delta x}{2}(h_{left}+h_{right})$."
+          },
+          "work": {
+            "tr": "$\\Delta x = 2$ m sabit. 1. dilim üçgen: iki dik kenarı 2 m ve 0,8 m → $A_1 = \\tfrac{2 \\cdot 0{,}8}{2} = 0{,}8$ m².\n\n2. dilim yamuk: kısa kenar 0,8 m, uzun kenar 1,4 m, yükseklik 2 m → $A_2 = \\tfrac{(0{,}8+1{,}4)\\cdot 2}{2} = 2{,}2$ m².\n\nAynı mantıkla tüm dilimler:\n\n$$A_i = 0{,}8;\\ 2{,}2;\\ 3{,}3;\\ 4{,}2;\\ 5{,}1;\\ 5{,}5;\\ 4{,}9;\\ 3{,}9;\\ 2{,}9;\\ 1{,}9;\\ 0{,}7\\ \\ (\\text{m}^2)$$\n\n$$\\Sigma A = 35{,}4\\ \\text{m}^2$$",
+            "en": "$\\Delta x = 2$ m throughout. Slice 1 is a triangle: legs 2 m and 0.8 m → $A_1 = \\tfrac{2 \\cdot 0.8}{2} = 0.8$ m².\n\nSlice 2 is a trapezoid: short side 0.8 m, long side 1.4 m, height 2 m → $A_2 = \\tfrac{(0.8+1.4)\\cdot 2}{2} = 2.2$ m².\n\nThe same logic for every slice:\n\n$$A_i = 0.8,\\ 2.2,\\ 3.3,\\ 4.2,\\ 5.1,\\ 5.5,\\ 4.9,\\ 3.9,\\ 2.9,\\ 1.9,\\ 0.7\\ \\ (\\text{m}^2)$$\n\n$$\\Sigma A = 35.4\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Bir akım ölçümü sorusu görür görmez ilk iş kesiti geometriye çevirmektir: uçlar sıfır derinlikte başlar/biter (üçgen), aradakiler iki farklı derinlik arasında (yamuk). Bu ayrımı atlayıp her yeri yamuk formülüyle hesaplamak uç dilimlerde hatalı sonuç verir.",
+            "en": "The moment you see a current-meter question, the first job is turning the section into geometry: the ends start/end at zero depth (triangles), the interior slices sit between two different depths (trapezoids). Skipping this distinction and using the trapezoid formula everywhere gives wrong end-slice areas."
+          },
+          "result": "\\Sigma A = 35{,}4\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Devir sayısını dakikaya çevir",
+            "en": "Convert the revolution count to per-minute"
+          },
+          "guiding": {
+            "tr": "Sayımlar 2 dakikalık sürede yapılmış ama formül dakikadaki devri istiyor. Ne yapman gerekir?",
+            "en": "The counts were taken over a 2-minute period, but the formula wants revolutions per minute. What do you need to do?"
+          },
+          "hint": {
+            "tr": "$n = d / t_{dk}$. 2 dakikalık sayımı 2'ye böl.",
+            "en": "$n = d / t_{min}$. Divide the 2-minute count by 2."
+          },
+          "work": {
+            "tr": "$t = 2$ dk olduğundan $n = d/2$. Örneğin 1. dilimde $d_1=7$ ise $n_1 = 7/2 = 3{,}5$ dev/dk.\n\nTüm dilimler için ($n_1 = d_1/2$):\n\n$$n_1 = 3{,}5;\\ 5;\\ 6{,}5;\\ 9;\\ 14;\\ 15;\\ 12;\\ 8{,}5;\\ 7;\\ 4;\\ 2{,}5$$\n\nve mevcut olduğunda ($n_2 = d_2/2$):\n\n$$n_2 = -;\\ 3{,}5;\\ 4{,}5;\\ 7;\\ 10;\\ 11{,}5;\\ 10;\\ 7;\\ 4;\\ 2{,}5;\\ -$$",
+            "en": "With $t = 2$ min, $n = d/2$. For slice 1, $d_1=7$ gives $n_1 = 7/2 = 3.5$ rev/min.\n\nFor all slices ($n_1 = d_1/2$):\n\n$$n_1 = 3.5,\\ 5,\\ 6.5,\\ 9,\\ 14,\\ 15,\\ 12,\\ 8.5,\\ 7,\\ 4,\\ 2.5$$\n\nand where available ($n_2 = d_2/2$):\n\n$$n_2 = -,\\ 3.5,\\ 4.5,\\ 7,\\ 10,\\ 11.5,\\ 10,\\ 7,\\ 4,\\ 2.5,\\ -$$"
+          },
+          "why": {
+            "tr": "Bu, sorunun bir numaralı tuzağıdır: $v=a+bn$ formülündeki n dakikadaki devirdir; ham d sayısını (2 dakikalık) doğrudan yerine koyarsan tüm hızlar 2 katına çıkar. Ölçüm süresi 1 dakika olmadığı her seferinde bu normalize adımı yap — sınav sorusu tam da bunu test etmek için 2 dk seçmiş.",
+            "en": "This is the number-one trap in the question: n in $v=a+bn$ is per minute; plug in the raw 2-minute count and every velocity doubles. Whenever the measurement time isn't 1 minute, do this normalization step — the exam deliberately chose 2 minutes to test exactly this."
+          },
+          "result": "n_1 = d_1/2,\\quad n_2 = d_2/2",
+          "check": {
+            "q": {
+              "tr": "1. dilimde 2 dakikada 7 devir sayıldı. Formülde kullanılacak n (dakikadaki devir) kaçtır?",
+              "en": "Slice 1 recorded 7 revolutions in 2 minutes. What n (revolutions per minute) goes into the formula?"
+            },
+            "options": [
+              {
+                "tr": "n = 7",
+                "en": "n = 7"
+              },
+              {
+                "tr": "n = 3,5",
+                "en": "n = 3.5"
+              },
+              {
+                "tr": "n = 14",
+                "en": "n = 14"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "n dakikadaki devirdir; 2 dakikada 7 devir olduğuna göre $n = 7/2 = 3{,}5$ dev/dk. n=7 ham sayıyı direkt kullanmaktan, n=14 ise yanlışlıkla 2 ile çarpmaktan gelir (bölmek yerine).",
+              "en": "n is revolutions per minute; 7 revolutions in 2 minutes gives $n = 7/2 = 3.5$ rev/min. n=7 comes from using the raw count directly; n=14 comes from mistakenly multiplying by 2 instead of dividing."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Noktasal hızları hesapla",
+            "en": "Compute the point velocities"
+          },
+          "guiding": {
+            "tr": "n değerleri hazır. Muline formülünü uygulayınca her noktadaki hız nedir?",
+            "en": "The n values are ready. Applying the meter formula, what is the velocity at each point?"
+          },
+          "hint": {
+            "tr": "$v = 0{,}26 + 0{,}04n$. Her n₁ ve n₂ için ayrı ayrı hesapla.",
+            "en": "$v = 0.26 + 0.04n$. Compute separately for each n₁ and n₂."
+          },
+          "work": {
+            "tr": "$v = a+bn = 0{,}26+0{,}04n$. Örneğin 1. dilim: $v_1 = 0{,}26+0{,}04\\cdot3{,}5 = 0{,}40$ m/sn.\n\nÜst noktalar ($v_1$, 0,2h ya da tek ölçüm):\n\n$$v_1 = 0{,}40;\\ 0{,}46;\\ 0{,}52;\\ 0{,}62;\\ 0{,}82;\\ 0{,}86;\\ 0{,}74;\\ 0{,}60;\\ 0{,}54;\\ 0{,}42;\\ 0{,}36\\ \\ (\\text{m/sn})$$\n\nAlt noktalar ($v_2$, 0,8h — sadece derin dilimlerde):\n\n$$v_2 = -;\\ 0{,}40;\\ 0{,}44;\\ 0{,}54;\\ 0{,}66;\\ 0{,}72;\\ 0{,}66;\\ 0{,}54;\\ 0{,}42;\\ 0{,}36;\\ -$$",
+            "en": "$v = a+bn = 0.26+0.04n$. For slice 1: $v_1 = 0.26+0.04\\cdot3.5 = 0.40$ m/s.\n\nUpper points ($v_1$, 0.2h or the single reading):\n\n$$v_1 = 0.40,\\ 0.46,\\ 0.52,\\ 0.62,\\ 0.82,\\ 0.86,\\ 0.74,\\ 0.60,\\ 0.54,\\ 0.42,\\ 0.36\\ \\ (\\text{m/s})$$\n\nLower points ($v_2$, 0.8h — deep slices only):\n\n$$v_2 = -,\\ 0.40,\\ 0.44,\\ 0.54,\\ 0.66,\\ 0.72,\\ 0.66,\\ 0.54,\\ 0.42,\\ 0.36,\\ -$$"
+          },
+          "why": {
+            "tr": "Bu adım tamamen mekanik — a, b sabit, n biliniyor, doğrudan yerine koy. Kontrol noktası: sığ dilimlerde (1, 11) sadece bir v satırı dolu, derin dilimlerde ikisi de dolu — bunun sebebi bir sonraki adımda ortaya çıkacak.",
+            "en": "This step is purely mechanical — a, b are fixed, n is known, just substitute. Watch point: shallow slices (1, 11) have only one v filled in, deep slices have both — the reason becomes clear in the next step."
+          },
+          "result": "v_1, v_2\\ \\text{(m/sn)}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ortalama hız kuralını uygula",
+            "en": "Apply the mean-velocity rule"
+          },
+          "guiding": {
+            "tr": "Hangi dilimlerde tek ölçüm yeterli, hangilerinde iki noktanın ortalaması gerekiyor? Ortalama derinliğe bak.",
+            "en": "Which slices need only one reading, and which need the average of two points? Look at the mean depth."
+          },
+          "hint": {
+            "tr": "Dilimin ortalama derinliği (iki sınırdaki h'lerin ortalaması) 0,5 m'den küçükse $v_{ort}=v_1$ (0,6h); büyükse $v_{ort} = (v_1+v_2)/2$.",
+            "en": "If the slice's mean depth (average of the two boundary h's) is under 0.5 m, $v_{avg}=v_1$ (0.6h); if over, $v_{avg} = (v_1+v_2)/2$."
+          },
+          "work": {
+            "tr": "1. dilim: sınır derinlikleri 0,0 ve 0,8 m → ortalama 0,4 m $< 0{,}5$ m → tek ölçüm: $v_{ort,1} = v_1 = 0{,}40$ m/sn.\n\n2. dilim: sınırlar 0,8 ve 1,4 m → ortalama $0{,}5+$ m (≈1,1 m) $> 0{,}5$ m → iki nokta ortalaması: $v_{ort,2} = (0{,}46+0{,}40)/2 = 0{,}43$ m/sn.\n\nAynı kuralla tüm dilimler:\n\n$$v_{ort} = 0{,}40;\\ 0{,}43;\\ 0{,}48;\\ 0{,}58;\\ 0{,}74;\\ 0{,}79;\\ 0{,}70;\\ 0{,}57;\\ 0{,}48;\\ 0{,}39;\\ 0{,}36\\ \\ (\\text{m/sn})$$",
+            "en": "Slice 1: boundary depths 0.0 and 0.8 m → mean 0.4 m $< 0.5$ m → single reading: $v_{avg,1} = v_1 = 0.40$ m/s.\n\nSlice 2: boundaries 0.8 and 1.4 m → mean about 1.1 m $> 0.5$ m → average of two points: $v_{avg,2} = (0.46+0.40)/2 = 0.43$ m/s.\n\nWith the same rule for every slice:\n\n$$v_{avg} = 0.40,\\ 0.43,\\ 0.48,\\ 0.58,\\ 0.74,\\ 0.79,\\ 0.70,\\ 0.57,\\ 0.48,\\ 0.39,\\ 0.36\\ \\ (\\text{m/s})$$"
+          },
+          "why": {
+            "tr": "Bu adım, sorunun ikinci tuzağıdır: bu iki formülü karıştırmak (derin dilimde tek ölçüm kullanmak ya da sığ dilimde iki nokta ortalaması aramak) yanlış v_ort'a götürür. Kural mekanik: 0,5 m eşiği ezberlenir, dilimin İKİ SINIRININ ortalaması ile karşılaştırılır.",
+            "en": "This is the question's second trap: mixing up the two formulas (using a single reading in a deep slice, or hunting for a two-point average in a shallow one) gives the wrong v_avg. The rule is mechanical: memorize the 0.5 m threshold and compare it against the average of the slice's TWO boundary depths."
+          },
+          "result": "v_{ort} = [0{,}40,\\ldots,0{,}36]\\ \\text{m/sn}",
+          "check": {
+            "q": {
+              "tr": "Bir dilimin sınır derinlikleri 1,7 ve 2,2 m ise, ortalama hız nasıl bulunur?",
+              "en": "A slice's boundary depths are 1.7 and 2.2 m. How do you find the mean velocity?"
+            },
+            "options": [
+              {
+                "tr": "Tek ölçümle: $v_{ort}=v_{0.6h}$",
+                "en": "A single reading: $v_{avg}=v_{0.6h}$"
+              },
+              {
+                "tr": "İki noktanın ortalamasıyla: $v_{ort}=(v_{0.2h}+v_{0.8h})/2$",
+                "en": "The average of two points: $v_{avg}=(v_{0.2h}+v_{0.8h})/2$"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Ortalama derinlik $(1{,}7+2{,}2)/2 = 1{,}95$ m, 0,5 m'yi aşıyor → iki noktalı ölçüm gerekir. Tek ölçüm kuralı sadece ortalama derinlik 0,5 m'nin ALTINDA kalan sığ dilimler içindir.",
+              "en": "The mean depth $(1.7+2.2)/2 = 1.95$ m exceeds 0.5 m → the two-point rule applies. The single-reading rule is only for shallow slices whose mean depth stays BELOW 0.5 m."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Dilim debilerini ve toplam debiyi bul",
+            "en": "Find the slice discharges and the total discharge"
+          },
+          "guiding": {
+            "tr": "Her dilimin alanı ve ortalama hızı elimizde. Debiyi nasıl birleştirirsin?",
+            "en": "You have every slice's area and mean velocity. How do you combine them into discharge?"
+          },
+          "hint": {
+            "tr": "$q_i = A_i \\cdot v_{ort,i}$; toplam debi tüm $q_i$'lerin toplamıdır.",
+            "en": "$q_i = A_i \\cdot v_{avg,i}$; total discharge is the sum of all $q_i$."
+          },
+          "work": {
+            "tr": "$q_1 = 0{,}8 \\cdot 0{,}40 = 0{,}320$ m³/sn; $q_2 = 2{,}2 \\cdot 0{,}43 = 0{,}946$ m³/sn; ... aynı çarpımla tüm dilimler:\n\n$$q_i = 0{,}320;\\ 0{,}946;\\ 1{,}584;\\ 2{,}436;\\ 3{,}774;\\ 4{,}375;\\ 3{,}430;\\ 2{,}223;\\ 1{,}392;\\ 0{,}741;\\ 0{,}252$$\n\n$$Q = \\Sigma q_i = 21{,}47\\ \\text{m}^3/\\text{sn}$$\n\nOrtalama hız (tüm kesit için):\n\n$$V_{ort} = \\frac{Q}{\\Sigma A} = \\frac{21{,}47}{35{,}4} = 0{,}607\\ \\text{m/sn}$$",
+            "en": "$q_1 = 0.8 \\cdot 0.40 = 0.320$ m³/s; $q_2 = 2.2 \\cdot 0.43 = 0.946$ m³/s; ... the same multiplication for every slice:\n\n$$q_i = 0.320,\\ 0.946,\\ 1.584,\\ 2.436,\\ 3.774,\\ 4.375,\\ 3.430,\\ 2.223,\\ 1.392,\\ 0.741,\\ 0.252$$\n\n$$Q = \\Sigma q_i = 21.47\\ \\text{m}^3/\\text{s}$$\n\nMean velocity (whole section):\n\n$$V_{avg} = \\frac{Q}{\\Sigma A} = \\frac{21.47}{35.4} = 0.607\\ \\text{m/s}$$"
+          },
+          "why": {
+            "tr": "Toplam debi asla \"tüm hızların ortalaması × toplam alan\" ile bulunmaz — her dilimin kendi alanı kendi hızıyla ağırlıklanmalı, çünkü geniş/derin dilimler debiye orantısız katkı yapar. $V_{ort}=Q/\\Sigma A$ ise sonradan tanımlanan bir özet büyüklüktür, hesabın girdisi değil.",
+            "en": "Total discharge is never found as \"average of all velocities × total area\" — each slice's own area must be weighted by its own velocity, because wide/deep slices contribute disproportionately to discharge. $V_{avg}=Q/\\Sigma A$ is a summary quantity defined afterward, not an input to the calculation."
+          },
+          "result": "Q = 21{,}47\\ \\text{m}^3/\\text{sn},\\quad V_{ort} = 0{,}607\\ \\text{m/sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Dağılımı yorumla ve ikinci mulineyi çöz (kısım c)",
+            "en": "Interpret the distribution and solve the second meter (part c)"
+          },
+          "guiding": {
+            "tr": "vort/Vort ve 100·qi/Q oranları kesit boyunca nasıl değişiyor? Ayrıca kısım c'deki yeni muline için a, b nasıl bulunur?",
+            "en": "How do the ratios vort/Vavg and 100·qi/Q vary across the section? Also, for the new meter in part c, how do you find a and b?"
+          },
+          "hint": {
+            "tr": "Kesitin ortasındaki dilimler en derin ve en hızlıdır; kıyıya yaklaştıkça oranlar küçülür. İkinci muline için: iki bilinmeyenli (a,b) iki denklem kur ve çöz.",
+            "en": "The slices in the middle of the section are deepest and fastest; ratios shrink toward the banks. For the second meter: set up two equations in two unknowns (a,b) and solve."
+          },
+          "work": {
+            "tr": "**Dağılım:** $v_{ort}/V_{ort}$ ve $100 q_i/Q$ kesitin ortasına yakın 5. ve 6. dilimlerde en yüksek (1,22–1,30 ve %17,6–%20,4), kıyılara yakın 1. ve 11. dilimlerde en düşük (0,59–0,66 ve %1,2–%1,5). Bu, derin/hızlı orta kısmın toplam debiye baskın katkı yaptığını, sığ kenarların ihmal edilebilir katkı yaptığını gösterir.\n\n**Kısım c:** $v=a+bn$ formülüne iki nokta yerleştirilir:\n\n$$1{,}28 = a+18b \\qquad 1{,}64 = a+24b$$\n\nAlt alta çıkarma: $0{,}36 = 6b \\Rightarrow b=0{,}06$; geri koyma: $1{,}64=a+24\\cdot0{,}06 \\Rightarrow a=0{,}2$.\n\n$$v = 0{,}2+0{,}06n$$\n\n45 saniyede 30 devir: $n = 30 \\cdot \\tfrac{60}{45} = 40$ dev/dk $\\Rightarrow v = 0{,}2+0{,}06\\cdot40 = 2{,}6$ m/sn.",
+            "en": "**Distribution:** $v_{avg}/V_{avg}$ and $100 q_i/Q$ peak near the middle of the section, at slices 5 and 6 (1.22–1.30 and 17.6–20.4%), and are lowest near the banks at slices 1 and 11 (0.59–0.66 and 1.2–1.5%). This shows the deep/fast middle dominates the total discharge while the shallow edges contribute negligibly.\n\n**Part c:** substitute two points into $v=a+bn$:\n\n$$1.28 = a+18b \\qquad 1.64 = a+24b$$\n\nSubtracting: $0.36 = 6b \\Rightarrow b=0.06$; back-substituting: $1.64=a+24\\cdot0.06 \\Rightarrow a=0.2$.\n\n$$v = 0.2+0.06n$$\n\n30 revolutions in 45 seconds: $n = 30 \\cdot \\tfrac{60}{45} = 40$ rev/min $\\Rightarrow v = 0.2+0.06\\cdot40 = 2.6$ m/s."
+          },
+          "why": {
+            "tr": "Yorum kısmı sınavda genelde atlanır ama puan taşır: \"kesitin neresi debiye en çok katkı sağlıyor\" sorusuna görsel değil sayısal cevap verebilmelisin (oranlar tablosu). Kısım c ise farklı bir beceri test eder — muline kalibrasyonu: iki (n,v) noktası verildiğinde bunlar bir DOĞRU üzerindedir, a kesim noktası, b eğimdir; klasik iki denklem/iki bilinmeyen çözümü.",
+            "en": "The interpretation part is often skipped in exams but carries marks: you should answer \"which part of the section contributes most to discharge\" numerically (the ratio table), not just visually. Part c tests a different skill — meter calibration: given two (n,v) points, they lie on a LINE, a is the intercept, b is the slope; a classic two-equations/two-unknowns solve."
+          },
+          "result": "a=0{,}2,\\ b=0{,}06,\\quad v=2{,}6\\ \\text{m/sn}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Toplam kesit:** $\\Sigma A = 35{,}4$ m², $Q = 21{,}47$ m³/sn, $V_{ort} = 0{,}607$ m/sn. Debi ve hız dağılımı kesitin ortasında maksimum, kenarlarda minimumdur.\n\n**Kısım c:** yeni muline denklemi $v = 0{,}2+0{,}06n$; 45 sn'de 30 devir → $n=40$ dev/dk → $\\boxed{v = 2{,}6\\ \\text{m/sn}}$.",
+        "en": "**Whole section:** $\\Sigma A = 35.4$ m², $Q = 21.47$ m³/s, $V_{avg} = 0.607$ m/s. Both velocity and discharge peak at the center of the section and drop toward the banks.\n\n**Part c:** the new meter's equation is $v = 0.2+0.06n$; 30 revolutions in 45 s → $n=40$ rev/min → $\\boxed{v = 2.6\\ \\text{m/s}}$."
+      },
+      "traps": [
+        {
+          "tr": "Devir sayıları 2 DAKİKALIK sayımlardır — formüle koymadan önce mutlaka 2'ye böl. Bölmeden kullanmak tüm hızları ve dolayısıyla Q'yu 2 katına çıkarır.",
+          "en": "The revolution counts are 2-MINUTE counts — always divide by 2 before plugging into the formula. Skipping the division doubles every velocity and hence Q."
+        },
+        {
+          "tr": "1. ve 11. dilimler üçgendir (bir kenarları sıfır derinlik), aradaki 9 dilim yamuktur. Uç dilimlere yamuk formülü uygulamak yanlış alan verir.",
+          "en": "Slices 1 and 11 are triangles (one side is zero depth), the other 9 are trapezoids. Applying the trapezoid formula to the end slices gives the wrong area."
+        },
+        {
+          "tr": "Ortalama derinlik kuralı yanlış hatırlanabilir: 0,5 m eşiği dilimin İKİ SINIRININ ortalamasına uygulanır, tek bir h değerine değil.",
+          "en": "The mean-depth rule can be misremembered: the 0.5 m threshold applies to the AVERAGE of the slice's two boundary depths, not to a single h value."
+        },
+        {
+          "tr": "Kısım c'de verilen (n,v) noktaları farklı bir mulineye aittir — a=0,26, b=0,04'ü buraya taşımak yanlıştır; yeni a,b'yi sıfırdan çözmek gerekir.",
+          "en": "The (n,v) points in part c belong to a DIFFERENT meter — carrying over a=0.26, b=0.04 is wrong; the new a,b must be solved from scratch."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya akarsu aynı kesitte daha hızlı akıyor olsaydı (tüm n değerleri %20 artsaydı)?",
+            "en": "What if the river flowed faster through the same section (all n values up 20%)?"
+          },
+          "answer": {
+            "tr": "Alanlar (geometri) değişmez; her v = a+bn değeri artar (b sabit, n büyür), dolayısıyla her q_i ve toplam Q doğrusal olarak büyür — ama $V_{ort}=Q/\\Sigma A$ da aynı oranda büyür, oranlar tablosu (vort/Vort) neredeyse değişmez, çünkü hepsi aynı katsayıyla ölçeklenir.",
+            "en": "The areas (geometry) don't change; every v = a+bn increases (b fixed, n larger), so every q_i and total Q grow — but $V_{avg}=Q/\\Sigma A$ grows by the same factor too, so the ratio table (vavg/Vavg) barely changes since everything scales together."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya mulinenin a katsayısı sıfır olsaydı (ideal, sürtünmesiz muline)?",
+            "en": "What if the meter's a coefficient were zero (an ideal, frictionless meter)?"
+          },
+          "answer": {
+            "tr": "$v = bn$ olur — hız doğrudan devir sayısıyla orantılı hale gelir (v ∝ n). Gerçek mulinelerde a>0 olması, düşük devirlerde bile mekanik sürtünmeyi yenmek için gereken küçük bir eşik hızı temsil eder; a=0 varsaymak durgun suda bile (n=0) muline döner sanmak gibi fiziksel olarak yanlıştır.",
+            "en": "$v = bn$ — velocity becomes directly proportional to the revolution count (v ∝ n). Real meters have a>0 because a small threshold velocity is needed just to overcome mechanical friction even at low revolutions; assuming a=0 is physically wrong, like expecting the meter to spin even in still water (n=0)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-2",
+      "code": "Uygulama 5.2",
+      "title": {
+        "tr": "Muline ile debi ölçümü (7 dilim)",
+        "en": "Current-meter gauging (7 slices)"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir akarsu kesitinde, çeşitli dilimlerden ölçülen kıyıdan uzaklık (x) ve derinlik (h) değerleri ile, katsayıları a=0,12, b=0,05 olan bir muline ile yapılan ölçümlerde ölçüm süreleri (t) ve dönme sayıları (d) aşağıda verilmiştir.\n\na) Her bir dilimin alanı, ortalama hız ve debisini; tüm kesitin toplam alan ve debisi ile ortalama hızını hesaplayınız.\n\nb) Başka bir muline ile ölçüm yapılırken, v=1,28 m/sn iken n=18, v=1,64 m/sn iken de n=24 olarak ölçülmüştür. Muline katsayılarını ve hız formülünü elde ediniz. Bu muline ile yapılan bir ölçümde 45 saniyede muline 30 dönüş yaptığına göre akım hızını hesaplayınız.",
+        "en": "In a river cross-section, the distances from the bank (x) and depths (h) measured at various slices, together with the measurement times (t) and revolution counts (d) from a current meter with coefficients a=0.12, b=0.05, are given below.\n\na) Compute each slice's area, mean velocity and discharge; also the whole section's total area, total discharge and mean velocity.\n\nb) With a different current meter, v=1.28 m/s was measured at n=18, and v=1.64 m/s at n=24. Find the meter's coefficients and its velocity formula. If this meter makes 30 revolutions in 45 seconds during a measurement, find the flow velocity."
+      },
+      "given": [
+        {
+          "symbol": "a",
+          "value": "0{,}12",
+          "label": {
+            "tr": "Muline katsayısı",
+            "en": "Current-meter coefficient"
+          }
+        },
+        {
+          "symbol": "b",
+          "value": "0{,}05",
+          "label": {
+            "tr": "Muline katsayısı",
+            "en": "Current-meter coefficient"
+          }
+        },
+        {
+          "symbol": "x",
+          "value": "0;\\,0{,}8;\\,1{,}72;\\,2{,}36;\\,3{,}00;\\,3{,}90;\\,4{,}64;\\,5{,}00\\ \\text{m}",
+          "label": {
+            "tr": "Dilim sınırları (kıyıdan uzaklık)",
+            "en": "Slice boundaries (distance from bank)"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "7 dilimlik kesitin alan, dilim debileri ve toplam debisini bulmak; ayrıca ikinci muline için katsayıları ve verilen bir ölçümden akım hızını hesaplamak.",
+        "en": "Find the 7-slice section's area, slice discharges and total discharge; and, for the second meter, find the coefficients and the velocity from a given measurement."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Ölçüm verileri (7 dilim)",
+            "en": "Measurement data (7 slices)"
+          },
+          "headers": [
+            "Dilim",
+            "x (m)",
+            "h (m)",
+            "t (sn)",
+            "d₁",
+            "d₂"
+          ],
+          "rows": [
+            [
+              "1",
+              "0",
+              "0,0",
+              "30",
+              "6",
+              "-"
+            ],
+            [
+              "2",
+              "0,8",
+              "0,25",
+              "45",
+              "12",
+              "-"
+            ],
+            [
+              "3",
+              "1,72",
+              "0,51",
+              "60",
+              "20",
+              "16"
+            ],
+            [
+              "4",
+              "2,36",
+              "1,21",
+              "120",
+              "42",
+              "34"
+            ],
+            [
+              "5",
+              "3,00",
+              "0,6",
+              "70",
+              "21",
+              "-"
+            ],
+            [
+              "6",
+              "3,90",
+              "0,35",
+              "100",
+              "25",
+              "-"
+            ],
+            [
+              "7",
+              "4,64",
+              "0,27",
+              "80",
+              "16",
+              "-"
+            ],
+            [
+              "-",
+              "5,00",
+              "0,18",
+              "-",
+              "-",
+              "-"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Sonuçlar",
+            "en": "Results"
+          },
+          "headers": [
+            "Dilim",
+            "Ai (m²)",
+            "n₁ (dev/dk)",
+            "n₂ (dev/dk)",
+            "v₁ (m/sn)",
+            "v₂ (m/sn)",
+            "vort (m/sn)",
+            "qi (m³/sn)"
+          ],
+          "rows": [
+            [
+              "1",
+              "0,100",
+              "12",
+              "-",
+              "0,72",
+              "-",
+              "0,72",
+              "0,072"
+            ],
+            [
+              "2",
+              "0,350",
+              "16",
+              "-",
+              "0,92",
+              "-",
+              "0,92",
+              "0,322"
+            ],
+            [
+              "3",
+              "0,550",
+              "20",
+              "16",
+              "1,12",
+              "0,92",
+              "1,02",
+              "0,561"
+            ],
+            [
+              "4",
+              "0,579",
+              "21",
+              "17",
+              "1,17",
+              "0,97",
+              "1,07",
+              "0,620"
+            ],
+            [
+              "5",
+              "0,428",
+              "18",
+              "-",
+              "1,02",
+              "-",
+              "1,02",
+              "0,436"
+            ],
+            [
+              "6",
+              "0,229",
+              "15",
+              "-",
+              "0,87",
+              "-",
+              "0,87",
+              "0,200"
+            ],
+            [
+              "7",
+              "0,081",
+              "12",
+              "-",
+              "0,72",
+              "-",
+              "0,72",
+              "0,058"
+            ],
+            [
+              "Σ / ort",
+              "2,317",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "2,27"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Yamuk dilim alanlarını hesapla",
+            "en": "Compute the trapezoid slice areas"
+          },
+          "guiding": {
+            "tr": "Bu kez dilim sınırları eşit aralıklı değil (0,8; 1,72; 2,36...). Alan formülü nasıl uygulanır?",
+            "en": "This time the slice boundaries aren't evenly spaced (0.8, 1.72, 2.36...). How does the area formula apply?"
+          },
+          "hint": {
+            "tr": "Her dilim yine yamuk: $A_i = \\tfrac{(h_{sol}+h_{sağ})}{2}\\cdot \\Delta x_i$, ama bu kez $\\Delta x_i$ her dilimde farklı.",
+            "en": "Each slice is still a trapezoid: $A_i = \\tfrac{(h_{left}+h_{right})}{2}\\cdot \\Delta x_i$, but this time $\\Delta x_i$ differs per slice."
+          },
+          "work": {
+            "tr": "1. dilim: $x: 0 \\to 0{,}8$, $h: 0{,}0 \\to 0{,}25$ → $A_1 = \\tfrac{(0+0{,}25)}{2}\\cdot 0{,}8 = 0{,}100$ m².\n\n2. dilim: $x: 0{,}8 \\to 1{,}72$ ($\\Delta x=0{,}92$), $h: 0{,}25 \\to 0{,}51$ → $A_2 = \\tfrac{(0{,}25+0{,}51)}{2}\\cdot 0{,}92 = 0{,}350$ m².\n\nAynı şekilde devam edilirse:\n\n$$A_i = 0{,}100;\\ 0{,}350;\\ 0{,}550;\\ 0{,}579;\\ 0{,}428;\\ 0{,}229;\\ 0{,}081\\ \\ (\\text{m}^2)$$\n\n$$\\Sigma A = 2{,}317\\ \\text{m}^2$$",
+            "en": "Slice 1: $x: 0 \\to 0.8$, $h: 0.0 \\to 0.25$ → $A_1 = \\tfrac{(0+0.25)}{2}\\cdot 0.8 = 0.100$ m².\n\nSlice 2: $x: 0.8 \\to 1.72$ ($\\Delta x=0.92$), $h: 0.25 \\to 0.51$ → $A_2 = \\tfrac{(0.25+0.51)}{2}\\cdot 0.92 = 0.350$ m².\n\nContinuing the same way:\n\n$$A_i = 0.100,\\ 0.350,\\ 0.550,\\ 0.579,\\ 0.428,\\ 0.229,\\ 0.081\\ \\ (\\text{m}^2)$$\n\n$$\\Sigma A = 2.317\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Bu kesitte dilim genişlikleri eşit değil — Uygulama 5.1'deki gibi sabit $\\Delta x=2$ m'yi otomatik kullanmak burada yanlış olur. Her dilimin kendi $\\Delta x_i$'sini x sütunundan oku. Ayrıca 1. dilim bu kez üçgen değil, çünkü h değeri x=0'da tam sıfır değil (0,0 verilmiş, sınır dilim yine de burada üçgen formülüyle aynı sonucu verir çünkü sol h=0).",
+            "en": "In this section the slice widths are not equal — automatically reusing the fixed $\\Delta x=2$ m from Uygulama 5.1 would be wrong here. Read each slice's own $\\Delta x_i$ from the x column. Also, slice 1 still works out like a triangle here since its left-hand depth is exactly 0."
+          },
+          "result": "\\Sigma A = 2{,}317\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Devir sayısını her dilim için kendi süresine göre dakikaya çevir",
+            "en": "Convert revolutions to per-minute using each slice's own time"
+          },
+          "guiding": {
+            "tr": "Bu sefer ölçüm süresi (t) her dilimde farklı. n'i nasıl normalize edersin?",
+            "en": "This time the measurement time (t) differs for every slice. How do you normalize n?"
+          },
+          "hint": {
+            "tr": "$n = \\dfrac{d}{t}\\cdot 60$ (t saniye cinsindense). Her dilimin kendi t'sini kullan.",
+            "en": "$n = \\dfrac{d}{t}\\cdot 60$ (with t in seconds). Use each slice's own t."
+          },
+          "work": {
+            "tr": "$n_1 = \\dfrac{6}{30}\\cdot 60 = 12$ dev/dk; $n_2^{(dilim2)} = \\dfrac{12}{45}\\cdot 60 = 16$ dev/dk; ...\n\n$$n_1 = 12;\\ 16;\\ 20;\\ 21;\\ 18;\\ 15;\\ 12\\ \\ (\\text{dev/dk})$$\n\n3. ve 4. dilimde ikinci ölçüm de var: $n_2^{(3)} = \\dfrac{16}{60}\\cdot 60 = 16$; $n_2^{(4)} = \\dfrac{34}{120}\\cdot 60 = 17$ dev/dk.",
+            "en": "$n_1 = \\dfrac{6}{30}\\cdot 60 = 12$ rev/min; slice 2: $\\dfrac{12}{45}\\cdot 60 = 16$ rev/min; ...\n\n$$n_1 = 12,\\ 16,\\ 20,\\ 21,\\ 18,\\ 15,\\ 12\\ \\ (\\text{rev/min})$$\n\nSlices 3 and 4 also have a second reading: $n_2^{(3)} = \\dfrac{16}{60}\\cdot 60 = 16$; $n_2^{(4)} = \\dfrac{34}{120}\\cdot 60 = 17$ rev/min."
+          },
+          "why": {
+            "tr": "Uygulama 5.1'de tüm dilimler AYNI 2 dakikalık süreyle ölçülmüştü, burada ise her dilimin KENDİ t değeri var (30, 45, 60, 120, 70, 100, 80 sn). Sabit bir bölme sayısı (örneğin hep /2) kullanmak burada yanlıştır — her satırda t'yi tablodan yeniden oku.",
+            "en": "In Uygulama 5.1 every slice shared the SAME 2-minute duration; here each slice has ITS OWN t (30, 45, 60, 120, 70, 100, 80 s). Using one fixed divisor (like always /2) here is wrong — re-read t from the table on every row."
+          },
+          "result": "n_1 = [12,16,20,21,18,15,12]\\ \\text{dev/dk}",
+          "check": {
+            "q": {
+              "tr": "4. dilimde 120 saniyede 42 devir sayıldı. n (dev/dk) kaçtır?",
+              "en": "Slice 4 recorded 42 revolutions in 120 seconds. What is n (rev/min)?"
+            },
+            "options": [
+              {
+                "tr": "n = 42",
+                "en": "n = 42"
+              },
+              {
+                "tr": "n = 21",
+                "en": "n = 21"
+              },
+              {
+                "tr": "n = 84",
+                "en": "n = 84"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "$n = (42/120)\\cdot 60 = 21$ dev/dk. n=42 ham sayıyı süreye bölmeden kullanmaktan, n=84 ise yanlışlıkla 2 ile çarpmaktan (120 sn'yi 2 dakika sanıp d'yi ona bölmek yerine tam tersini yapmaktan) gelir.",
+              "en": "$n = (42/120)\\cdot 60 = 21$ rev/min. n=42 comes from using the raw count without dividing by time; n=84 comes from doubling by mistake instead of normalizing 120 s to 60 s properly."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Noktasal hızları ve ortalama hız kuralını uygula",
+            "en": "Compute point velocities and apply the mean-velocity rule"
+          },
+          "guiding": {
+            "tr": "Muline formülünü uyguladıktan sonra, hangi dilimlerde iki noktanın ortalaması gerekiyor?",
+            "en": "After applying the meter formula, which slices need the average of two points?"
+          },
+          "hint": {
+            "tr": "$v=0{,}12+0{,}05n$. Ortalama derinliği 0,5 m'yi aşan dilimlerde (burada sadece 3 ve 4) iki nokta ortalaması alınır.",
+            "en": "$v=0.12+0.05n$. Only slices whose mean depth exceeds 0.5 m (here, only 3 and 4) get the two-point average."
+          },
+          "work": {
+            "tr": "$v_1 = 0{,}12+0{,}05n_1$: $0{,}72;\\ 0{,}92;\\ 1{,}12;\\ 1{,}17;\\ 1{,}02;\\ 0{,}87;\\ 0{,}72$ m/sn.\n\n3. ve 4. dilimlerin ortalama derinlikleri: dilim 3 $(0{,}25+0{,}51)/2=0{,}38$ m — hayır bekle, doğru sınır çifti $(0{,}51+1{,}21)/2=0{,}86$ m $>0{,}5$ m; dilim 4 $(1{,}21+0{,}6)/2=0{,}905$ m $>0{,}5$ m. İkisi de derin → iki nokta ortalaması:\n\n$$v_{ort,3} = (1{,}12+0{,}92)/2 = 1{,}02\\ \\text{m/sn}, \\quad v_{ort,4} = (1{,}17+0{,}97)/2 = 1{,}07\\ \\text{m/sn}$$\n\nDiğer 5 dilim sığ (ortalama derinlik $<0{,}5$ m) → tek ölçüm:\n\n$$v_{ort} = 0{,}72;\\ 0{,}92;\\ 1{,}02;\\ 1{,}07;\\ 1{,}02;\\ 0{,}87;\\ 0{,}72\\ \\ (\\text{m/sn})$$",
+            "en": "$v_1 = 0.12+0.05n_1$: $0.72,\\ 0.92,\\ 1.12,\\ 1.17,\\ 1.02,\\ 0.87,\\ 0.72$ m/s.\n\nMean depths of slices 3 and 4: slice 3 uses boundaries $(0.51+1.21)/2=0.86$ m $>0.5$ m; slice 4 uses $(1.21+0.6)/2=0.905$ m $>0.5$ m. Both are deep → two-point average:\n\n$$v_{avg,3} = (1.12+0.92)/2 = 1.02\\ \\text{m/s}, \\quad v_{avg,4} = (1.17+0.97)/2 = 1.07\\ \\text{m/s}$$\n\nThe other 5 slices are shallow (mean depth $<0.5$ m) → single reading:\n\n$$v_{avg} = 0.72,\\ 0.92,\\ 1.02,\\ 1.07,\\ 1.02,\\ 0.87,\\ 0.72\\ \\ (\\text{m/s})$$"
+          },
+          "why": {
+            "tr": "Bu sorunun kalbi burada: 7 dilimin sadece 2'si (orta derinlikteki 3 ve 4) ikinci ölçüme sahip, çünkü sadece bunların ortalama derinliği 0,5 m sınırını aşıyor. Diğer 5 dilimde ikinci ölçüm zaten YOK — tablo bunu size söylüyor (d₂ boş). Kuralı derinlikten bağımsız her dilime uygulamaya çalışmak (ya da her yerde tek ölçüm kullanmak) yanlış vort üretir.",
+            "en": "This is the heart of the question: only 2 of the 7 slices (the mid-depth 3 and 4) have a second reading, because only their mean depth crosses the 0.5 m threshold. The other 5 slices simply have NO second reading — the table tells you this directly (d₂ is blank). Trying to apply the rule uniformly (or using a single reading everywhere) produces the wrong vavg."
+          },
+          "result": "v_{ort} = [0{,}72,0{,}92,1{,}02,1{,}07,1{,}02,0{,}87,0{,}72]\\ \\text{m/sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Debileri topla ve kısım b'yi çöz",
+            "en": "Sum the discharges and solve part b"
+          },
+          "guiding": {
+            "tr": "Alan ve hız hazır. Toplam debiyi bul; ardından kısım b'deki yeni muline için katsayıları çöz.",
+            "en": "Area and velocity are ready. Find total discharge; then solve for the new meter's coefficients in part b."
+          },
+          "hint": {
+            "tr": "$q_i=A_i v_{ort,i}$; kısım b, Uygulama 5.1'in c şıkkıyla birebir aynı iki (n,v) noktasını kullanıyor.",
+            "en": "$q_i=A_i v_{avg,i}$; part b uses the exact same two (n,v) points as Uygulama 5.1's part c."
+          },
+          "work": {
+            "tr": "$$q_i = 0{,}072;\\ 0{,}322;\\ 0{,}561;\\ 0{,}620;\\ 0{,}436;\\ 0{,}200;\\ 0{,}058$$\n\n$$Q = \\Sigma q_i \\approx 2{,}27\\ \\text{m}^3/\\text{sn}, \\qquad V_{ort} = \\frac{2{,}27}{2{,}317} \\approx 0{,}98\\ \\text{m/sn}$$\n\n**Kısım b:** aynı iki nokta $v=1{,}28@n=18$, $v=1{,}64@n=24$ → $b=(1{,}64-1{,}28)/(24-18)=0{,}06$, $a=1{,}64-24\\cdot0{,}06=0{,}20$ → $v=0{,}2+0{,}06n$. 45 sn'de 30 devir: $n=30\\cdot\\tfrac{60}{45}=40$ → $v=0{,}2+0{,}06\\cdot40=2{,}6$ m/sn.",
+            "en": "$$q_i = 0.072,\\ 0.322,\\ 0.561,\\ 0.620,\\ 0.436,\\ 0.200,\\ 0.058$$\n\n$$Q = \\Sigma q_i \\approx 2.27\\ \\text{m}^3/\\text{s}, \\qquad V_{avg} = \\frac{2.27}{2.317} \\approx 0.98\\ \\text{m/s}$$\n\n**Part b:** the same two points $v=1.28@n=18$, $v=1.64@n=24$ → $b=(1.64-1.28)/(24-18)=0.06$, $a=1.64-24\\cdot0.06=0.20$ → $v=0.2+0.06n$. 30 revolutions in 45 s: $n=30\\cdot\\tfrac{60}{45}=40$ → $v=0.2+0.06\\cdot40=2.6$ m/s."
+          },
+          "why": {
+            "tr": "Kısım b'nin Uygulama 5.1(c) ile aynı sayılarla gelmesi tesadüf değil — ders kitabı aynı kalibrasyon tekniğini iki kez test ediyor. Bunu fark edersen ikinci kez sıfırdan türetmek yerine sonucu doğrudan hatırlarsın; sınavda zaman kazandırır.",
+            "en": "Part b arriving with the exact same numbers as Uygulama 5.1(c) isn't a coincidence — the textbook tests the same calibration technique twice. Spotting this means you recall the result directly instead of re-deriving it from scratch; a real time-saver in the exam."
+          },
+          "result": "Q \\approx 2{,}27\\ \\text{m}^3/\\text{sn},\\quad v = 2{,}6\\ \\text{m/sn}\\ (\\text{kısım b})",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Kısım a:** $\\Sigma A = 2{,}32$ m², $\\boxed{Q \\approx 2{,}27\\ \\text{m}^3/\\text{sn}}$, $V_{ort} \\approx 0{,}98$ m/sn.\n\n**Kısım b:** $v=0{,}2+0{,}06n$; 45 sn'de 30 devir → $\\boxed{v = 2{,}6\\ \\text{m/sn}}$.",
+        "en": "**Part a:** $\\Sigma A = 2.32$ m², $\\boxed{Q \\approx 2.27\\ \\text{m}^3/\\text{s}}$, $V_{avg} \\approx 0.98$ m/s.\n\n**Part b:** $v=0.2+0.06n$; 30 revolutions in 45 s → $\\boxed{v = 2.6\\ \\text{m/s}}$."
+      },
+      "traps": [
+        {
+          "tr": "Ölçüm süresi (t) her dilimde farklı — n'i her satırda kendi t'siyle normalize etmeyi unutmak, tek bir sabit çarpan (örneğin hep /2) kullanmak büyük hata verir.",
+          "en": "The measurement time (t) differs per slice — forgetting to normalize n using each row's own t, or using one fixed divisor everywhere, causes a large error."
+        },
+        {
+          "tr": "Sadece ortalama derinliği 0,5 m'yi aşan dilimler (burada 3 ve 4) iki noktalı ölçüme sahiptir; diğer 5 dilimde ikinci ölçüm YOK — onları d₂ olmadan tek ölçümle çöz.",
+          "en": "Only slices whose mean depth exceeds 0.5 m (here, 3 and 4) have a two-point reading; the other 5 slices have NO second reading — solve them with a single reading."
+        },
+        {
+          "tr": "Dilim genişlikleri eşit değil ($\\Delta x_i$ x tablosundan okunmalı); Uygulama 5.1'deki sabit $\\Delta x=2$ m alışkanlığını buraya taşımak yanlış alan verir.",
+          "en": "Slice widths are unequal ($\\Delta x_i$ must be read from the x table); carrying over the fixed $\\Delta x=2$ m habit from Uygulama 5.1 gives the wrong area."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya tüm ölçüm süreleri (t) 60 saniye olsaydı?",
+            "en": "What if all measurement times (t) were 60 seconds?"
+          },
+          "answer": {
+            "tr": "$n = d/60\\cdot 60 = d$ olurdu — devir sayısı doğrudan dakikadaki devire eşit çıkar, normalize adımına gerek kalmazdı. Bu, t=60 sn'nin neden \"kolay\" durum olduğunu gösterir; farklı t'ler soruyu zorlaştırmak için özellikle seçilmiştir.",
+            "en": "$n = d/60\\cdot 60 = d$ — the revolution count would equal the per-minute rate directly, no normalization needed. This shows why t=60 s is the \"easy\" case; the varying t's were specifically chosen to make the question harder."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya en derin dilimin (4. dilim) ortalama derinliği 0,5 m'nin altına düşseydi?",
+            "en": "What if the deepest slice's (slice 4) mean depth fell below 0.5 m?"
+          },
+          "answer": {
+            "tr": "O zaman kural tersine döner: sadece tek ölçüm ($v_{ort,4}=v_1=1{,}17$ m/sn) kullanılır, ikinci ölçüm (n₂=17, v₂=0,97) hesaba hiç girmez. $v_{ort,4}$, 1,07'den 1,17'ye çıkar — sonuç değişir ve $q_4$ de büyür. Bu, derinlik sınırının tam kenarındaki dilimlerde neden dikkatli olmak gerektiğini gösterir.",
+            "en": "The rule flips: only the single reading is used ($v_{avg,4}=v_1=1.17$ m/s), the second reading (n₂=17, v₂=0.97) never enters. $v_{avg,4}$ rises from 1.07 to 1.17 — the result changes and $q_4$ grows too. This shows why slices sitting right at the depth boundary need extra care."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-3",
+      "code": "Uygulama 5.3",
+      "title": {
+        "tr": "Anahtar eğrisi (K ve n verili)",
+        "en": "Rating curve with K and n given"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıda, bir akarsu kesitinde ölçülen seviye (h, m) ve debi (Q, m³/sn) değerleri verilmiştir. Kesitte K=60 ve n=1,20'dir.\n\na) Anahtar eğrisini çizerek h=1,35 m için Q'yu, Q=100 m³/sn için h'yı hesaplayınız.\n\nb) Anahtar eğrisi denklemini elde ederek, h=4 m için Q'yu, Q=400 m³/sn için h'yı tahmin ediniz.",
+        "en": "The stage (h, m) and discharge (Q, m³/s) values measured at a river cross-section are given below. For this section, K=60 and n=1.20.\n\na) Draw the rating curve and find Q for h=1.35 m, and h for Q=100 m³/s.\n\nb) Derive the rating-curve equation and estimate Q for h=4 m, and h for Q=400 m³/s."
+      },
+      "given": [
+        {
+          "symbol": "K",
+          "value": "60",
+          "label": {
+            "tr": "Anahtar eğrisi sabiti",
+            "en": "Rating-curve constant"
+          }
+        },
+        {
+          "symbol": "n",
+          "value": "1{,}20",
+          "label": {
+            "tr": "Anahtar eğrisi üssü",
+            "en": "Rating-curve exponent"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Grafikten okuma ile h=1,35 m için Q ve Q=100 m³/sn için h bulmak; sonra denklemi kurup h=4 m için Q ve Q=400 m³/sn için h'yı hesaplamak.",
+        "en": "Read Q for h=1.35 m and h for Q=100 m³/s off the graph; then derive the equation and compute Q for h=4 m and h for Q=400 m³/s."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Seviye-debi ölçümleri",
+            "en": "Stage-discharge measurements"
+          },
+          "headers": [
+            "h (m)",
+            "Q (m³/sn)"
+          ],
+          "rows": [
+            [
+              "0,80",
+              "25"
+            ],
+            [
+              "1,00",
+              "40"
+            ],
+            [
+              "1,25",
+              "50"
+            ],
+            [
+              "1,50",
+              "70"
+            ],
+            [
+              "2,00",
+              "110"
+            ],
+            [
+              "2,50",
+              "150"
+            ],
+            [
+              "3,00",
+              "220"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Anahtar eğrisi",
+          "en": "Rating curve"
+        },
+        "xLabel": "Q (m³/sn)",
+        "yLabel": "h (m)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Ölçülen (h,Q)",
+            "kind": "line",
+            "points": [
+              [
+                25,
+                0.8
+              ],
+              [
+                40,
+                1.0
+              ],
+              [
+                50,
+                1.25
+              ],
+              [
+                70,
+                1.5
+              ],
+              [
+                110,
+                2.0
+              ],
+              [
+                150,
+                2.5
+              ],
+              [
+                220,
+                3.0
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 58,
+            "y": 1.35,
+            "label": {
+              "tr": "h=1,35 → Q≈58",
+              "en": "h=1.35 → Q≈58"
+            }
+          },
+          {
+            "x": 100,
+            "y": 1.875,
+            "label": {
+              "tr": "Q=100 → h≈1,875",
+              "en": "Q=100 → h≈1.875"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Anahtar eğrisini çiz",
+            "en": "Draw the rating curve"
+          },
+          "guiding": {
+            "tr": "Elindeki 7 (h,Q) noktasını nasıl bir eksen düzenine yerleştirirsin ki eğriden okuma yapabilesin?",
+            "en": "How do you place your 7 (h,Q) points on axes so you can read values off the curve?"
+          },
+          "hint": {
+            "tr": "Geleneksel olarak Q yatay eksende, h düşey eksende çizilir — bir su seviyesi grafiği gibi düşün.",
+            "en": "Conventionally Q goes on the horizontal axis and h on the vertical — think of it like a stage graph."
+          },
+          "work": {
+            "tr": "Tablodaki 7 nokta $(Q,h)$ ikilisi olarak işaretlenir ve düzgün bir eğriyle birleştirilir. Eğri, alçak seviyelerde yatay yataya yakın başlar, seviye arttıkça dikleşir (n>1 olduğu için debi seviyeyle üssel artar).",
+            "en": "The 7 points are plotted as $(Q,h)$ pairs and joined with a smooth curve. The curve starts relatively flat at low stages and steepens as stage rises (since n>1, discharge grows super-linearly with stage)."
+          },
+          "why": {
+            "tr": "Grafiği ÇİZMEDEN önce elindeki verinin ne tür bir ilişki olduğunu tanı: (h,Q) çiftleri = anahtar eğrisi sorusu. Bu tanı, sonraki tüm adımların (okuma, denklem kurma, ekstrapolasyon) planını belirler.",
+            "en": "Before drawing anything, recognize what kind of relationship the data represents: (h,Q) pairs = a rating-curve question. This recognition sets the plan for every step that follows (reading, deriving the equation, extrapolating)."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Grafikten oku (kısım a)",
+            "en": "Read the graph (part a)"
+          },
+          "guiding": {
+            "tr": "h=1,35 m eğriyi nerede kesiyor? Ters yönde, Q=100 m³/sn hangi h'ye karşılık gelir?",
+            "en": "Where does h=1.35 m intersect the curve? Conversely, what h corresponds to Q=100 m³/s?"
+          },
+          "hint": {
+            "tr": "Y ekseninde h=1,35'ten yatay çizgi çek, eğriyi kestiği yerden aşağı in. Tersi için X ekseninden başla.",
+            "en": "From the y-axis at h=1.35, draw a horizontal line to the curve, then drop down. For the reverse, start from the x-axis."
+          },
+          "work": {
+            "tr": "$h=1{,}35$ m'den eğriye yatay çizgi çekilip aşağı inildiğinde $Q \\approx 58$ m³/sn okunur (1,25–1,50 m aralığında, 50–70 arası bir değer, mantıklı).\n\n$Q=100$ m³/sn'den eğriye dikey çizgi çekilip yana gidildiğinde $h \\approx 1{,}875$ m okunur (1,50–2,00 m aralığında, 70–110 arası, mantıklı).",
+            "en": "From $h=1.35$ m, drawing a horizontal line to the curve and reading down gives $Q \\approx 58$ m³/s (between the 1.25–1.50 m rows, between 50–70, sensible).\n\nFrom $Q=100$ m³/s, drawing a vertical line to the curve and reading across gives $h \\approx 1.875$ m (between the 1.50–2.00 m rows, between 70–110, sensible)."
+          },
+          "why": {
+            "tr": "Bu, sorunun grafiksel kısmı — hesap değil okuma becerisi ister. Sınavda çizim istenirse bu adımı atlama: cetvel/interpolasyon ile sağlaması yapılabilir ama asıl istenen ELİNLE eğriyi çizip ondan okumaktır. Sonraki adımda bu okumaların YERİNE denklemle kesin hesap yapılacak.",
+            "en": "This is the graphical part of the question — it tests reading skill, not calculation. If drawing is asked for, don't skip this step: it can be sanity-checked by interpolation, but what's actually requested is drawing the curve BY HAND and reading off it. The next step will replace these readings with exact equation-based values."
+          },
+          "result": "Q(1{,}35) \\approx 58\\ \\text{m}^3/\\text{sn},\\quad h(100) \\approx 1{,}875\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "h₀'ı Q=K noktasından bul",
+            "en": "Find h₀ from the Q=K point"
+          },
+          "guiding": {
+            "tr": "Formülde $Q=K(h-h_0)^n$ varken K biliniyor ama h₀ bilinmiyor. K'yı kullanarak h₀'ı bulacak bir kısayol var mı?",
+            "en": "In $Q=K(h-h_0)^n$, K is known but h₀ isn't. Is there a shortcut using K to find h₀?"
+          },
+          "hint": {
+            "tr": "$(h-h_0)=1$ olduğunda üs ne olursa olsun $Q=K$ olur. Yani eğriden $Q=K=60$'a karşılık gelen h'yi oku.",
+            "en": "When $(h-h_0)=1$, regardless of the exponent, $Q=K$. So read the h that corresponds to $Q=K=60$ off the curve."
+          },
+          "work": {
+            "tr": "$K=60$ verilmiş. $(h-h_0)=1$ olduğunda $Q=K=60$ m³/sn olur. Eğriden $Q=60$ m³/sn'ye karşılık gelen seviye okunur: $h=1{,}375$ m.\n\n$$h-h_0=1 \\Rightarrow 1{,}375-h_0=1 \\Rightarrow h_0 = 0{,}375\\ \\text{m}$$",
+            "en": "$K=60$ is given. When $(h-h_0)=1$, $Q=K=60$ m³/s. Reading the curve at $Q=60$ m³/s gives the stage $h=1.375$ m.\n\n$$h-h_0=1 \\Rightarrow 1.375-h_0=1 \\Rightarrow h_0 = 0.375\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Bu, tüm anahtar eğrisi sorularının anahtar (kelimenin tam anlamıyla) numarasıdır: K verildiğinde, eğriden Q=K noktasına karşılık gelen h'yi okumak h₀'ı bir satırda verir. n'i bulmaya gerek yok çünkü zaten verilmiş — burada tek bilinmeyen h₀.",
+            "en": "This is the key (literally) trick of every rating-curve question: given K, reading the curve at Q=K gives h₀ in one line. No need to find n here since it's already given — the only unknown is h₀."
+          },
+          "result": "h_0 = 0{,}375\\ \\text{m}",
+          "check": {
+            "q": {
+              "tr": "K=60 verildiğine göre, $(h-h_0)=1$ olduğunda Q kaç olur?",
+              "en": "Given K=60, what is Q when $(h-h_0)=1$?"
+            },
+            "options": [
+              {
+                "tr": "Q = 60",
+                "en": "Q = 60"
+              },
+              {
+                "tr": "Q = 1",
+                "en": "Q = 1"
+              },
+              {
+                "tr": "Q'nun n'e bağlı olarak değişir",
+                "en": "Q depends on n and varies"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$Q=K(h-h_0)^n$; $(h-h_0)=1$ ise $1^n=1$ (n ne olursa olsun) olduğundan $Q=K\\cdot 1=K=60$. Bu özellik n'den bağımsızdır — tam da bu yüzden güvenilir bir kısayoldur.",
+              "en": "$Q=K(h-h_0)^n$; if $(h-h_0)=1$ then $1^n=1$ (regardless of n), so $Q=K\\cdot 1=K=60$. This property is independent of n — which is exactly why it's a reliable shortcut."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Denklemi yaz ve h=4 m için Q'yu hesapla",
+            "en": "Write the equation and compute Q at h=4 m"
+          },
+          "guiding": {
+            "tr": "K, n ve h₀ elinde. Şimdi h=4 m gibi eğrinin çizilmediği bir seviye için Q'yu nasıl bulursun?",
+            "en": "You have K, n and h₀. Now how do you find Q for a stage like h=4 m that's beyond the drawn curve?"
+          },
+          "hint": {
+            "tr": "Artık grafiğe ihtiyacın yok — denklemi doğrudan hesapla.",
+            "en": "You no longer need the graph — just compute directly from the equation."
+          },
+          "work": {
+            "tr": "$$Q = 60\\,(h-0{,}375)^{1{,}20}$$\n\n$h=4$ m için:\n\n$$Q = 60\\,(4-0{,}375)^{1{,}20} = 60\\cdot 3{,}625^{1{,}20} = 281{,}4\\ \\text{m}^3/\\text{sn}$$",
+            "en": "$$Q = 60\\,(h-0.375)^{1.20}$$\n\nAt $h=4$ m:\n\n$$Q = 60\\,(4-0.375)^{1.20} = 60\\cdot 3.625^{1.20} = 281.4\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "h=4 m, verilen tablodaki en yüksek ölçüm (3,00 m)'in ötesinde — çizilen eğriden bunu OKUYAMAZSIN, çünkü kâğıt orada bitiyor. Denklem, eğriyi veri aralığının dışına güvenle taşımanı sağlayan tek araçtır. Bu, sınavın \"neden denklem kuruyoruz\" sorusunun cevabıdır.",
+            "en": "h=4 m lies beyond the highest table entry (3.00 m) — you CANNOT read this off the drawn curve because the paper ends there. The equation is the only tool that safely carries the curve beyond the measured range. This is the exam's answer to \"why do we derive an equation at all\"."
+          },
+          "result": "Q(4) = 281{,}4\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ters çöz: Q=400 için h'yı bul",
+            "en": "Invert: find h for Q=400"
+          },
+          "guiding": {
+            "tr": "Bu kez debi biliniyor, seviye bilinmiyor. Denklemi h için nasıl çevirirsin?",
+            "en": "This time discharge is known, stage is unknown. How do you rearrange the equation for h?"
+          },
+          "hint": {
+            "tr": "Her iki tarafın $1/n$ kuvvetini al: $h = h_0 + (Q/K)^{1/n}$.",
+            "en": "Take the $1/n$ power of both sides: $h = h_0 + (Q/K)^{1/n}$."
+          },
+          "work": {
+            "tr": "$$400 = 60\\,(h-0{,}375)^{1{,}20} \\;\\Rightarrow\\; (h-0{,}375) = \\left(\\frac{400}{60}\\right)^{1/1{,}20}$$\n\n$$h = 0{,}375 + \\left(\\frac{400}{60}\\right)^{0{,}833} = 5{,}23\\ \\text{m}$$",
+            "en": "$$400 = 60\\,(h-0.375)^{1.20} \\;\\Rightarrow\\; (h-0.375) = \\left(\\frac{400}{60}\\right)^{1/1.20}$$\n\n$$h = 0.375 + \\left(\\frac{400}{60}\\right)^{0.833} = 5.23\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Üs alma işlemi yön değiştirdiğinde ($1/n$) sınavda en çok karıştırılan cebir hatasıdır — kuvveti çarpım sanıp $n$ ile çarpmak ($\\times 1{,}20$ yerine $\\times 1/1{,}20$) yanlış sonuca götürür. Kontrol: h arttıkça Q artmalı — 5,23 m, 400 m³/sn ile makul, çünkü h=4'te zaten 281 m³/sn bulmuştuk.",
+            "en": "Flipping the exponent ($1/n$) is the algebra error most often mixed up in exams — multiplying by n instead of dividing by it ($\\times 1.20$ instead of $\\times 1/1.20$) gives a wrong answer. Sanity check: as h grows Q should grow — 5.23 m for 400 m³/s is plausible since we already got 281 m³/s at h=4."
+          },
+          "result": "h(400) = 5{,}23\\ \\text{m}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Kısım a (grafik okuma):** $Q(h{=}1{,}35) \\approx 58$ m³/sn; $h(Q{=}100) \\approx 1{,}875$ m.\n\n**Kısım b (denklem):** $Q = 60(h-0{,}375)^{1{,}20}$; $\\boxed{Q(4\\ \\text{m}) = 281{,}4\\ \\text{m}^3/\\text{sn}}$; $\\boxed{h(400\\ \\text{m}^3/\\text{sn}) = 5{,}23\\ \\text{m}}$; $h_0=0{,}375$ m.",
+        "en": "**Part a (graph reading):** $Q(h{=}1.35) \\approx 58$ m³/s; $h(Q{=}100) \\approx 1.875$ m.\n\n**Part b (equation):** $Q = 60(h-0.375)^{1.20}$; $\\boxed{Q(4\\ \\text{m}) = 281.4\\ \\text{m}^3/\\text{s}}$; $\\boxed{h(400\\ \\text{m}^3/\\text{s}) = 5.23\\ \\text{m}}$; $h_0=0.375$ m."
+      },
+      "traps": [
+        {
+          "tr": "h₀ trigi ($Q=K$ olduğunda $h-h_0=1$) ezberlenmezse, denklemi kurmak için ikinci bir bilinmeyen (h₀) elde etme yolu bulunamaz. Bu tekniği unutma.",
+          "en": "If the h₀ trick ($Q=K$ when $h-h_0=1$) isn't memorized, there's no way to pin down the second unknown (h₀) needed to write the equation. Don't forget this technique."
+        },
+        {
+          "tr": "Eğriyi veri aralığının (h=0,80–3,00 m) ötesine çizip elle okumaya çalışmak — bu, EKSTRAPOLASYON için güvenilmez. h=4 m veya Q=400 gibi sorularda mutlaka denklemi kullan, çizilen eğriyi değil.",
+          "en": "Trying to extend the drawn curve by hand beyond the data range (h=0.80–3.00 m) — this is unreliable for EXTRAPOLATION. For questions like h=4 m or Q=400, always use the equation, not the drawn curve."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya n=1 olsaydı (doğrusal ilişki)?",
+            "en": "What if n=1 (a linear relationship)?"
+          },
+          "answer": {
+            "tr": "$Q=K(h-h_0)$ olur, tam bir doğru. $h=4$ için $Q=60\\cdot(4-0{,}375)=60\\cdot 3{,}625=217{,}5$ m³/sn — n=1,20'deki 281,4'ten belirgin şekilde düşük. Bu, üssün 1'den büyük olmasının debiyi seviyeyle NASIL hızlandırdığını (üstel büyüme) somut olarak gösterir.",
+            "en": "$Q=K(h-h_0)$, a straight line. At $h=4$: $Q=60\\cdot(4-0.375)=60\\cdot 3.625=217.5$ m³/s — noticeably lower than 281.4 with n=1.20. This concretely shows how an exponent above 1 makes discharge accelerate with stage (super-linear growth)."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya K iki katına çıksaydı (K=120)?",
+            "en": "What if K doubled (K=120)?"
+          },
+          "answer": {
+            "tr": "Her seviyede debi tam olarak iki katına çıkar, çünkü K çarpan olarak öndedir: $Q=120(h-h_0)^{1{,}20}$. Ama dikkat — h₀'ı bulma adımı da değişir, çünkü şimdi $Q=K=120$'ye karşılık gelen h eğriden yeniden okunmalıdır; h₀ otomatik olarak aynı kalmaz.",
+            "en": "Discharge exactly doubles at every stage, since K sits as the multiplier out front: $Q=120(h-h_0)^{1.20}$. But note — the step for finding h₀ also changes, because now the h corresponding to $Q=K=120$ must be re-read from the curve; h₀ does not automatically stay the same."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-4",
+      "code": "Uygulama 5.4",
+      "title": {
+        "tr": "Anahtar eğrisinin logaritmik uzatılması",
+        "en": "Extending the rating curve (log method)"
+      },
+      "difficulty": 3,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir akarsu kesitinde yapılan seviye ve debi ölçümlerinin sonuçları aşağıda verilmiştir. Anahtar eğrisini logaritmik yöntemle uzatınız. h=4 m için Q değerini ve Q=100 m³/sn için h değerini tahmin ediniz.",
+        "en": "The stage and discharge measurements at a river cross-section are given below. Extend the rating curve using the logarithmic method. Estimate Q for h=4 m, and h for Q=100 m³/s."
+      },
+      "given": [
+        {
+          "symbol": "h_{min}",
+          "value": "0{,}59\\ \\text{m}",
+          "label": {
+            "tr": "En küçük ölçülen seviye",
+            "en": "Smallest measured stage"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "En iyi h₀'ı korelasyon katsayısıyla seçmek, ardından K ve n'i bulup denklemi yazmak; h=4 m için Q'yu ve verilen bir Q için h'yı hesaplamak.",
+        "en": "Choose the best h₀ using the correlation coefficient, then find K and n and write the equation; compute Q at h=4 m, and h for a given Q."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Seviye-debi ölçümleri",
+            "en": "Stage-discharge measurements"
+          },
+          "headers": [
+            "h (m)",
+            "Q (m³/sn)"
+          ],
+          "rows": [
+            [
+              "0,59",
+              "40,7"
+            ],
+            [
+              "0,76",
+              "76,4"
+            ],
+            [
+              "1,06",
+              "138,7"
+            ],
+            [
+              "1,30",
+              "217,9"
+            ],
+            [
+              "1,61",
+              "282"
+            ],
+            [
+              "2,04",
+              "427,3"
+            ],
+            [
+              "2,38",
+              "537,7"
+            ],
+            [
+              "2,72",
+              "691,2"
+            ],
+            [
+              "2,81",
+              "707,5"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "h₀ deneme tablosu — korelasyon katsayısı",
+            "en": "h₀ trial table — correlation coefficient"
+          },
+          "headers": [
+            "h₀ (m)",
+            "r (logQ vs log(h-h₀))"
+          ],
+          "rows": [
+            [
+              "0,5",
+              "0,989"
+            ],
+            [
+              "0,4",
+              "0,998"
+            ],
+            [
+              "0,3",
+              "0,999"
+            ],
+            [
+              "0,2",
+              "0,998"
+            ],
+            [
+              "0,1",
+              "0,997"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Denklemi logaritmik forma çevir",
+            "en": "Turn the equation into logarithmic form"
+          },
+          "guiding": {
+            "tr": "$Q=K(h-h_0)^n$ eğrisi düz değil — bir grafik kağıdında doğru çizgi elde etmek için hangi dönüşümü yaparsın?",
+            "en": "The curve $Q=K(h-h_0)^n$ isn't straight — what transform gives you a straight line on graph paper?"
+          },
+          "hint": {
+            "tr": "Her iki tarafın logaritmasını al; üs çarpana döner.",
+            "en": "Take the logarithm of both sides; the exponent becomes a multiplier."
+          },
+          "work": {
+            "tr": "$$Q=K(h-h_0)^n \\;\\xrightarrow{\\log}\\; \\log Q = \\log K + n\\log(h-h_0)$$\n\nBu artık $y=a+bx$ formunda bir doğru: $y=\\log Q$, $x=\\log(h-h_0)$, eğim $b=n$, kesim $a=\\log K$. Ama $x$'i hesaplayabilmek için önce $h_0$'ı bilmen gerekiyor — ve $h_0$ henüz bilinmiyor.",
+            "en": "This is now a line of the form $y=a+bx$: $y=\\log Q$, $x=\\log(h-h_0)$, slope $b=n$, intercept $a=\\log K$. But to compute $x$ you first need $h_0$ — and $h_0$ isn't known yet."
+          },
+          "why": {
+            "tr": "Anahtar eğrisi eğri olduğu için düz bir cetvelle güvenle uzatılamaz (kağıt bitince tahmin devreye girer, hataya açık). Onu doğrusallaştırmak, ekstrapolasyonu güvenilir bir matematiksel işleme çevirir. Bu adım tanıma anıdır: \"eğriyi uzat\" görünce logQ – log(h−h₀) doğrusallaştırmasını düşün.",
+            "en": "Because the rating curve is curved, it can't be safely extended with a straight ruler (once the paper ends, guessing takes over and errors creep in). Linearizing it turns extrapolation into a reliable mathematical operation. This step is the recognition moment: seeing \"extend the curve\" should trigger the logQ vs log(h−h₀) linearization."
+          },
+          "result": "\\log Q = \\log K + n\\log(h-h_0)",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "En iyi h₀'ı korelasyonla seç",
+            "en": "Choose the best h₀ by correlation"
+          },
+          "guiding": {
+            "tr": "h₀ bilinmiyor ama üzerinde bir kısıt var: hangi koşulu sağlamalı? Ve en iyi h₀'ı nasıl seçersin?",
+            "en": "h₀ is unknown but constrained: what condition must it satisfy? And how do you pick the best h₀?"
+          },
+          "hint": {
+            "tr": "$(h-h_0)>0$ TÜM veri noktaları için sağlanmalı, yani $h_0 < h_{min}=0{,}59$ m. Birkaç aday h₀ dene, hangisi logQ–log(h−h₀) ilişkisini en doğrusal (r'si en yüksek) yapıyor bul.",
+            "en": "$(h-h_0)>0$ must hold for ALL data points, so $h_0 < h_{min}=0.59$ m. Try several candidate h₀ values and see which makes logQ vs log(h−h₀) most linear (highest r)."
+          },
+          "work": {
+            "tr": "$h_0$, en küçük ölçülen seviyeden ($h_{min}=0{,}59$ m) küçük olmalı, yoksa bazı noktalarda $(h-h_0)$ negatif/sıfır çıkar ve logaritması alınamaz.\n\nBeş aday değer denenir, her biri için $\\log(h-h_0)$ hesaplanır ve $\\log Q$ ile korelasyon katsayısı (r) bulunur (yukarıdaki deneme tablosuna bakınız): $h_0=0{,}5 \\Rightarrow r=0{,}989$; $h_0=0{,}4 \\Rightarrow r=0{,}998$; $h_0=0{,}3 \\Rightarrow r=0{,}999$; $h_0=0{,}2 \\Rightarrow r=0{,}998$; $h_0=0{,}1 \\Rightarrow r=0{,}997$.\n\nEn yüksek korelasyon $h_0=0{,}3$ m'de ($r=0{,}999$) — bu değer seçilir.",
+            "en": "$h_0$ must be smaller than the smallest measured stage ($h_{min}=0.59$ m), otherwise $(h-h_0)$ comes out negative or zero for some points and its logarithm is undefined.\n\nFive candidate values are tried; for each, $\\log(h-h_0)$ is computed and correlated with $\\log Q$ (coefficient r) — see the trial table above: $h_0=0.5 \\Rightarrow r=0.989$; $h_0=0.4 \\Rightarrow r=0.998$; $h_0=0.3 \\Rightarrow r=0.999$; $h_0=0.2 \\Rightarrow r=0.998$; $h_0=0.1 \\Rightarrow r=0.997$.\n\nThe highest correlation is at $h_0=0.3$ m ($r=0.999$) — this value is chosen."
+          },
+          "why": {
+            "tr": "Bu, log-uzatma yönteminin can alıcı adımıdır: h₀ tahmin edilmez, TARANIR. Her aday değerin r'sini karşılaştırıp en yüksek olanı seçmek, \"en doğrusal ilişkiyi veren h₀ doğru h₀'dır\" mantığına dayanır — çünkü gerçek Q=K(h−h₀)ⁿ ilişkisi doğrusal bir log-log grafiği verir, yanlış h₀ ise eğriliği bırakır.",
+            "en": "This is the crux of the log-extension method: h₀ isn't guessed, it's SCANNED. Comparing r across candidates and picking the highest rests on the logic that \"the h₀ giving the most linear relationship is the correct h₀\" — because the true Q=K(h−h₀)ⁿ relationship gives a straight log-log plot, while a wrong h₀ leaves curvature behind."
+          },
+          "result": "h_0 = 0{,}3\\ \\text{m}\\ (r=0{,}999)",
+          "check": {
+            "q": {
+              "tr": "h₀=0,6 m denemek neden geçersizdir?",
+              "en": "Why would trying h₀=0.6 m be invalid?"
+            },
+            "options": [
+              {
+                "tr": "Çünkü en küçük ölçülen seviye 0,59 m'den büyük, bazı $(h-h_0)$ değerleri negatif/sıfır çıkar",
+                "en": "Because it exceeds the smallest measured stage of 0.59 m, so some $(h-h_0)$ values come out negative/zero"
+              },
+              {
+                "tr": "Çünkü 0,6 tam sayı değil",
+                "en": "Because 0.6 isn't a whole number"
+              },
+              {
+                "tr": "Hiçbir sakıncası yok, denenebilir",
+                "en": "There's no problem, it can be tried"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "$h_0$ TÜM veri noktalarında $(h-h_0)>0$ koşulunu sağlamalı. En küçük h değeri 0,59 m olduğundan $h_0=0{,}6$ seçmek o noktada $(0{,}59-0{,}6)=-0{,}01<0$ verir — logaritması tanımsızdır. h₀ her zaman h_min'den KESİNLİKLE küçük seçilmelidir.",
+              "en": "$h_0$ must satisfy $(h-h_0)>0$ at every data point. Since the smallest h is 0.59 m, choosing $h_0=0.6$ gives $(0.59-0.6)=-0.01<0$ at that point — its logarithm is undefined. h₀ must always be chosen STRICTLY smaller than h_min."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Doğrunun eğiminden n'i bul",
+            "en": "Find n from the slope of the line"
+          },
+          "guiding": {
+            "tr": "h₀=0,3 m seçildi. Doğrunun eğimi neyi temsil ediyordu?",
+            "en": "h₀=0.3 m is chosen. What did the line's slope represent?"
+          },
+          "hint": {
+            "tr": "$n = \\Delta y/\\Delta x = \\Delta(\\log Q)/\\Delta(\\log(h-h_0))$. İki uç noktayı kullan.",
+            "en": "$n = \\Delta y/\\Delta x = \\Delta(\\log Q)/\\Delta(\\log(h-h_0))$. Use the two end points."
+          },
+          "work": {
+            "tr": "Doğrunun uç noktalarındaki $\\log Q$ ve $\\log(h-h_0)$ değerleri kullanılarak eğim hesaplanır:\n\n$$n = \\frac{2{,}85-1{,}61}{0{,}40-(-0{,}54)} = \\frac{1{,}24}{0{,}94} = 1{,}32$$",
+            "en": "Using the $\\log Q$ and $\\log(h-h_0)$ values at the line's end points, the slope is:\n\n$$n = \\frac{2.85-1.61}{0.40-(-0.54)} = \\frac{1.24}{0.94} = 1.32$$"
+          },
+          "why": {
+            "tr": "Logaritmik formda eğim, orijinal denklemin ÜSSÜ n'e eşittir — bu, doğrusallaştırmanın asıl kazancıdır: eğrisel bir üs, doğrusal bir eğime dönüşür ve iki nokta ile ölçülebilir hale gelir.",
+            "en": "In log form, the slope equals the ORIGINAL equation's exponent n — this is the real payoff of linearization: a curved exponent becomes a straight-line slope, measurable from just two points."
+          },
+          "result": "n = 1{,}32",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "K'yı Q=K noktasından bul ve denklemi yaz",
+            "en": "Find K from the Q=K point and write the equation"
+          },
+          "guiding": {
+            "tr": "n ve h₀ hazır. K'yı bulmak için hangi kısayolu (Uygulama 5.3'teki gibi) kullanırsın?",
+            "en": "n and h₀ are ready. What shortcut (like in Uygulama 5.3) do you use to find K?"
+          },
+          "hint": {
+            "tr": "$(h-h_0)=1$ olduğunda $Q=K$. $h_0=0{,}3$ olduğuna göre bu, $h=1{,}3$ demektir — tablodan Q'yu oku.",
+            "en": "$(h-h_0)=1$ gives $Q=K$. With $h_0=0.3$, this means $h=1.3$ — read Q from the table."
+          },
+          "work": {
+            "tr": "$h-h_0=1 \\Rightarrow h = 1+0{,}3 = 1{,}3$ m. Tabloda $h=1{,}30$ m satırına karşılık $Q=217{,}9$ m³/sn var. Bu değer tam olarak K'dır:\n\n$$K = 217{,}9$$\n\nDenklem:\n\n$$Q = 217{,}9\\,(h-0{,}3)^{1{,}32}$$",
+            "en": "$h-h_0=1 \\Rightarrow h = 1+0.3 = 1.3$ m. The table gives $Q=217.9$ m³/s at $h=1.30$ m. This value is exactly K:\n\n$$K = 217.9$$\n\nEquation:\n\n$$Q = 217.9\\,(h-0.3)^{1.32}$$"
+          },
+          "why": {
+            "tr": "Aynı $h-h_0=1 \\Rightarrow Q=K$ kısayolu burada da işe yarar — sadece bu sefer K bilinmiyordu, h₀ biliniyordu (h₀'ı bir önceki adımda korelasyonla bulmuştuk). Tablodaki $h=1{,}30$ m satırının tam olarak $h_0+1$'e denk gelmesi tesadüf değil, ders kitabının K'yı doğrudan okutmak için seçtiği bir veri noktası.",
+            "en": "The same $h-h_0=1 \\Rightarrow Q=K$ shortcut works here too — only this time K was unknown while h₀ was known (found by correlation in the previous step). It's no coincidence that the table's $h=1.30$ m row lands exactly on $h_0+1$ — the textbook chose that data point specifically so K could be read off directly."
+          },
+          "result": "K = 217{,}9,\\quad Q = 217{,}9(h-0{,}3)^{1{,}32}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Denklemle h=4 m için Q'yu hesapla",
+            "en": "Compute Q at h=4 m from the equation"
+          },
+          "guiding": {
+            "tr": "Denklem tam. h=4 m, veri aralığının (0,59–2,81 m) çok ötesinde. Şimdi ne yaparsın?",
+            "en": "The equation is complete. h=4 m is well beyond the data range (0.59–2.81 m). Now what?"
+          },
+          "hint": {
+            "tr": "Doğrudan yerine koy — artık log-log doğrusu güvenli bir ekstrapolasyon sağlıyor.",
+            "en": "Substitute directly — the log-log line now gives a safe extrapolation."
+          },
+          "work": {
+            "tr": "$$Q = 217{,}9\\,(4-0{,}3)^{1{,}32} = 217{,}9\\cdot 3{,}7^{1{,}32} \\approx 1225{,}4\\ \\text{m}^3/\\text{sn}$$",
+            "en": "$$Q = 217.9\\,(4-0.3)^{1.32} = 217.9\\cdot 3.7^{1.32} \\approx 1225.4\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "En büyük ölçülen h 2,81 m idi; h=4 m çizilen eğriden fersah fersah uzak. Elle çizilmiş bir eğriden bu kadar ötesini tahmin etmek büyük hata riski taşır — eğrinin eğrilik derecesi belirsizdir. Log-log doğrusu, veriler bu doğruya iyi uyduğu (r=0,999) için ekstrapolasyonu güvenilir kılar.",
+            "en": "The largest measured h was 2.81 m; h=4 m is far beyond the drawn curve. Guessing that far past a hand-drawn curve carries serious error risk since the exact curvature is unknown. The log-log line makes the extrapolation trustworthy because the data fits it so well (r=0.999)."
+          },
+          "result": "Q(4) \\approx 1225{,}4\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ters çöz: verilen debi için h'yı bul",
+            "en": "Invert: find h for the given discharge"
+          },
+          "guiding": {
+            "tr": "Şimdi Q biliniyor, h isteniyor. Denklemi nasıl ters çevirirsin? (Not: föy metninde soru Q=100 diye yazsa da, çözüm Q=1000 için yapılmıştır — bu tutarsızlık kaynak dokümanda vardır.)",
+            "en": "Now Q is known, h is wanted. How do you invert the equation? (Note: the source text asks for Q=100, but the worked solution actually solves Q=1000 — this mismatch exists in the source document.)"
+          },
+          "hint": {
+            "tr": "$h = h_0 + (Q/K)^{1/n}$.",
+            "en": "$h = h_0 + (Q/K)^{1/n}$."
+          },
+          "work": {
+            "tr": "**Not:** Kaynak metinde soru \"Q=100 m³/sn için h\" diye sorulmuş, ama çözümde Q=1000 m³/sn kullanılmıştır. Çözülmüş değeri (Q=1000) takip ediyoruz.\n\n$$h = 0{,}3 + \\left(\\frac{1000}{217{,}9}\\right)^{1/1{,}32} = 0{,}3 + 4{,}59^{0{,}758} \\approx 3{,}47\\ \\text{m}$$",
+            "en": "**Note:** the source statement asks for \"h at Q=100 m³/s\", but the worked solution actually uses Q=1000 m³/s. We follow the solved value (Q=1000).\n\n$$h = 0.3 + \\left(\\frac{1000}{217.9}\\right)^{1/1.32} = 0.3 + 4.59^{0.758} \\approx 3.47\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Kaynak PDF'de soru metni ile çözüm arasında bir tutarsızlık var (100 vs 1000 m³/sn); bu tür kopukluklar gerçek sınav kâğıtlarında da olur. Kurala göre çözülmüş yol takip edilir; sınavda böyle bir çelişkiyle karşılaşırsan çözümdeki mantığı izle, ama fark ettiğini not düş.",
+            "en": "There's a mismatch between the question text and the worked solution in the source PDF (100 vs 1000 m³/s); such slips happen in real exam papers too. Following the convention, we track the worked solution's path; if you hit a contradiction like this in the exam, follow the solution's logic but flag that you noticed it."
+          },
+          "result": "h(1000) \\approx 3{,}47\\ \\text{m}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Denklem:** $Q = 217{,}9(h-0{,}3)^{1{,}32}$ (en iyi $h_0=0{,}3$ m, $r=0{,}999$).\n\n$\\boxed{Q(4\\ \\text{m}) \\approx 1225{,}4\\ \\text{m}^3/\\text{sn}}$; $\\boxed{h(1000\\ \\text{m}^3/\\text{sn}) \\approx 3{,}47\\ \\text{m}}$.\n\n(Föydeki soru metni \"Q=100\" yazsa da çözüm Q=1000 için yapılmıştır.)",
+        "en": "**Equation:** $Q = 217.9(h-0.3)^{1.32}$ (best $h_0=0.3$ m, $r=0.999$).\n\n$\\boxed{Q(4\\ \\text{m}) \\approx 1225.4\\ \\text{m}^3/\\text{s}}$; $\\boxed{h(1000\\ \\text{m}^3/\\text{s}) \\approx 3.47\\ \\text{m}}$.\n\n(The source statement says \"Q=100\" but the worked solution uses Q=1000.)"
+      },
+      "traps": [
+        {
+          "tr": "h₀ her veri noktasında $h-h_0>0$ tutmalı, yani en küçük ölçülen h'den (0,59 m) kesinlikle küçük seçilmelidir — h₀=0,59 veya üzeri denemek logaritmayı tanımsız yapar.",
+          "en": "h₀ must keep $h-h_0>0$ at every data point, so it must be chosen strictly less than the smallest measured h (0.59 m) — trying h₀=0.59 or above makes the logarithm undefined."
+        },
+        {
+          "tr": "En iyi h₀, en yüksek korelasyon katsayısını (r) veren değerdir — rastgele veya \"yuvarlak\" bir sayı (örn. 0,5) seçmek yanlıştır; beş aday deneyip karşılaştırmak gerekir.",
+          "en": "The best h₀ is the one giving the highest correlation coefficient (r) — picking a random or \"round\" number (e.g. 0.5) is wrong; you must try several candidates and compare."
+        },
+        {
+          "tr": "İki eksen de LOGARİTMİK olmalı ($\\log Q$ vs $\\log(h-h_0)$) — sadece bir ekseni log almak (yarı-log) doğrusallaştırmaz.",
+          "en": "Both axes must be LOGARITHMIC ($\\log Q$ vs $\\log(h-h_0)$) — taking the log of only one axis (semi-log) does not linearize the relationship."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya korelasyon h₀=0,4 m'de en yüksek çıksaydı?",
+            "en": "What if the correlation peaked at h₀=0.4 m instead?"
+          },
+          "answer": {
+            "tr": "O zaman tüm yöntemi h₀=0,4 ile tekrarlarsın: yeni x=log(h-0,4) değerleriyle eğimi (n) yeniden hesaplar, $(h-h_0)=1 \\Rightarrow h=1{,}4$ m'ye karşılık gelen Q'yu tablodan okuyup yeni K'yı bulursun. Yöntem AYNI kalır, sadece hangi h₀'ın tarandığı sonucu belirler — bu yüzden tarama adımını atlamak (rastgele bir h₀ almak) tüm zinciri bozar.",
+            "en": "You'd redo the whole method with h₀=0.4: recompute the slope (n) using the new x=log(h-0.4) values, and find the new K by reading the Q at $(h-h_0)=1 \\Rightarrow h=1.4$ m off the table. The method stays the SAME, only which h₀ was scanned changes the outcome — which is why skipping the scan step (grabbing a random h₀) breaks the whole chain."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Neden çizilen eğriyi uzatıp doğrudan tahmin etmiyoruz?",
+            "en": "Why not just extend the drawn curve by hand and estimate directly?"
+          },
+          "answer": {
+            "tr": "Kağıt, ölçülen en yüksek noktada (2,81 m) bitiyor ve eğrinin eğriliği (n>1 olduğu için) yükseldikçe artıyor — elle uzatmak bu artan eğriliği tahmin etmek zorunda kalır ve büyük sapmalara yol açar. Log-log doğrusu ise ölçülen veriye MÜKEMMEL uyduğu için (r=0,999), aynı doğrusal ilişkinin veri aralığı dışında da geçerli olduğunu varsayarak güvenle uzatılabilir.",
+            "en": "The paper ends at the highest measured point (2.81 m), and the curve's curvature (since n>1) keeps increasing as stage rises — extending it by hand forces you to guess that growing curvature, leading to large errors. The log-log line, because it fits the measured data so well (r=0.999), can be safely extended by assuming the same linear relationship holds beyond the data range."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-5",
+      "code": "Uygulama 5.5",
+      "title": {
+        "tr": "Anahtar eğrisi (h₀ ve N verili)",
+        "en": "Rating curve with h₀ and N given"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir akarsu kesitindeki seviye ve debi değerleri aşağıda verilmiştir.\n\na) Anahtar eğrisini çizerek h=1,85 m için Q değerini ve Q=100 m³/sn için h değerini hesaplayınız.\n\nb) Kesitte h₀=0,45 m ve N=1,50 olduğuna göre anahtar eğrisi denklemini elde ederek h=5,0 m için Q'yu ve Q=600 m³/sn için h'yı hesaplayınız.",
+        "en": "The stage and discharge values for a river cross-section are given below.\n\na) Draw the rating curve and find Q for h=1.85 m, and h for Q=100 m³/s.\n\nb) Given h₀=0.45 m and N=1.50 for this section, derive the rating-curve equation and find Q for h=5.0 m, and h for Q=600 m³/s."
+      },
+      "given": [
+        {
+          "symbol": "h_0",
+          "value": "0{,}45\\ \\text{m}",
+          "label": {
+            "tr": "Sıfır-akış seviyesi (verilmiş)",
+            "en": "Zero-flow stage (given)"
+          }
+        },
+        {
+          "symbol": "N",
+          "value": "1{,}50",
+          "label": {
+            "tr": "Anahtar eğrisi üssü (verilmiş)",
+            "en": "Rating-curve exponent (given)"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Grafikten h=1,85 m için Q ve Q=100 m³/sn için h okumak; sonra h₀ ve N kullanarak K'yı bulup denklemi kurmak, h=5 m için Q ve Q=600 m³/sn için h'yı hesaplamak.",
+        "en": "Read Q for h=1.85 m and h for Q=100 m³/s off the graph; then use h₀ and N to find K, write the equation, and compute Q at h=5 m and h for Q=600 m³/s."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Seviye-debi ölçümleri",
+            "en": "Stage-discharge measurements"
+          },
+          "headers": [
+            "h (m)",
+            "Q (m³/sn)"
+          ],
+          "rows": [
+            [
+              "0,75",
+              "50"
+            ],
+            [
+              "1,00",
+              "60"
+            ],
+            [
+              "1,25",
+              "80"
+            ],
+            [
+              "1,50",
+              "110"
+            ],
+            [
+              "1,75",
+              "150"
+            ],
+            [
+              "2,00",
+              "200"
+            ],
+            [
+              "2,25",
+              "300"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Grafikten oku (kısım a)",
+            "en": "Read the graph (part a)"
+          },
+          "guiding": {
+            "tr": "7 (h,Q) noktasını çizip h=1,85 m ve Q=100 m³/sn için hangi değerleri okursun?",
+            "en": "Plotting the 7 (h,Q) points, what values do you read for h=1.85 m and Q=100 m³/s?"
+          },
+          "hint": {
+            "tr": "1,75–2,00 m aralığında (150–200) ve 80–110 aralığında (1,25–1,50 m) doğrusal interpolasyonla tahmini bir okuma yap.",
+            "en": "Between 1.75–2.00 m (150–200) and between 80–110 (1.25–1.50 m), estimate by linear interpolation."
+          },
+          "work": {
+            "tr": "$h=1{,}85$ m, tablodaki 1,75 m (Q=150) ile 2,00 m (Q=200) arasında; eğriden okunan yaklaşık değer:\n\n$$Q(1{,}85) \\approx 170\\ \\text{m}^3/\\text{sn}$$\n\n$Q=100$ m³/sn, tablodaki 1,25 m (Q=80) ile 1,50 m (Q=110) arasında; eğriden okunan yaklaşık değer:\n\n$$h(100) \\approx 1{,}42\\ \\text{m}$$",
+            "en": "$h=1.85$ m falls between the table's 1.75 m (Q=150) and 2.00 m (Q=200) rows; reading the curve gives approximately:\n\n$$Q(1.85) \\approx 170\\ \\text{m}^3/\\text{s}$$\n\n$Q=100$ m³/s falls between the table's 1.25 m (Q=80) and 1.50 m (Q=110) rows; reading the curve gives approximately:\n\n$$h(100) \\approx 1.42\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Bu adım eğri çizip elle okuma pratiğidir — deneme sınavında istenen yaklaşık değerdir (\"≈\" işareti bunu vurgular), kesin bir formül sonucu değil. Grafik değerleri her zaman komşu iki tablo satırının ARASINDA olmalı; aralık dışına düşen bir okuma hata işaretidir.",
+            "en": "This step is the practice of drawing the curve and reading off it — an approximate value is expected (the \"≈\" sign emphasizes this), not an exact formula result. A graph reading must always fall BETWEEN the two neighboring table rows; a reading outside that range signals a mistake."
+          },
+          "result": "Q(1{,}85) \\approx 170\\ \\text{m}^3/\\text{sn},\\quad h(100) \\approx 1{,}42\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "h₀ verildiğinde K'yı bul",
+            "en": "Find K given h₀"
+          },
+          "guiding": {
+            "tr": "Bu sefer h₀=0,45 m doğrudan verilmiş — o zaman K'yı bulmak için ne yaparsın?",
+            "en": "This time h₀=0.45 m is given directly — so what do you do to find K?"
+          },
+          "hint": {
+            "tr": "$(h-h_0)=1$ yine işe yarar: hangi h bu koşulu sağlıyor? O h'ye karşılık gelen Q'yu tablo/eğriden oku.",
+            "en": "$(h-h_0)=1$ still works: which h satisfies this? Read the Q for that h off the table/curve."
+          },
+          "work": {
+            "tr": "$h-h_0=1 \\Rightarrow h = 1+0{,}45 = 1{,}45$ m. Bu değer tabloda yok, 1,25 m (Q=80) ile 1,50 m (Q=110) arasında kalıyor — doğrusal interpolasyonla K okunur:\n\n$$K = 80 + (110-80)\\cdot\\frac{1{,}45-1{,}25}{1{,}50-1{,}25} = 80+30\\cdot0{,}8 = 104\\ \\text{m}^3/\\text{sn}$$",
+            "en": "$h-h_0=1 \\Rightarrow h = 1+0.45 = 1.45$ m. This isn't in the table directly, falling between 1.25 m (Q=80) and 1.50 m (Q=110) — K is read by linear interpolation:\n\n$$K = 80 + (110-80)\\cdot\\frac{1.45-1.25}{1.50-1.25} = 80+30\\cdot0.8 = 104\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "Fark burada: Uygulama 5.3'te h₀ eğriden OKUNARAK bulunuyordu (K veriliydi); burada roller ters — h₀ VERİLMİŞ, K eğriden (ya da burada tablodan interpolasyonla) okunuyor. K'yı, dilim ortalama hızları gibi başka bir yöntemle \"ortalayarak\" bulmaya çalışmak yanlıştır — sadece $h-h_0=1$ noktasındaki DEĞER K'dır.",
+            "en": "The difference here: in Uygulama 5.3, h₀ was READ off the curve (K was given); here the roles reverse — h₀ is GIVEN, K is read (here by interpolating the table). Trying to find K by \"averaging\" some other way, like slice velocities, is wrong — K is simply the VALUE at the point $h-h_0=1$."
+          },
+          "result": "K \\approx 104\\ \\text{m}^3/\\text{sn}",
+          "check": {
+            "q": {
+              "tr": "h₀=0,45 m verildiğine göre, K'yı bulmak için hangi seviyeye bakılır?",
+              "en": "Given h₀=0.45 m, at which stage do you look to find K?"
+            },
+            "options": [
+              {
+                "tr": "h = 0,45 m",
+                "en": "h = 0.45 m"
+              },
+              {
+                "tr": "h = 1,45 m",
+                "en": "h = 1.45 m"
+              },
+              {
+                "tr": "h = 1,00 m",
+                "en": "h = 1.00 m"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "$h-h_0=1 \\Rightarrow h = h_0+1 = 0{,}45+1 = 1{,}45$ m. Bu seviyedeki Q, tam olarak K'ya eşittir. h=0,45 m'ye bakmak h₀'ın kendisine bakmaktır (orada Q=0 olurdu); h=1,00 m ise rastgele bir tablo satırıdır, formülün istediği koşulu sağlamaz.",
+              "en": "$h-h_0=1 \\Rightarrow h = h_0+1 = 0.45+1 = 1.45$ m. The Q at this stage equals K exactly. Looking at h=0.45 m is looking at h₀ itself (Q would be 0 there); h=1.00 m is just an arbitrary table row that doesn't satisfy the formula's condition."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Denklemi yaz ve h=5 m için Q'yu hesapla",
+            "en": "Write the equation and compute Q at h=5 m"
+          },
+          "guiding": {
+            "tr": "K, N ve h₀ tam. h=5 m için Q ne olur?",
+            "en": "K, N and h₀ are complete. What is Q at h=5 m?"
+          },
+          "hint": {
+            "tr": "$Q=K(h-h_0)^N$ içine doğrudan h=5 koy.",
+            "en": "Substitute h=5 directly into $Q=K(h-h_0)^N$."
+          },
+          "work": {
+            "tr": "$$Q = 104\\,(h-0{,}45)^{1{,}50}$$\n\n$h=5$ m için:\n\n$$Q = 104\\,(5-0{,}45)^{1{,}50} = 104\\cdot 4{,}55^{1{,}50} \\approx 1009\\ \\text{m}^3/\\text{sn} \\approx 1010\\ \\text{m}^3/\\text{sn}$$",
+            "en": "$$Q = 104\\,(h-0.45)^{1.50}$$\n\nAt $h=5$ m:\n\n$$Q = 104\\,(5-0.45)^{1.50} = 104\\cdot 4.55^{1.50} \\approx 1009\\ \\text{m}^3/\\text{s} \\approx 1010\\ \\text{m}^3/\\text{s}$$"
+          },
+          "why": {
+            "tr": "h=5 m, ölçülen en yüksek nokta olan 2,25 m'nin çok üstünde — yine denklem, elle çizilmiş eğrinin ulaşamayacağı bir bölgeyi güvenle hesaplıyor. N=1,50, Uygulama 5.3'teki n=1,20'den büyük olduğu için burada büyüme daha da hızlı (daha \"dik\" bir eğri) — sonuç orantısız büyük çıkması normaldir.",
+            "en": "h=5 m is far above the highest measured point of 2.25 m — again, the equation safely computes a region the hand-drawn curve can't reach. Since N=1.50 is larger than the n=1.20 in Uygulama 5.3, growth here is even faster (a \"steeper\" curve) — it's expected that the result comes out disproportionately large."
+          },
+          "result": "Q(5) \\approx 1009\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ters çöz: Q=600 için h'yı bul",
+            "en": "Invert: find h for Q=600"
+          },
+          "guiding": {
+            "tr": "N=1,50 olduğuna göre, ters çevirirken kullanacağın kuvvet nedir?",
+            "en": "With N=1.50, what power do you use when inverting?"
+          },
+          "hint": {
+            "tr": "$h = h_0 + (Q/K)^{1/N}$; burada $1/1{,}50 = 2/3$.",
+            "en": "$h = h_0 + (Q/K)^{1/N}$; here $1/1.50 = 2/3$."
+          },
+          "work": {
+            "tr": "$$600 = 104\\,(h-0{,}45)^{1{,}50} \\;\\Rightarrow\\; (h-0{,}45) = \\left(\\frac{600}{104}\\right)^{2/3}$$\n\n$$\\left(\\frac{600}{104}\\right)^{2/3} = 5{,}77^{0{,}667} \\approx 3{,}22$$\n\n$$h = 0{,}45+3{,}22 = 3{,}67\\ \\text{m}$$",
+            "en": "$$600 = 104\\,(h-0.45)^{1.50} \\;\\Rightarrow\\; (h-0.45) = \\left(\\frac{600}{104}\\right)^{2/3}$$\n\n$$\\left(\\frac{600}{104}\\right)^{2/3} = 5.77^{0.667} \\approx 3.22$$\n\n$$h = 0.45+3.22 = 3.67\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "$1/N=1/1{,}5=2/3$'ü ondalık (0,667) olarak yazıp hesap makinesine öyle girmek en güvenli yoldur — kesirli üsleri kafada çevirmeye çalışmak hata riskini artırır. N=1,50 gibi \"güzel\" bir sayı görünce üssün kesir karşılığını ($2/3$) önceden not etmek işini hızlandırır.",
+            "en": "Writing $1/N=1/1.5=2/3$ as a decimal (0.667) and entering it that way into the calculator is the safest route — trying to convert fractional exponents mentally raises the error risk. Noticing a \"nice\" number like N=1.50 and jotting down its fraction equivalent ($2/3$) beforehand speeds up the work."
+          },
+          "result": "h(600) \\approx 3{,}67\\ \\text{m}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Kısım a (grafik):** $Q(1{,}85) \\approx 170$ m³/sn; $h(100) \\approx 1{,}42$ m.\n\n**Kısım b (denklem):** $Q = 104(h-0{,}45)^{1{,}50}$; $\\boxed{Q(5\\ \\text{m}) \\approx 1009\\ \\text{m}^3/\\text{sn}}$; $\\boxed{h(600\\ \\text{m}^3/\\text{sn}) \\approx 3{,}67\\ \\text{m}}$.",
+        "en": "**Part a (graph):** $Q(1.85) \\approx 170$ m³/s; $h(100) \\approx 1.42$ m.\n\n**Part b (equation):** $Q = 104(h-0.45)^{1.50}$; $\\boxed{Q(5\\ \\text{m}) \\approx 1009\\ \\text{m}^3/\\text{s}}$; $\\boxed{h(600\\ \\text{m}^3/\\text{s}) \\approx 3.67\\ \\text{m}}$."
+      },
+      "traps": [
+        {
+          "tr": "K'yı tablodan doğrudan bir satır olarak aramak — $h-h_0=1$ noktası (h=1,45 m) tabloda yok, İNTERPOLASYON gerekiyor. K'yı en yakın satırdan (örn. h=1,50, Q=110) almak yanlıştır.",
+          "en": "Looking for K as a direct table row — the point $h-h_0=1$ (h=1.45 m) isn't in the table, INTERPOLATION is required. Taking K from the nearest row (e.g. h=1.50, Q=110) is wrong."
+        },
+        {
+          "tr": "Ters çözerken $1/N=1/1{,}50=2/3$'ü N ile karıştırıp direkt N=1,50 kuvvetini kullanmak — bu h yerine anlamsız bir sayı verir.",
+          "en": "When inverting, confusing $1/N=1/1.50=2/3$ with N and using the power N=1.50 directly — this gives a meaningless number instead of h."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya h₀=0 varsayılsaydı (sıfır-akış düzeltmesi ihmal edilseydi)?",
+            "en": "What if h₀=0 were assumed (ignoring the zero-flow correction)?"
+          },
+          "answer": {
+            "tr": "K, $h=1$ m'deki Q olurdu — tablodan doğrudan $K=60$ (h=1,00 satırı). O zaman $Q(5) = 60\\cdot 5^{1{,}5} \\approx 671$ m³/sn çıkar — gerçek 1009'dan çok uzak, büyük bir hata. Bu, h₀'ı atlamanın (ya da sıfır sanmanın) sonucu ne kadar bozduğunu somut olarak gösterir.",
+            "en": "K would be the Q at $h=1$ m — directly from the table, $K=60$ (the h=1.00 row). Then $Q(5) = 60\\cdot 5^{1.5} \\approx 671$ m³/s — far from the true 1009, a large error. This concretely shows how much skipping h₀ (or assuming it's zero) distorts the result."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya N=2 olsaydı (h₀ aynı kalsa)?",
+            "en": "What if N=2 instead (h₀ unchanged)?"
+          },
+          "answer": {
+            "tr": "$Q(5) = 104\\cdot 4{,}55^2 = 104\\cdot 20{,}70 \\approx 2153$ m³/sn — N=1,50'deki 1009'un iki katından fazla. Bu duyarlılık, N'in küçük bir değişiminin yüksek seviyelerde debiyi ne kadar büyüttüğünü gösterir; sınavda N'i yanlış okumak (örneğin 1,5 yerine 2 yazmak) sonucu tamamen değiştirir.",
+            "en": "$Q(5) = 104\\cdot 4.55^2 = 104\\cdot 20.70 \\approx 2153$ m³/s — more than double the 1009 with N=1.50. This sensitivity shows how much a small change in N inflates discharge at high stages; misreading N in the exam (e.g. writing 2 instead of 1.5) completely changes the answer."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-6",
+      "code": "Uygulama 5.6",
+      "title": {
+        "tr": "Anahtar eğrisi (K ve taşkın noktası verili)",
+        "en": "Rating curve from K and one flood point"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "K=18 olan bir akarsu kesitindeki seviye ve debi değerleri aşağıda verilmiştir. Kesitte, bir taşkın sırasında h=3 m iken Q=80 m³/sn olarak tahmin edildiğine göre, anahtar eğrisi denklemini elde ediniz. Q=100 m³/sn iken h değerini bulunuz.",
+        "en": "The stage and discharge values for a river section with K=18 are given below. During a flood, h=3 m corresponded to an estimated Q=80 m³/s. Derive the rating-curve equation. Find h when Q=100 m³/s."
+      },
+      "given": [
+        {
+          "symbol": "K",
+          "value": "18",
+          "label": {
+            "tr": "Anahtar eğrisi sabiti",
+            "en": "Rating-curve constant"
+          }
+        },
+        {
+          "symbol": "h_{taşkın}",
+          "value": "3\\ \\text{m}",
+          "label": {
+            "tr": "Taşkın anındaki seviye",
+            "en": "Stage during the flood"
+          }
+        },
+        {
+          "symbol": "Q_{taşkın}",
+          "value": "80\\ \\text{m}^3/\\text{s}",
+          "label": {
+            "tr": "Taşkın anındaki debi",
+            "en": "Discharge during the flood"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "h₀'ı normal ölçümlerden, n'i taşkın noktasından bulup denklemi kurmak; sonra Q=100 m³/sn için h'yı hesaplamak.",
+        "en": "Find h₀ from the normal measurements and n from the flood point, write the equation, then compute h for Q=100 m³/s."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Normal akış ölçümleri",
+            "en": "Normal-flow measurements"
+          },
+          "headers": [
+            "h (m)",
+            "Q (m³/sn)"
+          ],
+          "rows": [
+            [
+              "1,0",
+              "6"
+            ],
+            [
+              "1,3",
+              "15"
+            ],
+            [
+              "1,5",
+              "23"
+            ],
+            [
+              "1,7",
+              "30"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "h₀'ı K'dan bul",
+            "en": "Find h₀ from K"
+          },
+          "guiding": {
+            "tr": "K=18 biliniyor. Bu değeri normal ölçüm tablosunda hangi h'ye karşılık gelen Q ile eşleştirirsin?",
+            "en": "K=18 is known. Which stage in the normal-measurement table does this Q correspond to?"
+          },
+          "hint": {
+            "tr": "$Q=K=18$'e karşılık gelen h'yi tablodan interpolasyonla bul, sonra $h-h_0=1$ kur.",
+            "en": "Find the h corresponding to $Q=K=18$ by interpolating the table, then use $h-h_0=1$."
+          },
+          "work": {
+            "tr": "$Q=18$ m³/sn, tabloda 1,3 m (Q=15) ile 1,5 m (Q=23) arasında. Doğrusal interpolasyon:\n\n$$h(Q{=}18) = 1{,}3 + (1{,}5-1{,}3)\\cdot\\frac{18-15}{23-15} = 1{,}3+0{,}2\\cdot0{,}375 = 1{,}375\\ \\text{m}$$\n\n$$h-h_0=1 \\Rightarrow 1{,}375-h_0=1 \\Rightarrow h_0 = 0{,}375\\ \\text{m}$$",
+            "en": "$Q=18$ m³/s falls between 1.3 m (Q=15) and 1.5 m (Q=23) in the table. Linear interpolation:\n\n$$h(Q{=}18) = 1.3 + (1.5-1.3)\\cdot\\frac{18-15}{23-15} = 1.3+0.2\\cdot0.375 = 1.375\\ \\text{m}$$\n\n$$h-h_0=1 \\Rightarrow 1.375-h_0=1 \\Rightarrow h_0 = 0.375\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "K verildiğinde h₀'ı bulmak yine aynı kısayol — ama bu soruda ekstra bir zorluk var: n bilinmiyor, YALNIZCA h₀ ve K normal (düşük debili) ölçümlerden çıkarılabiliyor. n'i bulmak için başka bir bilgiye (taşkın noktasına) ihtiyaç var — bu bir sonraki adımın konusu.",
+            "en": "Given K, finding h₀ uses the same shortcut again — but this question adds a twist: n is unknown, and ONLY h₀ and K can be extracted from the normal (low-flow) measurements. Finding n needs another piece of information (the flood point) — that's the subject of the next step."
+          },
+          "result": "h_0 = 0{,}375\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Taşkın noktasından n'i bul",
+            "en": "Find n from the flood point"
+          },
+          "guiding": {
+            "tr": "K ve h₀ hazır ama denklemde bir bilinmeyen daha var: n. Taşkındaki (h=3, Q=80) noktasını nasıl kullanırsın?",
+            "en": "K and h₀ are ready but the equation still has one unknown left: n. How do you use the flood point (h=3, Q=80)?"
+          },
+          "hint": {
+            "tr": "$Q=K(h-h_0)^n$ içine taşkın noktasını koy, n için logaritma ile çöz: $n = \\dfrac{\\ln(Q/K)}{\\ln(h-h_0)}$.",
+            "en": "Substitute the flood point into $Q=K(h-h_0)^n$ and solve for n using logarithms: $n = \\dfrac{\\ln(Q/K)}{\\ln(h-h_0)}$."
+          },
+          "work": {
+            "tr": "$$80 = 18\\,(3-0{,}375)^n = 18\\cdot 2{,}625^n$$\n\n$$\\frac{80}{18} = 2{,}625^n \\;\\Rightarrow\\; n = \\frac{\\ln(80/18)}{\\ln(2{,}625)} = \\frac{\\ln 4{,}444}{\\ln 2{,}625} \\approx 1{,}546$$",
+            "en": "$$80 = 18\\,(3-0.375)^n = 18\\cdot 2.625^n$$\n\n$$\\frac{80}{18} = 2.625^n \\;\\Rightarrow\\; n = \\frac{\\ln(80/18)}{\\ln(2.625)} = \\frac{\\ln 4.444}{\\ln 2.625} \\approx 1.546$$"
+          },
+          "why": {
+            "tr": "Bu sorunun özel numarası: iki bilinmeyen (h₀, n) için İKİ FARKLI kaynaktan bilgi kullanılıyor — h₀ normal (düşük debi) tablosundaki K numarasından, n ise TEK bir yüksek-debi (taşkın) noktasından. Bu, yüksek debili taşkın verisinin neden değerli olduğunu gösterir: eğrinin üst kısmını sabitleyen tek şey odur.",
+            "en": "This question's special trick: the two unknowns (h₀, n) are pinned down from TWO DIFFERENT sources — h₀ from the K trick on the normal (low-flow) table, n from a SINGLE high-flow (flood) point. This shows why high-flow flood data is valuable: it's the only thing anchoring the upper part of the curve."
+          },
+          "result": "n \\approx 1{,}546",
+          "check": {
+            "q": {
+              "tr": "n'i bulmak için hangi denklem çözülür?",
+              "en": "Which equation is solved to find n?"
+            },
+            "options": [
+              {
+                "tr": "$80 = 18(3-0{,}375)^n$",
+                "en": "$80 = 18(3-0.375)^n$"
+              },
+              {
+                "tr": "$18 = 80(3-0{,}375)^n$",
+                "en": "$18 = 80(3-0.375)^n$"
+              },
+              {
+                "tr": "$n = (80-18)/(3-0{,}375)$",
+                "en": "$n = (80-18)/(3-0.375)$"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Taşkın noktası $(h,Q)=(3,80)$, denklem $Q=K(h-h_0)^n$'e konur: $80=18(3-0{,}375)^n$. K ve Q'nun yerini değiştirmek ($18=80(\\ldots)^n$) denklemin anlamını tersine çevirir; üçüncü seçenek ise üslü denklemi doğrusal bir fark sanan bir kısayoldur — geçersizdir.",
+              "en": "The flood point $(h,Q)=(3,80)$ is substituted into $Q=K(h-h_0)^n$: $80=18(3-0.375)^n$. Swapping K and Q ($18=80(\\ldots)^n$) reverses the equation's meaning; the third option mistakes an exponential equation for a linear difference — invalid."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Denklemi yaz ve sağlama yap",
+            "en": "Write the equation and sanity-check"
+          },
+          "guiding": {
+            "tr": "K, h₀, n hazır. Denklem tablodaki diğer noktalara uyuyor mu diye kontrol edebilir misin?",
+            "en": "K, h₀, n are ready. Can you check the equation against another table point?"
+          },
+          "hint": {
+            "tr": "Denklemi tablodaki bir noktaya (örneğin h=1,7 m) uygula, Q≈30'a yakın çıkıyor mu bak.",
+            "en": "Apply the equation to a table point (e.g. h=1.7 m) and see if Q comes out close to 30."
+          },
+          "work": {
+            "tr": "$$Q = 18\\,(h-0{,}375)^{1{,}546}$$\n\nSağlama: $h=1{,}7$ m için $Q = 18\\cdot(1{,}7-0{,}375)^{1{,}546} = 18\\cdot 1{,}325^{1{,}546} \\approx 27{,}7$ m³/sn — tablodaki 30 m³/sn'ye yakın (tam K trick + taşkın noktasından türetilen denklem, ara noktalara %10'luk bir sapmayla uyuyor; bu, iki parametreyi sadece iki koşuldan (K noktası + tek taşkın noktası) çıkardığımız için beklenen bir yaklaşıklıktır).",
+            "en": "$$Q = 18\\,(h-0.375)^{1.546}$$\n\nSanity check: at $h=1.7$ m, $Q = 18\\cdot(1.7-0.375)^{1.546} = 18\\cdot 1.325^{1.546} \\approx 27.7$ m³/s — close to the table's 30 m³/s (an equation derived from just the K trick plus one flood point fits interior points to about 10%; this is the expected level of approximation since we pinned down two parameters from only two conditions: the K point and one flood point)."
+          },
+          "why": {
+            "tr": "Sağlama yapmak burada özellikle önemli: sadece iki koşuldan (K'nın verdiği h₀ ve tek taşkın noktası) türetilen bir denklem, ARA noktalarda mükemmel uymayabilir — çünkü gerçek eğri muhtemelen tam bir güç fonksiyonu değildir. %10'luk bir sapma kabul edilebilir; %50'lik bir sapma ise bir hesap hatasına işaret eder.",
+            "en": "Sanity-checking matters especially here: an equation derived from only two conditions (h₀ from K, and a single flood point) may not fit INTERIOR points perfectly — because the true curve is probably not an exact power function. A 10% deviation is acceptable; a 50% deviation would signal a computation error."
+          },
+          "result": "Q = 18(h-0{,}375)^{1{,}546}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ters çöz: Q=100 için h'yı bul",
+            "en": "Invert: find h for Q=100"
+          },
+          "guiding": {
+            "tr": "n=1,546 gibi \"düzgün olmayan\" bir üsle ters çözerken nasıl ilerlersin?",
+            "en": "How do you proceed when inverting with an \"untidy\" exponent like n=1.546?"
+          },
+          "hint": {
+            "tr": "$h = h_0 + (Q/K)^{1/n}$; $1/1{,}546 \\approx 0{,}647$.",
+            "en": "$h = h_0 + (Q/K)^{1/n}$; $1/1.546 \\approx 0.647$."
+          },
+          "work": {
+            "tr": "$$100 = 18\\,(h-0{,}375)^{1{,}546} \\;\\Rightarrow\\; (h-0{,}375) = \\left(\\frac{100}{18}\\right)^{1/1{,}546}$$\n\n$$\\left(\\frac{100}{18}\\right)^{0{,}647} = 5{,}556^{0{,}647} \\approx 3{,}03$$\n\n$$h = 0{,}375+3{,}03 = 3{,}41\\ \\text{m}$$",
+            "en": "$$100 = 18\\,(h-0.375)^{1.546} \\;\\Rightarrow\\; (h-0.375) = \\left(\\frac{100}{18}\\right)^{1/1.546}$$\n\n$$\\left(\\frac{100}{18}\\right)^{0.647} = 5.556^{0.647} \\approx 3.03$$\n\n$$h = 0.375+3.03 = 3.41\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "n \"düzgün\" bir sayı olmadığında (1,546 gibi) mutlaka ondalık hâle çevirip hesap makinesiyle işlem yap — kesir arayışına girmek (örneğin 1,546'yı bir oran sanmak) zaman kaybettirir ve hata riskini artırır.",
+            "en": "When n isn't a \"tidy\" number (like 1.546), always convert to decimal and use the calculator — hunting for a fraction (mistaking 1.546 for some ratio) wastes time and raises error risk."
+          },
+          "result": "h(100) \\approx 3{,}41\\ \\text{m}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Denklem:** $Q = 18(h-0{,}375)^{1{,}546}$ ($h_0$ K'dan, n taşkın noktasından).\n\n$\\boxed{h(100\\ \\text{m}^3/\\text{sn}) \\approx 3{,}41\\ \\text{m}}$.",
+        "en": "**Equation:** $Q = 18(h-0.375)^{1.546}$ ($h_0$ from K, n from the flood point).\n\n$\\boxed{h(100\\ \\text{m}^3/\\text{s}) \\approx 3.41\\ \\text{m}}$."
+      },
+      "traps": [
+        {
+          "tr": "İki bilinmeyen (h₀, n) var — biri K trick'inden (h₀), diğeri taşkın noktasından (n) gelir. İkisini de aynı kaynaktan bulmaya çalışmak (örneğin ikisini de tablo interpolasyonundan çıkarmaya çalışmak) çözülemez bir denklem verir.",
+          "en": "There are two unknowns (h₀, n) — one comes from the K trick (h₀), the other from the flood point (n). Trying to get both from the same source (e.g. both from table interpolation) leaves an unsolvable equation."
+        },
+        {
+          "tr": "n'i bulurken $\\ln$ oranını ters çevirmek ($\\ln(K/Q)/\\ln(h-h_0)$ yazmak) işareti tersine çevirir ve negatif/anlamsız bir n verir.",
+          "en": "Inverting the log ratio when finding n (writing $\\ln(K/Q)/\\ln(h-h_0)$) flips the sign and gives a negative/meaningless n."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya taşkın ölçümü hatalı yapılıp Q=70 (h=3 m'de) kaydedilseydi?",
+            "en": "What if the flood measurement were mismeasured and Q=70 were recorded (at h=3 m)?"
+          },
+          "answer": {
+            "tr": "$n = \\ln(70/18)/\\ln(2{,}625) \\approx 1{,}407$ çıkar — 1,546'dan belirgin farklı. Bu yeni n ile $h(100) = 0{,}375+(100/18)^{1/1{,}407} \\approx 3{,}75$ m bulunur — tek bir ölçüm hatası, uzatılmış eğriyi belirgin şekilde kaydırır. Bu tam olarak Uygulama 5.4'teki log-regresyon yönteminin (birçok noktaya dayanan) neden tek-nokta yöntemine göre daha güvenilir olduğunu gösterir.",
+            "en": "$n = \\ln(70/18)/\\ln(2.625) \\approx 1.407$ — noticeably different from 1.546. With this new n, $h(100) = 0.375+(100/18)^{1/1.407} \\approx 3.75$ m — a single measurement error shifts the extended curve significantly. This is exactly why the log-regression method in Uygulama 5.4 (built on many points) is more reliable than a single-point method."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya soru Q=50 için h isteseydi?",
+            "en": "What if the question asked for h at Q=50 instead?"
+          },
+          "answer": {
+            "tr": "Aynı ters çözme adımı, sadece Q değeri değişir: $h = 0{,}375+(50/18)^{1/1{,}546} = 0{,}375+2{,}778^{0{,}647} \\approx 2{,}31$ m. Şablon tamamen aynı kalır — sadece son satırdaki sayı güncellenir.",
+            "en": "The same inversion step, only the Q value changes: $h = 0.375+(50/18)^{1/1.546} = 0.375+2.778^{0.647} \\approx 2.31$ m. The template stays exactly the same — only the number on the last line updates."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-7",
+      "code": "Uygulama 5.7",
+      "title": {
+        "tr": "Debi süreklilik eğrisi",
+        "en": "Flow-duration curve"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir akım gözlem istasyonunda gözlenen 1997 su yılının aylık ortalama debileri (Qort, m³/sn) aşağıda verilmiştir. Debi süreklilik çizgisini (eğrisini) çizerek, yılın 2. ayında ve 6. ayında mevcut debileri, ayrıca 175 m³/sn ve 100 m³/sn'lik debilerin yılın kaç gününde mevcut olabileceğini tahmin ediniz.",
+        "en": "The monthly average discharges (Qavg, m³/s) observed in a stream-gauging station for the 1997 water year are given below. Draw the flow-duration curve and estimate the discharge available for 2 months and for 6 months of the year, as well as how many days per year discharges of 175 m³/s and 100 m³/s are available."
+      },
+      "given": [
+        {
+          "symbol": "N",
+          "value": "12",
+          "label": {
+            "tr": "Toplam ay (veri) sayısı",
+            "en": "Total number of months (data points)"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Debileri sıralayıp aşılma olasılıklarını hesaplamak, süreklilik eğrisini çizmek, iki debi süresi (2 ay, 6 ay) ve iki debinin gün sayısı (175, 100 m³/sn) sorularını cevaplamak.",
+        "en": "Rank the discharges, compute exceedance probabilities, draw the duration curve, and answer two duration questions (2 months, 6 months) and two day-count questions (175, 100 m³/s)."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "1997 su yılı aylık ortalama debileri",
+            "en": "1997 water-year monthly average discharges"
+          },
+          "headers": [
+            "Ay",
+            "Ekim",
+            "Kasım",
+            "Aralık",
+            "Ocak",
+            "Şubat",
+            "Mart",
+            "Nisan",
+            "Mayıs",
+            "Haziran",
+            "Temmuz",
+            "Ağustos",
+            "Eylül"
+          ],
+          "rows": [
+            [
+              "Qort (m³/sn)",
+              "40",
+              "75",
+              "50",
+              "46",
+              "60",
+              "90",
+              "150",
+              "205",
+              "104",
+              "38",
+              "30",
+              "26"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "tr": "Sıralanmış debiler ve aşılma olasılığı",
+            "en": "Sorted discharges and exceedance probability"
+          },
+          "headers": [
+            "m",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "rows": [
+            [
+              "Q (m³/sn)",
+              "205",
+              "150",
+              "104",
+              "90",
+              "75",
+              "60",
+              "50",
+              "46",
+              "40",
+              "38",
+              "30",
+              "26"
+            ],
+            [
+              "p (%)",
+              "7,7",
+              "15,4",
+              "23,1",
+              "30,8",
+              "38,5",
+              "46,2",
+              "53,8",
+              "61,5",
+              "69,2",
+              "76,9",
+              "84,6",
+              "92,3"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Debi süreklilik eğrisi",
+          "en": "Flow-duration curve"
+        },
+        "xLabel": "p (%)",
+        "yLabel": "Q (m³/sn)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Q-p",
+            "kind": "line",
+            "points": [
+              [
+                7.7,
+                205
+              ],
+              [
+                15.4,
+                150
+              ],
+              [
+                23.1,
+                104
+              ],
+              [
+                30.8,
+                90
+              ],
+              [
+                38.5,
+                75
+              ],
+              [
+                46.2,
+                60
+              ],
+              [
+                53.8,
+                50
+              ],
+              [
+                61.5,
+                46
+              ],
+              [
+                69.2,
+                40
+              ],
+              [
+                76.9,
+                38
+              ],
+              [
+                84.6,
+                30
+              ],
+              [
+                92.3,
+                26
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 16.7,
+            "y": 138,
+            "label": {
+              "tr": "2 ay/months",
+              "en": "2 ay/months"
+            }
+          },
+          {
+            "x": 50,
+            "y": 53,
+            "label": {
+              "tr": "6 ay/months",
+              "en": "6 ay/months"
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Debileri büyükten küçüğe sırala",
+            "en": "Sort the discharges from largest to smallest"
+          },
+          "guiding": {
+            "tr": "Süreklilik eğrisi zaman sırasına göre değil BÜYÜKLÜK sırasına göre çizilir. Aylık verileri nasıl yeniden sıralarsın?",
+            "en": "The duration curve isn't drawn in time order but in MAGNITUDE order. How do you reorder the monthly data?"
+          },
+          "hint": {
+            "tr": "12 değeri büyükten küçüğe diz, sıra numarasını (m=1 en büyük) buna göre ver.",
+            "en": "List the 12 values from largest to smallest, assigning rank (m=1 for the largest)."
+          },
+          "work": {
+            "tr": "Ekim–Eylül sırasındaki 12 değer (40, 75, 50, 46, 60, 90, 150, 205, 104, 38, 30, 26) büyükten küçüğe dizilir:\n\n$$205,\\ 150,\\ 104,\\ 90,\\ 75,\\ 60,\\ 50,\\ 46,\\ 40,\\ 38,\\ 30,\\ 26$$\n\nHer birine sıra numarası (m=1'den 12'ye) verilir.",
+            "en": "The 12 values in Oct–Sep order (40, 75, 50, 46, 60, 90, 150, 205, 104, 38, 30, 26) are sorted from largest to smallest:\n\n$$205,\\ 150,\\ 104,\\ 90,\\ 75,\\ 60,\\ 50,\\ 46,\\ 40,\\ 38,\\ 30,\\ 26$$\n\nEach is assigned a rank (m=1 through 12)."
+          },
+          "why": {
+            "tr": "Süreklilik eğrisinin sorduğu soru \"bu debi ya da daha büyüğü yılın ne kadarında görülür?\" — bu soruyu cevaplamak için zaman bilgisi (hangi ay) önemsizdir, sadece büyüklük sırası önemlidir. Ay isimlerini unutmak sorun değil; unutmaman gereken şey her değerin bir veri noktası olarak kalması.",
+            "en": "The duration curve answers \"for how much of the year is this discharge or larger observed?\" — answering that doesn't need the time information (which month), only the magnitude order. Forgetting the month names is fine; what you must not lose is that every value remains one data point."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Aşılma olasılığını hesapla (Weibull)",
+            "en": "Compute exceedance probability (Weibull)"
+          },
+          "guiding": {
+            "tr": "Her sıra numarasına (m) bir olasılık (p) atamak istiyoruz. N kaçtır ve payda ne olmalı?",
+            "en": "You want to assign a probability (p) to each rank (m). What is N and what should the denominator be?"
+          },
+          "hint": {
+            "tr": "$p = \\dfrac{m}{N+1}$; burada $N=12$ (ay sayısı), yani payda 13'tür — N değil!",
+            "en": "$p = \\dfrac{m}{N+1}$; here $N=12$ (number of months), so the denominator is 13 — not N!"
+          },
+          "work": {
+            "tr": "$$p = \\frac{m}{N+1}\\cdot 100 = \\frac{m}{13}\\cdot 100$$\n\n$m=1$: $p = 1/13 \\cdot 100 = 7{,}7\\%$; $m=2$: $p=15{,}4\\%$; ... tüm sıralar için:\n\n$$p = 7{,}7;\\ 15{,}4;\\ 23{,}1;\\ 30{,}8;\\ 38{,}5;\\ 46{,}2;\\ 53{,}8;\\ 61{,}5;\\ 69{,}2;\\ 76{,}9;\\ 84{,}6;\\ 92{,}3\\ \\ (\\%)$$",
+            "en": "$$p = \\frac{m}{N+1}\\cdot 100 = \\frac{m}{13}\\cdot 100$$\n\n$m=1$: $p = 1/13 \\cdot 100 = 7.7\\%$; $m=2$: $p=15.4\\%$; ... for every rank:\n\n$$p = 7.7,\\ 15.4,\\ 23.1,\\ 30.8,\\ 38.5,\\ 46.2,\\ 53.8,\\ 61.5,\\ 69.2,\\ 76.9,\\ 84.6,\\ 92.3\\ \\ (\\%)$$"
+          },
+          "why": {
+            "tr": "N yerine N+1 kullanmanın nedeni istatistikte bilinen bir düzeltmedir: N kullansaydık en büyük değer (m=1) için p=100/12≈8,3 doğru olurdu ama en küçük değer (m=N=12) için p=100/12·12=%100 çıkardı — bu, \"bu değer HER ZAMAN aşılıyor\" demek olur ki mantıksızdır (kendisi zaten en küçük). N+1 bu uç durumu düzeltir.",
+            "en": "Using N+1 instead of N is a known statistical correction: if we used N, the largest value (m=1) would still work, but the smallest value (m=N=12) would give p=100/12·12=100% — meaning \"this value is ALWAYS exceeded,\" which is nonsensical (it's the smallest value itself). N+1 fixes this edge case."
+          },
+          "result": "p = \\frac{m}{13}\\cdot 100\\ (\\%)",
+          "check": {
+            "q": {
+              "tr": "12 aylık veride m=6 (6. sıradaki değer) için p kaçtır?",
+              "en": "For 12 months of data, what is p for m=6 (the 6th-ranked value)?"
+            },
+            "options": [
+              {
+                "tr": "p = 6/12·100 = %50",
+                "en": "p = 6/12·100 = 50%"
+              },
+              {
+                "tr": "p = 6/13·100 = %46,2",
+                "en": "p = 6/13·100 = 46.2%"
+              },
+              {
+                "tr": "p = 6/11·100 = %54,5",
+                "en": "p = 6/11·100 = 54.5%"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Weibull formülü $p=m/(N+1)$; $N=12$ olduğundan payda $N+1=13$'tür → $p=6/13\\cdot100=\\%46{,}2$. Payda olarak N (%50) ya da N−1 (%54,5) kullanmak yanlış formüldür.",
+              "en": "The Weibull formula is $p=m/(N+1)$; with $N=12$ the denominator is $N+1=13$ → $p=6/13\\cdot100=46.2\\%$. Using N (50%) or N−1 (54.5%) as the denominator applies the wrong formula."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Süreklilik eğrisini çiz",
+            "en": "Draw the duration curve"
+          },
+          "guiding": {
+            "tr": "Şimdi Q ve p çiftlerini nasıl eksenlere yerleştirirsin?",
+            "en": "Now how do you place the Q and p pairs on axes?"
+          },
+          "hint": {
+            "tr": "p yatay eksende (%), Q düşey eksende (m³/sn) — büyük p'de küçük Q, azalan bir eğri.",
+            "en": "p on the horizontal axis (%), Q on the vertical (m³/s) — a decreasing curve: large p gives small Q."
+          },
+          "work": {
+            "tr": "12 nokta $(p,Q)$ olarak işaretlenir: (7,7; 205), (15,4; 150), ..., (92,3; 26). Eğri, düşük p'de (nadir, yüksek debiler) dik başlar, yüksek p'ye (sık görülen, düşük debiler) doğru yatıklaşarak azalır.",
+            "en": "12 points are plotted as $(p,Q)$: (7.7, 205), (15.4, 150), ..., (92.3, 26). The curve starts steep at low p (rare, high discharges) and flattens as it decreases toward high p (frequent, low discharges)."
+          },
+          "why": {
+            "tr": "Eksenlerin doğru yönde olması kritik: p ne kadar büyükse (daha fazla zaman aşılıyorsa) Q o kadar küçük olmalı — çünkü sadece kalıcı, düşük debiler yılın büyük kısmında \"her zaman\" mevcuttur. Eksenleri ters çizersen eğri artan çıkar, bu bir işaret hatasıdır.",
+            "en": "Getting the axis directions right is critical: the larger p is (the more of the time it's exceeded), the smaller Q must be — because only persistent, low discharges are \"always\" available for most of the year. Drawing the axes backwards gives an increasing curve, a clear error signal."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "\"X ayında mevcut debi\" sorularını çöz",
+            "en": "Solve the \"discharge available for X months\" questions"
+          },
+          "guiding": {
+            "tr": "\"Yılın 2 ayında mevcut debi\" ifadesini olasılığa nasıl çevirirsin?",
+            "en": "How do you convert \"the discharge available for 2 months of the year\" into a probability?"
+          },
+          "hint": {
+            "tr": "\"X ay mevcut\" = $p = X/12$ (yılın X/12'si). Bu p'ye karşılık gelen Q'yu eğriden oku.",
+            "en": "\"Available for X months\" = $p = X/12$ (X/12 of the year). Read the Q corresponding to that p off the curve."
+          },
+          "work": {
+            "tr": "**2 ay:** $p = 2/12 = \\%16{,}7$. Eğriden bu p'ye karşılık gelen $Q \\approx 138$ m³/sn okunur.\n\n**6 ay:** $p = 6/12 = \\%50$. Eğriden bu p'ye karşılık gelen $Q \\approx 53$ m³/sn okunur.",
+            "en": "**2 months:** $p = 2/12 = 16.7\\%$. Reading the curve at this p gives $Q \\approx 138$ m³/s.\n\n**6 months:** $p = 6/12 = 50\\%$. Reading the curve at this p gives $Q \\approx 53$ m³/s."
+          },
+          "why": {
+            "tr": "\"X ayında mevcut\" ile \"X gününde mevcut\" farklı birimlerdir — burada 12 aylık bir yıl kesri kullanılıyor (X/12), gün sorularında ise 365 günlük kesir (bir sonraki adımda). İkisini karıştırmak (X/365 yazmak burada) yanlış p verir.",
+            "en": "\"Available for X months\" and \"available for X days\" use different units — here a fraction of the 12-month year is used (X/12), while day questions (next step) use a fraction of 365 days. Mixing them up (writing X/365 here) gives the wrong p."
+          },
+          "result": "Q(2\\ \\text{ay}) \\approx 138\\ \\text{m}^3/\\text{sn},\\quad Q(6\\ \\text{ay}) \\approx 53\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "\"X m³/sn kaç günde mevcut\" sorularını çöz",
+            "en": "Solve the \"how many days is X m³/s available\" questions"
+          },
+          "guiding": {
+            "tr": "Bu kez ters yönde gidiyorsun: bir Q veriliyor, gün sayısı isteniyor. Sıra ne?",
+            "en": "This time you go the other direction: a Q is given, day count is wanted. What's the order?"
+          },
+          "hint": {
+            "tr": "Önce eğriden Q'ya karşılık gelen p'yi oku, sonra $gün = p \\cdot 365$.",
+            "en": "First read the p corresponding to Q off the curve, then $days = p \\cdot 365$."
+          },
+          "work": {
+            "tr": "**175 m³/sn:** eğriden $p \\approx \\%11{,}5$ okunur → gün $= 0{,}115\\cdot365 \\approx 42$ gün.\n\n**100 m³/sn:** eğriden $p \\approx \\%25$ okunur → gün $= 0{,}25\\cdot365 \\approx 91$ gün.\n\nBu, \"175 m³/sn ya da daha büyük bir debi yılda yaklaşık 42 gün görülür\" anlamına gelir.",
+            "en": "**175 m³/s:** the curve gives $p \\approx 11.5\\%$ → days $= 0.115\\cdot365 \\approx 42$ days.\n\n**100 m³/s:** the curve gives $p \\approx 25\\%$ → days $= 0.25\\cdot365 \\approx 91$ days.\n\nThis means \"a discharge of 175 m³/s or larger is seen for about 42 days a year.\""
+          },
+          "why": {
+            "tr": "Süreklilik eğrisinin p ekseni her zaman \"bu debi VEYA DAHA BÜYÜĞÜ\" anlamına gelir — \"tam olarak bu debi\" değil. 175 m³/sn'nin 42 günde mevcut olması, o günlerde debinin 175'in üzerinde de olabileceği anlamına gelir. Bu ayrım kavramsal sorularda (quiz'de) sık test edilir.",
+            "en": "The duration curve's p axis always means \"this discharge OR LARGER\" — not \"exactly this discharge.\" 175 m³/s being available for 42 days means the discharge could be even higher than 175 on some of those days. This distinction is frequently tested in conceptual (quiz) questions."
+          },
+          "result": "175\\ \\text{m}^3/\\text{sn} \\approx 42\\ \\text{gün},\\quad 100\\ \\text{m}^3/\\text{sn} \\approx 91\\ \\text{gün}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "$Q(2\\ \\text{ay}) \\approx 138$ m³/sn; $Q(6\\ \\text{ay}) \\approx 53$ m³/sn.\n\n$\\boxed{175\\ \\text{m}^3/\\text{sn} \\approx 42\\ \\text{gün}}$; $\\boxed{100\\ \\text{m}^3/\\text{sn} \\approx 91\\ \\text{gün}}$.",
+        "en": "$Q(2\\ \\text{months}) \\approx 138$ m³/s; $Q(6\\ \\text{months}) \\approx 53$ m³/s.\n\n$\\boxed{175\\ \\text{m}^3/\\text{s} \\approx 42\\ \\text{days}}$; $\\boxed{100\\ \\text{m}^3/\\text{s} \\approx 91\\ \\text{days}}$."
+      },
+      "traps": [
+        {
+          "tr": "Weibull formülünde N yerine N+1 kullanmayı unutmak — 12 aylık veride payda 13'tür, 12 değil.",
+          "en": "Forgetting to use N+1 instead of N in the Weibull formula — with 12 months of data, the denominator is 13, not 12."
+        },
+        {
+          "tr": "\"X ayında mevcut\" (p=X/12) ile \"X gününde mevcut\" (gün=p·365) sorularını karıştırmak — biri p'yi ay biriminden hesaplıyor, diğeri p'den gün hesaplıyor; yön ters.",
+          "en": "Confusing \"available for X months\" (p=X/12) with \"available for X days\" (days=p·365) — one computes p FROM months, the other computes days FROM p; the direction is reversed."
+        },
+        {
+          "tr": "Aylık verileri ZAMAN sırasıyla (Ekim→Eylül) grafiğe geçirmek — süreklilik eğrisi her zaman BÜYÜKLÜK sırasına göre çizilir.",
+          "en": "Plotting the monthly data in TIME order (Oct→Sep) — the duration curve is always drawn in MAGNITUDE order."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yılın %90'ında (p=90) mevcut olan garanti (kesintisiz) debi soruluyorsa?",
+            "en": "What if the question asked for the firm (uninterrupted) flow available 90% of the year (p=90)?"
+          },
+          "answer": {
+            "tr": "Eğriden p=%90'a karşılık gelen Q okunur; tablodaki en yakın nokta p=%84,6 (Q=30) ile p=%92,3 (Q=26) arasında kalır — interpolasyonla $Q \\approx 27$ m³/sn bulunur. Bu tür yüksek-p okumaları özellikle kuraklık tasarımında (\"garanti debi\") kullanılır — düşük p'ler nadir taşkınları, yüksek p'ler güvenilir minimum akışları temsil eder.",
+            "en": "Reading the curve at p=90% falls between the table's nearest points p=84.6% (Q=30) and p=92.3% (Q=26) — interpolating gives $Q \\approx 27$ m³/s. Such high-p readings are used specifically in drought design (\"firm flow\") — low p represents rare floods, high p represents reliable minimum flows."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya kayıtlara bir kurak yıl daha eklenseydi (12 ay yerine 24 ay veri)?",
+            "en": "What if one more dry year were added to the record (24 months of data instead of 12)?"
+          },
+          "answer": {
+            "tr": "N=24 olur, Weibull paydası 25'e çıkar; sıralanmış 24 değerin en düşükleri (kurak yılın ayları) eğrinin yüksek-p ucuna eklenir. Eğrinin düşük-p (yüksek debi) tarafı pek değişmez ama yüksek-p (kurak, düşük debi) kuyruğu daha da düşer ve uzar — bu, kuraklık tasarımında neden UZUN kayıtların önemli olduğunu gösterir: tek yıllık veri kuyruğu yeterince temsil etmez.",
+            "en": "N=24, the Weibull denominator becomes 25; the lowest of the sorted 24 values (the dry year's months) get added to the high-p end of the curve. The low-p (high-flow) side barely changes, but the high-p (dry, low-flow) tail drops further and stretches out — showing why LONG records matter in drought design: a single year's data doesn't represent the tail well enough."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5-8",
+      "code": "Uygulama 5.8",
+      "title": {
+        "tr": "Toplam debi çizgisi ile hazne hacmi",
+        "en": "Reservoir sizing with the mass curve"
+      },
+      "difficulty": 3,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "Bir akarsu kesitinde ölçülen aylık ortalama debiler (Qort, m³/sn) aşağıda verilmiştir. Toplam debi çizgisini çizerek, yıl boyunca ortalama debiye eşit debi sağlayacak minimum hazne hacmini hesaplayınız.",
+        "en": "The monthly average discharges (Qavg, m³/s) measured at a river cross-section are given below. Draw the mass curve and compute the minimum reservoir volume needed to continuously supply the annual mean discharge throughout the year."
+      },
+      "given": [
+        {
+          "symbol": "N",
+          "value": "12\\ \\text{ay}",
+          "label": {
+            "tr": "Su yılı ay sayısı",
+            "en": "Number of months in the water year"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Aylık debileri kümülatif hacme çevirmek, ortalama debi (talep) doğrusunu çizmek, iki paralel teğet arasındaki düşey mesafeden gereken hazne hacmini bulmak.",
+        "en": "Convert monthly discharges to cumulative volume, draw the mean-discharge (demand) line, and find the required reservoir volume from the vertical gap between two parallel tangents."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Aylık ortalama debiler ve kümülatif hacim",
+            "en": "Monthly average discharges and cumulative volume"
+          },
+          "headers": [
+            "Ay",
+            "Ekim",
+            "Kasım",
+            "Aralık",
+            "Ocak",
+            "Şubat",
+            "Mart",
+            "Nisan",
+            "Mayıs",
+            "Haziran",
+            "Temmuz",
+            "Ağustos",
+            "Eylül"
+          ],
+          "rows": [
+            [
+              "Qort (m³/sn)",
+              "11,07",
+              "14,92",
+              "18,82",
+              "26,65",
+              "33,46",
+              "43,10",
+              "28,78",
+              "43,23",
+              "13,44",
+              "5,60",
+              "8,33",
+              "7,02"
+            ],
+            [
+              "V (10⁶ m³)",
+              "29,7",
+              "38,7",
+              "50,4",
+              "71,4",
+              "81,0",
+              "115,4",
+              "74,6",
+              "115,8",
+              "34,8",
+              "15,0",
+              "22,3",
+              "18,2"
+            ],
+            [
+              "ΣV (10⁶ m³)",
+              "29,7",
+              "68,4",
+              "118,8",
+              "190,2",
+              "271,2",
+              "386,6",
+              "461,2",
+              "577,0",
+              "611,8",
+              "626,8",
+              "649,1",
+              "667,3"
+            ]
+          ]
+        }
+      ],
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Toplam debi çizgisi",
+          "en": "Mass curve"
+        },
+        "xLabel": "Ay (su yılı)",
+        "yLabel": "ΣV (10⁶ m³)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "ΣV",
+            "kind": "line",
+            "points": [
+              [
+                1,
+                29.7
+              ],
+              [
+                2,
+                68.4
+              ],
+              [
+                3,
+                118.8
+              ],
+              [
+                4,
+                190.2
+              ],
+              [
+                5,
+                271.2
+              ],
+              [
+                6,
+                386.6
+              ],
+              [
+                7,
+                461.2
+              ],
+              [
+                8,
+                577.0
+              ],
+              [
+                9,
+                611.8
+              ],
+              [
+                10,
+                626.8
+              ],
+              [
+                11,
+                649.1
+              ],
+              [
+                12,
+                667.3
+              ]
+            ]
+          },
+          {
+            "name": "Ortalama debi doğrusu",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                12,
+                667.3
+              ]
+            ]
+          }
+        ],
+        "annotations": []
+      },
+      "steps": [
+        {
+          "title": {
+            "tr": "Aylık debiyi aylık hacme çevir",
+            "en": "Convert monthly discharge to monthly volume"
+          },
+          "guiding": {
+            "tr": "Her ayın Qort'u (m³/sn) o aydaki toplam hacme (m³) nasıl çevrilir? Her ayın gün sayısına dikkat!",
+            "en": "How do you convert each month's Qavg (m³/s) into that month's total volume (m³)? Watch each month's day count!"
+          },
+          "hint": {
+            "tr": "$V = Q \\cdot (\\text{gün sayısı}) \\cdot 86\\,400$. Ekim 31, Kasım 30, Aralık 31, Ocak 31, Şubat 28, Mart 31, Nisan 30, Mayıs 31, Haziran 30, Temmuz 31, Ağustos 31, Eylül 30 gün.",
+            "en": "$V = Q \\cdot (\\text{number of days}) \\cdot 86{,}400$. Oct 31, Nov 30, Dec 31, Jan 31, Feb 28, Mar 31, Apr 30, May 31, Jun 30, Jul 31, Aug 31, Sep 30 days."
+          },
+          "work": {
+            "tr": "Örnek, Ekim: $Q=11{,}07$ m³/sn, 31 gün.\n\n$$V_{Ekim} = 11{,}07 \\cdot 31 \\cdot 86\\,400 = 29\\,649\\,888\\ \\text{m}^3 \\approx 29{,}7 \\cdot 10^6\\ \\text{m}^3$$\n\nAynı yöntemle tüm aylar (10⁶ m³ cinsinden):\n\n$$V = 29{,}7;\\ 38{,}7;\\ 50{,}4;\\ 71{,}4;\\ 81{,}0;\\ 115{,}4;\\ 74{,}6;\\ 115{,}8;\\ 34{,}8;\\ 15{,}0;\\ 22{,}3;\\ 18{,}2$$",
+            "en": "Example, October: $Q=11.07$ m³/s, 31 days.\n\n$$V_{Oct} = 11.07 \\cdot 31 \\cdot 86{,}400 = 29{,}649{,}888\\ \\text{m}^3 \\approx 29.7 \\cdot 10^6\\ \\text{m}^3$$\n\nWith the same method for every month (in 10⁶ m³):\n\n$$V = 29.7,\\ 38.7,\\ 50.4,\\ 71.4,\\ 81.0,\\ 115.4,\\ 74.6,\\ 115.8,\\ 34.8,\\ 15.0,\\ 22.3,\\ 18.2$$"
+          },
+          "why": {
+            "tr": "Bu adımın gizli tuzağı: her ay AYNI gün sayısına sahip değildir (28, 30, 31 karışık). Hepsine sabit 30 gün uygulamak her ayın hacmini biraz kaydırır ve kümülatif eğri birikimli olarak saparak yanlış bir hazne hacmi verir. Su yılı Ekim'de başlar (Kasım, Nisan, Haziran, Eylül = 30 gün; Şubat = 28 gün; diğerleri 31 gün).",
+            "en": "The hidden trap here: not every month has the SAME day count (a mix of 28, 30, 31). Applying a fixed 30 days to all of them skews each month's volume slightly, and the cumulative curve drifts further off, giving a wrong reservoir volume. The water year starts in October (Nov, Apr, Jun, Sep = 30 days; Feb = 28 days; the rest = 31 days)."
+          },
+          "result": "V_{Ekim} \\approx 29{,}7 \\cdot 10^6\\ \\text{m}^3\\ (\\text{ve diğer aylar})",
+          "check": {
+            "q": {
+              "tr": "Şubat ayı için gün sayısı olarak hangisi doğrudur?",
+              "en": "What is the correct day count for February?"
+            },
+            "options": [
+              {
+                "tr": "30 gün",
+                "en": "30 days"
+              },
+              {
+                "tr": "28 gün",
+                "en": "28 days"
+              },
+              {
+                "tr": "31 gün",
+                "en": "31 days"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Şubat 28 gün çeker (artık yıl değilse). Her ayın gün sayısını takvimden değil sorunun \"su yılı\" bağlamından da doğrula — 30 gün varsaymak burada 2 günlük bir hacim hatası yaratır.",
+              "en": "February has 28 days (in a non-leap year). Verify each month's day count against the calendar, not just habit — assuming 30 days here creates a 2-day volume error."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Kümülatif hacmi biriktir",
+            "en": "Accumulate the cumulative volume"
+          },
+          "guiding": {
+            "tr": "Toplam debi çizgisi bireysel aylık hacimlerle değil, BİRİKEN toplamla çizilir. Nasıl biriktirirsin?",
+            "en": "The mass curve is drawn with the ACCUMULATED total, not individual monthly volumes. How do you accumulate them?"
+          },
+          "hint": {
+            "tr": "Her ay için, o ana kadarki tüm önceki hacimleri topla: $\\Sigma V_k = \\Sigma V_{k-1} + V_k$.",
+            "en": "For each month, add up all the volumes so far: $\\Sigma V_k = \\Sigma V_{k-1} + V_k$."
+          },
+          "work": {
+            "tr": "$\\Sigma V_{Ekim} = 29{,}7$; $\\Sigma V_{Kasım} = 29{,}7+38{,}7=68{,}4$; $\\Sigma V_{Aralık}=68{,}4+50{,}4=118{,}8$ ... son ay (Eylül) tüm yılın toplamını verir:\n\n$$\\Sigma V = 29{,}7;\\ 68{,}4;\\ 118{,}8;\\ 190{,}2;\\ 271{,}2;\\ 386{,}6;\\ 461{,}2;\\ 577{,}0;\\ 611{,}8;\\ 626{,}8;\\ 649{,}1;\\ 667{,}3\\ (10^6\\ \\text{m}^3)$$",
+            "en": "$\\Sigma V_{Oct} = 29.7$; $\\Sigma V_{Nov} = 29.7+38.7=68.4$; $\\Sigma V_{Dec}=68.4+50.4=118.8$ ... the last month (September) gives the whole year's total:\n\n$$\\Sigma V = 29.7,\\ 68.4,\\ 118.8,\\ 190.2,\\ 271.2,\\ 386.6,\\ 461.2,\\ 577.0,\\ 611.8,\\ 626.8,\\ 649.1,\\ 667.3\\ (10^6\\ \\text{m}^3)$$"
+          },
+          "why": {
+            "tr": "Kümülatif eğri, akan suyun toplam MİKTARINI zamana göre gösterir — eğim, o andaki debiye eşittir (debi yüksekken eğri dik, düşükken yatık). Bu eğri asla azalamaz (her ay pozitif hacim ekler), sadece eğimi değişir. Kümülatif çizmeyip aylık hacimleri doğrudan çizmek, teğet mantığını çalışmaz hale getirir.",
+            "en": "The cumulative curve shows the total AMOUNT of water that has flowed by over time — its slope equals the discharge at that moment (steep when discharge is high, flat when low). This curve can never decrease (each month adds a positive volume), only its slope changes. Plotting monthly volumes directly instead of cumulating breaks the whole tangent-line logic."
+          },
+          "result": "\\Sigma V_{Eylül} = 667{,}3 \\cdot 10^6\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Talep (ortalama debi) doğrusunu çiz",
+            "en": "Draw the demand (mean-discharge) line"
+          },
+          "guiding": {
+            "tr": "Rezervuar yıl boyunca sabit bir debi vermeli. Bu sabit talep, toplam debi çizgisinde nasıl bir doğruya karşılık gelir?",
+            "en": "The reservoir must supply a constant discharge all year. What line on the mass curve represents this constant demand?"
+          },
+          "hint": {
+            "tr": "Sabit debi = sabit eğim = başlangıç (0,0) ile bitiş (12, 667,3) noktalarını birleştiren düz çizgi.",
+            "en": "Constant discharge = constant slope = the straight line joining the start (0,0) and end (12, 667.3) points."
+          },
+          "work": {
+            "tr": "Talep, yılın tamamı boyunca sabit bir debi olduğundan (ortalama debiye eşit), toplam debi çizgisinin başlangıç ve bitiş noktalarını birleştiren düz bir çizgidir. Bu çizginin eğimi ortalama debiyi verir:\n\n$$Q_{ort} = \\frac{667{,}3\\times10^6\\ \\text{m}^3}{365 \\cdot 86\\,400\\ \\text{sn}} = \\frac{667{,}3\\times10^6}{31\\,536\\,000} \\approx 21{,}16\\ \\text{m}^3/\\text{sn}$$\n\n(Aylık ortalamaların basit ortalamasıyla da yaklaşık aynı sonuç çıkar.) Bu doğru, (0,0)'dan başlayıp (12, 667,3)'te biter.",
+            "en": "Since demand is a constant discharge throughout the year (equal to the mean discharge), it is the straight line joining the mass curve's start and end points. This line's slope gives the mean discharge:\n\n$$Q_{avg} = \\frac{667.3\\times10^6\\ \\text{m}^3}{365 \\cdot 86{,}400\\ \\text{s}} = \\frac{667.3\\times10^6}{31{,}536{,}000} \\approx 21.16\\ \\text{m}^3/\\text{s}$$\n\n(A simple average of the monthly means gives about the same result.) This line starts at (0,0) and ends at (12, 667.3)."
+          },
+          "why": {
+            "tr": "Bir doğrunun eğimi = o doğrunun temsil ettiği debi. Talep sabit olduğu için talep doğrusunun eğimi de sabit olmalı — bu da onu başlangıç-bitiş noktalarını birleştiren TEK bir düz çizgi yapar. Eğer talep mevsimsel değişseydi (yaz daha fazla su gerektiriyorsa), bu doğru kırılırdı; burada \"ortalamaya eşit debi\" istendiği için tek düz çizgi yeterlidir.",
+            "en": "A line's slope = the discharge it represents. Since demand is constant, the demand line's slope must also be constant — which makes it a SINGLE straight line joining the start and end points. If demand varied seasonally (e.g. more water needed in summer), this line would bend; here, since \"discharge equal to the mean\" is asked for, a single straight line suffices."
+          },
+          "result": "Q_{ort} \\approx 21{,}16\\ \\text{m}^3/\\text{sn}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "İki paralel teğeti çiz",
+            "en": "Draw the two parallel tangents"
+          },
+          "guiding": {
+            "tr": "Rezervuar, debinin talebin altına düştüğü dönemlerde (kuraklık) suyu depodan vermeli. Bunu görsel olarak nasıl bulursun?",
+            "en": "During periods when discharge falls below demand (drought), the reservoir must supply water from storage. How do you find this visually?"
+          },
+          "hint": {
+            "tr": "Talep doğrusuna paralel iki çizgi, biri kümülatif eğrinin en yukarıdaki tepe noktasına, biri en aşağıdaki çukur noktasına teğet olacak şekilde kaydırılır.",
+            "en": "Two lines parallel to the demand line are shifted — one tangent to the cumulative curve's highest peak, one tangent to its lowest trough."
+          },
+          "work": {
+            "tr": "Talep doğrusunun eğimiyle aynı eğimde iki paralel çizgi çizilir: biri toplam debi çizgisinin ÜST tarafından (yüksek debili dönem, örn. 8. ay civarı, ΣV=577,0), biri ALT tarafından (düşük debili dönem başlangıcı) teğet geçecek şekilde kaydırılır. Bu iki çizginin arasındaki DÜŞEY mesafe, rezervuarın kuraklık döneminde talebi karşılamak için tutması gereken suyu temsil eder.",
+            "en": "Two lines with the same slope as the demand line are drawn: one tangent to the mass curve's UPPER side (a high-flow period, e.g. around month 8, ΣV=577.0), one tangent to its LOWER side (the start of a low-flow stretch). The VERTICAL distance between these two lines represents the water the reservoir must hold to meet demand through the drought period."
+          },
+          "why": {
+            "tr": "Bu, sorunun kavramsal kalbidir: teğet noktaları, kümülatif eğrinin talep doğrusundan en çok SAPTIĞI yerlerdir — üstteki teğet \"rezervuar en dolu\" anını, alttaki \"en boş\" anını temsil eder. Aradaki fark, iki uç arasında talebi kesintisiz karşılamak için gereken minimum kapasitedir.",
+            "en": "This is the conceptual heart of the question: the tangent points are where the cumulative curve DEVIATES most from the demand line — the upper tangent represents the moment \"the reservoir is fullest,\" the lower one \"emptiest.\" The gap between them is the minimum capacity needed to meet demand continuously between those two extremes."
+          },
+          "result": null,
+          "check": {
+            "q": {
+              "tr": "İki paralel teğet arasındaki mesafe nasıl ölçülür?",
+              "en": "How is the distance between the two parallel tangents measured?"
+            },
+            "options": [
+              {
+                "tr": "Düşey (dikey) olarak",
+                "en": "Vertically"
+              },
+              {
+                "tr": "Teğetlere dik olarak (en kısa mesafe)",
+                "en": "Perpendicular to the tangents (shortest distance)"
+              },
+              {
+                "tr": "Yatay olarak",
+                "en": "Horizontally"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Düşey eksen (ΣV) hacmi temsil ettiği için, hazne hacmi iki teğet arasındaki DÜŞEY mesafe olarak okunur — bu doğrudan milyon m³ birimindedir. Dik mesafe ya da yatay mesafe farklı (ve yanlış) bir büyüklük verir.",
+              "en": "Since the vertical axis (ΣV) represents volume, the reservoir storage is read as the VERTICAL distance between the two tangents — this is directly in million m³. A perpendicular or horizontal distance would give a different (and wrong) quantity."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Hazne hacmini oku",
+            "en": "Read off the reservoir volume"
+          },
+          "guiding": {
+            "tr": "Şekilden okunan düşey mesafe kaç milyon m³?",
+            "en": "What is the vertical distance read from the figure, in million m³?"
+          },
+          "hint": {
+            "tr": "Üst teğetin geçtiği ΣV değeri ile alt teğetin geçtiği ΣV değerinin farkını al.",
+            "en": "Take the difference between the ΣV value the upper tangent passes through and the one the lower tangent passes through."
+          },
+          "work": {
+            "tr": "Şekilden, üst teğet 577 (10⁶ m³) civarından, alt teğet 400 (10⁶ m³) civarından geçecek şekilde okunmuştur:\n\n$$V_{hazne} = 577-400 = 177 \\cdot 10^6\\ \\text{m}^3 \\approx 1{,}8 \\cdot 10^8\\ \\text{m}^3$$",
+            "en": "From the figure, the upper tangent passes near 577 (10⁶ m³), the lower tangent near 400 (10⁶ m³):\n\n$$V_{storage} = 577-400 = 177 \\cdot 10^6\\ \\text{m}^3 \\approx 1.8 \\cdot 10^8\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Bu sonuç, elle çizilen bir grafikten OKUNUR — kesin bir formülle hesaplanmaz. Sınavda istenen, teğetleri doğru yerleştirip mesafeyi doğru okuma becerisidir; \"177\" sayısının kendisini ezberlemek yerine YÖNTEMİ (paralel teğet + düşey fark) anlamak asıl beceridir.",
+            "en": "This result is READ off a hand-drawn graph — it isn't computed from a closed formula. What the exam wants is the skill of placing the tangents correctly and reading the gap accurately; the real skill is understanding the METHOD (parallel tangents + vertical difference), not memorizing the number \"177\" itself."
+          },
+          "result": "V_{hazne} \\approx 177 \\cdot 10^6\\ \\text{m}^3",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "Ortalama debi (talep): $Q_{ort} \\approx 21{,}16$ m³/sn. Toplam debi çizgisine talep eğiminde çizilen iki paralel teğet arasındaki düşey mesafeden:\n\n$$\\boxed{V_{hazne} \\approx 177 \\cdot 10^6\\ \\text{m}^3 \\approx 1{,}8 \\cdot 10^8\\ \\text{m}^3}$$",
+        "en": "Mean discharge (demand): $Q_{avg} \\approx 21.16$ m³/s. From the vertical gap between two tangents drawn parallel to the demand slope on the mass curve:\n\n$$\\boxed{V_{storage} \\approx 177 \\cdot 10^6\\ \\text{m}^3 \\approx 1.8 \\cdot 10^8\\ \\text{m}^3}$$"
+      },
+      "traps": [
+        {
+          "tr": "Ay uzunlukları farklıdır (28, 30, 31 gün) — hepsine sabit 30 gün uygulamak kümülatif eğriyi kaydırır ve hazne hacmi hesabını bozar.",
+          "en": "Month lengths differ (28, 30, 31 days) — applying a fixed 30 days to all of them shifts the cumulative curve and distorts the storage calculation."
+        },
+        {
+          "tr": "Hazne hacmi mesafesi DÜŞEY okunur, teğetler arasındaki en kısa (dik) mesafe değil.",
+          "en": "The storage gap is read VERTICALLY, not as the shortest (perpendicular) distance between the tangents."
+        },
+        {
+          "tr": "Talep doğrusunun eğimi = ortalama debi. Yanlış bir eğim (örneğin medyan debi ya da rastgele bir ay ortalaması) kullanmak, teğetlerin tamamen yanlış yerde teğet olmasına yol açar.",
+          "en": "The demand line's slope = the mean discharge. Using the wrong slope (e.g. median discharge or some random month's average) makes the tangents touch at entirely the wrong points."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya talep 15 m³/sn olsaydı (ortalamadan az)?",
+            "en": "What if demand were 15 m³/s (less than the mean)?"
+          },
+          "answer": {
+            "tr": "Talep doğrusunun eğimi düşer (daha yatık bir çizgi), bu da toplam debi çizgisinden daha az sapmasına ve dolayısıyla daha KÜÇÜK bir hazne hacmine yol açar — çünkü rezervuarın karşılaması gereken talep, akışın doğal dalgalanmalarının çoğunu zaten aşıyor. Bu, hazne boyutunun talep seviyesine ne kadar duyarlı olduğunu gösterir.",
+            "en": "The demand line's slope decreases (a flatter line), which deviates less from the mass curve and gives a SMALLER required storage — because a lower demand is already covered by most of the flow's natural fluctuations. This shows how sensitive reservoir size is to the chosen demand level."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya arka arkaya iki kurak yıl olsaydı?",
+            "en": "What if two dry years occurred back-to-back?"
+          },
+          "answer": {
+            "tr": "24 aylık bir kayıt üzerinde kümülatif eğri çizilir; iki kurak yılın üst üste gelmesi, tek yıllık analizde görünmeyen daha uzun ve derin bir çukur yaratabilir. Teğetler arasındaki mesafe TEK yıllık analizdeki 177 milyon m³'ü aşabilir — bu yüzden gerçek rezervuar tasarımında uzun (çok yıllık) kayıtlar kullanılır, tek bir yıl yetersiz kalabilir.",
+            "en": "The cumulative curve is drawn over a 24-month record; two consecutive dry years can create a longer, deeper trough than a single-year analysis would ever show. The gap between tangents can exceed the single-year 177 million m³ — this is why real reservoir design uses long (multi-year) records; a single year can understate the requirement."
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": {
+        "tr": "Muline hız formülü $v=a+bn$'de n hangi birimdedir?",
+        "en": "In the current-meter formula $v=a+bn$, what unit is n in?"
+      },
+      "options": [
+        {
+          "tr": "Dakikadaki devir sayısı",
+          "en": "Revolutions per minute"
+        },
+        {
+          "tr": "Saniyedeki devir sayısı",
+          "en": "Revolutions per second"
+        },
+        {
+          "tr": "Ölçüm süresi boyunca toplam devir sayısı",
+          "en": "Total revolutions over the whole measurement period"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Ders kuralı gereği n her zaman DAKİKADAKİ devir sayısıdır. Ölçüm 1 dakikadan farklı bir sürede yapıldıysa (2 dakika, 45 saniye, 70 saniye...) ham devir sayısını mutlaka dakikaya normalize etmen gerekir. Saniyedeki devir ya da toplam ham sayı doğrudan kullanılırsa hız hesabı tamamen yanlış çıkar.",
+        "en": "By course convention, n is always revolutions PER MINUTE. If the measurement lasted something other than 1 minute (2 minutes, 45 seconds, 70 seconds...) you must normalize the raw count to per-minute. Using revolutions per second or the raw total count directly gives a completely wrong velocity."
+      }
+    },
+    {
+      "q": {
+        "tr": "Bir dilimin ortalama derinliği 0,4 m ise, hız nasıl ölçülür?",
+        "en": "If a slice's mean depth is 0.4 m, how is velocity measured?"
+      },
+      "options": [
+        {
+          "tr": "Sadece 0,6h seviyesinden tek ölçümle",
+          "en": "With a single reading at the 0.6h level only"
+        },
+        {
+          "tr": "0,2h ve 0,8h seviyelerinin ortalamasıyla",
+          "en": "With the average of the 0.2h and 0.8h levels"
+        },
+        {
+          "tr": "Yüzeyden tek ölçümle",
+          "en": "With a single reading at the surface"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "0,4 m, 0,5 m eşiğinin altında olduğundan sığ-dilim kuralı geçerlidir: tek ölçüm 0,6h seviyesinden yapılır. İki noktalı (0,2h+0,8h) ortalama kuralı sadece ortalama derinlik 0,5 m'yi AŞTIĞINDA kullanılır. Yüzeyden ölçüm hiçbir zaman standart yöntem değildir.",
+        "en": "Since 0.4 m is below the 0.5 m threshold, the shallow-slice rule applies: a single reading at the 0.6h level. The two-point (0.2h+0.8h) average rule is used only when the mean depth EXCEEDS 0.5 m. Measuring at the surface is never the standard method."
+      }
+    },
+    {
+      "q": {
+        "tr": "Anahtar eğrisinde $Q=K$ tam olarak ne zaman gerçekleşir?",
+        "en": "On a rating curve, exactly when does $Q=K$ hold?"
+      },
+      "options": [
+        {
+          "tr": "$h=h_0$ olduğunda",
+          "en": "When $h=h_0$"
+        },
+        {
+          "tr": "$h-h_0=1$ olduğunda",
+          "en": "When $h-h_0=1$"
+        },
+        {
+          "tr": "$h=1$ olduğunda (h₀'dan bağımsız)",
+          "en": "When $h=1$ (independent of h₀)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$Q=K(h-h_0)^n$; $(h-h_0)=1$ olduğunda üs n ne olursa olsun $1^n=1$'dir, dolayısıyla $Q=K$. $h=h_0$ ise $Q=0$ verir (sıfır-akış seviyesi); $h=1$ ise h₀ sıfır olmadıkça bu koşulu sağlamaz. Bu kısayol, K veya h₀'dan biri verildiğinde diğerini bulmak için kullanılır.",
+        "en": "$Q=K(h-h_0)^n$; when $(h-h_0)=1$, the exponent doesn't matter since $1^n=1$, so $Q=K$. At $h=h_0$, $Q=0$ (the zero-flow stage); $h=1$ only satisfies this if h₀ happens to be zero. This shortcut is used to find whichever of K or h₀ isn't given."
+      }
+    },
+    {
+      "q": {
+        "tr": "12 değerlik bir seride 3. sıradaki (m=3) debinin aşılma olasılığı (Weibull) nedir?",
+        "en": "In a 12-value series, what is the exceedance probability (Weibull) of the rank-3 (m=3) discharge?"
+      },
+      "options": [
+        {
+          "tr": "3/12 = %25",
+          "en": "3/12 = 25%"
+        },
+        {
+          "tr": "3/13 ≈ %23,1",
+          "en": "3/13 ≈ 23.1%"
+        },
+        {
+          "tr": "3/11 ≈ %27,3",
+          "en": "3/11 ≈ 27.3%"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Weibull formülü $p=m/(N+1)$; $N=12$ olduğundan payda $13$'tür → $p=3/13\\approx\\%23{,}1$. N (%25) ya da N−1 (%27,3) ile bölmek yanlış formüldür — payda daima N+1'dir.",
+        "en": "The Weibull formula is $p=m/(N+1)$; with $N=12$ the denominator is $13$ → $p=3/13\\approx23.1\\%$. Dividing by N (25%) or N−1 (27.3%) applies the wrong formula — the denominator is always N+1."
+      }
+    },
+    {
+      "q": {
+        "tr": "Anahtar eğrisi denklemi $Q=50(h-0{,}2)^{1{,}3}$ ise, h=2 m için Q kaçtır?",
+        "en": "If the rating-curve equation is $Q=50(h-0.2)^{1.3}$, what is Q at h=2 m?"
+      },
+      "options": [
+        {
+          "tr": "Q ≈ 90 m³/sn",
+          "en": "Q ≈ 90 m³/s"
+        },
+        {
+          "tr": "Q ≈ 107 m³/sn",
+          "en": "Q ≈ 107 m³/s"
+        },
+        {
+          "tr": "Q ≈ 117 m³/sn",
+          "en": "Q ≈ 117 m³/s"
+        },
+        {
+          "tr": "Q ≈ 130 m³/sn",
+          "en": "Q ≈ 130 m³/s"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$Q=50(2-0{,}2)^{1{,}3}=50\\cdot 1{,}8^{1{,}3}\\approx 50\\cdot 2{,}148 \\approx 107$ m³/sn. Diğer seçenekler, h₀'ı çıkarmayı unutmak (h=2 direkt kullanmak → daha büyük/küçük yanlış üsler) ya da üssü yanlış uygulamaktan (1,3 yerine farklı bir kuvvet almaktan) doğan tipik hesap makinesi hatalarıdır.",
+        "en": "$Q=50(2-0.2)^{1.3}=50\\cdot 1.8^{1.3}\\approx 50\\cdot 2.148 \\approx 107$ m³/s. The other options are typical calculator slips from forgetting to subtract h₀ (using h=2 directly) or misapplying the exponent (using a different power than 1.3)."
+      }
+    },
+    {
+      "q": {
+        "tr": "Debi süreklilik eğrisinde p=%95 noktası ne anlatır?",
+        "en": "On a flow-duration curve, what does the p=95% point tell you?"
+      },
+      "options": [
+        {
+          "tr": "Yılın nadir görülen en yüksek taşkın debisini",
+          "en": "The rare, highest flood discharge of the year"
+        },
+        {
+          "tr": "Güvenilir, düşük (kuraklık tasarımı için) debiyi — yılın %95'inde bu değer ya da fazlası mevcuttur",
+          "en": "The dependable, low (drought-design) discharge — this value or more is available 95% of the year"
+        },
+        {
+          "tr": "Ortalama yıllık debiyi",
+          "en": "The average annual discharge"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yüksek p, sık aşılan (yani neredeyse her zaman mevcut) düşük bir debiyi temsil eder — bu, kuraklık/su temini tasarımında \"garanti debi\" olarak kullanılır. Nadir taşkınlar düşük p'de (örn. %5) görülür; ortalama debi ise eğrinin belirli bir noktası değil, ayrı bir istatistiktir.",
+        "en": "High p represents a low discharge that is exceeded frequently (nearly always available) — used in drought/water-supply design as the \"firm flow.\" Rare floods sit at low p (e.g. 5%); the average discharge isn't a specific point on this curve, it's a separate statistic."
+      }
+    },
+    {
+      "q": {
+        "tr": "Toplam debi çizgisinde iki paralel teğet arasındaki düşey mesafe neyi temsil eder?",
+        "en": "On the mass curve, what does the vertical gap between two parallel tangents represent?"
+      },
+      "options": [
+        {
+          "tr": "Yıllık toplam yağışı",
+          "en": "The total annual rainfall"
+        },
+        {
+          "tr": "Gereken hazne (depolama) hacmini",
+          "en": "The required reservoir (storage) volume"
+        },
+        {
+          "tr": "Ortalama debiyi",
+          "en": "The average discharge"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Talep doğrusuna paralel çizilen iki teğet, kümülatif eğrinin bu doğrudan en çok saptığı (en dolu ve en boş) noktaları işaretler; aralarındaki düşey mesafe, rezervuarın talebi kesintisiz karşılamak için tutması gereken su hacmidir. Ortalama debi zaten talep doğrusunun EĞİMİdir, mesafenin kendisi değil.",
+        "en": "The two tangents, drawn parallel to the demand line, mark where the cumulative curve deviates most (fullest and emptiest points) from that line; the vertical gap between them is the water volume the reservoir must hold to meet demand without interruption. The average discharge is already the demand line's SLOPE, not the gap itself."
+      }
+    },
+    {
+      "q": {
+        "tr": "Anahtar eğrisini logaritmik yöntemle uzatırken h₀ nasıl seçilir?",
+        "en": "When extending a rating curve with the logarithmic method, how is h₀ chosen?"
+      },
+      "options": [
+        {
+          "tr": "En küçük ölçülen h değerine eşit alınır",
+          "en": "Set equal to the smallest measured h value"
+        },
+        {
+          "tr": "$\\log Q$ ile $\\log(h-h_0)$ arasındaki korelasyonu maksimize eden değer seçilir",
+          "en": "The value that maximizes the correlation between $\\log Q$ and $\\log(h-h_0)$ is chosen"
+        },
+        {
+          "tr": "Her zaman sıfır alınır",
+          "en": "It is always taken as zero"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Birkaç aday h₀ denenir ($h_0 < h_{min}$ koşuluyla), her biri için $\\log Q$ – $\\log(h-h_0)$ korelasyon katsayısı (r) hesaplanır; en yüksek r'yi veren h₀ seçilir çünkü gerçek ilişki doğrusal bir log-log grafiği verir. h₀'ı h_min'e eşit almak $(h-h_0)=0$ noktasında logaritmayı tanımsız yapar; h₀=0 varsaymak genelde yanlış sonuç verir çünkü gerçek sıfır-akış seviyesi nadiren tam sıfırdır.",
+        "en": "Several candidate h₀ values are tried (subject to $h_0 < h_{min}$), and for each the correlation coefficient (r) between $\\log Q$ and $\\log(h-h_0)$ is computed; the h₀ giving the highest r is chosen, because the true relationship gives a straight log-log plot. Setting h₀ equal to h_min makes the logarithm undefined at that point; assuming h₀=0 is usually wrong since the true zero-flow stage is rarely exactly zero."
+      }
+    }
+  ]
+}
