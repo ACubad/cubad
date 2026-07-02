@@ -6,6 +6,7 @@ import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
 import type { Bi, Question, Step } from "@/lib/types";
 import { Chart } from "./Chart";
+import { GraphStory } from "./GraphStory";
 import { Md, Tex } from "./Md";
 import { Callout, DataTable, DifficultyDots, LikelihoodBadge, Mcq, WaterProgress } from "./ui";
 import { TutorPanel } from "./TutorPanel";
@@ -91,6 +92,10 @@ function StepCard({
       ) : (
         <div className="space-y-4">
           <Md>{bi(step.work)}</Md>
+
+          {step.story && <GraphStory story={step.story} />}
+
+          {step.chart && <Chart spec={step.chart} />}
 
           {step.result && (
             <div className="rounded-xl border border-moss/25 bg-moss-soft px-4 py-3">
@@ -274,6 +279,12 @@ export function Walkthrough({
               <Chart spec={question.chart} />
             </div>
           )}
+
+          {question.charts?.map((c, i) => (
+            <div key={i} className="rise-in rounded-2xl border border-line bg-card p-5">
+              <Chart spec={c} />
+            </div>
+          ))}
 
           <div className="rise-in">
             <Callout kind="success" title={t("finalAnswer")}>

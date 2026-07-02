@@ -56,6 +56,55 @@ export interface ChartSpec {
   series: ChartSeries[];
   barWidths?: number[];
   annotations?: ChartAnnotation[];
+  /** exam-oriented instructions: axes, scales, which points to plot, how to sketch */
+  howToDraw?: Bi;
+  /** interpretation: what the finished graph tells you */
+  whatItShows?: Bi;
+}
+
+/* ---------- graph story (step-through construction animation) ---------- */
+
+export type StoryColor = "ink" | "deniz" | "clay" | "amber" | "moss" | "faint";
+
+export interface StoryElement {
+  id?: string;
+  type: "point" | "line" | "polyline" | "polygon" | "text" | "arrow";
+  x?: number;
+  y?: number;
+  x1?: number;
+  y1?: number;
+  x2?: number;
+  y2?: number;
+  points?: [number, number][];
+  /** short label drawn next to a point */
+  label?: string;
+  /** for type "text" */
+  text?: Bi;
+  color?: StoryColor;
+  dash?: boolean;
+  width?: number;
+  /** translucent fill for polygons */
+  fill?: boolean;
+  size?: number;
+}
+
+export interface StoryFrame {
+  caption: Bi;
+  add: StoryElement[];
+  remove?: string[];
+}
+
+export interface GraphStory {
+  title: Bi;
+  xLabel?: string;
+  yLabel?: string;
+  xDomain: [number, number];
+  yDomain: [number, number];
+  /** preserve aspect ratio (maps / geometric constructions) */
+  square?: boolean;
+  /** default true; set false for map-like schematics */
+  showAxes?: boolean;
+  frames: StoryFrame[];
 }
 
 export interface StepCheck {
@@ -73,6 +122,10 @@ export interface Step {
   why: Bi;
   result?: string | null;
   check?: StepCheck | null;
+  /** chart drawn at THIS step of the solution (as in the course sheet) */
+  chart?: ChartSpec | null;
+  /** step-through construction animation for graphs the student must draw */
+  story?: GraphStory | null;
 }
 
 export interface WhatIf {
@@ -91,6 +144,8 @@ export interface Question {
   goal: Bi;
   tables?: ContentTable[];
   chart?: ChartSpec | null;
+  /** additional result graphs (a question can have several, as in the sheet) */
+  charts?: ChartSpec[];
   steps: Step[];
   finalAnswer: Bi;
   traps: Bi[];

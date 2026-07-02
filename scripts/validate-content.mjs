@@ -119,13 +119,38 @@ for (const f of files) {
           if (!Array.isArray(r)) errors.push(`${QW}.tables[${i}].rows[${ri}]`);
         });
     });
-    if (q.chart) {
-      if (!["bar", "line"].includes(q.chart.type)) errors.push(`${QW}.chart.type`);
-      (q.chart.series ?? []).forEach((s, si) => {
+    function checkChart(c, where) {
+      if (!["bar", "line"].includes(c.type)) errors.push(`${where}.type`);
+      if (!isBi(c.title)) errors.push(`${where}.title`);
+      (c.series ?? []).forEach((s, si) => {
         if (!Array.isArray(s.points) || s.points.some((p) => !Array.isArray(p) || p.length !== 2 || p.some((n) => typeof n !== "number" || !isFinite(n))))
-          errors.push(`${QW}.chart.series[${si}].points: non-numeric`);
+          errors.push(`${where}.series[${si}].points: non-numeric`);
+      });
+      if (c.howToDraw && !isBi(c.howToDraw)) errors.push(`${where}.howToDraw`);
+      if (c.whatItShows && !isBi(c.whatItShows)) errors.push(`${where}.whatItShows`);
+    }
+    function checkStory(s, where) {
+      if (!isBi(s.title)) errors.push(`${where}.title`);
+      if (!Array.isArray(s.xDomain) || s.xDomain.length !== 2 || !Array.isArray(s.yDomain) || s.yDomain.length !== 2)
+        errors.push(`${where}: xDomain/yDomain must be [min,max]`);
+      if (!Array.isArray(s.frames) || s.frames.length < 2) errors.push(`${where}: needs >=2 frames`);
+      (s.frames ?? []).forEach((fr, fi) => {
+        if (!isBi(fr.caption)) errors.push(`${where}.frames[${fi}].caption`);
+        if (!Array.isArray(fr.add)) errors.push(`${where}.frames[${fi}].add`);
+        (fr.add ?? []).forEach((el, ei) => {
+          const EW = `${where}.frames[${fi}].add[${ei}]`;
+          if (!["point", "line", "polyline", "polygon", "text", "arrow"].includes(el.type))
+            errors.push(`${EW}.type "${el.type}"`);
+          if (el.type === "point" && (typeof el.x !== "number" || typeof el.y !== "number")) errors.push(`${EW}: point needs x,y`);
+          if ((el.type === "line" || el.type === "arrow") && [el.x1, el.y1, el.x2, el.y2].some((n) => typeof n !== "number")) errors.push(`${EW}: needs x1,y1,x2,y2`);
+          if ((el.type === "polyline" || el.type === "polygon") && (!Array.isArray(el.points) || el.points.some((p) => !Array.isArray(p) || p.length !== 2))) errors.push(`${EW}: needs points[][]`);
+          if (el.type === "text" && (typeof el.x !== "number" || typeof el.y !== "number" || !(isBi(el.text) || typeof el.label === "string"))) errors.push(`${EW}: text needs x,y,text`);
+          if (el.color && !["ink", "deniz", "clay", "amber", "moss", "faint"].includes(el.color)) errors.push(`${EW}.color "${el.color}"`);
+        });
       });
     }
+    if (q.chart) checkChart(q.chart, `${QW}.chart`);
+    (q.charts ?? []).forEach((c, ci) => checkChart(c, `${QW}.charts[${ci}]`));
     if (!Array.isArray(q.steps) || q.steps.length < 2)
       errors.push(`${QW}: needs >=2 steps`);
     (q.steps ?? []).forEach((s, si) => {
@@ -136,6 +161,8 @@ for (const f of files) {
       checkBi(s.work, `${SW}.work`);
       checkBi(s.why, `${SW}.why`);
       if (s.check) checkMcq(s.check, `${SW}.check`);
+      if (s.chart) checkChart(s.chart, `${SW}.chart`);
+      if (s.story) checkStory(s.story, `${SW}.story`);
     });
     checkBi(q.finalAnswer, `${QW}.finalAnswer`);
     (q.traps ?? []).forEach((tr, i) => checkBi(tr, `${QW}.traps[${i}]`));

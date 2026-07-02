@@ -2,6 +2,7 @@
 
 import { useLang } from "@/lib/i18n";
 import type { ChartSpec } from "@/lib/types";
+import { Md } from "./Md";
 
 const PALETTE = ["#0e5a6d", "#a13a31", "#955f14", "#2f7d4f", "#5b4a9e", "#b05c8a"];
 
@@ -283,6 +284,32 @@ export function Chart({ spec }: { spec: ChartSpec }) {
               {s.name}
             </span>
           ))}
+        </div>
+      )}
+
+      {/* drawing instructions + interpretation */}
+      {(spec.howToDraw || spec.whatItShows) && (
+        <div className="mt-3 space-y-2">
+          {spec.howToDraw && (
+            <details className="group rounded-xl border border-amber/25 bg-amber-soft px-4 py-2.5">
+              <summary className="cursor-pointer list-none text-[13px] font-semibold uppercase tracking-wide text-amber">
+                ✏️ {bi({ tr: "Bu grafik nasıl çizilir?", en: "How to draw this graph" })}
+              </summary>
+              <div className="mt-2 border-t border-amber/20 pt-2">
+                <Md className="text-sm">{bi(spec.howToDraw)}</Md>
+              </div>
+            </details>
+          )}
+          {spec.whatItShows && (
+            <details className="group rounded-xl border border-deniz/25 bg-deniz-soft px-4 py-2.5">
+              <summary className="cursor-pointer list-none text-[13px] font-semibold uppercase tracking-wide text-deniz">
+                👁 {bi({ tr: "Bu grafik ne anlatıyor?", en: "What this graph shows" })}
+              </summary>
+              <div className="mt-2 border-t border-deniz/20 pt-2">
+                <Md className="text-sm">{bi(spec.whatItShows)}</Md>
+              </div>
+            </details>
+          )}
         </div>
       )}
     </figure>

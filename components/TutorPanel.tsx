@@ -10,45 +10,99 @@ interface Msg {
   text: string;
 }
 
-const KEY_STORAGE = "cubad:gemini-key";
+type Provider = "gemini" | "openai";
+
+const KEY_STORAGE: Record<Provider, string> = {
+  gemini: "cubad:gemini-key",
+  openai: "cubad:openai-key",
+};
+
+const MODELS: Record<Provider, string[]> = {
+  gemini: ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.0-flash"],
+  openai: ["gpt-5-mini", "gpt-5", "gpt-4.1-mini", "gpt-4o-mini"],
+};
+
+const KEY_URLS: Record<Provider, string> = {
+  gemini: "https://aistudio.google.com/apikey",
+  openai: "https://platform.openai.com/api-keys",
+};
 
 export function TutorPanel({ question }: { question: Question }) {
   const { lang, t, bi } = useLang();
   const [open, setOpen] = useState(false);
-  const [hasServerKey, setHasServerKey] = useState<boolean | null>(null);
-  const [userKey, setUserKey] = useState("");
+  const [serverKeys, setServerKeys] = useState<{ gemini: boolean; openai: boolean } | null>(null);
+  const [provider, setProvider] = useState<Provider>("gemini");
+  const [model, setModel] = useState<string>(MODELS.gemini[0]);
+  const [customModel, setCustomModel] = useState("");
+  const [userKeys, setUserKeys] = useState<Record<Provider, string>>({ gemini: "", openai: "" });
   const [keyInput, setKeyInput] = useState("");
+  const [showSettings, setShowSettings] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // restore saved settings + keys
   useEffect(() => {
-    setUserKey(window.localStorage.getItem(KEY_STORAGE) ?? "");
+    const p = window.localStorage.getItem("cubad:tutor:provider") as Provider | null;
+    const m = window.localStorage.getItem("cubad:tutor:model");
+    if (p === "gemini" || p === "openai") setProvider(p);
+    if (m) {
+      setModel(m);
+      if (!MODELS[p === "openai" ? "openai" : "gemini"].includes(m)) setCustomModel(m);
+    }
+    setUserKeys({
+      gemini: window.localStorage.getItem(KEY_STORAGE.gemini) ?? "",
+      openai: window.localStorage.getItem(KEY_STORAGE.openai) ?? "",
+    });
   }, []);
 
   useEffect(() => {
-    if (!open || hasServerKey !== null) return;
+    if (!open || serverKeys !== null) return;
     fetch("/api/tutor")
       .then((r) => r.json())
-      .then((d: { hasServerKey: boolean }) => setHasServerKey(d.hasServerKey))
-      .catch(() => setHasServerKey(false));
-  }, [open, hasServerKey]);
+      .then((d: { gemini: boolean; openai: boolean }) =>
+        setServerKeys({ gemini: !!d.gemini, openai: !!d.openai })
+      )
+      .catch(() => setServerKeys({ gemini: false, openai: false }));
+  }, [open, serverKeys]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, busy]);
 
-  const needsKey = hasServerKey === false && !userKey;
+  const hasServerKey = serverKeys?.[provider] ?? false;
+  const hasUserKey = Boolean(userKeys[provider]);
+  const needsKey = serverKeys !== null && !hasServerKey && !hasUserKey;
+
+  const pickProvider = (p: Provider) => {
+    setProvider(p);
+    const first = MODELS[p][0];
+    setModel(first);
+    setCustomModel("");
+    window.localStorage.setItem("cubad:tutor:provider", p);
+    window.localStorage.setItem("cubad:tutor:model", first);
+    setError(null);
+  };
+
+  const pickModel = (m: string) => {
+    setModel(m);
+    window.localStorage.setItem("cubad:tutor:model", m);
+  };
 
   const saveKey = () => {
     const k = keyInput.trim();
     if (!k) return;
-    window.localStorage.setItem(KEY_STORAGE, k);
-    setUserKey(k);
+    window.localStorage.setItem(KEY_STORAGE[provider], k);
+    setUserKeys((prev) => ({ ...prev, [provider]: k }));
     setKeyInput("");
     setError(null);
+  };
+
+  const forgetKey = () => {
+    window.localStorage.removeItem(KEY_STORAGE[provider]);
+    setUserKeys((prev) => ({ ...prev, [provider]: "" }));
   };
 
   const send = async () => {
@@ -71,17 +125,23 @@ export function TutorPanel({ question }: { question: Question }) {
       const res = await fetch("/api/tutor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next, context, lang, userKey: userKey || undefined }),
+        body: JSON.stringify({
+          messages: next,
+          context,
+          lang,
+          provider,
+          model,
+          userKey: userKeys[provider] || undefined,
+        }),
       });
       const data = (await res.json()) as { text?: string; error?: string };
       if (!res.ok || !data.text) {
-        if (data.error === "bad-key") {
-          window.localStorage.removeItem(KEY_STORAGE);
-          setUserKey("");
+        if (data.error === "bad-key" || data.error === "no-key") {
+          forgetKey();
           setError(
             lang === "tr"
-              ? "Anahtar reddedildi — lütfen geçerli bir Gemini anahtarı gir."
-              : "The key was rejected — please enter a valid Gemini key."
+              ? "Anahtar reddedildi — lütfen geçerli bir anahtar gir."
+              : "The key was rejected — please enter a valid key."
           );
         } else {
           setError(
@@ -101,6 +161,8 @@ export function TutorPanel({ question }: { question: Question }) {
       setBusy(false);
     }
   };
+
+  const providerLabel = provider === "gemini" ? "Google Gemini" : "OpenAI";
 
   return (
     <>
@@ -125,14 +187,84 @@ export function TutorPanel({ question }: { question: Question }) {
               <p className="font-display text-lg font-semibold text-deniz-deep">
                 🎓 {t("tutorTitle")}
               </p>
-              <button
-                onClick={() => setOpen(false)}
-                className="rounded-full px-2.5 py-1 text-ink-soft hover:bg-wash"
-                aria-label="close"
-              >
-                ✕
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setShowSettings((s) => !s)}
+                  className={`rounded-full px-2.5 py-1 text-sm ${showSettings ? "bg-wash text-deniz-deep" : "text-ink-soft hover:bg-wash"}`}
+                  title="Model settings"
+                  aria-label="settings"
+                >
+                  ⚙
+                </button>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="rounded-full px-2.5 py-1 text-ink-soft hover:bg-wash"
+                  aria-label="close"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
+
+            {/* model / provider settings */}
+            {showSettings && (
+              <div className="space-y-3 border-b border-line bg-card px-4 py-3 text-sm">
+                <div className="flex overflow-hidden rounded-full border border-line text-xs font-semibold">
+                  {(["gemini", "openai"] as const).map((p) => (
+                    <button
+                      key={p}
+                      onClick={() => pickProvider(p)}
+                      className={`flex-1 px-3 py-1.5 transition-colors ${
+                        provider === p ? "bg-deniz text-white" : "bg-paper text-ink-soft hover:bg-wash"
+                      }`}
+                    >
+                      {p === "gemini" ? "Gemini" : "OpenAI"}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {MODELS[provider].map((m) => (
+                    <button
+                      key={m}
+                      onClick={() => { pickModel(m); setCustomModel(""); }}
+                      className={`rounded-full border px-2.5 py-1 font-mono text-[11px] transition-colors ${
+                        model === m && !customModel
+                          ? "border-deniz bg-deniz-soft text-deniz-deep"
+                          : "border-line bg-paper text-ink-soft hover:border-deniz/40"
+                      }`}
+                    >
+                      {m}
+                    </button>
+                  ))}
+                </div>
+                <input
+                  type="text"
+                  value={customModel}
+                  onChange={(e) => {
+                    setCustomModel(e.target.value);
+                    if (e.target.value.trim()) pickModel(e.target.value.trim());
+                  }}
+                  placeholder={lang === "tr" ? "veya özel model adı..." : "or a custom model id..."}
+                  className="w-full rounded-lg border border-line bg-paper px-3 py-1.5 font-mono text-xs"
+                />
+                <div className="flex items-center justify-between gap-2 text-xs">
+                  {hasServerKey ? (
+                    <span className="text-moss">✓ {lang === "tr" ? "Sunucu anahtarı aktif" : "Server key active"}</span>
+                  ) : hasUserKey ? (
+                    <>
+                      <span className="text-moss">
+                        ✓ {lang === "tr" ? `${providerLabel} anahtarı kayıtlı (tarayıcında)` : `${providerLabel} key saved (in your browser)`}
+                      </span>
+                      <button onClick={forgetKey} className="shrink-0 rounded-full border border-clay/40 px-2.5 py-1 font-semibold text-clay hover:bg-clay-soft">
+                        {lang === "tr" ? "Anahtarı unut" : "Forget key"}
+                      </button>
+                    </>
+                  ) : (
+                    <span className="text-ink-faint">{lang === "tr" ? "Anahtar gerekli" : "Key required"}</span>
+                  )}
+                </div>
+              </div>
+            )}
 
             <div ref={scrollRef} className="thin-scroll flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.length === 0 && !needsKey && (
@@ -140,18 +272,25 @@ export function TutorPanel({ question }: { question: Question }) {
                   {lang === "tr"
                     ? `"${bi(question.title)}" hakkında istediğini sor: bir adımı anlamadıysan, farklı bir değerle ne olurdu merak ediyorsan, ya da benzer bir soru istiyorsan.`
                     : `Ask anything about "${bi(question.title)}": a step you didn't get, what happens with different values, or ask for a similar practice question.`}
+                  <span className="mt-2 block font-mono text-[11px] text-ink-faint">
+                    {providerLabel} · {model}
+                  </span>
                 </div>
               )}
 
               {needsKey && (
                 <div className="space-y-3 rounded-xl border border-amber/30 bg-amber-soft px-4 py-3 text-sm">
-                  <p className="text-ink">{t("tutorNeedsKey")}</p>
+                  <p className="text-ink">
+                    {lang === "tr"
+                      ? `Yapay zekâ öğretmen için (ücretsiz) bir ${providerLabel} API anahtarı gerekli. Aşağıya yapıştır — sadece tarayıcında saklanır.`
+                      : `The AI tutor needs a ${providerLabel} API key. Paste it below — it is stored only in your browser.`}
+                  </p>
                   <div className="flex gap-2">
                     <input
                       type="password"
                       value={keyInput}
                       onChange={(e) => setKeyInput(e.target.value)}
-                      placeholder="AIza..."
+                      placeholder={provider === "gemini" ? "AIza..." : "sk-..."}
                       className="min-w-0 flex-1 rounded-lg border border-line bg-card px-3 py-2 font-mono text-xs"
                     />
                     <button
@@ -162,12 +301,12 @@ export function TutorPanel({ question }: { question: Question }) {
                     </button>
                   </div>
                   <a
-                    href="https://aistudio.google.com/apikey"
+                    href={KEY_URLS[provider]}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-block text-xs font-semibold text-deniz underline"
                   >
-                    aistudio.google.com/apikey ↗
+                    {KEY_URLS[provider].replace("https://", "")} ↗
                   </a>
                 </div>
               )}
