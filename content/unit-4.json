@@ -348,7 +348,15 @@
             ]
           }
         ],
-        "annotations": []
+        "annotations": [],
+        "howToDraw": {
+          "tr": "Yatay ekseni zaman (t) yap, dakika cinsinden 0'dan 160'a kadar; düşey ekseni sızma kapasitesi $f$ (cm/saat), 0'dan 9'a kadar işaretle. Tablonun son satırından ($f=\\Delta F/\\Delta t$) sekiz noktayı sıraya koy: $(2;\\,8{,}79)$, $(5;\\,8{,}00)$, $(10;\\,6{,}504)$, $(20;\\,4{,}476)$, $(30;\\,3{,}636)$, $(60;\\,1{,}778)$, $(90;\\,1{,}116)$, $(150;\\,0{,}758)$. Her aralığın $f$ değerini o aralığın SON zamanına karşılık işaretlemek en temizidir. Noktaları koyduktan sonra, başta dik inen sonra yatay bir platoya oturan yumuşak bir eğri geçir — düz çizgilerle birleştirme, üstel bir iniş çiz. En sağdaki noktanın hizasında yatay bir kesikli çizgiyle $f_c\\approx0{,}758$ platosunu göster.",
+          "en": "Put time $t$ on the x-axis in minutes, 0 to 160; put infiltration capacity $f$ (cm/h) on the y-axis, 0 to 9. Take the eight points from the last table row ($f=\\Delta F/\\Delta t$): $(2,\\,8.79)$, $(5,\\,8.00)$, $(10,\\,6.504)$, $(20,\\,4.476)$, $(30,\\,3.636)$, $(60,\\,1.778)$, $(90,\\,1.116)$, $(150,\\,0.758)$. Plot each interval's $f$ against the END time of that interval. Then sketch a smooth curve that plunges steeply at first and flattens onto a plateau — don't connect the dots with straight segments, draw an exponential-looking decay. Mark the plateau $f_c\\approx0.758$ with a horizontal dashed line at the rightmost point."
+        },
+        "whatItShows": {
+          "tr": "Eğri, toprağın su emme HIZININ zamanla nasıl düştüğünü gösterir. Başlangıçtaki dik kısım kuru toprağın hızla su içmesidir ($f_0\\approx8{,}8$); eğri düzleştikçe gözenekler dolar ve hız sabit $f_c$'ye yaklaşır. Eğrinin en solundaki değeri $f_0$, sağdaki yatay platosunu $f_c$ olarak okursun — Horton denkleminin iki sabiti doğrudan bu şekilden gelir. Platoya inildiği an, toprağın pratikte doyduğu andır.",
+          "en": "The curve shows how the soil's rate of drinking water falls off over time. The steep early part is dry soil soaking up water fast ($f_0\\approx8.8$); as the curve flattens the pores fill and the rate settles toward the constant $f_c$. You read $f_0$ off the leftmost value and $f_c$ off the right-hand plateau — Horton's two constants come straight from this shape. The moment it reaches the plateau is the moment the soil is practically saturated."
+        }
       },
       "steps": [
         {
@@ -469,6 +477,177 @@
               "tr": "$f-f_c=(f_0-f_c)e^{-kt}$ üstel bir ifadedir; ln alınca üs aşağı iner ve $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ elde edilir — bu, eğimi $-k$ olan bir doğrudur. Kareleme ya da $f/t$ Horton'un üstel yapısını doğrusallaştırmaz.",
               "en": "$f-f_c=(f_0-f_c)e^{-kt}$ is exponential; taking the log brings the exponent down to give $\\ln(f-f_c)=\\ln(f_0-f_c)-kt$ — a line with slope $-k$. Squaring or $f/t$ does not linearize Horton's exponential form."
             }
+          },
+          "story": {
+            "title": {
+              "tr": "Yarı-logaritmik doğruyu çizip eğimden k'yı okuma",
+              "en": "Drawing the semi-log line and reading k off the slope"
+            },
+            "xLabel": "t (saat)",
+            "yLabel": "ln(f − f_c)",
+            "xDomain": [
+              0,
+              1.6
+            ],
+            "yDomain": [
+              -1.4,
+              2.4
+            ],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Yatay eksene t'yi (saat, 0–1,6), düşey eksene $\\ln(f-f_c)$'yi al. Her ölçüm için $f-0{,}758$'in doğal logaritmasını hesaplayıp yedi noktayı işaretle: (0,033; 2,083) … (1,5; −1,027). Ham veri üstel eğriydi; ln alınca noktalar bir DOĞRU üzerine dizilir.",
+                  "en": "Put t (hours, 0–1.6) on the x-axis and $\\ln(f-f_c)$ on the y-axis. For each reading compute the natural log of $f-0.758$ and mark the seven points: (0.033, 2.083) … (1.5, −1.027). The raw data was an exponential curve; taking the log lines the points up on a STRAIGHT line."
+                },
+                "add": [
+                  {
+                    "type": "point",
+                    "x": 0.033,
+                    "y": 2.083,
+                    "label": "2,083",
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 0.0833,
+                    "y": 1.98,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 0.167,
+                    "y": 1.749,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 0.333,
+                    "y": 1.383,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 0.5,
+                    "y": 1.057,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 1.0,
+                    "y": 0.02,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "point",
+                    "x": 1.5,
+                    "y": -1.027,
+                    "label": "−1,027",
+                    "color": "clay"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Noktaların arasından en iyi uyan doğruyu geçir. Doğru y eksenini $\\ln(f_0-f_c)=\\ln 8{,}032=2{,}083$ değerinde keser — bu, Horton'un başlangıç sabitidir. Aşağı doğru düzgün iner çünkü kapasite zamanla üstel azalır.",
+                  "en": "Draw the best-fit line through the points. The line crosses the y-axis at $\\ln(f_0-f_c)=\\ln 8.032=2.083$ — that is Horton's initial constant. It slopes steadily downward because the capacity decays exponentially in time."
+                },
+                "add": [
+                  {
+                    "id": "fit",
+                    "type": "line",
+                    "x1": 0.033,
+                    "y1": 2.083,
+                    "x2": 1.5,
+                    "y2": -1.027,
+                    "color": "deniz",
+                    "width": 2.4
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Eğimi bir dik üçgenle ölç: iki uç nokta arasında düşey değişim $\\Delta y=2{,}083-(-1{,}027)=3{,}11$, yatay değişim $\\Delta x=1{,}5-0{,}033=1{,}467$. Üçgenin dik kenarlarını kesikli çiz.",
+                  "en": "Measure the slope with a right triangle: between the two end points the rise is $\\Delta y=2.083-(-1.027)=3.11$ and the run is $\\Delta x=1.5-0.033=1.467$. Draw the triangle's legs as dashed helpers."
+                },
+                "add": [
+                  {
+                    "id": "run",
+                    "type": "line",
+                    "x1": 0.033,
+                    "y1": -1.027,
+                    "x2": 1.5,
+                    "y2": -1.027,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.5
+                  },
+                  {
+                    "id": "rise",
+                    "type": "line",
+                    "x1": 0.033,
+                    "y1": -1.027,
+                    "x2": 0.033,
+                    "y2": 2.083,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 0.75,
+                    "y": -1.27,
+                    "text": {
+                      "tr": "Δx = 1,467",
+                      "en": "Δx = 1.467"
+                    },
+                    "color": "faint",
+                    "size": 13
+                  },
+                  {
+                    "type": "text",
+                    "x": 0.12,
+                    "y": 0.6,
+                    "text": {
+                      "tr": "Δy = 3,11",
+                      "en": "Δy = 3.11"
+                    },
+                    "color": "faint",
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Doğrunun eğimi $-k$'dır: $k=-\\dfrac{\\Delta y}{\\Delta x}=\\dfrac{2{,}083-(-1{,}027)}{1{,}5-0{,}033}=2{,}12$ 1/saat. İşaret negatif çıktı çünkü doğru aşağı iniyor; k'yı pozitif alırız. Böylece Horton denklemi tamamlanır: $f=0{,}758+8{,}032\\,e^{-2{,}12t}$.",
+                  "en": "The line's slope is $-k$: $k=-\\dfrac{\\Delta y}{\\Delta x}=\\dfrac{2.083-(-1.027)}{1.5-0.033}=2.12$ 1/hour. The sign comes out negative because the line descends; we report k as positive. This completes Horton's equation: $f=0.758+8.032\\,e^{-2.12t}$."
+                },
+                "add": [
+                  {
+                    "type": "text",
+                    "x": 0.95,
+                    "y": 1.55,
+                    "text": {
+                      "tr": "eğim = −k = −2,12",
+                      "en": "slope = −k = −2.12"
+                    },
+                    "color": "deniz",
+                    "size": 15
+                  },
+                  {
+                    "type": "text",
+                    "x": 0.62,
+                    "y": 2.15,
+                    "text": {
+                      "tr": "k = 2,12 1/saat",
+                      "en": "k = 2.12 1/h"
+                    },
+                    "color": "moss",
+                    "size": 16
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -1080,7 +1259,15 @@
               "en": "i = f crossing"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene t'yi (saat, 0–1,5), düşey eksene hem $i$ hem $f$'yi (cm/saat, 1–6) al; ikisi aynı eksende olmalı ki kesişimi görebilesin. Tablodan iki eğri çiz: sızma kapasitesi $f=0{,}967+7{,}065e^{-1{,}58t}$ noktaları (0,25; 5,73)…(1,5; 1,63) ve yağış şiddeti $i=2{,}5\\,t^{-0{,}4}$ noktaları (0,25; 4,35)…(1,5; 2,13). $f$ eğrisi başta daha yüksekten başlar ama daha dik iner; $i$ eğrisi daha yatay. İki eğrinin kesiştiği yeri ($t\\approx0{,}95$) bir noktayla işaretle — bu, rejimin değiştiği andır.",
+          "en": "Put t (hours, 0–1.5) on the x-axis and BOTH $i$ and $f$ (cm/h, 1–6) on the same y-axis so you can see them cross. Draw two curves from the table: the infiltration capacity $f=0.967+7.065e^{-1.58t}$ through (0.25, 5.73)…(1.5, 1.63), and the rainfall intensity $i=2.5\\,t^{-0.4}$ through (0.25, 4.35)…(1.5, 2.13). The $f$ curve starts higher but drops more steeply; the $i$ curve is flatter. Mark the point where the two curves cross ($t\\approx0.95$) — that is where the regime flips."
+        },
+        "whatItShows": {
+          "tr": "Bu grafik bu ünitenin can alıcı fikridir: hangi eğrinin ÜSTTE olduğu, o an gerçek sızmayı kimin belirlediğini söyler. Kesişimin SOLUNDA $f>i$: toprak yağandan fazlasını yutabilir, yani tüm yağmur sızar (arz-kısıtlı). SAĞINDA $i>f$: toprak doymuştur, sadece kapasitesi kadarını alır, fazlası akışa döner (kapasite-kısıtlı). İki eğrinin arasında kalan alt bölge sızmayı, $i$ eğrisinin kesişim sonrası $f$'nin üstünde kalan kısmı ise yüzeysel akışı temsil eder. Tek bir formülle tüm süreyi hesaplayamayacağını bu şekil bir bakışta gösterir.",
+          "en": "This graph is the crux of the whole unit: whichever curve sits ON TOP tells you who governs actual infiltration at that instant. LEFT of the crossing $f>i$: the soil can swallow more than what falls, so all the rain infiltrates (supply-limited). RIGHT of the crossing $i>f$: the soil has saturated and takes only its capacity, the surplus becoming runoff (capacity-limited). The region beneath both curves is infiltration; the sliver where $i$ rises above $f$ after the crossing is surface runoff. At a glance the figure shows why you cannot use a single formula for the whole storm."
+        }
       },
       "steps": [
         {
@@ -1225,6 +1412,266 @@
               "tr": "f ve i'nin sıralaması iki farklı zamanda ters yönde olduğuna göre aralarında mutlaka bir kesişim vardır — bu bir hata değil, sızmanın gerçek fiziğidir. Bu durumda tüm yağış süresini tek bir rejimle (ya hep Horton ya hep 'tüm yağış sızıyor') hesaplamak yanlış sonuç verir; süreyi kesişim noktasında ikiye bölmek gerekir.",
               "en": "Since the ordering of f and i reverses between two times, a crossing must exist between them — this is not an error but the actual physics of infiltration. Treating the whole storm duration under a single regime (either always Horton, or always 'all rain infiltrates') gives the wrong answer; you must split the duration at the crossing point."
             }
+          },
+          "story": {
+            "title": {
+              "tr": "İki rejim: kesişimin iki yanını boyayarak anlama",
+              "en": "The two regimes: shading the two sides of the crossing"
+            },
+            "xLabel": "t (saat)",
+            "yLabel": "i, f (cm/saat)",
+            "xDomain": [
+              0.25,
+              1.5
+            ],
+            "yDomain": [
+              1,
+              6
+            ],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "İki eğriyi çiz: sızma kapasitesi $f$ (deniz mavisi) başta yüksek ama dik iner; yağış şiddeti $i$ (kil) daha yatay seyreder. Başta $f$ üstte, sonda $i$ üstte — demek ki bir yerde kesişiyorlar.",
+                  "en": "Draw both curves: infiltration capacity $f$ (blue) starts high but drops steeply; rainfall intensity $i$ (clay) runs flatter. At the start $f$ is on top, at the end $i$ is on top — so they must cross somewhere."
+                },
+                "add": [
+                  {
+                    "id": "fcurve",
+                    "type": "polyline",
+                    "points": [
+                      [
+                        0.25,
+                        5.73
+                      ],
+                      [
+                        0.5,
+                        4.17
+                      ],
+                      [
+                        0.75,
+                        3.13
+                      ],
+                      [
+                        0.95,
+                        2.54
+                      ],
+                      [
+                        1.0,
+                        2.42
+                      ],
+                      [
+                        1.25,
+                        1.95
+                      ],
+                      [
+                        1.5,
+                        1.63
+                      ]
+                    ],
+                    "color": "deniz",
+                    "width": 2.4
+                  },
+                  {
+                    "id": "icurve",
+                    "type": "polyline",
+                    "points": [
+                      [
+                        0.25,
+                        4.35
+                      ],
+                      [
+                        0.5,
+                        3.3
+                      ],
+                      [
+                        0.75,
+                        2.8
+                      ],
+                      [
+                        0.95,
+                        2.55
+                      ],
+                      [
+                        1.0,
+                        2.5
+                      ],
+                      [
+                        1.25,
+                        2.29
+                      ],
+                      [
+                        1.5,
+                        2.13
+                      ]
+                    ],
+                    "color": "clay",
+                    "width": 2.4
+                  },
+                  {
+                    "type": "text",
+                    "x": 1.28,
+                    "y": 1.75,
+                    "text": {
+                      "tr": "f",
+                      "en": "f"
+                    },
+                    "color": "deniz",
+                    "size": 15
+                  },
+                  {
+                    "type": "text",
+                    "x": 1.32,
+                    "y": 2.32,
+                    "text": {
+                      "tr": "i",
+                      "en": "i"
+                    },
+                    "color": "clay",
+                    "size": 15
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Kesişim noktasını işaretle: $t^*\\approx0{,}95$ saat, $i=f\\approx2{,}55$ cm/saat. Buradan yukarı bir kesikli çizgi indir; bu çizgi yağış süresini iki rejime böler.",
+                  "en": "Mark the crossing: $t^*\\approx0.95$ h, $i=f\\approx2.55$ cm/h. Drop a dashed vertical line here; it splits the storm into two regimes."
+                },
+                "add": [
+                  {
+                    "type": "point",
+                    "x": 0.95,
+                    "y": 2.55,
+                    "label": "t* = 0,95",
+                    "color": "moss"
+                  },
+                  {
+                    "id": "vsplit",
+                    "type": "line",
+                    "x1": 0.95,
+                    "y1": 1,
+                    "x2": 0.95,
+                    "y2": 2.55,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.5
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Bölge 1 (kesişimin SOLU, 0,25–0,95 saat): $f>i$. Toprak yağandan fazlasını yutabilir, bu yüzden yağan HER ŞEY sızar. $i$ eğrisinin altını amber renkle boya — bu alan tümüyle sızmadır, akış yoktur. Bu bölgede Horton denklemi GEÇERSİZ; sızmayı doğrudan yağıştan ($F_1=P$) okursun.",
+                  "en": "Region 1 (LEFT of the crossing, 0.25–0.95 h): $f>i$. The soil can swallow more than what falls, so EVERYTHING that falls infiltrates. Shade under the $i$ curve in amber — this whole area is infiltration, no runoff. Horton's equation is INVALID here; you read infiltration straight from the rainfall ($F_1=P$)."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        0.25,
+                        1
+                      ],
+                      [
+                        0.25,
+                        4.35
+                      ],
+                      [
+                        0.5,
+                        3.3
+                      ],
+                      [
+                        0.75,
+                        2.8
+                      ],
+                      [
+                        0.95,
+                        2.55
+                      ],
+                      [
+                        0.95,
+                        1
+                      ]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 0.55,
+                    "y": 1.7,
+                    "text": {
+                      "tr": "Bölge 1: tüm yağış sızar",
+                      "en": "Region 1: all rain infiltrates"
+                    },
+                    "color": "amber",
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Bölge 2 (kesişimin SAĞI, 0,95–1,5 saat): $i>f$. Toprak doymuştur, sadece kapasitesi kadar ($f$) sızdırır; fazlası akışa döner. $f$ eğrisinin altını deniz mavisiyle boya — burada sızma Horton integralinden ($F_2$) gelir. İki eğri arasında kalan ince şerit ise yüzeysel akıştır.",
+                  "en": "Region 2 (RIGHT of the crossing, 0.95–1.5 h): $i>f$. The soil has saturated and infiltrates only at its capacity ($f$); the surplus becomes runoff. Shade under the $f$ curve in blue — here infiltration comes from Horton's integral ($F_2$). The thin strip between the two curves is the surface runoff."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        0.95,
+                        1
+                      ],
+                      [
+                        0.95,
+                        2.54
+                      ],
+                      [
+                        1.0,
+                        2.42
+                      ],
+                      [
+                        1.25,
+                        1.95
+                      ],
+                      [
+                        1.5,
+                        1.63
+                      ],
+                      [
+                        1.5,
+                        1
+                      ]
+                    ],
+                    "color": "deniz",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 1.2,
+                    "y": 1.32,
+                    "text": {
+                      "tr": "Bölge 2: Horton",
+                      "en": "Region 2: Horton"
+                    },
+                    "color": "deniz",
+                    "size": 13
+                  },
+                  {
+                    "type": "text",
+                    "x": 1.18,
+                    "y": 2.28,
+                    "text": {
+                      "tr": "akış",
+                      "en": "runoff"
+                    },
+                    "color": "clay",
+                    "size": 12
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -1508,7 +1955,15 @@
               "en": "φ = 37.5 mm/h"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene zaman (dakika, 0–160), düşey eksene şiddet $i$ (mm/saat, 0–60) al. Her 20 dakikalık aralık için bir ÇUBUK çiz: genişliği $\\Delta t=20$ dk, yüksekliği o aralığın $i=\\Delta P/\\Delta t$ değeri (24, 30, 54, 51, 24, 12, 6, 0). Çubuklar bitişik olmalı, aralarında boşluk bırakma. Sonra tüm çubukların üzerinden yatay bir φ çizgisi geçir: öyle bir yükseklik seç ki çizginin ÜSTÜNDE kalan alan tam 10 mm akışa eşit olsun — burada φ=37,5 mm/saat, yani en yüksek iki çubuğu (54 ve 51) keser, diğer hepsini üstte bırakır.",
+          "en": "Put time on the x-axis (minutes, 0–160) and intensity $i$ on the y-axis (mm/h, 0–60). For each 20-minute interval draw a BAR: width $\\Delta t=20$ min, height the interval's $i=\\Delta P/\\Delta t$ (24, 30, 54, 51, 24, 12, 6, 0). The bars must touch — leave no gaps. Then run a horizontal φ line across all the bars: choose a height so the area ABOVE the line equals exactly 10 mm of runoff — here φ=37.5 mm/h, cutting through only the two tallest bars (54 and 51) and leaving all the rest below it."
+        },
+        "whatItShows": {
+          "tr": "Hiyetograf, storm boyunca yağışın nerede en hızlı olduğunu gösterir — en yüksek çubuk (54 mm/saat, 40–60. dk) yağmurun en şiddetli boşaldığı andır. φ çizgisi sabit bir kayıp hızıdır: çizginin ALTINDA kalan her şey (tüm kısa çubuklar + yüksek çubukların alt kısmı) toprağa sızar; çizginin ÜSTÜNDE kalan taralı alan yüzeysel akışa dönüşür ve tam 10 mm eder. φ'nin altında tamamen kalan çubuklar (30, 24, 12, 6) akışa hiç katkı vermez — bu yüzden φ denklemine yalnızca 54 ve 51 girer.",
+          "en": "The hyetograph shows where rain falls fastest during the storm — the tallest bar (54 mm/h, minutes 40–60) is when the rain dumps hardest. The φ line is a constant loss rate: everything BELOW it (all the short bars plus the lower part of the tall ones) infiltrates; the shaded area ABOVE it becomes surface runoff and totals exactly 10 mm. Bars sitting entirely below φ (30, 24, 12, 6) contribute nothing to runoff — which is why only 54 and 51 enter the φ equation."
+        }
       },
       "steps": [
         {
@@ -1629,6 +2084,229 @@
               "tr": "φ indisini bulurken sadece φ'den BÜYÜK olacağını düşündüğün blokları denkleme katarsın; 30, tahmini 37,5'ten küçük olduğu için bu aralığın tamamen sızdığı varsayılır ve akışa katkısı sıfırdır. Bu bir konum ya da işaret meselesi değil, tamamen büyüklük karşılaştırmasıdır.",
               "en": "When finding the φ-index you only include blocks you expect to exceed φ; since 30 is smaller than the trial value 37.5, that interval is assumed to infiltrate entirely and contributes zero to runoff. This is purely a magnitude comparison, not a matter of position or sign."
             }
+          },
+          "story": {
+            "title": {
+              "tr": "φ çizgisini yükseklikte kaydırarak akışı 10 mm'ye oturtma",
+              "en": "Sliding the φ line to make runoff equal 10 mm"
+            },
+            "xLabel": "t (dakika)",
+            "yLabel": "i (mm/saat)",
+            "xDomain": [
+              0,
+              160
+            ],
+            "yDomain": [
+              0,
+              60
+            ],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Önce hiyetografı bitişik çubuklarla çiz: her 20 dakikalık aralığın yüksekliği kendi $i$ değeri (24, 30, 54, 51, 24, 12, 6, 0 mm/saat). En yüksek iki çubuk 40–60 ve 60–80. dakikalarda (54 ve 51).",
+                  "en": "First draw the hyetograph as touching bars: each 20-minute interval's height is its own $i$ (24, 30, 54, 51, 24, 12, 6, 0 mm/h). The two tallest bars are at minutes 40–60 and 60–80 (54 and 51)."
+                },
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [
+                      [
+                        0,
+                        24
+                      ],
+                      [
+                        20,
+                        24
+                      ],
+                      [
+                        20,
+                        30
+                      ],
+                      [
+                        40,
+                        30
+                      ],
+                      [
+                        40,
+                        54
+                      ],
+                      [
+                        60,
+                        54
+                      ],
+                      [
+                        60,
+                        51
+                      ],
+                      [
+                        80,
+                        51
+                      ],
+                      [
+                        80,
+                        24
+                      ],
+                      [
+                        100,
+                        24
+                      ],
+                      [
+                        100,
+                        12
+                      ],
+                      [
+                        120,
+                        12
+                      ],
+                      [
+                        120,
+                        6
+                      ],
+                      [
+                        140,
+                        6
+                      ],
+                      [
+                        140,
+                        0
+                      ]
+                    ],
+                    "color": "ink",
+                    "width": 2
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Bir φ çizgisini deneme olarak YÜKSEKTEN, mesela 45 mm/saat'ten geçir. Bu çizginin üstünde kalan alan çok küçük çıkar (sadece iki çubuğun tepe kısımları) — 10 mm'den az. Demek ki çizgiyi biraz AŞAĞI indirmemiz gerek.",
+                  "en": "Try a φ line HIGH first, say at 45 mm/h. The area above it comes out too small (just the tips of two bars) — less than 10 mm. So we need to lower the line a bit."
+                },
+                "add": [
+                  {
+                    "id": "trial",
+                    "type": "line",
+                    "x1": 0,
+                    "y1": 45,
+                    "x2": 160,
+                    "y2": 45,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.8
+                  },
+                  {
+                    "type": "text",
+                    "x": 118,
+                    "y": 47,
+                    "text": {
+                      "tr": "deneme φ = 45",
+                      "en": "trial φ = 45"
+                    },
+                    "color": "faint",
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Çizgiyi indir ve denklemi çöz: yalnızca 54 ve 51'lik bloklar üstte kalsın istiyoruz. $(54-\\varphi)\\cdot\\tfrac13+(51-\\varphi)\\cdot\\tfrac13=10 \\Rightarrow \\varphi=37{,}5$ mm/saat. φ çizgisini tam bu yükseklikte çiz; 30'luk çubuğun az üstünden geçer.",
+                  "en": "Lower the line and solve: we want only the 54 and 51 blocks above it. $(54-\\varphi)\\cdot\\tfrac13+(51-\\varphi)\\cdot\\tfrac13=10 \\Rightarrow \\varphi=37.5$ mm/h. Draw the φ line at exactly this height; it passes just above the 30 bar."
+                },
+                "remove": [
+                  "trial"
+                ],
+                "add": [
+                  {
+                    "id": "philine",
+                    "type": "line",
+                    "x1": 0,
+                    "y1": 37.5,
+                    "x2": 160,
+                    "y2": 37.5,
+                    "color": "moss",
+                    "width": 2.6
+                  },
+                  {
+                    "type": "text",
+                    "x": 104,
+                    "y": 40,
+                    "text": {
+                      "tr": "φ = 37,5 mm/saat",
+                      "en": "φ = 37.5 mm/h"
+                    },
+                    "color": "moss",
+                    "size": 15
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "φ çizgisinin ÜSTÜNDE kalan iki bloğu boya (amber): bunlar akışa dönüşen kısımdır ve alanları toplamı tam 10 mm eder. Çizginin altındaki her şey (30, 24, 12, 6'lık çubuklar dahil) sızar. Kontrol: dışarıda bıraktığımız en büyük çubuk 30 < 37,5 ✓ — varsayım tutarlı.",
+                  "en": "Shade the two blocks ABOVE the φ line (amber): these are the part that becomes runoff, and their areas sum to exactly 10 mm. Everything below the line (including the 30, 24, 12, 6 bars) infiltrates. Check: the largest excluded bar is 30 < 37.5 ✓ — the assumption is consistent."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        40,
+                        37.5
+                      ],
+                      [
+                        40,
+                        54
+                      ],
+                      [
+                        60,
+                        54
+                      ],
+                      [
+                        60,
+                        37.5
+                      ]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        60,
+                        37.5
+                      ],
+                      [
+                        60,
+                        51
+                      ],
+                      [
+                        80,
+                        51
+                      ],
+                      [
+                        80,
+                        37.5
+                      ]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 60,
+                    "y": 57.5,
+                    "text": {
+                      "tr": "akış = 10 mm",
+                      "en": "runoff = 10 mm"
+                    },
+                    "color": "amber",
+                    "size": 14
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -1979,7 +2657,145 @@
         "en": "Find the total infiltration depth and the surface-runoff depth at the end of 5 hours."
       },
       "tables": [],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Yağış şiddeti i(t) ve sızma kapasitesi f(t)",
+          "en": "Rainfall intensity i(t) and infiltration capacity f(t)"
+        },
+        "xLabel": "t (saat)",
+        "yLabel": "i, f (cm/saat)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "i = 1,82 t^-0,3",
+            "kind": "line",
+            "points": [
+              [
+                0.25,
+                2.759
+              ],
+              [
+                0.5,
+                2.241
+              ],
+              [
+                0.75,
+                1.984
+              ],
+              [
+                1.0,
+                1.82
+              ],
+              [
+                1.5,
+                1.612
+              ],
+              [
+                2.0,
+                1.478
+              ],
+              [
+                2.5,
+                1.383
+              ],
+              [
+                3.0,
+                1.309
+              ],
+              [
+                3.5,
+                1.25
+              ],
+              [
+                4.0,
+                1.201
+              ],
+              [
+                4.5,
+                1.159
+              ],
+              [
+                5.0,
+                1.123
+              ]
+            ]
+          },
+          {
+            "name": "f = 1 + 5 e^-t",
+            "kind": "line",
+            "points": [
+              [
+                0.25,
+                4.894
+              ],
+              [
+                0.5,
+                4.033
+              ],
+              [
+                0.75,
+                3.362
+              ],
+              [
+                1.0,
+                2.839
+              ],
+              [
+                1.5,
+                2.116
+              ],
+              [
+                2.0,
+                1.677
+              ],
+              [
+                2.5,
+                1.41
+              ],
+              [
+                3.0,
+                1.249
+              ],
+              [
+                3.5,
+                1.151
+              ],
+              [
+                4.0,
+                1.092
+              ],
+              [
+                4.5,
+                1.056
+              ],
+              [
+                5.0,
+                1.034
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 2.62,
+            "y": 1.36,
+            "label": {
+              "tr": "kesişim t*≈2,62",
+              "en": "crossing t*≈2.62"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene t'yi (saat, 0–5), düşey eksene hem $i$ hem $f$'yi (cm/saat, 1–5) aynı eksende al. İki eğriyi noktalardan çiz: $i=1{,}82\\,t^{-0{,}3}$ yavaşça düşen bir kuvvet eğrisidir (2,76'dan 1,12'ye); $f=1+5e^{-t}$ başta çok yüksekten (4,9) başlayıp hızla düşerek $f_c=1$'e yaklaşan üstel bir eğridir. $f$ eğrisi başta $i$'nin ÜSTÜNDE ama daha dik indiği için onu $t\\approx2{,}62$ civarında keser; kesişim noktasını işaretle.",
+          "en": "Put t on the x-axis (hours, 0–5) and both $i$ and $f$ (cm/h, 1–5) on the same y-axis. Draw two curves through the points: $i=1.82\\,t^{-0.3}$ is a slowly falling power curve (2.76 down to 1.12); $f=1+5e^{-t}$ is an exponential that starts very high (4.9) and drops fast toward $f_c=1$. The $f$ curve is ABOVE $i$ at first but, dropping more steeply, cuts across it near $t\\approx2.62$; mark that crossing."
+        },
+        "whatItShows": {
+          "tr": "Bu şekil 4-6'nın iki bölgeli çözümünün gerekçesini gösterir. Kesişimin SOLUNDA ($t<2{,}62$) $f>i$: toprak yağandan fazlasını yutabilir, tüm yağış sızar (sızma $=P$). SAĞINDA ($t>2{,}62$) $i>f$: toprak kapasitesiyle sızdırır, fazlası akışa döner (Horton integrali geçerli). Kesişim kapalı formülle çözülemediğinden deneme-yanılma ile $t^*\\approx2{,}62$ saat bulunur; şekil, tek bir formülle 5 saatin tamamını hesaplamanın neden yanlış olacağını gözle gösterir.",
+          "en": "This figure justifies 4-6's two-region solution. LEFT of the crossing ($t<2.62$) $f>i$: the soil can absorb more than what falls, so all the rain infiltrates (infiltration $=P$). RIGHT of it ($t>2.62$) $i>f$: the soil infiltrates at capacity and the surplus becomes runoff (Horton's integral applies). Since the crossing has no closed form, trial-and-error gives $t^*\\approx2.62$ h; the figure shows at a glance why a single formula over the full 5 hours would be wrong."
+        }
+      },
       "steps": [
         {
           "title": {

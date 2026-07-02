@@ -726,7 +726,15 @@
               "en": "Peak: 1200 m³/s"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene zamanı koy: 0'dan 11 saate, 0,5 saat aralıklı ızgara. Düşey eksene debiyi koy: 0'dan 1400 m³/sn'ye, 200'lük çizgilerle. Üç eğri çiz. **Alçak eğri (U):** süperpozisyon tablosunun 2. satırından (0; 25; 50; 85; 120; 160; 200; 180; ...) noktaları işaretle; pik $t=3$'te 200. **Orta-yüksek eğri (Qd):** aynı tablonun $Q_d$ satırından (0; 37,5; 137,5; 302,5; 505; 735; 982,5; 1150; 1170; ...) işaretle; pik $t=4$'te 1170. **En üst eğri (Q):** $Q=Q_d+30$ satırından; pik $t=4$'te 1200. Her seriyi düzgün bir kalemle birleştir; U ile Q/Qd arasındaki sabit 30'luk düşey boşluk taban akışıdır. Pik noktasını (4; 1200) etiketle.",
+          "en": "Put time on the x-axis: 0 to 11 h, gridded every 0.5 h. Put discharge on the y-axis: 0 to 1400 m³/s, lines every 200. Draw three curves. **Low curve (U):** plot the points from row 2 of the superposition table (0; 25; 50; 85; 120; 160; 200; 180; ...); its peak is 200 at $t=3$. **Middle-high curve (Qd):** plot the $Q_d$ row (0; 37.5; 137.5; 302.5; 505; 735; 982.5; 1150; 1170; ...); peak 1170 at $t=4$. **Top curve (Q):** the $Q=Q_d+30$ row; peak 1200 at $t=4$. Join each series with a smooth pencil line; the constant 30-unit vertical gap between U and Q/Qd is the base flow. Label the peak point (4; 1200)."
+        },
+        "whatItShows": {
+          "tr": "Üç eğri BH → taşkın hidrografı zincirini gösterir. Küçük U eğrisi tek bir 1 cm'lik yağışın cevabıdır; büyük Qd eğrisi dört yağış bloğunun üst üste binmesiyle nasıl büyüdüğünü ve piki nasıl $t=3$'ten $t=4$'e ittiğini gösterir. Q eğrisi Qd'nin 30 m³/sn yukarı kaymış hâlidir — aradaki sabit boşluk taban akışıdır. Q'nun 30'dan başlayıp 30'a dönmesi, yağıştan önce ve sonra derede yalnızca taban akışının olduğunu doğrular; şekil bu yüzden çözümün sağlamasıdır.",
+          "en": "The three curves show the UH → flood-hydrograph chain. The small U curve is the response to a single 1 cm rain; the large Qd curve shows how superposing four rain blocks inflates it and pushes the peak from $t=3$ to $t=4$. The Q curve is Qd raised 30 m³/s — the constant gap between them is the base flow. Q starting at 30 and returning to 30 confirms that only base flow runs in the stream before and after the storm; the figure is thus the solution's own sanity check."
+        }
       },
       "steps": [
         {
@@ -1303,6 +1311,68 @@
             ]
           },
           {
+            "name": "Qd",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                90
+              ],
+              [
+                2,
+                300
+              ],
+              [
+                3,
+                690
+              ],
+              [
+                4,
+                1130
+              ],
+              [
+                5,
+                1545
+              ],
+              [
+                6,
+                1415
+              ],
+              [
+                7,
+                1275
+              ],
+              [
+                8,
+                830
+              ],
+              [
+                9,
+                500
+              ],
+              [
+                10,
+                260
+              ],
+              [
+                11,
+                100
+              ],
+              [
+                12,
+                40
+              ],
+              [
+                13,
+                0
+              ]
+            ]
+          },
+          {
             "name": "Q",
             "kind": "line",
             "points": [
@@ -1374,7 +1444,15 @@
               "en": "Peak: 1605 m³/s"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Zamanı yatay eksene koy: 0'dan 13 saate, 1 saat ızgaralı. Debiyi düşey eksene koy: 0'dan 1700 m³/sn'ye, 200'lük çizgilerle. Üç seri çiz. **En alçak (U):** 2 saatlik BH ordinatları (0; 60; 200; 300; 220; 150; 90; 50; 20; 0), pik $t=3$'te 300. **Orta (Qd):** süperpozisyon tablosunun $Q_d$ satırı (0; 90; 300; 690; 1130; 1545; 1415; 1275; ...), pik $t=5$'te 1545. **En üst (Q):** $Q=Q_d+60$ satırı, pik $t=5$'te 1605. Qd ile Q eğrileri her yerde 60 m³/sn açıklıkla paraleldir — bu boşluk taban akışıdır. Pik noktasını (5; 1605) işaretle; hidrografın $t=13$'te 60'a döndüğünü göster.",
+          "en": "Put time on the x-axis: 0 to 13 h, gridded hourly. Put discharge on the y-axis: 0 to 1700 m³/s, lines every 200. Draw three series. **Lowest (U):** the 2-h UH ordinates (0; 60; 200; 300; 220; 150; 90; 50; 20; 0), peak 300 at $t=3$. **Middle (Qd):** the $Q_d$ row of the superposition table (0; 90; 300; 690; 1130; 1545; 1415; 1275; ...), peak 1545 at $t=5$. **Top (Q):** the $Q=Q_d+60$ row, peak 1605 at $t=5$. The Qd and Q curves run parallel everywhere with a 60 m³/s gap — that gap is the base flow. Mark the peak (5; 1605); show the hydrograph returning to 60 at $t=13$."
+        },
+        "whatItShows": {
+          "tr": "Şekil, üç 2 saatlik yağış bloğunun (1,5 + 4 + 2 cm) tek bir taşkın dalgasına nasıl birleştiğini anlatır. Küçük U eğrisi 1 cm'lik cevaptır; en büyük blok (4 cm) $t=2$'de yağdığı için Qd piki $t=5$'e oturur ve hidrografı domine eder. Qd ile Q arasındaki değişmez 60'lık düşey aralık taban akışını görünür kılar. Q'nun 60'tan başlaması ve 13. saatte yine 60'a dönmesi, taşkının başlangıç/bitiş sınırlarını ve toplam taban süresini ($9+4=13$ sa) doğrular.",
+          "en": "The figure tells how three 2-h rain blocks (1.5 + 4 + 2 cm) merge into one flood wave. The small U curve is the 1 cm response; because the biggest block (4 cm) falls at $t=2$, the Qd peak lands at $t=5$ and dominates the hydrograph. The unchanging 60-unit vertical gap between Qd and Q makes the base flow visible. Q starting at 60 and returning to 60 at hour 13 confirms the flood's start/end boundaries and the total time base ($9+4=13$ h)."
+        }
       },
       "steps": [
         {
@@ -1901,7 +1979,15 @@
               "en": "Peak 14:00"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene gün içi saati koy: 11:00'den 24:00'e (11'den 24'e sayı olarak). Düşey eksene debiyi koy: 0'dan 500 m³/sn'ye, 50'lik ızgarayla. Gözlenen Q noktalarını işaretle (50; 70; 100; 200; 300; 400; 450; 350; 220; 190; 150; 80; 60; 50) ve yumuşak bir eğriyle birleştir — hızlı yükselen, 14:00'te pik yapan, yavaş çekilen klasik hidrograf. Sonra $Q=50$ hizasına **kalın yatay bir düz çizgi** çek: bu taban akışı ayrım çizgisidir. Çizginin altı taban akışı, üstü dolaysız akıştır. Pik noktasını (14:00; 450) etiketle.",
+          "en": "Put clock time on the x-axis: 11:00 to 24:00 (as numbers 11 to 24). Put discharge on the y-axis: 0 to 500 m³/s, gridded every 50. Plot the observed Q points (50; 70; 100; 200; 300; 400; 450; 350; 220; 190; 150; 80; 60; 50) and join them with a smooth curve — the classic hydrograph that rises fast, peaks at 14:00, and recedes slowly. Then draw a **bold horizontal straight line at $Q=50$**: this is the base-flow separation line. Below it is base flow, above it is direct runoff. Label the peak point (14:00; 450)."
+        },
+        "whatItShows": {
+          "tr": "Şekil BH türetmenin çıkış noktasıdır: gözlenen taşkını iki katmana ayırır. $Q=50$ çizgisinin ALTI, yağmurdan bağımsız taban akışıdır (dere yağmurdan önce de 50 akıyordu). ÜSTÜ ise dolaysız akıştır — BH bundan üretilir. Eğri ile 50 çizgisi arasında kalan alan dolaysız akış hacmidir ($V$); bir sonraki adımda kare sayarak bu alanı ölçeceğiz. Hidrografın hem başta hem sonda 50'ye oturması, taban akışının gerçekten sabit 50 olduğunu doğrular.",
+          "en": "The figure is the starting point of UH derivation: it splits the observed flood into two layers. BELOW the $Q=50$ line is base flow, independent of rain (the stream already carried 50 before the storm). ABOVE it is direct runoff — the UH is built from this. The area between the curve and the 50 line is the direct-runoff volume ($V$); the next step measures it by counting squares. The hydrograph sitting on 50 at both ends confirms the base flow really is a constant 50."
+        }
       },
       "steps": [
         {
@@ -1950,7 +2036,133 @@
             "en": "The water volume is what will give the UH its scale: it is the numerator of \"how many cm of water did this flood leave over the basin?\". On a discharge-time graph, area is always volume; square counting is the exam-practical substitute for integration. Remember to build the square's volume from the axis scales."
           },
           "result": "V=540\\times10^{4}\\ \\text{m}^3",
-          "check": null
+          "check": null,
+          "story": {
+            "title": {
+              "tr": "Dolaysız akış hacmini kare sayarak ölç — adım adım",
+              "en": "Measuring the direct-runoff volume by counting squares — step by step"
+            },
+            "xLabel": "t (saat, gün içi)",
+            "yLabel": "Q (m³/sn)",
+            "xDomain": [10.5, 24.5],
+            "yDomain": [0, 500],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Önce gözlenen hidrografı çiz: Q noktalarını (50; 70; 100; 200; 300; 400; 450; 350; 220; 190; 150; 80; 60; 50) saat eksenine yerleştir ve birleştir. Pik 14:00'te 450 m³/sn.",
+                  "en": "First draw the observed hydrograph: place the Q points (50; 70; 100; 200; 300; 400; 450; 350; 220; 190; 150; 80; 60; 50) on the time axis and join them. Peak 450 m³/s at 14:00."
+                },
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [[11,50],[11.5,70],[12,100],[12.5,200],[13,300],[13.5,400],[14,450],[15,350],[16,220],[17,190],[18,150],[20,80],[22,60],[24,50]],
+                    "color": "deniz",
+                    "width": 2.4
+                  },
+                  {
+                    "type": "point",
+                    "x": 14,
+                    "y": 450,
+                    "label": "Pik 450",
+                    "color": "deniz"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Taban akışı ayrım çizgisini çek: $Q=50$ hizasına yatay bir doğru. Altı taban akışıdır (yağmurdan bağımsız), üstü dolaysız akıştır. BH yalnızca üstteki kısımdan üretilir.",
+                  "en": "Draw the base-flow separation line: a horizontal at $Q=50$. Below it is base flow (independent of rain), above it is direct runoff. The UH is built only from the part above."
+                },
+                "add": [
+                  {
+                    "id": "baseline",
+                    "type": "line",
+                    "x1": 11,
+                    "y1": 50,
+                    "x2": 24,
+                    "y2": 50,
+                    "color": "ink",
+                    "width": 2.4
+                  },
+                  {
+                    "type": "text",
+                    "x": 21,
+                    "y": 38,
+                    "text": {
+                      "tr": "taban akışı 50",
+                      "en": "base flow 50"
+                    },
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Eğri ile taban akışı çizgisi arasında kalan alanı boya: bu, dolaysız akış hacmi $V$'dir. Fiziksel olarak debi × zaman = hacim olduğundan, bu alan derenin yağmurdan taşıdığı toplam su miktarıdır.",
+                  "en": "Shade the area between the curve and the base-flow line: this is the direct-runoff volume $V$. Since discharge × time = volume, this area is the total rain-water the stream carried."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [[11,50],[11.5,70],[12,100],[12.5,200],[13,300],[13.5,400],[14,450],[15,350],[16,220],[17,190],[18,150],[20,80],[22,60],[24,50]],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Şimdi ızgarayı oku: bir kare $=1$ saat $\\times\\,50$ m³/sn $=18\\times10^4$ m³. Boyalı alanın içine sığan kareleri say — yaklaşık 30 kare çıkar (kısmî kareler birleştirilerek tam kareye tamamlanır).",
+                  "en": "Now read the grid: one square $=1$ h $\\times\\,50$ m³/s $=18\\times10^4$ m³. Count the squares that fit inside the shaded area — about 30 (partial squares are merged into whole ones)."
+                },
+                "add": [
+                  {
+                    "type": "text",
+                    "x": 13.2,
+                    "y": 250,
+                    "text": {
+                      "tr": "≈ 30 kare",
+                      "en": "≈ 30 squares"
+                    },
+                    "size": 15,
+                    "color": "clay"
+                  },
+                  {
+                    "type": "text",
+                    "x": 12.1,
+                    "y": 130,
+                    "text": {
+                      "tr": "1 kare = 18·10⁴ m³",
+                      "en": "1 square = 18·10⁴ m³"
+                    },
+                    "size": 12,
+                    "color": "clay"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Hacmi topla: $V=30\\times18\\times10^4=540\\times10^4$ m³. Bu sayı, BH'a ölçek verecek olan $R_d=V/A$ hesabının payıdır — bir sonraki adım.",
+                  "en": "Total the volume: $V=30\\times18\\times10^4=540\\times10^4$ m³. This number is the numerator of $R_d=V/A$, which will scale the UH — the next step."
+                },
+                "add": [
+                  {
+                    "type": "text",
+                    "x": 15,
+                    "y": 470,
+                    "text": {
+                      "tr": "V = 540·10⁴ m³",
+                      "en": "V = 540·10⁴ m³"
+                    },
+                    "size": 16,
+                    "color": "clay"
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
           "title": {
@@ -2046,7 +2258,57 @@
             "en": "The effective-rain duration $t_0$ is found with the φ-line, which shows which part of the rain became runoff; the φ-line can only be drawn on an intensity axis. When you see a cumulative table, same reflex: difference, then divide by $\\Delta t$."
           },
           "result": null,
-          "check": null
+          "check": null,
+          "chart": {
+            "type": "bar",
+            "title": {
+              "tr": "Hiyetograf ve φ çizgisi (i = ΔP/Δt)",
+              "en": "Hyetograph and the φ-line (i = ΔP/Δt)"
+            },
+            "xLabel": "t (saat, gün içi)",
+            "yLabel": "i (cm/saat)",
+            "logX": false,
+            "logY": false,
+            "series": [
+              {
+                "name": "i (yağış şiddeti)",
+                "kind": "bar",
+                "points": [
+                  [11, 1],
+                  [11.5, 3],
+                  [12, 4],
+                  [12.5, 3],
+                  [13, 2]
+                ]
+              },
+              {
+                "name": "φ = 1,65 cm/sa",
+                "kind": "line",
+                "points": [
+                  [11, 1.65],
+                  [13.5, 1.65]
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "x": 12,
+                "y": 4,
+                "label": {
+                  "tr": "En şiddetli blok: 4 cm/sa",
+                  "en": "Most intense block: 4 cm/h"
+                }
+              }
+            ],
+            "howToDraw": {
+              "tr": "Yatay eksene 11:00'den 14:00'e yarım saatlik ızgara çiz; düşey eksene 0'dan 4,5 cm/saat'e 0,5'lik çizgiler koy. Her yarım saatlik aralığı, yüksekliği tablodaki $i=\\Delta P/\\Delta t$ olan bir ÇUBUK olarak çiz: 11:00–11:30 → 1; 11:30–12:00 → 3; 12:00–12:30 → 4 (en yüksek); 12:30–13:00 → 3; 13:00–13:30 → 2. Çubuklar bitişik olmalı (aralarında boşluk yok). Son olarak $i=1{,}65$ hizasına yatay φ çizgisini çek; bu çizgi 3, 4, 3 ve 2'lik çubukları keser, 1'lik çubuğu ise tepesinin üstünden geçerek dışarıda bırakır.",
+              "en": "On the x-axis put a half-hour grid from 11:00 to 14:00; on the y-axis put 0 to 4.5 cm/h with 0.5 gridlines. Draw each half-hour interval as a BAR whose height is $i=\\Delta P/\\Delta t$ from the table: 11:00–11:30 → 1; 11:30–12:00 → 3; 12:00–12:30 → 4 (tallest); 12:30–13:00 → 3; 13:00–13:30 → 2. Bars must touch (no gaps). Finally draw the horizontal φ-line at $i=1.65$; it cuts through the 3, 4, 3 and 2 bars but passes above the top of the 1 bar, leaving it out."
+            },
+            "whatItShows": {
+              "tr": "Bu hiyetograf, yağışın ne zaman ve ne kadar şiddetli düştüğünü gösterir; en yüksek çubuk (4 cm/sa, 12:00–12:30) yağmurun en hızlı boşaldığı andır. φ çizgisi anahtardır: çizginin ÜSTÜNDE kalan alan tam olarak akışa geçen artık yağıştır ($R_d=2{,}7$ cm), altındaki alan ise sızma/kayıptır. Çizgi 1 cm/sa'lik ilk çubuğu tamamen altta bıraktığı için o yağış hiç akışa geçmez; net yağış 11:30 ile 13:30 arasında düşer → BH'ın süresi $t_0=2$ saat buradan okunur.",
+              "en": "This hyetograph shows when and how hard the rain fell; the tallest bar (4 cm/h, 12:00–12:30) is when the storm dumps fastest. The φ-line is the key: the area ABOVE it is exactly the effective rain that becomes runoff ($R_d=2.7$ cm), while the area below is infiltration/loss. Since the line leaves the first 1 cm/h bar entirely below it, that rain never runs off; the net rain falls between 11:30 and 13:30 → the UH's duration $t_0=2$ h is read straight off this figure."
+            }
+          }
         },
         {
           "title": {
@@ -2532,7 +2794,15 @@
               "en": "3-h peak: 440"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Zamanı yatay eksene koy: 0'dan 16 saate, 1 saat ızgaralı. BH ordinatını düşey eksene koy: 0'dan 600 m³/sn'ye, 100'lük çizgilerle. İki eğri çiz. **1 saatlik BH (dik ve sivri):** verilen tablodan (0; 290; 550; 480; 265; 130; 70; ...), pik $t=2$'de 550. **3 saatlik BH (yayvan ve basık):** son satırdan (0; 97; 280; 440; 432; 292; 155; ...), pik $t=3$'te 440. İki eğriyi farklı renk/işaretle çiz; 3 saatlik eğrinin pikinin daha küçük ve daha sağda olduğunu, kuyruğunun ise 1 saatliğinkinden 2 saat daha uzun sürdüğünü ($14\\to16$) vurgula.",
+          "en": "Put time on the x-axis: 0 to 16 h, gridded hourly. Put the UH ordinate on the y-axis: 0 to 600 m³/s, lines every 100. Draw two curves. **1-h UH (steep and peaky):** from the given table (0; 290; 550; 480; 265; 130; 70; ...), peak 550 at $t=2$. **3-h UH (flatter and broader):** from the last row (0; 97; 280; 440; 432; 292; 155; ...), peak 440 at $t=3$. Draw the two curves in different colours/markers; highlight that the 3-h peak is lower and further right, while its tail lasts 2 h longer than the 1-h one ($14\\to16$)."
+        },
+        "whatItShows": {
+          "tr": "Şekil, aynı havzanın aynı 1 cm suyu farklı yağış sürelerinde nasıl farklı boşalttığını gösterir. İki eğrinin altındaki alan (hacim) eşittir — ikisi de 1 cm'i temsil eder — ama 3 saatlik yağış suyu daha uzun sürede getirdiği için pik düşer (550 → 440) ve sağa kayar. Bu, süre uzadıkça BH'ın \"yayvanlaştığı\" temel kuralın görsel kanıtıdır: eşit hacim, daha geniş taban, daha alçak pik. Tersine, kısa süreli yağışlar daha sivri ve tehlikeli taşkın verir.",
+          "en": "The figure shows how the same basin discharges the same 1 cm of water differently for different rain durations. The areas under the two curves (volumes) are equal — both represent 1 cm — but because the 3-h rain delivers its water over a longer time, the peak drops (550 → 440) and shifts right. This is the visual proof of the core rule that a longer duration \"flattens\" the UH: equal volume, wider base, lower peak. Conversely, short rains give a sharper, more dangerous flood."
+        }
       },
       "steps": [
         {
@@ -3310,7 +3580,15 @@
               "en": "S flattens (equilibrium)"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Zamanı yatay eksene koy: 0'dan 21 saate, 1 saat ızgaralı. Debiyi düşey eksene koy: 0'dan 600 m³/sn'ye, 100'lük çizgilerle. Üç eğri çiz. **3 saatlik BH:** verilen ordinatlar (0; 14; 49; 99; 144; 171; 183; 185; ...), pik $t=7$'de 185, $t=21$'de 0'a iner. **S eğrisi:** ötele-topla tablosunun toplam satırı (0; 14; 49; 99; 158; 220; ...); sürekli yükselip $\\approx598$'de **platoya** oturan tırmanan eğri. **4 saatlik BH:** son satır (0; 11; 37; 74; 119; 155; 175; 183; ...), 3 saatliğe çok benzer ama piki biraz alçak (183) ve biraz sağda. S eğrisinin platoya ulaştığı noktayı (t≈12) işaretle.",
+          "en": "Put time on the x-axis: 0 to 21 h, gridded hourly. Put discharge on the y-axis: 0 to 600 m³/s, lines every 100. Draw three curves. **3-h UH:** the given ordinates (0; 14; 49; 99; 144; 171; 183; 185; ...), peak 185 at $t=7$, back to 0 at $t=21$. **S-curve:** the sum row of the lag-and-add table (0; 14; 49; 99; 158; 220; ...); a climbing curve that keeps rising and settles onto a **plateau** at $\\approx598$. **4-h UH:** the last row (0; 11; 37; 74; 119; 155; 175; 183; ...), very like the 3-h one but with a slightly lower peak (183) shifted a touch right. Mark where the S-curve reaches its plateau (t≈12)."
+        },
+        "whatItShows": {
+          "tr": "Şekil, S eğrisi yönteminin tüm mantığını tek bakışta özetler. Tırmanan S eğrisi, havzaya $t_0$ aralıklarla sonsuza dek 1 cm yağış yağdırılırsa ulaşılacak denge debisidir — plato, giren su ile çıkan suyun eşitlendiği kararlı durumdur. 4 saatlik BH, bu S eğrisinin kendisinden 4 saat ötelenmiş kopyası çıkarılıp $3/4$ ile ölçeklenerek elde edilir; sonucun 3 saatlik BH'a çok yakın ama biraz basık çıkması ($185\\to183$) süre farkının küçüklüğünü ($4/3$) yansıtır. Şekil, tam kat olmayan süre dönüşümünün neden S eğrisi gerektirdiğini görsel olarak kanıtlar.",
+          "en": "The figure sums up the whole logic of the S-curve method at a glance. The climbing S-curve is the equilibrium discharge reached if 1 cm of rain fell on the basin every $t_0$ forever — the plateau is the steady state where inflow balances outflow. The 4-h UH is obtained by subtracting a 4-h-lagged copy of this S-curve from itself and scaling by $3/4$; that the result sits very close to the 3-h UH but slightly flatter ($185\\to183$) reflects how small the duration change is ($4/3$). The figure visually proves why a non-integer duration change needs the S-curve."
+        }
       },
       "steps": [
         {
@@ -3455,6 +3733,137 @@
               "tr": "Öteleme istenen süre kadardır ($t_1=4$ sa). Fark 4/3 cm'i temsil ettiği için 1 cm'e dönmek üzere $t_0/t_1=3/4$ ile çarpılır. ×4/3 çarpanı yağışı 16/9 cm yapar; 3 sa öteleme ise 3 saatlik BH'ı geri verir.",
               "en": "The lag equals the target duration ($t_1=4$ h). The difference represents 4/3 cm, so multiply by $t_0/t_1=3/4$ to return to 1 cm. The ×4/3 factor would make 16/9 cm; a 3-h lag would just recover the 3-h UH."
             }
+          },
+          "story": {
+            "title": {
+              "tr": "S eğrisini ötele-çıkar-ölçekle — adım adım",
+              "en": "Shift, subtract, scale the S-curve — step by step"
+            },
+            "xLabel": "t (saat)",
+            "yLabel": "Q (m³/sn)",
+            "xDomain": [0, 21],
+            "yDomain": [0, 620],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Önce S eğrisini çiz: $t=0$'da başlayan sonsuz yağışın hidrografı. Hızla tırmanır, sonra $\\approx598$'de platoya oturur (havza dengesi).",
+                  "en": "First draw the S-curve: the hydrograph of endless rain starting at $t=0$. It climbs fast, then settles onto a plateau at $\\approx598$ (basin equilibrium)."
+                },
+                "add": [
+                  {
+                    "id": "S0",
+                    "type": "polyline",
+                    "points": [[0,0],[1,14],[2,49],[3,99],[4,158],[5,220],[6,282],[7,343],[8,397],[9,445],[10,487],[11,520],[12,546],[13,567],[14,580],[15,589],[16,595],[17,597],[18,598],[19,599],[20,598],[21,598]],
+                    "color": "deniz",
+                    "width": 2.4
+                  },
+                  {
+                    "type": "text",
+                    "x": 16.5,
+                    "y": 560,
+                    "text": {
+                      "tr": "S(t)",
+                      "en": "S(t)"
+                    },
+                    "size": 14,
+                    "color": "deniz"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Aynı S eğrisinin bir kopyasını **4 saat sağa** ötele (kesikli). Bu, $t=4$'te başlayan sonsuz yağıştır. İki eğri arasındaki fark yalnızca ilk 4 saatte yağan yağmuru bırakır.",
+                  "en": "Lag a copy of the same S-curve **4 h to the right** (dashed). This is endless rain starting at $t=4$. The gap between the two curves leaves only the rain of the first 4 hours."
+                },
+                "add": [
+                  {
+                    "id": "S4",
+                    "type": "polyline",
+                    "points": [[4,0],[5,14],[6,49],[7,99],[8,158],[9,220],[10,282],[11,343],[12,397],[13,445],[14,487],[15,520],[16,546],[17,567],[18,580],[19,589],[20,595],[21,597]],
+                    "color": "clay",
+                    "dash": true,
+                    "width": 2.2
+                  },
+                  {
+                    "type": "text",
+                    "x": 13.5,
+                    "y": 400,
+                    "text": {
+                      "tr": "S(t−4)",
+                      "en": "S(t−4)"
+                    },
+                    "size": 14,
+                    "color": "clay"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Düşey ok, iki eğrinin arasındaki farkı ($\\Delta=S(t)-S(t-4)$) gösterir. Fark $t=7$'de en büyük: $343-99=244$ m³/sn. Bu fark eğrisi 4/3 cm'lik yağışın hidrografıdır.",
+                  "en": "The vertical arrow marks the difference between the two curves ($\\Delta=S(t)-S(t-4)$). It is largest at $t=7$: $343-99=244$ m³/s. This difference curve is the hydrograph of 4/3 cm of rain."
+                },
+                "add": [
+                  {
+                    "type": "arrow",
+                    "x1": 7,
+                    "y1": 99,
+                    "x2": 7,
+                    "y2": 343,
+                    "color": "moss",
+                    "width": 2
+                  },
+                  {
+                    "type": "arrow",
+                    "x1": 5,
+                    "y1": 14,
+                    "x2": 5,
+                    "y2": 220,
+                    "color": "moss",
+                    "width": 1.6
+                  },
+                  {
+                    "type": "polyline",
+                    "points": [[0,0],[1,14],[2,49],[3,99],[4,158],[5,206],[6,233],[7,244],[8,239],[9,225],[10,205],[11,177],[12,149],[13,122],[14,93],[15,69],[16,49],[17,30],[18,18],[19,10],[20,3],[21,1]],
+                    "color": "moss",
+                    "width": 2.2
+                  },
+                  {
+                    "type": "text",
+                    "x": 7.4,
+                    "y": 260,
+                    "text": {
+                      "tr": "Δ = 244",
+                      "en": "Δ = 244"
+                    },
+                    "size": 13,
+                    "color": "moss"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Fark eğrisini $\\times 3/4$ ile ölçekle → aradığımız **4 saatlik BH**. Pik $244\\times0{,}75=183$ m³/sn'ye iner. Kalabalık olmasın diye yardımcı S eğrilerini kaldırıyoruz.",
+                  "en": "Scale the difference curve by $\\times 3/4$ → the **4-h UH** we want. The peak drops to $244\\times0.75=183$ m³/s. We remove the helper S-curves to declutter."
+                },
+                "remove": ["S0", "S4"],
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [[0,0],[1,11],[2,37],[3,74],[4,119],[5,155],[6,175],[7,183],[8,179],[9,169],[10,154],[11,133],[12,112],[13,92],[14,70],[15,52],[16,37],[17,23],[18,14],[19,8],[20,2],[21,1]],
+                    "color": "ink",
+                    "width": 2.6
+                  },
+                  {
+                    "type": "point",
+                    "x": 7,
+                    "y": 183,
+                    "label": "4 sa BH pik 183",
+                    "color": "ink"
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -3835,8 +4244,76 @@
               "en": "tp=4.59 h; Qp=133.1"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Zamanı yatay eksene koy: 0'dan 20 saate, 2 saat ızgaralı. Debiyi düşey eksene koy: 0'dan 140 m³/sn'ye, 20'lik çizgilerle. Boyutsuz BH tablosunun her satırını iki çarpımla boyutlu hâle getir: $t=(t/t_p)\\times t_p$ (yatay) ve $Q=(Q/Q_p)\\times Q_p$ (düşey), burada $t_p=4{,}59$ sa ve $Q_p=133{,}1$ m³/sn. Çıkan noktaları (0; 0), (0,92; 10,7), (1,84; 37,3), (2,75; 79,9), (3,67; 117,1), (4,59; 133,1), (5,51; 122,5), ... işaretle ve yumuşak bir eğriyle birleştir. Tepe noktasını ($t_p=4{,}59$ sa, $Q_p=133{,}1$) etiketle; sağ kuyruk uzun ve yavaş inmelidir.",
+          "en": "Put time on the x-axis: 0 to 20 h, gridded every 2 h. Put discharge on the y-axis: 0 to 140 m³/s, lines every 20. Turn each row of the dimensionless UH table into dimensional form with two products: $t=(t/t_p)\\times t_p$ (horizontal) and $Q=(Q/Q_p)\\times Q_p$ (vertical), with $t_p=4.59$ h and $Q_p=133.1$ m³/s. Plot the resulting points (0; 0), (0.92; 10.7), (1.84; 37.3), (2.75; 79.9), (3.67; 117.1), (4.59; 133.1), (5.51; 122.5), ... and join with a smooth curve. Label the crest ($t_p=4.59$ h, $Q_p=133.1$); the right tail should be long and slowly falling."
+        },
+        "whatItShows": {
+          "tr": "Bu, akım ölçümü olmayan bir havza için yalnızca geometriden (L, Lc, A) ve iki bölgesel katsayıdan (Ct, Cp) türetilmiş sentetik BH'dır. Eğrinin tepesi Snyder formülleriyle bulunan $Q_p=133{,}1$ m³/sn'yi $t_p=4{,}59$ saatte gösterir; gövdenin geri kalanı standart boyutsuz şekilden ölçeklenmiştir. Ölçüm verisi olmadan bir havzanın taşkın cevabını nasıl tahmin edebileceğimizin somut örneğidir: gerçek bir hidrograf değil, havzanın \"muhtemel\" 1 cm'lik cevabıdır.",
+          "en": "This is the synthetic UH for an ungauged basin, derived from geometry alone (L, Lc, A) and two regional coefficients (Ct, Cp). The crest shows $Q_p=133.1$ m³/s at $t_p=4.59$ h from Snyder's formulas; the rest of the body is scaled from the standard dimensionless shape. It is the concrete example of how a basin's flood response can be estimated with no gauge data: not a measured hydrograph, but the basin's \"likely\" response to 1 cm."
+        }
       },
+      "charts": [
+        {
+          "type": "line",
+          "title": {
+            "tr": "Boyutsuz birim hidrograf (Q/Qp − t/tp)",
+            "en": "Dimensionless unit hydrograph (Q/Qp − t/tp)"
+          },
+          "xLabel": "t/tp",
+          "yLabel": "Q/Qp",
+          "logX": false,
+          "logY": false,
+          "series": [
+            {
+              "name": "Q/Qp",
+              "kind": "line",
+              "points": [
+                [0, 0],
+                [0.2, 0.08],
+                [0.4, 0.28],
+                [0.6, 0.6],
+                [0.8, 0.88],
+                [1, 1],
+                [1.2, 0.92],
+                [1.4, 0.72],
+                [1.6, 0.6],
+                [1.8, 0.4],
+                [2, 0.32],
+                [2.2, 0.17],
+                [2.4, 0.14],
+                [2.6, 0.1],
+                [2.8, 0.08],
+                [3, 0.06],
+                [3.2, 0.05],
+                [3.4, 0.04],
+                [3.6, 0.03],
+                [3.8, 0.02],
+                [4, 0.01]
+              ]
+            }
+          ],
+          "annotations": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": {
+                "tr": "Tepe: t/tp=1, Q/Qp=1",
+                "en": "Crest: t/tp=1, Q/Qp=1"
+              }
+            }
+          ],
+          "howToDraw": {
+            "tr": "Yatay eksene $t/t_p$ oranını koy: 0'dan 4'e, 0,2'lik ızgarayla. Düşey eksene $Q/Q_p$ oranını koy: 0'dan 1,2'ye, 0,2'lik çizgilerle. Tablodaki boyutsuz noktaları işaretle: (0; 0), (0,2; 0,08), (0,4; 0,28), (0,6; 0,60), (0,8; 0,88), (1,0; 1,00 — tepe), (1,2; 0,92), (1,4; 0,72), ... (4,0; 0,01). Yumuşak bir eğriyle birleştir; tepe tam olarak (1; 1) noktasındadır çünkü tanım gereği $t=t_p$ iken $Q=Q_p$. Sağ kuyruk uzun ve asimptotik biçimde sıfıra yaklaşır.",
+            "en": "Put the ratio $t/t_p$ on the x-axis: 0 to 4, gridded every 0.2. Put $Q/Q_p$ on the y-axis: 0 to 1.2, lines every 0.2. Plot the dimensionless points from the table: (0; 0), (0.2; 0.08), (0.4; 0.28), (0.6; 0.60), (0.8; 0.88), (1.0; 1.00 — crest), (1.2; 0.92), (1.4; 0.72), ... (4.0; 0.01). Join with a smooth curve; the crest is exactly at (1; 1) because by definition $Q=Q_p$ when $t=t_p$. The right tail is long and approaches zero asymptotically."
+          },
+          "whatItShows": {
+            "tr": "Bu, Snyder yönteminin kalbindeki **evrensel şablon**dur: her havza için aynı olan, birimsiz standart BH biçimi. Tepesi daima (1; 1)'dedir. Herhangi bir havzanın gerçek (boyutlu) BH'ını çizmek için bu şablonun her noktası, o havzaya özgü $t_p$ (yatayda) ve $Q_p$ (düşeyde) ile çarpılır — böylece bir tek şekil sonsuz havzaya uyarlanır. Şekil, sentetik BH'ın \"neden her yerde aynı görünüp yalnızca ölçeği değiştiği\" sorusunun cevabıdır.",
+            "en": "This is the **universal template** at the heart of Snyder's method: the unitless standard UH shape, the same for every basin. Its crest is always at (1; 1). To draw any basin's real (dimensional) UH, every point of this template is multiplied by that basin's own $t_p$ (horizontally) and $Q_p$ (vertically) — so one shape adapts to infinitely many basins. The figure answers why a synthetic UH \"looks the same everywhere and only changes scale\"."
+          }
+        }
+      ],
       "steps": [
         {
           "title": {

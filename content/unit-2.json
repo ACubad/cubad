@@ -328,7 +328,15 @@
        30
       ]
      }
-    ]
+    ],
+    "howToDraw": {
+     "tr": "Yatay eksene 8:00'den itibaren geçen dakikayı (0-180), düşey eksene şiddeti $i$ (mm/saat, 0-50) koy. Her aralık bir ÇUBUK: çubuğun **genişliği** o aralığın $\\Delta t$'sidir (20, 10, 15, 15, 10, 20, 10, 20, 30, 30 dk), **yüksekliği** ise şiddet tablosunun son satırındaki $i$ değeridir (15, 18, 20, 28, 42, 15, 18, 6, 2, 0). Çubukları yan yana, aralarında boşluk bırakmadan çiz — toplam genişlik 180 dakikayı doldurmalı. En yüksek çubuğu (65. dakika civarı, $i=42$) tepe olarak işaretle; son çubuk (10:30-11:00) sıfır yüksekliktedir, yani hiç çubuk yok.",
+     "en": "Put minutes elapsed since 8:00 on the x-axis (0-180) and intensity $i$ (mm/h, 0-50) on the y-axis. Each interval is a BAR: the bar's **width** is that interval's $\\Delta t$ (20, 10, 15, 15, 10, 20, 10, 20, 30, 30 min) and its **height** is the $i$ value from the last row of the intensity table (15, 18, 20, 28, 42, 15, 18, 6, 2, 0). Draw the bars side by side with no gaps — their total width must fill the 180 minutes. Mark the tallest bar (around minute 65, $i=42$) as the peak; the last bar (10:30-11:00) has zero height, i.e. no bar at all."
+    },
+    "whatItShows": {
+     "tr": "Hiyetograf yağışın HIZINI zaman içinde gösterir: yüksek çubuk = o aralıkta yağış hızlı düşüyor. En yüksek çubuk (9:00-9:10, 42 mm/saat) sağanağın en şiddetli anıdır — dikkat: bu en çok yağan aralık değil, en KISA sürede en çok yağandır. Çubukların genişliğinin eşit olmaması, aralıkların gerçek sürelerini yansıtır; bir çubuğun ALANI ($i\\cdot\\Delta t$) o aralıkta düşen yağış yüksekliğine (ΔP) eşittir, yani tüm çubukların toplam alanı 38 mm'yi verir.",
+     "en": "The hyetograph shows the RATE of rainfall over time: a tall bar means rain falls fast in that interval. The tallest bar (9:00-9:10, 42 mm/h) is the storm's most intense moment — note: not the interval with the most rain, but the most rain in the SHORTEST time. The unequal bar widths reflect the intervals' real durations; a bar's AREA ($i\\cdot\\Delta t$) equals the rainfall depth (ΔP) in that interval, so the total area of all bars gives 38 mm."
+    }
    },
    "steps": [
     {
@@ -473,7 +481,63 @@
       "en": "The conceptual point of this step: the slope of the cumulative curve IS the intensity. The curve never goes down because rainfall cannot be negative; where it flattens is where rain has stopped. If an exam asks you to interpret the curve's shape (\"where was rainfall most intense?\"), look for the steepest section, not the highest ΣP point."
      },
      "result": null,
-     "check": null
+     "check": null,
+     "chart": {
+      "type": "line",
+      "title": {
+       "tr": "Toplam yağış eğrisi",
+       "en": "Cumulative rainfall curve"
+      },
+      "xLabel": "t (dakika, 800'den itibaren)",
+      "yLabel": "ΣP (mm)",
+      "logX": false,
+      "logY": false,
+      "series": [
+       {
+        "name": "ΣP",
+        "kind": "line",
+        "points": [
+         [0, 0],
+         [20, 5],
+         [30, 8],
+         [45, 13],
+         [60, 20],
+         [70, 27],
+         [90, 32],
+         [100, 35],
+         [120, 37],
+         [150, 38],
+         [180, 38]
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "x": 65,
+        "y": 23.5,
+        "label": {
+         "tr": "en dik bölge → en şiddetli yağış",
+         "en": "steepest part → most intense rain"
+        }
+       },
+       {
+        "x": 165,
+        "y": 38,
+        "label": {
+         "tr": "düzleşti → yağış durdu",
+         "en": "flat → rain stopped"
+        }
+       }
+      ],
+      "howToDraw": {
+       "tr": "Yatay eksene 8:00'den itibaren geçen dakikayı (0-180), düşey eksene birikmiş yağış ΣP'yi (mm, 0-40) koy. Tablodaki 11 $(t, \\Sigma P)$ çiftini işaretle: $(0,0), (20,5), (30,8), (45,13), (60,20), (70,27), (90,32), (100,35), (120,37), (150,38), (180,38)$. Noktaları SIRAYLA düz parçalarla birleştir — eğri asla aşağı inmez. 9:00 civarında (60-70. dk) çizginin en DİK olduğuna, 10:30'dan sonra (150-180. dk) tam YATAY olduğuna dikkat et.",
+       "en": "Put minutes elapsed since 8:00 on the x-axis (0-180) and the accumulated rainfall ΣP (mm, 0-40) on the y-axis. Plot the 11 $(t, \\Sigma P)$ pairs from the table: $(0,0), (20,5), (30,8), (45,13), (60,20), (70,27), (90,32), (100,35), (120,37), (150,38), (180,38)$. Connect the points IN ORDER with straight segments — the curve never falls. Notice the line is STEEPEST around 9:00 (minutes 60-70) and perfectly FLAT after 10:30 (minutes 150-180)."
+      },
+      "whatItShows": {
+       "tr": "Toplam yağış eğrisi, o ana kadar TOPLAM ne kadar yağdığını gösterir; eğimi ise o andaki şiddettir. En dik olduğu yer (9:00 civarı) hiyetografın en yüksek çubuğuyla aynı andır — iki grafik aynı veriyi anlatır. Eğri düzleştiğinde ($\\Sigma P$ sabit 38 mm) yağış durmuştur. Sınavda \"en şiddetli yağış ne zaman?\" sorusuna, en yüksek noktaya değil, en dik eğime bakarak cevap verirsin.",
+       "en": "The cumulative curve shows the TOTAL rainfall so far; its slope is the intensity at that instant. Where it is steepest (around 9:00) is the same instant as the hyetograph's tallest bar — the two graphs tell the same story. When the curve flattens ($\\Sigma P$ stays at 38 mm) the rain has stopped. In the exam, answer \"when was rainfall most intense?\" by looking at the steepest slope, not the highest point."
+      }
+     }
     },
     {
      "title": {
@@ -1109,7 +1173,15 @@
        "en": "break point"
       }
      }
-    ]
+    ],
+    "howToDraw": {
+     "tr": "Yatay eksene komşu istasyonların kümülatif ortalamasını (ABCD)top (0-1500 cm), düşey eksene E'nin kümülatif toplamını Etop (0-2000 cm) koy. 12 noktayı 1998'den başlayıp geriye doğru işaretle: $(126,141), (266,292), (383,438), \\ldots, (1174,1329), \\ldots, (1461,1818)$. Noktaları sırayla birleştir. Kırılmayı görmek için (1174,1329)'a kadar olan 9 noktadan bir cetvel doğrusu geçir; son üç noktanın ($1268, 1368, 1461$) bu doğrunun ÜSTÜNE, daha dik bir kola kaydığını gör. Kırılma noktasını (1174,1329) işaretle.",
+     "en": "Put the neighbours' cumulative average (ABCD)top on the x-axis (0-1500 cm) and E's cumulative total Etop on the y-axis (0-2000 cm). Plot the 12 points starting from 1998 and working backward: $(126,141), (266,292), (383,438), \\ldots, (1174,1329), \\ldots, (1461,1818)$. Connect them in order. To see the break, lay a straightedge through the 9 points up to (1174,1329); watch the last three points ($1268, 1368, 1461$) drift ABOVE that line onto a steeper branch. Mark the break point at (1174,1329)."
+    },
+    "whatItShows": {
+     "tr": "Çift toplama eğrisi, bir istasyonun geçmiş boyunca komşularıyla tutarlı ölçüm yapıp yapmadığını gösterir. Düz tek bir doğru = homojen (güvenilir) veri. Bir yerde eğim DEĞİŞİRSE (kırılma) o noktadan önceki (eski) veri şüphelidir. Buradaki kırılma 1990'da: eğri daha dik bir kola geçiyor, yani E eski yıllarda diğerlerine göre fazla yağış kaydetmiş. İki kolun eğim oranı ($m_1/m_2$) düzeltme çarpanını verir.",
+     "en": "The double-mass curve reveals whether a station measured consistently with its neighbours over its history. A single straight line = homogeneous (reliable) data. If the slope CHANGES somewhere (a break), the data before that point (the older data) is suspect. Here the break is at 1990: the curve switches to a steeper branch, meaning E over-recorded in the older years. The ratio of the two branches' slopes ($m_1/m_2$) gives the correction factor."
+    }
    },
    "steps": [
     {
@@ -1178,6 +1250,80 @@
        "tr": "Yöntem güncel veriyi referans kabul eder; 1998-1990 bölümü homojen doğruyu oluşturur. 1990'dan geriye giden 1989, 1988, 1987 yılları bu doğrudan sapıyor — şüpheli olan onlardır ve düzeltilmesi gereken de onlardır.",
        "en": "The method treats the recent data as the reference; the 1998-1990 segment forms the homogeneous line. Going back from 1990, the years 1989, 1988, 1987 deviate from that line — they are the suspect ones, and they are what needs correcting."
       }
+     },
+     "story": {
+      "title": {
+       "tr": "Çift toplama eğrisi ve kırılmanın bulunması — adım adım",
+       "en": "Building the double-mass curve and finding the break — step by step"
+      },
+      "xLabel": "(ABCD)top (cm)",
+      "yLabel": "Etop (cm)",
+      "xDomain": [0, 1560],
+      "yDomain": [0, 1960],
+      "showAxes": true,
+      "frames": [
+       {
+        "caption": {
+         "tr": "Önce 12 kümülatif noktayı işaretle: yatayda komşuların kümülatif ortalaması (ABCD)top, düşeyde E'nin kümülatif toplamı Etop. En yeni yıl (1998) sol altta, en eski yıl (1987) sağ üstte.",
+         "en": "First plot the 12 cumulative points: (ABCD)top (neighbours' cumulative average) horizontally, Etop (E's cumulative total) vertically. The most recent year (1998) is bottom-left, the oldest (1987) top-right."
+        },
+        "add": [
+         {"type": "point", "x": 126, "y": 141, "color": "deniz"},
+         {"type": "point", "x": 266, "y": 292, "color": "deniz"},
+         {"type": "point", "x": 383, "y": 438, "color": "deniz"},
+         {"type": "point", "x": 500, "y": 581, "color": "deniz"},
+         {"type": "point", "x": 645, "y": 739, "color": "deniz"},
+         {"type": "point", "x": 779, "y": 891, "color": "deniz"},
+         {"type": "point", "x": 917, "y": 1034, "color": "deniz"},
+         {"type": "point", "x": 1053, "y": 1179, "color": "deniz"},
+         {"type": "point", "x": 1174, "y": 1329, "color": "deniz", "label": "1990"},
+         {"type": "point", "x": 1268, "y": 1509, "color": "clay"},
+         {"type": "point", "x": 1368, "y": 1660, "color": "clay"},
+         {"type": "point", "x": 1461, "y": 1818, "color": "clay"}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Güncel (güvenilir) bölüme, 1998'den 1990'a kadar olan 9 noktaya bir doğru uydur. Bu doğru homojen referanstır; eğimi $m_1=1{,}134$.",
+         "en": "Fit a straight line to the recent (reliable) segment — the 9 points from 1998 to 1990. This line is the homogeneous reference; its slope is $m_1=1.134$."
+        },
+        "add": [
+         {"id": "m1line", "type": "line", "x1": 126, "y1": 141, "x2": 1174, "y2": 1329, "color": "moss", "width": 2.4},
+         {"type": "text", "x": 620, "y": 830, "text": {"tr": "m₁ = 1,134", "en": "m₁ = 1.134"}, "color": "moss", "size": 14}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Homojen doğruyu eski yıllara doğru UZAT (kesikli). Son üç nokta (1989, 1988, 1987) bu uzantının ÜSTÜNDE kalıyor — işte kırılma. E, eski yıllarda olması gerekenden fazla yağış biriktirmiş.",
+         "en": "EXTEND the homogeneous line into the older years (dashed). The last three points (1989, 1988, 1987) sit ABOVE this extension — that is the break. E accumulated more rain in the old years than it should have."
+        },
+        "add": [
+         {"id": "m1ext", "type": "line", "x1": 1174, "y1": 1329, "x2": 1461, "y2": 1654.5, "color": "moss", "dash": true, "width": 1.8},
+         {"type": "arrow", "x1": 1461, "y1": 1654.5, "x2": 1461, "y2": 1818, "color": "amber", "width": 2},
+         {"type": "text", "x": 1290, "y": 1745, "text": {"tr": "sapma", "en": "deviation"}, "color": "amber", "size": 13}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Sapan (eski) bölümün kendi doğrusunu çiz: 1990'dan 1987'ye. Eğimi daha dik: $m_2=1{,}704$. İki eğim oranı düzeltme çarpanını verecek: $m_1/m_2 = 1{,}134/1{,}704 = 0{,}665$.",
+         "en": "Draw the deviant (older) segment's own line, from 1990 to 1987. Its slope is steeper: $m_2=1.704$. The ratio of the two slopes gives the correction factor: $m_1/m_2 = 1.134/1.704 = 0.665$."
+        },
+        "add": [
+         {"type": "line", "x1": 1174, "y1": 1329, "x2": 1461, "y2": 1818, "color": "clay", "width": 2.4},
+         {"type": "text", "x": 1230, "y": 1500, "text": {"tr": "m₂ = 1,704", "en": "m₂ = 1.704"}, "color": "clay", "size": 14}
+        ],
+        "remove": ["m1ext"]
+       },
+       {
+        "caption": {
+         "tr": "Düzeltme: şüpheli üç yılın HAM yağışını 0,665 ile çarp. 1989: 180→119,7; 1988: 151→100,4; 1987: 158→105,1 cm. Böylece eski noktalar homojen doğruya çekilmiş olur.",
+         "en": "Correction: multiply each suspect year's RAW rainfall by 0.665. 1989: 180→119.7; 1988: 151→100.4; 1987: 158→105.1 cm. This pulls the old points back onto the homogeneous line."
+        },
+        "add": [
+         {"type": "text", "x": 470, "y": 250, "text": {"tr": "Pd = (m₁/m₂)·Ph = 0,665·Ph", "en": "Pd = (m₁/m₂)·Ph = 0.665·Ph"}, "color": "ink", "size": 15}
+        ]
+       }
+      ]
      }
     },
     {
@@ -1545,7 +1691,96 @@
       "en": "This is the fundamental difference separating Thiessen from the arithmetic mean: geometry speaks, not the boundary (inside/outside) alone. Exams often test this distinction: \"which stations are used in the arithmetic mean?\" (only inside) vs. \"which in Thiessen?\" (potentially all, any station whose polygon intersects the basin)."
      },
      "result": null,
-     "check": null
+     "check": null,
+     "story": {
+      "title": {
+       "tr": "Thiessen çokgenlerinin çizimi (şematik istasyon haritası)",
+       "en": "Constructing the Thiessen polygons (schematic station map)"
+      },
+      "xLabel": "x (cm)",
+      "yLabel": "y (cm)",
+      "xDomain": [0, 14],
+      "yDomain": [0, 9],
+      "square": true,
+      "showAxes": false,
+      "frames": [
+       {
+        "caption": {
+         "tr": "ŞEMATİK harita (istasyon konumları föydeki görselden tahmin edilmiştir). 8 istasyonu ve kesikli havza sınırını yerleştir: B, C, D, G, H içeride; A, E, F dışarıda.",
+         "en": "SCHEMATIC map (station positions estimated from the sheet's figure). Place the 8 stations and the dashed basin boundary: B, C, D, G, H inside; A, E, F outside."
+        },
+        "add": [
+         {"id": "basin", "type": "polyline", "points": [[4.3,7.2],[6.3,8.0],[8.0,7.0],[8.6,5.2],[8.0,4.4],[9.5,3.5],[10.6,4.2],[12.4,4.0],[12.6,2.2],[10.5,1.0],[6.3,0.9],[3.4,1.1],[2.9,3.0],[3.0,5.5],[4.3,7.2]], "color": "ink", "dash": true, "width": 2},
+         {"type": "point", "x": 1.5, "y": 4.5, "label": "A (20)", "color": "faint"},
+         {"type": "point", "x": 4.3, "y": 6.0, "label": "B (24)", "color": "deniz"},
+         {"type": "point", "x": 4.0, "y": 2.3, "label": "C (27)", "color": "deniz"},
+         {"type": "point", "x": 7.0, "y": 4.5, "label": "D (32)", "color": "deniz"},
+         {"type": "point", "x": 9.5, "y": 6.8, "label": "E (38)", "color": "faint"},
+         {"type": "point", "x": 6.3, "y": 0.5, "label": "F (50)", "color": "faint"},
+         {"type": "point", "x": 9.0, "y": 2.3, "label": "G (46)", "color": "deniz"},
+         {"type": "point", "x": 12.0, "y": 4.5, "label": "H (53)", "color": "deniz"}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Komşu istasyonları ikişer ikişer doğrularla birleştir (yardımcı üçgen ağı). Bu doğrular çokgenlerin nerede biteceğini belirleyecek.",
+         "en": "Join neighbouring stations in pairs with construction lines (a helper triangle mesh). These lines will decide where the polygons end."
+        },
+        "add": [
+         {"id": "tAB", "type": "line", "x1": 1.5, "y1": 4.5, "x2": 4.3, "y2": 6.0, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tAC", "type": "line", "x1": 1.5, "y1": 4.5, "x2": 4.0, "y2": 2.3, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tBC", "type": "line", "x1": 4.3, "y1": 6.0, "x2": 4.0, "y2": 2.3, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tBD", "type": "line", "x1": 4.3, "y1": 6.0, "x2": 7.0, "y2": 4.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tCD", "type": "line", "x1": 4.0, "y1": 2.3, "x2": 7.0, "y2": 4.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tCF", "type": "line", "x1": 4.0, "y1": 2.3, "x2": 6.3, "y2": 0.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tDE", "type": "line", "x1": 7.0, "y1": 4.5, "x2": 9.5, "y2": 6.8, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tDG", "type": "line", "x1": 7.0, "y1": 4.5, "x2": 9.0, "y2": 2.3, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tDF", "type": "line", "x1": 7.0, "y1": 4.5, "x2": 6.3, "y2": 0.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tEG", "type": "line", "x1": 9.5, "y1": 6.8, "x2": 9.0, "y2": 2.3, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tGH", "type": "line", "x1": 9.0, "y1": 2.3, "x2": 12.0, "y2": 4.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tEH", "type": "line", "x1": 9.5, "y1": 6.8, "x2": 12.0, "y2": 4.5, "color": "faint", "dash": true, "width": 1.2},
+         {"id": "tFG", "type": "line", "x1": 6.3, "y1": 0.5, "x2": 9.0, "y2": 2.3, "color": "faint", "dash": true, "width": 1.2}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Her yardımcı doğrunun ORTA DİKMESİNİ çiz; bu dikmeler kesişerek her istasyonun etrafında bir çokgen (etki alanı) oluşturur. Yardımcı doğruları sil.",
+         "en": "Draw the PERPENDICULAR BISECTOR of each construction line; these bisectors intersect to build a polygon (zone of influence) around each station. Erase the construction lines."
+        },
+        "add": [
+         {"type": "polyline", "points": [[3.3,3.2],[5.4,4.0],[5.8,5.6],[5.0,7.5]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[3.3,3.2],[3.0,1.4]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[5.4,4.0],[6.0,2.0],[6.6,0.7]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[5.8,5.6],[7.9,5.3],[8.8,6.3]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[7.9,5.3],[8.3,3.3],[7.3,1.6]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[8.3,3.3],[10.4,3.0],[11.0,4.3]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[10.4,3.0],[10.7,1.4]], "color": "deniz", "width": 2},
+         {"type": "polyline", "points": [[8.8,6.3],[10.5,5.3],[11.0,4.3]], "color": "deniz", "width": 2}
+        ],
+        "remove": ["tAB","tAC","tBC","tBD","tCD","tCF","tDE","tDG","tDF","tEG","tGH","tEH","tFG"]
+       },
+       {
+        "caption": {
+         "tr": "Her çokgenin HAVZA İÇİNDE kalan parçasının alanını haritadan ölç (cm²). Dikkat: A, E, F dışarıda olsa da çokgenleri sınıra taştığı için küçük alanlarla (4,0 / 1 / 3,5) tabloya girer. Toplam ΣA = 89,35 cm².",
+         "en": "Measure the area of each polygon's part that lies INSIDE the basin (cm²). Note: even though A, E, F are outside, their polygons spill over the boundary, so they enter the table with small areas (4.0 / 1 / 3.5). Total ΣA = 89.35 cm²."
+        },
+        "add": [
+         {"type": "text", "x": 4.6, "y": 4.4, "text": {"tr": "B:14,5  C:15,5", "en": "B:14.5  C:15.5"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 7.4, "y": 3.6, "text": {"tr": "D:15,85  G:16,1  H:18,9", "en": "D:15.85  G:16.1  H:18.9"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 2.6, "y": 7.9, "text": {"tr": "A:4,0  E:1  F:3,5 (dış)", "en": "A:4.0  E:1  F:3.5 (outside)"}, "color": "amber", "size": 12}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Ağırlıklı ortalama: P = ΣPᵢAᵢ / ΣAᵢ = 3309 / 89,35 = 37,03 mm. Ağırlık, istasyon SAYISINDAN değil çokgen ALANINDAN gelir — en büyük çokgene sahip H (18,9 cm²) sonuca en çok etki eder.",
+         "en": "Weighted mean: P = ΣPᵢAᵢ / ΣAᵢ = 3309 / 89.35 = 37.03 mm. The weight comes from polygon AREA, not station COUNT — H, with the largest polygon (18.9 cm²), influences the result the most."
+        },
+        "add": [
+         {"type": "text", "x": 7.0, "y": 8.4, "text": {"tr": "P_ort = 37,03 mm", "en": "P_mean = 37.03 mm"}, "color": "clay", "size": 16}
+        ]
+       }
+      ]
+     }
     },
     {
      "title": {
@@ -1617,7 +1852,94 @@
       "en": "The isohyetal method is more realistic than the other two because it uses the basin's actual rainfall pattern (where the contours actually run), not just station locations. Taking the band's midpoint is the simplest way to estimate what the rainfall within that band is close to on average."
      },
      "result": null,
-     "check": null
+     "check": null,
+     "story": {
+      "title": {
+       "tr": "İzohiyet (eş yağış) eğrilerinin çizimi (şematik)",
+       "en": "Drawing the isohyetal (equal-rainfall) contours (schematic)"
+      },
+      "xLabel": "x (cm)",
+      "yLabel": "y (cm)",
+      "xDomain": [0, 14],
+      "yDomain": [0, 9],
+      "square": true,
+      "showAxes": false,
+      "frames": [
+       {
+        "caption": {
+         "tr": "ŞEMATİK harita: aynı 8 istasyon ve kesikli havza sınırı. Yağış soldan (A=20, düşük) sağa (H=53, yüksek) doğru artıyor — izohiyetleri bu artışa göre çizeceğiz.",
+         "en": "SCHEMATIC map: the same 8 stations and the dashed basin boundary. Rainfall grows from left (A=20, low) to right (H=53, high) — we'll draw the isohyets to follow this gradient."
+        },
+        "add": [
+         {"id": "basin2", "type": "polyline", "points": [[4.3,7.2],[6.3,8.0],[8.0,7.0],[8.6,5.2],[8.0,4.4],[9.5,3.5],[10.6,4.2],[12.4,4.0],[12.6,2.2],[10.5,1.0],[6.3,0.9],[3.4,1.1],[2.9,3.0],[3.0,5.5],[4.3,7.2]], "color": "ink", "dash": true, "width": 2},
+         {"type": "point", "x": 1.5, "y": 4.5, "label": "A (20)", "color": "faint"},
+         {"type": "point", "x": 4.3, "y": 6.0, "label": "B (24)", "color": "deniz"},
+         {"type": "point", "x": 4.0, "y": 2.3, "label": "C (27)", "color": "deniz"},
+         {"type": "point", "x": 7.0, "y": 4.5, "label": "D (32)", "color": "deniz"},
+         {"type": "point", "x": 9.5, "y": 6.8, "label": "E (38)", "color": "faint"},
+         {"type": "point", "x": 6.3, "y": 0.5, "label": "F (50)", "color": "faint"},
+         {"type": "point", "x": 9.0, "y": 2.3, "label": "G (46)", "color": "deniz"},
+         {"type": "point", "x": 12.0, "y": 4.5, "label": "H (53)", "color": "deniz"}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "İki istasyon arasında, yağış değerini 5'in katlarına düştüğü yeri orantıyla bul (enterpolasyon). Örneğin A(20)-B(24) arasında 20 çizgisi tam A'dan geçer; B(24)-D(32) arasında 25, 30 çizgileri buraya düşer. Bu noktaları birleştirerek 20, 25, 30 izohiyetlerini çiz.",
+         "en": "Between two stations, locate where the rainfall hits a multiple of 5 by proportion (interpolation). E.g. the 20 line passes right through A(20); the 25 and 30 lines fall between B(24) and D(32). Join these points to draw the 20, 25, 30 isohyets."
+        },
+        "add": [
+         {"id": "iso20", "type": "polyline", "points": [[3.2,7.0],[2.9,4.5],[3.3,1.5]], "color": "moss", "width": 1.8},
+         {"id": "iso25", "type": "polyline", "points": [[4.7,7.4],[4.4,4.0],[4.9,1.2]], "color": "moss", "width": 1.8},
+         {"id": "iso30", "type": "polyline", "points": [[6.0,7.6],[5.9,4.2],[6.2,1.0]], "color": "moss", "width": 1.8},
+         {"type": "text", "x": 3.0, "y": 7.5, "text": {"tr": "20", "en": "20"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 4.6, "y": 7.8, "text": {"tr": "25", "en": "25"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 5.9, "y": 8.0, "text": {"tr": "30", "en": "30"}, "color": "moss", "size": 12}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Aynı mantıkla sağa doğru 35, 40, 45, 50, 55 izohiyetlerini çiz. Değer arttıkça çizgiler H'ye (en yüksek, 53 mm) doğru sıkışır — sağanağın en yoğun köşesi orası.",
+         "en": "By the same logic, draw the 35, 40, 45, 50, 55 isohyets toward the right. As the value grows the lines crowd toward H (highest, 53 mm) — that corner is the wettest part of the storm."
+        },
+        "add": [
+         {"id": "iso35", "type": "polyline", "points": [[7.2,7.2],[7.1,4.4],[7.3,1.2]], "color": "moss", "width": 1.8},
+         {"id": "iso40", "type": "polyline", "points": [[8.4,6.6],[8.3,4.0],[8.5,1.5]], "color": "moss", "width": 1.8},
+         {"id": "iso45", "type": "polyline", "points": [[9.4,5.6],[9.4,3.6],[9.6,1.8]], "color": "moss", "width": 1.8},
+         {"id": "iso50", "type": "polyline", "points": [[10.6,5.0],[10.7,3.4],[10.9,2.0]], "color": "moss", "width": 1.8},
+         {"id": "iso55", "type": "polyline", "points": [[11.9,4.8],[12.1,3.6]], "color": "moss", "width": 1.8},
+         {"type": "text", "x": 7.1, "y": 7.6, "text": {"tr": "35", "en": "35"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 8.3, "y": 7.0, "text": {"tr": "40", "en": "40"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 9.4, "y": 6.0, "text": {"tr": "45", "en": "45"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 10.7, "y": 5.4, "text": {"tr": "50", "en": "50"}, "color": "moss", "size": 12},
+         {"type": "text", "x": 12.2, "y": 5.1, "text": {"tr": "55", "en": "55"}, "color": "moss", "size": 12}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "İki komşu izohiyet arasındaki BANDIN yağışı, iki değerin ortalamasıdır (20-25 → 22,5; 25-30 → 27,5; ...). En dış band havza sınırında 18 mm'ye kadar iner, orta değeri 19. Her bandın alanını haritadan ölç.",
+         "en": "The rainfall of the BAND between two neighbouring isohyets is the average of the two values (20-25 → 22.5; 25-30 → 27.5; ...). The outermost band drops to 18 mm at the boundary, midpoint 19. Measure each band's area from the map."
+        },
+        "add": [
+         {"type": "text", "x": 3.7, "y": 5.0, "text": {"tr": "22,5", "en": "22.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 5.2, "y": 5.0, "text": {"tr": "27,5", "en": "27.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 6.5, "y": 5.0, "text": {"tr": "32,5", "en": "32.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 7.7, "y": 5.0, "text": {"tr": "37,5", "en": "37.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 8.9, "y": 4.6, "text": {"tr": "42,5", "en": "42.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 10.0, "y": 4.4, "text": {"tr": "47,5", "en": "47.5"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 11.3, "y": 4.2, "text": {"tr": "52", "en": "52"}, "color": "amber", "size": 11}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Ağırlıklı ortalama: P = ΣPᵢAᵢ / ΣAᵢ = 3335,8 / 89,85 = 37,09 mm. Thiessen sonucuna (37,03) çok yakın çıkması, izohiyet yönteminin de gerçek yağış desenini iyi yakaladığını gösterir.",
+         "en": "Weighted mean: P = ΣPᵢAᵢ / ΣAᵢ = 3335.8 / 89.85 = 37.09 mm. It coming out very close to the Thiessen result (37.03) shows the isohyetal method also captures the real rainfall pattern well."
+        },
+        "add": [
+         {"type": "text", "x": 7.0, "y": 8.4, "text": {"tr": "P_ort = 37,09 mm", "en": "P_mean = 37.09 mm"}, "color": "clay", "size": 16}
+        ]
+       }
+      ]
+     }
     },
     {
      "title": {
@@ -2498,7 +2820,15 @@
        "en": "t=45 min, T=10 → i=36"
       }
      }
-    ]
+    ],
+    "howToDraw": {
+     "tr": "ÇİFT LOGARİTMİK kağıt kullan: yatay eksen $t$ (dakika, 9-200), düşey eksen $i$ (mm/saat, 9-200), her iki eksen de logaritmik. Her tekerrür süresi $T$ için i tablosundan 4 noktayı işaretle ve birleştir — T=5: $(10,84),(30,36),(60,22),(180,10)$; T=10: $(10,114),(30,46),(60,30),(180,12)$; T=50: $(10,156),(30,58),(60,37),(180,15)$; T=100: $(10,204),(30,80),(60,45),(180,17)$. Dört eğri yaklaşık DÜZ çizgi çıkar ve alttan üste T=5<10<50<100 sırasıyla dizilir. Bir okuma için: t=45'te dikey çık, T=10 eğrisini kes, yatay git, i eksenini oku (≈36).",
+     "en": "Use LOG-LOG paper: x-axis $t$ (minutes, 9-200), y-axis $i$ (mm/h, 9-200), both logarithmic. For each return period $T$, plot the 4 points from the i table and connect them — T=5: $(10,84),(30,36),(60,22),(180,10)$; T=10: $(10,114),(30,46),(60,30),(180,12)$; T=50: $(10,156),(30,58),(60,37),(180,15)$; T=100: $(10,204),(30,80),(60,45),(180,17)$. The four curves come out nearly STRAIGHT and stack from bottom to top as T=5<10<50<100. To read: at t=45 go up, hit the T=10 curve, go across, read the i-axis (≈36)."
+    },
+    "whatItShows": {
+     "tr": "i-t-T eğrileri üç büyüklüğü tek grafikte bağlar: süre $t$, şiddet $i$, tekerrür $T$. Her eğri sabit bir T için şiddetin süreyle nasıl AZALDIĞINI gösterir (kısa yağış = şiddetli). Yukarı çıktıkça (büyük T) daha nadir, daha şiddetli olaylar okunur. Grafikten YALNIZCA i (ve dolaylı olarak T) okunur — yağış yüksekliğini $P = i\\cdot\\Delta t$ ile ayrıca hesaplaman gerekir; bu ünitenin en klasik tuzağıdır. İki tür soru: (i) t,T ver → i oku; (ii) t,i ver → T'yi eğriler arasında enterpole et.",
+     "en": "The i-t-T curves tie three quantities into one graph: duration $t$, intensity $i$, return period $T$. Each curve, for a fixed T, shows how intensity DECREASES with duration (short storm = intense). Moving upward (larger T) reads rarer, more intense events. The graph gives ONLY i (and indirectly T) — you must separately compute the depth with $P = i\\cdot\\Delta t$; that is this unit's classic trap. Two question types: (i) given t,T → read i; (ii) given t,i → interpolate T between the curves."
+    }
    },
    "steps": [
     {
@@ -2841,7 +3171,15 @@
        ]
       ]
      }
-    ]
+    ],
+    "howToDraw": {
+     "tr": "Yatay eksene KÜMÜLATİF alanı (km², 0-125), düşey eksene o alandaki ortalama yağışı $P$ (mm, 0-75) koy. Noktalar merkezden dışa kümülasyondan gelir: $(7, 72{,}5), (32, 66{,}6), (62, 61{,}0), (87, 56{,}4), (107, 52{,}4), (122, 49{,}0), (125, 48{,}3)$. Her noktada $P$ = (o ana kadarki toplam hacim)/(o ana kadarki toplam alan). Noktaları düzgün bir eğriyle birleştir; eğri sürekli AŞAĞI iner ve giderek yatıklaşır. İlk nokta fırtına merkezinin (72,5 mm), son nokta tüm havzanın ortalamasıdır (48,3 mm).",
+     "en": "Put CUMULATIVE area (km², 0-125) on the x-axis and the average rainfall $P$ over that area (mm, 0-75) on the y-axis. The points come from cumulating center-outward: $(7, 72.5), (32, 66.6), (62, 61.0), (87, 56.4), (107, 52.4), (122, 49.0), (125, 48.3)$. At each point $P$ = (cumulative volume so far)/(cumulative area so far). Join the points with a smooth curve; it steadily DROPS and flattens. The first point is the storm center (72.5 mm), the last is the whole-basin average (48.3 mm)."
+    },
+    "whatItShows": {
+     "tr": "Yağış-alan (depth-area) eğrisi \"bir sağanağı ne kadar geniş bir alana yayarsak ortalama yağışı ne kadar seyrelir\" sorusuna cevap verir. En yüksek değer küçük merkez alanındadır (fırtına gözü); alan büyüdükçe düşük yağışlı kenarlar karışır ve ortalama düşer — bu yüzden eğri hep azalır. Son noktası (A=125, P=48,3 mm) tam olarak (a) şıkkındaki alansal ortalamaya eşittir; eşit çıkmazsa bir hesap hatası vardır. Baraj/taşkın tasarımında belirli bir alan için tasarım yağışını okumakta kullanılır.",
+     "en": "The depth-area curve answers \"the wider we spread a storm, the more its average rainfall dilutes.\" The highest value sits on the small central area (the storm's eye); as the area grows, low-rainfall edges mix in and the average falls — that's why the curve always decreases. Its last point (A=125, P=48.3 mm) equals exactly the areal average from part (a); if they don't match, there's a computation error. It's used in dam/flood design to read the design rainfall for a given area."
+    }
    },
    "steps": [
     {
@@ -2890,6 +3228,83 @@
        "tr": "Haritada 20 mm izohiyeti var ama havza sınırı ondan biraz daha içeride, 18 mm izohiyetinde kesiliyor — bu yüzden son bant 20 ile 18 arasındadır, orta değeri (20+18)/2=19 mm'dir.",
        "en": "The 20 mm isohyet exists on the map, but the basin boundary cuts it a bit further in, at the 18 mm isohyet — so the last band lies between 20 and 18, with midpoint (20+18)/2=19 mm."
       }
+     },
+     "story": {
+      "title": {
+       "tr": "Eşyağış (izohiyet) haritasının okunması (şematik)",
+       "en": "Reading the isohyetal map (schematic)"
+      },
+      "xLabel": "",
+      "yLabel": "",
+      "xDomain": [0, 10],
+      "yDomain": [0, 10],
+      "square": true,
+      "showAxes": false,
+      "frames": [
+       {
+        "caption": {
+         "tr": "ŞEMATİK eşyağış haritası: iç içe geçmiş kapalı eğriler (izohiyetler). En içteki küçük halka fırtına merkezidir (70 mm) — yağışın en yoğun olduğu \"göz\". Dışa doğru değer düşer.",
+         "en": "SCHEMATIC isohyetal map: nested closed contours (isohyets). The innermost small ring is the storm center (70 mm) — the \"eye\" where rainfall is most intense. The value drops outward."
+        },
+        "add": [
+         {"id": "c70", "type": "polyline", "points": [[5.55,8.2],[5.44,8.41],[5.17,8.53],[4.83,8.53],[4.56,8.41],[4.45,8.2],[4.56,7.99],[4.83,7.87],[5.17,7.87],[5.44,7.99],[5.55,8.2]], "color": "clay", "width": 2},
+         {"type": "text", "x": 6.4, "y": 8.2, "text": {"tr": "70 mm", "en": "70 mm"}, "color": "clay", "size": 12},
+         {"type": "text", "x": 5.0, "y": 9.3, "text": {"tr": "fırtına merkezi", "en": "storm center"}, "color": "clay", "size": 12}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Dışa doğru 60, 50, 40, 30, 20 mm izohiyetlerini çiz. Her eğri kapalıdır ve bir öncekini çevreler; halkalar arası uzaklık, yağışın o bölgede ne kadar hızlı değiştiğini gösterir.",
+         "en": "Draw the 60, 50, 40, 30, 20 mm isohyets outward. Each is a closed contour surrounding the previous one; the spacing between rings shows how fast rainfall changes in that region."
+        },
+        "add": [
+         {"id": "c60", "type": "polyline", "points": [[6.3,7.6],[6.03,8.19],[5.33,8.55],[4.47,8.55],[3.77,8.19],[3.5,7.6],[3.77,7.01],[4.47,6.65],[5.33,6.65],[6.03,7.01],[6.3,7.6]], "color": "deniz", "width": 1.8},
+         {"id": "c50", "type": "polyline", "points": [[6.9,6.9],[6.48,7.96],[5.38,8.61],[4.02,8.61],[2.92,7.96],[2.5,6.9],[2.92,5.84],[4.02,5.19],[5.38,5.19],[6.48,5.84],[6.9,6.9]], "color": "deniz", "width": 1.8},
+         {"id": "c40", "type": "polyline", "points": [[7.4,6.2],[6.85,7.73],[5.4,8.67],[3.6,8.67],[2.15,7.73],[1.6,6.2],[2.15,4.67],[3.6,3.73],[5.4,3.73],[6.85,4.67],[7.4,6.2]], "color": "deniz", "width": 1.8},
+         {"id": "c30", "type": "polyline", "points": [[7.8,5.5],[7.13,7.5],[5.38,8.73],[3.22,8.73],[1.47,7.5],[0.8,5.5],[1.47,3.5],[3.22,2.27],[5.38,2.27],[7.13,3.5],[7.8,5.5]], "color": "deniz", "width": 1.8},
+         {"id": "c20", "type": "polyline", "points": [[8.2,5.0],[7.44,7.41],[5.44,8.9],[2.96,8.9],[0.96,7.41],[0.2,5.0],[0.96,2.59],[2.96,1.1],[5.44,1.1],[7.44,2.59],[8.2,5.0]], "color": "deniz", "width": 1.8},
+         {"type": "text", "x": 6.5, "y": 7.4, "text": {"tr": "60", "en": "60"}, "color": "deniz", "size": 11},
+         {"type": "text", "x": 7.1, "y": 6.9, "text": {"tr": "50", "en": "50"}, "color": "deniz", "size": 11},
+         {"type": "text", "x": 7.6, "y": 6.2, "text": {"tr": "40", "en": "40"}, "color": "deniz", "size": 11},
+         {"type": "text", "x": 8.0, "y": 5.5, "text": {"tr": "30", "en": "30"}, "color": "deniz", "size": 11},
+         {"type": "text", "x": 8.4, "y": 4.9, "text": {"tr": "20", "en": "20"}, "color": "deniz", "size": 11}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Havza sınırını (kalın kesikli) ekle. Sınır, 20 mm izohiyetinin hemen dışında ama 18 mm'de kapanıyor — bu yüzden en dış band \"20-18\" ve orta değeri 19 mm'dir (25 değil!).",
+         "en": "Add the basin boundary (thick dashed). It runs just outside the 20 mm isohyet but closes at 18 mm — so the outermost band is \"20-18\" with midpoint 19 mm (not 25!)."
+        },
+        "add": [
+         {"id": "basin7", "type": "polyline", "points": [[8.7,4.9],[7.9,7.7],[5.5,9.3],[2.7,9.2],[0.7,7.5],[0.1,4.7],[0.8,2.2],[2.9,0.6],[5.7,0.7],[7.9,2.3],[8.7,4.9]], "color": "ink", "dash": true, "width": 2.4},
+         {"type": "text", "x": 5.0, "y": 0.2, "text": {"tr": "havza sınırı (18 mm)", "en": "basin boundary (18 mm)"}, "color": "ink", "size": 12}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Her HALKA (iki izohiyet arası band) bir alan taşır; alanları haritadan ölç: 7, 25, 30, 25, 20, 15, 3 km² (merkezden dışa). Toplam 125 km² — havza alanına eşit, sağlama!",
+         "en": "Each RING (band between two isohyets) carries an area; measure them from the map: 7, 25, 30, 25, 20, 15, 3 km² (center outward). Total 125 km² — equal to the basin area, a check!"
+        },
+        "add": [
+         {"type": "text", "x": 4.85, "y": 8.15, "text": {"tr": "7", "en": "7"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.85, "y": 7.55, "text": {"tr": "25", "en": "25"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.8, "y": 6.5, "text": {"tr": "30", "en": "30"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.7, "y": 5.3, "text": {"tr": "25", "en": "25"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.5, "y": 3.9, "text": {"tr": "20", "en": "20"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.3, "y": 2.6, "text": {"tr": "15", "en": "15"}, "color": "amber", "size": 11},
+         {"type": "text", "x": 4.2, "y": 1.3, "text": {"tr": "3", "en": "3"}, "color": "amber", "size": 11}
+        ]
+       },
+       {
+        "caption": {
+         "tr": "Alansal ortalama: her bandın orta yağışını alanıyla çarp, topla, toplam alana böl: P = 6039,5 / 125 = 48,3 mm. Aynı band verisi, merkezden dışa kümüle edilirse yağış-alan eğrisini de verir.",
+         "en": "Areal mean: multiply each band's midpoint rainfall by its area, sum, divide by the total area: P = 6039.5 / 125 = 48.3 mm. The same band data, cumulated center-outward, also gives the depth-area curve."
+        },
+        "add": [
+         {"type": "text", "x": 5.0, "y": 9.7, "text": {"tr": "P_ort = 48,3 mm", "en": "P_mean = 48.3 mm"}, "color": "moss", "size": 16}
+        ]
+       }
+      ]
      }
     },
     {

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import type { GraphStory as Story, StoryElement } from "@/lib/types";
+import { Md } from "./Md";
 
 const COLORS: Record<string, string> = {
   ink: "#1c2b33",
@@ -178,7 +179,9 @@ export function GraphStory({ story }: { story: Story }) {
       </svg>
 
       <div className="mt-3 rounded-xl bg-wash px-4 py-2.5 text-sm leading-relaxed text-ink" key={frame}>
-        <span className="rise-in block">{bi(cur.caption)}</span>
+        <div className="rise-in">
+          <Md>{bi(cur.caption)}</Md>
+        </div>
       </div>
 
       <div className="mt-3 flex items-center justify-between">

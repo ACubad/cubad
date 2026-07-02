@@ -466,7 +466,253 @@
             "en": "The moment you see a current-meter question, the first job is turning the section into geometry: the ends start/end at zero depth (triangles), the interior slices sit between two different depths (trapezoids). Skipping this distinction and using the trapezoid formula everywhere gives wrong end-slice areas."
           },
           "result": "\\Sigma A = 35{,}4\\ \\text{m}^2",
-          "check": null
+          "check": null,
+          "story": {
+            "title": {
+              "tr": "Akarsu kesitini çiz — adım adım",
+              "en": "Drawing the river cross-section — step by step"
+            },
+            "xLabel": "x (m)",
+            "yLabel": "y = -h (m)",
+            "xDomain": [
+              -1,
+              23
+            ],
+            "yDomain": [
+              -3.2,
+              0.5
+            ],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Önce su yüzeyini çiz: y=0 çizgisi, x=0'dan (sol kıyı) x=22'ye (sağ kıyı) uzanır. Yatay ölçek 1/133,3, düşey ölçek 1/50 — düşey abartılıdır, bu yüzden derinlikler olduğundan dik görünür.",
+                  "en": "First draw the water surface: the y=0 line running from x=0 (left bank) to x=22 (right bank). Horizontal scale 1/133.3, vertical scale 1/50 — the vertical is exaggerated, so depths look steeper than they are."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": 0,
+                    "y1": 0,
+                    "x2": 22,
+                    "y2": 0,
+                    "color": "deniz",
+                    "width": 2.2
+                  },
+                  {
+                    "type": "text",
+                    "x": 11,
+                    "y": 0.28,
+                    "text": {
+                      "tr": "su yüzeyi (y=0)",
+                      "en": "water surface (y=0)"
+                    },
+                    "color": "deniz",
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Her ölçüm noktasında (Δx=2 m) derinliği aşağı doğru bir düşey olarak indir: h değerleri 0; 0,8; 1,4; 1,9; 2,3; 2,8; 2,7; 2,2; 1,7; 1,2; 0,7; 0. Tabanı y=-h'ye yerleştir ki taban su yüzeyinin ALTINDA kalsın.",
+                  "en": "At each measured station (Δx=2 m) drop a vertical down by the depth: h = 0, 0.8, 1.4, 1.9, 2.3, 2.8, 2.7, 2.2, 1.7, 1.2, 0.7, 0. Put the bed at y=-h so it hangs BELOW the water surface."
+                },
+                "add": [
+                  {
+                    "id": "v2",
+                    "type": "line",
+                    "x1": 2,
+                    "y1": 0,
+                    "x2": 2,
+                    "y2": -0.8,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.2
+                  },
+                  {
+                    "id": "v6",
+                    "type": "line",
+                    "x1": 6,
+                    "y1": 0,
+                    "x2": 6,
+                    "y2": -1.9,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.2
+                  },
+                  {
+                    "id": "v10",
+                    "type": "line",
+                    "x1": 10,
+                    "y1": 0,
+                    "x2": 10,
+                    "y2": -2.8,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.2
+                  },
+                  {
+                    "id": "v14",
+                    "type": "line",
+                    "x1": 14,
+                    "y1": 0,
+                    "x2": 14,
+                    "y2": -2.2,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.2
+                  },
+                  {
+                    "id": "v18",
+                    "type": "line",
+                    "x1": 18,
+                    "y1": 0,
+                    "x2": 18,
+                    "y2": -1.2,
+                    "color": "faint",
+                    "dash": true,
+                    "width": 1.2
+                  },
+                  {
+                    "type": "point",
+                    "x": 10,
+                    "y": -2.8,
+                    "label": "h=2,8",
+                    "color": "clay"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Taban noktalarını sırayla birleştir: bu kırık çizgi akarsu tabanını verir. En derin nokta x=10 m'de (h=2,8 m), kesit bir V/U biçimi alır; iki uçta taban su yüzeyine değer (h=0).",
+                  "en": "Join the bed points in order: this polyline is the river bed. The deepest point is at x=10 m (h=2.8 m), and the section takes a V/U shape; at both ends the bed meets the water surface (h=0)."
+                },
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [
+                      [0, 0],
+                      [2, -0.8],
+                      [4, -1.4],
+                      [6, -1.9],
+                      [8, -2.3],
+                      [10, -2.8],
+                      [12, -2.7],
+                      [14, -2.2],
+                      [16, -1.7],
+                      [18, -1.2],
+                      [20, -0.7],
+                      [22, 0]
+                    ],
+                    "color": "ink",
+                    "width": 2.4
+                  }
+                ],
+                "remove": [
+                  "v2",
+                  "v6",
+                  "v10",
+                  "v14",
+                  "v18"
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Ardışık düşeyler kesiti 11 dilime böler. Uç dilimler (1 ve 11) üçgendir çünkü bir kenarları sıfır derinlikte başlar; aradaki 9 dilim yamuktur (iki farklı derinlik arasında).",
+                  "en": "Consecutive verticals split the section into 11 slices. The end slices (1 and 11) are triangles because one side starts at zero depth; the 9 interior slices are trapezoids (between two different depths)."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": 4,
+                    "y1": 0,
+                    "x2": 4,
+                    "y2": -1.4,
+                    "color": "faint",
+                    "width": 1.2
+                  },
+                  {
+                    "type": "line",
+                    "x1": 8,
+                    "y1": 0,
+                    "x2": 8,
+                    "y2": -2.3,
+                    "color": "faint",
+                    "width": 1.2
+                  },
+                  {
+                    "type": "line",
+                    "x1": 12,
+                    "y1": 0,
+                    "x2": 12,
+                    "y2": -2.7,
+                    "color": "faint",
+                    "width": 1.2
+                  },
+                  {
+                    "type": "line",
+                    "x1": 16,
+                    "y1": 0,
+                    "x2": 16,
+                    "y2": -1.7,
+                    "color": "faint",
+                    "width": 1.2
+                  },
+                  {
+                    "type": "line",
+                    "x1": 20,
+                    "y1": 0,
+                    "x2": 20,
+                    "y2": -0.7,
+                    "color": "faint",
+                    "width": 1.2
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Bir dilimi (6. dilim, x=10→12) boya: yamuğun alanı $A_6=\\tfrac{(2{,}8+2{,}7)}{2}\\cdot 2 = 5{,}5$ m² — kesitin en büyük dilimi. Tüm dilimlerin toplamı ΣA=35,4 m² verir.",
+                  "en": "Shade one slice (slice 6, x=10→12): the trapezoid area is $A_6=\\tfrac{(2.8+2.7)}{2}\\cdot 2 = 5.5$ m² — the section's largest slice. All slices together give ΣA=35.4 m²."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [10, 0],
+                      [12, 0],
+                      [12, -2.7],
+                      [10, -2.8]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 2
+                  },
+                  {
+                    "type": "text",
+                    "x": 11,
+                    "y": -1.35,
+                    "text": {
+                      "tr": "A₆=5,5 m²",
+                      "en": "A₆=5.5 m²"
+                    },
+                    "color": "clay",
+                    "size": 13
+                  },
+                  {
+                    "type": "text",
+                    "x": 11,
+                    "y": -3.05,
+                    "text": {
+                      "tr": "ΣA = 35,4 m²",
+                      "en": "ΣA = 35.4 m²"
+                    },
+                    "color": "moss",
+                    "size": 15
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
           "title": {
@@ -901,7 +1147,75 @@
           ]
         }
       ],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Akarsu kesiti (taban profili)",
+          "en": "River cross-section (bed profile)"
+        },
+        "xLabel": "x (m, kıyıdan uzaklık)",
+        "yLabel": "y = -h (m)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Taban (x, -h)",
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                0.8,
+                -0.25
+              ],
+              [
+                1.72,
+                -0.51
+              ],
+              [
+                2.36,
+                -1.21
+              ],
+              [
+                3.0,
+                -0.6
+              ],
+              [
+                3.9,
+                -0.35
+              ],
+              [
+                4.64,
+                -0.27
+              ],
+              [
+                5.0,
+                -0.18
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 2.36,
+            "y": -1.21,
+            "label": {
+              "tr": "en derin: h=1,21 m",
+              "en": "deepest: h=1.21 m"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene kıyıdan uzaklığı koy (x = 0'dan 5 m'ye, ölçüm noktaları 0; 0,8; 1,72; 2,36; 3,00; 3,90; 4,64; 5,00 m — eşit aralıklı DEĞİL, tablodan oku). Düşey eksene $y=-h$ koy ki taban su yüzeyinin (y=0) altında kalsın; ölçek aralığı yaklaşık 0'dan -1,3 m'ye. Her x noktasında derinliği aşağı doğru işaretle ($h=0; 0{,}25; 0{,}51; 1{,}21; 0{,}6; 0{,}35; 0{,}27; 0{,}18$ m) ve noktaları sırayla düz doğrularla birleştir. En derin nokta x=2,36 m'de (h=1,21 m); onu vurgula. Su yüzeyini y=0'da yatay bir çizgiyle göster.",
+          "en": "Put distance from the bank on the x-axis (x = 0 to 5 m, with stations at 0, 0.8, 1.72, 2.36, 3.00, 3.90, 4.64, 5.00 m — NOT evenly spaced, read them from the table). Put $y=-h$ on the y-axis so the bed sits below the water surface (y=0); the range runs from 0 down to about -1.3 m. At each x, mark the depth downward ($h=0, 0.25, 0.51, 1.21, 0.6, 0.35, 0.27, 0.18$ m) and join the points in order with straight segments. The deepest point is at x=2.36 m (h=1.21 m); highlight it. Show the water surface as a horizontal line at y=0."
+        },
+        "whatItShows": {
+          "tr": "Bu profil kesitin gerçek şeklini gösterir: taban x=2,36 m'de aniden çöküyor (h=1,21 m), sonra sağ kıyıya doğru hızla sığlaşıyor — asimetrik, tek yana çekilmiş bir yatak. Kesitin bu şekli neden 3. ve 4. dilimlerin (derin, orta bölge) iki noktalı hız ölçümü gerektirdiğini, kenar dilimlerin ise sığ kalıp tek ölçümle yetindiğini görsel olarak açıklar. Dilim genişliklerinin eşit olmaması (x aralıkları değişken) alan formülünde her dilimin kendi Δx'inin kullanılması gerektiğini hatırlatır.",
+          "en": "This profile shows the section's true shape: the bed plunges suddenly at x=2.36 m (h=1.21 m), then shallows quickly toward the right bank — an asymmetric, one-sided channel. This shape visually explains why slices 3 and 4 (the deep middle) need a two-point velocity reading, while the edge slices stay shallow and get a single reading. The unequal slice widths (the x spacings vary) are a reminder that each slice's own Δx must be used in the area formula."
+        }
+      },
       "steps": [
         {
           "title": {
@@ -1205,7 +1519,15 @@
               "en": "Q=100 → h≈1.875"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene debiyi ($Q$, 0'dan ~240 m³/sn'ye), düşey eksene seviyeyi ($h$, 0,6'dan 3,2 m'ye) koy — bir su seviyesi grafiği gibi. Tablodaki 7 ölçümü $(Q,h)$ ikilisi olarak işaretle: (25; 0,80), (40; 1,00), (50; 1,25), (70; 1,50), (110; 2,00), (150; 2,50), (220; 3,00). Noktaları YUMUŞAK bir eğriyle birleştir (düz doğrularla değil), çünkü ilişki üsteldir ($n=1{,}20>1$). Okuma yaparken: $h=1{,}35$'ten yatay çizgi çek, eğriyi kestiği yerden aşağı in → $Q\\approx58$; $Q=100$'den dikey çizgi çek, yana git → $h\\approx1{,}875$. Kesikli kılavuz çizgileri işaretlemeyi unutma.",
+          "en": "Put discharge on the x-axis ($Q$, 0 to ~240 m³/s) and stage on the y-axis ($h$, 0.6 to 3.2 m) — like a stage graph. Plot the 7 measurements as $(Q,h)$ pairs: (25, 0.80), (40, 1.00), (50, 1.25), (70, 1.50), (110, 2.00), (150, 2.50), (220, 3.00). Join them with a SMOOTH curve (not straight segments), because the relationship is super-linear ($n=1.20>1$). To read off: from $h=1.35$ draw a horizontal line to the curve and drop down → $Q\\approx58$; from $Q=100$ draw a vertical line and read across → $h\\approx1.875$. Mark the dashed guide lines."
+        },
+        "whatItShows": {
+          "tr": "Eğri, her su seviyesine karşılık gelen debiyi verir — istasyonda artık sadece cetvelden $h$ okunur ve $Q$ bu eğriden bulunur, muline taşımaya gerek kalmaz. Eğrinin alçak seviyelerde yatay, yükseklerde dik olması ($n>1$) debinin seviyeyle giderek daha hızlı arttığını gösterir: 1 m ile 3 m arasında $Q$ neredeyse 9 kat artar. Ama eğri sadece ölçülen aralıkta (0,80–3,00 m) güvenilirdir; $h=4$ m gibi dışarıdaki değerler için eğriyi elle uzatmak yerine denklem kullanılmalıdır — grafiğin sınırı burada kâğıdın sınırıdır.",
+          "en": "The curve gives the discharge for every stage — at the station you now only read $h$ from a ruler and get $Q$ from this curve, no current meter needed. The curve being flat at low stages and steep at high ones ($n>1$) shows discharge accelerating with stage: between 1 m and 3 m, $Q$ grows nearly 9-fold. But the curve is only reliable within the measured range (0.80–3.00 m); for outside values like $h=4$ m you must use the equation rather than extending the curve by hand — here the graph's limit is the paper's edge."
+        }
       },
       "steps": [
         {
@@ -1499,7 +1821,93 @@
           ]
         }
       ],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Log-log doğrusallaştırma (h₀=0,3)",
+          "en": "Log-log linearization (h₀=0.3)"
+        },
+        "xLabel": "X = log(h - 0,3)",
+        "yLabel": "Y = log Q",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Ölçülen noktalar",
+            "kind": "line",
+            "points": [
+              [
+                -0.54,
+                1.61
+              ],
+              [
+                -0.34,
+                1.88
+              ],
+              [
+                -0.12,
+                2.14
+              ],
+              [
+                0.0,
+                2.34
+              ],
+              [
+                0.12,
+                2.45
+              ],
+              [
+                0.24,
+                2.63
+              ],
+              [
+                0.32,
+                2.73
+              ],
+              [
+                0.38,
+                2.84
+              ],
+              [
+                0.4,
+                2.85
+              ]
+            ]
+          },
+          {
+            "name": "Uydurulan doğru (n=1,32)",
+            "kind": "line",
+            "points": [
+              [
+                -0.54,
+                1.625
+              ],
+              [
+                0.4,
+                2.866
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 0.0,
+            "y": 2.34,
+            "label": {
+              "tr": "h=1,3 → Y=logK=2,34",
+              "en": "h=1.3 → Y=logK=2.34"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene $X=\\log(h-h_0)$ (h₀=0,3 seçildi), düşey eksene $Y=\\log Q$ koy. Her ölçüm satırı için iki logaritmayı hesaplayıp noktayı işaretle: en küçük $(-0{,}54;\\ 1{,}61)$, en büyük $(0{,}40;\\ 2{,}85)$; toplam 9 nokta. Bu noktalar neredeyse mükemmel bir DOĞRU üzerine düşer ($r=0{,}999$). Cetvelle en iyi doğruyu geçir. Eğimi iki uç noktadan oku: $n=\\Delta Y/\\Delta X=(2{,}85-1{,}61)/(0{,}40+0{,}54)=1{,}24/0{,}94=1{,}32$. $X=0$ (yani $h-h_0=1$, $h=1{,}3$) noktasında doğrunun düşey ekseni kestiği yer $\\log K$'dır → $K=217{,}9$.",
+          "en": "Put $X=\\log(h-h_0)$ on the x-axis (h₀=0.3 chosen) and $Y=\\log Q$ on the y-axis. For each measurement row compute the two logarithms and plot the point: smallest $(-0.54, 1.61)$, largest $(0.40, 2.85)$; nine points in all. These fall almost perfectly on a STRAIGHT line ($r=0.999$). Lay a ruler through the best-fit line. Read the slope from the two end points: $n=\\Delta Y/\\Delta X=(2.85-1.61)/(0.40+0.54)=1.24/0.94=1.32$. Where the line crosses $X=0$ (i.e. $h-h_0=1$, $h=1.3$) the intercept is $\\log K$ → $K=217.9$."
+        },
+        "whatItShows": {
+          "tr": "Bu grafik, eğri olan anahtar eğrisini DÜZ bir çizgiye çevirir — doğrusallaştırmanın bütün amacı budur. Noktaların bir doğruya bu kadar iyi oturması, seçilen $h_0=0{,}3$'ün doğru olduğunu kanıtlar (yanlış bir h₀ noktaları kavis bırakırdı, r düşerdi). Doğrunun EĞİMİ doğrudan üs $n=1{,}32$'yi, düşey ekseni kestiği yer ise $\\log K$'yı verir. En önemlisi: doğru, ölçülen aralığın ötesine güvenle uzatılabilir — $h=4$ m ($X=\\log 3{,}7=0{,}57$) grafiğin sağ ucunun ötesindedir ama aynı doğru üzerinde olduğu varsayılır, böylece $Q\\approx1225$ m³/sn güvenle bulunur.",
+          "en": "This plot turns the curved rating curve into a STRAIGHT line — the entire point of linearization. The points sitting so well on a line proves the chosen $h_0=0.3$ is correct (a wrong h₀ would leave curvature and drop r). The line's SLOPE gives the exponent $n=1.32$ directly, and its intercept gives $\\log K$. Most importantly: the line can be safely extended beyond the measured range — $h=4$ m ($X=\\log 3.7=0.57$) lies past the right end of the plot but is assumed to lie on the same line, letting us read $Q\\approx1225$ m³/s with confidence."
+        }
+      },
       "steps": [
         {
           "title": {
@@ -1788,7 +2196,87 @@
           ]
         }
       ],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Anahtar eğrisi (h₀=0,45; N=1,50)",
+          "en": "Rating curve (h₀=0.45, N=1.50)"
+        },
+        "xLabel": "Q (m³/sn)",
+        "yLabel": "h (m)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Ölçülen (h,Q)",
+            "kind": "line",
+            "points": [
+              [
+                50,
+                0.75
+              ],
+              [
+                60,
+                1.0
+              ],
+              [
+                80,
+                1.25
+              ],
+              [
+                110,
+                1.5
+              ],
+              [
+                150,
+                1.75
+              ],
+              [
+                200,
+                2.0
+              ],
+              [
+                300,
+                2.25
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 170,
+            "y": 1.85,
+            "label": {
+              "tr": "h=1,85 → Q≈170",
+              "en": "h=1.85 → Q≈170"
+            }
+          },
+          {
+            "x": 100,
+            "y": 1.42,
+            "label": {
+              "tr": "Q=100 → h≈1,42",
+              "en": "Q=100 → h≈1.42"
+            }
+          },
+          {
+            "x": 104,
+            "y": 1.45,
+            "label": {
+              "tr": "K okuma: h=1,45 → Q=K≈104",
+              "en": "K read: h=1.45 → Q=K≈104"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene $Q$'yu (0'dan ~320 m³/sn'ye), düşey eksene $h$'yi (0'dan 2,5 m'ye) koy. 7 ölçümü $(Q,h)$ olarak işaretle: (50; 0,75) … (300; 2,25) ve yumuşak bir eğriyle birleştir. Grafikten oku: $h=1{,}85$ → $Q\\approx170$; $Q=100$ → $h\\approx1{,}42$. Ayrıca K'yı bulmak için $h_0+1=1{,}45$ m'ye karşılık gelen debiyi interpolasyonla oku: $Q=K\\approx104$ m³/sn. Yüksek seviyeler ($h=5$ m gibi) grafiğin DIŞINDA kalır — onları denklemle hesapla, eğriyi elle uzatma.",
+          "en": "Put $Q$ on the x-axis (0 to ~320 m³/s) and $h$ on the y-axis (0 to 2.5 m). Plot the 7 measurements as $(Q,h)$: (50, 0.75) … (300, 2.25) and join with a smooth curve. Read off the graph: $h=1.85$ → $Q\\approx170$; $Q=100$ → $h\\approx1.42$. Also, to find K, read (by interpolation) the discharge at $h_0+1=1.45$ m: $Q=K\\approx104$ m³/s. High stages (like $h=5$ m) lie OUTSIDE the graph — compute those with the equation, don't extend the curve by hand."
+        },
+        "whatItShows": {
+          "tr": "Eğri, ölçülen seviye-debi çiftlerinin şeklini gösterir ve iki iş görür: (1) ara değerleri doğrudan okumak (grafik kısmı a), (2) $h_0+1=1{,}45$ m noktasından K sabitini okumak. Bu soruda $h_0$ ve $N$ zaten verildiği için eğri asıl olarak K'yı sabitlemeye yarar; K bir kez bulununca denklem $Q=104(h-0{,}45)^{1{,}50}$ tamamlanır ve $h=5$ m gibi ölçüm dışı seviyeler için debi hesaplanabilir. Eğrinin bu ölçüm bölgesindeki eğimi, N=1,50'nin (5-3'teki 1,20'den dik) daha hızlı büyüyen bir debi ilişkisi verdiğini gösterir.",
+          "en": "The curve shows the shape of the measured stage-discharge pairs and does two jobs: (1) reading interpolated values directly (graph part a), and (2) reading the constant K at the point $h_0+1=1.45$ m. Since $h_0$ and $N$ are already given here, the curve's main role is to pin down K; once K is found the equation $Q=104(h-0.45)^{1.50}$ is complete and can compute discharge for out-of-range stages like $h=5$ m. The curve's steepness in this measured region reflects N=1.50 (steeper than the 1.20 of 5-3) giving a faster-growing discharge relationship."
+        }
+      },
       "steps": [
         {
           "title": {
@@ -2021,7 +2509,101 @@
           ]
         }
       ],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": {
+          "tr": "Anahtar eğrisi: normal ölçümler + taşkın noktası",
+          "en": "Rating curve: normal measurements + flood point"
+        },
+        "xLabel": "Q (m³/sn)",
+        "yLabel": "h (m)",
+        "logX": false,
+        "logY": false,
+        "series": [
+          {
+            "name": "Normal ölçümler",
+            "kind": "line",
+            "points": [
+              [
+                6,
+                1.0
+              ],
+              [
+                15,
+                1.3
+              ],
+              [
+                23,
+                1.5
+              ],
+              [
+                30,
+                1.7
+              ]
+            ]
+          },
+          {
+            "name": "Uydurulan eğri Q=18(h-0,375)^1,546",
+            "kind": "line",
+            "points": [
+              [
+                8.7,
+                1.0
+              ],
+              [
+                16.0,
+                1.3
+              ],
+              [
+                21.6,
+                1.5
+              ],
+              [
+                27.8,
+                1.7
+              ],
+              [
+                38.1,
+                2.0
+              ],
+              [
+                57.7,
+                2.5
+              ],
+              [
+                80.0,
+                3.0
+              ]
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "x": 80,
+            "y": 3.0,
+            "label": {
+              "tr": "taşkın: h=3 → Q=80",
+              "en": "flood: h=3 → Q=80"
+            }
+          },
+          {
+            "x": 100,
+            "y": 3.41,
+            "label": {
+              "tr": "uzatma: Q=100 → h≈3,41",
+              "en": "extension: Q=100 → h≈3.41"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene $Q$'yu (0'dan ~100 m³/sn'ye), düşey eksene $h$'yi (0'dan ~3,5 m'ye) koy. Önce 4 normal ölçümü işaretle: (6; 1,0), (15; 1,3), (23; 1,5), (30; 1,7) — bunlar sadece alçak seviyeleri kapsar (yatağın alt kısmı). Sonra TEK bir yüksek nokta ekle: taşkın (80; 3,0) — grafiğin çok sağ üstünde, yalnız başına. Denklem $Q=18(h-0{,}375)^{1{,}546}$ bulunduktan sonra onu h=1'den 3'e kadar örnekleyip düz bir eğriyle çiz; bu eğri hem 4 normal noktadan hem de taşkın noktasından geçer. Q=100 için $h\\approx3{,}41$ m'yi işaretle (taşkının hemen ötesi).",
+          "en": "Put $Q$ on the x-axis (0 to ~100 m³/s) and $h$ on the y-axis (0 to ~3.5 m). First plot the 4 normal measurements: (6, 1.0), (15, 1.3), (23, 1.5), (30, 1.7) — these cover only low stages (the bottom of the channel). Then add a SINGLE high point: the flood (80, 3.0) — far off to the upper right, on its own. Once the equation $Q=18(h-0.375)^{1.546}$ is found, sample it from h=1 to 3 and draw a smooth curve; it passes through both the 4 normal points and the flood point. Mark $h\\approx3.41$ m for Q=100 (just past the flood)."
+        },
+        "whatItShows": {
+          "tr": "Bu grafiğin can alıcı mesajı: normal ölçümler yatağın sadece ALT ucunu (h≤1,7 m) doldurur — tek başlarına eğrinin yüksek-debi kısmını tahmin etmeye yetmez. Uzaktaki tek taşkın noktası (h=3, Q=80) eğrinin üst ucunu sabitleyen tek çapadır; üs $n$ tam olarak bu noktadan çözülür. İki veri kümesi arasındaki büyük boşluk (30'dan 80 m³/sn'ye) bir taşkın gözleminin neden bu kadar değerli olduğunu görselleştirir: o olmasa eğri üst bölgede tamamen belirsiz kalırdı. Uydurulan eğrinin dört normal noktaya yaklaşık %10 sapmayla uyması (mükemmel değil) sadece iki koşuldan türetilmiş olmasının doğal sonucudur.",
+          "en": "The key message of this plot: the normal measurements fill only the LOWER end of the channel (h≤1.7 m) — on their own they can't pin down the high-discharge part of the curve. The lone distant flood point (h=3, Q=80) is the only anchor fixing the curve's upper end; the exponent $n$ is solved exactly from it. The large gap between the two data clusters (from 30 to 80 m³/s) visualizes why a single flood observation is so valuable: without it the curve would be entirely undetermined up top. The fitted curve matching the four normal points to within about 10% (not perfectly) is the natural consequence of being derived from only two conditions."
+        }
+      },
       "steps": [
         {
           "title": {
@@ -2384,7 +2966,15 @@
               "en": "6 ay/months"
             }
           }
-        ]
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene aşılma olasılığını ($p$, %0'dan %100'e), düşey eksene debiyi ($Q$, 0'dan ~250 m³/sn'ye) koy. Önce 12 aylık değeri BÜYÜKTEN KÜÇÜĞE sırala ($205, 150, 104, \\ldots, 26$) ve her sıraya Weibull olasılığını ver: $p=m/(N+1)\\cdot100=m/13\\cdot100$ → %7,7; %15,4; …; %92,3. 12 noktayı $(p,Q)$ olarak işaretle ve azalan bir eğriyle birleştir — sol üstte (nadir, yüksek debi) başlar, sağ alta (sık, düşük debi) iner. Okumak için: \"2 ay mevcut\" = $p=2/12=\\%16{,}7$'den yukarı çık, $Q\\approx138$; \"175 m³/sn kaç gün\" = 175'ten yana git, $p\\approx\\%11{,}5$ oku, sonra $0{,}115\\cdot365\\approx42$ gün.",
+          "en": "Put exceedance probability on the x-axis ($p$, 0% to 100%) and discharge on the y-axis ($Q$, 0 to ~250 m³/s). First sort the 12 monthly values from LARGEST TO SMALLEST ($205, 150, 104, \\ldots, 26$) and assign each rank a Weibull probability: $p=m/(N+1)\\cdot100=m/13\\cdot100$ → 7.7%, 15.4%, …, 92.3%. Plot the 12 points as $(p,Q)$ and join with a decreasing curve — it starts top-left (rare, high flow) and drops to bottom-right (frequent, low flow). To read: \"available 2 months\" = $p=2/12=16.7\\%$, go up to the curve → $Q\\approx138$; \"how many days is 175 m³/s\" = from 175 go across, read $p\\approx11.5\\%$, then $0.115\\cdot365\\approx42$ days."
+        },
+        "whatItShows": {
+          "tr": "Bu azalan eğri şu soruyu cevaplar: \"bir debi ya da daha büyüğü yılın ne kadarında mevcut?\" Sol uç (küçük p) nadir taşkın debilerini, sağ uç (büyük p) neredeyse her zaman bulunan güvenilir düşük debileri temsil eder — bu yüzden kuraklık ve su temini tasarımında sağ kuyruk (örn. p=%90–%95, \"garanti debi\") kritiktir. Eğri dik başlayıp yatıklaşır: yüksek debiler çabuk seyrekleşir, düşük debiler ise yılın büyük kısmında ısrarla sürer. Her okuma \"bu değer VEYA DAHA BÜYÜĞÜ\" anlamına gelir — tam o değer değil; 175 m³/sn'nin 42 günde mevcut olması, o günlerin bazısında debinin 175'in de üstünde olabileceğini kapsar.",
+          "en": "This decreasing curve answers: \"for how much of the year is a discharge, or a larger one, available?\" The left end (small p) represents rare flood discharges, the right end (large p) the dependable low discharges available nearly all the time — which is why the right tail (e.g. p=90–95%, the \"firm flow\") is critical in drought and water-supply design. The curve starts steep and flattens: high flows thin out quickly, while low flows persist through most of the year. Every reading means \"this value OR LARGER\" — not exactly that value; 175 m³/s being available 42 days covers the fact that on some of those days the discharge may exceed 175."
+        }
       },
       "steps": [
         {
@@ -2750,7 +3340,32 @@
             ]
           }
         ],
-        "annotations": []
+        "annotations": [
+          {
+            "x": 8,
+            "y": 577.0,
+            "label": {
+              "tr": "en dolu (üst teğet)",
+              "en": "fullest (upper tangent)"
+            }
+          },
+          {
+            "x": 3,
+            "y": 118.8,
+            "label": {
+              "tr": "en boş (alt teğet)",
+              "en": "emptiest (lower tangent)"
+            }
+          }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene ayları (Ekim=1'den Eylül=12'ye), düşey eksene biriken hacmi ($\\Sigma V$, 0'dan ~720·10⁶ m³'e) koy. 12 kümülatif noktayı işaretle: (1; 29,7), (2; 68,4), … (12; 667,3) ve birleştir — eğri asla azalmaz, sadece eğimi değişir (bahar aylarında dik, yazın yatık). Sonra (0,0)'dan (12; 667,3)'e TALEP doğrusunu çiz; eğimi ortalama debidir. Bu doğruya PARALEL iki teğet kaydır: biri eğrinin en yukarıda saptığı tepeye (8. ay, 577), biri en aşağıda saptığı çukura (3. ay). İki teğet arasındaki DÜŞEY mesafeyi (aynı x'te, örn. x=8) oku: 577−400≈177·10⁶ m³.",
+          "en": "Put the months on the x-axis (Oct=1 to Sep=12) and cumulative volume on the y-axis ($\\Sigma V$, 0 to ~720·10⁶ m³). Plot the 12 cumulative points: (1, 29.7), (2, 68.4), … (12, 667.3) and join them — the curve never decreases, only its slope changes (steep in spring, flat in summer). Then draw the DEMAND line from (0,0) to (12, 667.3); its slope is the mean discharge. Shift two tangents PARALLEL to it: one to the peak where the curve deviates highest above (month 8, 577), one to the trough where it deviates lowest (month 3). Read the VERTICAL gap between the two tangents (at the same x, e.g. x=8): 577−400≈177·10⁶ m³."
+        },
+        "whatItShows": {
+          "tr": "Toplam debi çizgisi, akan suyun biriken MİKTARINI zamana karşı gösterir; herhangi bir noktadaki eğim, o andaki debiye eşittir. Talep doğrusundan yukarı sapan bölge (bahar) rezervuarın DOLDUĞU, aşağı sapan bölge (yaz kuraklığı) BOŞALDIĞI dönemdir. İki paralel teğet, eğrinin talep doğrusundan en çok saptığı iki uç anı — en dolu ve en boş — işaretler; aralarındaki düşey mesafe, talebi yıl boyu kesintisiz karşılamak için gereken minimum hazne hacmidir (≈177·10⁶ m³). Bu mesafe DÜŞEY okunur çünkü düşey eksen hacimdir; eğik ya da yatay ölçmek yanlış birim verir.",
+          "en": "The mass curve shows the accumulated AMOUNT of water that has flowed over time; the slope at any point equals the discharge at that moment. Where the curve rises above the demand line (spring) the reservoir is FILLING; where it drops below (summer drought) it is EMPTYING. The two parallel tangents mark the two extreme moments where the curve deviates most from the demand line — fullest and emptiest; the vertical gap between them is the minimum reservoir volume needed to meet demand without interruption all year (≈177·10⁶ m³). This gap is read VERTICALLY because the vertical axis is volume; measuring it slanted or horizontally gives the wrong unit."
+        }
       },
       "steps": [
         {
@@ -2895,6 +3510,158 @@
               "tr": "Düşey eksen (ΣV) hacmi temsil ettiği için, hazne hacmi iki teğet arasındaki DÜŞEY mesafe olarak okunur — bu doğrudan milyon m³ birimindedir. Dik mesafe ya da yatay mesafe farklı (ve yanlış) bir büyüklük verir.",
               "en": "Since the vertical axis (ΣV) represents volume, the reservoir storage is read as the VERTICAL distance between the two tangents — this is directly in million m³. A perpendicular or horizontal distance would give a different (and wrong) quantity."
             }
+          },
+          "story": {
+            "title": {
+              "tr": "İki teğet ve hazne hacmi — adım adım",
+              "en": "The two tangents and the storage volume — step by step"
+            },
+            "xLabel": "Ay (su yılı)",
+            "yLabel": "ΣV (10⁶ m³)",
+            "xDomain": [
+              0,
+              12.5
+            ],
+            "yDomain": [
+              0,
+              720
+            ],
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Önce toplam debi (kümülatif) eğrisini çiz: 12 aylık biriken hacim (1;29,7)…(12;667,3). Eğri hiç azalmaz; eğimi bahar aylarında (Mart–Mayıs) dik, yaz sonunda (Temmuz–Eylül) yatıktır — çünkü eğim = o andaki debi.",
+                  "en": "First draw the cumulative (mass) curve: 12 months of accumulated volume (1,29.7)…(12,667.3). The curve never decreases; its slope is steep in spring (Mar–May) and flat in late summer (Jul–Sep) — because slope = the discharge at that moment."
+                },
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [
+                      [1, 29.7],
+                      [2, 68.4],
+                      [3, 118.8],
+                      [4, 190.2],
+                      [5, 271.2],
+                      [6, 386.6],
+                      [7, 461.2],
+                      [8, 577.0],
+                      [9, 611.8],
+                      [10, 626.8],
+                      [11, 649.1],
+                      [12, 667.3]
+                    ],
+                    "color": "deniz",
+                    "width": 2.4
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Talep doğrusunu çiz: (0,0)'dan (12; 667,3)'e düz çizgi. Eğimi = ortalama debi (≈21,16 m³/sn). Rezervuar sabit bu debiyi verecek; doğrunun üstünde kalan aylar suyu depoluyor, altında kalanlar depodan çekiyor.",
+                  "en": "Draw the demand line: a straight line from (0,0) to (12, 667.3). Its slope = the mean discharge (≈21.16 m³/s). The reservoir will supply this constant discharge; months above the line store water, months below draw from storage."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": 0,
+                    "y1": 0,
+                    "x2": 12,
+                    "y2": 667.3,
+                    "color": "ink",
+                    "width": 2
+                  },
+                  {
+                    "type": "text",
+                    "x": 9.2,
+                    "y": 470,
+                    "text": {
+                      "tr": "talep doğrusu",
+                      "en": "demand line"
+                    },
+                    "color": "ink",
+                    "size": 13
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Talep doğrusuna PARALEL, üstten teğet çiz: eğrinin en yukarı saptığı tepeye (8. ay, ΣV=577) dokunur. Bu, rezervuarın EN DOLU olduğu andır — bahar taşkınları depoyu doldurmuştur.",
+                  "en": "Draw the upper tangent PARALLEL to the demand line, touching the peak where the curve deviates highest (month 8, ΣV=577). This is the moment the reservoir is FULLEST — spring floods have filled the store."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": 0,
+                    "y1": 132.1,
+                    "x2": 10.5,
+                    "y2": 716.0,
+                    "color": "amber",
+                    "dash": true,
+                    "width": 2
+                  },
+                  {
+                    "type": "point",
+                    "x": 8,
+                    "y": 577.0,
+                    "label": "en dolu",
+                    "color": "amber"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Aynı eğimde, alttan teğet çiz: eğrinin en aşağı saptığı çukura (3. ay, ΣV=118,8) dokunur. Bu, rezervuarın EN BOŞ olduğu andır — yaz kuraklığı depoyu çekmiştir. İki teğet paraleldir.",
+                  "en": "Draw the lower tangent at the same slope, touching the trough where the curve deviates lowest (month 3, ΣV=118.8). This is the moment the reservoir is EMPTIEST — the summer drought has drawn the store down. The two tangents are parallel."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": 2,
+                    "y1": 63.2,
+                    "x2": 12,
+                    "y2": 619.3,
+                    "color": "amber",
+                    "dash": true,
+                    "width": 2
+                  },
+                  {
+                    "type": "point",
+                    "x": 3,
+                    "y": 118.8,
+                    "label": "en boş",
+                    "color": "amber"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "İki teğet arasındaki DÜŞEY mesafeyi (aynı x'te, x=8) oku: üst teğet 577, alt teğet ≈400 → hazne hacmi 577−400 = 177·10⁶ m³. Bu, talebi yıl boyu kesintisiz karşılayacak minimum depo büyüklüğüdür.",
+                  "en": "Read the VERTICAL gap between the two tangents (at the same x, x=8): upper tangent 577, lower tangent ≈400 → storage 577−400 = 177·10⁶ m³. This is the minimum store size to meet demand without interruption all year."
+                },
+                "add": [
+                  {
+                    "type": "arrow",
+                    "x1": 8,
+                    "y1": 397,
+                    "x2": 8,
+                    "y2": 577,
+                    "color": "clay",
+                    "width": 2.4
+                  },
+                  {
+                    "type": "text",
+                    "x": 8.15,
+                    "y": 487,
+                    "text": {
+                      "tr": "V ≈ 177·10⁶ m³",
+                      "en": "V ≈ 177·10⁶ m³"
+                    },
+                    "color": "clay",
+                    "size": 15
+                  }
+                ]
+              }
+            ]
           }
         },
         {

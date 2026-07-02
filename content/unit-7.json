@@ -941,7 +941,40 @@
           ]
         }
       ],
-      "chart": null,
+      "chart": {
+        "type": "line",
+        "title": { "tr": "Bölgesel boyutsuz taşkın frekans eğrisi", "en": "Regional dimensionless flood frequency curve" },
+        "xLabel": "T (yıl) — logaritmik",
+        "yLabel": "(Q/Q̄)_T",
+        "logX": true,
+        "logY": false,
+        "series": [
+          {
+            "name": "(Q/Q̄)_T = 0,960 + 0,475·K_T",
+            "kind": "line",
+            "points": [
+              [10, 1.580],
+              [25, 1.931],
+              [50, 2.192],
+              [100, 2.451]
+            ]
+          }
+        ],
+        "annotations": [
+          { "x": 10, "y": 1.580, "label": { "tr": "T=10 → 1,580", "en": "T=10 → 1.580" } },
+          { "x": 25, "y": 1.931, "label": { "tr": "T=25 → 1,931", "en": "T=25 → 1.931" } },
+          { "x": 50, "y": 2.192, "label": { "tr": "T=50 → 2,192", "en": "T=50 → 2.192" } },
+          { "x": 100, "y": 2.451, "label": { "tr": "T=100 → 2,451", "en": "T=100 → 2.451" } }
+        ],
+        "howToDraw": {
+          "tr": "Yatay eksene tekerrür süresini T'yi **logaritmik** olarak koy (10, 25, 50, 100 yıl); log ölçek bu dört noktayı neredeyse düz bir çizgiye açtığı için tercih edilir. Düşey eksene boyutsuz oranı $(Q/\\bar Q)_T$ koy, 1,0'dan 2,6'ya, 0,2'lik çizgilerle. Dört noktayı çözüm tablosundaki $(Q/\\bar Q)_T$ satırından işaretle: $(10;\\,1{,}580)$, $(25;\\,1{,}931)$, $(50;\\,2{,}192)$, $(100;\\,2{,}451)$ — bunlar $(Q/\\bar Q)_T = 0{,}960 + 0{,}475\\,K_T$ formülünden gelir. Noktaları düzgün, hafif yukarı bükümlü tek bir eğriyle birleştir ve her noktayı T değeriyle etiketle. Bu eğri boyutsuzdur (birimsizdir): herhangi bir havzanın taşkınını okumak için düşey eksendeki değeri o havzanın kendi $\\bar Q$'suyla çarparsın (ör. 2201 için ×309, ungauged için ×96).",
+          "en": "Put the return period T on the x-axis on a **logarithmic** scale (10, 25, 50, 100 years); the log scale is preferred because it straightens these four points into a nearly straight line. Put the dimensionless ratio $(Q/\\bar Q)_T$ on the y-axis, from 1.0 to 2.6 with lines every 0.2. Plot the four points from the $(Q/\\bar Q)_T$ row of the solution table: $(10,\\,1.580)$, $(25,\\,1.931)$, $(50,\\,2.192)$, $(100,\\,2.451)$ — they come from $(Q/\\bar Q)_T = 0.960 + 0.475\\,K_T$. Join them with a single smooth, gently upward-curving line and label each point with its T. This curve is dimensionless (unitless): to read any basin's flood, multiply the y-axis value by that basin's own $\\bar Q$ (e.g. ×309 for station 2201, ×96 for the ungauged basin)."
+        },
+        "whatItShows": {
+          "tr": "Bu, tüm bölgeyi temsil eden TEK bir eğridir — beş istasyonun 70 boyutsuz değerinin havuzlanmasından doğar. Eğri her zaman yükselir: T büyüdükçe boyutsuz taşkın oranı büyür (nadir olaylar daha şiddetlidir). Log eksende neredeyse doğrusal olması, verinin Gumbel dağılımına iyi uyduğunun görsel kanıtıdır. Eğriyi okumak için: istediğin T'ye çık, düşey eksendeki oranı oku, sonra bu oranı hedef havzanın kendi ortalama debisiyle ($\\bar Q$) çarp. Aynı eğri hem gözlemli 2201 istasyonuna (×309) hem de akım gözlemi hiç olmayan 250 km²'lik havzaya (×96) uygulanır — \"bölge ortak, ölçek yerel\" fikrinin tek şekle sığmış hâli budur.",
+          "en": "This is a SINGLE curve representing the whole region — born from pooling the five stations' 70 dimensionless values. It always rises: as T grows, the dimensionless flood ratio grows (rarer events are more severe). Being nearly straight on the log axis is visual proof that the data fit the Gumbel distribution well. To read it: go up to your chosen T, read the ratio on the y-axis, then multiply that ratio by the target basin's own mean discharge ($\\bar Q$). The same curve serves both the gauged station 2201 (×309) and the completely ungauged 250 km² basin (×96) — this is the \"region shared, scale local\" idea captured in one figure."
+        }
+      },
       "steps": [
         {
           "title": { "tr": "Neden bölgesel analiz gerekiyor?", "en": "Why is regional analysis needed?" },
