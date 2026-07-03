@@ -1,4 +1,3 @@
-import { head, put } from "@vercel/blob";
 import { getUnit } from "@/lib/content";
 import type { NoteSection } from "@/lib/types";
 
@@ -17,18 +16,57 @@ interface PodcastBody {
   force?: boolean;
 }
 
-const hasBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+/* ---------- cloud storage: Supabase Storage (public "podcasts" bucket) ---------- */
+
+const SB_URL = process.env.SUPABASE_URL;
+const SB_KEY = process.env.SUPABASE_ANON_KEY;
+const BUCKET = "podcasts";
+
+const hasStorage = () => Boolean(SB_URL && SB_KEY);
 
 const audioPath = (subject: string, unitSlug: string, lang: string) =>
-  `podcasts/${subject}/${unitSlug}/${lang}.wav`;
+  `${subject}/${unitSlug}/${lang}.wav`;
 const scriptPath = (subject: string, unitSlug: string, lang: string) =>
-  `podcasts/${subject}/${unitSlug}/${lang}.json`;
+  `${subject}/${unitSlug}/${lang}.json`;
 
-async function blobUrl(pathname: string): Promise<string | null> {
+const publicUrl = (path: string) =>
+  `${SB_URL}/storage/v1/object/public/${BUCKET}/${path}`;
+
+/** Returns the public URL if the object exists, else null. */
+async function storedUrl(path: string): Promise<string | null> {
+  if (!hasStorage()) return null;
   try {
-    const meta = await head(pathname);
-    return meta.url;
+    const res = await fetch(publicUrl(path), { method: "HEAD" });
+    return res.ok ? publicUrl(path) : null;
   } catch {
+    return null;
+  }
+}
+
+async function storeObject(
+  path: string,
+  body: Buffer | string,
+  contentType: string
+): Promise<string | null> {
+  if (!hasStorage()) return null;
+  try {
+    const res = await fetch(`${SB_URL}/storage/v1/object/${BUCKET}/${path}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${SB_KEY}`,
+        apikey: SB_KEY as string,
+        "Content-Type": contentType,
+        "x-upsert": "true",
+      },
+      body: typeof body === "string" ? body : new Uint8Array(body),
+    });
+    if (!res.ok) {
+      console.error("supabase upload failed", res.status, (await res.text()).slice(0, 300));
+      return null;
+    }
+    return publicUrl(path);
+  } catch (e) {
+    console.error("supabase upload error", e);
     return null;
   }
 }
@@ -42,17 +80,17 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const subject = searchParams.get("subject");
   const unitSlug = searchParams.get("unit");
-  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), blob: hasBlob() };
+  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), blob: hasStorage() };
 
-  if (!subject || !unitSlug || !hasBlob()) {
+  if (!subject || !unitSlug || !hasStorage()) {
     return Response.json({ ...base, tr: null, en: null });
   }
 
   const [trAudio, enAudio, trScript, enScript] = await Promise.all([
-    blobUrl(audioPath(subject, unitSlug, "tr")),
-    blobUrl(audioPath(subject, unitSlug, "en")),
-    blobUrl(scriptPath(subject, unitSlug, "tr")),
-    blobUrl(scriptPath(subject, unitSlug, "en")),
+    storedUrl(audioPath(subject, unitSlug, "tr")),
+    storedUrl(audioPath(subject, unitSlug, "en")),
+    storedUrl(scriptPath(subject, unitSlug, "tr")),
+    storedUrl(scriptPath(subject, unitSlug, "en")),
   ]);
 
   return Response.json({
@@ -102,7 +140,7 @@ function buildNotesDigest(notes: NoteSection[], lang: "tr" | "en"): string {
 
 function scriptSystemPrompt(lang: "tr" | "en", digest: string): string {
   const langName = lang === "tr" ? "Turkish" : "English";
-  return `You are writing a script for a 5-8 minute exam-prep podcast in ${langName}, in the "cubad" exam-prep app.
+  return `You are writing a script for a 4-6 minute exam-prep podcast in ${langName}, in the "cubad" exam-prep app.
 Two friendly hosts, "Deniz" and "Mert", talk through the lesson notes below like a study podcast.
 
 Rules:
@@ -128,6 +166,8 @@ async function generateScript(
     generationConfig: {
       temperature: 0.6,
       responseMimeType: "application/json",
+      // no chain-of-thought needed for a podcast script — big latency win
+      thinkingConfig: { thinkingBudget: 0 },
     },
   };
 
@@ -239,10 +279,10 @@ export async function POST(request: Request) {
   }
 
   // Already stored in the cloud? Every device gets the same file.
-  if (hasBlob() && !force) {
-    const existing = await blobUrl(audioPath(subject, unitSlug, lang));
+  if (hasStorage() && !force) {
+    const existing = await storedUrl(audioPath(subject, unitSlug, lang));
     if (existing) {
-      const script = await blobUrl(scriptPath(subject, unitSlug, lang));
+      const script = await storedUrl(scriptPath(subject, unitSlug, lang));
       return Response.json({ url: existing, scriptUrl: script });
     }
   }
@@ -267,26 +307,15 @@ export async function POST(request: Request) {
     }
 
     // Persist to the cloud so phones/other browsers stream the same file.
-    if (hasBlob()) {
-      try {
-        const [audioBlob, scriptBlob] = await Promise.all([
-          put(audioPath(subject, unitSlug, lang), wav, {
-            access: "public",
-            contentType: "audio/wav",
-            addRandomSuffix: false,
-            allowOverwrite: true,
-          }),
-          put(scriptPath(subject, unitSlug, lang), JSON.stringify(lines), {
-            access: "public",
-            contentType: "application/json",
-            addRandomSuffix: false,
-            allowOverwrite: true,
-          }),
-        ]);
-        return Response.json({ url: audioBlob.url, scriptUrl: scriptBlob.url, lines });
-      } catch (e) {
-        console.error("blob upload failed, falling back to inline audio", e);
+    if (hasStorage()) {
+      const [audioUrl, scriptUrl] = await Promise.all([
+        storeObject(audioPath(subject, unitSlug, lang), wav, "audio/wav"),
+        storeObject(scriptPath(subject, unitSlug, lang), JSON.stringify(lines), "application/json"),
+      ]);
+      if (audioUrl) {
+        return Response.json({ url: audioUrl, scriptUrl, lines });
       }
+      // upload failed — fall through to inline audio so the user still gets their podcast
     }
 
     const scriptB64 = Buffer.from(JSON.stringify(lines)).toString("base64");
