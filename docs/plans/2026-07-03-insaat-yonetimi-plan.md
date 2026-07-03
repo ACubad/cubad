@@ -1,18 +1,33 @@
-# Implementation Plan — İnşaat Yönetimi (Construction Management) in cubad
+# Implementation Plan — İnşaat Yönetimi (Construction Management) in cubad — v2
 
-**Goal**: add a second subject to the cubad app: notes + videos together per topic, generated
-practice questions, and bilingual flashcards (TR front, English meaning on reveal) covering
-EVERY concept in the sources — nothing left behind.
+**Goal**: add a second subject to cubad built for **learning through questions**: per unit —
+🎧 podcast explanation → easy notes → flashcards (reveal-back + EN chip) → an UNCAPPED,
+coverage-complete question bank. Videos are SOURCE MATERIAL (correctly grouped per topic to
+drive generation), not an in-app viewing experience. Animated construction stories wherever
+a concept is drawable.
 
-**Orchestration contract** (user requirement): Fable = orchestrator/brains only — writes
-decision-complete specs, schemas and prompts, does final integration. **Sonnet** implements
-(zero decisions). **Opus** runs **two audit passes**. Token budget: Fable stays thin.
+**Orchestration contract**: Fable = orchestrator/brains only (briefs, schemas, final pass).
+**Sonnet** implements everything, zero decisions. **Opus** runs **two audit passes**.
+
+**v2 corrections from the user (2026-07-03)**
+- ❌ No notes+embedded-video topic pages. Videos feed generation; each unit lists its source
+  videos as plain grouped links (so the grouping is visible), nothing more.
+- ✅ Questions are the primary learning vehicle. **No count cap** — the bank must cover
+  EVERYTHING discussed in the notes/sources; coverage, not quota, is the stop condition.
+- ✅ Flashcards: front → flip to reveal answer on back, plus "EN" chip revealing the English
+  meaning.
+- ✅ Notes ("Konu anlatımı") stay: easy-language concept explanations per unit, placed before
+  flashcards/questions in the flow.
+- ✅ 🎧 Podcast button on each unit's notes: generates a podcast-style audio explanation of
+  those notes via the Gemini API (script → TTS). Uses the user's BYOK key from the browser
+  (or `GEMINI_API_KEY` on Vercel). The user listens first, then does flashcards → questions.
+- ✅ Animated step-through stories (GraphStory) "where needed or possible".
 
 ---
 
 ## 0. Source inventory (surveyed 2026-07-03)
 
-**Videos** (all with tr auto-captions; total ≈ 7h12m):
+**Videos** (all with tr auto-captions; total ≈ 7h12m) — grouping per unit in §1:
 | # | ID | Title | Length |
 |---|----|-------|--------|
 | 1 | EHN_MGuF-ik | İnşaat Yönetimi 1. Hafta | 34:02 |
@@ -27,98 +42,92 @@ decision-complete specs, schemas and prompts, does final integration. **Sonnet**
 | 10 | auBYq2O-BRY | Kamu İhale Sözleşmeleri Kanunu | 33:59 |
 | 11 | cXSaZL0xee8 | İş Planlaması (9. Hafta) | 35:55 |
 | 12 | 4S4vDh9mYmo | Süre Analizi (10. Hafta) | 37:31 |
-| 13 | QxhD8_aGG9I | Programlama Araçları (11. Hafta) | 35:12 |
+| 13 | QxhD8_aGG9I | Programlama Araçları (11. HAFTA) | 35:12 |
 
-**Lecture notes** (`ders notları\`, 38 files): İnşaat Yönetimi.pdf + _1.pdf (course core),
-Kazı-Dolgu, metraj set (Beton, Demir-Donatı, Duvar, Kalıp, Kaplama), İmar Yönetmeliği (slides
-+ regulation), Kamu İhale Kanunu (×2), sözleşme set (temel ilkeler, Eser Sözleşmesi, anahtar
-teslim, birim fiyat, teklif birim fiyat, maliyet+kâr, kat karşılığı), teknik şartname,
-SÜRE ANALİZİ, Programlama Araçları, ödev sheets.
-**Exam calibration**: `output\Insaat_Yonetimi_Ara_Sinav_Soru_ve_Cevaplari.pdf` (past midterm Q&A).
-Assignment folders (5.Group, 9./10.Ödev, ihale_dokumani) = optional reference only.
+**Lecture notes** (`ders notları\`, 38 files): course core (İnşaat Yönetimi.pdf, _1.pdf),
+Kazı-Dolgu, metraj set (Beton, Demir-Donatı, Duvar, Kalıp, Kaplama), İmar Yönetmeliği,
+Kamu İhale Kanunu (×2), sözleşme set (temel ilkeler, Eser Sözleşmesi, anahtar teslim,
+birim fiyat, teklif birim fiyat, maliyet+kâr, kat karşılığı), teknik şartname, SÜRE ANALİZİ,
+Programlama Araçları. **Exam calibration**: `output\Insaat_Yonetimi_Ara_Sinav_Soru_ve_Cevaplari.pdf`.
+Assignment folders = optional reference only.
 
-## 1. Course structure → 10 units
+## 1. Course structure → 10 units (video grouping)
 
-| Unit | Slug | Sources (videos ▸ PDFs) |
-|------|------|--------------------------|
+| Unit | Slug | Videos ▸ PDFs |
+|------|------|----------------|
 | 1. İnşaat Yönetimine Giriş | giris | v1, v2 ▸ İnşaat Yönetimi.pdf, İnşaat Yönetimi_1.pdf |
 | 2. Kazı ve Dolgu İşleri | kazi-dolgu | v3 ▸ Kazı-Dolgu PDF |
-| 3. Metraj (Beton, Donatı, Duvar, Kalıp, Kaplama) | metraj | — ▸ 5 metraj PDFs (computation-heavy) |
+| 3. Metraj | metraj | — ▸ 5 metraj PDFs (computation-heavy) |
 | 4. Planlı Alanlar İmar Yönetmeliği | imar | v4 ▸ İmar slides + planli PDF |
 | 5. Kamu İhale Kanunu ve İhale Usulleri | ihale | v5 ▸ 2 KİK PDFs |
 | 6. Sözleşme İlkeleri ve Eser Sözleşmesi | sozlesme-ilkeler | v6, v7 ▸ temel ilkeler, Borçlar K. PDFs |
-| 7. İnşaat Sözleşme Türleri | sozlesme-turleri | v8 ▸ anahtar teslim, birim fiyat, teklif BF, maliyet+kâr, kat karşılığı PDFs |
-| 8. Kamu İhale Sözleşmeleri K. + Teknik Şartname | kik-sartname | v9, v10 ▸ 2 PDFs |
+| 7. İnşaat Sözleşme Türleri | sozlesme-turleri | v8 ▸ 5 contract-type PDFs |
+| 8. KİK Sözleşmeleri + Teknik Şartname | kik-sartname | v9, v10 ▸ 2 PDFs |
 | 9. İş Planlaması ve Süre Analizi | planlama | v11, v12 ▸ SÜRE ANALİZİ PDF |
 | 10. Programlama Araçları (Gantt, CPM, PERT) | programlama | v13 ▸ Programlama Araçları PDF |
 
-## 2. App architecture change: multi-subject cubad (Fable specs, Sonnet implements)
+## 2. App changes (Fable specs, Sonnet implements)
 
-- `content/<subject>/unit-N.json`; subjects.json manifest {slug, title, tagline, examDate?}.
-  Existing hydrology files move to `content/hidroloji/` (routes gain a subject segment;
-  old routes redirect).
-- Home = subject picker cards; per-subject home keeps unit grid + study plan.
-- **New content types** (added to existing schema; walkthroughs/quiz/charts reused as-is):
-  - `unit.lessons[]`: notes sections — `{ title:Bi, body:Bi (markdown+latex), video?: {youtubeId, startSec, endSec?}, keyTerms:[{tr, en, def:Bi}] }` → topic page renders notes with an embedded YouTube player; each section's ▶ button seeks the player to its timestamp (lite-embed, privacy-enhanced youtube-nocookie).
-  - `unit.flashcards[]`: `{ front:Bi-or-TR, back:Bi, en: string (English meaning/translation), tag }` → FlashcardDeck component: flip animation, "EN" reveal chip on the back, Leitner boxes (again/good/easy) in localStorage, shuffle, per-tag filter.
-  - `unit.practice[]`: generated questions — MCQ (reuse Mcq) + open questions with model answers (reveal pattern), styled on the past midterm.
-- Computation topics (metraj, süre analizi/CPM) ALSO get 2-4 step-by-step walkthroughs
-  reusing the existing Walkthrough/GraphStory machinery (CPM network story: forward pass,
-  backward pass, float, critical path highlight — same player as hydrology).
+- Multi-subject: `content/<subject>/unit-N.json` + subjects manifest; hydrology moves to
+  `content/hidroloji/` (redirects preserve old URLs); home = subject picker.
+- **Unit page flow (this subject)**: 🎧 Podcast → 📖 Konu anlatımı (notes) → 🃏 Flashcards →
+  ❓ Soru bankası (+ walkthroughs for computational topics). A small "Kaynaklar" footer lists
+  the unit's videos as plain YouTube links + PDF names (grouping made visible; no embeds).
+- **New content types**:
+  - `unit.notes[]`: `{ title:Bi, body:Bi (markdown+latex), story?:GraphStory }` — easy
+    concept explanations; stories where drawable (CPM network passes, Gantt build-up, metraj
+    geometry, ihale process flow, contract-type decision tree).
+  - `unit.flashcards[]`: `{ front:Bi, back:Bi, en:string, tag }` — FlashcardDeck: flip
+    reveal, EN chip, Leitner (again/good/easy) in localStorage, shuffle, tag filter.
+  - `unit.practice[]`: **uncapped** question bank — MCQ (reuse Mcq) and open questions with
+    reveal-model-answer; each question carries `covers: ["concept-id", ...]` for the
+    coverage audit; midterm-styled where the past exam gives a pattern.
+  - `unit.sources`: `{ videos:[{id,title,length}], pdfs:[names] }` for the Kaynaklar footer.
+- **🎧 /api/podcast** route: body {unitSlug, notesText, lang, userKey?} → step 1: Gemini text
+  model writes a 5-8 min two-host conversational script over the notes (simple, warm,
+  exam-focused); step 2: Gemini TTS (`gemini-2.5-flash-preview-tts`, multi-speaker) → WAV
+  (server wraps PCM). Client: audio player + IndexedDB cache per unit+lang; regenerate
+  button. Key resolution identical to tutor (env → browser BYOK). Fallback if TTS
+  unavailable: show the script as readable dialogue.
 
-## 3. Pipeline (phases, owners, gates)
+## 3. Pipeline
 
-**P0 — Ingestion (scripts by Fable, run once, deterministic)**
-`yt-dlp --write-auto-subs --sub-langs tr-orig --skip-download` for the 13 IDs → VTT → cleaner
-script (strip cues, merge rolling duplicates, keep [mm:ss] anchors every ~15s) → 13 transcript
-.txt files. PyMuPDF text + page images for every ders-notları PDF + the midterm PDF.
-Gate: word counts sane, spot-read 2 transcripts.
+**P0 — Ingestion (Fable scripts, deterministic)**: yt-dlp tr-orig auto-subs → cleaned
+timestamped transcripts ×13; PyMuPDF text+page-images for all ders-notları PDFs + midterm.
+Gate: word counts sane, 2 transcripts spot-read.
 
-**P1 — Unit briefs (Fable, the "decisions")**
-One brief per unit: exact source files/pages, transcript spans, the concept checklist skeleton,
-flashcard tag taxonomy, question count targets, which computations become walkthroughs.
-Schema doc for the three new content types with one gold exemplar unit brief fully worked.
+**P1 — Unit briefs (Fable)**: per unit: sources, concept checklist skeleton, flashcard tag
+taxonomy, question-type mix, which concepts get stories, walkthrough list for metraj/CPM.
+Coverage rule stated per unit: EVERY concept in checklist → ≥1 note mention, ≥1 flashcard,
+≥1 question. No caps anywhere.
 
-**P2 — UI build (Sonnet from Fable's component specs; Fable verifies via build+preview)**
-Subject manifest/routing refactor, topic/lesson page with video embed + timestamp seeking,
-FlashcardDeck, practice page. Definition of done: typecheck, build, validator extended
-(lessons/flashcards/practice rules), preview screenshots.
+**P2 — UI build (Sonnet from Fable's component specs)**: subject routing refactor +
+FlashcardDeck + practice page + podcast route/player + Kaynaklar footer. Gate (Fable):
+typecheck, build, hydrology smoke test, preview screenshots.
 
-**P3 — Content authoring (Sonnet, 10 agents, one per unit)**
-Input: brief + transcripts + PDF text + page images. Output: unit JSON with lessons (notes
-synthesized from BOTH video and PDFs, video timestamps per section), 30-60 flashcards/unit
-(every concept, term, article number, formula), 8-12 practice questions (midterm-styled),
-walkthroughs for computational units. Bilingual everywhere; easy-tutor voice per the
-existing content-schema quality bar.
+**P3 — Content authoring (Sonnet ×10, one per unit)**: notes → flashcards → questions from
+transcript+PDF sources; cross-check terminology against PDFs (auto-captions garble legal
+terms); every question answerable from the notes alone.
 
-**P4 — Opus audit pass 1: COVERAGE & FIDELITY (10 agents)**
-Build the coverage matrix per unit: every PDF heading/section + every ~2-3 min transcript
-segment → must map to a lesson section AND ≥1 flashcard (or be explicitly marked
-non-examinable boilerplate with reason). Verify facts/numbers/article citations against
-sources. Fix in place; report matrix + fixes. Nothing-left-behind is THIS gate.
+**P4 — Opus audit pass 1: COVERAGE & FIDELITY (×10)**: build the coverage matrix — every PDF
+heading/section AND every ~2-3 min transcript segment → mapped to notes + ≥1 flashcard +
+≥1 question, or explicitly waived with reason (boilerplate). Verify facts, article numbers,
+formulas against sources. Fix in place. This is the nothing-left-behind gate.
 
-**P5 — Opus audit pass 2: QUALITY & CONSISTENCY (10 agents + 1 cross-unit)**
-Second independent pass: schema validity, TR/EN completeness, flashcard EN accuracy,
-pedagogy of explanations, dedupe/cross-link concepts across units, practice-question
-answerability from the notes alone. Cross-unit agent checks the whole subject reads as one
-coherent course.
+**P5 — Opus audit pass 2: QUALITY & CONSISTENCY (×10 + 1 cross-unit)**: independent re-audit:
+schema, TR/EN completeness, EN flashcard accuracy, question quality (distractors plausible,
+open answers complete), notes simplicity, story correctness; cross-unit dedupe/coherence.
 
-**P6 — Final pass (Fable)**
-Validator, independent spot-sweeps (sampled flashcards vs sources, CPM numbers recomputed),
-build, preview verification, commit, push, deploy to cubad.vercel.app.
+**P6 — Final pass (Fable)**: validators, sampled independent checks (CPM numbers, metraj
+computations, article citations), build, preview, deploy.
 
 ## 4. Estimates & risks
 
-- Agent budget: ~10 Sonnet content + ~21 Opus audit + few Sonnet UI ≈ 30-35 agents;
-  heavier than hydrology round 1 (~2M tokens) because of 2 audit passes; Fable usage minimal
-  (briefs + final pass).
-- Risks: (a) auto-caption quality on legal terminology → mitigated by PDF cross-check rule
-  in P3/P4 prompts; (b) very long videos (v5 74min) → transcripts chunked by the cleaner;
-  (c) route refactor regressions → P2 gate includes hydrology smoke test; (d) YouTube embeds
-  blocked offline → notes are self-sufficient by design (video is enrichment, not the only
-  carrier of any concept — enforced in P4).
+~35-40 subagents; question bank likely 300-600 items across 10 units (uncapped, coverage-driven).
+Risks: caption quality on legal terms (PDF cross-check rule); Gemini TTS free-tier limits
+(cache + graceful script fallback); route refactor regressions (hydrology smoke test);
+long transcripts (chunked cleaner).
 
-## 5. Out of scope (this round)
+## 5. Out of scope
 
-Assignment folders and the 780MB tender package (reference only), spaced-repetition sync
-across devices (localStorage only), AI-generated video summaries beyond notes.
+Assignment folders / 780MB tender package (reference only); cross-device sync; video embedding.
