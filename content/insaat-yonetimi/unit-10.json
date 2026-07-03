@@ -1,0 +1,3522 @@
+{
+ "unit": 10,
+ "slug": "programlama",
+ "title": {
+  "tr": "Programlama Araçları: Gantt, CPM, PERT",
+  "en": "Scheduling Tools: Gantt, CPM, PERT"
+ },
+ "tagline": {
+  "tr": "İşi çubuğa, ağa ve sayıya dökmek",
+  "en": "Turning work into bars, networks, and numbers"
+ },
+ "sources": {
+  "videos": [
+   {
+    "id": "v13-programlama-araclari",
+    "title": "Programlama Araçları",
+    "length": "27:07"
+   }
+  ],
+  "pdfs": [
+   "Programlama_Araçları.pdf",
+   "12 (Ağ Diyagramları - Kritik Yol Yöntemi CPM).pdf"
+  ]
+ },
+ "notes": [
+  {
+   "id": "n1",
+   "title": {
+    "tr": "İş programı ve programlama araçları",
+    "en": "The work schedule and scheduling tools"
+   },
+   "body": {
+    "tr": "**İş programı (iş programı)**, inşaat projelerinin süre ve kaynak kullanımını planlamak ve izlemek amacıyla hazırlanan programdır. Bir projeyi yönetmek için önce planlarsın, sonra o planı bir programlama aracıyla somut, izlenebilir bir çizelgeye dönüştürürsün — çünkü sahada sapmaları (planlanandan gecikme/erken bitiş) ancak somut bir çizelgeyle karşılaştırarak görebilirsin.\n\nProgramlama araçları üç ana grupta toplanır:\n\n| Grup | İçerik |\n|---|---|\n| **Çubuk programlama yöntemleri** | Gantt (bar chart) |\n| **Ağ (network) programlama yöntemleri** | CPM (kritik yol yöntemi), PERT (seçenekli değerlendirme) |\n| **Diğer yöntemler** | Kutu diyagramları, denge/devre diyagramları, kaynak atama yöntemleri |\n\nDers kapsamında ayrıntılı işlenen ilk iki grup: **çubuk (Gantt) diyagramı** ve **ağ diyagramları (CPM/PERT)**. İkisi de aynı temel veriden (faaliyet listesi + süreler + ilişkiler) yola çıkar ama farklı şeyi öne çıkarır: Gantt zamanı görselleştirir, ağ diyagramları faaliyetler arası **mantıksal ilişkiyi** ve kritik yolu görselleştirir.",
+    "en": "The **work schedule (iş programı)** is the program prepared to plan and monitor a construction project's duration and resource use. To manage a project you first plan, then turn that plan into a concrete, trackable chart with a scheduling tool — because you can only see deviations on site (behind/ahead of plan) by comparing against a concrete chart.\n\nScheduling tools fall into three main groups:\n\n| Group | Contents |\n|---|---|\n| **Bar-chart scheduling methods** | Gantt (bar chart) |\n| **Network scheduling methods** | CPM (critical path method), PERT (program evaluation and review technique) |\n| **Other methods** | Box diagrams, balance/cycle diagrams, resource-assignment methods |\n\nThe course covers the first two groups in detail: the **bar (Gantt) chart** and **network diagrams (CPM/PERT)**. Both start from the same base data (activity list + durations + relationships) but highlight different things: Gantt visualizes time, network diagrams visualize the **logical relationship** between activities and the critical path."
+   },
+   "story": null
+  },
+  {
+   "id": "n2",
+   "title": {
+    "tr": "Çubuk (Gantt) diyagramı: hazırlık aşamaları",
+    "en": "The bar (Gantt) chart: preparation stages"
+   },
+   "body": {
+    "tr": "Çubuk diyagramı yöntemi, faaliyetleri **düz çizgilerle** gösterdiği için \"çubuk yöntem\" (İngilizce bar chart) olarak adlandırılır. Yöntemi 1917'de ilk geliştiren **Henry Gantt**'ın adına ithafen **Gantt diyagramı / Gantt chart** da denir.\n\nUygulamada izlenecek 4 aşama sırasıyla:\n\n1. **Faaliyetlerin belirlenerek sıralanması** — işin nasıl faaliyetlere bölüneceği ve ayrıntı düzeyi işin türü, kapsamı ve süresine göre belirlenir. Basit bir liste (hazırlık, kalıp, beton, kür) olabileceği gibi, iş önce ana gruplara (kazı grubu, kalıp grubu...) sonra alt gruplara (kazı→beton arme temel, duvar işleri...) da bölünebilir. Birden fazla blok varsa her grup blok bazında da izlenebilir (1. blok kazısı, 2. blok kazısı...).\n2. **İş miktarlarının bulunması** — miktarlar metraj veya keşif özet cetvelinden alınır; cetveldeki miktarlar genelde inşaatın bütününe ait olduğundan iş gruplarına göre birleştirme/ayırma (bazen tahmine dayalı bölüştürme) gerekebilir.\n3. **Faaliyet sürelerinin belirlenmesi** — kullanılacak kaynakların düzeyi ve verimliliğinin bilinmesini, yani ayrıntılı bir iş analizini gerektirir.\n4. **Programlama tablosunun hazırlanması** — bir sonraki not.",
+    "en": "The bar-chart method is called the \"bar method\" (bar chart) because it shows activities as **straight lines**. It is also called the **Gantt chart**, after **Henry Gantt**, who first developed it in 1917.\n\nFour stages are followed in order:\n\n1. **Identify and sequence the activities** — how the work is broken into activities and the level of detail depend on the type, scope, and duration of the work. It can be a simple list (prep, formwork, concrete, cure) or the work can first be split into main groups (excavation group, formwork group...) then sub-groups (excavation→reinforced-concrete foundation, wall work...). With multiple blocks, each group can also be tracked per block (block 1 excavation, block 2 excavation...).\n2. **Find the quantities of work** — quantities come from the bill of quantities / cost summary; since those figures usually cover the whole building, merging/splitting by work group (sometimes estimate-based) may be needed.\n3. **Determine activity durations** — requires knowing the level and productivity of the resources to be used, i.e. a detailed work analysis.\n4. **Prepare the scheduling table** — covered in the next note."
+   },
+   "story": null
+  },
+  {
+   "id": "n3",
+   "title": {
+    "tr": "Planlama tablosu: açıklama, takvim, nakit akış bölümleri",
+    "en": "The scheduling table: description, calendar, cash-flow sections"
+   },
+   "body": {
+    "tr": "Planlama tablosu üç bölümden oluşur:\n\n**1) Açıklama bölümü** — faaliyetin tanımı, yaklaşık gerçekleştirme maliyeti (bedeli) ve süresi yazılır.\n\n**2) Takvim bölümü** — faaliyet sürelerini zaman ölçekli göstermek için hazırlanır; işin genel ya da detay olmasına göre **yıl-ay-hafta** veya **ay-hafta-gün** olarak bölünebilir. Bir aylık süre genelde 30 günü eşit bölecek bir aralık sayısına (3, 4, 5 ya da 6'ya) bölünür; bazen ayın pazartesi günlerine göre de bölümlenir (o haftanın pazartesi tarihini yazarak). Her faaliyet satırı ikiye ayrılır: **P (planlanan)** ve **G (gerçekleşen)** — böylece uygulamada plandan sapma izlenebilir. Süreç çizgisinin başladığı yer faaliyetin başlama, bittiği yer bitiş tarihidir; çizgilerin konumu diğer faaliyetlerle ilişkiye göre belirlenir (paralel başlayabilir, birbirine bağlı olabilir). Birim fiyat usulü sözleşmelerde fiyat değişikliğine yol açabilecek kalemler (birim fiyat artışı, iş miktarı artışı, malzeme fiyat farkı) için de satır eklenebilir.\n\n**3) Nakit akış grafiği (bedel grafiği)** — takvim bölümünün altına eklenir; aylık ve kümülatif parasal kaynak kullanımını hem sayı hem grafik olarak gösterir. Maliyet+kâr ve birim fiyat usulü sözleşmelerde burada da **planlanan** ve **gerçekleşen** için ayrı satırlar bulunur.",
+    "en": "The scheduling table has three sections:\n\n**1) Description section** — the activity's definition, approximate cost (bedel), and duration.\n\n**2) Calendar section** — a time-scaled chart of activity durations; depending on whether the work is general or detailed, it can be divided as **year-month-week** or **month-week-day**. A month is usually split into a number of equal intervals of the 30 days (into 3, 4, 5, or 6); sometimes it is split by the month's Mondays instead (writing that week's Monday date). Each activity row is split in two: **P (planned)** and **G (actual/gerçekleşen)** — so deviation from plan can be tracked on site. Where the duration line starts is the activity's start date, where it ends is the finish date; the lines' positions are set based on relationships with other activities (can start in parallel, can be dependent). Rows can also be added for items that may trigger price changes under unit-price contracts (unit-price increase, quantity increase, material price differences).\n\n**3) Cash-flow chart (bedel grafiği)** — added below the calendar section; shows monthly and cumulative monetary resource use both numerically and graphically. Under cost-plus-fee and unit-price contracts, this too has separate **planned** and **actual** rows."
+   },
+   "story": null
+  },
+  {
+   "id": "n4",
+   "title": {
+    "tr": "İş günü ↔ takvim günü ve kesikli süreç çizgileri",
+    "en": "Working day vs calendar day, and interrupted duration lines"
+   },
+   "body": {
+    "tr": "Açıklama bölümündeki faaliyet süreleri **iş günü** (çalışılacak gün sayısı) cinsindendir. Ancak takvim bölümündeki süreç çizgisinin uzunluğu **takvim günü** cinsinden olmalı, çünkü hafta sonu tatilleri, resmi/dini tatiller, iklim koşulları gibi nedenlerle çalışılmayan günler araya girer. İş günü → takvim günü dönüşümü için: yükleniciye göre çalışılmayan günlerin (ör. pazar) toplamı kadar süreye eklenir.\n\nÖrnek: bir iş 7 gün sürüyor, pazartesi başlıyor, pazar çalışılmıyor. İş 6 gün çalışılıp pazartesi biter — takvimde 8 gün olarak görünür (7 iş günü + 1 pazar tatili).\n\n**Kesikli/kesintisiz süreç çizgileri:** bazı işler zorunlu nedenle ara verir. Örnek: kalıp işi genelde beton işinden daha uzun sürer; bir katın betonu bir sonraki kata geçmeden **kür süresini** beklemek zorundadır. Bu yüzden beton faaliyeti programda **kesikli** çizgiyle gösterilebilir. Ancak kalıp söküm/temizlik/hazırlık gibi ara işler kalıp ekibinin işi sayılırsa, kalıp faaliyeti kür süresine rağmen **kesintisiz** de gösterilebilir — seçim, işin gerçek akışına bağlıdır.",
+    "en": "Activity durations in the description section are in **working days** (days actually worked). But the duration line's length in the calendar section must be in **calendar days**, because weekend holidays, official/religious holidays, weather, etc. insert non-working days. To convert working days to calendar days: add days equal to the total non-working days (e.g. Sundays) that fall within the contractor's schedule.\n\nExample: a job takes 7 working days, starts on Monday, and Sunday is not worked. 6 days are worked and it finishes the following Monday — on the calendar this spans 8 days (7 working days + 1 Sunday holiday).\n\n**Interrupted vs continuous duration lines:** some work must pause for a required reason. Example: formwork usually takes longer than concreting; a floor's concrete must wait out its **curing time** before the next floor can proceed. So the concrete activity may be shown with an **interrupted (dashed)** line in the schedule. But if intermediate tasks like formwork stripping/cleaning/prep count as the formwork crew's own work, the formwork activity can instead be shown **continuous** despite the curing wait — the choice depends on the work's real flow."
+   },
+   "story": null
+  },
+  {
+   "id": "n5",
+   "title": {
+    "tr": "Gantt uygulama örneği: iş miktarından haftaya",
+    "en": "Worked Gantt example: from quantity to weeks"
+   },
+   "body": {
+    "tr": "Dört katlı (temel+çatı dahil), tek bloklu bir yapının kaba inşaatı için 5 faaliyet var: **hafriyat, kalıp, demir, beton, tuğla duvar**. Kabuller: hafriyat hariç her ekip 10 kişi; günde 8 saat normal + 2 saat fazla mesai = **10 saat/gün**; haftada 6 gün çalışılıyor (pazar hariç); **%85 verimlilik**; hafriyat ve kalıp aynı anda başlayıp bağımsız yürüyebiliyor, demir→beton→(15 gün priz/kalıp bekleme)→duvar birbirine bağlı ve aralıksız.\n\nHesap sırası her faaliyet için aynı: **[Miktar × birim süre] → (÷ verimlilik) → (÷ekip sayısı, varsa) → (÷ günlük çalışma saati) → (÷ haftalık çalışma günü)**.\n\n| Faaliyet | Miktar | Birim süre | Süre (hafta) |\n|---|---|---|---|\n| Kazı (1 makine) | 350 m³ | 0,25 sa/m³ | **1,72** |\n| Kalıp (10 kişi) | 1200 m² | 0,25 sa/m² | **0,59** |\n| Demir (10 kişi) | 17.000 kg | 0,085 sa/kg | **2,83** |\n| Beton (10 kişi) | 700 m³ | 2 sa/m³ | **2,75** |\n| Duvar (10 kişi) | 80 m² | 4 sa/m² | **0,63** |\n\nÖrnek hesap (kazı): $\\frac{350 \\times 0{,}25}{0{,}85} = 102{,}94$ sa → $\\div 10$ sa/gün $= 10{,}29$ gün → $\\div 6$ gün/hafta $= 1{,}72$ hafta.\n\nİşin başlangıcı 15 Mart (Mart'ın 3. haftası). Hafriyat 2 hafta hücre kaplıyor (1,72→2 haftaya sarkar); kalıp süresi kazıdan kısa olduğu için kalıbı hafriyattan **biraz sonra** başlatmak gerekir — yoksa kalıp kazıdan önce biter gibi tutarsız bir görüntü çıkar. Kalıp bitince demir başlar (3 hafta), demir bitmeden beton başlayabilir (kalan pay kadar), beton bitince 15 günlük priz+kalıp bekleme süresinden geçen gün sayısı düşülüp kalan süre eklenir, sonra duvar başlar. Diğer katlar aynı mantıkla simetrik ilerler (2., 3., 4. katta kazı yoktur).",
+    "en": "For a four-story building (including foundation and roof), single block, the shell has 5 activities: **excavation, formwork, rebar, concrete, brick wall**. Assumptions: except excavation, each crew is 10 people; 8 normal + 2 overtime hours/day = **10 hours/day**; 6 working days/week (Sunday off); **85% productivity**; excavation and formwork can start together and run independently, while rebar→concrete→(15-day set/formwork wait)→wall are dependent and continuous.\n\nThe calculation order is the same for every activity: **[quantity × unit duration] → (÷ productivity) → (÷ crew size, if any) → (÷ hours/day) → (÷ working days/week)**.\n\n| Activity | Quantity | Unit duration | Duration (weeks) |\n|---|---|---|---|\n| Excavation (1 machine) | 350 m³ | 0.25 h/m³ | **1.72** |\n| Formwork (10 people) | 1200 m² | 0.25 h/m² | **0.59** |\n| Rebar (10 people) | 17,000 kg | 0.085 h/kg | **2.83** |\n| Concrete (10 people) | 700 m³ | 2 h/m³ | **2.75** |\n| Wall (10 people) | 80 m² | 4 h/m² | **0.63** |\n\nSample calculation (excavation): $\\frac{350 \\times 0.25}{0.85} = 102.94$ h → $\\div 10$ h/day $= 10.29$ days → $\\div 6$ days/week $= 1.72$ weeks.\n\nWork starts March 15 (March's 3rd week). Excavation occupies 2 week-cells (1.72 rounds up into week 2); since formwork's duration is shorter than excavation's, formwork must start a **little after** excavation — otherwise it would finish before excavation, an inconsistent picture. Once formwork finishes, rebar starts (3 weeks); concrete can start before rebar fully ends (using the remaining slack); once concrete finishes, the days already elapsed are subtracted from the 15-day set+formwork-wait period, and the remainder is added before the wall starts. Other floors proceed symmetrically by the same logic (floors 2-4 have no excavation)."
+   },
+   "story": {
+    "title": {
+     "tr": "Gantt çubuklarının oluşumu (kazı → kalıp → demir → beton → duvar)",
+     "en": "Building the Gantt bars (excavation → formwork → rebar → concrete → wall)"
+    },
+    "xLabel": "Hafta (Mart 3. haftadan itibaren)",
+    "yLabel": "Faaliyet",
+    "xDomain": [
+     0,
+     12
+    ],
+    "yDomain": [
+     0,
+     6
+    ],
+    "square": false,
+    "showAxes": true,
+    "frames": [
+     {
+      "caption": {
+       "tr": "5 satır aç: Kazı, Kalıp, Demir, Beton, Duvar. İş 15 Mart'ta (hafta 0) başlıyor.",
+       "en": "Open 5 rows: Excavation, Formwork, Rebar, Concrete, Wall. Work starts March 15 (week 0)."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 5,
+        "x2": 12,
+        "y2": 5,
+        "color": "faint",
+        "width": 1
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 4,
+        "x2": 12,
+        "y2": 4,
+        "color": "faint",
+        "width": 1
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 3,
+        "x2": 12,
+        "y2": 3,
+        "color": "faint",
+        "width": 1
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 2,
+        "x2": 12,
+        "y2": 2,
+        "color": "faint",
+        "width": 1
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 1,
+        "x2": 12,
+        "y2": 1,
+        "color": "faint",
+        "width": 1
+       },
+       {
+        "type": "text",
+        "x": -0.3,
+        "y": 5,
+        "label": "Kazı",
+        "color": "ink"
+       },
+       {
+        "type": "text",
+        "x": -0.3,
+        "y": 4,
+        "label": "Kalıp",
+        "color": "ink"
+       },
+       {
+        "type": "text",
+        "x": -0.3,
+        "y": 3,
+        "label": "Demir",
+        "color": "ink"
+       },
+       {
+        "type": "text",
+        "x": -0.3,
+        "y": 2,
+        "label": "Beton",
+        "color": "ink"
+       },
+       {
+        "type": "text",
+        "x": -0.3,
+        "y": 1,
+        "label": "Duvar",
+        "color": "ink"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Kazı: süresi 1,72 hafta → 2 haftalık hücre kaplar (hafta 0-2). Tek makine, kalıp ile bağımsız.",
+       "en": "Excavation: duration 1.72 weeks → occupies 2 week-cells (weeks 0-2). Single machine, independent of formwork."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 5,
+        "x2": 2,
+        "y2": 5,
+        "color": "deniz",
+        "width": 6
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Kalıp: süresi sadece 0,59 hafta. Hafriyatla aynı anda başlarsa kazıdan ÖNCE biter — tutarsız. Bu yüzden hafta 1'in ortasında başlatılır, kazıyla birlikte hafta 2'de biter.",
+       "en": "Formwork: duration only 0.59 weeks. If it starts together with excavation it finishes BEFORE excavation — inconsistent. So it starts mid-week 1, ending in week 2 alongside excavation."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 1.4,
+        "y1": 4,
+        "x2": 2,
+        "y2": 4,
+        "color": "moss",
+        "width": 6
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Demir: kalıp bitince hemen başlar, süresi 2,83 hafta → 3 hücre kaplar (hafta 2-5).",
+       "en": "Rebar: starts right after formwork ends, duration 2.83 weeks → occupies 3 cells (weeks 2-5)."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 2,
+        "y1": 3,
+        "x2": 5,
+        "y2": 3,
+        "color": "amber",
+        "width": 6
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Beton: demirin son haftasında (2,83'ten kalan 0,17 hafta payıyla) başlar, süresi 2,75 hafta → toplamda 4 hücre kaplar (hafta 4,83-7,58).",
+       "en": "Concrete: starts within rebar's last week (using rebar's remaining 0.17-week slack), duration 2.75 weeks → spans 4 cells total (weeks 4.83-7.58)."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 4.83,
+        "y1": 2,
+        "x2": 7.58,
+        "y2": 2,
+        "color": "clay",
+        "width": 6
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Duvar: beton bitince 15 gün priz+kalıp bekleme süresinden, betonun kendi haftası içindeki günler düşülür; geriye kalan süre sonra duvar başlar (yaklaşık 2. hafta sonra), süresi 0,63 hafta ama bir sonraki haftaya sarkar.",
+       "en": "Wall: after concrete ends, the days already elapsed within concrete's own week are subtracted from the 15-day set+formwork wait; the wall starts after the remainder (roughly 2 weeks later), duration 0.63 weeks but spills into the next week."
+      },
+      "add": [
+       {
+        "type": "line",
+        "x1": 9.5,
+        "y1": 1,
+        "x2": 10.5,
+        "y2": 1,
+        "color": "ink",
+        "width": 6
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "n6",
+   "title": {
+    "tr": "Ağ diyagramları ve ok şebekesi kavramları",
+    "en": "Network diagrams and arrow-network concepts"
+   },
+   "body": {
+    "tr": "**Ağ diyagramları**, bir projede yer alan işlerin daha ayrıntılı tanımlanmasına ve birbirleriyle olan ilişkilerinin daha anlaşılır gösterilmesine olanak sağlar — Gantt'ın gösteremediği **bağımlılık mantığını** açıkça çizer. En yaygın iki ağ yöntemi: **CPM (Critical Path Method / Kritik Yol Yöntemi)** ve **PERT (Program Evaluation and Review Technique)**.\n\nTemel tanımlar:\n\n- **Faaliyet (Activity):** projenin gerçekleştirilmesi için yapılan, süre ve kaynak kullanmayı gerektiren her işlem; oklarla gösterilir (yön = akış).\n- **Düğüm noktası (node):** faaliyetlerden birinin bittiği, diğerlerinin başladığı nokta; dairelerle gösterilir ve numaralandırılır.\n- **Faaliyet süresi:** her faaliyetin gerçekleştirilebileceği süre; okun üstüne/yanına yazılır.\n- **Kukla faaliyet (dummy activity):** faaliyetler arasındaki **mantıki ilişkiyi** gösteren, **süresi ve maliyeti olmayan** faaliyet; kesikli okla çizilir. Bir faaliyetin başka bir faaliyete bağlı olduğunu göstermek için kullanılır ama gerçek bir iş değildir.\n- **Ok şebekesi:** projeyi oluşturan faaliyetlerin gerçekleştirilme sırası ve ilişkileri göz önünde tutularak birleştirilmesiyle oluşan şebeke (network).\n\nBir faaliyetin şebeke içindeki yerini belirlemek için üç soru sorulur: (1) Hangi faaliyetler bu faaliyetten bağımsız olarak, bu faaliyet başlamadan ÖNCE bitirilmelidir? (2) Hangi faaliyetler bu faaliyetle PARALEL başlayabilir? (3) Hangi faaliyet(ler) bu faaliyet bittikten SONRA başlayabilir?",
+    "en": "**Network diagrams** allow the work in a project to be defined in more detail and their relationships to be shown more clearly — they explicitly draw the **dependency logic** that Gantt cannot show. The two most common network methods: **CPM (Critical Path Method)** and **PERT (Program Evaluation and Review Technique)**.\n\nCore definitions:\n\n- **Activity:** any operation carried out to realize the project that requires time and resources; shown with arrows (direction = flow).\n- **Node:** the point where one activity ends and others begin; shown as circles and numbered.\n- **Activity duration:** the time an activity takes; written above/beside its arrow.\n- **Dummy activity:** shows the **logical relationship** between activities, has **no duration or cost**; drawn as a dashed arrow. Used to show one activity depends on another without being real work itself.\n- **Arrow network:** the network formed by combining a project's activities while respecting their execution order and relationships.\n\nTo place an activity within the network, three questions are asked: (1) Which activities must be finished, independently, BEFORE this activity can start? (2) Which activities can start in PARALLEL with this one? (3) Which activity/activities can start AFTER this one finishes?"
+   },
+   "story": null
+  },
+  {
+   "id": "n7",
+   "title": {
+    "tr": "Ok şebekesi kurma ilkeleri ve kodlama",
+    "en": "Principles for building and coding the arrow network"
+   },
+   "body": {
+    "tr": "Ok şebekesi oluşturulurken uyulması gereken ilkeler:\n\n1. Her faaliyetin bir başlaması ve bir bitimi olmalı; **her faaliyet iki düğüm arasında** tanımlanmalı.\n2. Bir faaliyet, kendinden önce biten bir faaliyetin **başlama** noktasına bağlanmamalı.\n3. Bir projeyi ifade eden ok şebekesi **kapalı devre** (döngü) oluşturmamalı.\n4. **İki düğümle tanımlanan birden fazla faaliyet olmamalı** (aynı düğüm çiftini paylaşan iki faaliyet varsa kukla faaliyetle ayrıştırılır).\n5. Bir faaliyet bölünerek birden fazla faaliyetle tanımlanabilir.\n6. Projenin başına \"**giriş faaliyeti**\", sonuna \"**emniyet süresi**\" adı altında birer faaliyet eklenebilir.\n\n**Düğüm numaralandırma:** faaliyetlerin tanımlanabilmesi için düğüm noktaları numaralandırılır; bir faaliyetin **kuyruğundaki** (başlangıç) rakam **ucundaki** (bitiş) rakamdan büyük olamaz — yani numaralar akış yönünde artar.\n\n**Faaliyetlerin kodlanması:** faaliyetler arasında bulundukları iki düğüm numarasıyla kodlanır (ör. \"2-3\"); kodlama ilk düğümden başlanarak sırayla yapılır. Şebekenin daha kolay anlaşılması için faaliyet isimleri de şebeke üzerine yazılabilir (kod + isim birlikte).",
+    "en": "Principles to follow when building an arrow network:\n\n1. Every activity must have one start and one finish; **each activity is defined between two nodes**.\n2. An activity must not connect to the **start** point of an activity that finishes before it.\n3. The arrow network representing a project must not form a **closed loop** (cycle).\n4. **There must not be more than one activity defined by the same two nodes** (if two activities share a node pair, a dummy activity separates them).\n5. An activity can be split and defined as multiple activities.\n6. A \"**entry activity**\" can be added at the project's start, and a \"**safety period**\" at its end.\n\n**Node numbering:** node points are numbered so activities can be identified; the number at an activity's **tail** (start) cannot be greater than the number at its **head** (finish) — numbers increase in the direction of flow.\n\n**Coding activities:** activities are coded by the two node numbers they sit between (e.g. \"2-3\"); coding proceeds from the first node in order. Activity names may also be written on the network (code + name together) for easier reading."
+   },
+   "story": null
+  },
+  {
+   "id": "n8",
+   "title": {
+    "tr": "CPM: ileri hesap (ES/EF) ve geri hesap (LS/LF)",
+    "en": "CPM: forward pass (ES/EF) and backward pass (LS/LF)"
+   },
+   "body": {
+    "tr": "**En erken başlama zamanı (Eᵢ):** bir faaliyetin başlayabileceği en erken zamandır. İleri hesap kuralları: ilk düğümün erken başlama zamanı **sıfır (0)** kabul edilir; bir sonraki düğümün erken başlama zamanı, **bir önceki düğümün erken başlama zamanına faaliyet süresinin eklenmesiyle** bulunur (birden fazla yol geliyorsa **en büyük** değer alınır).\n\n**En geç başlama zamanı (Gᵢ):** bir faaliyetin başlayabileceği en geç zamandır. Geri hesap kuralları: son düğümün erken bitimi ile geç bitimi **eşit** kabul edilir; bir önceki düğümün geç başlama zamanı, **bir sonraki düğümün geç bitim zamanından faaliyet süresinin çıkarılmasıyla** bulunur (birden fazla yol çıkıyorsa **en küçük** değer alınır).\n\nÖrnek şebeke (ders slaytından, günü birim alarak):\n\n| Faaliyet | Süre | Eᵢ (kuyruk) | Eⱼ (uç) | Gᵢ (kuyruk) | Gⱼ (uç) |\n|---|---|---|---|---|---|\n| 1-2 | 8 | 0 | 8 | 0 | 8 |\n| 2-3 | 10 | 8 | 18 | 8 | 22 |\n| 2-4 | 20 | 8 | 28 | 8 | 31 |\n| 2-5 | 18 | 8 | 26 | 8 | 26 |\n| 3-4 | 7 | 18 | 28 | 22 | 31 |\n| 3-6 | 4 | 18 | 26 | 22 | 26 |\n| 5-6 (kukla) | 0 | 26 | 26 | 26 | 26 |\n| 4-7 | 10 | 28 | 41 | 31 | 41 |\n| 6-7 | 15 | 26 | 41 | 26 | 41 |\n| 5-8 | 5 | 26 | 51 | 26 | 51 |\n| 7-8 | 10 | 41 | 51 | 41 | 51 |\n\nHer düğümde iki değer birlikte yazılır (ders slaytında sol kutucukta Gᵢ, sağ kutucukta Eᵢ — ör. düğüm 4 için 31|28, yani G=31/E=28): düğüm 8'in E=G=51, yani **proje süresi 51 gün**.",
+    "en": "**Earliest start time (Eᵢ):** the earliest time an activity can start. Forward-pass rules: the first node's earliest start is taken as **zero (0)**; the next node's earliest start is found by **adding the activity duration to the previous node's earliest start** (if multiple paths arrive, take the **largest** value).\n\n**Latest start time (Gᵢ):** the latest time an activity can start. Backward-pass rules: the last node's earliest finish and latest finish are taken as **equal**; the previous node's latest start is found by **subtracting the activity duration from the next node's latest finish** (if multiple paths leave, take the **smallest** value).\n\nExample network (from the course slide, days as the unit):\n\n| Activity | Duration | Eᵢ (tail) | Eⱼ (head) | Gᵢ (tail) | Gⱼ (head) |\n|---|---|---|---|---|---|\n| 1-2 | 8 | 0 | 8 | 0 | 8 |\n| 2-3 | 10 | 8 | 18 | 8 | 22 |\n| 2-4 | 20 | 8 | 28 | 8 | 31 |\n| 2-5 | 18 | 8 | 26 | 8 | 26 |\n| 3-4 | 7 | 18 | 28 | 22 | 31 |\n| 3-6 | 4 | 18 | 26 | 22 | 26 |\n| 5-6 (dummy) | 0 | 26 | 26 | 26 | 26 |\n| 4-7 | 10 | 28 | 41 | 31 | 41 |\n| 6-7 | 15 | 26 | 41 | 26 | 41 |\n| 5-8 | 5 | 26 | 51 | 26 | 51 |\n| 7-8 | 10 | 41 | 51 | 41 | 51 |\n\nEach node shows both values together (on the course slide the left box is Gᵢ and the right box is Eᵢ — e.g. node 4 shows 31|28, i.e. G=31/E=28): node 8 has E=G=51, so the **project duration is 51 days**."
+   },
+   "story": {
+    "title": {
+     "tr": "CPM ağı: ileri ve geri hesap adım adım",
+     "en": "CPM network: forward and backward pass step by step"
+    },
+    "xLabel": "",
+    "yLabel": "",
+    "xDomain": [
+     0,
+     12
+    ],
+    "yDomain": [
+     0,
+     8
+    ],
+    "square": false,
+    "showAxes": false,
+    "frames": [
+     {
+      "caption": {
+       "tr": "Şebeke: 8 düğüm, faaliyetler oklarla, 5-6 kukla faaliyet (kesikli). Süreler ok üstünde: 1-2=8, 2-3=10, 2-4=20, 2-5=18, 3-4=7, 3-6=4, 5-6=0(kukla), 4-7=10, 6-7=15, 5-8=5, 7-8=10.",
+       "en": "Network: 8 nodes, activities as arrows, 5-6 is a dummy (dashed). Durations on arrows: 1-2=8, 2-3=10, 2-4=20, 2-5=18, 3-4=7, 3-6=4, 5-6=0(dummy), 4-7=10, 6-7=15, 5-8=5, 7-8=10."
+      },
+      "add": [
+       {
+        "type": "point",
+        "x": 1,
+        "y": 4,
+        "label": "1",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 3,
+        "y": 4,
+        "label": "2",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 5.5,
+        "y": 5.5,
+        "label": "3",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 7.5,
+        "y": 7,
+        "label": "4",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 5.5,
+        "y": 2,
+        "label": "5",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 8,
+        "y": 4.5,
+        "label": "6",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 10,
+        "y": 4.5,
+        "label": "7",
+        "color": "ink"
+       },
+       {
+        "type": "point",
+        "x": 12,
+        "y": 4.5,
+        "label": "8",
+        "color": "ink"
+       },
+       {
+        "type": "arrow",
+        "x1": 1,
+        "y1": 4,
+        "x2": 3,
+        "y2": 4,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 3,
+        "y1": 4,
+        "x2": 5.5,
+        "y2": 5.5,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 3,
+        "y1": 4,
+        "x2": 7.5,
+        "y2": 7,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 3,
+        "y1": 4,
+        "x2": 5.5,
+        "y2": 2,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 5.5,
+        "y1": 5.5,
+        "x2": 7.5,
+        "y2": 7,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 5.5,
+        "y1": 5.5,
+        "x2": 8,
+        "y2": 4.5,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 5.5,
+        "y1": 2,
+        "x2": 8,
+        "y2": 4.5,
+        "color": "faint",
+        "width": 1.5
+       },
+       {
+        "type": "arrow",
+        "x1": 7.5,
+        "y1": 7,
+        "x2": 10,
+        "y2": 4.5,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 8,
+        "y1": 4.5,
+        "x2": 10,
+        "y2": 4.5,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 5.5,
+        "y1": 2,
+        "x2": 10,
+        "y2": 4.5,
+        "color": "ink",
+        "width": 2
+       },
+       {
+        "type": "arrow",
+        "x1": 10,
+        "y1": 4.5,
+        "x2": 12,
+        "y2": 4.5,
+        "color": "ink",
+        "width": 2
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "İleri hesap (Eᵢ): düğüm 1'den başla, E=0. E2=0+8=8. E3=8+10=18. E4=max(8+20, 18+7)=max(28,25)=28. E5=8+18=26.",
+       "en": "Forward pass (Eᵢ): start at node 1, E=0. E2=0+8=8. E3=8+10=18. E4=max(8+20, 18+7)=max(28,25)=28. E5=8+18=26."
+      },
+      "add": [
+       {
+        "type": "text",
+        "x": 1,
+        "y": 4.6,
+        "label": "E=0",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 3,
+        "y": 4.6,
+        "label": "E=8",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 5.5,
+        "y": 6.1,
+        "label": "E=18",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 7.5,
+        "y": 7.6,
+        "label": "E=28",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 5.5,
+        "y": 1.4,
+        "label": "E=26",
+        "color": "deniz"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "İleri hesap devam: E6=max(E3+4, E5+0)=max(22,26)=26. E7=max(E4+10, E6+15)=max(38,41)=41. E8=max(E7+10, E5+5)=max(51,31)=51 → proje süresi 51 gün.",
+       "en": "Forward pass continued: E6=max(E3+4, E5+0)=max(22,26)=26. E7=max(E4+10, E6+15)=max(38,41)=41. E8=max(E7+10, E5+5)=max(51,31)=51 → project duration 51 days."
+      },
+      "add": [
+       {
+        "type": "text",
+        "x": 8,
+        "y": 5.1,
+        "label": "E=26",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 10,
+        "y": 5.1,
+        "label": "E=41",
+        "color": "deniz"
+       },
+       {
+        "type": "text",
+        "x": 12,
+        "y": 5.1,
+        "label": "E=51",
+        "color": "deniz"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Geri hesap (Gᵢ): düğüm 8'den başla, G8=E8=51. G7=51-10=41. G6=41-15=26. G5=min(26-0, 51-5)=min(26,46)=26.",
+       "en": "Backward pass (Gᵢ): start at node 8, G8=E8=51. G7=51-10=41. G6=41-15=26. G5=min(26-0, 51-5)=min(26,46)=26."
+      },
+      "add": [
+       {
+        "type": "text",
+        "x": 12,
+        "y": 3.9,
+        "label": "G=51",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 10,
+        "y": 3.9,
+        "label": "G=41",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 8,
+        "y": 3.9,
+        "label": "G=26",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 5.5,
+        "y": 0.8,
+        "label": "G=26",
+        "color": "clay"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Geri hesap devam: G4=41-10=31. G3=min(26-4, 31-7)=min(22,24)=22. G2=min(31-20, 22-10, 26-18)=min(11,12,8)=8. G1=8-8=0.",
+       "en": "Backward pass continued: G4=41-10=31. G3=min(26-4, 31-7)=min(22,24)=22. G2=min(31-20, 22-10, 26-18)=min(11,12,8)=8. G1=8-8=0."
+      },
+      "add": [
+       {
+        "type": "text",
+        "x": 7.5,
+        "y": 8.1,
+        "label": "G=31",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 5.5,
+        "y": 6.6,
+        "label": "G=22",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 3,
+        "y": 3.4,
+        "label": "G=8",
+        "color": "clay"
+       },
+       {
+        "type": "text",
+        "x": 1,
+        "y": 3.4,
+        "label": "G=0",
+        "color": "clay"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Kritik yol: E=G olan düğümler zincirinde, toplam bolluğu (Gⱼ-(Eᵢ+S)) sıfır olan faaliyetler. Sonuç: 1-2, 2-5, 5-6(kukla), 6-7, 7-8 = 8+18+0+15+10 = 51 gün — en uzun yol.",
+       "en": "Critical path: the chain where E=G at nodes, and activities whose total float (Gⱼ-(Eᵢ+S)) is zero. Result: 1-2, 2-5, 5-6(dummy), 6-7, 7-8 = 8+18+0+15+10 = 51 days — the longest path."
+      },
+      "add": [
+       {
+        "type": "polyline",
+        "points": [
+         [
+          1,
+          4
+         ],
+         [
+          3,
+          4
+         ],
+         [
+          5.5,
+          2
+         ],
+         [
+          8,
+          4.5
+         ],
+         [
+          10,
+          4.5
+         ],
+         [
+          12,
+          4.5
+         ]
+        ],
+        "color": "clay",
+        "width": 4
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "n9",
+   "title": {
+    "tr": "Kritik yol, kritik faaliyet ve bolluk türleri",
+    "en": "Critical path, critical activity, and float types"
+   },
+   "body": {
+    "tr": "**Kritik yol:** projenin başından sonuna kadar devam eden değişik faaliyet zincirlerinden en uzun süreli olanı; kritik yol üzerindeki faaliyetlere **kritik faaliyet** denir. Örnek şebekede 5 olası yol vardı (47, **51**, 31, 48, 45 gün) — en uzunu (51 gün, 1-2/2-5/5-6/6-7/7-8) kritik yoldur ve proje süresini belirler.\n\nBir faaliyetin **kritik** olabilmesi için iki koşul birden gerekir: (1) faaliyet okunun kuyruğundaki ve ucundaki rakamlar (Eᵢ=Gᵢ ve Eⱼ=Gⱼ) kendi aralarında eşit olmalı, VE (2) faaliyetin en geç tamamlanma zamanından (Gⱼ) süresi (S) çıkarıldığında fark, aynı faaliyetin en erken başlama zamanına (Eᵢ) eşit olmalı — yani **toplam bolluk sıfır** olmalı.\n\n**Düğüm bolluğu:** bir düğümün erken ve geç başlama zamanları arasındaki fark (Gᵢ-Eᵢ).\n\n**Faaliyet bollukları** (Eᵢ,Gᵢ = faaliyetin başladığı düğümün erken/geç zamanı; Eⱼ,Gⱼ = bittiği düğümün erken/geç zamanı; S = faaliyet süresi):\n\n| Bolluk türü | Formül | Anlamı |\n|---|---|---|\n| **Toplam bolluk (TB)** | $G_j-(E_i+S)$ | Faaliyeti geciktirsen proje süresini etkilemeden kaç gün oynatabilirsin |\n| **Serbest bolluk (SB)** | $E_j-(E_i+S)$ | Sonraki faaliyetin en erken başlamasını etkilemeden kaç gün oynatabilirsin |\n| **Ara bolluk (AB)** | $G_j-(G_i+S)$ | Kendi düğümünün geç başlamasına göre oynama payı |\n| **Bağımsız bolluk (BB)** | $E_j-(G_i+S)$ | Hem önceki hem sonraki faaliyeti hiç etkilemeden oynama payı (negatif çıkarsa 0 kabul edilir) |\n\nKritik faaliyette TB=SB=AB=BB=0. Örnek şebekede 3-4 faaliyeti (S=7, Eᵢ=18,Eⱼ=28,Gᵢ=22,Gⱼ=31): TB=31-(18+7)=6, SB=28-(18+7)=3, AB=31-(22+7)=2, BB=28-(22+7)=-1→0.",
+    "en": "**Critical path:** the longest of the various activity chains running from the project's start to its end; activities on the critical path are called **critical activities**. In the example network there were 5 possible paths (47, **51**, 31, 48, 45 days) — the longest (51 days, 1-2/2-5/5-6/6-7/7-8) is the critical path and determines the project duration.\n\nAn activity is **critical** only if both conditions hold: (1) the numbers at the tail and head of its arrow (Eᵢ=Gᵢ and Eⱼ=Gⱼ) are equal to each other, AND (2) subtracting the activity's duration (S) from its latest finish (Gⱼ) equals that same activity's earliest start (Eᵢ) — i.e. **total float is zero**.\n\n**Node float:** the difference between a node's earliest and latest start times (Gᵢ-Eᵢ).\n\n**Activity floats** (Eᵢ,Gᵢ = earliest/latest time of the activity's start node; Eⱼ,Gⱼ = earliest/latest time of its end node; S = activity duration):\n\n| Float type | Formula | Meaning |\n|---|---|---|\n| **Total float (TB)** | $G_j-(E_i+S)$ | How many days you can delay the activity without affecting project duration |\n| **Free float (SB)** | $E_j-(E_i+S)$ | How many days you can delay it without affecting the next activity's earliest start |\n| **Interfering float (AB)** | $G_j-(G_i+S)$ | Slack relative to its own node's latest start |\n| **Independent float (BB)** | $E_j-(G_i+S)$ | Slack that affects neither the previous nor the next activity at all (if negative, taken as 0) |\n\nA critical activity has TB=SB=AB=BB=0. In the example network, activity 3-4 (S=7, Eᵢ=18,Eⱼ=28,Gᵢ=22,Gⱼ=31): TB=31-(18+7)=6, SB=28-(18+7)=3, AB=31-(22+7)=2, BB=28-(22+7)=-1→0."
+   },
+   "story": null
+  },
+  {
+   "id": "n10",
+   "title": {
+    "tr": "PERT: üç süre tahmini, beklenen süre ve varyans",
+    "en": "PERT: three-time estimate, expected duration, and variance"
+   },
+   "body": {
+    "tr": "**PERT (Program Evaluation and Review Technique / Seçenekli Değerlendirme ve Gözden Geçirme Tekniği)**, CPM gibi bir ağ yöntemidir ama CPM'in tek (deterministik) süre tahmini yerine **belirsizliği hesaba katan üç süre tahmini** kullanır:\n\n- **a (iyimser/optimistic):** her şey yolunda giderse en kısa süre.\n- **m (en olası/most likely):** normal koşullarda beklenen süre.\n- **b (kötümser/pessimistic):** aksaklık olursa en uzun süre.\n\nBu üç tahminden bir faaliyetin **beklenen süresi (tₑ)** ve **varyansı** hesaplanır:\n\n$$t_e = \\frac{a + 4m + b}{6} \\qquad \\sigma^2 = \\left(\\frac{b-a}{6}\\right)^2$$\n\ntₑ, beta dağılımının ağırlıklı ortalamasıdır — en olası değere (m) 4 kat ağırlık verilir. Varyans, tahminin ne kadar belirsiz olduğunu gösterir: **a ile b arasındaki fark ne kadar büyükse belirsizlik o kadar fazladır**.\n\nÖrnek: bir faaliyet için a=3 gün, m=5 gün, b=7 gün ise:\n\n$$t_e = \\frac{3+4(5)+7}{6} = \\frac{30}{6} = 5 \\text{ gün}, \\qquad \\sigma^2 = \\left(\\frac{7-3}{6}\\right)^2 = \\left(\\frac{4}{6}\\right)^2 \\approx 0{,}44$$\n\nAğdaki bir yol üzerindeki faaliyetlerin tₑ değerleri toplanarak **yolun beklenen süresi**, varyansları toplanarak da o yolun **varyansı** (ve $\\sqrt{\\text{varyans}}$ ile standart sapması) bulunur — bu da projenin belirli bir tarihte bitme **olasılığını** tahmin etmeye yarar (istatistiksel kısmı bu derste ayrıntılı işlenmemiştir, ama tₑ ve varyans formülleri sınav için temel bilgidir).",
+    "en": "**PERT (Program Evaluation and Review Technique)** is a network method like CPM, but instead of CPM's single (deterministic) duration estimate, it uses **three time estimates that account for uncertainty**:\n\n- **a (optimistic):** shortest duration if everything goes well.\n- **m (most likely):** the duration expected under normal conditions.\n- **b (pessimistic):** longest duration if something goes wrong.\n\nFrom these three estimates, an activity's **expected duration (tₑ)** and **variance** are computed:\n\n$$t_e = \\frac{a + 4m + b}{6} \\qquad \\sigma^2 = \\left(\\frac{b-a}{6}\\right)^2$$\n\ntₑ is a weighted average of the beta distribution — the most-likely value (m) gets 4x the weight. Variance shows how uncertain the estimate is: **the bigger the gap between a and b, the greater the uncertainty**.\n\nExample: for an activity with a=3 days, m=5 days, b=7 days:\n\n$$t_e = \\frac{3+4(5)+7}{6} = \\frac{30}{6} = 5 \\text{ days}, \\qquad \\sigma^2 = \\left(\\frac{7-3}{6}\\right)^2 = \\left(\\frac{4}{6}\\right)^2 \\approx 0.44$$\n\nSumming the tₑ values of activities along a path gives the **path's expected duration**, and summing their variances gives that path's **variance** (and, via $\\sqrt{\\text{variance}}$, its standard deviation) — used to estimate the **probability** the project finishes by a given date (the statistical part isn't covered in detail in this course, but the tₑ and variance formulas are core exam knowledge)."
+   },
+   "story": null
+  },
+  {
+   "id": "n11",
+   "title": {
+    "tr": "Gantt ile CPM/PERT ilişkisi ve ne zaman hangisi",
+    "en": "The Gantt–CPM/PERT relationship and when to use which"
+   },
+   "body": {
+    "tr": "Gantt (çubuk diyagramı) ve ağ diyagramları (CPM/PERT) **rakip değil, tamamlayıcı** araçlardır — genelde birlikte kullanılır:\n\n- **Ağ diyagramı (CPM/PERT)** önce hazırlanır: faaliyetler arası mantıksal bağımlılıklar netleşir, ileri/geri hesapla **kritik yol** ve **bolluklar** bulunur. Bu, hangi faaliyetlerin hiç gecikme payı olmadığını (yönetimin öncelikle izlemesi gerekenleri) gösterir.\n- **Gantt** bu bilgiyi bir **takvime** oturtur: her faaliyet gerçek başlangıç/bitiş tarihleriyle görselleştirilir, planlanan/gerçekleşen karşılaştırması yapılır, nakit akışı eklenir. Sahada ilerlemeyi izlemek ve raporlamak için Gantt daha sezgiseldir.\n\nKısaca: **CPM/PERT \"hangi faaliyet ne zaman kritik, ne kadar oynatılabilir\" sorusuna cevap verir; Gantt \"hangi faaliyet takvimde tam olarak hangi tarihte\" sorusuna cevap verir.** Büyük ve karmaşık ilişkili projelerde önce ağ diyagramıyla mantık kurulur, sonra sonuçlar Gantt'a aktarılıp sahada izlenir. Basit, az faaliyetli işlerde doğrudan Gantt'la başlamak yeterli olabilir.\n\n**Sınırlar:** Gantt'ın en büyük eksiği faaliyetler arası bağımlılığı açıkça göstermemesidir (çok faaliyetli işlerde karışabilir); CPM/PERT'in eksiği ise saha ekiplerinin okuması için Gantt kadar sezgisel/görsel olmamasıdır. Bu yüzden ikisi birlikte kullanılır.\n\n**Kaynak planlaması:** ağ diyagramı yalnızca süreyi değil **kaynağı ve maliyeti** de planlamanın temeli olur. Ders slaytındaki örnekte, her faaliyetin (1-2 hazırlık, 2-3 kalıp, 2-5 kazı, 6-7 beton, 7-8 taşıma...) gerektirdiği işçilik (teknisyen, kalıpçı/demirci/beton ustası, düz işçi), makine (ekskavatör, kamyon, vibratör) ve malzeme miktarları faaliyet süreleriyle çarpılıp birim fiyatlarla toplanarak projenin toplam kaynak/maliyet tablosu çıkarılır. Yani CPM ağı, hem takvimin (Gantt) hem de nakit akışı/kaynak planlamasının ortak veri kaynağıdır.",
+    "en": "Gantt (bar chart) and network diagrams (CPM/PERT) are **complementary, not competing** tools — they are usually used together:\n\n- The **network diagram (CPM/PERT)** is prepared first: logical dependencies between activities are clarified, and the forward/backward pass finds the **critical path** and **floats**. This shows which activities have zero slack (the ones management must watch first).\n- **Gantt** places this information onto a **calendar**: each activity is visualized with real start/finish dates, planned vs. actual is compared, cash flow is added. Gantt is more intuitive for tracking progress on site and reporting.\n\nIn short: **CPM/PERT answers \"which activity is critical when, and how much can it slip\"; Gantt answers \"which activity falls on exactly which calendar date.\"** In large, complex projects with many dependencies, the logic is built first with a network diagram, then the results are transferred to a Gantt chart for site tracking. For simple jobs with few activities, starting directly with Gantt may be enough.\n\n**Limitations:** Gantt's biggest weakness is that it doesn't clearly show dependencies between activities (can get confusing with many activities); CPM/PERT's weakness is that it isn't as intuitive/visual for site crews to read as Gantt. That's why the two are used together.\n\n**Resource planning:** the network diagram is the basis not only for scheduling time but also for planning **resources and cost**. In the course-slide example, the labor (technician, formwork/rebar/concrete foreman, laborers), machinery (excavator, truck, vibrator), and material quantities each activity (1-2 prep, 2-3 formwork, 2-5 excavation, 6-7 concrete, 7-8 hauling...) requires are multiplied by the activity durations and summed with unit prices to produce the project's total resource/cost table. So the CPM network is the shared data source for both the calendar (Gantt) and cash-flow/resource planning."
+   },
+   "story": null
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "f1",
+   "front": {
+    "tr": "İş programı nedir?",
+    "en": "What is a work schedule (iş programı)?"
+   },
+   "back": {
+    "tr": "İnşaat projelerinin süre ve kaynak kullanımını planlamak ve izlemek amacıyla hazırlanan programdır.",
+    "en": "The program prepared to plan and monitor a construction project's duration and resource use."
+   },
+   "en": "work schedule / construction program",
+   "tag": "gantt"
+  },
+  {
+   "id": "f2",
+   "front": {
+    "tr": "Programlama araçları kaç ana grupta toplanır? Hangileri?",
+    "en": "How many main groups do scheduling tools fall into? Which?"
+   },
+   "back": {
+    "tr": "Üç grupta: çubuk programlama yöntemleri (Gantt), ağ programlama yöntemleri (CPM, PERT), diğer yöntemler (kutu, denge/devre, kaynak atama diyagramları).",
+    "en": "Three: bar-chart methods (Gantt), network methods (CPM, PERT), other methods (box, balance/cycle, resource-assignment diagrams)."
+   },
+   "en": "three groups of scheduling tools",
+   "tag": "gantt"
+  },
+  {
+   "id": "f3",
+   "front": {
+    "tr": "Çubuk diyagramı yöntemini 1917'de kim geliştirdi?",
+    "en": "Who developed the bar-chart method in 1917?"
+   },
+   "back": {
+    "tr": "Henry Gantt — yönteme onun adına ithafen Gantt diyagramı / Gantt chart da denir.",
+    "en": "Henry Gantt — the method is also called the Gantt chart in his honor."
+   },
+   "en": "Henry Gantt, inventor of the Gantt chart (1917)",
+   "tag": "gantt"
+  },
+  {
+   "id": "f4",
+   "front": {
+    "tr": "Çubuk diyagramı neden \"çubuk\" (bar chart) olarak adlandırılır?",
+    "en": "Why is the bar chart called a \"bar\" (çubuk) chart?"
+   },
+   "back": {
+    "tr": "Faaliyetler düz çizgilerle (çubuklarla) gösterildiği için.",
+    "en": "Because activities are shown as straight lines (bars)."
+   },
+   "en": "why it's called a bar chart",
+   "tag": "gantt"
+  },
+  {
+   "id": "f5",
+   "front": {
+    "tr": "Çubuk diyagramı yönteminin uygulanmasındaki 4 aşama nedir?",
+    "en": "What are the 4 stages of applying the bar-chart method?"
+   },
+   "back": {
+    "tr": "1) Faaliyetlerin belirlenerek sıralanması, 2) iş miktarlarının bulunması, 3) faaliyet sürelerinin belirlenmesi, 4) programlama tablosunun hazırlanması.",
+    "en": "1) Identify and sequence activities, 2) find quantities of work, 3) determine activity durations, 4) prepare the scheduling table."
+   },
+   "en": "4 stages of the Gantt method",
+   "tag": "gantt"
+  },
+  {
+   "id": "f6",
+   "front": {
+    "tr": "İş miktarları hangi belgelerden alınır?",
+    "en": "Which documents are work quantities taken from?"
+   },
+   "back": {
+    "tr": "Metraj veya keşif özet cetvelinden.",
+    "en": "From the bill of quantities (metraj) or the cost/estimate summary sheet."
+   },
+   "en": "source of work quantities",
+   "tag": "gantt"
+  },
+  {
+   "id": "f7",
+   "front": {
+    "tr": "Faaliyet sürelerinin belirlenmesi için ne bilinmesi gerekir?",
+    "en": "What must be known to determine activity durations?"
+   },
+   "back": {
+    "tr": "Kullanılacak kaynakların düzeyi ve verimliliği — bu da ayrıntılı bir iş analiziyle mümkün olur.",
+    "en": "The level and productivity of the resources to be used — requiring a detailed work analysis."
+   },
+   "en": "what's needed to set activity durations",
+   "tag": "gantt"
+  },
+  {
+   "id": "f8",
+   "front": {
+    "tr": "Planlama tablosu kaç bölümden oluşur? Hangileri?",
+    "en": "How many sections does the scheduling table have? Which?"
+   },
+   "back": {
+    "tr": "Üç: açıklama bölümü, takvim bölümü, nakit akış grafiği (bedel grafiği).",
+    "en": "Three: description section, calendar section, cash-flow chart (bedel grafiği)."
+   },
+   "en": "3 sections of the scheduling table",
+   "tag": "gantt"
+  },
+  {
+   "id": "f9",
+   "front": {
+    "tr": "Açıklama bölümünde neler yazılır?",
+    "en": "What is written in the description section?"
+   },
+   "back": {
+    "tr": "Faaliyetin tanımı, yaklaşık gerçekleştirme maliyeti (bedeli) ve süresi.",
+    "en": "The activity's definition, approximate cost (bedel), and duration."
+   },
+   "en": "contents of the description section",
+   "tag": "gantt"
+  },
+  {
+   "id": "f10",
+   "front": {
+    "tr": "Takvim bölümü işin genel/detay olmasına göre nasıl bölünebilir?",
+    "en": "How can the calendar section be divided depending on general/detail level?"
+   },
+   "back": {
+    "tr": "Yıl-ay-hafta olarak (genel) ya da ay-hafta-gün olarak (detay).",
+    "en": "Year-month-week (general) or month-week-day (detail)."
+   },
+   "en": "calendar section division options",
+   "tag": "gantt"
+  },
+  {
+   "id": "f11",
+   "front": {
+    "tr": "Bir aylık süre takvim bölümünde genelde kaça bölünür?",
+    "en": "How is a month typically divided in the calendar section?"
+   },
+   "back": {
+    "tr": "30 günü eşit bölecek bir aralık sayısına: 3, 4, 5 ya da 6'ya; bazen ayın pazartesi günlerine göre de bölümlenir.",
+    "en": "Into a number of intervals that split the 30 days evenly: 3, 4, 5, or 6; sometimes by the month's Mondays instead."
+   },
+   "en": "how a month is split in the calendar",
+   "tag": "gantt"
+  },
+  {
+   "id": "f12",
+   "front": {
+    "tr": "Takvim bölümünde her faaliyet satırı neden ikiye ayrılır?",
+    "en": "Why is each activity row in the calendar split in two?"
+   },
+   "back": {
+    "tr": "Bir satır planlanan (P) süreyi, diğeri uygulamada gerçekleşen (G) süreyi kaydeder — plandan sapma böyle izlenir.",
+    "en": "One row records the planned (P) duration, the other the actual/gerçekleşen (G) duration — deviation from plan is tracked this way."
+   },
+   "en": "P (planned) and G (actual) rows",
+   "tag": "gantt"
+  },
+  {
+   "id": "f13",
+   "front": {
+    "tr": "Nakit akış grafiği (bedel grafiği) ne gösterir?",
+    "en": "What does the cash-flow chart (bedel grafiği) show?"
+   },
+   "back": {
+    "tr": "Aylık ve kümülatif parasal kaynak kullanımını hem sayısal hem grafiksel olarak; birim fiyat usulünde planlanan/gerçekleşen ayrı satırlarla.",
+    "en": "Monthly and cumulative monetary resource use, both numerically and graphically; under unit-price contracts with separate planned/actual rows."
+   },
+   "en": "what the cash-flow chart shows",
+   "tag": "gantt"
+  },
+  {
+   "id": "f14",
+   "front": {
+    "tr": "Faaliyet süreleri açıklama bölümünde hangi birimle verilir: iş günü mü takvim günü mü?",
+    "en": "In which unit are activity durations given: working days or calendar days?"
+   },
+   "back": {
+    "tr": "İş günü (çalışılacak gün sayısı) ile verilir; takvim bölümündeki çizgi uzunluğu için takvim gününe çevrilmesi gerekir.",
+    "en": "In working days (days actually worked); must be converted to calendar days for the line length in the calendar section."
+   },
+   "en": "working day vs calendar day",
+   "tag": "gantt"
+  },
+  {
+   "id": "f15",
+   "front": {
+    "tr": "İş günü takvim gününe nasıl dönüştürülür?",
+    "en": "How are working days converted to calendar days?"
+   },
+   "back": {
+    "tr": "Faaliyetin kapsadığı süre içindeki çalışılmayan günlerin (ör. pazar tatilleri) toplamı kadar süreye eklenir.",
+    "en": "By adding the total number of non-working days (e.g. Sunday holidays) that fall within the activity's span."
+   },
+   "en": "converting working days to calendar days",
+   "tag": "gantt"
+  },
+  {
+   "id": "f16",
+   "front": {
+    "tr": "7 iş günü süren bir iş pazartesi başlarsa ve pazar çalışılmıyorsa takvimde kaç gün sürer?",
+    "en": "If a 7-working-day job starts Monday and Sundays aren't worked, how many calendar days does it take?"
+   },
+   "back": {
+    "tr": "8 gün (7 iş günü + 1 pazar tatili araya girer).",
+    "en": "8 days (7 working days + 1 Sunday holiday falls within the span)."
+   },
+   "en": "working-day to calendar-day conversion example",
+   "tag": "gantt"
+  },
+  {
+   "id": "f17",
+   "front": {
+    "tr": "Beton faaliyeti neden bazen programda kesikli çizgiyle gösterilir?",
+    "en": "Why is the concrete activity sometimes shown with a dashed/interrupted line?"
+   },
+   "back": {
+    "tr": "Bir katın betonu, bir sonraki kata geçmeden kür süresini beklemek zorundadır; bu bekleme kesikli çizgiyle gösterilebilir.",
+    "en": "A floor's concrete must wait out its curing time before the next floor can proceed; this wait can be shown with a dashed line."
+   },
+   "en": "why concrete activities can be shown interrupted",
+   "tag": "gantt"
+  },
+  {
+   "id": "f18",
+   "front": {
+    "tr": "Gantt uygulama örneğinde ekip günde kaç saat, haftada kaç gün çalışıyor?",
+    "en": "In the worked Gantt example, how many hours/day and days/week does the crew work?"
+   },
+   "back": {
+    "tr": "Günde 10 saat (8 normal + 2 fazla mesai), haftada 6 gün (pazar hariç).",
+    "en": "10 hours/day (8 normal + 2 overtime), 6 days/week (Sunday off)."
+   },
+   "en": "worked example: crew hours",
+   "tag": "gantt"
+  },
+  {
+   "id": "f19",
+   "front": {
+    "tr": "Gantt uygulama örneğinde verimlilik faktörü kaçtır?",
+    "en": "In the worked Gantt example, what is the productivity factor?"
+   },
+   "back": {
+    "tr": "%85.",
+    "en": "85%."
+   },
+   "en": "worked example: productivity factor",
+   "tag": "gantt"
+  },
+  {
+   "id": "f20",
+   "front": {
+    "tr": "Gantt uygulama örneğinde kazı faaliyetinin süresi kaç hafta?",
+    "en": "In the worked Gantt example, what is the excavation activity's duration in weeks?"
+   },
+   "back": {
+    "tr": "1,72 hafta (350 m³ × 0,25 sa/m³ ÷ 0,85 ÷ 10 sa/gün ÷ 6 gün/hafta).",
+    "en": "1.72 weeks (350 m³ × 0.25 h/m³ ÷ 0.85 ÷ 10 h/day ÷ 6 days/week)."
+   },
+   "en": "worked example: excavation duration",
+   "tag": "gantt"
+  },
+  {
+   "id": "f21",
+   "front": {
+    "tr": "Gantt uygulama örneğinde kalıp faaliyetinin süresi kaç hafta?",
+    "en": "In the worked Gantt example, what is the formwork activity's duration in weeks?"
+   },
+   "back": {
+    "tr": "0,59 hafta (1200 m² × 0,25 sa/m² ÷ 0,85 ÷ 10 kişi ÷ 10 sa/gün ÷ 6 gün/hafta).",
+    "en": "0.59 weeks (1200 m² × 0.25 h/m² ÷ 0.85 ÷ 10 people ÷ 10 h/day ÷ 6 days/week)."
+   },
+   "en": "worked example: formwork duration",
+   "tag": "gantt"
+  },
+  {
+   "id": "f22",
+   "front": {
+    "tr": "Gantt uygulama örneğinde demir faaliyetinin süresi kaç hafta?",
+    "en": "In the worked Gantt example, what is the rebar activity's duration in weeks?"
+   },
+   "back": {
+    "tr": "2,83 hafta (17.000 kg × 0,085 sa/kg ÷ 0,85 ÷ 10 kişi ÷ 10 sa/gün ÷ 6 gün/hafta).",
+    "en": "2.83 weeks (17,000 kg × 0.085 h/kg ÷ 0.85 ÷ 10 people ÷ 10 h/day ÷ 6 days/week)."
+   },
+   "en": "worked example: rebar duration",
+   "tag": "gantt"
+  },
+  {
+   "id": "f23",
+   "front": {
+    "tr": "Gantt uygulama örneğinde beton faaliyetinin süresi kaç hafta?",
+    "en": "In the worked Gantt example, what is the concrete activity's duration in weeks?"
+   },
+   "back": {
+    "tr": "2,75 hafta (700 m³ × 2 sa/m³ ÷ 0,85 ÷ 10 kişi ÷ 10 sa/gün ÷ 6 gün/hafta).",
+    "en": "2.75 weeks (700 m³ × 2 h/m³ ÷ 0.85 ÷ 10 people ÷ 10 h/day ÷ 6 days/week)."
+   },
+   "en": "worked example: concrete duration",
+   "tag": "gantt"
+  },
+  {
+   "id": "f24",
+   "front": {
+    "tr": "Gantt uygulama örneğinde duvar faaliyetinin süresi kaç hafta?",
+    "en": "In the worked Gantt example, what is the wall activity's duration in weeks?"
+   },
+   "back": {
+    "tr": "0,63 hafta (80 m² × 4 sa/m² ÷ 0,85 ÷ 10 kişi ÷ 10 sa/gün ÷ 6 gün/hafta).",
+    "en": "0.63 weeks (80 m² × 4 h/m² ÷ 0.85 ÷ 10 people ÷ 10 h/day ÷ 6 days/week)."
+   },
+   "en": "worked example: wall duration",
+   "tag": "gantt"
+  },
+  {
+   "id": "f25",
+   "front": {
+    "tr": "Gantt uygulama örneğinde beton dökümünden sonra kaç gün priz/kalıp bekleme süresi var?",
+    "en": "In the worked Gantt example, how many days of set/formwork-wait follow the concrete pour?"
+   },
+   "back": {
+    "tr": "15 gün.",
+    "en": "15 days."
+   },
+   "en": "worked example: curing wait period",
+   "tag": "gantt"
+  },
+  {
+   "id": "f26",
+   "front": {
+    "tr": "Faaliyet süresi hesap sırası nedir (miktardan haftaya)?",
+    "en": "What is the calculation order for activity duration (from quantity to weeks)?"
+   },
+   "back": {
+    "tr": "[Miktar × birim süre] → ÷ verimlilik → ÷ ekip sayısı (varsa) → ÷ günlük çalışma saati → ÷ haftalık çalışma günü.",
+    "en": "[Quantity × unit duration] → ÷ productivity → ÷ crew size (if any) → ÷ hours/day → ÷ working days/week."
+   },
+   "en": "activity-duration calculation order",
+   "tag": "gantt"
+  },
+  {
+   "id": "f27",
+   "front": {
+    "tr": "Ağ diyagramları neyi Gantt'tan farklı olarak gösterir?",
+    "en": "What do network diagrams show that Gantt does not?"
+   },
+   "back": {
+    "tr": "Faaliyetler arasındaki mantıksal bağımlılık ilişkisini açıkça gösterir.",
+    "en": "They explicitly show the logical dependency relationship between activities."
+   },
+   "en": "what network diagrams show beyond Gantt",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f28",
+   "front": {
+    "tr": "En yaygın iki ağ (network) yöntemi hangileridir?",
+    "en": "What are the two most common network methods?"
+   },
+   "back": {
+    "tr": "CPM (Critical Path Method / Kritik Yol Yöntemi) ve PERT (Program Evaluation and Review Technique).",
+    "en": "CPM (Critical Path Method) and PERT (Program Evaluation and Review Technique)."
+   },
+   "en": "the two main network methods",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f29",
+   "front": {
+    "tr": "CPM açılımı nedir?",
+    "en": "What does CPM stand for?"
+   },
+   "back": {
+    "tr": "Critical Path Method — Kritik Yol Yöntemi.",
+    "en": "Critical Path Method."
+   },
+   "en": "CPM = Critical Path Method",
+   "tag": "cpm-ileri-geri"
+  },
+  {
+   "id": "f30",
+   "front": {
+    "tr": "PERT açılımı nedir?",
+    "en": "What does PERT stand for?"
+   },
+   "back": {
+    "tr": "Program Evaluation and Review Technique.",
+    "en": "Program Evaluation and Review Technique."
+   },
+   "en": "PERT = Program Evaluation and Review Technique",
+   "tag": "pert"
+  },
+  {
+   "id": "f31",
+   "front": {
+    "tr": "Faaliyet (activity) tanımı nedir?",
+    "en": "What is the definition of an activity?"
+   },
+   "back": {
+    "tr": "Projenin gerçekleştirilmesi için yapılan, süre ve kaynak kullanmayı gerektiren her işlem.",
+    "en": "Any operation carried out to realize the project that requires time and resources."
+   },
+   "en": "definition of activity",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f32",
+   "front": {
+    "tr": "Düğüm noktası (node) tanımı nedir?",
+    "en": "What is the definition of a node?"
+   },
+   "back": {
+    "tr": "Faaliyetlerden birinin bittiği, diğerlerinin başladığı noktadır.",
+    "en": "The point where one activity ends and others begin."
+   },
+   "en": "definition of node",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f33",
+   "front": {
+    "tr": "Kukla faaliyet (dummy activity) nedir?",
+    "en": "What is a dummy activity?"
+   },
+   "back": {
+    "tr": "Faaliyetler arasındaki mantıki ilişkiyi gösteren, süresi ve maliyeti olmayan faaliyettir; kesikli okla çizilir.",
+    "en": "An activity showing the logical relationship between activities, with no duration or cost; drawn as a dashed arrow."
+   },
+   "en": "definition of dummy activity",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f34",
+   "front": {
+    "tr": "Ok şebekesi (arrow network) tanımı nedir?",
+    "en": "What is the definition of an arrow network?"
+   },
+   "back": {
+    "tr": "Projeyi oluşturan faaliyetlerin gerçekleştirilme sırası ve birbirleriyle ilişkileri göz önünde tutularak birleştirilmesiyle oluşan şebeke.",
+    "en": "The network formed by combining a project's activities while respecting their execution order and relationships."
+   },
+   "en": "definition of arrow network",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f35",
+   "front": {
+    "tr": "Bir faaliyetin ok şebekesindeki yerini belirlemek için hangi 3 soru sorulur?",
+    "en": "What 3 questions determine an activity's place in the arrow network?"
+   },
+   "back": {
+    "tr": "1) Hangi faaliyetler bundan önce bitmeli? 2) Hangi faaliyetler paralel başlayabilir? 3) Hangi faaliyetler bundan sonra başlayabilir?",
+    "en": "1) Which must finish before it? 2) Which can start in parallel? 3) Which can start after it finishes?"
+   },
+   "en": "3 questions for placing an activity",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f36",
+   "front": {
+    "tr": "Ok şebekesi kurma ilkesi: her faaliyet neye göre tanımlanmalı?",
+    "en": "Arrow-network principle: how must each activity be defined?"
+   },
+   "back": {
+    "tr": "Her faaliyetin bir başlaması bir bitimi olmalı; her faaliyet iki düğüm arasında tanımlanmalı.",
+    "en": "Every activity must have one start and one finish; each activity is defined between two nodes."
+   },
+   "en": "principle: activity between two nodes",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f37",
+   "front": {
+    "tr": "Ok şebekesi kurma ilkesi: bir faaliyet neye bağlanmamalı?",
+    "en": "Arrow-network principle: what must an activity not connect to?"
+   },
+   "back": {
+    "tr": "Kendinden önce biten bir faaliyetin başlama noktasına bağlanmamalı.",
+    "en": "It must not connect to the start point of an activity that finishes before it."
+   },
+   "en": "principle: no connecting to an earlier activity's start",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f38",
+   "front": {
+    "tr": "Ok şebekesi kurma ilkesi: şebeke ne oluşturmamalı?",
+    "en": "Arrow-network principle: what must the network not form?"
+   },
+   "back": {
+    "tr": "Kapalı devre (döngü) oluşturmamalı.",
+    "en": "It must not form a closed loop (cycle)."
+   },
+   "en": "principle: no closed loops",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f39",
+   "front": {
+    "tr": "Aynı iki düğüm arasında birden fazla faaliyet varsa ne yapılır?",
+    "en": "What is done if more than one activity exists between the same two nodes?"
+   },
+   "back": {
+    "tr": "Kukla faaliyet kullanılarak ayrıştırılır — iki düğümle tanımlanan birden fazla faaliyet olmamalı.",
+    "en": "A dummy activity is used to separate them — there must not be more than one activity defined by the same two nodes."
+   },
+   "en": "principle: dummy separates duplicate node-pairs",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f40",
+   "front": {
+    "tr": "Projenin başına ve sonuna hangi ek faaliyetler eklenebilir?",
+    "en": "What extra activities can be added at the start and end of a project?"
+   },
+   "back": {
+    "tr": "Başına \"giriş faaliyeti\", sonuna \"emniyet süresi\" adıyla birer faaliyet eklenebilir.",
+    "en": "An \"entry activity\" at the start, and a \"safety period\" at the end."
+   },
+   "en": "entry activity and safety period",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f41",
+   "front": {
+    "tr": "Düğüm numaralandırma kuralı nedir?",
+    "en": "What is the node numbering rule?"
+   },
+   "back": {
+    "tr": "Bir faaliyetin kuyruğundaki (başlangıç) rakam ucundaki (bitiş) rakamdan büyük olmamalı — numaralar akış yönünde artar.",
+    "en": "The number at an activity's tail (start) cannot be greater than the number at its head (finish) — numbers increase with flow."
+   },
+   "en": "node numbering rule",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f42",
+   "front": {
+    "tr": "Faaliyetler nasıl kodlanır?",
+    "en": "How are activities coded?"
+   },
+   "back": {
+    "tr": "Arasında bulundukları iki düğüm numarasıyla (ör. \"2-3\"); kodlama ilk düğümden başlanarak sırayla yapılır.",
+    "en": "By the two node numbers they sit between (e.g. \"2-3\"); coding proceeds from the first node in order."
+   },
+   "en": "coding of activities",
+   "tag": "ag-diyagrami"
+  },
+  {
+   "id": "f43",
+   "front": {
+    "tr": "En erken başlama zamanı (Eᵢ) nasıl hesaplanır?",
+    "en": "How is the earliest start time (Eᵢ) calculated?"
+   },
+   "back": {
+    "tr": "İlk düğümün E'si sıfır kabul edilir; sonraki düğümün E'si, önceki düğümün E'sine faaliyet süresi eklenerek bulunur (birden fazla yol varsa en büyüğü alınır) — bu ileri hesaptır.",
+    "en": "The first node's E is taken as zero; the next node's E is the previous node's E plus the activity duration (if multiple paths, take the largest) — this is the forward pass."
+   },
+   "en": "earliest start time (forward pass) rule",
+   "tag": "cpm-ileri-geri"
+  },
+  {
+   "id": "f44",
+   "front": {
+    "tr": "En geç başlama zamanı (Gᵢ) nasıl hesaplanır?",
+    "en": "How is the latest start time (Gᵢ) calculated?"
+   },
+   "back": {
+    "tr": "Son düğümün erken bitimi=geç bitimi kabul edilir; önceki düğümün G'si, sonraki düğümün G'sinden faaliyet süresi çıkarılarak bulunur (birden fazla yol varsa en küçüğü alınır) — bu geri hesaptır.",
+    "en": "The last node's earliest finish = latest finish; the previous node's G is the next node's G minus the activity duration (if multiple paths, take the smallest) — this is the backward pass."
+   },
+   "en": "latest start time (backward pass) rule",
+   "tag": "cpm-ileri-geri"
+  },
+  {
+   "id": "f45",
+   "front": {
+    "tr": "İleri hesapta birden fazla yol bir düğümde birleşiyorsa hangi değer alınır?",
+    "en": "In the forward pass, if multiple paths converge at a node, which value is taken?"
+   },
+   "back": {
+    "tr": "En büyük (maksimum) değer alınır.",
+    "en": "The largest (maximum) value."
+   },
+   "en": "forward pass: take the maximum",
+   "tag": "cpm-ileri-geri"
+  },
+  {
+   "id": "f46",
+   "front": {
+    "tr": "Geri hesapta bir düğümden birden fazla yol çıkıyorsa hangi değer alınır?",
+    "en": "In the backward pass, if multiple paths leave a node, which value is taken?"
+   },
+   "back": {
+    "tr": "En küçük (minimum) değer alınır.",
+    "en": "The smallest (minimum) value."
+   },
+   "en": "backward pass: take the minimum",
+   "tag": "cpm-ileri-geri"
+  },
+  {
+   "id": "f47",
+   "front": {
+    "tr": "Kritik yol tanımı nedir?",
+    "en": "What is the definition of the critical path?"
+   },
+   "back": {
+    "tr": "Projenin başından sonuna kadar devam eden faaliyet zincirlerinden en uzun süreli olanı.",
+    "en": "The longest of the activity chains running from the project's start to its end."
+   },
+   "en": "definition of critical path",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f48",
+   "front": {
+    "tr": "Kritik faaliyet nedir?",
+    "en": "What is a critical activity?"
+   },
+   "back": {
+    "tr": "Kritik yol üzerinde bulunan faaliyettir.",
+    "en": "An activity that lies on the critical path."
+   },
+   "en": "definition of critical activity",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f49",
+   "front": {
+    "tr": "Bir faaliyetin kritik olabilmesi için gereken 2 koşul nedir?",
+    "en": "What 2 conditions must hold for an activity to be critical?"
+   },
+   "back": {
+    "tr": "1) Okun kuyruk/uç rakamları kendi aralarında eşit olmalı (Eᵢ=Gᵢ, Eⱼ=Gⱼ); 2) en geç tamamlanma zamanından süre çıkarılınca fark en erken başlama zamanına eşit olmalı (toplam bolluk = 0).",
+    "en": "1) The tail/head numbers of the arrow are equal to each other (Eᵢ=Gᵢ, Eⱼ=Gⱼ); 2) latest finish minus duration equals earliest start (total float = 0)."
+   },
+   "en": "2 conditions for a critical activity",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f50",
+   "front": {
+    "tr": "Düğüm bolluğu tanımı nedir?",
+    "en": "What is the definition of node float?"
+   },
+   "back": {
+    "tr": "Bir düğümün erken ve geç başlama zamanları arasındaki farktır (Gᵢ-Eᵢ).",
+    "en": "The difference between a node's earliest and latest start times (Gᵢ-Eᵢ)."
+   },
+   "en": "definition of node float",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f51",
+   "front": {
+    "tr": "Toplam bolluk (TB) formülü nedir?",
+    "en": "What is the formula for total float (TB)?"
+   },
+   "back": {
+    "tr": "$TB = G_j-(E_i+S)$",
+    "en": "$TB = G_j-(E_i+S)$"
+   },
+   "en": "total float formula",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f52",
+   "front": {
+    "tr": "Toplam bolluk (TB) ne anlama gelir?",
+    "en": "What does total float (TB) mean?"
+   },
+   "back": {
+    "tr": "Faaliyeti, proje süresini etkilemeden kaç gün geciktirebileceğini gösterir.",
+    "en": "How many days the activity can be delayed without affecting the project's total duration."
+   },
+   "en": "meaning of total float",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f53",
+   "front": {
+    "tr": "Serbest bolluk (SB) formülü nedir?",
+    "en": "What is the formula for free float (SB)?"
+   },
+   "back": {
+    "tr": "$SB = E_j-(E_i+S)$",
+    "en": "$SB = E_j-(E_i+S)$"
+   },
+   "en": "free float formula",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f54",
+   "front": {
+    "tr": "Serbest bolluk (SB) ne anlama gelir?",
+    "en": "What does free float (SB) mean?"
+   },
+   "back": {
+    "tr": "Faaliyeti, sonraki faaliyetin en erken başlamasını etkilemeden kaç gün geciktirebileceğini gösterir.",
+    "en": "How many days the activity can be delayed without affecting the next activity's earliest start."
+   },
+   "en": "meaning of free float",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f55",
+   "front": {
+    "tr": "Ara bolluk (AB) formülü nedir?",
+    "en": "What is the formula for interfering float (AB)?"
+   },
+   "back": {
+    "tr": "$AB = G_j-(G_i+S)$",
+    "en": "$AB = G_j-(G_i+S)$"
+   },
+   "en": "interfering float formula",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f56",
+   "front": {
+    "tr": "Bağımsız bolluk (BB) formülü nedir?",
+    "en": "What is the formula for independent float (BB)?"
+   },
+   "back": {
+    "tr": "$BB = E_j-(G_i+S)$",
+    "en": "$BB = E_j-(G_i+S)$"
+   },
+   "en": "independent float formula",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f57",
+   "front": {
+    "tr": "Bağımsız bolluk (BB) negatif çıkarsa ne yapılır?",
+    "en": "What is done if independent float (BB) comes out negative?"
+   },
+   "back": {
+    "tr": "Sıfır (0) kabul edilir.",
+    "en": "It is taken as zero (0)."
+   },
+   "en": "negative independent float convention",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f58",
+   "front": {
+    "tr": "Kritik bir faaliyette bolluk değerleri nedir?",
+    "en": "What are the float values on a critical activity?"
+   },
+   "back": {
+    "tr": "TB=SB=AB=BB=0 — hepsi sıfırdır.",
+    "en": "TB=SB=AB=BB=0 — all are zero."
+   },
+   "en": "floats on a critical activity are all zero",
+   "tag": "bolluk"
+  },
+  {
+   "id": "f59",
+   "front": {
+    "tr": "PERT'te üç süre tahmini nelerdir?",
+    "en": "What are PERT's three time estimates?"
+   },
+   "back": {
+    "tr": "a (iyimser), m (en olası), b (kötümser).",
+    "en": "a (optimistic), m (most likely), b (pessimistic)."
+   },
+   "en": "PERT's three time estimates",
+   "tag": "pert"
+  },
+  {
+   "id": "f60",
+   "front": {
+    "tr": "PERT beklenen süre (tₑ) formülü nedir?",
+    "en": "What is the PERT expected-duration (tₑ) formula?"
+   },
+   "back": {
+    "tr": "$t_e = \\dfrac{a+4m+b}{6}$",
+    "en": "$t_e = \\dfrac{a+4m+b}{6}$"
+   },
+   "en": "PERT expected duration formula",
+   "tag": "pert"
+  },
+  {
+   "id": "f61",
+   "front": {
+    "tr": "PERT varyans formülü nedir?",
+    "en": "What is the PERT variance formula?"
+   },
+   "back": {
+    "tr": "$\\sigma^2 = \\left(\\dfrac{b-a}{6}\\right)^2$",
+    "en": "$\\sigma^2 = \\left(\\dfrac{b-a}{6}\\right)^2$"
+   },
+   "en": "PERT variance formula",
+   "tag": "pert"
+  },
+  {
+   "id": "f62",
+   "front": {
+    "tr": "PERT'te tₑ formülünde en olası değere (m) ne kadar ağırlık verilir?",
+    "en": "In the PERT tₑ formula, how much weight does the most-likely value (m) get?"
+   },
+   "back": {
+    "tr": "4 kat ağırlık (payda 6, m'nin katsayısı 4).",
+    "en": "4x weight (denominator 6, m's coefficient is 4)."
+   },
+   "en": "weight given to 'm' in PERT formula",
+   "tag": "pert"
+  },
+  {
+   "id": "f63",
+   "front": {
+    "tr": "PERT varyansı neyi gösterir?",
+    "en": "What does PERT variance show?"
+   },
+   "back": {
+    "tr": "Tahminin ne kadar belirsiz olduğunu; a ile b arasındaki fark büyüdükçe belirsizlik artar.",
+    "en": "How uncertain the estimate is; the bigger the gap between a and b, the greater the uncertainty."
+   },
+   "en": "meaning of PERT variance",
+   "tag": "pert"
+  },
+  {
+   "id": "f64",
+   "front": {
+    "tr": "CPM ile PERT arasındaki temel fark nedir?",
+    "en": "What is the key difference between CPM and PERT?"
+   },
+   "back": {
+    "tr": "CPM tek (deterministik) süre tahmini kullanır; PERT belirsizliği hesaba katan üç süre tahmini (a,m,b) kullanır.",
+    "en": "CPM uses a single (deterministic) duration estimate; PERT uses three time estimates (a,m,b) that account for uncertainty."
+   },
+   "en": "CPM vs PERT: single vs three-point estimate",
+   "tag": "pert"
+  },
+  {
+   "id": "f65",
+   "front": {
+    "tr": "Gantt ve ağ diyagramları (CPM/PERT) nasıl bir arada kullanılır?",
+    "en": "How are Gantt and network diagrams (CPM/PERT) used together?"
+   },
+   "back": {
+    "tr": "Önce ağ diyagramıyla mantıksal bağımlılıklar ve kritik yol bulunur; sonra sonuçlar Gantt'a aktarılıp takvime oturtularak sahada izlenir.",
+    "en": "First the network diagram establishes logical dependencies and the critical path; then the results are transferred to Gantt and placed on a calendar for site tracking."
+   },
+   "en": "how Gantt and CPM/PERT complement each other",
+   "tag": "gantt"
+  },
+  {
+   "id": "f66",
+   "front": {
+    "tr": "Gantt diyagramının en büyük sınırlılığı nedir?",
+    "en": "What is Gantt's biggest limitation?"
+   },
+   "back": {
+    "tr": "Faaliyetler arası bağımlılığı açıkça göstermemesi; çok faaliyetli işlerde karışabilir.",
+    "en": "It doesn't clearly show dependencies between activities; can get confusing with many activities."
+   },
+   "en": "Gantt's main limitation",
+   "tag": "gantt"
+  },
+  {
+   "id": "f67",
+   "front": {
+    "tr": "Örnek CPM şebekesinde (ders slaytı) proje süresi kaç gündür?",
+    "en": "In the example CPM network (course slide), what is the project duration?"
+   },
+   "back": {
+    "tr": "51 gün (düğüm 8'de E=G=51).",
+    "en": "51 days (at node 8, E=G=51)."
+   },
+   "en": "example network: project duration = 51",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f68",
+   "front": {
+    "tr": "Örnek CPM şebekesinde kritik yol hangi faaliyetlerden oluşur?",
+    "en": "In the example CPM network, which activities form the critical path?"
+   },
+   "back": {
+    "tr": "1-2, 2-5, 5-6 (kukla), 6-7, 7-8 = 8+18+0+15+10 = 51 gün.",
+    "en": "1-2, 2-5, 5-6 (dummy), 6-7, 7-8 = 8+18+0+15+10 = 51 days."
+   },
+   "en": "example network: critical path activities",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f69",
+   "front": {
+    "tr": "Örnek CPM şebekesinde kaç olası yol vardı ve en kısası kaç gündü?",
+    "en": "In the example CPM network, how many possible paths were there and what was the shortest?"
+   },
+   "back": {
+    "tr": "5 yol vardı; en kısası 3. yol (1-2,2-5,5-8) = 31 gün.",
+    "en": "There were 5 paths; the shortest was path 3 (1-2,2-5,5-8) = 31 days."
+   },
+   "en": "example network: shortest path",
+   "tag": "kritik-yorunge"
+  },
+  {
+   "id": "f70",
+   "front": {
+    "tr": "Ağ diyagramı (CPM) süre planlamasının yanında başka neyin temeli olur?",
+    "en": "Beyond scheduling time, what else is the network diagram (CPM) the basis of?"
+   },
+   "back": {
+    "tr": "Kaynak ve maliyet planlamasının: her faaliyetin işçilik/makine/malzeme miktarları süreleriyle çarpılıp birim fiyatlarla toplanarak projenin toplam kaynak/maliyet tablosu çıkarılır.",
+    "en": "Resource and cost planning: each activity's labor/machinery/material quantities are multiplied by its duration and summed with unit prices to produce the project's total resource/cost table."
+   },
+   "en": "network diagram feeds resource/cost planning",
+   "tag": "ag-diyagrami"
+  }
+ ],
+ "practice": [
+  {
+   "id": "q1",
+   "type": "mcq",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "İnşaat projelerinin süre ve kaynak kullanımını planlamak ve izlemek amacıyla hazırlanan programa ne denir?",
+    "en": "What is the program prepared to plan and monitor a construction project's duration and resource use called?"
+   },
+   "options": [
+    {
+     "tr": "İş programı",
+     "en": "Work schedule"
+    },
+    {
+     "tr": "Metraj cetveli",
+     "en": "Bill of quantities"
+    },
+    {
+     "tr": "Keşif özeti",
+     "en": "Cost summary"
+    },
+    {
+     "tr": "Teknik şartname",
+     "en": "Technical specification"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Doğru cevap iş programıdır — tanım bu terimin kendisidir. Metraj/keşif iş miktarı belgeleridir, teknik şartname malzeme/işçilik özelliklerini tarif eder, bu tanımların hiçbiri süre-kaynak planlama programı değildir.",
+    "en": "The correct answer is the work schedule — that is exactly the definition. The bill of quantities/cost summary are quantity documents, and a technical spec describes material/workmanship properties; none of these is a duration-resource planning program."
+   }
+  },
+  {
+   "id": "q2",
+   "type": "mcq",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Programlama araçları kaç ana grupta toplanır?",
+    "en": "How many main groups do scheduling tools fall into?"
+   },
+   "options": [
+    {
+     "tr": "İki",
+     "en": "Two"
+    },
+    {
+     "tr": "Üç",
+     "en": "Three"
+    },
+    {
+     "tr": "Dört",
+     "en": "Four"
+    },
+    {
+     "tr": "Beş",
+     "en": "Five"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Üç ana grup vardır: çubuk programlama yöntemleri, ağ programlama yöntemleri, diğer yöntemler (kutu, denge/devre, kaynak atama). İki/dört/beş bu üçlü gruplamayı yanlış sayar.",
+    "en": "There are three main groups: bar-chart methods, network methods, and other methods (box, balance/cycle, resource-assignment). Two/four/five miscounts this three-way grouping."
+   }
+  },
+  {
+   "id": "q3",
+   "type": "open",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Programlama araçlarının üç ana grubunu ve her grubun içerdiği yöntemleri örnekleriyle yazınız.",
+    "en": "List the three main groups of scheduling tools and give example methods within each."
+   },
+   "answer": {
+    "tr": "**1) Çubuk programlama yöntemleri:** Gantt (bar chart) diyagramı. **2) Ağ (network) programlama yöntemleri:** CPM (kritik yol yöntemi), PERT (seçenekli değerlendirme yöntemi). **3) Diğer yöntemler:** kutu diyagramlarıyla planlama, denge ve devre diyagramlarıyla planlama, kaynak kullanımı/kaynak atama yöntemleriyle planlama.",
+    "en": "**1) Bar-chart methods:** Gantt (bar chart). **2) Network methods:** CPM (critical path method), PERT (program evaluation and review technique). **3) Other methods:** box-diagram planning, balance/cycle-diagram planning, resource-use/resource-assignment planning."
+   }
+  },
+  {
+   "id": "q4",
+   "type": "mcq",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Çubuk diyagramı yöntemini 1917 yılında ilk geliştiren kişi kimdir?",
+    "en": "Who first developed the bar-chart method in 1917?"
+   },
+   "options": [
+    {
+     "tr": "Henry Gantt",
+     "en": "Henry Gantt"
+    },
+    {
+     "tr": "Henry Ford",
+     "en": "Henry Ford"
+    },
+    {
+     "tr": "Frederick Taylor",
+     "en": "Frederick Taylor"
+    },
+    {
+     "tr": "Olcay Genç",
+     "en": "Olcay Genç"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Yöntem, 1917'de geliştiren Henry Gantt'ın adına ithafen Gantt diyagramı olarak da adlandırılır. Diğer isimler farklı alanlardan tanınan kişilerdir ama bu yöntemin geliştiricisi değildir.",
+    "en": "The method is also named the Gantt chart after Henry Gantt, who developed it in 1917. The other names are known figures from different fields, not the developer of this method."
+   }
+  },
+  {
+   "id": "q5",
+   "type": "mcq",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Çubuk diyagramı yönteminin uygulanmasında izlenecek aşamaların doğru sırası hangisidir?",
+    "en": "Which is the correct order of stages in applying the bar-chart method?"
+   },
+   "options": [
+    {
+     "tr": "Programlama tablosu → iş miktarı → faaliyet sırası → süre",
+     "en": "Scheduling table → quantity → activity sequence → duration"
+    },
+    {
+     "tr": "Faaliyetlerin sıralanması → iş miktarları → faaliyet süreleri → programlama tablosu",
+     "en": "Sequencing activities → quantities → durations → scheduling table"
+    },
+    {
+     "tr": "İş miktarları → programlama tablosu → faaliyet sırası → süre",
+     "en": "Quantities → scheduling table → activity sequence → duration"
+    },
+    {
+     "tr": "Faaliyet süreleri → faaliyetlerin sıralanması → iş miktarları → programlama tablosu",
+     "en": "Durations → sequencing activities → quantities → scheduling table"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Doğru sıra: önce faaliyetler belirlenip sıralanır, sonra iş miktarları bulunur, sonra faaliyet süreleri belirlenir, en son programlama tablosu hazırlanır — çünkü tablo, önceki üç adımın verisine dayanır. Diğer sıralamalar tabloyu veri toplanmadan önce kurmaya çalışır, bu mantıksal olarak imkansızdır.",
+    "en": "The correct order: first activities are identified and sequenced, then quantities are found, then durations are determined, and finally the scheduling table is prepared — because the table depends on data from the first three steps. The other orderings try to build the table before the data exists, which is logically impossible."
+   }
+  },
+  {
+   "id": "q6",
+   "type": "open",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir inşaat işi \"ana bölümlere\" ayrılarak mı, yoksa \"ana grup + alt grup\" şeklinde mi planlanabilir? İki yaklaşımı örnekleyerek açıklayınız.",
+    "en": "Can construction work be scheduled by \"main sections\" or by \"main group + sub-group\"? Explain both approaches with examples."
+   },
+   "answer": {
+    "tr": "İki yaklaşım da mümkündür. **Genel çerçeve nitelikli planlamada** iş ana bölümlere ayrılır (ör. hazırlık, temel, bodrum, zemin kat, 1. kat...). **Daha ayrıntılı planlamada** ise önce iş ana gruplara ayrılır (kazı grubu, kalıp grubu, beton arme grubu...) sonra her ana grup kendi içinde alt gruplara bölünür (ör. temel grubu → kazı, beton arme temel, duvar işleri; kalıp grubu → iskele kalıp, beton armirleri, beton). Ayrıca birden fazla blok varsa her ana bölüm blok bazında da izlenebilir (1. blok kazısı, 2. blok kazısı, 3. blok kazısı gibi).",
+    "en": "Both approaches are possible. In **general-framework planning**, the work is split into main sections (e.g. prep, foundation, basement, ground floor, 1st floor...). In **more detailed planning**, the work is first split into main groups (excavation group, formwork group, reinforced-concrete group...), then each main group is split into sub-groups (e.g. foundation group → excavation, reinforced-concrete foundation, wall work; formwork group → scaffolding formwork, concrete reinforcements, concrete). Additionally, with multiple blocks each main section can be tracked per block (block 1 excavation, block 2 excavation, block 3 excavation, etc.)."
+   }
+  },
+  {
+   "id": "q7",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Planlama tablosunun bölümleri hangileridir?",
+    "en": "What are the sections of the scheduling table?"
+   },
+   "options": [
+    {
+     "tr": "Açıklama, takvim, nakit akış grafiği",
+     "en": "Description, calendar, cash-flow chart"
+    },
+    {
+     "tr": "Metraj, keşif, ihale",
+     "en": "Quantities, cost estimate, tender"
+    },
+    {
+     "tr": "Giriş faaliyeti, kritik yol, emniyet süresi",
+     "en": "Entry activity, critical path, safety period"
+    },
+    {
+     "tr": "Planlanan, gerçekleşen, sapma",
+     "en": "Planned, actual, deviation"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Üç bölüm: açıklama bölümü (tanım/maliyet/süre), takvim bölümü (zaman ölçekli çizelge), nakit akış grafiği (parasal kaynak kullanımı). Diğer seçenekler ya ihale/metraj kavramlarını (farklı bir konu) ya da CPM terimlerini ya da P/G alt-satırlarını (takvim bölümünün içinde, ayrı bir üst bölüm değil) karıştırıyor.",
+    "en": "Three sections: description section (definition/cost/duration), calendar section (time-scaled chart), cash-flow chart (monetary resource use). The other options mix in tender/quantity concepts (a different topic), CPM terms, or the P/G sub-rows (which live inside the calendar section, not a separate top-level section)."
+   }
+  },
+  {
+   "id": "q8",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Takvim bölümünde her faaliyet satırının P ve G olarak ikiye ayrılmasının amacı nedir?",
+    "en": "What is the purpose of splitting each activity row in the calendar section into P and G?"
+   },
+   "options": [
+    {
+     "tr": "Parasal kaynağı iki farklı para birimiyle göstermek",
+     "en": "Showing monetary resources in two currencies"
+    },
+    {
+     "tr": "Planlanan süreyi gerçekleşen süreyle karşılaştırmak",
+     "en": "Comparing planned duration with actual duration"
+    },
+    {
+     "tr": "İki farklı yükleniciyi karşılaştırmak",
+     "en": "Comparing two different contractors"
+    },
+    {
+     "tr": "Faaliyetin başlangıç ve bitiş tarihini aynı satırda göstermek",
+     "en": "Showing an activity's start and end dates on the same row"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "P (planlanan) ve G (gerçekleşen) satırları, uygulama aşamasında plandan sapmaları izlemek içindir. Diğer seçenekler tabloyla ilgisiz amaçlar (para birimi, yüklenici karşılaştırması) uyduruyor ya da P/G ayrımının gerçek amacını (karşılaştırma) atlayıp farklı bir işlev (tarih gösterimi) öneriyor.",
+    "en": "The P (planned) and G (actual) rows exist to track deviation from the plan during execution. The other options invent unrelated purposes (currency, contractor comparison) or propose a different function (date display) that skips the real purpose of the P/G split (comparison)."
+   }
+  },
+  {
+   "id": "q9",
+   "type": "open",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Takvim bölümünde \"süresel bölüntü\" seçeneklerini açıklayınız: bir aylık süre nasıl bölünebilir?",
+    "en": "Explain the \"time-interval\" options in the calendar section: how can a month be divided?"
+   },
+   "answer": {
+    "tr": "Takvim bölümünde süre, işin genel ya da detay olmasına göre yıl-ay-hafta ya da ay-hafta-gün olarak bölünebilir. Bir aylık süre (30 gün) genelde eşit bölecek bir aralık sayısına bölünür: 3'e, 4'e, 5'e ya da 6'ya (ör. 10'ar günlük 3 bölüm, ya da haftalık 4 bölüm). Bazen de ay, o ayda yer alan pazartesi günlerinin sayısına göre bölümlere ayrılır ve her aralığa o haftanın pazartesi tarihi yazılır (ör. Nisan ayı: 3, 10, 17, 24). Bu bölümleme, faaliyetlerin başlama/bitim tarihlerinin belirlenmesinde kolaylık sağlar.",
+    "en": "In the calendar section, the timeline can be divided as year-month-week or month-week-day, depending on whether the work is general or detailed. A month (30 days) is usually split into a number of equal intervals: 3, 4, 5, or 6 (e.g. three 10-day blocks, or four weekly blocks). Sometimes the month is instead divided by the number of Mondays it contains, with each interval labeled by that week's Monday date (e.g. April: 3, 10, 17, 24). This division makes it easier to pin down activities' start/finish dates."
+   }
+  },
+  {
+   "id": "q10",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir faaliyetin süresi açıklama bölümünde 4 hafta (28 iş günü) olarak veriliyor. Pazar günleri çalışılmıyorsa takvim bölümünde bu faaliyetin uzunluğu ne olmalıdır?",
+    "en": "An activity's duration is given as 4 weeks (28 working days) in the description section. If Sundays are not worked, what should its length be in the calendar section?"
+   },
+   "options": [
+    {
+     "tr": "28 gün (iş günü sayısı kadar)",
+     "en": "28 days (equal to the working-day count)"
+    },
+    {
+     "tr": "28 gün + faaliyetin kapsadığı hafta sayısı kadar pazar günü",
+     "en": "28 days + the number of Sundays within the activity's span"
+    },
+    {
+     "tr": "28 - 4 = 24 gün",
+     "en": "28 - 4 = 24 days"
+    },
+    {
+     "tr": "Fark yok, iş günü zaten takvim günüdür",
+     "en": "No difference, working days are already calendar days"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "İş gününü takvim gününe çevirmek için, faaliyetin kapsadığı süredeki çalışılmayan (pazar) günlerin toplamı iş gününe eklenir; 4 haftalık bir iş, 4 pazar günü ekleyerek takvimde daha uzun görünür. 28 gün diyen seçenek dönüşümü hiç yapmıyor; 24 gün çıkarma yönünü ters çeviriyor; \"fark yok\" iş günü/takvim günü ayrımını tamamen reddediyor.",
+    "en": "To convert working days to calendar days, the non-working (Sunday) days within the activity's span are added to the working-day count; a 4-week job adds roughly 4 Sundays and appears longer on the calendar. The \"28 days\" option skips the conversion entirely; \"24 days\" flips the subtraction the wrong way; \"no difference\" rejects the working-day/calendar-day distinction altogether."
+   }
+  },
+  {
+   "id": "q11",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir iş 7 gün sürüyor, pazartesi başlıyor ve pazar günleri çalışılmıyor. Bu iş takvimde kaç gün sürer?",
+    "en": "A job takes 7 working days, starts on Monday, and Sundays are not worked. How many calendar days does it take?"
+   },
+   "options": [
+    {
+     "tr": "6 gün",
+     "en": "6 days"
+    },
+    {
+     "tr": "7 gün",
+     "en": "7 days"
+    },
+    {
+     "tr": "8 gün",
+     "en": "8 days"
+    },
+    {
+     "tr": "14 gün",
+     "en": "14 days"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "İş pazartesi başlar, 6 gün çalışılır (salı-pazartesi arası bir pazar tatili düşer), 7. iş günü ikinci pazartesi biter — takvimde toplam 8 gün geçer (7 iş günü + 1 pazar tatili). 7 gün cevabı tatili hiç saymaz; 6 gün ve 14 gün hesabı ters yönde yanlış yapar.",
+    "en": "The job starts Monday; 6 days are worked with one Sunday holiday falling in between, and the 7th working day finishes the following Monday — 8 calendar days elapse in total (7 working days + 1 Sunday holiday). \"7 days\" ignores the holiday entirely; \"6 days\" and \"14 days\" miscalculate in the wrong direction."
+   }
+  },
+  {
+   "id": "q12",
+   "type": "open",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Beton faaliyeti neden bazen \"kesikli\" çizgiyle, bazen \"kesintisiz\" çizgiyle gösterilebilir? İki durumu da açıklayınız.",
+    "en": "Why can the concrete activity sometimes be shown \"interrupted\" and sometimes \"continuous\"? Explain both cases."
+   },
+   "answer": {
+    "tr": "Çok katlı bir yapıda, bir katın betonunun dökülebilmesi o katın kalıbının hazırlanmasına bağlıdır ve kalıp işi genellikle beton işinden daha uzun sürer. Bu durumda beton işleri kalıp işleminin tamamlanmasına bağlı olarak **kesikli (aralıklı)** gösterilebilir — çünkü beton, kür süresi boyunca bekler ve bu bekleme gerçek bir iş değildir. Ancak kalıp sökme, temizleme ve bir sonraki aşama için hazırlık gibi ara işler kalıp ekibinin kendi işi sayılırsa, kalıp faaliyeti kür süresine rağmen **kesintisiz (sürekli)** de gösterilebilir — çünkü ekip bu süre boyunca fiilen çalışmaya devam eder. Hangi gösterimin seçileceği işin gerçek akışına ve kabul edilen iş tanımına bağlıdır.",
+    "en": "In a multi-story building, a floor's concrete can only be poured once that floor's formwork is ready, and formwork usually takes longer than concreting. In this case concrete work can be shown **interrupted (with gaps)**, dependent on formwork completion — because concrete waits out its curing period, and that wait is not real work. However, if intermediate tasks like formwork stripping, cleaning, and prep for the next stage count as the formwork crew's own work, the formwork activity can instead be shown **continuous** despite the curing wait — because the crew keeps actually working during that time. Which representation is chosen depends on the work's real flow and the accepted definition of the task."
+   }
+  },
+  {
+   "id": "q13",
+   "type": "open",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Gantt uygulama örneğinde kazı faaliyetinin süresini adım adım hesaplayınız (350 m³, 0,25 sa/m³, tek makine, %85 verimlilik, günde 10 saat, haftada 6 gün).",
+    "en": "In the worked Gantt example, compute the excavation activity's duration step by step (350 m³, 0.25 h/m³, one machine, 85% productivity, 10 h/day, 6 days/week)."
+   },
+   "answer": {
+    "tr": "1) %100 verimli süre: $350 \\times 0{,}25 = 87{,}5$ saat. 2) %85 verimlilikle gerçek süre: $87{,}5 / 0{,}85 = 102{,}94$ saat. 3) Günlük çalışma saatine bölerek gün sayısı: $102{,}94 / 10 = 10{,}29$ gün. 4) Haftalık çalışma gününe bölerek hafta sayısı: $10{,}29 / 6 = 1{,}72$ hafta. **Sonuç: 1,72 hafta.**",
+    "en": "1) 100%-productivity time: $350 \\times 0.25 = 87.5$ hours. 2) Real time at 85% productivity: $87.5 / 0.85 = 102.94$ hours. 3) Days by dividing by daily working hours: $102.94 / 10 = 10.29$ days. 4) Weeks by dividing by working days/week: $10.29 / 6 = 1.72$ weeks. **Result: 1.72 weeks.**"
+   }
+  },
+  {
+   "id": "q14",
+   "type": "open",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Gantt uygulama örneğinde kalıp faaliyetinin süresini adım adım hesaplayınız (1200 m², 0,25 sa/m², 10 kişilik ekip, %85 verimlilik, günde 10 saat, haftada 6 gün).",
+    "en": "In the worked Gantt example, compute the formwork activity's duration step by step (1200 m², 0.25 h/m², 10-person crew, 85% productivity, 10 h/day, 6 days/week)."
+   },
+   "answer": {
+    "tr": "1) %100 verimli, tek işçi: $1200 \\times 0{,}25 = 300$ saat. 2) %85 verimlilikle: $300/0{,}85 = 352{,}94$ saat. 3) 10 kişilik ekiple: $352{,}94/10 = 35{,}29$ saat. 4) Günlük 10 saate bölünce: $35{,}29/10 = 3{,}53$ gün. 5) Haftalık 6 güne bölünce: $3{,}53/6 = 0{,}59$ hafta. **Sonuç: 0,59 hafta.**",
+    "en": "1) 100%-productivity, single worker: $1200 \\times 0.25 = 300$ hours. 2) At 85% productivity: $300/0.85 = 352.94$ hours. 3) With a 10-person crew: $352.94/10 = 35.29$ hours. 4) Divided by 10 h/day: $35.29/10 = 3.53$ days. 5) Divided by 6 days/week: $3.53/6 = 0.59$ weeks. **Result: 0.59 weeks.**"
+   }
+  },
+  {
+   "id": "q15",
+   "type": "mcq",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Gantt uygulama örneğinde demir faaliyeti için 17.000 kg demir, 0,085 sa/kg, 10 kişilik ekip, %85 verimlilik, günde 10 saat, haftada 6 gün veriliyor. Süre kaç haftadır?",
+    "en": "In the worked Gantt example, rebar is 17,000 kg, 0.085 h/kg, a 10-person crew, 85% productivity, 10 h/day, 6 days/week. What is the duration in weeks?"
+   },
+   "options": [
+    {
+     "tr": "1,70 hafta",
+     "en": "1.70 weeks"
+    },
+    {
+     "tr": "2,83 hafta",
+     "en": "2.83 weeks"
+    },
+    {
+     "tr": "17,00 hafta",
+     "en": "17.00 weeks"
+    },
+    {
+     "tr": "0,283 hafta",
+     "en": "0.283 weeks"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "$17000\\times0{,}085=1445$ sa (%100) → $/0{,}85=1700$ sa → $/10$ kişi $=170$ sa → $/10$ sa/gün $=17$ gün → $/6$ gün/hafta $=2{,}83$ hafta. 1,70 hafta bir ara adımı (170 saat) yanlışlıkla hafta sanır; 17,00 hafta gün sayısını haftayla karıştırır; 0,283 hafta ondalık kaydırma hatasıdır.",
+    "en": "$17000\\times0.085=1445$ h (100%) → $/0.85=1700$ h → $/10$ people $=170$ h → $/10$ h/day $=17$ days → $/6$ days/week $=2.83$ weeks. \"1.70 weeks\" mistakes an intermediate value (170 hours) for weeks; \"17.00 weeks\" confuses the day count with weeks; \"0.283 weeks\" is a decimal-shift error."
+   }
+  },
+  {
+   "id": "q16",
+   "type": "mcq",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Aynı örnekte beton faaliyeti için 700 m³, 2 sa/m³, 10 kişilik ekip, %85 verimlilik, günde 10 saat, haftada 6 gün veriliyor. Süre kaç haftadır?",
+    "en": "In the same example, concrete is 700 m³, 2 h/m³, a 10-person crew, 85% productivity, 10 h/day, 6 days/week. What is the duration in weeks?"
+   },
+   "options": [
+    {
+     "tr": "1,40 hafta",
+     "en": "1.40 weeks"
+    },
+    {
+     "tr": "14,00 hafta",
+     "en": "14.00 weeks"
+    },
+    {
+     "tr": "2,75 hafta",
+     "en": "2.75 weeks"
+    },
+    {
+     "tr": "164,71 hafta",
+     "en": "164.71 weeks"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "$700\\times2=1400$ sa (%100) → $/0{,}85=1647{,}06$ sa → $/10$ kişi $=164{,}71$ sa → $/10$ sa/gün $=16{,}47$ gün → $/6$ gün/hafta $=2{,}75$ hafta. Diğer seçenekler bölme adımlarından birini atlar ya da ara sonucu (164,71 saat) doğrudan hafta olarak verir.",
+    "en": "$700\\times2=1400$ h (100%) → $/0.85=1647.06$ h → $/10$ people $=164.71$ h → $/10$ h/day $=16.47$ days → $/6$ days/week $=2.75$ weeks. The other options skip a division step or present the intermediate result (164.71 hours) directly as weeks."
+   }
+  },
+  {
+   "id": "q17",
+   "type": "open",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Kazı ve kalıp faaliyetleri aynı anda başlayabildiği halde, uygulama örneğinde neden kalıp faaliyeti kazıdan biraz daha geç başlatılıyor?",
+    "en": "Even though excavation and formwork can start at the same time, why is formwork started slightly later than excavation in the worked example?"
+   },
+   "answer": {
+    "tr": "Çünkü kalıp faaliyetinin süresi (0,59 hafta) kazının süresinden (1,72 hafta) çok daha kısadır. Eğer kalıp, kazıyla tam aynı anda başlatılsaydı, kalıp işi kazı bitmeden çok önce biterdi — bu hem işçilerin boşta kalmasına hem de mantıksız/tutarsız bir programa yol açardı (kalıbı bitirmiş bir ekip, henüz kazısı bitmemiş bir alanda beklemek zorunda kalırdı). Bu yüzden kalıbı, kazıyla **aynı hafta içinde ama biraz daha geç** (kazının bitişiyle aynı anda bitecek şekilde) başlatmak tercih edilir — böylece hem kazı-kalıp mantıksal sırası korunur hem de işçi boşa düşmez.",
+    "en": "Because formwork's duration (0.59 weeks) is much shorter than excavation's (1.72 weeks). If formwork started at exactly the same time as excavation, it would finish long before excavation does — causing both idle workers and an inconsistent schedule (a crew that has finished formwork would have to wait in an area where excavation isn't done yet). So it's preferable to start formwork **within the same week but slightly later** than excavation (so it finishes around the same time as excavation) — preserving the excavation-before-formwork logic while avoiding idle labor."
+   }
+  },
+  {
+   "id": "q18",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Ağ diyagramlarının Gantt diyagramından temel farkı nedir?",
+    "en": "What is the key difference between network diagrams and the Gantt chart?"
+   },
+   "options": [
+    {
+     "tr": "Ağ diyagramları sadece maliyeti gösterir",
+     "en": "Network diagrams show only cost"
+    },
+    {
+     "tr": "Ağ diyagramları faaliyetler arası mantıksal ilişkileri açıkça gösterir",
+     "en": "Network diagrams explicitly show the logical relationships between activities"
+    },
+    {
+     "tr": "Ağ diyagramları takvime dayanmaz, süre kullanmaz",
+     "en": "Network diagrams don't rely on a calendar and use no durations"
+    },
+    {
+     "tr": "Ağ diyagramları yalnızca kamu işlerinde kullanılır",
+     "en": "Network diagrams are used only in public works"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Ağ diyagramları (CPM/PERT) faaliyetlerin daha ayrıntılı tanımlanmasına ve birbirleriyle ilişkilerinin daha anlaşılır gösterilmesine olanak sağlar — bu, Gantt'ın gösteremediği bir şeydir. Maliyet gösterimi Gantt'ın nakit akış bölümünde de var; ağ diyagramları da süre kullanır (sadece takvime değil düğüm zamanlarına dayanır); kamu/özel ayrımı kaynaklarda geçmez.",
+    "en": "Network diagrams (CPM/PERT) allow activities to be defined in more detail and their relationships shown more clearly — something Gantt cannot do. Cost display also exists in Gantt's cash-flow section; network diagrams do use durations (just tied to node times rather than a calendar); no public/private distinction appears in the sources."
+   }
+  },
+  {
+   "id": "q19",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Kukla faaliyet (dummy activity) hangi özelliğe sahiptir?",
+    "en": "What property does a dummy activity have?"
+   },
+   "options": [
+    {
+     "tr": "Süresi vardır ama maliyeti yoktur",
+     "en": "It has a duration but no cost"
+    },
+    {
+     "tr": "Hem süresi hem maliyeti vardır ama kesikli çizilir",
+     "en": "It has both duration and cost but is drawn dashed"
+    },
+    {
+     "tr": "Süresi ve maliyeti yoktur, sadece mantıki ilişkiyi gösterir",
+     "en": "It has no duration or cost, and only shows a logical relationship"
+    },
+    {
+     "tr": "Sadece kritik yol üzerinde bulunabilir",
+     "en": "It can only lie on the critical path"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Kukla faaliyet, faaliyetler arasındaki mantıki ilişkiyi göstermek için kullanılır; süresi ve maliyeti yoktur, kesikli okla çizilir. \"Süresi var\" diyen seçenekler kukla faaliyetin tanımını bozar; \"sadece kritik yolda olabilir\" yanlış bir kısıtlama uydurur (kukla faaliyet kritik olabilir de olmayabilir de — örnek şebekede 5-6 kuklası kritikti).",
+    "en": "A dummy activity is used to show the logical relationship between activities; it has no duration or cost, and is drawn as a dashed arrow. The options claiming it \"has a duration\" break the definition of a dummy; \"can only lie on the critical path\" invents a false restriction (a dummy can be critical or not — in the example network the 5-6 dummy happened to be critical)."
+   }
+  },
+  {
+   "id": "q20",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir faaliyetin ok şebekesindeki yerini belirlemek için sorulan 3 sorudan biri hangisidir?",
+    "en": "Which of these is one of the 3 questions asked to place an activity in the arrow network?"
+   },
+   "options": [
+    {
+     "tr": "Bu faaliyetin maliyeti nedir?",
+     "en": "What is this activity's cost?"
+    },
+    {
+     "tr": "Bu faaliyet hangi yüklenici tarafından yapılacak?",
+     "en": "Which contractor will carry out this activity?"
+    },
+    {
+     "tr": "Hangi faaliyetler bu faaliyetle paralel başlayabilir?",
+     "en": "Which activities can start in parallel with this one?"
+    },
+    {
+     "tr": "Bu faaliyet kaç kişilik ekip gerektirir?",
+     "en": "How many people does this activity's crew require?"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Üç soru: hangi faaliyetler bundan bağımsız olarak önce bitmeli, hangileri paralel başlayabilir, hangileri sonra başlayabilir. Maliyet, yüklenici ve ekip büyüklüğü bu üç sorunun kapsamında değildir — bunlar ayrı planlama konularıdır (kaynak analizi, sözleşme).",
+    "en": "The three questions: which activities must finish independently before this one, which can start in parallel, and which can start after. Cost, contractor, and crew size are outside these three questions — they belong to separate planning topics (resource analysis, contracts)."
+   }
+  },
+  {
+   "id": "q21",
+   "type": "open",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Faaliyet, düğüm noktası ve faaliyet süresi kavramlarını tanımlayınız.",
+    "en": "Define the concepts of activity, node, and activity duration."
+   },
+   "answer": {
+    "tr": "**Faaliyet (Activity):** projenin gerçekleştirilmesi için yapılan, süre ve kaynak kullanmayı gerektiren her işlem; oklarla gösterilir. **Düğüm noktası:** faaliyetlerden birinin bittiği, diğerlerinin başladığı nokta; dairelerle gösterilir ve numaralandırılır. **Faaliyet süresi:** her faaliyetin gerçekleştirilebileceği süre; genellikle okun üstüne yazılır.",
+    "en": "**Activity:** any operation carried out to realize the project that requires time and resources; shown with arrows. **Node:** the point where one activity ends and others begin; shown as circles and numbered. **Activity duration:** the time an activity takes; usually written above its arrow."
+   }
+  },
+  {
+   "id": "q22",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Ok şebekesi kurma ilkelerinden biri: iki düğüm arasında birden fazla faaliyet varsa ne yapılır?",
+    "en": "One of the arrow-network principles: what is done when there is more than one activity between two nodes?"
+   },
+   "options": [
+    {
+     "tr": "Kukla faaliyet eklenerek ayrıştırılır",
+     "en": "A dummy activity is added to separate them"
+    },
+    {
+     "tr": "İki faaliyet birleştirilip tek faaliyet yapılır",
+     "en": "The two activities are merged into one"
+    },
+    {
+     "tr": "Faaliyetlerden biri şebekeden çıkarılır",
+     "en": "One of the activities is removed from the network"
+    },
+    {
+     "tr": "Düğüm numaraları değiştirilmeden bırakılır, sorun yoktur",
+     "en": "Node numbers are left unchanged, there's no issue"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "İlke gereği iki düğümle tanımlanan birden fazla faaliyet olmamalı; bu durumda kukla faaliyet kullanılarak faaliyetler ayrıştırılır. Birleştirme ve çıkarma bilgiyi kaybettirir; \"sorun yoktur\" ilkeyi tamamen görmezden gelir.",
+    "en": "Per the principle, there must not be more than one activity defined by the same two nodes; a dummy activity is used to separate them. Merging or removing loses information; \"there's no issue\" ignores the principle entirely."
+   }
+  },
+  {
+   "id": "q23",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Düğüm numaralandırma kuralına göre bir faaliyetin kuyruğundaki rakam ile ucundaki rakam arasındaki ilişki nasıl olmalıdır?",
+    "en": "By the node-numbering rule, what should the relationship be between the number at an activity's tail and its head?"
+   },
+   "options": [
+    {
+     "tr": "Kuyruktaki rakam ucundakinden her zaman küçük olmalı, eşit olamaz",
+     "en": "The tail number must always be smaller than the head number, never equal"
+    },
+    {
+     "tr": "İki rakam arasında herhangi bir kısıtlama yoktur",
+     "en": "There is no restriction between the two numbers"
+    },
+    {
+     "tr": "Ucundaki rakam kuyruktakinden büyük olmamalı",
+     "en": "The head number must not be greater than the tail number"
+    },
+    {
+     "tr": "Kuyruktaki rakam ucundaki rakamdan büyük olmamalı",
+     "en": "The tail number must not be greater than the head number"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Kural: bir faaliyetin kuyruğundaki rakam ucundaki rakamdan büyük olmayacak şekilde kodlanmalıdır (yani kuyruk ≤ uç, numaralar akış yönünde artar). \"Her zaman küçük, eşit olamaz\" gereksiz sıkı bir kısıtlama uydurur; \"kısıtlama yok\" ilkeyi reddeder; \"ucundaki rakam kuyruktakinden büyük olmamalı\" ilişkiyi tam tersine çevirir.",
+    "en": "Rule: an activity must be coded so that the number at its tail is not greater than the number at its head (tail ≤ head, numbers increase with flow). \"Always smaller, never equal\" invents an unnecessarily strict rule; \"no restriction\" rejects the principle; \"the head number must not be greater than the tail\" reverses the relationship entirely."
+   }
+  },
+  {
+   "id": "q24",
+   "type": "open",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Ok şebekesi kurulurken uyulması gereken ilkelerden dördünü sayınız.",
+    "en": "List four of the principles that must be followed when building an arrow network."
+   },
+   "answer": {
+    "tr": "Örnek dört ilke: 1) Her faaliyetin bir başlaması bir bitimi olmalı, her faaliyet iki düğüm arasında tanımlanmalı. 2) Bir faaliyet, kendinden önce biten bir faaliyetin başlama noktasına bağlanmamalı. 3) Ok şebekesi kapalı devre (döngü) oluşturmamalı. 4) İki düğümle tanımlanan birden fazla faaliyet olmamalı (varsa kukla faaliyetle ayrıştırılır). (Diğer geçerli ilkeler: bir faaliyet bölünerek birden fazla faaliyetle tanımlanabilir; projenin başına giriş faaliyeti, sonuna emniyet süresi eklenebilir.)",
+    "en": "Example four principles: 1) Every activity must have one start and one finish, defined between two nodes. 2) An activity must not connect to the start point of an activity that finishes before it. 3) The arrow network must not form a closed loop (cycle). 4) There must not be more than one activity defined by the same two nodes (if so, a dummy separates them). (Other valid principles: an activity can be split into multiple activities; an entry activity can be added at the start, a safety period at the end.)"
+   }
+  },
+  {
+   "id": "q25",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "CPM'de ileri hesapta (Eᵢ) ilk düğümün erken başlama zamanı kaç kabul edilir?",
+    "en": "In CPM's forward pass (Eᵢ), what is the earliest start time of the first node taken as?"
+   },
+   "options": [
+    {
+     "tr": "Bir (1)",
+     "en": "One (1)"
+    },
+    {
+     "tr": "Sıfır (0)",
+     "en": "Zero (0)"
+    },
+    {
+     "tr": "Faaliyet süresi kadar",
+     "en": "Equal to the activity duration"
+    },
+    {
+     "tr": "Proje süresi kadar",
+     "en": "Equal to the project duration"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "İlk düğümün erken başlama zamanı sıfır (0) kabul edilir — bu, hesabın başlangıç noktasıdır. Diğer seçenekler ileri hesabın temel kabulünü çarpıtır.",
+    "en": "The first node's earliest start time is taken as zero (0) — this is the starting point of the calculation. The other options distort the basic assumption of the forward pass."
+   }
+  },
+  {
+   "id": "q26",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde (1→2: 8 gün; 2→3: 10 gün; 2→4: 20 gün) düğüm 4'ün erken başlama zamanı (E₄) sadece 2-4 faaliyeti üzerinden hesaplansaydı kaç olurdu?",
+    "en": "In the example CPM network (1→2: 8 days; 2→3: 10 days; 2→4: 20 days), if node 4's earliest start (E₄) were computed only via the 2-4 activity, what would it be?"
+   },
+   "options": [
+    {
+     "tr": "20 gün",
+     "en": "20 days"
+    },
+    {
+     "tr": "18 gün",
+     "en": "18 days"
+    },
+    {
+     "tr": "8 gün",
+     "en": "8 days"
+    },
+    {
+     "tr": "28 gün",
+     "en": "28 days"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "E₂=8 (E₁+8), E₄ = E₂+20 = 8+20 = 28 gün (2-4 yolu üzerinden). Gerçekte düğüm 4'e 3-4 üzerinden de bir yol geldiği için (18+7=25) asıl E₄=max(28,25)=28 olur, yani bu soruda istenen tek-yol hesabıyla zaten aynı çıkar. 20 gün sadece faaliyet süresini E₂'ye eklemeyi unutur; 18 ve 8 farklı düğümlerin değerleridir.",
+    "en": "E₂=8 (E₁+8), E₄ = E₂+20 = 8+20 = 28 days (via the 2-4 path). In reality node 4 also has a path via 3-4 (18+7=25), so the true E₄=max(28,25)=28 — coincidentally the same as this single-path calculation. \"20 days\" forgets to add E₂; \"18\" and \"8\" are other nodes' values."
+   }
+  },
+  {
+   "id": "q27",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde düğüm 6'ya iki yol gelir: 3-6 (süre 4, E₃=18) ve 5-6 kukla (süre 0, E₅=26). E₆ kaçtır?",
+    "en": "In the example CPM network, two paths arrive at node 6: 3-6 (duration 4, E₃=18) and dummy 5-6 (duration 0, E₅=26). What is E₆?"
+   },
+   "options": [
+    {
+     "tr": "22 gün",
+     "en": "22 days"
+    },
+    {
+     "tr": "18 gün",
+     "en": "18 days"
+    },
+    {
+     "tr": "26 gün",
+     "en": "26 days"
+    },
+    {
+     "tr": "4 gün",
+     "en": "4 days"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "3-6 yolu: $18+4=22$; 5-6 (kukla) yolu: $26+0=26$. İleri hesapta birden fazla yol birleştiğinde EN BÜYÜK değer alınır: $\\max(22,26)=26$. 22 gün sadece 3-6 yolunu dikkate alır ve maksimum alma kuralını uygulamaz.",
+    "en": "Path 3-6: $18+4=22$; dummy path 5-6: $26+0=26$. When multiple paths converge in the forward pass, the LARGEST value is taken: $\\max(22,26)=26$. \"22 days\" only considers the 3-6 path and fails to apply the maximum rule."
+   }
+  },
+  {
+   "id": "q28",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde son düğüm olan düğüm 8'in erken bitimi 51'dir. Geri hesap kuralına göre düğüm 8'in geç bitimi (G₈) kaçtır?",
+    "en": "In the example CPM network, node 8 (the last node) has an earliest finish of 51. By the backward-pass rule, what is node 8's latest finish (G₈)?"
+   },
+   "options": [
+    {
+     "tr": "0",
+     "en": "0"
+    },
+    {
+     "tr": "Proje süresinin yarısı",
+     "en": "Half the project duration"
+    },
+    {
+     "tr": "Hesaplanamaz, veri eksik",
+     "en": "Cannot be computed, data missing"
+    },
+    {
+     "tr": "51 (erken bitimle eşit)",
+     "en": "51 (equal to the earliest finish)"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Geri hesap kuralı: son düğümün erken bitimi ile geç bitimi eşit kabul edilir. Bu yüzden G₈=E₈=51. Diğer seçenekler kuralı ya çarpıtıyor ya da anlamsız bir varsayım (yarı süre) uyduruyor.",
+    "en": "Backward-pass rule: the last node's earliest finish and latest finish are taken as equal. So G₈=E₈=51. The other options either distort the rule or invent a meaningless assumption (half the duration)."
+   }
+  },
+  {
+   "id": "q29",
+   "type": "open",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde düğüm 7'nin erken başlama zamanını (E₇) hesaplayınız. Şebeke: 4-7 (süre 10, E₄=28), 6-7 (süre 15, E₆=26).",
+    "en": "In the example CPM network, compute node 7's earliest start (E₇). Network: 4-7 (duration 10, E₄=28), 6-7 (duration 15, E₆=26)."
+   },
+   "answer": {
+    "tr": "İki yol düğüm 7'ye gelir: 4-7 yolu $E_4+10=28+10=38$; 6-7 yolu $E_6+15=26+15=41$. İleri hesapta birden fazla yol birleştiğinde en büyük değer alınır: $E_7=\\max(38,41)=41$ gün.",
+    "en": "Two paths arrive at node 7: via 4-7, $E_4+10=28+10=38$; via 6-7, $E_6+15=26+15=41$. In the forward pass, when multiple paths converge, the largest value is taken: $E_7=\\max(38,41)=41$ days."
+   }
+  },
+  {
+   "id": "q30",
+   "type": "open",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde düğüm 2'nin geç başlama zamanını (G₂) hesaplayınız. Şebeke: 2-3 (süre 10, G₃=22), 2-4 (süre 20, G₄=31), 2-5 (süre 18, G₅=26).",
+    "en": "In the example CPM network, compute node 2's latest start (G₂). Network: 2-3 (duration 10, G₃=22), 2-4 (duration 20, G₄=31), 2-5 (duration 18, G₅=26)."
+   },
+   "answer": {
+    "tr": "Düğüm 2'den üç yol çıkar: 2-3 yolu $G_3-10=22-10=12$; 2-4 yolu $G_4-20=31-20=11$; 2-5 yolu $G_5-18=26-18=8$. Geri hesapta birden fazla yol çıktığında en küçük değer alınır: $G_2=\\min(12,11,8)=8$ gün.",
+    "en": "Three paths leave node 2: via 2-3, $G_3-10=22-10=12$; via 2-4, $G_4-20=31-20=11$; via 2-5, $G_5-18=26-18=8$. In the backward pass, when multiple paths leave a node, the smallest value is taken: $G_2=\\min(12,11,8)=8$ days."
+   }
+  },
+  {
+   "id": "q31",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Kritik yol tanımı hangisidir?",
+    "en": "Which is the definition of the critical path?"
+   },
+   "options": [
+    {
+     "tr": "Projenin en pahalı faaliyetlerinin oluşturduğu zincir",
+     "en": "The chain formed by the project's most expensive activities"
+    },
+    {
+     "tr": "Projenin başından sonuna kadar devam eden faaliyet zincirlerinden en uzun süreli olanı",
+     "en": "The longest of the activity chains running from the project's start to its end"
+    },
+    {
+     "tr": "En fazla bolluğa sahip faaliyetlerin oluşturduğu zincir",
+     "en": "The chain formed by the activities with the most float"
+    },
+    {
+     "tr": "Projenin başından sonuna kadar devam eden en kısa süreli zincir",
+     "en": "The shortest chain running from the project's start to its end"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Kritik yol, en uzun süreli faaliyet zinciridir ve proje süresini belirler. Maliyet kritik yolun tanımıyla ilgisizdir; \"en fazla bolluğa sahip faaliyetler\" mantığı tersine çevirir (kritik faaliyetlerin bolluğu sıfırdır, yani EN AZ olandır); en kısa zincir tam tersi bir tanımdır.",
+    "en": "The critical path is the longest activity chain and determines the project duration. Cost is unrelated to the critical path's definition; \"activities with the most float\" reverses the logic (critical activities have zero float, i.e. the LEAST); the shortest chain is the opposite definition."
+   }
+  },
+  {
+   "id": "q32",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek CPM şebekesinde 5 olası yoldan hangisi kritik yoldur? (Yollar: 47, 51, 31, 48, 45 gün)",
+    "en": "In the example CPM network, which of the 5 possible paths is the critical path? (Paths: 47, 51, 31, 48, 45 days)"
+   },
+   "options": [
+    {
+     "tr": "47 günlük yol (1-2,2-3,3-6,6-7,7-8)",
+     "en": "The 47-day path (1-2,2-3,3-6,6-7,7-8)"
+    },
+    {
+     "tr": "31 günlük yol (1-2,2-5,5-8)",
+     "en": "The 31-day path (1-2,2-5,5-8)"
+    },
+    {
+     "tr": "Hepsi eşit derecede kritiktir",
+     "en": "All are equally critical"
+    },
+    {
+     "tr": "51 günlük yol (1-2,2-5,5-6,6-7,7-8)",
+     "en": "The 51-day path (1-2,2-5,5-6,6-7,7-8)"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Kritik yol en uzun süreli yoldur; 51 gün diğer dördünden (47, 31, 48, 45) daha uzundur, dolayısıyla kritik yol budur ve proje süresini (51 gün) belirler. 47 günlük yol ikinci en uzun yoldur ama kritik değildir; 31 günlük yol en kısasıdır; \"hepsi eşit\" yanlıştır çünkü süreler birbirinden farklıdır.",
+    "en": "The critical path is the longest path; 51 days is longer than the other four (47, 31, 48, 45), so it is the critical path and determines the project duration (51 days). The 47-day path is the second-longest but not critical; the 31-day path is the shortest; \"all equal\" is wrong since the durations differ."
+   }
+  },
+  {
+   "id": "q33",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir faaliyetin kritik olması için gereken iki koşuldan biri hangisidir?",
+    "en": "Which is one of the two conditions required for an activity to be critical?"
+   },
+   "options": [
+    {
+     "tr": "Süresinin diğer tüm faaliyetlerden uzun olması",
+     "en": "Its duration must be longer than all other activities"
+    },
+    {
+     "tr": "Maliyetinin en yüksek olması",
+     "en": "Its cost must be the highest"
+    },
+    {
+     "tr": "Toplam bolluğunun sıfır olması",
+     "en": "Its total float must be zero"
+    },
+    {
+     "tr": "Şebekede ilk sırada yer alması",
+     "en": "It must be the first activity in the network"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "İki koşuldan biri: faaliyetin en geç tamamlanma zamanından süresi çıkarıldığında fark en erken başlama zamanına eşit olmalı — bu, toplam bolluğun (TB) sıfır olması demektir. Süre uzunluğu, maliyet ve şebekedeki sıra, kritik olma koşullarıyla ilgisizdir.",
+    "en": "One of the two conditions: subtracting the activity's duration from its latest finish must equal its earliest start — this means total float (TB) is zero. Duration length, cost, and position in the network are unrelated to the criticality conditions."
+   }
+  },
+  {
+   "id": "q34",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Toplam bolluk (TB) formülü hangisidir?",
+    "en": "Which is the formula for total float (TB)?"
+   },
+   "options": [
+    {
+     "tr": "$G_j-(E_i+S)$",
+     "en": "$G_j-(E_i+S)$"
+    },
+    {
+     "tr": "$E_j-(E_i+S)$",
+     "en": "$E_j-(E_i+S)$"
+    },
+    {
+     "tr": "$G_j-(G_i+S)$",
+     "en": "$G_j-(G_i+S)$"
+    },
+    {
+     "tr": "$E_j-(G_i+S)$",
+     "en": "$E_j-(G_i+S)$"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Toplam bolluk $TB=G_j-(E_i+S)$'dir — faaliyeti proje süresini etkilemeden geciktirme payıdır. İkinci formül serbest bolluk (SB), üçüncüsü ara bolluk (AB), dördüncüsü bağımsız bolluktur (BB); dördü de farklı bolluk türlerine karşılık gelir, karıştırılmamalıdır.",
+    "en": "Total float is $TB=G_j-(E_i+S)$ — the slack for delaying an activity without affecting project duration. The second formula is free float (SB), the third is interfering float (AB), the fourth is independent float (BB); each corresponds to a different float type and must not be confused."
+   }
+  },
+  {
+   "id": "q35",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek şebekede 3-4 faaliyeti için S=7, Eᵢ=18, Eⱼ=28, Gᵢ=22, Gⱼ=31'dir. Toplam bolluk (TB) kaçtır?",
+    "en": "In the example network, activity 3-4 has S=7, Eᵢ=18, Eⱼ=28, Gᵢ=22, Gⱼ=31. What is its total float (TB)?"
+   },
+   "options": [
+    {
+     "tr": "3",
+     "en": "3"
+    },
+    {
+     "tr": "2",
+     "en": "2"
+    },
+    {
+     "tr": "0 (kritik)",
+     "en": "0 (critical)"
+    },
+    {
+     "tr": "6",
+     "en": "6"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "$TB=G_j-(E_i+S)=31-(18+7)=31-25=6$. Bu faaliyet kritik değildir (TB≠0). 3 değeri serbest bolluğa (SB=28-25=3) karşılık gelir; 2 değeri ara bolluğa (AB=31-29=2) karşılık gelir; \"0 kritik\" yanlış çünkü hesap açıkça sıfırdan farklı çıkıyor.",
+    "en": "$TB=G_j-(E_i+S)=31-(18+7)=31-25=6$. This activity is not critical (TB≠0). The value 3 corresponds to free float (SB=28-25=3); the value 2 corresponds to interfering float (AB=31-29=2); \"0, critical\" is wrong since the calculation clearly comes out nonzero."
+   }
+  },
+  {
+   "id": "q36",
+   "type": "open",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Örnek şebekede 3-4 faaliyeti için (S=7, Eᵢ=18, Eⱼ=28, Gᵢ=22, Gⱼ=31) dört bolluk türünü de hesaplayınız.",
+    "en": "For activity 3-4 in the example network (S=7, Eᵢ=18, Eⱼ=28, Gᵢ=22, Gⱼ=31), compute all four float types."
+   },
+   "answer": {
+    "tr": "**Toplam bolluk:** $TB=G_j-(E_i+S)=31-(18+7)=6$. **Serbest bolluk:** $SB=E_j-(E_i+S)=28-(18+7)=3$. **Ara bolluk:** $AB=G_j-(G_i+S)=31-(22+7)=2$. **Bağımsız bolluk:** $BB=E_j-(G_i+S)=28-(22+7)=-1$, negatif çıktığı için **0** kabul edilir. Faaliyet kritik değildir çünkü TB≠0.",
+    "en": "**Total float:** $TB=G_j-(E_i+S)=31-(18+7)=6$. **Free float:** $SB=E_j-(E_i+S)=28-(18+7)=3$. **Interfering float:** $AB=G_j-(G_i+S)=31-(22+7)=2$. **Independent float:** $BB=E_j-(G_i+S)=28-(22+7)=-1$, and since it is negative it is taken as **0**. The activity is not critical because TB≠0."
+   }
+  },
+  {
+   "id": "q37",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Düğüm bolluğu nasıl tanımlanır?",
+    "en": "How is node float defined?"
+   },
+   "options": [
+    {
+     "tr": "Bir düğümdeki faaliyet sayısı",
+     "en": "The number of activities at a node"
+    },
+    {
+     "tr": "Bir düğümün proje başlangıcına olan uzaklığı",
+     "en": "A node's distance from the project start"
+    },
+    {
+     "tr": "Bir düğümün erken ve geç başlama zamanları arasındaki fark",
+     "en": "The difference between a node's earliest and latest start times"
+    },
+    {
+     "tr": "Bir düğümün kritik yol üzerinde olup olmadığı",
+     "en": "Whether or not a node lies on the critical path"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Düğüm bolluğu, Gᵢ-Eᵢ farkıdır. Faaliyet sayısı ve proje başlangıcına uzaklık farklı kavramlardır; kritik yol üzerinde olma/olmama bir evet/hayır durumudur, sayısal bir bolluk değeri değildir (ama düğüm bolluğu sıfırsa düğüm kritik yol üzerindedir).",
+    "en": "Node float is the difference Gᵢ-Eᵢ. Activity count and distance from project start are different concepts; being on/off the critical path is a yes/no state, not a numeric float value (though a node with zero float does lie on the critical path)."
+   }
+  },
+  {
+   "id": "q38",
+   "type": "mcq",
+   "covers": [
+    "n10"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "PERT'te kullanılan üç süre tahmini hangileridir?",
+    "en": "What are the three time estimates used in PERT?"
+   },
+   "options": [
+    {
+     "tr": "Minimum, ortalama, maksimum kaynak",
+     "en": "Minimum, average, maximum resource"
+    },
+    {
+     "tr": "Planlanan, gerçekleşen, tahmini süre",
+     "en": "Planned, actual, estimated duration"
+    },
+    {
+     "tr": "Erken, normal, geç başlama",
+     "en": "Early, normal, late start"
+    },
+    {
+     "tr": "İyimser (a), en olası (m), kötümser (b)",
+     "en": "Optimistic (a), most likely (m), pessimistic (b)"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "PERT üç süre tahmini kullanır: a (iyimser), m (en olası), b (kötümser). Diğer seçenekler farklı planlama kavramlarını (kaynak seviyeleri, Gantt'ın P/G ayrımı, CPM'in erken/geç başlama zamanları) PERT'in üç-nokta tahminiyle karıştırıyor.",
+    "en": "PERT uses three time estimates: a (optimistic), m (most likely), b (pessimistic). The other options confuse different planning concepts (resource levels, Gantt's planned/actual split, CPM's early/late start times) with PERT's three-point estimate."
+   }
+  },
+  {
+   "id": "q39",
+   "type": "mcq",
+   "covers": [
+    "n10"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "PERT'te beklenen süre (tₑ) formülü hangisidir?",
+    "en": "Which is the PERT expected-duration (tₑ) formula?"
+   },
+   "options": [
+    {
+     "tr": "$t_e=(a+m+b)/3$",
+     "en": "$t_e=(a+m+b)/3$"
+    },
+    {
+     "tr": "$t_e=(a+b)/2$",
+     "en": "$t_e=(a+b)/2$"
+    },
+    {
+     "tr": "$t_e=4m/6$",
+     "en": "$t_e=4m/6$"
+    },
+    {
+     "tr": "$t_e=(a+4m+b)/6$",
+     "en": "$t_e=(a+4m+b)/6$"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Doğru formül $t_e=(a+4m+b)/6$'dır — en olası değere (m) 4 kat ağırlık veren ağırlıklı ortalamadır. Basit ortalama $(a+m+b)/3$ ağırlıklandırmayı atlar; $(a+b)/2$ en olası değeri (m) hiç kullanmaz; $4m/6$ ise a ve b'yi tamamen görmezden gelir.",
+    "en": "The correct formula is $t_e=(a+4m+b)/6$ — a weighted average that gives 4x weight to the most-likely value (m). The plain average $(a+m+b)/3$ skips the weighting; $(a+b)/2$ never uses m at all; $4m/6$ ignores a and b completely."
+   }
+  },
+  {
+   "id": "q40",
+   "type": "mcq",
+   "covers": [
+    "n10"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "PERT'te varyans formülü hangisidir?",
+    "en": "Which is the PERT variance formula?"
+   },
+   "options": [
+    {
+     "tr": "$\\sigma^2=((b-a)/6)^2$",
+     "en": "$\\sigma^2=((b-a)/6)^2$"
+    },
+    {
+     "tr": "$\\sigma^2=(a+4m+b)/6$",
+     "en": "$\\sigma^2=(a+4m+b)/6$"
+    },
+    {
+     "tr": "$\\sigma^2=(b-a)/6$",
+     "en": "$\\sigma^2=(b-a)/6$"
+    },
+    {
+     "tr": "$\\sigma^2=((b+a)/6)^2$",
+     "en": "$\\sigma^2=((b+a)/6)^2$"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Varyans $\\sigma^2=((b-a)/6)^2$'dir — kötümser ile iyimser arasındaki farkın karesi orantılıdır. İkinci seçenek tₑ formülüyle karışmıştır; üçüncüsü karesini almayı unutur (bu aslında standart sapmaya yakın ama karesiz); dördüncüsü fark yerine toplam kullanır.",
+    "en": "Variance is $\\sigma^2=((b-a)/6)^2$ — proportional to the square of the gap between pessimistic and optimistic. The second option is confused with the tₑ formula; the third forgets to square (this is closer to standard deviation but without squaring); the fourth uses a sum instead of a difference."
+   }
+  },
+  {
+   "id": "q41",
+   "type": "open",
+   "covers": [
+    "n10"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir faaliyet için a=3 gün, m=5 gün, b=7 gün veriliyor. Beklenen süreyi (tₑ) ve varyansı hesaplayınız.",
+    "en": "For an activity, a=3 days, m=5 days, b=7 days. Compute the expected duration (tₑ) and variance."
+   },
+   "answer": {
+    "tr": "$t_e=\\dfrac{a+4m+b}{6}=\\dfrac{3+4(5)+7}{6}=\\dfrac{30}{6}=5$ gün. $\\sigma^2=\\left(\\dfrac{b-a}{6}\\right)^2=\\left(\\dfrac{7-3}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2\\approx0{,}44$.",
+    "en": "$t_e=\\dfrac{a+4m+b}{6}=\\dfrac{3+4(5)+7}{6}=\\dfrac{30}{6}=5$ days. $\\sigma^2=\\left(\\dfrac{b-a}{6}\\right)^2=\\left(\\dfrac{7-3}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2\\approx0.44$."
+   }
+  },
+  {
+   "id": "q42",
+   "type": "mcq",
+   "covers": [
+    "n10"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "İki faaliyet aynı en olası (m) değerine sahip ama biri a-b arasında çok geniş, diğeri çok dar bir aralığa sahip. Hangi faaliyetin varyansı daha büyüktür?",
+    "en": "Two activities share the same most-likely (m) value, but one has a much wider a-b range than the other. Which activity has the larger variance?"
+   },
+   "options": [
+    {
+     "tr": "a-b aralığı dar olan",
+     "en": "The one with the narrower a-b range"
+    },
+    {
+     "tr": "İkisi de eşittir, çünkü m aynıdır",
+     "en": "Both are equal, since m is the same"
+    },
+    {
+     "tr": "a-b aralığı geniş olan",
+     "en": "The one with the wider a-b range"
+    },
+    {
+     "tr": "Varyans m'ye değil sadece a'ya bağlıdır",
+     "en": "Variance depends only on a, not on m"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Varyans formülü $((b-a)/6)^2$'dir — sadece b-a farkına bağlıdır, m'ye bağlı değildir. Aralık ne kadar genişse (b-a büyükse) varyans o kadar büyüktür, yani belirsizlik fazladır. \"İkisi eşit\" m'nin varyansı belirlediğini varsayar (yanlış); \"sadece a'ya bağlı\" formülü yarım okur, b'yi atlar.",
+    "en": "The variance formula is $((b-a)/6)^2$ — it depends only on the gap b-a, not on m. The wider the range (larger b-a), the larger the variance, i.e. more uncertainty. \"Both equal\" wrongly assumes m determines variance; \"only depends on a\" misreads the formula, omitting b."
+   }
+  },
+  {
+   "id": "q43",
+   "type": "mcq",
+   "covers": [
+    "n11"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Gantt ile CPM/PERT birlikte kullanıldığında tipik iş akışı hangisidir?",
+    "en": "When Gantt and CPM/PERT are used together, what is the typical workflow?"
+   },
+   "options": [
+    {
+     "tr": "Önce Gantt çizilir, ağ diyagramı hiçbir zaman kullanılmaz",
+     "en": "Gantt is drawn first, and the network diagram is never used"
+    },
+    {
+     "tr": "İkisi birbirinden tamamen bağımsız, aynı projede asla bir arada kullanılmaz",
+     "en": "The two are completely independent and never used together on the same project"
+    },
+    {
+     "tr": "Ağ diyagramı sadece maliyet hesaplamak için kullanılır, süre için kullanılmaz",
+     "en": "The network diagram is used only for cost calculation, never for duration"
+    },
+    {
+     "tr": "Önce ağ diyagramıyla mantık ve kritik yol kurulur, sonra sonuçlar Gantt'a aktarılıp takvime oturtulur",
+     "en": "First the network diagram establishes logic and the critical path, then results are transferred to Gantt and placed on a calendar"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Büyük/karmaşık projelerde önce ağ diyagramıyla bağımlılıklar ve kritik yol belirlenir, sonra bu bilgi Gantt'a aktarılarak takvimde sahada izlenir. \"Hiç kullanılmaz\" ve \"tamamen bağımsız\" ifadeleri notta anlatılan tamamlayıcılık ilişkisini reddeder; \"sadece maliyet için\" ağ diyagramının asıl amacını (süre/bağımlılık) atlar.",
+    "en": "In large/complex projects, dependencies and the critical path are established first with the network diagram, then that information is transferred to Gantt for site tracking on a calendar. \"Never used\" and \"completely independent\" reject the complementary relationship described in the notes; \"only for cost\" skips the network diagram's real purpose (duration/dependency)."
+   }
+  },
+  {
+   "id": "q44",
+   "type": "open",
+   "covers": [
+    "n11"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "CPM/PERT ile Gantt diyagramının hangi soruya cevap verdiğini karşılaştırınız.",
+    "en": "Compare which question CPM/PERT answers versus which question Gantt answers."
+   },
+   "answer": {
+    "tr": "**CPM/PERT**, \"hangi faaliyet ne zaman kritiktir, ne kadar oynatılabilir (bolluk)\" sorusuna cevap verir — yani faaliyetler arası mantıksal bağımlılığı ve projenin en dar/riskli noktalarını gösterir. **Gantt**, \"hangi faaliyet takvimde tam olarak hangi tarihte\" sorusuna cevap verir — yani bilgiyi somut bir takvime oturtup planlanan/gerçekleşen karşılaştırmasını ve nakit akışını sahada izlenebilir hale getirir. İkisi birlikte kullanılır: önce ağ diyagramıyla mantık kurulur, sonra Gantt'la takvime aktarılır.",
+    "en": "**CPM/PERT** answers \"which activity is critical when, and how much can it slip (float)\" — i.e. it shows the logical dependencies between activities and the project's tightest/riskiest points. **Gantt** answers \"which activity falls on exactly which calendar date\" — i.e. it places the information on a concrete calendar, making planned/actual comparison and cash flow trackable on site. The two are used together: the logic is built first with the network diagram, then transferred to a calendar with Gantt."
+   }
+  },
+  {
+   "id": "q45",
+   "type": "mcq",
+   "covers": [
+    "n11"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Gantt diyagramının en büyük sınırlılığı olarak notta belirtilen nedir?",
+    "en": "What is noted as Gantt's biggest limitation?"
+   },
+   "options": [
+    {
+     "tr": "Faaliyetler arası bağımlılığı açıkça göstermemesi",
+     "en": "It doesn't clearly show dependencies between activities"
+    },
+    {
+     "tr": "Hiçbir zaman maliyet göstermemesi",
+     "en": "It never shows cost"
+    },
+    {
+     "tr": "Sadece küçük projelerde kullanılabilmesi",
+     "en": "It can only be used on small projects"
+    },
+    {
+     "tr": "Elle çizilememesi, sadece bilgisayarla yapılabilmesi",
+     "en": "It cannot be drawn by hand, only by computer"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Gantt'ın en büyük eksiği, çok faaliyetli işlerde karışabilen, faaliyetler arası bağımlılığı açıkça göstermeyen yapısıdır. Maliyet göstermeme iddiası yanlıştır (nakit akış grafiği tam bunun için var); proje büyüklüğü ve elle çizim kısıtlaması kaynaklarda geçmez.",
+    "en": "Gantt's biggest weakness is that it doesn't clearly show dependencies between activities, which can get confusing on jobs with many activities. The claim that it never shows cost is wrong (the cash-flow chart exists for exactly this); no restriction on project size or hand-drawing appears in the sources."
+   }
+  },
+  {
+   "id": "q46",
+   "type": "mcq",
+   "covers": [
+    "n11"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir CPM ağ diyagramı hazırlandıktan sonra, aynı ağ ve faaliyet süreleri kaynak planlamasında nasıl kullanılır?",
+    "en": "Once a CPM network diagram is prepared, how are the same network and activity durations used in resource planning?"
+   },
+   "options": [
+    {
+     "tr": "Her faaliyetin işçilik/makine/malzeme miktarları süreleriyle çarpılıp birim fiyatlarla toplanarak toplam kaynak/maliyet bulunur",
+     "en": "Each activity's labor/machinery/material quantities are multiplied by its duration and summed with unit prices to get the total resource/cost"
+    },
+    {
+     "tr": "Ağ diyagramı yalnızca süre bulmak içindir, kaynak/maliyetle hiçbir ilişkisi yoktur",
+     "en": "The network diagram is only for finding durations and has no relation to resources/cost"
+    },
+    {
+     "tr": "Kaynaklar sadece kritik yol üzerindeki faaliyetler için hesaplanır, diğerleri yok sayılır",
+     "en": "Resources are computed only for activities on the critical path; the others are ignored"
+    },
+    {
+     "tr": "Maliyet, faaliyet sürelerinden bağımsız olarak yalnızca toplam proje süresine bakılarak bulunur",
+     "en": "Cost is found by looking only at the total project duration, independent of activity durations"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Ders slaytındaki kaynak planlaması tablosunda, ağdaki her faaliyetin (1-2, 2-3, ... 7-8) gerektirdiği işçilik/makine/malzeme miktarları faaliyet süreleriyle çarpılıp birim fiyatlarla toplanarak projenin toplam kaynak/maliyet tutarı bulunur — yani ağ, hem Gantt takvimi hem de kaynak/maliyet planlaması için ortak veri kaynağıdır. \"Hiçbir ilişkisi yoktur\" bu bağı reddeder; kaynaklar tüm faaliyetler için hesaplanır (sadece kritik yol değil); maliyet faaliyet sürelerine doğrudan bağlıdır.",
+    "en": "In the course-slide resource-planning table, each network activity's (1-2, 2-3, ... 7-8) required labor/machinery/material quantities are multiplied by the activity durations and summed with unit prices to get the project's total resource/cost — so the network is the shared data source for both the Gantt calendar and resource/cost planning. \"No relation\" denies this link; resources are computed for all activities (not just the critical path); cost depends directly on activity durations."
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "10-1",
+   "code": "Uygulama 10.1",
+   "title": {
+    "tr": "Tam CPM tablosu: ES/EF, LS/LF ve bolluklar",
+    "en": "Full CPM table: ES/EF, LS/LF, and floats"
+   },
+   "difficulty": 3,
+   "examLikelihood": "high",
+   "statement": {
+    "tr": "Aşağıdaki ok şebekesi (ders slaytındaki örnek) 8 düğüm ve 11 faaliyetten oluşuyor (5-6 kukla faaliyettir, süresi 0). Süreler gün cinsindendir: 1-2=8, 2-3=10, 2-4=20, 2-5=18, 3-4=7, 3-6=4, 5-6=0 (kukla), 4-7=10, 6-7=15, 5-8=5, 7-8=10. Her faaliyet için erken başlama (ES), erken bitiş (EF), geç başlama (LS), geç bitiş (LF), toplam bolluk (TB) ve serbest bolluk (SB) değerlerini hesaplayınız; kritik yolu belirleyiniz ve proje süresini bulunuz.",
+    "en": "The arrow network below (the course-slide example) has 8 nodes and 11 activities (5-6 is a dummy activity with duration 0). Durations in days: 1-2=8, 2-3=10, 2-4=20, 2-5=18, 3-4=7, 3-6=4, 5-6=0 (dummy), 4-7=10, 6-7=15, 5-8=5, 7-8=10. Compute each activity's earliest start (ES), earliest finish (EF), latest start (LS), latest finish (LF), total float (TB), and free float (SB); identify the critical path and find the project duration."
+   },
+   "given": [
+    {
+     "symbol": "S_{1-2}",
+     "value": "8",
+     "label": {
+      "tr": "1-2 faaliyet süresi (gün)",
+      "en": "Duration of activity 1-2 (days)"
+     }
+    },
+    {
+     "symbol": "S_{2-3},S_{2-4},S_{2-5}",
+     "value": "10,\\ 20,\\ 18",
+     "label": {
+      "tr": "Düğüm 2'den çıkan faaliyet süreleri",
+      "en": "Durations of activities leaving node 2"
+     }
+    },
+    {
+     "symbol": "S_{3-4},S_{3-6}",
+     "value": "7,\\ 4",
+     "label": {
+      "tr": "Düğüm 3'ten çıkan faaliyet süreleri",
+      "en": "Durations of activities leaving node 3"
+     }
+    },
+    {
+     "symbol": "S_{5-6}",
+     "value": "0\\ (\\text{kukla})",
+     "label": {
+      "tr": "5-6 kukla faaliyet süresi",
+      "en": "Duration of dummy activity 5-6"
+     }
+    },
+    {
+     "symbol": "S_{4-7},S_{6-7},S_{5-8},S_{7-8}",
+     "value": "10,\\ 15,\\ 5,\\ 10",
+     "label": {
+      "tr": "Kalan faaliyet süreleri",
+      "en": "Remaining activity durations"
+     }
+    }
+   ],
+   "goal": {
+    "tr": "Her faaliyetin ES/EF/LS/LF/TB/SB değerlerini, kritik yolu ve toplam proje süresini bulmak.",
+    "en": "Find each activity's ES/EF/LS/LF/TB/SB, the critical path, and the total project duration."
+   },
+   "steps": [
+    {
+     "title": {
+      "tr": "İleri hesap (ES/EF): düğüm erken zamanlarını bul",
+      "en": "Forward pass (ES/EF): find node earliest times"
+     },
+     "guiding": {
+      "tr": "Düğüm 1'den başla, E₁=0. Bir düğüme birden fazla yol geliyorsa hangi değeri alırsın?",
+      "en": "Start at node 1, E₁=0. If multiple paths arrive at a node, which value do you take?"
+     },
+     "hint": {
+      "tr": "Her sonraki düğümün E'si = önceki düğümün E'si + faaliyet süresi. Birleşme noktasında EN BÜYÜK değeri al.",
+      "en": "Each next node's E = previous node's E + activity duration. At a merge point, take the LARGEST value."
+     },
+     "work": {
+      "tr": "E₁=0.\nE₂=E₁+8=0+8=8.\nE₃=E₂+10=8+10=18.\nE₄=max(E₂+20, E₃+7)=max(28,25)=28.\nE₅=E₂+18=8+18=26.\nE₆=max(E₃+4, E₅+0)=max(22,26)=26.\nE₇=max(E₄+10, E₆+15)=max(38,41)=41.\nE₈=max(E₇+10, E₅+5)=max(51,31)=51.",
+      "en": "E₁=0.\nE₂=E₁+8=0+8=8.\nE₃=E₂+10=8+10=18.\nE₄=max(E₂+20, E₃+7)=max(28,25)=28.\nE₅=E₂+18=8+18=26.\nE₆=max(E₃+4, E₅+0)=max(22,26)=26.\nE₇=max(E₄+10, E₆+15)=max(38,41)=41.\nE₈=max(E₇+10, E₅+5)=max(51,31)=51."
+     },
+     "why": {
+      "tr": "İleri hesap, projeyi baştan sona tarayarak her düğüme \"en erken ne zaman varılabileceğini\" bulur. Birleşme noktalarında en büyük değeri almak zorunludur çünkü bir düğüm, ona gelen TÜM faaliyetler bitmeden başlayamaz — en yavaş yol belirleyicidir.",
+      "en": "The forward pass scans the project start-to-finish to find the earliest each node can be reached. Taking the largest value at merge points is mandatory because a node cannot start until ALL activities feeding it have finished — the slowest path governs."
+     },
+     "result": "E = (0, 8, 18, 28, 26, 26, 41, 51)",
+     "check": {
+      "q": {
+       "tr": "Düğüm 6'ya iki yol gelir: 3-6 (18+4=22) ve 5-6 kukla (26+0=26). E₆ kaçtır?",
+       "en": "Two paths arrive at node 6: 3-6 (18+4=22) and dummy 5-6 (26+0=26). What is E₆?"
+      },
+      "options": [
+       {
+        "tr": "22",
+        "en": "22"
+       },
+       {
+        "tr": "26",
+        "en": "26"
+       },
+       {
+        "tr": "48",
+        "en": "48"
+       }
+      ],
+      "correct": 1,
+      "explain": {
+       "tr": "İleri hesapta birleşme noktasında en büyük değer alınır: max(22,26)=26.",
+       "en": "At a merge point in the forward pass, the largest value is taken: max(22,26)=26."
+      }
+     }
+    },
+    {
+     "title": {
+      "tr": "Geri hesap (LS/LF): düğüm geç zamanlarını bul",
+      "en": "Backward pass (LS/LF): find node latest times"
+     },
+     "guiding": {
+      "tr": "Son düğümün geç bitimi neye eşittir? Bir düğümden birden fazla yol çıkıyorsa hangi değeri alırsın?",
+      "en": "What does the last node's latest finish equal? If multiple paths leave a node, which value do you take?"
+     },
+     "hint": {
+      "tr": "G₈=E₈. Her önceki düğümün G'si = sonraki düğümün G'si − faaliyet süresi. Ayrışma noktasında EN KÜÇÜK değeri al.",
+      "en": "G₈=E₈. Each previous node's G = next node's G − activity duration. At a diverging point, take the SMALLEST value."
+     },
+     "work": {
+      "tr": "G₈=E₈=51.\nG₇=G₈-10=51-10=41.\nG₆=G₇-15=41-15=26.\nG₅=min(G₆-0, G₈-5)=min(26,46)=26.\nG₄=G₇-10=41-10=31.\nG₃=min(G₆-4, G₄-7)=min(22,24)=22.\nG₂=min(G₃-10, G₄-20, G₅-18)=min(12,11,8)=8.\nG₁=G₂-8=8-8=0.",
+      "en": "G₈=E₈=51.\nG₇=G₈-10=51-10=41.\nG₆=G₇-15=41-15=26.\nG₅=min(G₆-0, G₈-5)=min(26,46)=26.\nG₄=G₇-10=41-10=31.\nG₃=min(G₆-4, G₄-7)=min(22,24)=22.\nG₂=min(G₃-10, G₄-20, G₅-18)=min(12,11,8)=8.\nG₁=G₂-8=8-8=0."
+     },
+     "why": {
+      "tr": "Geri hesap, projeyi sondan başa tarayarak her düğüme \"en geç ne zaman varılabileceğini\" (proje süresi sabit kalacaksa) bulur. Ayrışma noktalarında en küçük değeri almak zorunludur çünkü düğüm, ondan çıkan HİÇBİR faaliyeti geciktirmeyecek şekilde en geç başlamalıdır — en sıkı kısıt belirleyicidir.",
+      "en": "The backward pass scans end-to-start to find how late each node can be reached (while keeping the project duration fixed). Taking the smallest value at diverging points is mandatory because the node must start no later than allows ALL activities leaving it — the tightest constraint governs."
+     },
+     "result": "G = (0, 8, 22, 31, 26, 26, 41, 51)",
+     "check": {
+      "q": {
+       "tr": "Düğüm 2'den üç yol çıkar: G₃-10=12, G₄-20=11, G₅-18=8. G₂ kaçtır?",
+       "en": "Three paths leave node 2: G₃-10=12, G₄-20=11, G₅-18=8. What is G₂?"
+      },
+      "options": [
+       {
+        "tr": "12",
+        "en": "12"
+       },
+       {
+        "tr": "11",
+        "en": "11"
+       },
+       {
+        "tr": "8",
+        "en": "8"
+       }
+      ],
+      "correct": 2,
+      "explain": {
+       "tr": "Geri hesapta ayrışma noktasında en küçük değer alınır: min(12,11,8)=8.",
+       "en": "At a diverging point in the backward pass, the smallest value is taken: min(12,11,8)=8."
+      }
+     }
+    },
+    {
+     "title": {
+      "tr": "Her faaliyet için ES/EF/LS/LF tablosunu doldur",
+      "en": "Fill the ES/EF/LS/LF table for each activity"
+     },
+     "guiding": {
+      "tr": "Bir faaliyetin ES'i, başladığı düğümün E'sidir. LF'i, bittiği düğümün G'sidir. EF ve LS'i nasıl bulursun?",
+      "en": "An activity's ES is its start node's E. Its LF is its end node's G. How do you find EF and LS?"
+     },
+     "hint": {
+      "tr": "EF = ES + süre. LS = LF - süre.",
+      "en": "EF = ES + duration. LS = LF - duration."
+     },
+     "work": {
+      "tr": "| Faaliyet | S | ES | EF=ES+S | LF | LS=LF-S |\n|---|---|---|---|---|---|\n| 1-2 | 8 | 0 | 8 | 8 | 0 |\n| 2-3 | 10 | 8 | 18 | 22 | 12 |\n| 2-4 | 20 | 8 | 28 | 31 | 11 |\n| 2-5 | 18 | 8 | 26 | 26 | 8 |\n| 3-4 | 7 | 18 | 25 | 31 | 24 |\n| 3-6 | 4 | 18 | 22 | 26 | 22 |\n| 5-6 (kukla) | 0 | 26 | 26 | 26 | 26 |\n| 4-7 | 10 | 28 | 38 | 41 | 31 |\n| 6-7 | 15 | 26 | 41 | 41 | 26 |\n| 5-8 | 5 | 26 | 31 | 51 | 46 |\n| 7-8 | 10 | 41 | 51 | 51 | 41 |\n\nNot: EF sütunu, faaliyetin KENDİ hesabıdır (ES+S); düğümün E değeri ile karışmasın — ör. 3-4 faaliyetinin EF'i 25'tir ama düğüm 4'ün E'si 28'dir (çünkü düğüm 4'e asıl belirleyici yol 2-4'tür).",
+      "en": "| Activity | S | ES | EF=ES+S | LF | LS=LF-S |\n|---|---|---|---|---|---|\n| 1-2 | 8 | 0 | 8 | 8 | 0 |\n| 2-3 | 10 | 8 | 18 | 22 | 12 |\n| 2-4 | 20 | 8 | 28 | 31 | 11 |\n| 2-5 | 18 | 8 | 26 | 26 | 8 |\n| 3-4 | 7 | 18 | 25 | 31 | 24 |\n| 3-6 | 4 | 18 | 22 | 26 | 22 |\n| 5-6 (dummy) | 0 | 26 | 26 | 26 | 26 |\n| 4-7 | 10 | 28 | 38 | 41 | 31 |\n| 6-7 | 15 | 26 | 41 | 41 | 26 |\n| 5-8 | 5 | 26 | 31 | 51 | 46 |\n| 7-8 | 10 | 41 | 51 | 51 | 41 |\n\nNote: the EF column is the activity's OWN calculation (ES+S); don't confuse it with the node's E value — e.g. activity 3-4's EF is 25 but node 4's E is 28 (because node 4's governing path is actually 2-4)."
+     },
+     "why": {
+      "tr": "Bu adım, düğüm bazlı E/G değerlerini faaliyet bazlı ES/EF/LS/LF'e çevirir — bolluk hesabı için gereken ham veri budur. Sınavda en sık yapılan hata, düğümün E'sini doğrudan her çıkan faaliyetin ES'i sanıp EF'i de düğümün kendi E'siyle karıştırmaktır; EF her zaman o faaliyetin KENDİ ES+S'idir.",
+      "en": "This step converts node-level E/G values into activity-level ES/EF/LS/LF — the raw data floats need. The most common exam mistake is assuming a node's E is automatically every outgoing activity's ES and then confusing EF with the node's own E; EF is always that specific activity's own ES+S."
+     },
+     "result": null,
+     "check": null
+    },
+    {
+     "title": {
+      "tr": "Toplam bolluk (TB) ve serbest bolluk (SB) hesapla",
+      "en": "Compute total float (TB) and free float (SB)"
+     },
+     "guiding": {
+      "tr": "TB, LF ile EF arasındaki farktır (aynı zamanda LS-ES). SB, faaliyetin bittiği düğümün E'si ile faaliyetin EF'i arasındaki farktır.",
+      "en": "TB is the difference between LF and EF (equivalently LS-ES). SB is the difference between the finish node's E and the activity's own EF."
+     },
+     "hint": {
+      "tr": "$TB=G_j-(E_i+S)=LF-EF$. $SB=E_j-(E_i+S)=E_j-EF$ (Eⱼ = faaliyetin bittiği düğümün erken zamanı).",
+      "en": "$TB=G_j-(E_i+S)=LF-EF$. $SB=E_j-(E_i+S)=E_j-EF$ (Eⱼ = the finish node's earliest time)."
+     },
+     "work": {
+      "tr": "| Faaliyet | TB=Gⱼ-(Eᵢ+S) | SB=Eⱼ-(Eᵢ+S) | Kritik mi? |\n|---|---|---|---|\n| 1-2 | 8-(0+8)=0 | 8-(0+8)=0 | EVET |\n| 2-3 | 22-(8+10)=4 | 18-(8+10)=0 | hayır |\n| 2-4 | 31-(8+20)=3 | 28-(8+20)=0 | hayır |\n| 2-5 | 26-(8+18)=0 | 26-(8+18)=0 | EVET |\n| 3-4 | 31-(18+7)=6 | 28-(18+7)=3 | hayır |\n| 3-6 | 26-(18+4)=4 | 26-(18+4)=4 | hayır |\n| 5-6 (kukla) | 26-(26+0)=0 | 26-(26+0)=0 | EVET |\n| 4-7 | 41-(28+10)=3 | 41-(28+10)=3 | hayır |\n| 6-7 | 41-(26+15)=0 | 41-(26+15)=0 | EVET |\n| 5-8 | 51-(26+5)=20 | 51-(26+5)=20 | hayır |\n| 7-8 | 51-(41+10)=0 | 51-(41+10)=0 | EVET |\n\nTB=0 olan faaliyetler: **1-2, 2-5, 5-6 (kukla), 6-7, 7-8** — bunlar kritik faaliyetlerdir.",
+      "en": "| Activity | TB=Gⱼ-(Eᵢ+S) | SB=Eⱼ-(Eᵢ+S) | Critical? |\n|---|---|---|---|\n| 1-2 | 8-(0+8)=0 | 8-(0+8)=0 | YES |\n| 2-3 | 22-(8+10)=4 | 18-(8+10)=0 | no |\n| 2-4 | 31-(8+20)=3 | 28-(8+20)=0 | no |\n| 2-5 | 26-(8+18)=0 | 26-(8+18)=0 | YES |\n| 3-4 | 31-(18+7)=6 | 28-(18+7)=3 | no |\n| 3-6 | 26-(18+4)=4 | 26-(18+4)=4 | no |\n| 5-6 (dummy) | 26-(26+0)=0 | 26-(26+0)=0 | YES |\n| 4-7 | 41-(28+10)=3 | 41-(28+10)=3 | no |\n| 6-7 | 41-(26+15)=0 | 41-(26+15)=0 | YES |\n| 5-8 | 51-(26+5)=20 | 51-(26+5)=20 | no |\n| 7-8 | 51-(41+10)=0 | 51-(41+10)=0 | YES |\n\nActivities with TB=0: **1-2, 2-5, 5-6 (dummy), 6-7, 7-8** — these are the critical activities."
+     },
+     "why": {
+      "tr": "TB=0 kontrolü kritik faaliyetleri kesin olarak ayıklamanın en güvenilir yoludur — düğüm rakamlarının görsel olarak \"eşit görünmesine\" güvenmek yerine formülü uygulamak hataları önler. Bu ünitenin sınav sorularının çoğu bu tabloyu (kısmi ya da tam) doldurmayı ister.",
+      "en": "Checking TB=0 is the most reliable way to definitively pick out critical activities — applying the formula rather than trusting that node numbers \"look equal\" visually prevents mistakes. Most of this unit's exam questions ask you to fill in (part or all of) this table."
+     },
+     "result": "Kritik faaliyetler: 1-2, 2-5, 5-6(kukla), 6-7, 7-8",
+     "check": {
+      "q": {
+       "tr": "5-8 faaliyeti için TB=20'dir. Bu ne anlama gelir?",
+       "en": "Activity 5-8 has TB=20. What does this mean?"
+      },
+      "options": [
+       {
+        "tr": "Kritik bir faaliyettir, hiç gecikemez",
+        "en": "It is a critical activity, cannot be delayed at all"
+       },
+       {
+        "tr": "Proje süresini etkilemeden 20 gün geciktirilebilir",
+        "en": "It can be delayed by 20 days without affecting project duration"
+       },
+       {
+        "tr": "Faaliyetin süresi hatalı hesaplanmıştır",
+        "en": "The activity's duration was calculated incorrectly"
+       }
+      ],
+      "correct": 1,
+      "explain": {
+       "tr": "TB=20, faaliyetin proje süresini etkilemeden 20 güne kadar geciktirilebileceği (ya da uzayabileceği) anlamına gelir — kritik olmadığını gösterir (TB≠0).",
+       "en": "TB=20 means the activity can be delayed (or run long) by up to 20 days without affecting the project duration — it shows the activity is not critical (TB≠0)."
+      }
+     }
+    }
+   ],
+   "finalAnswer": {
+    "tr": "**Proje süresi: 51 gün.** **Kritik yol:** 1-2 → 2-5 → 5-6 (kukla) → 6-7 → 7-8 (8+18+0+15+10=51 gün). Bu 5 faaliyetin toplam bolluğu (TB) sıfırdır; diğer 6 faaliyet (2-3, 2-4, 3-4, 3-6, 4-7, 5-8) çeşitli miktarlarda bolluğa sahiptir ve kritik değildir.",
+    "en": "**Project duration: 51 days.** **Critical path:** 1-2 → 2-5 → 5-6 (dummy) → 6-7 → 7-8 (8+18+0+15+10=51 days). These 5 activities have zero total float (TB); the other 6 activities (2-3, 2-4, 3-4, 3-6, 4-7, 5-8) have varying amounts of float and are not critical."
+   },
+   "traps": [
+    {
+     "tr": "Düğümün E değerini, ondan çıkan HER faaliyetin EF'i sanmak. EF her zaman o faaliyetin kendi ES+S'idir — düğüme birden fazla yol geldiyse E, gelen yolların en büyüğüdür ama giden faaliyetlerin EF'i kendi hesabına göre değişir.",
+     "en": "Thinking a node's E is automatically the EF of EVERY activity leaving it. EF is always that specific activity's own ES+S — if multiple paths arrive at a node, E is the largest of the incoming paths, but outgoing activities' EF varies by their own calculation."
+    },
+    {
+     "tr": "İleri hesapta minimum, geri hesapta maksimum almak — tam tersidir: ileri hesapta MAKSİMUM, geri hesapta MİNİMUM alınır.",
+     "en": "Taking the minimum in the forward pass and maximum in the backward pass — it's the opposite: MAXIMUM in the forward pass, MINIMUM in the backward pass."
+    },
+    {
+     "tr": "Kukla faaliyeti (süre=0) hesaplardan atlamak. Kukla faaliyet süre/maliyet taşımaz ama ES/EF/LS/LF hesabına dahil edilmelidir — kritik yolun bir parçası olabilir (bu örnekte 5-6 kuklası kritiktir).",
+     "en": "Skipping the dummy activity (duration=0) from the calculations. A dummy carries no duration/cost but must still be included in the ES/EF/LS/LF calculation — it can be part of the critical path (in this example, dummy 5-6 is critical)."
+    }
+   ],
+   "whatIfs": [
+    {
+     "scenario": {
+      "tr": "Ya 2-4 faaliyetinin süresi 20'den 25 güne çıksaydı?",
+      "en": "What if activity 2-4's duration increased from 20 to 25 days?"
+     },
+     "answer": {
+      "tr": "E₄=max(E₂+25, E₃+7)=max(33,25)=33 olurdu (önceki 28'den artar). Bu, düğüm 4'ten sonraki tüm E değerlerini de artırabilir: E₇=max(E₄+10,E₆+15)=max(43,41)=43>41, yani E₇ ve E₈ de değişir (E₈=max(43+10,31)=53). Proje süresi 51'den 53 güne çıkar ve kritik yol 1-2,2-4,4-7,7-8 üzerinden geçen yeni bir yol olabilir — bu, TB=3 olan (kritiğe yakın) bir faaliyetin süre artışının projeyi doğrudan etkileyebileceğini gösterir.",
+      "en": "E₄=max(E₂+25, E₃+7)=max(33,25)=33 (up from 28). This can raise all downstream E values: E₇=max(E₄+10,E₆+15)=max(43,41)=43>41, so E₇ and E₈ change too (E₈=max(43+10,31)=53). Project duration rises from 51 to 53 days and the critical path may shift to run through 1-2,2-4,4-7,7-8 — showing that a near-critical activity (TB=3) can directly affect the project when its duration grows."
+     }
+    },
+    {
+     "scenario": {
+      "tr": "Ya 5-8 faaliyetinin süresi 5'ten 25 güne çıksaydı?",
+      "en": "What if activity 5-8's duration increased from 5 to 25 days?"
+     },
+     "answer": {
+      "tr": "Bu faaliyetin TB'si 20'ydi, yani 20 güne kadar süre artışı proje süresini etkilemez. 5→25 gün artışı tam 20 gün ekliyor — sınırda kalıyor: yeni EF=26+25=51=E₈, tam proje süresine eşitleniyor, yani faaliyet artık kritik hale gelir (TB=0). 20 günden fazla bir artış olsaydı (ör. 26 gün), proje süresini doğrudan uzatırdı.",
+      "en": "This activity's TB was 20, meaning up to 20 days of extra duration would not affect project duration. The 5→25 day increase adds exactly 20 days — right at the boundary: the new EF=26+25=51=E₈, exactly matching the project duration, so the activity becomes critical (TB=0). An increase beyond 20 days (e.g. to 26) would directly extend the project."
+     }
+    }
+   ]
+  },
+  {
+   "id": "10-2",
+   "code": "Uygulama 10.2",
+   "title": {
+    "tr": "PERT ile beklenen süre ve varyans hesabı",
+    "en": "PERT expected-duration and variance calculation"
+   },
+   "difficulty": 2,
+   "examLikelihood": "medium",
+   "statement": {
+    "tr": "Bir kaba inşaat işi sırayla üç faaliyetten oluşuyor: **Kazı, Kalıp, Beton** (her biri bir sonrakine bağlı, aralıksız). Her faaliyet için üç süre tahmini (gün) şöyle:\n\n| Faaliyet | a (iyimser) | m (en olası) | b (kötümser) |\n|---|---|---|---|\n| Kazı | 3 | 5 | 7 |\n| Kalıp | 2 | 4 | 12 |\n| Beton | 4 | 6 | 8 |\n\nHer faaliyetin PERT beklenen süresini (tₑ) ve varyansını hesaplayınız; ardından bu üç faaliyetlik yolun toplam beklenen süresini ve toplam varyansını (standart sapmasını) bulunuz.",
+    "en": "A shell-construction job consists of three sequential activities: **Excavation, Formwork, Concrete** (each depends on the previous, no gaps). Each activity's three time estimates (days):\n\n| Activity | a (optimistic) | m (most likely) | b (pessimistic) |\n|---|---|---|---|\n| Excavation | 3 | 5 | 7 |\n| Formwork | 2 | 4 | 12 |\n| Concrete | 4 | 6 | 8 |\n\nCompute each activity's PERT expected duration (tₑ) and variance; then find the total expected duration and total variance (standard deviation) of this three-activity path."
+   },
+   "given": [
+    {
+     "symbol": "a_K,m_K,b_K",
+     "value": "3,\\ 5,\\ 7",
+     "label": {
+      "tr": "Kazı için iyimser/en olası/kötümser süre (gün)",
+      "en": "Excavation's optimistic/most-likely/pessimistic duration (days)"
+     }
+    },
+    {
+     "symbol": "a_L,m_L,b_L",
+     "value": "2,\\ 4,\\ 12",
+     "label": {
+      "tr": "Kalıp için iyimser/en olası/kötümser süre (gün)",
+      "en": "Formwork's optimistic/most-likely/pessimistic duration (days)"
+     }
+    },
+    {
+     "symbol": "a_B,m_B,b_B",
+     "value": "4,\\ 6,\\ 8",
+     "label": {
+      "tr": "Beton için iyimser/en olası/kötümser süre (gün)",
+      "en": "Concrete's optimistic/most-likely/pessimistic duration (days)"
+     }
+    }
+   ],
+   "goal": {
+    "tr": "Her faaliyetin tₑ ve varyansını, yolun toplam tₑ'sini ve toplam varyansı/standart sapmasını bulmak.",
+    "en": "Find each activity's tₑ and variance, and the path's total tₑ and total variance/standard deviation."
+   },
+   "steps": [
+    {
+     "title": {
+      "tr": "Kazı için tₑ ve varyansı hesapla",
+      "en": "Compute tₑ and variance for Excavation"
+     },
+     "guiding": {
+      "tr": "tₑ formülünde en olası değere (m) kaç kat ağırlık verilir?",
+      "en": "How much weight does the most-likely value (m) get in the tₑ formula?"
+     },
+     "hint": {
+      "tr": "$t_e=(a+4m+b)/6$; $\\sigma^2=((b-a)/6)^2$.",
+      "en": "$t_e=(a+4m+b)/6$; $\\sigma^2=((b-a)/6)^2$."
+     },
+     "work": {
+      "tr": "$t_e=\\dfrac{3+4(5)+7}{6}=\\dfrac{3+20+7}{6}=\\dfrac{30}{6}=5$ gün.\n\n$\\sigma^2=\\left(\\dfrac{7-3}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2=0{,}6\\overline{6}^2\\approx0{,}444$.",
+      "en": "$t_e=\\dfrac{3+4(5)+7}{6}=\\dfrac{3+20+7}{6}=\\dfrac{30}{6}=5$ days.\n\n$\\sigma^2=\\left(\\dfrac{7-3}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2=0.6\\overline{6}^2\\approx0.444$."
+     },
+     "why": {
+      "tr": "tₑ formülü m'ye 4 kat ağırlık vererek beta dağılımının ortalamasını yaklaşık verir — bu yüzden a ve b tek başına sonucu az etkiler, m baskındır. Varyans ise sadece b-a farkına bağlıdır; a ve b birbirine yakınsa (dar aralık) varyans küçük, yani tahmine güven yüksektir.",
+      "en": "The tₑ formula approximates the beta distribution's mean by giving m 4x weight — so a and b alone barely move the result, m dominates. Variance, however, depends only on the gap b-a; if a and b are close (narrow range), variance is small, meaning high confidence in the estimate."
+     },
+     "result": "t_{e,Kazi}=5\\ \\text{gün}, \\sigma^2_{Kazi}\\approx0{,}444",
+     "check": {
+      "q": {
+       "tr": "a=3, m=5, b=7 için tₑ kaç gündür?",
+       "en": "For a=3, m=5, b=7, what is tₑ in days?"
+      },
+      "options": [
+       {
+        "tr": "5 gün",
+        "en": "5 days"
+       },
+       {
+        "tr": "5,5 gün",
+        "en": "5.5 days"
+       },
+       {
+        "tr": "4 gün",
+        "en": "4 days"
+       }
+      ],
+      "correct": 0,
+      "explain": {
+       "tr": "$(3+4(5)+7)/6=30/6=5$ gün. Basit ortalama $(3+5+7)/3=5$ de tesadüfen aynı çıkar bu örnekte, ama bu formülün doğru mantığı 4-kat ağırlıklı ortalamadır.",
+       "en": "$(3+4(5)+7)/6=30/6=5$ days. Coincidentally the plain average $(3+5+7)/3=5$ also matches here, but the formula's actual logic is the 4x-weighted average."
+      }
+     }
+    },
+    {
+     "title": {
+      "tr": "Kalıp için tₑ ve varyansı hesapla",
+      "en": "Compute tₑ and variance for Formwork"
+     },
+     "guiding": {
+      "tr": "Bu faaliyette b-a farkı (12-2=10) Kazı'dakinden (7-3=4) çok daha büyük. Bu varyansı nasıl etkiler?",
+      "en": "Here the gap b-a (12-2=10) is much larger than Excavation's (7-3=4). How does this affect variance?"
+     },
+     "hint": {
+      "tr": "Aynı formülleri uygula: $t_e=(a+4m+b)/6$, $\\sigma^2=((b-a)/6)^2$.",
+      "en": "Apply the same formulas: $t_e=(a+4m+b)/6$, $\\sigma^2=((b-a)/6)^2$."
+     },
+     "work": {
+      "tr": "$t_e=\\dfrac{2+4(4)+12}{6}=\\dfrac{2+16+12}{6}=\\dfrac{30}{6}=5$ gün.\n\n$\\sigma^2=\\left(\\dfrac{12-2}{6}\\right)^2=\\left(\\dfrac{10}{6}\\right)^2\\approx2{,}778$.",
+      "en": "$t_e=\\dfrac{2+4(4)+12}{6}=\\dfrac{2+16+12}{6}=\\dfrac{30}{6}=5$ days.\n\n$\\sigma^2=\\left(\\dfrac{12-2}{6}\\right)^2=\\left(\\dfrac{10}{6}\\right)^2\\approx2.778$."
+     },
+     "why": {
+      "tr": "İlginç nokta: Kalıp'ın tₑ'si (5 gün) Kazı'nınkiyle (5 gün) AYNI çıktı, ama varyansı (2,778) çok daha büyük — çünkü b-a farkı (10) Kazı'nınkinden (4) büyük. Bu, tₑ'nin \"ortalama beklenti\", varyansın ise \"bu beklentiye ne kadar güvenebileceğin\" olduğunu gösterir; iki farklı soru cevaplarlar.",
+      "en": "Interesting point: Formwork's tₑ (5 days) came out the SAME as Excavation's (5 days), but its variance (2.778) is much larger — because its b-a gap (10) is bigger than Excavation's (4). This shows tₑ is the \"average expectation\" while variance is \"how much you can trust that expectation\"; they answer two different questions."
+     },
+     "result": "t_{e,Kalip}=5\\ \\text{gün}, \\sigma^2_{Kalip}\\approx2{,}778",
+     "check": null
+    },
+    {
+     "title": {
+      "tr": "Beton için tₑ ve varyansı hesapla",
+      "en": "Compute tₑ and variance for Concrete"
+     },
+     "guiding": {
+      "tr": "Aynı iki formülü son kez uygula.",
+      "en": "Apply the same two formulas one last time."
+     },
+     "hint": {
+      "tr": "$t_e=(a+4m+b)/6$, $\\sigma^2=((b-a)/6)^2$.",
+      "en": "$t_e=(a+4m+b)/6$, $\\sigma^2=((b-a)/6)^2$."
+     },
+     "work": {
+      "tr": "$t_e=\\dfrac{4+4(6)+8}{6}=\\dfrac{4+24+8}{6}=\\dfrac{36}{6}=6$ gün.\n\n$\\sigma^2=\\left(\\dfrac{8-4}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2\\approx0{,}444$.",
+      "en": "$t_e=\\dfrac{4+4(6)+8}{6}=\\dfrac{4+24+8}{6}=\\dfrac{36}{6}=6$ days.\n\n$\\sigma^2=\\left(\\dfrac{8-4}{6}\\right)^2=\\left(\\dfrac{4}{6}\\right)^2\\approx0.444$."
+     },
+     "why": {
+      "tr": "Beton'un a,b aralığı (4-8, fark=4) Kazı'yla aynı genişlikte olduğu için varyansı da aynı çıktı (0,444) — bu, formülün sadece ARALIK GENİŞLİĞİNE baktığını, mutlak değerlere değil, bir kez daha doğrular.",
+      "en": "Concrete's a,b range (4-8, gap=4) is the same width as Excavation's, so its variance comes out identical (0.444) — this confirms once more that the formula only cares about the RANGE WIDTH, not the absolute values."
+     },
+     "result": "t_{e,Beton}=6\\ \\text{gün}, \\sigma^2_{Beton}\\approx0{,}444",
+     "check": null
+    },
+    {
+     "title": {
+      "tr": "Yolun toplam beklenen süresini ve toplam varyansını bul",
+      "en": "Find the path's total expected duration and total variance"
+     },
+     "guiding": {
+      "tr": "Üç faaliyet sıralı (birbirine bağlı, aralıksız). Yolun toplam süresi ve toplam belirsizliği nasıl toplanır?",
+      "en": "The three activities are sequential (dependent, no gaps). How are the path's total duration and total uncertainty combined?"
+     },
+     "hint": {
+      "tr": "Sıralı bir yolda tₑ değerleri toplanır (süreler toplanır); varyanslar da toplanır (bağımsız faaliyetler varsayımıyla); standart sapma, toplam varyansın kareköküdür.",
+      "en": "On a sequential path, tₑ values are summed (durations add up); variances are also summed (assuming independent activities); standard deviation is the square root of the total variance."
+     },
+     "work": {
+      "tr": "Toplam beklenen süre: $T_e=5+5+6=16$ gün.\n\nToplam varyans: $\\sigma^2_{toplam}=0{,}444+2{,}778+0{,}444\\approx3{,}667$.\n\nStandart sapma: $\\sigma=\\sqrt{3{,}667}\\approx1{,}91$ gün.",
+      "en": "Total expected duration: $T_e=5+5+6=16$ days.\n\nTotal variance: $\\sigma^2_{total}=0.444+2.778+0.444\\approx3.667$.\n\nStandard deviation: $\\sigma=\\sqrt{3.667}\\approx1.91$ days."
+     },
+     "why": {
+      "tr": "tₑ'lerin toplanması, sıralı faaliyetlerin sürelerinin CPM'deki gibi zincirleme eklenmesiyle aynı mantıktır. Varyansların toplanması ise istatistikte bağımsız rastgele değişkenlerin toplamının varyansının, tekil varyansların toplamına eşit olması kuralına dayanır — standart sapmalar DOĞRUDAN toplanmaz, önce varyanslar toplanır sonra kök alınır. Bu, projenin bitiş tarihindeki belirsizliği (risk) sayısallaştırmanın temelidir.",
+      "en": "Summing the tₑ values follows the same logic as chaining sequential activity durations in CPM. Summing the variances relies on the statistical rule that the variance of a sum of independent random variables equals the sum of their individual variances — standard deviations are NOT summed directly; variances are summed first, then the square root is taken. This is the basis for quantifying uncertainty (risk) in the project's finish date."
+     },
+     "result": "T_e=16\\ \\text{gün}, \\ \\sigma^2_{toplam}\\approx3{,}667, \\ \\sigma_{toplam}\\approx1{,}91\\ \\text{gün}",
+     "check": {
+      "q": {
+       "tr": "Üç faaliyetin varyansları 0,444 + 2,778 + 0,444 iken, yolun standart sapması nasıl bulunur?",
+       "en": "With variances 0.444 + 2.778 + 0.444 for the three activities, how is the path's standard deviation found?"
+      },
+      "options": [
+       {
+        "tr": "Üç standart sapmayı doğrudan toplayarak",
+        "en": "By summing the three standard deviations directly"
+       },
+       {
+        "tr": "Varyansları toplayıp sonra karekök alarak",
+        "en": "By summing the variances then taking the square root"
+       },
+       {
+        "tr": "Varyansların ortalamasını alarak",
+        "en": "By averaging the variances"
+       }
+      ],
+      "correct": 1,
+      "explain": {
+       "tr": "Doğru yöntem: önce varyanslar toplanır (3,667), sonra karekökü alınır (≈1,91 gün). Standart sapmaları doğrudan toplamak istatistiksel olarak yanlıştır; ortalama almak da toplam belirsizliği hafife alır.",
+       "en": "Correct method: variances are summed first (3.667), then the square root is taken (≈1.91 days). Directly summing standard deviations is statistically wrong; averaging also understates the total uncertainty."
+      }
+     }
+    }
+   ],
+   "finalAnswer": {
+    "tr": "Kazı: tₑ=5 gün (σ²≈0,444). Kalıp: tₑ=5 gün (σ²≈2,778). Beton: tₑ=6 gün (σ²≈0,444). **Yolun toplam beklenen süresi: 16 gün.** **Toplam varyans ≈ 3,667, standart sapma ≈ 1,91 gün** — yani gerçek süre büyük olasılıkla 16 ± ~2 gün aralığındadır.",
+    "en": "Excavation: tₑ=5 days (σ²≈0.444). Formwork: tₑ=5 days (σ²≈2.778). Concrete: tₑ=6 days (σ²≈0.444). **The path's total expected duration: 16 days.** **Total variance ≈ 3.667, standard deviation ≈ 1.91 days** — meaning the actual duration is most likely within roughly 16 ± ~2 days."
+   },
+   "traps": [
+    {
+     "tr": "tₑ formülünde m'ye ağırlık vermeyi unutup basit ortalama $(a+m+b)/3$ almak — bazı özel sayılarda (bu örnekteki Kazı gibi) tesadüfen aynı çıkabilir ama genelde FARKLI sonuç verir; doğru formül her zaman $(a+4m+b)/6$'dır.",
+     "en": "Forgetting to weight m and taking the plain average $(a+m+b)/3$ instead — for special numbers (like this example's Excavation) it can coincidentally match, but generally gives a DIFFERENT result; the correct formula is always $(a+4m+b)/6$."
+    },
+    {
+     "tr": "Standart sapmaları doğrudan toplamak. Toplanması gereken VARYANSLARDIR; standart sapma en son, toplam varyansın kareköküyle bulunur.",
+     "en": "Summing standard deviations directly. What must be summed is the VARIANCES; standard deviation comes last, as the square root of the total variance."
+    },
+    {
+     "tr": "Varyansı hesaplarken karesini almayı unutmak — formül $((b-a)/6)^2$'dir, sadece $(b-a)/6$ değil.",
+     "en": "Forgetting to square when computing variance — the formula is $((b-a)/6)^2$, not just $(b-a)/6$."
+    }
+   ],
+   "whatIfs": [
+    {
+     "scenario": {
+      "tr": "Ya Kalıp'ın kötümser süresi (b) 12'den 20'ye çıksaydı?",
+      "en": "What if Formwork's pessimistic duration (b) increased from 12 to 20?"
+     },
+     "answer": {
+      "tr": "$t_e=(2+4(4)+20)/6=(2+16+20)/6=38/6\\approx6{,}33$ gün (5'ten artar). $\\sigma^2=((20-2)/6)^2=(18/6)^2=3^2=9$ (2,778'den çok büyük artar). Bu, kötümser tahminin hem beklenen süreyi hem de belirsizliği ne kadar büyüttüğünü gösterir — riskli/belirsiz faaliyetlerde b'nin gerçekçi seçilmesi önemlidir.",
+      "en": "$t_e=(2+4(4)+20)/6=(2+16+20)/6=38/6\\approx6.33$ days (up from 5). $\\sigma^2=((20-2)/6)^2=(18/6)^2=3^2=9$ (a big jump from 2.778). This shows how much a pessimistic estimate inflates both the expected duration and the uncertainty — choosing a realistic b matters for risky/uncertain activities."
+     }
+    },
+    {
+     "scenario": {
+      "tr": "Ya üç faaliyet sıralı değil de birbirinden tamamen bağımsız, paralel yürüseydi (proje süresi en uzununa eşit olsaydı)?",
+      "en": "What if the three activities were not sequential but ran fully independently in parallel (project duration = the longest one)?"
+     },
+     "answer": {
+      "tr": "O zaman toplam beklenen süre üçünün toplamı (16 gün) değil, en büyük tₑ değeri (Beton, 6 gün) olurdu — çünkü paralel işlerde proje, en uzun süren işin bitmesini bekler, süreler eklenmez. Varyans toplama mantığı da değişirdi: sadece kritik olan (en uzun) yolun varyansı projeyi etkiler, diğer paralel işlerin varyansı proje süresini doğrudan belirlemez (bolluğa sahip oldukları sürece).",
+      "en": "Then the total expected duration would not be the sum of all three (16 days) but the largest tₑ value (Concrete, 6 days) — because in parallel work, the project waits for the longest task to finish; durations don't add up. The variance-summing logic would also change: only the critical (longest) path's variance affects the project; the other parallel tasks' variances don't directly determine project duration (as long as they have float)."
+     }
+    }
+   ]
+  }
+ ]
+}

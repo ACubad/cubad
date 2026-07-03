@@ -15,60 +15,88 @@ interface QuestionProgress {
   done: boolean;
 }
 
+interface PracticeProgress {
+  answered: boolean;
+  correct?: boolean;
+}
+
 interface ProgressState {
   q: Record<string, QuestionProgress>;
   quiz: Record<string, { score: number; total: number }>;
+  practice: Record<string, PracticeProgress>;
 }
 
 interface ProgressCtx {
   state: ProgressState;
-  setStep: (id: string, step: number) => void;
-  markDone: (id: string, done?: boolean) => void;
-  setQuizScore: (slug: string, score: number, total: number) => void;
+  setStep: (subject: string, id: string, step: number) => void;
+  markDone: (subject: string, id: string, done?: boolean) => void;
+  setQuizScore: (subject: string, slug: string, score: number, total: number) => void;
+  setPractice: (
+    subject: string,
+    unitSlug: string,
+    qid: string,
+    progress: PracticeProgress
+  ) => void;
 }
 
-const EMPTY: ProgressState = { q: {}, quiz: {} };
-const KEY = "cubad:progress:v1";
+const EMPTY: ProgressState = { q: {}, quiz: {}, practice: {} };
+const KEY_V2 = "cubad:progress:v2";
+const KEY_V1 = "cubad:progress:v1";
 
 const Ctx = createContext<ProgressCtx>({
   state: EMPTY,
   setStep: () => {},
   markDone: () => {},
   setQuizScore: () => {},
+  setPractice: () => {},
 });
+
+function loadMigrated(): ProgressState {
+  try {
+    const rawV2 = window.localStorage.getItem(KEY_V2);
+    if (rawV2) return JSON.parse(rawV2) as ProgressState;
+
+    const rawV1 = window.localStorage.getItem(KEY_V1);
+    if (rawV1) {
+      const v1 = JSON.parse(rawV1) as {
+        q?: Record<string, QuestionProgress>;
+        quiz?: Record<string, { score: number; total: number }>;
+      };
+      const migrated: ProgressState = { q: {}, quiz: {}, practice: {} };
+      for (const [k, v] of Object.entries(v1.q ?? {})) {
+        migrated.q[k.includes("/") ? k : `hidroloji/${k}`] = v;
+      }
+      for (const [k, v] of Object.entries(v1.quiz ?? {})) {
+        migrated.quiz[k.includes("/") ? k : `hidroloji/${k}`] = v;
+      }
+      window.localStorage.setItem(KEY_V2, JSON.stringify(migrated));
+      return migrated;
+    }
+  } catch {
+    /* corrupted storage — start fresh */
+  }
+  return EMPTY;
+}
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<ProgressState>(EMPTY);
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(KEY);
-      if (raw) setState(JSON.parse(raw) as ProgressState);
-    } catch {
-      /* corrupted storage — start fresh */
-    }
-  }, []);
-
-  const persist = useCallback((next: ProgressState) => {
-    setState(next);
-    try {
-      window.localStorage.setItem(KEY, JSON.stringify(next));
-    } catch {
-      /* storage full or blocked — progress just won't persist */
-    }
+    setState(loadMigrated());
   }, []);
 
   const setStep = useCallback(
-    (id: string, step: number) => {
+    (subject: string, id: string, step: number) => {
+      const key = `${subject}/${id}`;
       setState((prev) => {
-        const cur = prev.q[id] ?? { step: 0, done: false };
+        const cur = prev.q[key] ?? { step: 0, done: false };
         if (step <= cur.step) return prev;
         const next = {
           ...prev,
-          q: { ...prev.q, [id]: { ...cur, step } },
+          q: { ...prev.q, [key]: { ...cur, step } },
         };
         try {
-          window.localStorage.setItem(KEY, JSON.stringify(next));
+          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
         } catch {}
         return next;
       });
@@ -77,12 +105,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   );
 
   const markDone = useCallback(
-    (id: string, done = true) => {
+    (subject: string, id: string, done = true) => {
+      const key = `${subject}/${id}`;
       setState((prev) => {
-        const cur = prev.q[id] ?? { step: 0, done: false };
-        const next = { ...prev, q: { ...prev.q, [id]: { ...cur, done } } };
+        const cur = prev.q[key] ?? { step: 0, done: false };
+        const next = { ...prev, q: { ...prev.q, [key]: { ...cur, done } } };
         try {
-          window.localStorage.setItem(KEY, JSON.stringify(next));
+          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
         } catch {}
         return next;
       });
@@ -91,14 +120,32 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   );
 
   const setQuizScore = useCallback(
-    (slug: string, score: number, total: number) => {
+    (subject: string, slug: string, score: number, total: number) => {
+      const key = `${subject}/${slug}`;
       setState((prev) => {
         const next = {
           ...prev,
-          quiz: { ...prev.quiz, [slug]: { score, total } },
+          quiz: { ...prev.quiz, [key]: { score, total } },
         };
         try {
-          window.localStorage.setItem(KEY, JSON.stringify(next));
+          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+        } catch {}
+        return next;
+      });
+    },
+    []
+  );
+
+  const setPractice = useCallback(
+    (subject: string, unitSlug: string, qid: string, progress: PracticeProgress) => {
+      const key = `${subject}/${unitSlug}/${qid}`;
+      setState((prev) => {
+        const next = {
+          ...prev,
+          practice: { ...prev.practice, [key]: progress },
+        };
+        try {
+          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
         } catch {}
         return next;
       });
@@ -107,7 +154,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <Ctx.Provider value={{ state, setStep, markDone, setQuizScore }}>
+    <Ctx.Provider value={{ state, setStep, markDone, setQuizScore, setPractice }}>
       {children}
     </Ctx.Provider>
   );

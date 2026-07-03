@@ -129,17 +129,21 @@ function StepCard({
 }
 
 export function Walkthrough({
+  subject,
   unitTitle,
   unitSlug,
   question,
   prevId,
   nextId,
+  hasQuiz = true,
 }: {
+  subject: string;
   unitTitle: Bi;
   unitSlug: string;
   question: Question;
   prevId: string | null;
   nextId: string | null;
+  hasQuiz?: boolean;
 }) {
   const { t, bi } = useLang();
   const { state, setStep, markDone } = useProgress();
@@ -153,24 +157,24 @@ export function Walkthrough({
   // restore saved progress once it loads from localStorage
   useEffect(() => {
     if (restored.current) return;
-    const saved = state.q[question.id]?.step ?? 0;
+    const saved = state.q[`${subject}/${question.id}`]?.step ?? 0;
     if (saved > 0) {
       setRevealed(Math.min(saved, total));
       restored.current = true;
     }
-  }, [state, question.id, total]);
+  }, [state, subject, question.id, total]);
 
   const reveal = (i: number) => {
     const next = i + 1;
     setRevealed(next);
-    setStep(question.id, next);
-    if (next >= total) markDone(question.id);
+    setStep(subject, question.id, next);
+    if (next >= total) markDone(subject, question.id);
   };
 
   const revealAll = () => {
     setRevealed(total);
-    setStep(question.id, total);
-    markDone(question.id);
+    setStep(subject, question.id, total);
+    markDone(subject, question.id);
   };
 
   return (
@@ -178,7 +182,7 @@ export function Walkthrough({
       {/* breadcrumb + header */}
       <div>
         <Link
-          href={`/unit/${unitSlug}`}
+          href={`/s/${subject}/unit/${unitSlug}`}
           className="text-sm font-medium text-deniz hover:text-deniz-deep"
         >
           ← {bi(unitTitle)}
@@ -338,7 +342,7 @@ export function Walkthrough({
           <div className="flex items-center justify-between gap-3 pt-2">
             {prevId ? (
               <Link
-                href={`/q/${prevId}`}
+                href={`/s/${subject}/q/${prevId}`}
                 className="rounded-full border border-line bg-card px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-deniz/40 hover:text-deniz"
               >
                 ← {t("prevQuestion")}
@@ -348,17 +352,24 @@ export function Walkthrough({
             )}
             {nextId ? (
               <Link
-                href={`/q/${nextId}`}
+                href={`/s/${subject}/q/${nextId}`}
                 className="rounded-full bg-deniz px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
               >
                 {t("nextQuestion")} →
               </Link>
-            ) : (
+            ) : hasQuiz ? (
               <Link
-                href={`/unit/${unitSlug}/quiz`}
+                href={`/s/${subject}/unit/${unitSlug}/quiz`}
                 className="rounded-full bg-deniz px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
               >
                 {t("quiz")} →
+              </Link>
+            ) : (
+              <Link
+                href={`/s/${subject}/unit/${unitSlug}`}
+                className="rounded-full bg-deniz px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
+              >
+                {t("backToUnit")} →
               </Link>
             )}
           </div>

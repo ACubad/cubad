@@ -11,7 +11,7 @@ import {
 import type { Bi, Lang } from "./types";
 
 const STRINGS = {
-  tagline: { en: "Hydrology, step by step.", tr: "Hidroloji, adım adım." },
+  tagline: { en: "Pass by understanding.", tr: "Anlayarak geç." },
   units: { en: "Units", tr: "Konular" },
   formulas: { en: "Formula sheet", tr: "Formül kartı" },
   questions: { en: "questions", tr: "soru" },
@@ -83,8 +83,70 @@ const STRINGS = {
   quizFinish: { en: "Quiz complete!", tr: "Sınav bitti!" },
   quizRestart: { en: "Restart quiz", tr: "Sınavı yeniden başlat" },
   source: {
-    en: "Built from the Bursa Uludağ University Civil Engineering Hydrology problem set.",
-    tr: "Bursa Uludağ Üniversitesi İnşaat Mühendisliği Hidroloji uygulama föyünden hazırlanmıştır.",
+    en: "Built from Bursa Uludağ University Civil Engineering course materials.",
+    tr: "Bursa Uludağ Üniversitesi İnşaat Mühendisliği ders materyallerinden hazırlanmıştır.",
+  },
+
+  /* ---------- subjects / multi-subject shell ---------- */
+  subjects: { en: "Subjects", tr: "Dersler" },
+  chooseSubject: { en: "Choose a subject", tr: "Bir ders seç" },
+  unit: { en: "Unit", tr: "Konu" },
+  backToSubjects: { en: "All subjects", tr: "Tüm dersler" },
+  backToSubjectHome: { en: "Back", tr: "Geri" },
+  notesCount: { en: "notes", tr: "not" },
+  cardsCount: { en: "cards", tr: "kart" },
+
+  /* ---------- study unit view ---------- */
+  konuAnlatimi: { en: "Lesson notes", tr: "Konu anlatımı" },
+  flashcardsTitle: { en: "Flashcards", tr: "Kartlar" },
+  practiceTitle: { en: "Question bank", tr: "Soru bankası" },
+  dueCards: { en: "due", tr: "sırada" },
+  answeredCount: { en: "answered", tr: "cevaplandı" },
+  stepByStepSolutions: { en: "Step-by-step solutions", tr: "Adım adım çözümler" },
+  resources: { en: "Resources", tr: "Kaynaklar" },
+  video: { en: "Video", tr: "Video" },
+
+  /* ---------- flashcards ---------- */
+  flipCard: { en: "Flip", tr: "Çevir" },
+  showEnglish: { en: "EN", tr: "EN" },
+  gradeAgain: { en: "Again", tr: "Tekrar" },
+  gradeGood: { en: "Good", tr: "İyi" },
+  gradeEasy: { en: "Easy", tr: "Kolay" },
+  dueOnly: { en: "Due only", tr: "Sadece sırada olanlar" },
+  allTags: { en: "All tags", tr: "Tüm etiketler" },
+  deckComplete: { en: "Deck complete!", tr: "Deste tamamlandı!" },
+  restartDeck: { en: "Restart", tr: "Tekrarla" },
+  noCardsDue: { en: "No cards due right now.", tr: "Şu anda sırada kart yok." },
+  box: { en: "box", tr: "kutu" },
+
+  /* ---------- practice ---------- */
+  all: { en: "All", tr: "Hepsi" },
+  mcqOnly: { en: "MCQ", tr: "Test" },
+  openOnly: { en: "Open", tr: "Açık uçlu" },
+  examStyleOnly: { en: "Exam style", tr: "Sınav tarzı" },
+  filterBySection: { en: "Filter by section", tr: "Konuya göre filtrele" },
+  yourAnswer: { en: "Your answer (optional)", tr: "Cevabın (isteğe bağlı)" },
+  showAnswer: { en: "Show answer", tr: "Cevabı göster" },
+  hadIt: { en: "I had it", tr: "Doğruydum" },
+  missedIt: { en: "I missed it", tr: "Eksikti" },
+  jumpTo: { en: "Jump to", tr: "Git" },
+
+  /* ---------- podcast ---------- */
+  podcast: { en: "Podcast", tr: "Podcast" },
+  generatePodcast: { en: "Generate podcast", tr: "Podcast oluştur" },
+  regeneratePodcast: { en: "Regenerate", tr: "Yeniden oluştur" },
+  podcastGenerating: {
+    en: "Generating your podcast — this can take 1-2 minutes...",
+    tr: "Podcast oluşturuluyor — bu 1-2 dakika sürebilir...",
+  },
+  podcastTranscript: { en: "Transcript", tr: "Metin" },
+  podcastError: {
+    en: "Something went wrong generating the podcast.",
+    tr: "Podcast oluşturulurken bir şeyler ters gitti.",
+  },
+  podcastNeedsKey: {
+    en: "The podcast needs a (free) Google Gemini API key. Create one at aistudio.google.com/apikey and paste it here — it is stored only in your browser.",
+    tr: "Podcast için (ücretsiz) bir Google Gemini API anahtarı gerekli. aistudio.google.com/apikey adresinden oluşturup buraya yapıştır — sadece tarayıcında saklanır.",
   },
 } as const;
 

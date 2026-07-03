@@ -1,0 +1,674 @@
+{
+  "unit": 7,
+  "slug": "sozlesme-turleri",
+  "title": { "tr": "İnşaat Sözleşme Türleri", "en": "Types of Construction Contracts" },
+  "tagline": { "tr": "Aynı işi 5 farklı fiyatlandırma mantığıyla sözleşmek", "en": "Pricing the same job five different ways" },
+  "sources": {
+    "videos": [ { "id": "v08-insaat-sozlesmeleri", "title": "İnşaat Sözleşmeleri", "length": "64:07" } ],
+    "pdfs": [
+      "ANAHTAR_TESLİMİ_USULÜ_İHALE_SÖZLEŞMESİ.pdf",
+      "birim_fiyat_usulü_sözleşmeler_.pdf",
+      "TEKLİF_BİRİM_FİYAT_USULÜ_SÖZLEŞMELER.pdf",
+      "MALİYET_ARTI_KÂR_USULÜ_İNŞAAT_SÖZLEŞMELERİ.pdf",
+      "kat_karşılığı.pdf"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": { "tr": "Beş sözleşme türüne giriş: neyi fiyatlandırıyoruz?", "en": "Introduction to the five contract types: what are we pricing?" },
+      "body": {
+        "tr": "İnşaat sözleşmelerini birbirinden ayıran temel soru şudur: **iş sahibi yükleniciye ne için para öder — bitmiş ürüne mi, yapılan birim işe mi, yoksa harcanan maliyete mi?** Bu unitede beş temel sözleşme türünü inceliyoruz:\n\n1. **Birim fiyat usulü sözleşme** — her iş kalemi için önceden belirlenmiş birim fiyat × miktar.\n2. **Teklif birim fiyat usulü sözleşme** — birim fiyatları yüklenici kendisi teklif eder (kamuda asıl uygulanan budur).\n3. **Anahtar teslimi usulü sözleşme** — iş toplam ve sabit tek bir fiyata bağlanır.\n4. **Maliyet artı kâr usulü sözleşme** — yükleniciye gerçek maliyeti + belirlenen kâr ödenir.\n5. **Kat karşılığı inşaat sözleşmesi** — para yerine arsa payı karşılığında bağımsız bölüm (daire/dükkân) verilir; karma nitelikli (devir + eser sözleşmesi).\n\nHer türün ortak paydası: **risk dağılımı**. Fiyat sabitse (anahtar teslimi) riski çoğunlukla yüklenici taşır; maliyet esas alınıyorsa (maliyet artı kâr) riski çoğunlukla iş sahibi taşır. Birim fiyat ve teklif birim fiyat bu iki uç arasında bir denge kurar: iş kalemi miktarı değişebilir ama birim fiyat sabittir, dolayısıyla risk paylaşılır. Kat karşılığı ise tamamen farklı bir eksende durur — orada para değil mülkiyet payı devredilir.\n\nHangi tür seçilirse seçilsin, ortak kural: **sözleşme ve ekleri (proje, teknik şartname, birim fiyat tarifleri) ne kadar ayrıntılı hazırlanırsa, taraflar arasındaki anlaşmazlık olasılığı o kadar azalır.** Bu unitede her tür için: tanımı, nasıl fiyatlandığı, riskin kimde olduğu, avantaj-dezavantajları ve ne zaman tercih edildiği işleniyor.",
+        "en": "The question that separates construction contract types is: **what does the owner pay the contractor for — the finished product, the unit of work done, or the money actually spent?** Five types: (1) unit price, (2) bid unit price (the standard in Turkish public works), (3) lump-sum/turnkey, (4) cost-plus-fee, (5) land-share (kat karşılığı) — a hybrid of a land transfer plus a work contract. The common thread is risk allocation: a fixed price shifts risk to the contractor; a cost-based contract shifts risk to the owner; unit-price contracts split the risk (quantities can change, but unit prices are fixed). The more detailed the contract and its annexes (drawings, technical specification, unit price schedules), the fewer the disputes."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": { "tr": "Birim fiyat usulü sözleşme", "en": "Unit price contract" },
+      "body": {
+        "tr": "**Tanım:** İnşaat bedelinin, üretilecek her yapı elemanı için önceden belirlenmiş **birim fiyatlar** kullanılarak hesaplanmasını öngören sözleşmedir. Formül basittir: **a m³ (veya m², kg, adet...) iş yapılmış ve birim fiyatı b TL ise, o kalemin bedeli a × b TL'dir.**\n\nKamuda \"poz\" sistemi kullanılır: her yıl yayımlanan birim fiyat poz numaraları ve bunlara karşılık gelen **birim fiyat tarifleri** vardır. Özel işlerde de bu resmi pozlardan yararlanılabilir ya da kendi özel tarifleri hazırlanabilir.\n\n**Birim fiyat kapsamının belirlenmesi** kritik önemdedir: \"1 m³ kazının bedeli 500 TL\" dendiğinde, bu bedele işçilik mi dahil, malzeme mi dahil, kazı toprağının taşınıp atılması dahil mi — hepsinin **Birim Fiyat Tarifleri** adlı ayrı bir dokümanla açıkça tanımlanması gerekir. Aksi halde iki taraf da \"kendince haklı\" olur ve anlaşmazlık çıkar. Ölçüm şekli de aynı derecede önemlidir: imalat projeden mi ölçülecek, yerinde mi ölçülecek — bu da tarifte netleştirilmelidir.\n\n**Geçerlilik süresi — sabit ve değişken birim fiyat:**\n- **Sabit birim fiyatlı sözleşme:** İşin başında belirlenen birim fiyat işin sonuna kadar değişmez. Süresi birkaç ayı geçmeyen işlerde ve muhtemel fiyat artışları baştan hesaba katılmışsa uygundur. Enflasyonun yüksek olduğu veya proje süresinin uzun olduğu durumlarda **sakıncalıdır** — fiyatlar piyasanın gerisinde kalınca yüklenici kârı erir, işi yavaşlatır/durdurur.\n- **Değişken birim fiyatlı sözleşme:** Fiyatların **hangi aralıkla** (3, 6, 8, 10, 12 aylık periyotlardan biri) ve **ne düzeyde** değişeceği baştan belirlenir. Örnek: fiyat değişim periyodu 3 ay, aylık artış %6 ise → \"birim fiyatlar her üç ayda bir %18 artırılarak uygulanır.\" Fiyat dalgalanması belirginse, sabit bir artış oranı yerine TÜFE gibi bir endekse bağlanması daha gerçekçidir.\n\n**Sözleşme bedelinde artış/azalış:** İlave iş çıkarsa ya da bazı işlerden vazgeçilirse sözleşme bedeli değişir; bu değişimin **sınırı sözleşmede bir yüzde olarak** belirtilmelidir (\"en fazla %.....\"). Sınır aşılırsa aksi belirtilmedikçe **sözleşme feshedilir**. Bedeldeki artış aynı oranda **süreye** ve varsa **kesin teminata** yansıtılmalıdır. Tanımlı olmayan yeni iş kalemleri çıkarsa yeni birim fiyat oluşturulması gerekir — bu mekanizma da sözleşmede tanımlanmalıdır.",
+        "en": "Definition: the price of each work item is computed as pre-agreed unit price × quantity (a × b). Public works use a standardized \"poz\" (item code) system with annually published unit-price schedules. The scope of the unit price (what's included — labor, material, haulage?) must be spelled out in a separate 'Unit Price Specification' document, or disputes follow. Contracts are fixed unit price (unchanged for the whole job — fine for short jobs) or variable unit price (adjusted at agreed intervals of 3/6/8/10/12 months by an agreed percentage or an index like CPI) — variable is essentially unavoidable under high inflation or long durations. Any allowed increase/decrease in total contract value must be capped as a percentage, with consequences for duration, guarantee amounts, and termination spelled out."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": { "tr": "Teklif birim fiyat usulü sözleşme", "en": "Bid (proposal) unit price contract" },
+      "body": {
+        "tr": "Teklif birim fiyat usulü, genel ilkeleri itibariyle birim fiyat usulüne çok benzer; fark **birim fiyatları kimin belirlediğidir.**\n\n- **Birim fiyat usulünde:** İş sahibi kendisi birim fiyatları oluşturur, bunlara göre bir **ön keşif** hazırlar ve ihale dosyasına koyar. Yükleniciler bu fiyatlara uygulanacak bir **tenzilat (indirim) oranı** teklif eder; en uygun tenzilatı veren ihaleyi kazanır.\n- **Teklif birim fiyat usulünde:** İş sahibi sadece **proje ve teknik şartnameyi** hazırlar. Yükleniciler kendileri projenin **metrajını** çıkarır, her iş kaleminin **birim fiyatını kendileri belirler** ve metraj+birim fiyat+tutar bilgilerini içeren bir **teklif fiyat listesi** hazırlayıp sunar. En uygun toplam bedeli veren yüklenici işi alır.\n\n**Önemli tarihsel not:** 2002 yılı sonuna kadar Türkiye'de kamu ihalelerinde tek sözleşme şekli birim fiyat usulüydü. **2003 yılından itibaren** değişen ihale mevzuatı, kamu inşaatlarının **anahtar teslimi** ve **teklif birim fiyat** usulüne dayalı yapılmasını öngörmüştür. Bu nedenle günümüzde \"birim fiyat usulü sözleşme\" denince artık fiilen \"teklif birim fiyat usulü\" anlaşılır; saf birim fiyat usulünün uluslararası işlerde de uygulanabilirliği yoktur.\n\n**Bağlayıcılık farkı (anahtar teslimden):** Anahtar teslimi sözleşmede tarafları bağlayan yalnızca **toplam bedeldir**. Teklif birim fiyatta ise toplam bedelin yanında, ekteki listedeki **her kalemin metrajı ve birim fiyatı da bağlayıcıdır.**\n\n**Avantajı:** İş kalemlerinde beklenmeyen artış/azalma olduğunda (örn. bir tamiratta sıva altı tesisatının tahmin edilenden fazla çıkması, zemin altı işlerinde miktar artışı), bu değişikliğin bedeli **kolayca hesaplanıp** sözleşmeye yansıtılır — çünkü birim fiyatlar zaten bilinmektedir, yeniden fiyat takdirine gerek yoktur. Bu yüzden iş kalemi miktarının değişme olasılığı yüksek işlerde tercih edilir.\n\n**Teklif fiyat listesi içeriği:** İmalat kaleminin sıra no, tanımı, miktarı, birimi, birim fiyatı, tutarı ve liste toplamı. Bu liste titizlikle hazırlanmış, **silinti-kazıntı içermeyen** ayrı bir doküman olarak sözleşme eki kabul edilir. Birim fiyat tarifleri ve geçerlilik süresi konuları birim fiyat usulündekiyle **aynen** geçerlidir.",
+        "en": "Bid unit price differs from plain unit price in who sets the prices: under unit price, the owner sets prices and bidders offer a discount rate; under bid unit price, the owner supplies only the project/spec, and each bidder computes their own quantities and unit prices, submitting a binding price list. Since 2003, Turkish public works must use turnkey or bid-unit-price contracts — plain unit price is now essentially obsolete/historical. Unlike turnkey (only the total sum binds the parties), in bid unit price BOTH the total and each line item's quantity/unit price are binding. Its advantage: quantity changes are easily priced because unit rates are already agreed."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": { "tr": "Anahtar teslimi usulü sözleşme", "en": "Turnkey (lump-sum) contract" },
+      "body": {
+        "tr": "**Tanım:** İşin, projesine ve şartnamelerine uygun olarak gerçekleştirilmesi karşılığında **toplam ve sabit bir fiyat** üzerinden anlaşmayı esas alan sözleşmedir. En belirgin özelliği: **bedel işe başlamadan önce, tek ve değişmez bir rakam olarak belirlenir** (örn. \"bu iş 10 milyon TL'ye yapılacaktır\").\n\n**Avantajı:** İmalat bedelinin tespitine yönelik anlaşmazlık olasılığını en aza indirir — her iki taraf da baştan net bir rakamda anlaşmıştır. Ancak proje ve şartname **yeterli ayrıntıda hazırlanmazsa** yine ciddi anlaşmazlıklar çıkabilir; bu yüzden projenin şekil-boyut-kaliteyi somutlaştıracak kapsamda, teknik şartnamenin de malzeme ve teknolojinin tüm ayrıntılarını içerecek şekilde hazırlanması **şart**tır.\n\n**Hakediş aralığı ve ödeme dilimleri** (bu sözleşme türünün en kritik maddesi): Toplam bedel tek seferde değil, **inşaatın gerçekleşme aşamalarına göre** dilimler halinde ödenir. İki yöntem:\n1. **Çizelge yöntemi** — sözleşmede, her hakediş için \"bu aşamaya kadar tamamlanmış olması gereken işler\" + \"ihale bedelinin yüzde kaçının ödeneceği\" tanımlanır. Örnek (kitaptaki 6 hakedişlik tablo): 1) zemin kat döşemesi + temel dolgusu → **%7**; 2) zemin+1.kat döşeme betonu, duvarlar, sıva altı tesisat, doğrama kasaları, iç kaba/ince sıva → **%25**; 3) benzer devam işleri → **%25**; 4) dış sıva, teras yalıtımı, zemin kaplaması → **%25**; 5) kapı-pencere, tesisat armatürleri, boya → **%15**; 6) çevre düzeni, temizlik, iskân izni, elektrik-su bağlantısı → **%3**. (Toplam %100.)\n2. **İş programına bağlama yöntemi** — hakedişler aylık ödenir, tutar sözleşme ekindeki iş programının o aya karşılık gelen satırındaki orana göre belirlenir; iş programda öngörülen düzeyde tamamlanmazsa ödeme de fiilen gerçekleşen düzeyde yapılır; gerçekleşme düzeyini **denetim elemanı/örgütü** belirler.\n\nHer iki yöntemde de temel şart: **ayrıntılı bir ön keşif + gerçekçi bir iş programı** olmadan hakediş taahhütleri uygulanabilir olmaz.\n\n**Metraj/birim fiyatların teklif ekinde verilmesi:** Anahtar teslimde tarafları bağlayan tek bedel toplam fiyat olsa da, iş sahibi teklifleri daha iyi değerlendirebilmek için yüklenicilerden **metraj ve birim fiyat bilgilerini de** teklif ekinde isteyebilir — bu bilgi bağlayıcı değildir, sadece referanstır (bkz. teklif birim fiyattaki bağlayıcılık farkı).\n\n**Bedel artış/azalış düzeyi:** İlave iş çıkması ya da bazı işlerden vazgeçilmesi halinde sözleşme bedelinde değişikliğe izin verilip verilmeyeceği, verilecekse **hangi yüzdeye kadar** baştan belirlenmelidir (\"artış en fazla %..., azalış en fazla %...\"). Bu sınır aşılırsa **fesih** söz konusu olur (aksi yazılmadıkça). Bedeldeki artış aynı oranda **süreye** ve **kesin teminata** yansıtılır. Mevcut birim fiyatlarla benzerliği olmayan tamamen yeni bir iş kalemi çıkarsa, iş sahibi yeni teknik şartname hazırlar ve taraflar birlikte yeni birim fiyat oluşturur; anlaşamazlarsa piyasa araştırmasına, o da olmazsa iş sahibinin maliyeti karşılayıp yükleniciye üzerine bir **kâr yüzdesi** vermesine gidilir.",
+        "en": "A turnkey contract fixes a single, total price for the whole job before work starts, minimizing pricing disputes — but only if the drawings and technical specification are extremely detailed. Payments (hakediş) are released in installments tied to construction milestones, either via a percentage table (e.g., 7/25/25/25/15/3 across six milestones) or by linking payments to the work schedule (with a supervising body certifying % completion). Only the total sum binds the parties (unlike bid unit price). Any allowed increase/decrease in the contract sum must be capped as a percentage, with knock-on effects on duration and guarantee amount, and a defined mechanism for pricing genuinely new work items."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": { "tr": "Maliyet artı kâr usulü sözleşme — genel özellikler", "en": "Cost-plus-fee contract — general features" },
+      "body": {
+        "tr": "**Tanım:** Yapılacak ödemenin, ürünün **gerçek maliyetine belirli bir oranda (veya sabit tutarda) kâr eklenmesiyle** belirlendiği sözleşmedir.\n\n**Ne zaman tercih edilir (üç durum):**\n1. İşin aciliyeti nedeniyle proje tüm ayrıntılarıyla tamamlanmadan inşaata başlanması gerektiğinde,\n2. İnşaat sürecinde **proje değişikliği** olasılığının yüksek olduğu işlerde,\n3. **İş hızı ve kalitenin** öncelikli olduğu işlerde.\n\n**Avantajı — proje esnekliği:** Maliyet iş sahibince karşılandığından, iş miktarı/niteliğindeki değişiklikler yükleniciyi olumsuz etkilemez; yüklenici proje değişikliğine **direnç göstermez** (çünkü değişen maliyetin üzerine yine kârını alacaktır). Böylece iş sahibi inşaat sürecinde yeni malzeme/teknolojiyi dilediği düzeyde yansıtabilir. Birim fiyat usulündeki \"değişikliğin birim fiyatı ne kadar etkilediğini hesaplama\" yorgunluğu ve anahtar teslimdeki \"proje değiştirilemez\" katılığı burada ortadan kalkar.\n\n**Dezavantajları (neden yaygın kullanılmıyor):**\n- **Maliyet kontrolü:** İş sahibi maliyeti sürekli denetlemek için çaba harcamalıdır — yüklenicinin kârı maliyetin yüzdesi olduğundan, maliyeti **yapay olarak artırma** eğilimi doğabilir.\n- **Bütçe belirsizliği:** İşin başında toplam bedel tam belirlenemediği için finansal/parasal programın gerçekçi yapılması zorlaşır.\n- **İş akışı ve dokümantasyon:** Malzeme/teknoloji sık değişebileceğinden iş akışı aksayabilir; uygulamada kullanılan belge sayısı ve sirkülasyonu diğer türlere göre **fazladır** (her maliyet kalemi belgelenip ispat edilmelidir).\n\n**Maliyet girdileri — dört ana grup:** Malzeme, işçilik, makine, nakliye (taşıma). Malzemeler işlenmemiş/az işlenmiş (kum, çakıl, çimento, beton çeliği — şantiyede üretime katılır) ile yarı mamul/mamul (hazır kapı-pencere doğramaları, mutfak donanımı — dışarıda üretilip monte edilir) diye ayrılır; hangi giderlerin hangi gruba dahil olacağı sözleşme/eklerinde tanımlanmalıdır. **Belgeleme** kritik önemdedir: yüklenicinin kârı maliyetin yüzdesi olduğundan harcamaların denetlenebilir, tarafların onayını taşıyan bir belge düzeninde kayıtlı olması gerekir.\n\n**Kâr oranının belirlenmesi:** Tek bir sabit oran (ara/kesin hakedişi kolaylaştırır) ya da işin türüne göre değişen oranlar kullanılabilir. Montaj nitelikli işler (tesisat, iklimlendirme üniteleri — pratik montaj, yüksek satın alma maliyeti) ile uzmanlık gerektiren üretim işleri (kaplama gibi hassas işçilik) için **aynı kâr oranı adil olmayabilir**; bu yüzden işler gruplara ayrılıp farklı oranlar uygulanabilir.",
+        "en": "Cost-plus-fee pays the contractor's actual cost plus an agreed fee (percentage or fixed). Preferred when speed is urgent, design changes are likely, or quality/speed matter more than price certainty. Advantage: design flexibility — the contractor has no incentive to resist changes since cost is reimbursed. Disadvantages: the owner must actively police costs (contractor's fee often rises with cost, tempting inflated costs), the total budget is uncertain up front, and documentation overhead is high. Cost inputs fall into four groups — material, labor, equipment, haulage — and must be fully documented and auditable since the fee is a percentage of cost. A single fixed profit rate simplifies billing but may be unfair across very different work types (simple installation vs. skilled finishing), so differentiated rates by work group are common."
+      },
+      "story": null
+    },
+    {
+      "id": "n6",
+      "title": { "tr": "Maliyet artı kâr usulünün dört alt türü (hesaplı örneklerle)", "en": "The four cost-plus-fee variants (worked examples)" },
+      "body": {
+        "tr": "Maliyet-kâr ilişkisinin düzenlenme şekline göre dört alt tür vardır; her biri yükleniciyi farklı bir davranışa yönlendirir.\n\n**a) Maliyet + % Kâr:** İşin başından sonuna kadar, gerçekleşen maliyete sabit bir **yüzde kâr** eklenir, tavan yoktur. *Örnek:* Kâr oranı %20, bir hakediş döneminde maliyet 2.000 TL ise → ödenecek tutar **2.000 + 2.000×0,20 = 2.400 TL**. *Risk:* Yüklenicinin maliyeti yapay olarak şişirmesi (kâr da büyür).\n\n**b) Maliyet Tavanına Kadar %Kâr, Sonrası Kârsız:** Bir **maliyet tavanı** belirlenir; tavana kadar maliyetin yüzdesi kadar kâr verilir, tavan aşılırsa **sadece maliyet** ödenir, kâr verilmez. *Örnek:* Tavan 50.000 TL, kâr oranı %20. Toplam maliyet tavana kadar ise %20 kâr alınır; tavanı aşan kısım için sadece maliyet karşılanır, kâr yok. Tavan; inşaatın tamamı için tek olabileceği gibi, kaba inşaat/ince inşaat/mekanik/elektrik gibi **ana iş kalemleri için ayrı ayrı** da belirlenebilir (daha hakkaniyetli). *Amaç:* yükleniciyi maliyeti aşmamaya teşvik etmek.\n\n**c) Maliyet Tavanına Kadar %Kâr, Sonrası Kârsız + Tasarruf Bölüşümü:** (b)'ye ek olarak, proje maliyeti **tavanın altında kalırsa**, tavan ile gerçekleşen maliyet arasındaki fark taraflar arasında **paylaşılır** (örn. %50-%50). *Örnek 1 — tasarruf var:* Tavan 50.000 TL, kâr %20, tasarruf payı %50-%50. Proje 48.000 TL'ye tamamlanmış: yüklenici alır = 48.000 + 48.000×0,20 + (50.000−48.000)/2 = 48.000 + 9.600 + 1.000 = **58.600 TL**. (2.000 TL'lik tasarrufun yarısı olan 1.000 TL yükleniciye bonus olarak gider.) *Örnek 2 — tavan aşılmış:* Proje 51.000 TL'ye tamamlansa: 50.000 TL'ye kadar %20 kâr (10.000 TL) alınır, tavanı aşan 1.000 TL için kâr **alınmaz**, tasarruf da yoktur → toplam ödeme = 50.000 + 10.000 + 1.000 = **61.000 TL**. *Amaç:* yükleniciyi hem maliyeti aşmamaya hem de tasarrufa teşvik etmek — en dengeli yöntem.\n\n**d) Maliyet + Sabit Kâr:** İşin tamamı için **sabit (maliyetten bağımsız) bir kâr tutarı** öngörülür. *Örnek:* Proje için 10.000 TL sabit kâr belirlenmişse, proje maliyeti ister 6 milyon ister 8 milyon olsun, yüklenici maliyeti + tam olarak 10.000 TL kârı alır — kâr değişmez. *Amaç:* maliyet-kâr ilişkisini tamamen koparıp yükleniciyi **işi bir an önce bitirmeye** teşvik etmek (kâr sabit olduğu için maliyeti yapay şişirmenin faydası yoktur).\n\nHer yöntemin ortak amacı: yüklenicinin kâr kaygısıyla işin kalitesini düşürmesini önlemek, projeyi kaliteli-ekonomik-hızlı sonuçlandırmak ve maliyetin suni artışını engellemektir.",
+        "en": "Four cost-plus variants: (a) cost + fixed % fee, no cap — risk of inflated costs; (b) fee up to a cost ceiling, cost-only beyond it — motivates cost discipline; (c) same as (b) plus savings-sharing if actual cost comes in under the ceiling — the most balanced, rewarding both discipline and savings; (d) cost + a fixed lump-sum fee regardless of actual cost — decouples fee from cost, motivating speed. Worked numbers: (a) 2,000 cost @ 20% fee = 2,400 total. (c) ceiling 50,000, fee 20%, 50/50 savings split, actual cost 48,000 → contractor receives 58,600 (48,000 + 9,600 fee + 1,000 shared savings); if actual cost is 51,000 (over ceiling), contractor receives 61,000 (50,000 + 10,000 fee up to ceiling + 1,000 excess cost only, no fee, no savings)."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": { "tr": "Kat karşılığı inşaat sözleşmesi — tanım ve şekil şartı", "en": "Land-share construction contract — definition and formal requirement" },
+      "body": {
+        "tr": "**Tanım:** Arsa sahibinin, arsasının belirli bir oranını yükleniciye devretmesi karşılığında, yüklenicinin bu arsa üzerine yapacağı binadan **belirli sayı veya oranda bağımsız bölümü** (daire/dükkân) arsa sahibine **bedelsiz olarak** teslim etmeyi taahhüt ettiği sözleşme türüdür. Halk arasında \"kat karşılığı inşaat sözleşmesi\" olarak bilinir; ayrıca \"arsa karşılığı daire yapım sözleşmesi\", \"arsa payı karşılığı bağımsız bölüm sözleşmesi\" gibi adlarla da anılır.\n\n**Karma nitelik:** Bu sözleşme hem **gayrimenkul devrini** hem de **inşaat yapımını (eser sözleşmesi)** aynı anda konu aldığından **karma nitelikli** bir sözleşmedir.\n\n**Şekil şartı (en kritik özelliği):** Borçlar Kanunu'na göre sözleşmeler genelde şekil şartına tabi değildir (yazılı/sözlü serbesttir) — ancak **özel durumlarda şekil şartı öngörülmüştür**. Kat karşılığı sözleşmede gayrimenkul devri söz konusu olduğundan (borçlar/medeni/tapu kanunu ve noterlik mevzuatı kapsamında), bu sözleşmelerin **noterlerce düzenleme şeklinde** yapılması zorunludur. Noter tarafından hazırlanan sözleşmeye **\"Düzenleme Şeklinde Sözleşme\"** denir; kat karşılığı sözleşme resmi olarak \"Düzenleme Şeklinde Gayrimenkul Satış Vaadi ve Daire Yapım Karşılığı İnşaat Sözleşmesi\" adını alır.\n\n**Şekil şartına uyulmazsa ne olur?** Sözleşme her ne kadar iki tarafın imzasıyla bir \"ispat\" belgesi olsa da, **şekil şartını sağlamadığından geçersiz sayılır.** İnşaat hiçbir sorun çıkmadan tamamlansa bile, bağımsız bölümlerin tapuda tescili aşamasında sıkıntı yaşanabilir; inşaat sürecinde bir uyuşmazlık çıkarsa taraflar hukuki haklarını arayamaz, ciddi mağduriyetler doğar. **Bu, unitenin en sık sınav sorulan noktasıdır.**",
+        "en": "A land-share (kat karşılığı) contract: the landowner transfers a share of the land to the contractor, who in return builds and hands over a specified number/percentage of finished units (apartments/shops) to the landowner free of charge. It is a hybrid contract (property transfer + a construction/work contract). Critically, because it involves a real-property transfer, Turkish law requires it to be executed by a notary in 'düzenleme şekli' (notarial deed) form — an ordinary written/signed agreement is NOT valid, even if both parties fully perform. If this formal requirement is skipped, the contract is void; problems arise especially at land-registry (tapu) transfer and in any later dispute, where neither party can legally enforce their claims."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": { "tr": "Kat karşılığı — prosedür, devir yöntemleri ve paylaşım", "en": "Land-share — procedure, transfer methods, and the sharing arrangement" },
+      "body": {
+        "tr": "**Düzenleme prosedürü:**\n1. **İmar durumu kontrolü:** Taraflar önce belediyeden **imar çapı** alır; bu belge yapının yaklaşma mesafeleri, yapı nizamı, taban alanı (TAKS), kat sayısı/yüksekliği gibi sınırları gösterir. Buradan toplam inşaat alanı ve yapılabilecek daire/işyeri sayısı hesaplanır (genelde yükleniciye 1/100 ölçekli bir ön proje/eskiz hazırlatılır).\n2. **Paylaşımın belirlenmesi:** Taraflar bağımsız bölümlerin kime ait olacağını **sayı** (\"sana 5 daire\") veya **oran** (\"%45 arsa sahibi - %55 yüklenici\") olarak belirler; hangi kat/cephede olacağı ayrıntılı tanımlanmalıdır. İşyeri varsa aynı saptama yapılır.\n3. **Ek masraf paylaşımı:** Proje hazırlama bedeli, ruhsat harcı, denetim giderleri, iskân izni, noter giderleri, sayaç/abonelik bedelleri gibi inşaat maliyeti dışındaki giderlerin kime ait olacağı da kararlaştırılır.\n\n**Arsa devrinin dört yöntemi:**\n- **Tam devir + eser sözleşmesi:** Arsa sahibi arsanın **tümünü** tapuda satış yapmış gibi devreder; ayrıca inşaat için bir eser sözleşmesi düzenlenir (paylaşım da bu sözleşmede yer alır). Arsa sahibinin hakkını korumak için devredilen arsa üzerine **arsa sahibi lehine ipotek** konur (henüz para/daire almadığı için).\n- **Kısmi pay devri:** Arsanın **tamamı değil belirli bir payı** devredilir, yine devredilen pay üzerine ipotek konur, ayrıca eser sözleşmesi yapılır.\n- **Aşamalı devir:** Satış vaadinden söz edilmez; hangi pay/bağımsız bölümün devredileceği **inşaatın ilerleme aşamasına bağlanır** (örn. \"1. blok bitince o bloğun daireleri devredilir\"). Yükleniciler bunu pek sevmez (erken satıp finansman sağlayamaz) ama arsa sahibini korur.\n- **Karma devir:** Arsa payı **satış yoluyla** devredilir (para el değiştirir gibi görünür) ve karşılığında yüklenici belirtilen bağımsız bölümleri inşa edip teslim etmeyi taahhüt eder — hem devir hem inşaat içerdiğinden karma niteliklidir, her iki tarafı da borç altına sokar.\n\n**Arsa değerinin takdiri:** Satış vaadi esas alınan bir devir şeklinde, devredilecek arsa payı için sözleşmede bir **parasal değer** takdir edilir; bu değerin en az **arsanın emlak vergisine esas değeri** kadar olmasına dikkat edilir (düşük gösterme artık sıkı takip edilmektedir). Sözleşmede, bu bedelin yüklenici tarafından **alınmayıp**, karşılığında belirlenen sayı/oranda daire inşa edilip teslim edileceği açıkça ifade edilir.\n\n**Üçüncü kişilere satış (ferağ):** Yüklenicinin kendi payına düşen bağımsız bölümleri üçüncü kişilere satabilmesi için, arsa sahibinin o bölümlere isabet eden arsa payını tapuda yükleniciye devretmesi (**ferağ**) gerekir. Yükleniciler finansman için erken satmak ister; arsa sahipleri ise yüklenicinin inşaatı bitirememe riskine karşı bu satışı **inşaatın ilerleme aşamasıyla ilişkilendirmek** ister (örn. \"dükkânlar için 5. kat döşemesi dökülünce, iki daire için kaba inşaat bitince...\"). Arsa sahibinin bu ferağ yükümlülüğünü zamanında yerine getirmesi için de sözleşmeye bir **yaptırım** (örn. günlük gecikme tazminatı) konulmalıdır — koşul her iki tarafı da bağlamalıdır.",
+        "en": "Procedure: (1) check zoning via the imar çapı to determine buildable area/unit count; (2) agree the unit-sharing split by count or percentage, with floor/facade specified; (3) agree who pays ancillary costs (permits, notary, meters). Four land-transfer methods: full transfer + a work contract (with a mortgage in the landowner's favor since no payment/units received yet); partial-share transfer (same idea, smaller share); staged transfer (no promise-of-sale — transfer of shares/units is tied to construction progress, protecting the landowner but disliked by contractors who can't sell early for financing); and mixed transfer (an outright sale of the land share combined with a promise to build and deliver). The land value stated in the contract must be at least the property-tax (emlak vergisi) assessed value. A contractor's sale of their own future units to third parties requires the landowner's transfer (ferağ) of the corresponding land share — owners typically tie this to construction milestones, and a penalty clause should compel timely ferağ from the landowner's side too."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": { "tr": "Kat karşılığı — sık görülen sözleşme sorunları", "en": "Land-share — common contract-related problems" },
+      "body": {
+        "tr": "Kat karşılığı inşaat uygulamasında sorunların çoğu **sözleşme kaynaklıdır**. En sık görülenler:\n\n1. **Şekil şartına uyulmaması** — En temel ve en ağır sonuçlu sorun. Taraflar (özellikle arsa sahibi) sözleşmenin noterde düzenleme şeklinde yapılması gerektiğini bilmez veya karşılıklı güvene dayanarak göz ardı eder. Sorunsuz tamamlanan bir inşaatta bile tapu tescilinde sıkıntı çıkabilir; bir uyuşmazlık çıkarsa sözleşme geçersiz olduğundan taraflar hak arayamaz.\n2. **Bağımsız bölüm tanımında belirsizlik** — Örn. arsa sahibinin alacağı daire sayısı belirtilmiş ama arsada sonradan yapılacak **ilave tesislerde** (havuz, spor tesisi) aynı oranda hakkı olup olmadığı belirtilmemiş; ya da **imar durumu değişip** inşaat alanı artarsa bu artışın nasıl paylaşılacağı düzenlenmemiş. Çözüm: paylaşımı bir **ön proje** (plan-görünüş, gerekirse maket) üzerinden yapmak.\n3. **Satış–inşaat ilerlemesi ilişkisinin kurulmaması** — Yüklenici payına düşen bağımsız bölümleri erken satıp inşaatı tamamlayamazsa, hem arsa sahibi hem alıcı üçüncü kişiler mağdur olur. Çözüm: yüklenicinin satış/ferağ hakkını inşaat aşamalarına bağlamak.\n4. **Üçüncü kişilerin ana sözleşmeyi incelememesi** — Yükleniciden bağımsız bölüm satın alacak kişi, satış sözleşmesi imzalamadan önce yüklenici-arsa sahibi arasındaki **ana sözleşmeyi** incelemelidir: şekil şartına uygun mu, yüklenicinin o bölümü satma yetkisi (inşaat aşaması itibarıyla) var mı?\n5. **Süre ve yaptırımların tanımlanmaması** — Çoğu kez uygulama projeleri hazırlanmadan sözleşme imzalanır; proje hazırlama ve ruhsat süreçleri için de bir süre konulmalı, gecikme halinde **yaptırım** (örn. gecikilen her ay için bağımsız bölüm başına tazminat, tazminat oranının belirli bir süre sonra artması, toplam gecikme belirli bir süreyi aşarsa fesih hakkı) sözleşmede açıkça yer almalıdır. Yaptırımı olmayan bir koşulun uygulanabilirliği yoktur.\n6. **Nitelik (kalite) tanımlarının soyut olması** — \"Birinci sınıf olacak\", \"iyi kalite\", \"TS'ye uygun olacak\" gibi ifadeler somut değildir (TS'ye uygun onlarca farklı fiyatta ürün vardır). Çözüm: ayrıntılı bir **teknik şartname** ile desteklemek.\n\n**Sonuç ve öneri:** Kat karşılığı sözleşmeler karma nitelikli ve üçüncü kişileri de (bağımsız bölüm alıcılarını) dolaylı olarak içine aldığından, sorun çıktığında etkisi geniş ve çözümü güçtür. Bu yüzden düzenleme aşamasında hem teknik eleman hem **hukukçu** desteği alınmalı; uygulama sürecinde de sorunları önceden görüp çözüm üretecek bir **sözleşme yöneticisi** görevlendirilmesi önerilir.",
+        "en": "Most land-share disputes stem from the contract itself: (1) skipping the notarial form requirement — the most severe, voiding the contract; (2) vague unit definitions (extra facilities, zoning-driven area increases not addressed); (3) no link between the contractor's early sale of their units and construction progress, risking abandonment; (4) third-party buyers failing to review the underlying landowner-contractor contract before buying; (5) no defined timeline/penalties for design and permit delays; (6) vague quality specs like \"first class\" or \"TS-compliant\" without a real technical specification. Because these contracts are hybrid and indirectly involve third-party unit buyers, disputes are wide-reaching; legal counsel during drafting and a dedicated contract manager during execution are recommended."
+      },
+      "story": null
+    },
+    {
+      "id": "n10",
+      "title": { "tr": "Karşılaştırma: hangi tür ne zaman, riski kim taşır?", "en": "Comparison: when to use which, and who bears the risk?" },
+      "body": {
+        "tr": "Sınavda en sık sorulan bölüm, sözleşme türlerinin **yan yana karşılaştırılmasıdır.** Aşağıdaki tablo, kapsam netliğine ve risk tercihine göre seçimi özetler:\n\n| Sözleşme türü | Fiyat neye göre belirlenir | Riski asıl taşıyan | Ne zaman tercih edilir |\n|---|---|---|---|\n| **Birim fiyat** | Önceden belirli birim fiyat × gerçekleşen miktar | Paylaşılır (miktar riski iş sahibinde, birim maliyet riski yüklenicide) | İş kalemi miktarı belirsiz ama iş sahibi fiyat kontrolünü elinde tutmak istiyorsa |\n| **Teklif birim fiyat** | Yüklenicinin teklif ettiği birim fiyat × gerçekleşen miktar | Paylaşılır (aynı mantık, fiyat riski yükleniciye kaymıştır) | İş kalemi miktarının değişme olasılığı yüksek (kamu ihalelerinin standardı) |\n| **Anahtar teslimi** | Toplam sabit fiyat | Ağırlıklı yüklenici (miktar/maliyet artışı onun sırtında) | Proje ve şartname tam netse, iş sahibi bütçe kesinliği istiyorsa |\n| **Maliyet artı kâr** | Gerçek maliyet + kâr | Ağırlıklı iş sahibi (maliyet riskini o taşır) | Aciliyet var, proje netleşmemiş, değişiklik olasılığı yüksek, hız/kalite öncelikli |\n| **Kat karşılığı** | Para değil, bağımsız bölüm payı | Karma (arsa sahibi tamamlanamama riskini, yüklenici finansman riskini taşır) | Arsa sahibinin nakdi yoksa, yüklenici arsaya karşı inşaat gücü sunuyorsa |\n\n**Hatırlatma kuralları:**\n- Proje/şartname ne kadar **netse**, anahtar teslimi o kadar uygundur (belirsizlikte anlaşmazlık riski yüksek).\n- Proje **değişme ihtimali yüksekse**, maliyet artı kâr ya da teklif birim fiyat tercih edilir; anahtar teslimde değişiklik maliyeti hesaplamak zordur.\n- **2003 sonrası Türk kamu ihalelerinde** sadece anahtar teslimi ve teklif birim fiyat kullanılır — saf birim fiyat usulü artık sadece 2003 öncesinden kalan işlerde görülür.\n- Kat karşılığı, **parasal olmayan** tek türdür ve tek **şekil şartına tabi olan** türdür (noterde düzenleme şekli zorunlu) — bu, sınavda en çok vurgulanan ayrımdır.",
+        "en": "Comparison summary: unit price and bid unit price split risk (quantity risk stays with the owner, unit-cost risk shifts toward the bidder in the bid variant); turnkey shifts most risk to the contractor via a fixed total price (works best when design/specs are fully settled); cost-plus-fee shifts most risk to the owner (works best when speed or likely design changes matter more than price certainty); land-share is unique — payment is in-kind (finished units, not cash) and is the only type legally requiring notarial execution. Since 2003, Turkish public works use only turnkey and bid-unit-price contracts."
+      },
+      "story": {
+        "title": { "tr": "Sözleşme türü seçim karar ağacı", "en": "Contract-type selection decision tree" },
+        "xLabel": "",
+        "yLabel": "",
+        "xDomain": [0, 12],
+        "yDomain": [0, 10],
+        "square": false,
+        "showAxes": false,
+        "frames": [
+          {
+            "caption": {
+              "tr": "Başlangıç sorusu: iş kapsamı ve proje/şartname tam olarak belli mi?",
+              "en": "Starting question: is the scope and the design/spec fully defined?"
+            },
+            "add": [
+              { "type": "polygon", "points": [[4.2,8.6],[7.8,8.6],[7.8,9.8],[4.2,9.8]], "color": "ink", "width": 2 },
+              { "type": "text", "x": 6, "y": 9.2, "text": { "tr": "Kapsam net mi?", "en": "Is scope clear?" }, "color": "ink" }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Evet, kapsam netse ve iş sahibi bütçe kesinliği istiyorsa → toplam sabit fiyat mantığına gidilir.",
+              "en": "If yes, and the owner wants budget certainty → head toward a fixed total price."
+            },
+            "add": [
+              { "type": "arrow", "x1": 4.8, "y1": 8.6, "x2": 2.6, "y2": 7.2, "color": "moss", "width": 2 },
+              { "type": "text", "x": 3.3, "y": 7.9, "text": { "tr": "Evet", "en": "Yes" }, "color": "moss" },
+              { "type": "polygon", "points": [[0.6,6.2],[4.6,6.2],[4.6,7.2],[0.6,7.2]], "color": "moss", "width": 2 },
+              { "type": "text", "x": 2.6, "y": 6.7, "text": { "tr": "Anahtar teslimi (sabit toplam bedel)", "en": "Turnkey (fixed total price)" }, "color": "moss" }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Kapsam net ama iş kalemi miktarları değişebilir mi? → o zaman birim fiyat mantığına gidilir; kamuda 2003 sonrası bu, teklif birim fiyat demektir.",
+              "en": "Scope is clear but item quantities may vary? → go toward unit pricing; in public works since 2003 this means bid unit price."
+            },
+            "add": [
+              { "type": "arrow", "x1": 6, "y1": 8.6, "x2": 6, "y2": 7.2, "color": "deniz", "width": 2 },
+              { "type": "text", "x": 6.9, "y": 7.9, "text": { "tr": "Net ama miktar değişebilir", "en": "Clear but quantity may vary" }, "color": "deniz" },
+              { "type": "polygon", "points": [[4.4,6.2],[7.6,6.2],[7.6,7.2],[4.4,7.2]], "color": "deniz", "width": 2 },
+              { "type": "text", "x": 6, "y": 6.7, "text": { "tr": "Teklif birim fiyat", "en": "Bid unit price" }, "color": "deniz" }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Hayır, kapsam belirsizse (aciliyet var, proje değişebilir, hız/kalite öncelikli) → maliyet iş sahibince karşılanır, üzerine kâr eklenir.",
+              "en": "No — scope is undefined (urgency, likely changes, speed/quality priority) → owner pays actual cost plus fee."
+            },
+            "add": [
+              { "type": "arrow", "x1": 7.2, "y1": 8.6, "x2": 9.4, "y2": 7.2, "color": "amber", "width": 2 },
+              { "type": "text", "x": 8.7, "y": 7.9, "text": { "tr": "Hayır", "en": "No" }, "color": "amber" },
+              { "type": "polygon", "points": [[7.6,6.2],[11.4,6.2],[11.4,7.2],[7.6,7.2]], "color": "amber", "width": 2 },
+              { "type": "text", "x": 9.5, "y": 6.7, "text": { "tr": "Maliyet artı kâr", "en": "Cost-plus-fee" }, "color": "amber" }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Ayrı bir dal: ödeme para değil, arsa payı karşılığı bağımsız bölümse (ve gayrimenkul devri içeriyorsa) → kat karşılığı sözleşme, mutlaka NOTERDE düzenleme şekli.",
+              "en": "A separate branch: if payment is not cash but finished units against a land share (a property transfer is involved) → land-share contract, which MUST be executed by a notary."
+            },
+            "add": [
+              { "type": "polygon", "points": [[3.6,4.4],[8.4,4.4],[8.4,5.4],[3.6,5.4]], "color": "clay", "width": 2 },
+              { "type": "text", "x": 6, "y": 4.9, "text": { "tr": "Ödeme = arsa payı karşılığı bağımsız bölüm → Kat karşılığı (noter şart!)", "en": "Payment = units against a land share → Land-share contract (notary required!)" }, "color": "clay" },
+              { "type": "line", "x1": 2.6, "y1": 6.2, "x2": 6, "y2": 5.4, "color": "faint", "dash": true, "width": 1.5 },
+              { "type": "line", "x1": 9.5, "y1": 6.2, "x2": 6, "y2": 5.4, "color": "faint", "dash": true, "width": 1.5 }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "flashcards": [
+    { "id": "f1", "front": { "tr": "Birim fiyat usulü sözleşme nedir?", "en": "What is a unit price contract?" }, "back": { "tr": "İnşaat bedelinin, her yapı elemanı için önceden belirlenmiş birim fiyatlar × gerçekleşen miktar ile hesaplandığı sözleşme türü.", "en": "..." }, "en": "Unit price contract — price = predetermined unit price × quantity executed.", "tag": "birim-fiyat" },
+    { "id": "f2", "front": { "tr": "Birim fiyat formülü nedir?", "en": "What is the unit price formula?" }, "back": { "tr": "Bir iş kaleminin bedeli = a (miktar) × b (birim fiyat).", "en": "..." }, "en": "Cost of an item = quantity (a) × unit price (b).", "tag": "birim-fiyat" },
+    { "id": "f3", "front": { "tr": "Birim fiyatların kapsam ve ölçüm şeklinin tanımlandığı doküman nedir?", "en": "What document defines the scope and measurement method of unit prices?" }, "back": { "tr": "Birim Fiyat Tarifleri — bu doküman sözleşmenin ayrılmaz eki olmalıdır.", "en": "..." }, "en": "The 'Unit Price Specification' (Birim Fiyat Tarifleri) document, mandatory contract annex.", "tag": "birim-fiyat" },
+    { "id": "f4", "front": { "tr": "Birim fiyat kapsamının ayrıntılı tanımlanması neden önemlidir?", "en": "Why must the scope of a unit price be defined in detail?" }, "back": { "tr": "Hem birim fiyatın gerçekçi olmasını sağlar hem de inşaat aşamasında iş sahibi-yüklenici anlaşmazlığını en aza indirir (örn. kazı bedeline toprağın taşınması dahil mi değil mi net olmalı).", "en": "..." }, "en": "Detailed scope keeps the unit price realistic and minimizes owner-contractor disputes.", "tag": "birim-fiyat" },
+    { "id": "f5", "front": { "tr": "Sabit birim fiyatlı sözleşme nedir?", "en": "What is a fixed unit price contract?" }, "back": { "tr": "İşin başında belirlenen birim fiyatların işin sonuna kadar değişmeyeceğinin kabul edildiği sözleşme.", "en": "..." }, "en": "A contract where the initially set unit prices remain unchanged until the end of the job.", "tag": "birim-fiyat" },
+    { "id": "f6", "front": { "tr": "Sabit birim fiyat hangi koşullarda tercih edilmelidir?", "en": "When should fixed unit price be preferred?" }, "back": { "tr": "Süresi birkaç ayı geçmeyen işlerde ve muhtemel fiyat artışları baştan birim fiyata dahil edilmişse.", "en": "..." }, "en": "For jobs lasting only a few months, where likely price rises are already priced in.", "tag": "birim-fiyat" },
+    { "id": "f7", "front": { "tr": "Sabit birim fiyatın sakıncası ne zaman ortaya çıkar?", "en": "When does fixed unit price become a problem?" }, "back": { "tr": "Enflasyonun yüksek olduğu veya proje süresinin uzun olduğu durumlarda; fiyatlar piyasanın gerisinde kalır, yükleniciye zarar verir, iş yavaşlar/durur.", "en": "..." }, "en": "Under high inflation or long project duration, fixed prices fall behind the market, hurting the contractor and slowing the work.", "tag": "birim-fiyat" },
+    { "id": "f73", "front": { "tr": "Kamu işlerinde birim fiyatların dayandığı 'poz' sistemi nedir?", "en": "What is the 'poz' system underlying public-works unit prices?" }, "back": { "tr": "Kamuda her yıl yayımlanan poz numaraları ve bunlara karşılık gelen birim fiyat tarifleri/analizleridir. Özel işlerde bu resmi pozlardan yararlanılabilir ya da kendi özel tarifleri hazırlanabilir.", "en": "..." }, "en": "The annually published public-works item-code (poz) list, with matching unit-price schedules/analyses; private jobs may reuse it or write their own.", "tag": "birim-fiyat" },
+    { "id": "f8", "front": { "tr": "Değişken birim fiyatlı sözleşmede belirlenmesi gereken iki değişken nedir?", "en": "What two key variables must be set in a variable unit price contract?" }, "back": { "tr": "(1) Fiyatların hangi aralıkla değişeceği (3, 6, 8, 10, 12 aylık periyotlardan biri), (2) hangi düzeyde değişeceği (yüzde).", "en": "..." }, "en": "How often prices adjust (3/6/8/10/12-month periods) and by what percentage.", "tag": "birim-fiyat" },
+    { "id": "f9", "front": { "tr": "Fiyat ayarlama periyodu 3 ay, aylık artış %6 ise, sözleşme maddesi nasıl yazılır?", "en": "If the adjustment period is 3 months and the monthly increase is 6%, how is the clause worded?" }, "back": { "tr": "\"Birim fiyatlar her üç ayda bir, bir önceki birim fiyata göre %18 artırılarak uygulanır.\" (3×%6=%18)", "en": "..." }, "en": "\"Unit prices are increased by 18% every three months relative to the prior price\" (3×6%=18%).", "tag": "birim-fiyat" },
+    { "id": "f10", "front": { "tr": "Fiyat dalgalanmasının belirgin olduğu dönemlerde değişken birim fiyat neye bağlanmalı?", "en": "In volatile-price periods, what should variable unit price be indexed to?" }, "back": { "tr": "Sabit bir artış oranı yerine, Devlet İstatistik Kurumu'nun yayımladığı TÜFE (aynen ya da birkaç puan altı/üstü) gibi bir endekse bağlanmalı.", "en": "..." }, "en": "An index like the official CPI (TÜFE), rather than a fixed pre-set rate.", "tag": "birim-fiyat" },
+    { "id": "f11", "front": { "tr": "Sözleşme bedelinde izin verilen artış/azalış sınırı aşılırsa ne olur?", "en": "What happens if the allowed contract-sum change limit is exceeded?" }, "back": { "tr": "Aksi açıkça belirtilmedikçe sözleşme feshedilir.", "en": "..." }, "en": "The contract is terminated, unless the contract states otherwise.", "tag": "birim-fiyat" },
+    { "id": "f12", "front": { "tr": "Sözleşme bedelindeki artış hangi iki unsura da yansıtılmalıdır?", "en": "The contract-sum increase must also be reflected in which two things?" }, "back": { "tr": "Proje süresine (aynı oranda ek süre) ve varsa kesin teminata.", "en": "..." }, "en": "Project duration (proportional extension) and the final guarantee amount, if any.", "tag": "birim-fiyat" },
+    { "id": "f13", "front": { "tr": "Teklif birim fiyat usulünün birim fiyat usulünden temel farkı nedir?", "en": "What is the key difference between bid unit price and plain unit price?" }, "back": { "tr": "Birim fiyat usulünde fiyatları iş sahibi belirler (yüklenici tenzilat teklif eder); teklif birim fiyatta fiyatları yüklenici kendisi belirleyip teklif eder.", "en": "..." }, "en": "In unit price, the owner sets prices (bidders offer a discount); in bid unit price, bidders set their own unit prices.", "tag": "teklif-birim-fiyat" },
+    { "id": "f14", "front": { "tr": "2003 yılından itibaren Türk kamu ihale mevzuatı hangi iki sözleşme türünü öngörür?", "en": "Since 2003, Turkish public procurement law mandates which two contract types?" }, "back": { "tr": "Anahtar teslimi usulü ve teklif birim fiyat usulü sözleşmeler.", "en": "..." }, "en": "Turnkey and bid unit price contracts.", "tag": "teklif-birim-fiyat" },
+    { "id": "f15", "front": { "tr": "2002 sonuna kadar kamu ihalelerinde uygulanan tek sözleşme şekli neydi?", "en": "What was the only contract type used in Turkish public tenders through 2002?" }, "back": { "tr": "Birim fiyat usulü sözleşme.", "en": "..." }, "en": "Plain unit price contract.", "tag": "teklif-birim-fiyat" },
+    { "id": "f16", "front": { "tr": "Teklif birim fiyat ile anahtar teslimi arasındaki bağlayıcılık farkı nedir?", "en": "What is the binding-scope difference between bid unit price and turnkey?" }, "back": { "tr": "Anahtar teslimde sadece toplam bedel bağlayıcıdır; teklif birim fiyatta toplam bedelin yanında her kalemin metrajı ve birim fiyatı da bağlayıcıdır.", "en": "..." }, "en": "Turnkey binds only the total sum; bid unit price binds the total AND each item's quantity/unit price.", "tag": "teklif-birim-fiyat" },
+    { "id": "f17", "front": { "tr": "Teklif birim fiyat usulünün avantajı nedir?", "en": "What is the advantage of bid unit price?" }, "back": { "tr": "İş kalemlerinde beklenmeyen artış/azalma olursa bedel değişikliği, bilinen birim fiyatlar üzerinden kolayca hesaplanıp sözleşmeye yansıtılabilir.", "en": "..." }, "en": "Unexpected quantity changes are easily priced using the already-known unit rates.", "tag": "teklif-birim-fiyat" },
+    { "id": "f18", "front": { "tr": "Teklif fiyat listesinde hangi bilgiler yer alır?", "en": "What information appears in the bid price list?" }, "back": { "tr": "İmalat kaleminin sıra no, tanımı, miktarı, birimi, birim fiyatı, tutarı ve liste toplamı.", "en": "..." }, "en": "Item sequence number, description, quantity, unit, unit price, amount, and list total.", "tag": "teklif-birim-fiyat" },
+    { "id": "f19", "front": { "tr": "Teklif birim fiyat usulü hangi tür işlerde tercih edilir?", "en": "When is bid unit price preferred?" }, "back": { "tr": "İş kalemlerinin miktarlarında değişme olasılığı bulunan işlerde (örn. tamirat, zemin altı işleri).", "en": "..." }, "en": "For work where item quantities are likely to change (e.g., renovation, subsurface work).", "tag": "teklif-birim-fiyat" },
+    { "id": "f20", "front": { "tr": "Anahtar teslimi usulü sözleşme nedir?", "en": "What is a turnkey (lump-sum) contract?" }, "back": { "tr": "İşin projesine ve şartnamesine uygun gerçekleştirilmesi karşılığında, işe başlamadan belirlenen toplam ve sabit bir fiyat üzerinden anlaşmayı esas alan sözleşme.", "en": "..." }, "en": "A contract based on a single, fixed total price agreed before work begins.", "tag": "anahtar-teslim" },
+    { "id": "f21", "front": { "tr": "Anahtar teslimi sözleşmenin en belirgin özelliği nedir?", "en": "What is the most distinctive feature of a turnkey contract?" }, "back": { "tr": "İşin bedeli işe başlanmadan önce belirlenir; işin gerçekleştirme aşamasında değişmez.", "en": "..." }, "en": "The price is fixed before work starts and does not change during execution.", "tag": "anahtar-teslim" },
+    { "id": "f22", "front": { "tr": "Anahtar teslimi sözleşmenin avantajı nedir?", "en": "What is the advantage of a turnkey contract?" }, "back": { "tr": "İmalat bedelinin tespitine yönelik iş sahibi-yüklenici anlaşmazlıklarını en aza indirir.", "en": "..." }, "en": "It minimizes owner-contractor disputes over the cost of the work.", "tag": "anahtar-teslim" },
+    { "id": "f23", "front": { "tr": "Anahtar teslimi sözleşmede anlaşmazlığı önlemek için proje ve şartname nasıl hazırlanmalı?", "en": "How must the design and spec be prepared to prevent disputes in a turnkey contract?" }, "back": { "tr": "Proje, üretilecek yapının şekil-boyut-kaliteyi somutlaştıracak kapsamda; teknik şartname, kullanılacak her malzeme ve teknolojinin tüm ayrıntılarını içerecek şekilde hazırlanmalı.", "en": "..." }, "en": "In full detail — the design must specify exact form/size/quality, and the spec must cover every material and technology in detail.", "tag": "anahtar-teslim" },
+    { "id": "f24", "front": { "tr": "Anahtar teslimi sözleşmede hakediş için iki yöntem nedir?", "en": "What are the two methods for structuring payments (hakediş) in a turnkey contract?" }, "back": { "tr": "(1) Sözleşme metninde iş aşaması + ödeme yüzdesi çizelgesi vermek; (2) hakediş ödeme zaman/düzeyini sözleşme ekindeki iş programına bağlamak.", "en": "..." }, "en": "(1) A milestone-percentage table in the contract text, or (2) linking payment timing/level to the annexed work schedule.", "tag": "anahtar-teslim" },
+    { "id": "f25", "front": { "tr": "Örnek 6 hakedişlik çizelgede toplam ödeme oranları neye eşittir?", "en": "In the example six-installment payment table, what do the percentages sum to?" }, "back": { "tr": "%7 + %25 + %25 + %25 + %15 + %3 = %100.", "en": "..." }, "en": "7% + 25% + 25% + 25% + 15% + 3% = 100%.", "tag": "anahtar-teslim" },
+    { "id": "f26", "front": { "tr": "Örnek çizelgede 3. hakediş oranı %25 ise, 10 milyon TL bedelde karşılığı nedir?", "en": "If the 3rd hakediş rate is 25%, what is its value on a 10 million TL total?" }, "back": { "tr": "10.000.000 × 0,25 = 2.500.000 TL.", "en": "..." }, "en": "25% → 10,000,000 × 0.25 = 2,500,000 TL.", "tag": "anahtar-teslim" },
+    { "id": "f27", "front": { "tr": "Anahtar teslimi sözleşmede iş programına bağlı hakediş yönteminde gerçekleşme düzeyini kim belirler?", "en": "In the work-schedule-linked hakediş method, who determines the percentage completion?" }, "back": { "tr": "Denetim elemanı/denetim örgütü (yapı denetim kuruluşu).", "en": "..." }, "en": "The supervising inspector/construction supervision body.", "tag": "anahtar-teslim" },
+    { "id": "f28", "front": { "tr": "Gerçekçi bir hakediş taahhüdü için hangi üç ön koşul gerekir?", "en": "What three prerequisites make a hakediş commitment workable?" }, "back": { "tr": "(1) Ayrıntılı bir ön keşif, (2) iş hızının gerçekçi belirlendiği bir iş programı, (3) hakediş aralıkları/ödeme düzeyinin iş programındaki nakit kullanım hızına göre düzenlenmesi.", "en": "..." }, "en": "A detailed preliminary cost estimate, a realistic work schedule, and payment levels aligned to the schedule's cash-use rate.", "tag": "anahtar-teslim" },
+    { "id": "f29", "front": { "tr": "Anahtar teslimi sözleşmede metraj ve birim fiyatlar teklif ekinde neden istenebilir?", "en": "Why might quantities and unit prices be requested as bid annexes even in a turnkey contract?" }, "back": { "tr": "Toplam bedel tek bir fiyat olsa da, iş sahibi teklifleri daha iyi değerlendirmek için teklifin dayanağı olan metraj/birim fiyat bilgisini görmek isteyebilir; bu bilgi bağlayıcı değildir.", "en": "..." }, "en": "Even though only the lump sum is binding, the owner may want to see the supporting quantities/unit prices to evaluate bids better (non-binding reference).", "tag": "anahtar-teslim" },
+    { "id": "f30", "front": { "tr": "Maliyet artı kâr usulü sözleşme nedir?", "en": "What is a cost-plus-fee contract?" }, "back": { "tr": "Ödemenin, ürünün gerçek maliyetine belirli oranda (veya sabit) kâr eklenerek belirlendiği sözleşme.", "en": "..." }, "en": "A contract in which payment equals actual cost plus an agreed fee (percentage or fixed).", "tag": "maliyet-arti-kar" },
+    { "id": "f31", "front": { "tr": "Maliyet artı kâr sözleşmesi hangi üç durumda tercih edilir?", "en": "In which three situations is cost-plus-fee preferred?" }, "back": { "tr": "(1) Aciliyet nedeniyle proje tamamlanmadan başlanması gereken durumlarda, (2) proje değişikliği olasılığı yüksek işlerde, (3) iş hızı ve kalitenin öncelikli olduğu işlerde.", "en": "..." }, "en": "Urgent starts before full design, high likelihood of design changes, or priority on speed/quality.", "tag": "maliyet-arti-kar" },
+    { "id": "f32", "front": { "tr": "Maliyet artı kâr sözleşmesinin proje esnekliği avantajı nasıl açıklanır?", "en": "How is the design-flexibility advantage of cost-plus explained?" }, "back": { "tr": "Maliyet iş sahibince karşılandığından iş miktarı/niteliğindeki değişiklikler yükleniciyi olumsuz etkilemez; yüklenici değişikliklere direnç göstermez.", "en": "..." }, "en": "Since the owner reimburses cost, scope changes don't hurt the contractor, so the contractor doesn't resist them.", "tag": "maliyet-arti-kar" },
+    { "id": "f33", "front": { "tr": "Maliyet artı kâr sözleşmesinin başlıca dezavantajları nedir?", "en": "What are the main disadvantages of cost-plus-fee?" }, "back": { "tr": "Maliyet kontrolü için sürekli çaba gerekir (yükleniciyi maliyeti şişirmeye teşvik edebilir), bütçe belirsizliği yüksektir, belge sayısı/sirkülasyonu fazladır.", "en": "..." }, "en": "Requires constant cost policing (risk of inflated costs), high budget uncertainty, and heavy documentation.", "tag": "maliyet-arti-kar" },
+    { "id": "f34", "front": { "tr": "Maliyet artı kâr sözleşmelerinde maliyet girdileri kaç ana grupta toplanır ve nelerdir?", "en": "How many cost-input groups are there in cost-plus contracts, and what are they?" }, "back": { "tr": "Dört ana grup: malzeme, işçilik, makine, nakliye (taşımalar).", "en": "..." }, "en": "Four groups: material, labor, equipment, and haulage/transport.", "tag": "maliyet-arti-kar" },
+    { "id": "f35", "front": { "tr": "Maliyet artı kâr sözleşmesinde belgeleme neden kritiktir?", "en": "Why is documentation critical in cost-plus-fee contracts?" }, "back": { "tr": "Yüklenicinin kârı maliyetin yüzdesi olduğundan, maliyeti oluşturan harcamaların denetlenebilir ve tarafların onayını taşıyan bir belge düzeninde kayıtlı olması gerekir.", "en": "..." }, "en": "Since the fee is a percentage of cost, expenses must be auditable and recorded in a documentation system both parties accept.", "tag": "maliyet-arti-kar" },
+    { "id": "f74", "front": { "tr": "Maliyet artı kâr sözleşmesinde tek bir kâr oranı yerine ne zaman farklı kâr oranları uygulanır?", "en": "When are differentiated fee rates (rather than a single rate) used in a cost-plus-fee contract?" }, "back": { "tr": "İşin türü çok farklıysa; örneğin satın alma maliyeti yüksek ama montajı pratik olan montaj nitelikli işler (tesisat, iklimlendirme üniteleri) ile hassas işçilik gerektiren üretim işlerine (kaplama gibi) aynı kâr oranı adil olmaz. Bu yüzden işler gruplara ayrılıp farklı oranlar uygulanabilir; tek oran ise ara/kesin hakedişi kolaylaştırır.", "en": "..." }, "en": "When work types differ sharply — installation-type work (high purchase cost, easy assembly) vs. skilled production work (e.g., finishing) — a single rate is unfair, so work is grouped and rated separately; a single rate merely simplifies billing.", "tag": "maliyet-arti-kar" },
+    { "id": "f36", "front": { "tr": "Maliyet artı kâr usulünün dört alt türü nedir?", "en": "What are the four variants of cost-plus-fee contracts?" }, "back": { "tr": "(a) Maliyet + % kâr, (b) maliyet tavanına kadar % kâr sonrası kârsız, (c) tavana kadar % kâr sonrası kârsız + tasarruf bölüşümü, (d) maliyet + sabit kâr.", "en": "..." }, "en": "(a) cost + % fee, (b) fee up to a cost ceiling then cost-only, (c) same as (b) plus shared savings if under ceiling, (d) cost + fixed fee.", "tag": "maliyet-arti-kar" },
+    { "id": "f37", "front": { "tr": "Maliyet+%Kâr yönteminde, maliyet 2.000 TL ve kâr oranı %20 ise ödenecek tutar nedir?", "en": "Cost+%Fee: if cost is 2,000 TL at a 20% fee rate, what is the amount paid?" }, "back": { "tr": "2.000 + 2.000×0,20 = 2.400 TL.", "en": "..." }, "en": "2,000 + 2,000×0.20 = 2,400 TL.", "tag": "maliyet-arti-kar" },
+    { "id": "f38", "front": { "tr": "Maliyet+%Kâr yönteminin başlıca riski nedir?", "en": "What is the main risk of the cost+%fee method?" }, "back": { "tr": "Yüklenicinin yapay maliyet artışlarına yönelme olasılığı — kâr da maliyetle birlikte büyür.", "en": "..." }, "en": "The contractor may be tempted to artificially inflate costs, since the fee scales with cost.", "tag": "maliyet-arti-kar" },
+    { "id": "f39", "front": { "tr": "Maliyet tavanına kadar %Kâr, sonrası kârsız yönteminde tavan aşılırsa ne olur?", "en": "In the fee-up-to-ceiling method, what happens once the cost ceiling is exceeded?" }, "back": { "tr": "Aşan kısım için iş sahibi yine maliyeti karşılar ama artık kâr verilmez.", "en": "..." }, "en": "The owner still covers the excess cost, but no further fee is paid.", "tag": "maliyet-arti-kar" },
+    { "id": "f40", "front": { "tr": "Maliyet tavanı, inşaatın tamamı için mi yoksa parça parça mı belirlenebilir?", "en": "Can the cost ceiling be set for the whole project or per work group?" }, "back": { "tr": "Her ikisi de mümkündür; ana iş kalemleri (kaba inşaat, ince inşaat, mekanik, elektrik) için ayrı ayrı tavan belirlenmesi daha hakkaniyetli kabul edilir.", "en": "..." }, "en": "Either — setting separate ceilings per work group (rough construction, finishing, mechanical, electrical) is considered fairer.", "tag": "maliyet-arti-kar" },
+    { "id": "f41", "front": { "tr": "Tavana kadar %Kâr + tasarruf bölüşümü yönteminde tasarruf nasıl paylaşılır?", "en": "In the ceiling+savings-share method, how is the savings split?" }, "back": { "tr": "Proje maliyeti tavanın altında kalırsa, tavan ile gerçekleşen maliyet arasındaki fark, sözleşmede belirlenen oranda (örn. %50-%50) taraflar arasında paylaşılır.", "en": "..." }, "en": "If actual cost is under the ceiling, the difference is split between owner and contractor at an agreed ratio (e.g., 50/50).", "tag": "maliyet-arti-kar" },
+    { "id": "f42", "front": { "tr": "Tavan 50.000 TL, kâr %20, tasarruf payı %50-%50; proje 48.000 TL'ye tamamlanmışsa yüklenici ne alır?", "en": "Ceiling 50,000 TL, fee 20%, savings split 50/50; if actual cost is 48,000 TL, what does the contractor receive?" }, "back": { "tr": "48.000 + 48.000×0,20 + (50.000−48.000)/2 = 48.000 + 9.600 + 1.000 = 58.600 TL.", "en": "..." }, "en": "48,000 + 9,600 fee + 1,000 shared savings = 58,600 TL.", "tag": "maliyet-arti-kar" },
+    { "id": "f43", "front": { "tr": "Aynı örnekte proje 51.000 TL'ye tamamlansaydı (tavanı aşarak) yüklenici ne alırdı?", "en": "Same example, if actual cost were 51,000 TL (over the ceiling), what would the contractor receive?" }, "back": { "tr": "50.000'e kadar %20 kâr (10.000 TL) + tavanı aşan 1.000 TL sadece maliyet olarak = 61.000 TL; tasarruf yok, o kısımda kâr yok.", "en": "..." }, "en": "50,000 + 10,000 fee (up to ceiling) + 1,000 excess cost with no fee = 61,000 TL total; no savings share.", "tag": "maliyet-arti-kar" },
+    { "id": "f44", "front": { "tr": "Maliyet + Sabit Kâr yönteminde kâr neye bağlıdır?", "en": "In the cost + fixed-fee method, what does the fee depend on?" }, "back": { "tr": "Hiçbir şeye — işin tamamı için önceden belirlenmiş sabit bir tutardır, gerçekleşen maliyetten bağımsızdır.", "en": "..." }, "en": "Nothing — it is a pre-set lump sum for the whole job, independent of actual cost.", "tag": "maliyet-arti-kar" },
+    { "id": "f45", "front": { "tr": "Maliyet + Sabit Kâr yönteminin amacı nedir?", "en": "What is the goal of the cost + fixed-fee method?" }, "back": { "tr": "Maliyet-kâr ilişkisini koparıp yükleniciyi işi bir an önce tamamlamaya teşvik etmek.", "en": "..." }, "en": "To decouple fee from cost, motivating the contractor to finish the job as fast as possible.", "tag": "maliyet-arti-kar" },
+    { "id": "f46", "front": { "tr": "Kat karşılığı inşaat sözleşmesi nedir?", "en": "What is a land-share (kat karşılığı) construction contract?" }, "back": { "tr": "Arsa sahibinin arsasının belirli bir oranını yükleniciye devretmesi karşılığında, yüklenicinin yapacağı binadan belirli sayı/oranda bağımsız bölümü arsa sahibine bedelsiz teslim etmeyi taahhüt ettiği sözleşme.", "en": "..." }, "en": "The landowner transfers a share of land; in return, the contractor builds and hands over a specified number/percentage of finished units to the landowner free of charge.", "tag": "kat-karsiligi" },
+    { "id": "f47", "front": { "tr": "Kat karşılığı sözleşme için kullanılan diğer adlar nelerdir?", "en": "What other names are used for the land-share contract?" }, "back": { "tr": "Arsa Karşılığı Daire Yapım Sözleşmesi, Arsa Karşılığı Bağımsız Bölüm Sözleşmesi, Arsa Payı Karşılığı Bağımsız Bölüm Yapma Sözleşmesi.", "en": "..." }, "en": "Land-Share Apartment Construction Contract, Land-Share Independent Unit Contract, etc.", "tag": "kat-karsiligi" },
+    { "id": "f48", "front": { "tr": "Kat karşılığı sözleşme neden 'karma nitelikli' kabul edilir?", "en": "Why is a land-share contract considered 'hybrid/mixed'?" }, "back": { "tr": "Çünkü hem gayrimenkul devrini hem de inşaat yapımını (eser sözleşmesi) aynı anda konu alır.", "en": "..." }, "en": "Because it combines a real-property transfer with a construction (work) contract.", "tag": "kat-karsiligi" },
+    { "id": "f49", "front": { "tr": "Kat karşılığı sözleşme hangi şekil şartına tabidir?", "en": "What formal requirement applies to a land-share contract?" }, "back": { "tr": "Noterlerce 'Düzenleme Şeklinde Sözleşme' olarak düzenlenmesi zorunludur; gayrimenkul devri içerdiği için bu şart aranır.", "en": "..." }, "en": "It must be executed by a notary as a 'düzenleme şekli' (notarial deed) — required because it involves a real-property transfer.", "tag": "kat-karsiligi" },
+    { "id": "f50", "front": { "tr": "Kat karşılığı sözleşme noterde düzenlenmezse ne olur?", "en": "What happens if a land-share contract is not executed by a notary?" }, "back": { "tr": "Şekil şartı sağlanmadığından sözleşme geçersiz sayılır; taraflar hukuki hak talep edemez, ciddi mağduriyetler doğar.", "en": "..." }, "en": "It is void for failing the formal requirement; neither party can legally enforce claims, leading to serious harm.", "tag": "kat-karsiligi" },
+    { "id": "f51", "front": { "tr": "Noter tarafından hazırlanan sözleşmelere ne ad verilir?", "en": "What are notary-prepared contracts called?" }, "back": { "tr": "Düzenleme Şeklinde Sözleşme.", "en": "..." }, "en": "'Düzenleme Şeklinde Sözleşme' (contract in notarial-deed form).", "tag": "kat-karsiligi" },
+    { "id": "f52", "front": { "tr": "Kat karşılığı sözleşmenin tam resmi adı nedir?", "en": "What is the full formal name of a land-share contract?" }, "back": { "tr": "Düzenleme Şeklinde Gayrimenkul Satış Vaadi ve Daire Yapım Karşılığı İnşaat Sözleşmesi.", "en": "..." }, "en": "\"Deed-Form Real Property Sale Promise and Apartment Construction Contract.\"", "tag": "kat-karsiligi" },
+    { "id": "f53", "front": { "tr": "Kat karşılığı prosedürünün ilk adımı nedir?", "en": "What is the first step in the land-share procedure?" }, "back": { "tr": "İmar durumu kontrolü — ilgili belediyeden imar çapı alınarak yapının fiziki boyutları/kat sayısı belirlenir.", "en": "..." }, "en": "Checking zoning status by obtaining the imar çapı (zoning survey document) from the municipality.", "tag": "kat-karsiligi" },
+    { "id": "f54", "front": { "tr": "Kat karşılığı sözleşmede paylaşım hangi iki şekilde belirlenebilir?", "en": "In what two ways can the sharing arrangement be defined?" }, "back": { "tr": "Sayı olarak (örn. 5 daire) veya oran olarak (örn. %45-%55).", "en": "..." }, "en": "By count (e.g., 5 units) or by percentage (e.g., 45%-55%).", "tag": "kat-karsiligi" },
+    { "id": "f55", "front": { "tr": "Kat karşılığı sözleşmede dört arsa devir yöntemi nedir?", "en": "What are the four land-transfer methods in a land-share contract?" }, "back": { "tr": "Tam devir + eser sözleşmesi, kısmi pay devri, aşamalı devir (satış vaadi olmadan ilerlemeye bağlı), karma devir (satış + inşaat taahhüdü).", "en": "..." }, "en": "Full transfer + work contract, partial-share transfer, staged transfer (tied to progress, no promise-of-sale), and mixed transfer (sale + build commitment).", "tag": "kat-karsiligi" },
+    { "id": "f56", "front": { "tr": "Tam devir + eser sözleşmesi yönteminde arsa sahibinin hakkı nasıl güvence altına alınır?", "en": "In the full-transfer method, how is the landowner's right secured?" }, "back": { "tr": "Yükleniciye devredilen arsa üzerine arsa sahibi lehine ipotek konularak.", "en": "..." }, "en": "By placing a mortgage in the landowner's favor on the transferred land.", "tag": "kat-karsiligi" },
+    { "id": "f57", "front": { "tr": "Aşamalı devir yöntemini yükleniciler neden pek sevmez?", "en": "Why do contractors dislike the staged-transfer method?" }, "back": { "tr": "Bağımsız bölümleri erken satıp finansman sağlayamazlar; devir inşaatın ilerleme aşamasına bağlıdır.", "en": "..." }, "en": "They can't sell units early for financing, since transfer is tied to construction progress.", "tag": "kat-karsiligi" },
+    { "id": "f58", "front": { "tr": "Kat karşılığı sözleşmede takdir edilen arsa değeri en az ne kadar olmalıdır?", "en": "What is the minimum value that must be assigned to the land in the contract?" }, "back": { "tr": "Arsanın emlak vergisine esas değeri kadar.", "en": "..." }, "en": "At least the property-tax (emlak vergisi) assessed value.", "tag": "kat-karsiligi" },
+    { "id": "f59", "front": { "tr": "'Ferağ' kat karşılığı sözleşme bağlamında ne anlama gelir?", "en": "What does 'ferağ' mean in the land-share context?" }, "back": { "tr": "Arsa sahibinin, yükleniciye ait bağımsız bölümlere isabet eden arsa payını tapuda yükleniciye devretmesi — yüklenicinin o bölümleri 3. kişilere satabilmesi için gereklidir.", "en": "..." }, "en": "The landowner's registry transfer of the land share corresponding to the contractor's units — required before the contractor can sell those units to third parties.", "tag": "kat-karsiligi" },
+    { "id": "f60", "front": { "tr": "Arsa sahipleri, yüklenicinin bağımsız bölüm satışını neye bağlamak ister?", "en": "What do landowners typically tie the contractor's unit sales to?" }, "back": { "tr": "İnşaatın ilerleme aşamasına — yüklenicinin işi tamamlayamama riskine karşı bir güvenlik önlemi olarak.", "en": "..." }, "en": "Construction progress — as a safeguard against the risk the contractor fails to complete the job.", "tag": "kat-karsiligi" },
+    { "id": "f61", "front": { "tr": "Kat karşılığı sözleşmede en sık görülen ve en ağır sonuçlu sorun nedir?", "en": "What is the most common and most severe problem in land-share contracts?" }, "back": { "tr": "Şekil şartına (noterde düzenleme şekli) uyulmaması — sözleşmeyi geçersiz kılar.", "en": "..." }, "en": "Failure to meet the notarial formal requirement — this voids the contract.", "tag": "kat-karsiligi" },
+    { "id": "f62", "front": { "tr": "Bağımsız bölüm paylaşımındaki belirsizliği önlemek için ne yapılmalıdır?", "en": "What should be done to prevent ambiguity in unit-sharing?" }, "back": { "tr": "Paylaşım, bir ön proje (plan-görünüş, gerekirse maket) üzerinden yapılmalı; adet/oran bu ön çalışmaya dayandırılmalı.", "en": "..." }, "en": "Base the sharing arrangement on a preliminary design (plans/elevations, or even a scale model).", "tag": "kat-karsiligi" },
+    { "id": "f63", "front": { "tr": "Üçüncü kişiler yükleniciden bağımsız bölüm satın almadan önce ne yapmalıdır?", "en": "What should third parties do before buying a unit from the contractor?" }, "back": { "tr": "Yüklenici-arsa sahibi arasındaki ana sözleşmeyi incelemeli: şekil şartına uygun mu, yüklenicinin o bölümü satma yetkisi var mı?", "en": "..." }, "en": "Review the underlying landowner-contractor contract: is it formally valid, and does the contractor currently have authority to sell that unit?", "tag": "kat-karsiligi" },
+    { "id": "f64", "front": { "tr": "Kat karşılığı sözleşmede kalite tanımlarındaki en sık hata nedir?", "en": "What is the most common mistake in quality specifications for land-share contracts?" }, "back": { "tr": "'Birinci sınıf', 'iyi kalite', 'TS'ye uygun' gibi soyut tanımlar kullanmak — bunlar somut değildir ve anlaşmazlığa yol açar.", "en": "..." }, "en": "Using vague terms like \"first class\" or \"TS-compliant\" instead of a concrete technical specification.", "tag": "kat-karsiligi" },
+    { "id": "f65", "front": { "tr": "Kat karşılığı inşaat sürecinde neden bir sözleşme yöneticisi önerilir?", "en": "Why is a dedicated contract manager recommended for land-share projects?" }, "back": { "tr": "Sorunları önceden görüp çözüm geliştirmek, sözleşme maddelerinin vaktinde ve kuralına uygun uygulanmasını izlemek için; ücreti ihmal edilebilir düzeyde olsa da önlediği kayıplar büyüktür.", "en": "..." }, "en": "To foresee and resolve problems early and ensure timely, compliant execution — the fee is small relative to the losses it prevents.", "tag": "kat-karsiligi" },
+    { "id": "f66", "front": { "tr": "Hangi sözleşme türünde ödeme para değil, gayrimenkul/bağımsız bölümdür?", "en": "In which contract type is payment not cash but real property/units?" }, "back": { "tr": "Kat karşılığı inşaat sözleşmesi.", "en": "..." }, "en": "The land-share (kat karşılığı) contract.", "tag": "karsilastirma" },
+    { "id": "f67", "front": { "tr": "Hangi sözleşme türünde riski ağırlıklı olarak yüklenici taşır?", "en": "In which contract type does the contractor bear most of the risk?" }, "back": { "tr": "Anahtar teslimi usulü (toplam sabit fiyat, miktar/maliyet artışları yüklenicinin sırtındadır).", "en": "..." }, "en": "Turnkey — the fixed total price puts quantity/cost overruns on the contractor.", "tag": "karsilastirma" },
+    { "id": "f68", "front": { "tr": "Hangi sözleşme türünde riski ağırlıklı olarak iş sahibi taşır?", "en": "In which contract type does the owner bear most of the risk?" }, "back": { "tr": "Maliyet artı kâr usulü (gerçek maliyet iş sahibince karşılanır).", "en": "..." }, "en": "Cost-plus-fee — the owner reimburses actual cost.", "tag": "karsilastirma" },
+    { "id": "f69", "front": { "tr": "Birim fiyat ile anahtar teslimi arasında risk paylaşımı bakımından temel fark nedir?", "en": "What is the core risk-sharing difference between unit price and turnkey?" }, "back": { "tr": "Birim fiyatta miktar değişse de birim maliyet sabittir, risk paylaşılır; anahtar teslimde toplam bedel sabittir, miktar/maliyet riski büyük ölçüde yüklenicidedir.", "en": "..." }, "en": "Unit price keeps unit cost fixed even if quantity varies (shared risk); turnkey fixes the total, pushing quantity/cost risk mostly onto the contractor.", "tag": "karsilastirma" },
+    { "id": "f70", "front": { "tr": "İş kalemi miktarlarının değişme olasılığı yüksek işlerde hangi sözleşme türü tercih edilir?", "en": "Which contract type is preferred when item quantities are likely to change?" }, "back": { "tr": "Teklif birim fiyat usulü (veya maliyet artı kâr, proje aciliyeti de varsa).", "en": "..." }, "en": "Bid unit price (or cost-plus-fee if urgency/likely design changes also apply).", "tag": "karsilastirma" },
+    { "id": "f71", "front": { "tr": "Proje ve şartname tam netse hangi sözleşme türü en uygundur?", "en": "Which contract type suits a fully defined design/spec?" }, "back": { "tr": "Anahtar teslimi usulü — belirsizlik azaldıkça sabit fiyatın riski öngörülebilir hale gelir.", "en": "..." }, "en": "Turnkey — with low uncertainty, a fixed price becomes predictable and low-risk.", "tag": "karsilastirma" },
+    { "id": "f72", "front": { "tr": "Anahtar teslimi ile teklif birim fiyat, günümüz Türk kamu ihalelerinde neyi temsil eder?", "en": "What do turnkey and bid unit price represent in today's Turkish public tenders?" }, "back": { "tr": "2003'ten itibaren zorunlu kılınan, kamu inşaat ihalelerinde kullanılan tek iki sözleşme türü.", "en": "..." }, "en": "The only two contract types mandated for public construction tenders since 2003.", "tag": "karsilastirma" }
+  ],
+  "practice": [
+    {
+      "id": "q1", "type": "mcq", "covers": ["n2"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Birim fiyat usulü sözleşmede bir iş kaleminin bedeli nasıl hesaplanır?", "en": "How is an item's cost calculated in a unit price contract?" },
+      "options": [
+        { "tr": "Toplam sabit bir fiyat üzerinden", "en": "..." },
+        { "tr": "Gerçekleşen miktar × önceden belirlenmiş birim fiyat", "en": "..." },
+        { "tr": "Gerçek maliyet + sabit kâr", "en": "..." },
+        { "tr": "Arsa payı karşılığı bağımsız bölüm değeri üzerinden", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Doğru cevap budur çünkü birim fiyat usulünün tanımı tam olarak a×b formülüdür. (a) toplam sabit fiyat anahtar teslimi tanımıdır; (c) maliyet artı kâr tanımıdır; (d) kat karşılığı tanımıdır.", "en": "..." }
+    },
+    {
+      "id": "q2", "type": "open", "covers": ["n2"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Birim fiyat kapsamının ayrıntılı tanımlanması neden gereklidir? Açıklayınız.", "en": "Explain why the scope of unit prices must be defined in detail." },
+      "answer": { "tr": "Birim fiyata hangi iş ve işlemlerin dahil olduğu (örn. kazı bedeline toprağın taşınıp atılması dahil mi) net tanımlanmazsa, her iki taraf da kendince haklı olur ve inşaat aşamasında ciddi anlaşmazlık çıkar. Ayrıntılı tanım hem birim fiyatın gerçekçi olmasını sağlar hem de anlaşmazlığı en aza indirir. Bu yüzden 'Birim Fiyat Tarifleri' adlı ayrı bir doküman sözleşme eki olarak hazırlanır.", "en": "..." }
+    },
+    {
+      "id": "q3", "type": "mcq", "covers": ["n2"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Aşağıdakilerden hangisi sabit birim fiyatlı sözleşmenin sakıncalı olduğu bir durumdur?", "en": "Which of these is a scenario where fixed unit price is disadvantageous?" },
+      "options": [
+        { "tr": "Süresi 2 ayı geçmeyen kısa bir iş", "en": "..." },
+        { "tr": "Muhtemel fiyat artışlarının baştan birim fiyata dahil edildiği bir iş", "en": "..." },
+        { "tr": "Enflasyonun yüksek olduğu ve proje süresinin uzun olduğu bir iş", "en": "..." },
+        { "tr": "Fiyat istikrarının olduğu kısa süreli bir iş", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "Yüksek enflasyon ve uzun proje süresi, sabit birim fiyatların piyasanın gerisinde kalmasına, yüklenicinin kârının erimesine ve işin yavaşlamasına yol açar. Diğer üç seçenek sabit birim fiyatın tam olarak uygun olduğu koşullardır.", "en": "..." }
+    },
+    {
+      "id": "q4", "type": "mcq", "covers": ["n2"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Değişken birim fiyatlı bir sözleşmede fiyat ayarlama periyodu 3 ay ve her ay için kabul edilen artış %6 ise, her üç ayda bir uygulanacak toplam artış oranı yüzde kaçtır?", "en": "If the adjustment period is 3 months and monthly increase is 6%, what total increase is applied every 3 months?" },
+      "options": [
+        { "tr": "%6", "en": "..." },
+        { "tr": "%12", "en": "..." },
+        { "tr": "%18", "en": "..." },
+        { "tr": "%24", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "3 ay × %6/ay = %18 (basit toplama, kaynak metindeki örnekte de bu şekilde hesaplanmıştır). %6 tek aylık artış, %12 iki aylık, %24 alakasız bir çarpım.", "en": "..." }
+    },
+    {
+      "id": "q5", "type": "open", "covers": ["n2"], "difficulty": 2, "examStyle": false,
+      "q": { "tr": "Fiyat dalgalanmasının belirgin olduğu dönemlerde, sözleşmede sabit bir fiyat artış oranı belirlemek yerine ne yapılması önerilir? Neden?", "en": "In volatile-price periods, what is recommended instead of a fixed adjustment rate, and why?" },
+      "answer": { "tr": "Sabit bir oran yerine fiyatlar, TÜFE gibi resmi bir endekse (aynen ya da birkaç puan altı/üstünde) bağlanmalıdır. Çünkü dalgalanma döneminde önceden sabitlenmiş bir oran taraflardan birini (fiyatlar öngörülenden az artarsa iş sahibini, çok artarsa yükleniciyi) mağdur edebilir; endekse bağlama gerçekçi ve güncel bir ayarlama sağlar.", "en": "..." }
+    },
+    {
+      "id": "q6", "type": "mcq", "covers": ["n2"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Kamu işlerinde birim fiyatların ve tariflerinin dayandığı sisteme ne ad verilir?", "en": "What is the name of the system underlying public-works unit prices and specs?" },
+      "options": [
+        { "tr": "Poz sistemi", "en": "..." },
+        { "tr": "Metraj sistemi", "en": "..." },
+        { "tr": "Hakediş sistemi", "en": "..." },
+        { "tr": "Tenzilat sistemi", "en": "..." }
+      ], "correct": 0,
+      "explain": { "tr": "Kamuda her yıl yayımlanan poz numaraları ve bunlara karşılık gelen birim fiyat/tarifler kullanılır. Metraj miktar hesabı, hakediş ödeme belgesi, tenzilat indirim oranıdır — bunlar sistemin adı değildir.", "en": "..." }
+    },
+    {
+      "id": "q7", "type": "mcq", "covers": ["n3"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Birim fiyat usulü ile teklif birim fiyat usulü arasındaki temel fark nedir?", "en": "What is the core difference between unit price and bid unit price contracts?" },
+      "options": [
+        { "tr": "Birim fiyat usulünde toplam bedel yoktur", "en": "..." },
+        { "tr": "Birim fiyat usulünde birim fiyatları iş sahibi belirler, teklif birim fiyatta yüklenici belirler", "en": "..." },
+        { "tr": "Teklif birim fiyat usulünde ölçüm şekli tanımlanmaz", "en": "..." },
+        { "tr": "Birim fiyat usulü sadece özel işlerde kullanılır", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Doğru: kim fiyat belirliyor sorusu ayırt edicidir. (a) yanlış, ikisinde de toplam bedel hesaplanır; (c) yanlış, ölçüm şekli her ikisinde de tanımlanmalıdır; (d) yanlış, ayrım özel/kamu değildir.", "en": "..." }
+    },
+    {
+      "id": "q8", "type": "mcq", "covers": ["n3"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "2003 yılından itibaren Türk kamu ihale mevzuatı, kamu inşaatlarının hangi sözleşme türlerine dayalı yapılacağını öngörür?", "en": "Since 2003, which contract types are mandated for Turkish public construction tenders?" },
+      "options": [
+        { "tr": "Birim fiyat ve maliyet artı kâr", "en": "..." },
+        { "tr": "Anahtar teslimi ve teklif birim fiyat", "en": "..." },
+        { "tr": "Kat karşılığı ve anahtar teslimi", "en": "..." },
+        { "tr": "Sadece maliyet artı kâr", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "2003'ten itibaren kamu inşaat ihaleleri anahtar teslimi ve teklif birim fiyat usulüne dayalı yapılır; saf birim fiyat usulü sadece 2003 öncesinden devam eden işlerde görülür.", "en": "..." }
+    },
+    {
+      "id": "q9", "type": "open", "covers": ["n3"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Teklif birim fiyat usulü sözleşmenin avantajını, bir örnekle açıklayınız.", "en": "Explain the advantage of a bid unit price contract with an example." },
+      "answer": { "tr": "İş kalemlerinin miktarında beklenmeyen bir değişiklik olduğunda (örn. bir tamirat işinde sıva altı tesisatının tahmin edilenden fazla çıkması), birim fiyatlar zaten bilindiğinden bu değişikliğin bedeli kolayca (yeni miktar × mevcut birim fiyat) hesaplanıp sözleşme bedeline yansıtılır — taraflar yeniden fiyat pazarlığı yapmak zorunda kalmaz. Bu nedenle iş kalemi miktarının değişme olasılığının yüksek olduğu işlerde (zemin altı işler, tamiratlar) tercih edilir.", "en": "..." }
+    },
+    {
+      "id": "q10", "type": "mcq", "covers": ["n3"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Teklif birim fiyat usulü sözleşmede tarafları bağlayan unsur(lar) nedir?", "en": "In a bid unit price contract, what binds the parties?" },
+      "options": [
+        { "tr": "Sadece toplam bedel", "en": "..." },
+        { "tr": "Sadece iş kalemlerinin birim fiyatları", "en": "..." },
+        { "tr": "Toplam bedel ile birlikte her iş kaleminin metrajı ve birim fiyatı", "en": "..." },
+        { "tr": "Sadece arsa payı oranı", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "Teklif birim fiyatta hem toplam tutar hem de her kalemin metraj/birim fiyatı bağlayıcıdır — bu, sadece toplam bedelin bağlayıcı olduğu anahtar teslimden farkıdır.", "en": "..." }
+    },
+    {
+      "id": "q11", "type": "mcq", "covers": ["n4"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Anahtar teslimi usulü sözleşmenin en belirgin özelliği nedir?", "en": "What is the most distinctive feature of a turnkey contract?" },
+      "options": [
+        { "tr": "Bedel işin sonunda gerçekleşen maliyete göre belirlenir", "en": "..." },
+        { "tr": "Bedel, işe başlamadan önce toplam ve sabit bir fiyat olarak belirlenir", "en": "..." },
+        { "tr": "Her iş kaleminin ayrı birim fiyatı vardır ve bağlayıcıdır", "en": "..." },
+        { "tr": "Ödeme para yerine bağımsız bölüm olarak yapılır", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "(a) maliyet artı kârı tanımlar; (c) teklif birim fiyatı tanımlar; (d) kat karşılığını tanımlar. Anahtar teslimin özü, işe başlamadan belirlenen sabit toplam fiyattır.", "en": "..." }
+    },
+    {
+      "id": "q12", "type": "open", "covers": ["n4"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Anahtar teslimi usulü sözleşmelerde hakediş düzenlemesi için kullanılabilecek iki yöntemi açıklayınız.", "en": "Explain the two methods for structuring hakediş payments in turnkey contracts." },
+      "answer": { "tr": "1) Çizelge yöntemi: sözleşme metninde, her hakediş için tamamlanmış olması gereken işler ile ihale bedelinin ödenecek yüzdesi bir tabloda tanımlanır (örn. 6 hakedişlik bir çizelgede %7/%25/%25/%25/%15/%3 gibi, toplam %100). 2) İş programına bağlama yöntemi: hakedişler aylık ödenir, ödeme tutarı sözleşme ekindeki iş programının ilgili döneme ait satırında belirtilen orana göre belirlenir; işler beklenen düzeyde tamamlanmazsa ödeme fiilen gerçekleşen düzeye göre yapılır ve bu düzeyi denetim elemanı belirler.", "en": "..." }
+    },
+    {
+      "id": "q13", "type": "mcq", "covers": ["n4"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Örnek hakediş çizelgesinde toplam bedel 10.000.000 TL ve 2. hakediş oranı %25 ise, 2. hakedişte ödenecek tutar nedir?", "en": "In the example table, if the total is 10,000,000 TL and the 2nd hakediş is 25%, what amount is paid?" },
+      "options": [
+        { "tr": "250.000 TL", "en": "..." },
+        { "tr": "2.500.000 TL", "en": "..." },
+        { "tr": "25.000.000 TL", "en": "..." },
+        { "tr": "7.500.000 TL", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "10.000.000 × 0,25 = 2.500.000 TL. 250.000 TL ondalık kaymasından, 25.000.000 TL ters çarpımdan, 7.500.000 TL yanlış bir yüzde kullanımından kaynaklanan hatalı cevaplardır.", "en": "..." }
+    },
+    {
+      "id": "q14", "type": "open", "covers": ["n4"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Anahtar teslimi usulü sözleşmelerde, sözleşme ve eklerinin yeterli ayrıntıda hazırlanmaması neden özellikle riskli kabul edilir?", "en": "Why is inadequate detail in a turnkey contract especially risky?" },
+      "answer": { "tr": "Bedel işe başlamadan sabitlendiği için, projede veya şartnamede eksik/belirsiz bırakılan her nokta, uygulama aşamasında 'bu bedele dahil mi değil mi' tartışmasına dönüşür; ilave iş çıkması veya vazgeçme durumunda bedelin nasıl değişeceği önceden tanımlanmamışsa taraflar arasında anlaşmazlık kaçınılmaz olur. Bu yüzden projenin yapının şekil-boyut-kalitesini somutlaştıracak kapsamda, teknik şartnamenin de her malzeme ve teknolojiyi ayrıntısıyla tanımlayacak şekilde hazırlanması zorunludur.", "en": "..." }
+    },
+    {
+      "id": "q15", "type": "mcq", "covers": ["n4"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Anahtar teslimi sözleşmede sözleşme bedelinde izin verilen artış sınırı aşılırsa ve sözleşmede başka bir açıklama yoksa ne olur?", "en": "If the allowed increase limit is exceeded in a turnkey contract with no other clause, what happens?" },
+      "options": [
+        { "tr": "Otomatik olarak fiyat sabit kalır", "en": "..." },
+        { "tr": "Sözleşme feshedilir", "en": "..." },
+        { "tr": "Yüklenici işi durdurabilir ama sözleşme devam eder", "en": "..." },
+        { "tr": "İş sahibi tek taraflı yeni fiyat belirler", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Sınırın aşılması, aksi açıkça belirtilmedikçe sözleşmenin feshedileceği anlamına gelir. Bu kural hem birim fiyat hem anahtar teslimi sözleşmeler için ortaktır.", "en": "..." }
+    },
+    {
+      "id": "q16", "type": "mcq", "covers": ["n5"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr usulü sözleşme nasıl tanımlanır?", "en": "How is a cost-plus-fee contract defined?" },
+      "options": [
+        { "tr": "Bedel, gerçekleşen maliyete belirli oranda/sabit bir kâr eklenerek belirlenir", "en": "..." },
+        { "tr": "Bedel, işe başlamadan sabitlenir", "en": "..." },
+        { "tr": "Bedel, önceden belirlenmiş birim fiyat × miktardır", "en": "..." },
+        { "tr": "Ödeme, arsa payı karşılığı bağımsız bölümdür", "en": "..." }
+      ], "correct": 0,
+      "explain": { "tr": "(b) anahtar teslimi, (c) birim fiyat usulü, (d) kat karşılığı tanımıdır. Maliyet artı kârın özü, gerçek maliyet üzerine kâr eklenmesidir.", "en": "..." }
+    },
+    {
+      "id": "q17", "type": "open", "covers": ["n5"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr usulü sözleşmenin tercih edildiği üç durumu sayınız.", "en": "List the three situations where cost-plus-fee is preferred." },
+      "answer": { "tr": "1) İşin aciliyeti nedeniyle proje tüm ayrıntılarıyla tamamlanmadan inşaata başlanması gerektiğinde; 2) inşaat sürecinde proje değişikliği olasılığının yüksek olduğu işlerde; 3) iş hızı ve kalitenin öncelikli olduğu işlerde.", "en": "..." }
+    },
+    {
+      "id": "q18", "type": "mcq", "covers": ["n5"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr sözleşmesinde 'proje esnekliği' avantajının nedeni nedir?", "en": "What causes the 'design flexibility' advantage of cost-plus-fee?" },
+      "options": [
+        { "tr": "Yüklenici kârının sabit olması", "en": "..." },
+        { "tr": "Maliyetin iş sahibince karşılanması, dolayısıyla değişikliklerin yükleniciyi olumsuz etkilememesi", "en": "..." },
+        { "tr": "Sözleşmenin noterde düzenlenmesi", "en": "..." },
+        { "tr": "Toplam bedelin sabit olması", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Maliyet iş sahibince karşılandığından yüklenici proje değişikliklerine direnç göstermez; bu da esnekliği sağlar. (a) sabit kâr sadece bir alt türe (d) özgüdür; (c) kat karşılığına özgüdür; (d) anahtar teslimin özelliğidir, tam tersi burada geçerlidir.", "en": "..." }
+    },
+    {
+      "id": "q19", "type": "mcq", "covers": ["n5"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr sözleşmelerinde maliyet girdileri kaç ana grupta toplanır?", "en": "How many main groups are cost inputs organized into in cost-plus contracts?" },
+      "options": [
+        { "tr": "2", "en": "..." },
+        { "tr": "3", "en": "..." },
+        { "tr": "4", "en": "..." },
+        { "tr": "5", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "Dört ana grup: malzeme, işçilik, makine, nakliye (taşımalar).", "en": "..." }
+    },
+    {
+      "id": "q20", "type": "open", "covers": ["n5"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr sözleşmesinin üç dezavantajını açıklayınız.", "en": "Explain three disadvantages of cost-plus-fee contracts." },
+      "answer": { "tr": "1) Maliyet kontrolü: iş sahibi maliyeti sürekli denetlemek zorundadır çünkü yüklenicinin kârı maliyetin yüzdesi olduğundan maliyeti yapay olarak artırma eğilimi doğabilir. 2) Bütçe belirsizliği: işin başında toplam bedel tam belirlenemediğinden finansal planlama gerçekçi yapılamaz. 3) İş akışı ve dokümantasyon: malzeme/teknoloji sık değişebileceğinden iş akışı aksayabilir; kullanılan belge sayısı ve sirkülasyonu diğer türlere göre fazladır.", "en": "..." }
+    },
+    {
+      "id": "q21", "type": "mcq", "covers": ["n6"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet + %Kâr yönteminde bir hakediş döneminde maliyet 5.000 TL ve kâr oranı %10 ise, ödenecek tutar nedir?", "en": "Cost+%Fee: cost is 5,000 TL at a 10% fee, what is the amount paid?" },
+      "options": [
+        { "tr": "5.000 TL", "en": "..." },
+        { "tr": "5.500 TL", "en": "..." },
+        { "tr": "5.050 TL", "en": "..." },
+        { "tr": "6.000 TL", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "5.000 + 5.000×0,10 = 5.500 TL. Diğer seçenekler kâr eklememe, ondalık hatası veya yanlış yüzde uygulamasından kaynaklanır.", "en": "..." }
+    },
+    {
+      "id": "q22", "type": "mcq", "covers": ["n6"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet Tavanına Kadar %Kâr, Sonrası Kârsız yönteminin amacı nedir?", "en": "What is the purpose of the fee-up-to-ceiling, cost-only-beyond method?" },
+      "options": [
+        { "tr": "Yükleniciyi işi hızlı bitirmeye teşvik etmek", "en": "..." },
+        { "tr": "Yükleniciyi maliyeti aşmamaya teşvik ederek proje maliyetinin düşmesine katkı sağlamak", "en": "..." },
+        { "tr": "Arsa sahibinin hakkını güvenceye almak", "en": "..." },
+        { "tr": "Birim fiyat tarifelerini netleştirmek", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Tavan aşıldığında kâr kesilmesi, yükleniciyi maliyeti tavanın altında tutmaya motive eder. (a) maliyet+sabit kâr yönteminin amacıdır; (c) kat karşılığı ile ilgilidir; (d) birim fiyat usulüyle ilgilidir.", "en": "..." }
+    },
+    {
+      "id": "q23", "type": "open", "covers": ["n6"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Bir proje için maliyet tavanı 80.000 TL, tavana kadar kâr oranı %15 ve tasarruf paylaşım oranı %50-%50 olarak belirlenmiştir. Proje 74.000 TL'ye tamamlanmıştır. Yüklenicinin alacağı toplam tutarı hesaplayınız.", "en": "Cost ceiling 80,000 TL, fee up to ceiling 15%, savings split 50/50. Actual cost is 74,000 TL. Compute the contractor's total payment." },
+      "answer": { "tr": "Maliyet: 74.000 TL. Kâr: 74.000 × 0,15 = 11.100 TL. Tasarruf: 80.000 − 74.000 = 6.000 TL; yüklenicinin payı: 6.000/2 = 3.000 TL. Toplam ödeme = 74.000 + 11.100 + 3.000 = **88.100 TL**.", "en": "..." }
+    },
+    {
+      "id": "q24", "type": "open", "covers": ["n6"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Aynı proje (tavan 80.000 TL, kâr %15, tasarruf %50-%50), bu kez 85.000 TL'ye tamamlansaydı, yüklenicinin alacağı toplam tutar ne olurdu?", "en": "Same project, if it instead cost 85,000 TL (over the ceiling), what would the contractor receive?" },
+      "answer": { "tr": "Tavan aşıldığı için tasarruf yok. Tavana kadarki 80.000 TL için %15 kâr = 80.000×0,15 = 12.000 TL. Tavanı aşan 5.000 TL için sadece maliyet ödenir, kâr verilmez. Toplam ödeme = 80.000 + 12.000 + 5.000 = **97.000 TL**.", "en": "..." }
+    },
+    {
+      "id": "q25", "type": "mcq", "covers": ["n6"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet + Sabit Kâr yönteminde, projenin gerçekleşen maliyeti öngörülenden yüksek çıkarsa yüklenicinin alacağı kâr ne olur?", "en": "In cost + fixed-fee, if actual cost turns out higher than expected, what happens to the contractor's fee?" },
+      "options": [
+        { "tr": "Kâr da orantılı olarak artar", "en": "..." },
+        { "tr": "Kâr değişmez, sabit kalır", "en": "..." },
+        { "tr": "Kâr tamamen kaybedilir", "en": "..." },
+        { "tr": "Kâr yarıya iner", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Bu yöntemde kâr maliyetten tamamen bağımsız, sabit bir tutardır — amaç yükleniciyi işi hızlı bitirmeye teşvik etmektir, maliyet ne olursa olsun kâr aynı kalır.", "en": "..." }
+    },
+    {
+      "id": "q26", "type": "mcq", "covers": ["n7"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Kat karşılığı inşaat sözleşmesi nasıl tanımlanır?", "en": "How is a land-share construction contract defined?" },
+      "options": [
+        { "tr": "Yüklenicinin arsa sahibine para ödediği bir satış sözleşmesi", "en": "..." },
+        { "tr": "Arsa sahibinin arsasının belirli bir oranını devretmesi karşılığında yüklenicinin belirli sayı/oranda bağımsız bölümü bedelsiz teslim etmeyi taahhüt ettiği sözleşme", "en": "..." },
+        { "tr": "Sadece kamu işlerinde kullanılan bir ihale sözleşmesi", "en": "..." },
+        { "tr": "Birim fiyatların yüklenici tarafından belirlendiği sözleşme", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Kat karşılığı sözleşmenin özü, para değil bağımsız bölüm karşılığında arsa payı devridir. (a) yanlış, para el değişmez; (c) yanlış, özel sektörde de yaygındır; (d) teklif birim fiyat tanımıdır.", "en": "..." }
+    },
+    {
+      "id": "q27", "type": "mcq", "covers": ["n7"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Kat karşılığı inşaat sözleşmesi neden 'karma nitelikli' kabul edilir?", "en": "Why is the land-share contract considered 'hybrid'?" },
+      "options": [
+        { "tr": "Hem kamu hem özel sektörde kullanıldığı için", "en": "..." },
+        { "tr": "Hem gayrimenkul devrini hem inşaat yapımını (eser sözleşmesi) aynı anda konu aldığı için", "en": "..." },
+        { "tr": "Hem birim fiyat hem anahtar teslimi unsurları içerdiği için", "en": "..." },
+        { "tr": "Hem yazılı hem sözlü olarak yapılabildiği için", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Karma nitelik, sözleşmenin aynı anda iki farklı hukuki işlemi (gayrimenkul/mülkiyet devri + eser/inşaat sözleşmesi) barındırmasından gelir. (a) yanlış: kamu-özel ayrımı 'karma' anlamına gelmez. (c) yanlış: kat karşılığı, birim fiyat veya anahtar teslimi unsurları içermez. (d) yanlış: yazılı/sözlü ayrımı şekil şartıyla ilgilidir, karma nitelikle değil.", "en": "..." }
+    },
+    {
+      "id": "q28", "type": "mcq", "covers": ["n7"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Kat karşılığı inşaat sözleşmesi hangi şekilde düzenlenmelidir?", "en": "In what form must a land-share contract be executed?" },
+      "options": [
+        { "tr": "Serbest, herhangi bir şekil şartı yoktur", "en": "..." },
+        { "tr": "Sadece iki tarafın imzasıyla yazılı olarak yeterlidir", "en": "..." },
+        { "tr": "Noterlerce düzenleme şeklinde", "en": "..." },
+        { "tr": "Sadece sözlü anlaşma yeterlidir, ispat için tanık kullanılır", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "Gayrimenkul devri içerdiğinden şekil şartına tabidir ve noterlerce düzenleme şeklinde yapılması zorunludur. (a) yanlış: bu sözleşme şekil şartından muaf değildir. (b) yanlış: sırf iki tarafın imzasını taşıyan adi yazılı sözleşme, şekil şartını sağlamadığı için geçersizdir — bu en sık yapılan hatadır. (d) yanlış: sözlü + tanık ispatı gayrimenkul devri içeren bu sözleşme için yeterli değildir.", "en": "..." }
+    },
+    {
+      "id": "q29", "type": "open", "covers": ["n7"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Bir arsa sahibi ile yüklenici, kat karşılığı inşaat sözleşmesini sadece yazılı olarak hazırlayıp imzalamış, notere gitmemişlerdir. İnşaat sorunsuz tamamlanmış olsa bile hangi aşamada sıkıntı yaşanabilir? Bir de inşaat sürecinde uyuşmazlık çıkarsa sonuç ne olur?", "en": "A landowner and contractor sign a land-share agreement in writing only, without a notary. Even if construction finishes without issue, where might trouble arise? What if a dispute occurs during construction?" },
+      "answer": { "tr": "Sorunsuz tamamlansa bile, bağımsız bölümlerin tarafların adına tapuda tescili aşamasında sıkıntı yaşanabilir çünkü şekil şartını sağlamayan sözleşme resmi işlemler için geçerli bir dayanak oluşturmaz. İnşaat sürecinde bir uyuşmazlık çıkarsa, sözleşme şekil şartına uymadığı için hukuken geçersiz sayılır ve taraflar birbirlerinden hak talep edebilmek için yasal bir dayanağa sahip olamazlar — bu da ciddi mağduriyetlere yol açar.", "en": "..." }
+    },
+    {
+      "id": "q30", "type": "mcq", "covers": ["n8"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Kat karşılığı inşaat sözleşmesi prosedüründe ilk adım nedir?", "en": "What is the first step in the land-share contract procedure?" },
+      "options": [
+        { "tr": "Notere gitmek", "en": "..." },
+        { "tr": "İmar durumu kontrolü (imar çapı alınması)", "en": "..." },
+        { "tr": "Bağımsız bölümlerin satışı", "en": "..." },
+        { "tr": "Kesin teminat verilmesi", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Taraflar önce belediyeden imar çapını alıp yapının fiziki boyutlarını/kat sayısını belirler; noter işlemi ve satış süreçleri bundan sonra gelir.", "en": "..." }
+    },
+    {
+      "id": "q31", "type": "mcq", "covers": ["n8"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Aşamalı devir yönteminde arsa devri neye bağlanır?", "en": "In the staged-transfer method, what is the land transfer tied to?" },
+      "options": [
+        { "tr": "Yüklenicinin talebine", "en": "..." },
+        { "tr": "İnşaatın ilerleme aşamasına", "en": "..." },
+        { "tr": "Arsa sahibinin isteğine göre herhangi bir zamana", "en": "..." },
+        { "tr": "Bankanın onayına", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Aşamalı devirde satış vaadinden söz edilmez; hangi pay/bağımsız bölümün ne zaman devredileceği doğrudan inşaatın ilerleme aşamasına bağlanır — bu arsa sahibini korur.", "en": "..." }
+    },
+    {
+      "id": "q32", "type": "open", "covers": ["n8"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Kat karşılığı sözleşmede devredilecek arsa payı için takdir edilen parasal değer en az ne kadar olmalıdır ve bu değerin sözleşmedeki işlevi nedir?", "en": "What must the minimum assigned value of the transferred land share be, and what role does it play in the contract?" },
+      "answer": { "tr": "En az arsanın emlak vergisine esas değeri kadar olmalıdır. Sözleşmede bu değer, arsa sahibinin yükleniciye devredeceği arsa payının 'satış bedeli' olarak gösterilir; ancak yüklenici bu parayı fiilen ödemez — bunun karşılığında belirlenmiş sayı/oranda daire/bağımsız bölüm inşa edip arsa sahibine teslim edeceğini taahhüt eder.", "en": "..." }
+    },
+    {
+      "id": "q33", "type": "mcq", "covers": ["n8"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "'Ferağ' terimi kat karşılığı inşaat sözleşmesi bağlamında neyi ifade eder?", "en": "What does 'ferağ' refer to in the land-share context?" },
+      "options": [
+        { "tr": "Yüklenicinin işi terk etmesi", "en": "..." },
+        { "tr": "Arsa sahibinin, yükleniciye ait bağımsız bölümlere isabet eden arsa payını tapuda yükleniciye devretmesi", "en": "..." },
+        { "tr": "Noterin sözleşmeyi onaylaması", "en": "..." },
+        { "tr": "Kesin teminatın iade edilmesi", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Ferağ, yüklenicinin kendi payına düşen bağımsız bölümleri üçüncü kişilere satabilmesi için gerekli olan tapu devrini ifade eder.", "en": "..." }
+    },
+    {
+      "id": "q34", "type": "mcq", "covers": ["n9"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Bağımsız bölüm paylaşımındaki belirsizliği önlemek için önerilen yöntem nedir?", "en": "What is recommended to prevent ambiguity in unit-sharing?" },
+      "options": [
+        { "tr": "Paylaşımı sözlü olarak yapmak", "en": "..." },
+        { "tr": "Paylaşımı bir ön proje (plan-görünüş, gerekirse maket) üzerinden yapmak", "en": "..." },
+        { "tr": "Paylaşımı sadece toplam m² üzerinden yapmak", "en": "..." },
+        { "tr": "Paylaşımı belediyeye bırakmak", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Ön proje tekniğinde plan ve görünüşler (özellikli yapılarda maket) üzerinden yapılan paylaşım, hangi bağımsız bölümün hangi kat/cephede olduğunu somutlaştırır ve belirsizliği önler.", "en": "..." }
+    },
+    {
+      "id": "q35", "type": "open", "covers": ["n9"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Bir yüklenici, kat karşılığı sözleşme kapsamında kendisine düşen dairelerin çoğunu inşaatın başında üçüncü kişilere satmış, ardından inşaatı tamamlayamayacak duruma düşmüştür. Bu riski önlemek için sözleşmede hangi düzenleme yapılmalıydı?", "en": "A contractor pre-sold most of their share early and then failed to complete the project. What contract provision would have prevented this risk?" },
+      "answer": { "tr": "Yüklenicinin kendi payına düşen bağımsız bölümleri üçüncü kişilere satma/ferağ hakkının inşaatın ilerleme aşamasıyla ilişkilendirilmesi gerekirdi (örn. dükkânlar için belirli bir kat döşemesi döküldüğünde, bazı daireler için kaba inşaat bittiğinde, kalanlar için iskân izni alındığında devir/satış izni verilmesi gibi kademeli bir düzenleme). Bu, yüklenicinin tüm payını erken satıp finansman sağladıktan sonra işi bırakma riskini azaltır.", "en": "..." }
+    },
+    {
+      "id": "q36", "type": "mcq", "covers": ["n9"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Kat karşılığı sözleşmede 'birinci sınıf olacak', 'TS'ye uygun olacak' gibi ifadeler neden sorun yaratır?", "en": "Why do phrases like \"first class\" or \"TS-compliant\" cause problems in land-share contracts?" },
+      "options": [
+        { "tr": "Yasalarca yasaklandıkları için", "en": "..." },
+        { "tr": "Soyut olup somut bir ürün/marka/standart belirtmedikleri için anlaşmazlığa yol açarlar", "en": "..." },
+        { "tr": "Sadece kamu işlerinde kullanılabildikleri için", "en": "..." },
+        { "tr": "Noterin bu ifadeleri kabul etmemesi nedeniyle", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "TS'ye uygun ve farklı fiyatlarda onlarca ürün olabilir; bu yüzden somut bir teknik şartname ile desteklenmedikçe bu tanımlar anlaşmazlığa yol açar.", "en": "..." }
+    },
+    {
+      "id": "q37", "type": "open", "covers": ["n9"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Yükleniciden bağımsız bölüm satın almayı düşünen üçüncü bir kişi, satış sözleşmesi imzalamadan önce hangi iki hususu araştırmalıdır?", "en": "Before signing, what two things should a third-party unit buyer investigate?" },
+      "answer": { "tr": "1) Yüklenici ile arsa sahibi arasındaki ana sözleşmenin şekil şartına (noterde düzenleme şekli) uygun olup olmadığı. 2) Yüklenicinin, inşaatın bulunduğu aşama itibarıyla, talip olunan bağımsız bölümü satma konusunda yetkili olup olmadığı (satış hakkı inşaat ilerlemesine bağlanmış olabilir).", "en": "..." }
+    },
+    {
+      "id": "q38", "type": "mcq", "covers": ["n10"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Aşağıdaki sözleşme türlerinden hangisinde risk en çok yüklenici üzerindedir?", "en": "In which contract type is the risk most concentrated on the contractor?" },
+      "options": [
+        { "tr": "Maliyet artı kâr usulü", "en": "..." },
+        { "tr": "Anahtar teslimi usulü", "en": "..." },
+        { "tr": "Teklif birim fiyat usulü", "en": "..." },
+        { "tr": "Kat karşılığı (yalnızca paylaşım riski açısından)", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Anahtar teslimde toplam bedel sabittir; miktar veya maliyet artışları büyük ölçüde yüklenicinin sırtındadır. Maliyet artı kârda risk iş sahibindedir; teklif birim fiyatta risk paylaşılır.", "en": "..." }
+    },
+    {
+      "id": "q39", "type": "open", "covers": ["n10"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Bir iş sahibi, projesi henüz tam netleşmemiş, hızlı başlaması gereken ve inşaat sürecinde önemli tasarım değişiklikleri beklenen bir bina için sözleşme türü seçecektir. Hangi sözleşme türünü önerirsiniz ve neden anahtar teslimi bu iş için uygun değildir?", "en": "An owner needs a contract type for a project with an unclear design, urgent start, and expected major design changes during construction. Which type would you recommend, and why is turnkey unsuitable?" },
+      "answer": { "tr": "Maliyet artı kâr usulü sözleşme önerilir; çünkü tam olarak bu üç koşulda (aciliyet, proje değişikliği olasılığı yüksek, tasarım netleşmemiş) tercih edilir — maliyet iş sahibince karşılandığından değişiklikler yükleniciyi olumsuz etkilemez, yüklenici direnç göstermez. Anahtar teslimi bu iş için uygun değildir çünkü bedel işe başlamadan sabitlenir; proje netleşmeden ve şartname ayrıntılı hazırlanmadan sabit fiyat belirlemek, uygulama aşamasında hangi işlerin bedele dahil olduğu konusunda ciddi anlaşmazlıklara yol açar ve sık değişen tasarımın bedeli her seferinde yeniden müzakere gerektirir.", "en": "..." }
+    },
+    {
+      "id": "q40", "type": "mcq", "covers": ["n10"], "difficulty": 1, "examStyle": true,
+      "q": { "tr": "Aşağıdaki sözleşme türlerinden hangisi diğerlerinden farklı olarak parasal değil ayni (bağımsız bölüm) ödeme içerir?", "en": "Which of these contract types, unlike the others, involves in-kind (unit) rather than cash payment?" },
+      "options": [
+        { "tr": "Birim fiyat usulü", "en": "..." },
+        { "tr": "Anahtar teslimi usulü", "en": "..." },
+        { "tr": "Kat karşılığı inşaat sözleşmesi", "en": "..." },
+        { "tr": "Maliyet artı kâr usulü", "en": "..." }
+      ], "correct": 2,
+      "explain": { "tr": "Kat karşılığı sözleşmede yüklenici para değil, arsa payı karşılığında bağımsız bölüm alır; diğer üç tür tamamen parasal ödeme mantığına dayanır.", "en": "..." }
+    },
+    {
+      "id": "q41", "type": "open", "covers": ["n1", "n10"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Beş sözleşme türünü, iş sahibinin ödediği bedelin neye göre belirlendiği açısından kısaca karşılaştırınız.", "en": "Briefly compare the five contract types by what determines the owner's payment." },
+      "answer": { "tr": "Birim fiyat: önceden belirlenmiş birim fiyat × gerçekleşen miktar (iş sahibi fiyatı belirler). Teklif birim fiyat: yüklenicinin teklif ettiği birim fiyat × gerçekleşen miktar (yüklenici fiyatı belirler). Anahtar teslimi: işe başlamadan belirlenen toplam sabit fiyat. Maliyet artı kâr: gerçekleşen maliyet + belirlenen kâr (oran veya sabit). Kat karşılığı: para değil, arsa payı karşılığında belirli sayı/oranda bağımsız bölüm.", "en": "..." }
+    },
+    {
+      "id": "q42", "type": "mcq", "covers": ["n5", "n6"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Maliyet artı kâr usulü sözleşmede, montaj nitelikli işler (örn. hazır tesisat üniteleri) için neden ayrı bir kâr oranı uygulanabilir?", "en": "Why might installation-type work (e.g., prefabricated units) use a separate fee rate?" },
+      "options": [
+        { "tr": "Çünkü bu işler yasal olarak kâr alamaz", "en": "..." },
+        { "tr": "Çünkü satın alma maliyeti yüksek ama montajı pratik/kolay olduğundan, tüm maliyet üzerinden sabit bir kâr oranı iş sahibi aleyhine orantısız yüksek bir kâr tutarı doğurur", "en": "..." },
+        { "tr": "Çünkü bu işler hiç maliyet girdisi içermez", "en": "..." },
+        { "tr": "Çünkü bu işler kat karşılığı sözleşmelere özgüdür", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Doğru cevap (b): mamul/yarı mamul elemanların satın alma bedeli yüksek, montaj emeği görece azdır; bu işlere yüksek satın alma bedelini de içeren maliyetin tamamı üzerinden sıradan üretim işleriyle aynı kâr yüzdesini uygulamak iş sahibi için orantısız yüksek bir kâr doğurur. Bu yüzden kaynakta montaj işleri için sadece montaj ve nakliye girdilerini esas alan ayrı bir kâr oranı belirlenmesi önerilir. (a) yanlış: bu işler de kâr alır. (c) yanlış: montaj/nakliye girdileri vardır. (d) yanlış: montaj nitelikli işler kat karşılığına özgü değildir, her türlü maliyet artı kâr işinde görülebilir.", "en": "..." }
+    },
+    {
+      "id": "q43", "type": "open", "covers": ["n2", "n3"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Hem birim fiyat hem teklif birim fiyat usulü sözleşmelerde ortak olan 'Birim Fiyat Tarifleri' dokümanının işlevi nedir?", "en": "What is the function of the 'Unit Price Specification' document, common to both unit price contract types?" },
+      "answer": { "tr": "Bu doküman, her birim fiyatın kapsamını (o bedele hangi iş ve işlemlerin dahil olduğunu, örn. işçilik/malzeme/nakliye) ve ölçüm şeklini (imalatın projeden mi yerinden mi ölçüleceğini) ayrıntılı olarak tanımlar. Sözleşmenin ayrılmaz bir eki olmalıdır; çünkü bu tanımlar yapılmazsa iş sahibi ve yüklenici aynı birim fiyatı farklı yorumlayabilir ve uygulama aşamasında anlaşmazlık çıkar.", "en": "..." }
+    },
+    {
+      "id": "q44", "type": "mcq", "covers": ["n2"], "difficulty": 3, "examStyle": true,
+      "q": { "tr": "Bir iş programına göre mayıs ayında kalıp işlerinin %29'unun yapılması öngörülmüştür. Kalıp işinin toplam sözleşme tutarı 8.000 TL ise, mayıs ayında yapılması öngörülen kalıp işi tutarı ne kadardır?", "en": "The work schedule expects 29% of formwork to be done in May. If the total contract value for formwork is 8,000 TL, what amount of formwork is expected in May?" },
+      "options": [
+        { "tr": "1.500 TL", "en": "..." },
+        { "tr": "2.320 TL", "en": "..." },
+        { "tr": "2.900 TL", "en": "..." },
+        { "tr": "240 TL", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "8.000 × 0,29 = 2.320 TL. 1.500 TL kazı kaleminin (o ay %100 tamamlanan) tutarıdır; 240 TL demir kaleminin (%4) tutarıdır; 2.900 TL yanlış bir yüzde ile hesaplanmıştır.", "en": "..." }
+    },
+    {
+      "id": "q45", "type": "open", "covers": ["n2"], "difficulty": 2, "examStyle": false,
+      "q": { "tr": "Değişken birim fiyatlı sözleşmelerde, her fiyat değişim döneminde yapılması gereken iş miktarlarının önceden belirlenmesi neden önemlidir?", "en": "Why must the expected work quantity for each price-adjustment period be defined in advance in variable unit price contracts?" },
+      "answer": { "tr": "Çünkü bir dönemde yapılması gereken bir iş bir sonraki döneme kalırsa, o iş farklı (muhtemelen daha yüksek) bir birim fiyattan ödenmek zorunda kalır ve iş sahibi aynı iş için daha fazla ödeme yapar. Bu yüzden ayrıntılı bir iş programıyla, her dönemde hangi işlerin ne düzeyde tamamlanması gerektiği önceden tanımlanmalı ve süresel sapmalara karşı müeyyideler de sözleşmede yer almalıdır.", "en": "..." }
+    },
+    {
+      "id": "q46", "type": "mcq", "covers": ["n4"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Anahtar teslimi sözleşmede, mevcut birim fiyatlarla benzerliği olmayan tamamen yeni bir iş kalemi ortaya çıkarsa ilk olarak ne yapılır?", "en": "In a turnkey contract, when a genuinely new work item with no similarity to existing items arises, what is done first?" },
+      "options": [
+        { "tr": "Sözleşme otomatik olarak feshedilir", "en": "..." },
+        { "tr": "İş sahibi yeni teknik şartname hazırlar ve taraflar birlikte mevcut benzer birim fiyatlardan yararlanarak yeni birim fiyat oluşturmaya çalışır", "en": "..." },
+        { "tr": "Yüklenici tek taraflı fiyat belirler", "en": "..." },
+        { "tr": "İş hiç yaptırılmaz", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "Öncelik, mevcut birim fiyatlar içinde yeni kaleme benzerlik gösterenlerden yararlanmaktır; bu mümkün olmazsa piyasa araştırması yapılır, o da sonuçsuz kalırsa iş sahibi maliyeti karşılayıp yükleniciye üzerine bir kâr yüzdesi verir.", "en": "..." }
+    },
+    {
+      "id": "q47", "type": "mcq", "covers": ["n7", "n8"], "difficulty": 2, "examStyle": true,
+      "q": { "tr": "Kat karşılığı sözleşmede 'imar çapı' hangi amaçla kullanılır?", "en": "What is the 'imar çapı' used for in a land-share contract?" },
+      "options": [
+        { "tr": "Sözleşmenin noter onayını almak için", "en": "..." },
+        { "tr": "Yapının fiziki boyutlarını, yaklaşma mesafelerini, kat adedini/yüksekliğini ve buna bağlı toplam inşaat alanını belirlemek için", "en": "..." },
+        { "tr": "Bağımsız bölümlerin üçüncü kişilere satışını onaylamak için", "en": "..." },
+        { "tr": "Maliyet artı kâr oranını hesaplamak için", "en": "..." }
+      ], "correct": 1,
+      "explain": { "tr": "İmar çapı, belediyeden alınan ve parselde yapılabilecek yapının sınırlarını (yaklaşma mesafeleri, taban alanı, kat sayısı vb.) gösteren belgedir; buradan toplam inşaat alanı ve yapılabilecek daire/işyeri sayısı hesaplanır.", "en": "..." }
+    },
+    {
+      "id": "q48", "type": "open", "covers": ["n9"], "difficulty": 2, "examStyle": false,
+      "q": { "tr": "Kat karşılığı inşaat sözleşmelerinin karmaşıklığı ve üçüncü kişileri de dolaylı olarak içine alması nedeniyle, düzenleme ve uygulama aşamalarında hangi iki uzman desteğinin alınması önerilir? Kısaca gerekçelendiriniz.", "en": "Given the complexity of land-share contracts and their indirect involvement of third parties, which two forms of expert support are recommended during drafting and execution? Justify briefly." },
+      "answer": { "tr": "1) Düzenleme aşamasında bir hukukçu desteği alınmalıdır; çünkü sözleşme karma nitelikli (gayrimenkul devri + eser sözleşmesi) ve şekil şartına tabidir, teknik elemanlar hukukçu değildir, bir hata sözleşmeyi geçersiz kılabilir. 2) Uygulama aşamasında bir sözleşme yöneticisi görevlendirilmelidir; sözleşme maddelerinin vaktinde ve kuralına uygun uygulanmasını izler, sorun potansiyeli taşıyan durumları önceden görüp çözüm geliştirir. Sözleşme yöneticisinin ücreti inşaat maliyeti içinde ihmal edilebilir düzeydeyken, önlediği kayıplar çok büyüktür.", "en": "..." }
+    }
+  ]
+}

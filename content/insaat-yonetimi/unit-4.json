@@ -1,0 +1,3768 @@
+{
+  "unit": 4,
+  "slug": "imar",
+  "title": {
+    "tr": "Planlı Alanlar İmar Yönetmeliği",
+    "en": "Zoning Regulation for Planned Areas"
+  },
+  "tagline": {
+    "tr": "Parselden ruhsata — TAKS, KAKS ve yapılaşma kuralları",
+    "en": "From parcel to permit — TAKS, KAKS and building rules"
+  },
+  "sources": {
+    "videos": [
+      {
+        "id": "v04-imar-yonetmeligi",
+        "title": "Planlı Alanlar İmar Yönetmeliği",
+        "length": "25:57"
+      }
+    ],
+    "pdfs": [
+      "Planlı Alanlar İmar Yönetmeliği Slayt.pdf",
+      "planli-20210811131259.pdf (Planlı Alanlar İmar Yönetmeliği — resmi metin)"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": {
+        "tr": "Yönetmeliğin amacı, kapsamı ve dayanağı",
+        "en": "Purpose, scope and legal basis of the regulation"
+      },
+      "body": {
+        "tr": "**Planlı Alanlar İmar Yönetmeliği**, 2017 yılında yürürlüğe girmiş ve 1985 tarihli eski imar yönetmeliğini tamamen ortadan kaldırmıştır. Yönetmelik dört temel maddeyle açılır:\n\n- **Madde 1 — Amaç:** Plan, fen, sağlık ve sürdürülebilir çevre şartlarına uygun **yapı ve yapılaşma** ile **projelendirme ve denetime** ilişkin usul ve esasları belirlemek.\n- **Madde 2 — Kapsam:** Yönetmelik yalnızca **uygulama imar planı bulunan alanları** kapsar. Uygulama imar planı olmayan bir alanda bu yönetmelik uygulanmaz — ve zaten böyle alanlarda yapı ruhsatı da düzenlenemez (Madde 5).\n- **Madde 3 — Dayanak:** Yönetmelik, **3194 sayılı İmar Kanunu** ile Çevre ve Şehircilik Bakanlığının teşkilat ve görevlerini düzenleyen Cumhurbaşkanlığı Kararnamesi hükümlerine dayanılarak hazırlanmıştır.\n- **Madde 4 — Tanımlar:** Yönetmelikte geçen onlarca teknik terimin resmi tanımını verir (bu unite'in en yoğun bölümü).\n\nBu üç madde küçük görünse de sınavda \"amaç/kapsam/dayanak\" üçlüsü çok sorulur: **amaç** = usul ve esasları belirlemek, **kapsam** = uygulama imar planlı alanlar, **dayanak** = 3194 sayılı Kanun.",
+        "en": "The **Zoning Regulation for Planned Areas** took effect in 2017, fully replacing the old 1985 regulation. It opens with four foundational articles: Article 1 (Purpose) sets rules for building/construction and design/inspection compliant with plan, technical, health and sustainable-environment conditions. Article 2 (Scope) limits the regulation to areas with an approved implementation zoning plan. Article 3 (Basis) grounds it in Law No. 3194 (İmar Kanunu). Article 4 (Definitions) gives official meanings for dozens of technical terms."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": {
+        "tr": "Parsel, belge ve proje tanımları",
+        "en": "Parcel, document and project definitions"
+      },
+      "body": {
+        "tr": "Bir inşaat projesine başlamadan önce parselle ilgili bir dizi **belge** düzenlenir. Bunları tanımak sınavda çok sık sorulur:\n\n| Belge | Ne işe yarar |\n|---|---|\n| **Tapu belgesi** | Taşınmazın mülkiyetini gösteren resmî belge (kim sahibi, ada-parsel no, yüzölçümü) |\n| **İmar çapı / İmar durum belgesi** | Parselde yapılabilecek yapının imar planı ve yönetmeliğe göre sınırlarını (yaklaşma mesafeleri, yapı nizamı, TAKS/KAKS, kat adedi) gösterir; belediye sınırı içinde belediyece, dışında ilgili idarece düzenlenen 1/1000 ölçekli belgedir |\n| **Aplikasyon krokisi** | Kadastro faaliyetleri kapsamında düzenlenen; ada/parsellerin arazide aplike edilmesi, kenar ölçüleri ve köşe koordinatlarının yer aldığı kroki |\n| **Zemin ve temel etüt raporu** | Zeminin taşıma gücü, yeraltı suyu, oturma/sıvılaşma riskini inceleyen; temel sistemine esas teknik rapor |\n| **Plankote** | Arsanın mevcut yüzey biçimini, eğimlerini ve kotlarını gösteren ölçülü harita; kazı-dolgu hesabında kullanılır |\n| **Ölçü krokisi** | Parselin köşe/kırık noktalarının koordinatlarını ve kenar uzunluklarını gösteren, tapu müdürlüğünce düzenlenen belge |\n| **Avan proje** | Uygulama projelerine esas; vaziyet planı, kat planları, kesit-görünüşler ile taban alanı/katlar alanı/yapı inşaat alanı hesaplarını içeren ön proje |\n| **Vaziyet planı** | Parseldeki yapı(lar)ın aplikasyon koordinatlarına göre 1/500, 1/200 veya 1/100 ölçekte gösterildiği; bahçe düzeni, otopark, yangın kaçışı, kuzey yönünü içeren plan |\n| **Tadilat projesi** | Onaylı projelerde yapılmak istenen değişiklik/ilavelere ait uygulama projelerinin bütünü |\n\nBunun dışında yapım sürecinde **rölöve** (mevcut durumun yerinde ölçülerek çizilmesi — projesi olmayan yapılarda), **ataşman** (ödemeye esas ilave/gizlenecek imalatların ölçülüp belgelenmesi) ve **yeşil defter** (projede olmayan/değişen imalatların hakedişe esas metrajının kaydedildiği defter) gibi belgeler de kullanılır; bunlar doğru **metraj, hakediş ve kesin hesabı** güvence altına alır.",
+        "en": "Before construction begins, a set of documents establishes the parcel's legal and technical status: tapu (title deed), imar çapı/imar durum belgesi (zoning status certificate showing setbacks, TAKS/KAKS, floor count), aplikasyon krokisi (cadastral survey sketch), zemin etüt raporu (soil report), plankote (surveyed site map), avan proje (preliminary design), vaziyet planı (site plan), and tadilat projesi (amendment project). During construction, rölöve (as-built survey), ataşman (payment-basis measurement record) and yeşil defter (green ledger for unplanned/changed work) secure accurate quantity take-offs and progress payments."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": {
+        "tr": "TAKS, KAKS ve alan tanımları",
+        "en": "TAKS, KAKS and area definitions"
+      },
+      "body": {
+        "tr": "Yapılaşma hesaplarının kalbi üç alan kavramıdır:\n\n- **Taban alanı:** Bahçedeki eklenti ve müştemilat dahil, yapının **tabii veya tesviye edilmiş zemin üzerinde kalan kısmının parseldeki izdüşümünün kapladığı alan** — yani binanın \"gölgesi\", yapı yaklaşma sınırını ihlal etmemek kaydıyla. Kolonlar üzerinde inşa edilen yapılarda taban alanı, en dış kolonların dış yüzeylerini birleştiren en kısa doğrularla belirlenir.\n- **Taban Alanı Kat Sayısı (TAKS):** Taban alanının imar parseli alanına oranı. $$TAKS = \\dfrac{\\text{Taban Alanı}}{\\text{Parsel Alanı}}$$ Örnek: TAKS = 0,35 ve parsel 1000 m² ise, maksimum taban alanı = 0,35 × 1000 = **350 m²**.\n- **Katlar Alanı:** Bodrum kat, asma kat, çatı arası piyesi ve açık/kapalı çıkmalar dahil, **kullanılabilen bütün katların** alanı toplamından katlar alanına dahil edilmeyen alanlar çıkarıldıktan sonraki toplam.\n- **Katlar Alanı Katsayısı (KAKS / Emsal):** Yapının inşa edilen tüm kat alanları toplamının imar parseli alanına oranı. $$KAKS = \\dfrac{\\text{Katlar Alanı (toplam inşaat alanı)}}{\\text{Parsel Alanı}}$$ Örnek: KAKS/Emsal = 1,5 ve parsel 1000 m² ise, toplam yapılabilir kat alanı = 1,5 × 1000 = **1500 m²**.\n\n**Önemli genel ilke:** Taban alanı ve emsal (KAKS) hesabı **net imar parseli alanı** üzerinden yapılır.\n\n**Katlar alanına dahil EDİLMEYEN** başlıca kullanımlar: açık oturma yerleri, kapıcı dairelerinin toplam 70 m²'si, atrium ve galeri boşlukları, ortak alan niteliğindeki mescit/müştemilat, minimum sığınak alanı, çocuk oyun alanları, otoparklar, sadece tesisat için oluşturulan tesisat katları, tamamen toprak altındaki bodrum katlarda yer alan (bağımsız bölüm oluşturmayan) toplantı/sosyal alanlar ile net alanın %50'sini geçmeyen depo eklentileri, açık çıkma şartını taşıyan balkonlar ve merdiven evi.\n\n**Emsal harici alanlar sınırı:** İlgili idarelerin getirebileceği emsal harici tüm alanların toplamı, parselin **toplam emsale esas alanının %30'unu aşamaz**.",
+        "en": "The heart of buildability calculations is three area concepts: Taban alanı (footprint — the building's vertical projection on the parcel, including garden annexes, staying within setback limits); TAKS = footprint area / parcel area (e.g. TAKS 0.35 on a 1000 m² parcel → max footprint 350 m²); Katlar Alanı (total floor area across all usable floors, minus excluded areas); KAKS/Emsal = total floor area / parcel area (e.g. KAKS 1.5 on 1000 m² → max total floor area 1500 m²). Certain uses (open sitting areas, up to 70 m² of doorman flats, atriums, shelters, parking, mechanical floors, small storage annexes, code-compliant balconies, stairwells) are excluded from katlar alanı. Non-emsal areas granted by local authorities may not exceed 30% of the parcel's total emsal-eligible area."
+      },
+      "story": {
+        "title": {
+          "tr": "Parselde TAKS, KAKS ve çekme mesafeleri",
+          "en": "TAKS, KAKS and setbacks on a parcel"
+        },
+        "xLabel": "x (m)",
+        "yLabel": "y (m)",
+        "xDomain": [
+          -2,
+          22
+        ],
+        "yDomain": [
+          -2,
+          52
+        ],
+        "square": false,
+        "showAxes": true,
+        "frames": [
+          {
+            "caption": {
+              "tr": "20 m × 50 m'lik dikdörtgen bir parselimiz var: alan = 1000 m². Yol, parselin alt (ön) kenarına bakıyor.",
+              "en": "A rectangular 20 m × 50 m parcel: area = 1000 m². The road faces the bottom (front) edge of the parcel."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    20,
+                    0
+                  ],
+                  [
+                    20,
+                    50
+                  ],
+                  [
+                    0,
+                    50
+                  ]
+                ],
+                "color": "ink",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 10,
+                "y": -1.3,
+                "text": {
+                  "tr": "YOL (ön cephe)",
+                  "en": "ROAD (front)"
+                },
+                "color": "faint",
+                "size": 12
+              },
+              {
+                "type": "text",
+                "x": 21.5,
+                "y": 25,
+                "text": {
+                  "tr": "Parsel: 20×50 = 1000 m²",
+                  "en": "Parcel: 20×50 = 1000 m²"
+                },
+                "color": "ink",
+                "size": 12
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Yönetmeliğin Madde 23 asgari çekme mesafelerini uygula: ön bahçe ve yol kenarı en az 5 m, yan bahçeler en az 3 m, arka bahçe en az 3 m.",
+              "en": "Apply Article 23's minimum setbacks: front/road-facing setback at least 5 m, side setbacks at least 3 m each, rear setback at least 3 m."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    3,
+                    5
+                  ],
+                  [
+                    17,
+                    5
+                  ],
+                  [
+                    17,
+                    47
+                  ],
+                  [
+                    3,
+                    47
+                  ]
+                ],
+                "color": "deniz",
+                "dash": true,
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 10,
+                "y": 3,
+                "text": {
+                  "tr": "ön bahçe 5 m",
+                  "en": "front 5 m"
+                },
+                "color": "clay",
+                "size": 11
+              },
+              {
+                "type": "text",
+                "x": 1.2,
+                "y": 25,
+                "text": {
+                  "tr": "yan 3 m",
+                  "en": "side 3 m"
+                },
+                "color": "clay",
+                "size": 11
+              },
+              {
+                "type": "text",
+                "x": 18.8,
+                "y": 25,
+                "text": {
+                  "tr": "yan 3 m",
+                  "en": "side 3 m"
+                },
+                "color": "clay",
+                "size": 11
+              },
+              {
+                "type": "text",
+                "x": 10,
+                "y": 48.7,
+                "text": {
+                  "tr": "arka bahçe 3 m",
+                  "en": "rear 3 m"
+                },
+                "color": "clay",
+                "size": 11
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Yapılabilir alan zarfı: genişlik 20−2×3=14 m, derinlik 50−5−3=42 m → 588 m². Ama bina bunun TAMAMINI kaplamak zorunda değil — TAKS onu sınırlar.",
+              "en": "Buildable envelope: width 20−2×3=14 m, depth 50−5−3=42 m → 588 m². The building need not fill all of this — TAKS limits it."
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 10,
+                "y": 26,
+                "text": {
+                  "tr": "zarf: 14×42=588 m²",
+                  "en": "envelope: 14×42=588 m²"
+                },
+                "color": "deniz",
+                "size": 12
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "TAKS = 0,35 olsun: max taban alanı = 0,35 × 1000 = 350 m². Bunu zarf içine 14×25 m'lik bir taban olarak yerleştirelim (14×25=350 ≤ 588, sığıyor).",
+              "en": "Let TAKS = 0.35: max footprint = 0.35 × 1000 = 350 m². Place it inside the envelope as a 14×25 m footprint (14×25=350 ≤ 588, it fits)."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    3,
+                    10
+                  ],
+                  [
+                    17,
+                    10
+                  ],
+                  [
+                    17,
+                    35
+                  ],
+                  [
+                    3,
+                    35
+                  ]
+                ],
+                "color": "amber",
+                "fill": true,
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 10,
+                "y": 22,
+                "text": {
+                  "tr": "Taban alanı: 350 m²",
+                  "en": "Footprint: 350 m²"
+                },
+                "color": "amber",
+                "size": 12
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "KAKS/Emsal = 1,5 olsun: toplam katlar alanı = 1,5 × 1000 = 1500 m². Her kat taban alanı kadar (350 m²) olursa, 1500/350 ≈ 4,3 → yaklaşık 4 kat inşa edilebilir (kalan alan çıkma/ortak alanlarla tamamlanır).",
+              "en": "Let KAKS/Emsal = 1.5: total floor area = 1.5 × 1000 = 1500 m². If each floor equals the footprint (350 m²), 1500/350 ≈ 4.3 → roughly 4 floors can be built (the remainder is absorbed by projections/common areas)."
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 10,
+                "y": -0.6,
+                "text": {
+                  "tr": "Katlar alanı: 1500 m² → ~4 kat",
+                  "en": "Total floor area: 1500 m² → ~4 floors"
+                },
+                "color": "moss",
+                "size": 14
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n4",
+      "title": {
+        "tr": "Bahçe mesafeleri, kotlandırma ve bina yükseklikleri",
+        "en": "Setbacks, elevation datums and building heights"
+      },
+      "body": {
+        "tr": "**Bahçe mesafeleri (Madde 23):** Uygulama imar planında aksine hüküm yoksa: ön bahçe ve yol kenarına rastlayan mesafeler ile kamusal alanlara komşu mesafeler **en az 5 m**; yan bahçe mesafesi **en az 3 m**; arka bahçe mesafesi **en az 3 m**.\n\n**Kot kavramları:**\n- **Siyah kot:** İmar planında gösterilen yolun **doğal (tabii) zemin kotu**.\n- **Kırmızı kot:** Yolun gerekli hesaplar yapıldıktan sonra **kullanıma hazır kotu**; kat adedi bu kota göre belirlenir.\n- **Subasman kotu (zemin kat taban kotu):** Binanın zemin kat taban döşemesinin üst kotu.\n- **Saçak seviyesi:** Binanın son kat tavan döşemesi üst kotu.\n\n**Kotlandırma esasları:** Aksine hüküm yoksa **yoldan kotlandırma** esastır — bina, parselin kot aldığı yol cephesindeki bina köşeleri hizasındaki en yüksek tretuvar seviyesinden kot alır (tretuvar seviyesi = kırmızı kota göre yol seviyesinin 0,18 m üstü). **Tabii zeminden kotlandırma** ise ancak arazi meyilliyse ve ön bahçe mesafesi belirli eşikleri (zemin yoldan yüksekse ≥10 m, zemin yoldan aşağıdaysa ≥12 m) aşıyorsa uygulanır. **Köşe başı parsellerde** cephe aldığı yollardan yüksek olana göre kot verilir; **iki yola bakan ara parsellerde** ise düşük ve yüksek kottaki yolların siluetleri idarece değerlendirilerek kotlandırılır.\n\n**Bina/yapı yükseklikleri:**\n- **Bina yüksekliği:** Binanın kot aldığı noktadan **saçak seviyesine** kadar olan yükseklik.\n- **Yapı yüksekliği:** Bodrum katlar, asma katlar ve çatı arası piyesler dahil, yapının inşa edilen bütün katlarının **toplam yüksekliği**.\n- **Yüksek yapı:** Bina yüksekliği 21,50 m'den veya yapı yüksekliği 30,50 m'den fazla olan binalar.\n- **Çok yüksek yapı:** Bina yüksekliği 51,50 m'den veya yapı yüksekliği 60,50 m'den daha yüksek olan binalar.\n\n**Yol genişliğine göre en çok kat adedi (Madde 9, bodrum hariç):** yol ≤7 m → 2 kat; 7–10 m → 3 kat; 10–12 m → 4 kat; 12–15 m → 5 kat; 15–20 m → 6 kat; 20–25 m → 8 kat; 25–35 m → 10 kat; 35–50 m → 14 kat; 50 m'den fazla → 18 kat.",
+        "en": "Minimum setbacks (Art. 23) unless the plan says otherwise: front/road-facing and public-space-adjacent ≥5 m; side ≥3 m; rear ≥3 m. Elevation datums: siyah kot (natural ground level of the road), kırmızı kot (finished road level, sets the floor count), subasman kotu (ground-floor slab top level), saçak seviyesi (top of the roof slab). Elevation is normally taken from the road; natural-ground elevation applies only on sloped sites meeting front-setback thresholds. Bina yüksekliği (building height) runs from the elevation point to the eave level; yapı yüksekliği (structure height) is the total height of all built floors including basements. Yüksek yapı (high-rise) starts above 21.50 m (building height) or 30.50 m (structure height); çok yüksek yapı (super high-rise) above 51.50 m / 60.50 m. Article 9 caps floor count by adjacent road width, from 2 floors (≤7 m road) up to 18 floors (>50 m road)."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": {
+        "tr": "Yapı nizamları ve parsel işlemleri (ifraz/tevhit)",
+        "en": "Building layout types and parcel operations (subdivision/merger)"
+      },
+      "body": {
+        "tr": "**Yapı nizamı**, uygulama imar planı ile belirlenen üç düzenden biridir:\n\n- **Ayrık nizam:** Hiçbir yanından komşu parseldeki binalara **bitişik olmayan** yapı nizamı — bina dört yandan da bahçeyle çevrili.\n- **Bitişik nizam:** Bir veya birden fazla komşu parseldeki binalara **bitişik** olan ve ortak alandan arka bahçeye çıkış sağlanan yapı nizamı.\n- **Blok nizam:** İmar planı veya yönetmelikte cephe uzunluğu, derinliği ve yüksekliği belirlenmiş yapı kitlesinin, bir parsel veya dilatasyonla ayrılarak **birden fazla parsel üzerine oturduğu bahçeli** yapı nizamı (bir yanı bitişik, bir yanı ayrık olan \"ikiz nizam\" da blok nizam sayılır).\n\n**Ayrık veya blok nizamlı yerlerde**, uygulama imar planında açıkça belirlenmemişse **TAKS %40'ı geçemez**. Çekme mesafeleri ile KAKS verilip TAKS verilmeyen parsellerde ise TAKS **%60'ı** geçmemek kaydıyla çekme mesafelerine göre uygulama yapılır.\n\n**Parsel işlemleri:**\n- **İfraz:** Bir parselin **bölünerek ayrılması** işlemi.\n- **Tevhit:** Birden çok parselin **birleştirilerek** tek parsel haline getirilmesi işlemi.\n\nBu ikisi serbestçe yapılamaz: **imar adasında parselasyon planı yapılmadan** o adadaki parsellerde ifraz veya tevhit yapılamaz — önce imar adasının parselasyon planı hazırlanıp tapuya tescil edilmelidir. Ayrıca, parselasyon planı ile belirlenen **umumi hizmet alanına isabet eden taşınmazlar** ile imar istikameti önündeki donatı alanları, **kamu eline geçmeden** tevhit/ifraz edilemez. **İfraz suretiyle yola cephesi olmayan parsel oluşturulamaz.**\n\n**Genel yapılaşma ilkeleri (Madde 5) — sık sorulanlar:**\n- Uygulama imar planı olmayan alanlarda **yapı ruhsatı düzenlenemez.**\n- Alt kademe planlar, üst kademe planların kesinleşmesinden itibaren **en geç 1 yıl içinde** üst kademeye uygun hale getirilmelidir.\n- Bu yönetmelikteki alan kullanım tanımlarının işlevleri imar planında **daraltılabilir, ancak genişletilemez.**\n- Yeni binalarda planda veya yönetmelikte gösterilen **kat adedi veya bina yüksekliği aşılamaz.**",
+        "en": "Yapı nizamı (building layout regime) is one of three types set by the plan: ayrık nizam (detached — not touching any neighboring building), bitişik nizam (attached — sharing a wall with one or more neighbors, with rear-garden access via common areas), blok nizam (block — a building mass with fixed frontage/depth/height straddling multiple parcels, gardened; a \"twin\" layout attached on one side counts as block). Where the plan doesn't set TAKS explicitly in detached/block zones, TAKS may not exceed 40% (or 60% where only setbacks and KAKS are given). İfraz (subdivision) splits a parcel; tevhit (merger) combines parcels — neither may occur in a zoning block until its parselasyon planı (lot layout plan) is registered, and land destined for public facilities cannot be subdivided/merged before passing to public ownership. Subdivision cannot create a parcel without road frontage. Key general principles (Art. 5): no building permit without an implementation plan; lower-tier plans must conform to higher-tier plans within 1 year of the latter's finalization; use definitions may be narrowed but never broadened by a plan; new buildings cannot exceed the plan's/regulation's floor count or height."
+      },
+      "story": null
+    },
+    {
+      "id": "n6",
+      "title": {
+        "tr": "Yapı elemanı tanımları: asma kat, atrium, çıkma ve diğerleri",
+        "en": "Building-element definitions: mezzanine, atrium, projections and others"
+      },
+      "body": {
+        "tr": "Yönetmeliğin Madde 4'ü sınavda en çok \"bu terim ne demek?\" sorusuna konu olan bölümdür. En sık geçenler:\n\n- **Asma kat:** Zemin katı ticari olmayan konutlar hariç, zemin kattaki bağımsız bölümü tamamlayan, o bölümün **1/3'ünden az olmayan**, iç yüksekliği **2,40 m'den az olmayan**, yola bakan cephede merdiven dahil **3,00 m'den fazla yaklaşmayan** kat.\n- **Atrium:** İki veya daha çok katın içine açıldığı, karşılıklı uzun kenarları arasında **en az 3,00 m** mesafe bulunan, bodrum/zemin/giriş katından başlayıp tüm katlar boyunca devam eden **üzeri kapalı boşluklu** ortak hacim.\n- **Çıkma:** Döşemelerin uzantısı olarak yapılan, parsel sınırları dışına taşmayan, en az bir ucu serbest, açık veya kapalı yapı elemanı.\n- **Balkon:** Çıkma koşullarını taşıyan, bina cephe hattı dışında/içinde, en az bir dış cephesi açık, bağlı olduğu piyesi tamamlayan alan.\n- **Kuranglez:** Parsel sınırı içinde, binaya bitişik, bodrum katlara doğal ışık/hava sağlamak için **en az 0,80 m en fazla 1,20 m genişlikte**, derinliği azami 2,00 m olan ışıklık.\n- **Işıklık:** Ana merdiven evini veya cephesiz piyesleri aydınlatmak için üzeri şeffaf malzemeyle kapatılan hacim.\n- **Portik:** Bitişik ön bahçesiz nizamda, zemin kat yüksekliğinde, ön cephe boyunca bina taşıyıcıları bırakılarak yapılan **üç tarafı açık bina altı yaya geçidi**.\n- **Arkat:** Bahçe mesafelerini ihlal etmeyen, en az iki kenarı açık sütunlar üzerinde yükselen, üstü örtülü, üstünde yapı bulunmayan geçit.\n- **Pergola:** Bahçe/terasta hafif malzemeden, üzerine bitki sardırılabilen, **yapı ruhsatı gerektirmeyen** açık yapı.\n- **Çardak (kameriye):** Bahçenin azami **%5'inde**, güneş/yağmurdan korunmak için ahşap vb. hafif malzemeden yapılan, üstü kapalı yanları açık yapı.\n- **Sundurma:** Binaya bitişik, bölme duvarı olmayan, **üç tarafı açık** hafif örtü.\n- **Kanopi:** Akaryakıt istasyonlarında güneş/yağmurdan korunmak için yapılan yanları açık üstü kapalı konstrüktif yapı.\n\n**Tadilat türleri:**\n- **Basit tamir ve tadil:** Taşıyıcı sistemi, dış cepheyi, ıslak hacimlerin yerini/sayısını **değiştirmeyen** işler (sıva, boya, badana, çatı onarımı vb.).\n- **Esaslı tadilat:** Taşıyıcı unsuru etkileyen VEYA yapı inşaat alanını, emsale konu alanı, taban alanını, bağımsız bölüm sayısını, ortak alanları, kullanım amacını ya da ruhsat eki projeleri **değiştiren** işlemler — esaslı tadilat **ruhsata tabidir.**\n\n**Muvakkat (geçici) yapı:** Kanun ve yönetmelikle nicelik/niteliği belirlenen, **belirli süreliğine** kullanım hakkı öngörülen yapılar (örn. şantiye binası — yapı kullanma izni müracaatında yıkılıp tasfiye edilir).",
+        "en": "Article 4 defines dozens of building-element terms frequently tested as \"what does X mean\" questions: asma kat (mezzanine — ≥1/3 of the ground unit, ≥2.40 m clear height, ≤3.00 m street setback), atrium (multi-floor open shaft, ≥3.00 m between facing walls, roofed over), çıkma (cantilever/projection), balkon (balcony), kuranglez (light well for basements, 0.80–1.20 m wide, max 2.00 m deep), portik (arcaded ground-floor passage on a blind-front row), pergola (light garden structure, no permit required), çardak/kameriye (max 5% of garden), sundurma (three-sided open lean-to), kanopi (fuel-station canopy). Tadilat is split into basit tamir ve tadil (simple repairs not touching structure/facade/wet-room layout) and esaslı tadilat (major alteration changing structural elements, floor area, unit count, or use — always requires a permit). Muvakkat yapı (temporary structure, e.g. site office) is licensed for limited use and must be demolished before occupancy permit for the main building."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": {
+        "tr": "Konut piyesleri, ölçüleri ve zorunlu mekanlar",
+        "en": "Residential rooms, dimensions and mandatory spaces"
+      },
+      "body": {
+        "tr": "**Her müstakil konutta en az** şunlar bulunmalıdır (Madde 5): **1 oturma odası, 1 yatak odası, 1 mutfak veya yemek pişirme yeri, 1 banyo veya yıkanma yeri, 1 tuvalet.**\n\n**Piyes ölçüleri (Madde 29) — dar kenar ve net alan asgarileri:**\n\n| Piyes | Dar kenarı (asgari) | Net alanı (asgari) |\n|---|---|---|\n| Oturma odası | 3,00 m | 12,0 m² |\n| Yatak odası | 2,50 m | 9,00 m² |\n| Mutfak/pişirme yeri | 1,50 m | 3,30 m² |\n| Banyo/yıkanma yeri | 1,50 m | 3,00 m² |\n| Tuvalet | 1,00 m | 1,20 m² |\n\n3 veya daha az odalı konutlarda banyo ile tuvalet **aynı yerde** düzenlenebilir; bu durumda hol/koridor genişliği 1,20 m'den az olamaz ve birleşik mekanın alanı, ayrı ayrı öngörülen asgari alanların toplamı kadar olmalıdır. **Mutfak-oda ile banyo-tuvalet havalandırmaları aynı boşluğa açılamaz**; ama banyo ile tuvalet aynı havalandırma boşluğuna bakabilir.\n\n**Kat yükseklikleri (Madde 28, döşeme üstünden döşeme üstüne, azami):** Ticaret bölgesinde zemin kat 4,50 m, asma katlı zemin kat 5,50 m, diğer katlar 4,00 m (konutsa 3,60 m); konut bölgesinde zemin ve normal katlar 3,60 m.\n\n**Merdivenler (Madde 31):** Ortak merdiven kolu/sahanlık genişliği konutlarda **≥1,20 m**, diğer yapılarda **≥1,50 m**; bağımsız bölüm içi merdivenler **≥1,00 m**. Basamak yüksekliği asansörsüz binalarda ≤0,16 m, asansörlü binalarda ≤0,18 m. Basamak genişliği **2a+b = 60 veya 64** formülüyle hesaplanır (a = basamak yüksekliği, b = basamak genişliği), b hiçbir durumda 0,27 m'den az olamaz.\n\n**Asansör (Madde 34):** Tek bağımsız bölümlü konutlar hariç, kat adedi **3 olan binalarda asansör YERİ** bırakılması, **4 ve daha fazla** olan binalarda ise asansör **tesisi** zorunludur.\n\n**Kapı ölçüleri (Madde 39, asgari):** Kapı yüksekliği 2,10 m; bina giriş kapısı 1,50 m (çift kanatlıysa bir kanat ≥1,00 m); bağımsız bölüm giriş kapısı 1,00 m; diğer mahal kapıları 0,90 m.",
+        "en": "Every detached residence must have at minimum: 1 living room, 1 bedroom, 1 kitchen, 1 bathroom, 1 toilet. Article 29 sets minimum narrow-side and net-area dimensions per room (living room 3.00 m/12.0 m², bedroom 2.50 m/9.00 m², kitchen 1.50 m/3.30 m², bathroom 1.50 m/3.00 m², toilet 1.00 m/1.20 m²). In dwellings with 3 rooms or fewer, bath and toilet may combine. Kitchen/room ventilation may not share a shaft with bathroom/toilet ventilation (but bath and toilet may share). Floor heights (Art. 28) cap at 4.50 m (commercial ground floor) down to 3.60 m (residential floors). Stairs (Art. 31): common flight/landing width ≥1.20 m residential / ≥1.50 m other buildings; riser height ≤0.16–0.18 m; tread width from 2a+b=60 or 64 (never below 0.27 m). Elevators (Art. 34) required from 4 floors up (space reserved from 3 floors). Minimum door sizes given in Art. 39."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": {
+        "tr": "Bina donanımları: su deposu, bacalar, korkuluk, çıkma ve saçak",
+        "en": "Building equipment: water tanks, flues, railings, projections and eaves"
+      },
+      "body": {
+        "tr": "**Su depoları (Madde 36, asgari):** Çok yüksek yapılarda **30 m³**, umumi binalar ve yüksek katlı yapılarda **15 m³**, 10 bağımsız bölüme kadar konut binalarında **3 m³**, diğer binalarda **5 m³**'ten az olamaz.\n\n**Bacalar (Madde 33):** Kaloriferli binalarda konut niteliğindeki bağımsız bölümlerin oturma/yatma hacimlerinin en az birinde ve sıcak su tesisatı olmayan banyo/mutfaklarda; sobalı binalarda ise **tuvalet ve koridor hariç tüm piyeslerde** duman bacası yapılması zorunlu. **Işıklık ve hava bacaları (Madde 32):** En az bir oturma odası ile yatak odalarının doğrudan dışarıdan ışık/hava alması gerekir; hava bacalarının asgari ölçüsü **0,60×0,60 m**.\n\n**Korkuluklar (Madde 38):** Balkon, teras, galeri boşluğu, sahanlık, açık merdiven/rampa kenarları ile 0,90 m'den az kotlu pencere boşluklarında, döşeme kotundan itibaren **en az 1,10 m** yüksekliğe kadar korkuluk zorunlu.\n\n**Çıkmalar ve saçaklar (Madde 41-42):** Binanın her cephesinde açık/kapalı çıkma yapılabilir; arka/yan bahçe mesafelerinde parsel sınırına **3 m'den fazla yaklaşmamak** kaydıyla çıkma **en fazla 1,5 m** olabilir. Bitişik nizamda komşuya **2 m'den fazla yaklaşamaz**. Saçaklar, planda belirlenmemişse **1 m'yi geçmeyecek** şekilde yapılabilir.\n\n**Bahçe duvarları (Madde 43):** Yol tarafındaki cephe önünde **0,50 m'yi**, gerisinde **2,00 m'yi** geçemez.\n\n**Kapıcı dairesi (Madde 44):** Konut kullanımlı bağımsız bölüm sayısı **40'tan fazla** olan katı yakıtlı binalarda bir kapıcı dairesi zorunlu; bağımsız bölüm sayısı **80'i aşarsa** ikinci kapıcı dairesi de gerekir; birden fazla yapı bulunan parsellerde **60'tan fazla** bağımsız bölümü olan her bina için ayrı kapıcı dairesi gerekir.\n\n**Bodrum/müştemilat (Madde 51-52):** Katı yakıt kullanan sobalı binalarda, bodrum/zemin katta veya bahçede her bağımsız bölüm için **en az 5 m², en fazla 10 m²** odunluk/kömürlük/depolama yeri ayrılması zorunlu. Müştemilat mümkünse binanın **bodrumunda**, değilse **bahçede** tertiplenir.",
+        "en": "Water tanks (Art. 36) scale from 5 m³ (ordinary buildings) up to 30 m³ (super high-rises). Flues (Art. 33) are mandatory in most habitable rooms; light wells/air flues (Art. 32) require direct outside light/air for at least one living/bed room, minimum flue size 0.60×0.60 m. Railings (Art. 38) are mandatory at ≥1.10 m height wherever there's a fall risk. Projections/eaves (Art. 41–42): up to 1.5 m projection allowed at the side/rear (staying 3 m from the boundary), max 1 m eaves if unspecified. Garden walls (Art. 43) capped at 0.50 m (street side) / 2.00 m (rear). Doorman flats (Art. 44) required above 40 residential units (a second above 80). Basements/annexes (Art. 51–52): 5–10 m² storage per unit for solid-fuel buildings; ancillary spaces go in the basement if possible, else the garden."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": {
+        "tr": "Yapı ruhsatı süreci",
+        "en": "The building permit process"
+      },
+      "body": {
+        "tr": "**Yapı ruhsatı**, bir parselde yönetmelikçe öngörülen belgeler ve projelerin onaylanması sonrasında ilgili idarece düzenlenen **onaylı resmi izin belgesidir**. Genel kural: bu belge alınmadan **hiçbir yapının inşasına başlanamaz.**\n\n**Süreç özetle:**\n1. Yapı sahibi/vekili, **imar durum belgesi, yol kotu tutanağı, kanal kotu tutanağı ve zemin/temel etüt raporu** için aplikasyon krokisi ve tapu kaydıyla ilgili idareye başvurur.\n2. İlgili idare imar durum belgesini ve eki belgeleri **en geç 2 iş günü** içinde (kanal kotu tutanağını **5 iş günü** içinde) verir.\n3. Mimari, statik, elektrik, mekanik proje ile **avan proje** hazırlanır; toprak kazı hesabı, otopark/sığınak/ağaç hesapları da eklenir.\n4. Belgeler tamamlanınca **en geç 5 iş günü** içinde yapı ruhsatı düzenlenir.\n\n**Ruhsat süresi:** Ruhsat tarihinden itibaren **2 yıl içinde** inşaata başlanmaz veya **5 yıllık ruhsat süresi** içinde tamamlanmazsa yapı **ruhsatsız** sayılır. Süre uzatımı (yenileme) **en çok 2 kez** yapılabilir, her seferinde 5 yıl uzatılır.\n\n**Yapı kullanma izni (iskân):** Yapı tamamlandığında (veya kullanılabilir kısmı tamamlandığında), mal sahibinin müracaatı üzerine ruhsatı veren idareden alınır. Başvuruya fenni mesul raporları, enerji kimlik belgesi ve fotoğraflar eklenir. Yapı mevzuata uygunsa **30 gün içinde** yapı kullanma izin belgesi düzenlenir. Yapı kullanma izninin verildiği tarih, **yapının tamamlandığı tarih** sayılır ve bu, **5 yıllık ruhsat süresi içinde** alınmalıdır. İzin alınmayan yapılar elektrik, su, kanalizasyon gibi hizmetlerden yararlanamaz.\n\n**Kim sorumlu?** **Fenni mesul**, yapının plana, ruhsata, projelere, standartlara uygun inşa edilmesinin **kamu adına denetimini** üstlenen uzman meslek mensubudur. Ruhsatsız veya ruhsata/eklerine aykırı yapı tespit edilirse ilgili idare **yapı tatil tutanağı** düzenler — bu belge inşai faaliyetin devam edemeyeceğini gösterir.",
+        "en": "A yapı ruhsatı (building permit) is the approved official document issued after the required documents and designs are approved; no construction may start without it. The process: apply for the zoning-status certificate, road/channel elevation records and soil report → these are issued within 2 (or 5) working days → architectural/structural/MEP designs plus avan proje are prepared → the permit issues within 5 working days once complete. The permit lapses if construction hasn't started within 2 years or wasn't finished within the 5-year permit term (renewable at most twice, 5 years each time). The yapı kullanma izni (occupancy permit / iskân) is granted within 30 days of a compliant completion inspection, and must be obtained within the same 5-year permit window; utilities cannot be connected without it. The fenni mesul (technical supervisor) certifies compliance on the public's behalf; illegal or non-compliant construction triggers a yapı tatil tutanağı (stop-work record)."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": {
+        "tr": "Planlı Alanlar İmar Yönetmeliği hangi yılda yürürlüğe girdi?",
+        "en": "In what year did the Zoning Regulation for Planned Areas take effect?"
+      },
+      "back": {
+        "tr": "2017 yılında yürürlüğe girdi ve 1985 tarihli eski imar yönetmeliğini tamamen yürürlükten kaldırdı.",
+        "en": "It took effect in 2017 and fully repealed the earlier 1985 zoning regulation."
+      },
+      "en": "The zoning regulation took effect in 2017, replacing the 1985 version.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f2",
+      "front": {
+        "tr": "Yönetmeliğin amacı nedir (Madde 1)?",
+        "en": "What is the purpose of the regulation (Article 1)?"
+      },
+      "back": {
+        "tr": "Plan, fen, sağlık ve sürdürülebilir çevre şartlarına uygun yapı ve yapılaşma ile projelendirme ve denetime ilişkin usul ve esasları belirlemek.",
+        "en": "To set the procedures and principles for building/construction and design/inspection that comply with plan, technical, health and sustainable-environment conditions."
+      },
+      "en": "Purpose: to set procedures for building/design/inspection meeting plan, technical, health and sustainability requirements.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f3",
+      "front": {
+        "tr": "Yönetmeliğin kapsamı nedir (Madde 2)?",
+        "en": "What is the scope of the regulation (Article 2)?"
+      },
+      "back": {
+        "tr": "Yalnızca uygulama imar planı bulunan alanları kapsar.",
+        "en": "It covers only areas that have an approved implementation zoning plan."
+      },
+      "en": "The regulation only covers areas with an approved implementation zoning plan.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f4",
+      "front": {
+        "tr": "Yönetmeliğin dayanağı hangi kanundur (Madde 3)?",
+        "en": "Which law is the regulation based on (Article 3)?"
+      },
+      "back": {
+        "tr": "3194 sayılı İmar Kanunu ve Çevre-Şehircilik Bakanlığı teşkilat hükümlerine dayanır.",
+        "en": "It rests on Law No. 3194 (Zoning Law) and the Ministry of Environment and Urbanisation's organizational provisions."
+      },
+      "en": "Based on Law No. 3194 (İmar Kanunu) and the Ministry's organizational decree.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f5",
+      "front": {
+        "tr": "Uygulama imar planı olmayan alanda ne düzenlenemez?",
+        "en": "What cannot be issued in an area without an implementation zoning plan?"
+      },
+      "back": {
+        "tr": "Yapı ruhsatı düzenlenemez.",
+        "en": "A building permit cannot be issued."
+      },
+      "en": "No building permit can be issued without an implementation zoning plan.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f6",
+      "front": {
+        "tr": "Tapu belgesi nedir?",
+        "en": "What is a tapu (title deed)?"
+      },
+      "back": {
+        "tr": "Bir taşınmazın mülkiyetini gösteren resmî belge; sahip, ada-parsel no, yüzölçümü ve hukuki bilgileri içerir.",
+        "en": "The official document proving ownership of a real property; it lists the owner, block/parcel number, area and legal notes."
+      },
+      "en": "Tapu = official title deed showing ownership, parcel data and legal notes.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f7",
+      "front": {
+        "tr": "İmar çapı (imar durum belgesi) nedir?",
+        "en": "What is the imar çapı (zoning status certificate)?"
+      },
+      "back": {
+        "tr": "Bir parselde yapılabilecek yapının imar planı ve mevzuata göre sınırlarını (yaklaşma mesafeleri, yapı nizamı, TAKS/KAKS, kat adedi) gösteren, 1/1000 ölçekli belgedir.",
+        "en": "A 1:1000-scale document showing a parcel's buildable limits per the zoning plan and regulation (setbacks, layout type, TAKS/KAKS, floor count)."
+      },
+      "en": "Zoning status certificate — shows a parcel's buildable limits (setbacks, layout type, TAKS/KAKS, floor count) at 1:1000 scale.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f8",
+      "front": {
+        "tr": "Aplikasyon krokisi nedir?",
+        "en": "What is an aplikasyon krokisi (cadastral survey sketch)?"
+      },
+      "back": {
+        "tr": "Kadastro faaliyetleri kapsamında düzenlenen; ada/parsellerin arazide aplike edilmesi, kenar ölçüleri ve köşe koordinatlarının yer aldığı krokidir.",
+        "en": "A sketch produced under cadastral work showing the staking-out of blocks/parcels on site, with edge measurements and corner coordinates."
+      },
+      "en": "Cadastral survey sketch with corner coordinates and edge measurements for staking out a parcel.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f9",
+      "front": {
+        "tr": "Zemin etüt raporu ne amaçla hazırlanır?",
+        "en": "What is the purpose of a soil/foundation report (zemin etüt raporu)?"
+      },
+      "back": {
+        "tr": "Arsanın zemin/yeraltı koşullarını (taşıma gücü, yeraltı suyu, oturma, sıvılaşma riski) belirlemek ve uygun temel sistemini önermek için hazırlanır.",
+        "en": "To determine the site's ground/subsurface conditions (bearing capacity, groundwater, settlement, liquefaction risk) and recommend a suitable foundation system."
+      },
+      "en": "Soil/foundation report — determines bearing capacity, groundwater, settlement/liquefaction risk, recommends foundation type.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f10",
+      "front": {
+        "tr": "Plankote nedir?",
+        "en": "What is a plankote?"
+      },
+      "back": {
+        "tr": "Arsanın mevcut yüzey biçimini, eğimlerini ve kotlarını gösteren ölçülü harita; kazı-dolgu ve bina kotu hesaplarında kullanılır.",
+        "en": "A surveyed map showing the existing ground surface, slopes and elevations of a site; used in cut-fill and building-elevation calculations."
+      },
+      "en": "A surveyed contour map of the existing ground surface, used for cut-fill and building-elevation calculations.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f11",
+      "front": {
+        "tr": "Ölçü krokisi nedir?",
+        "en": "What is an ölçü krokisi (survey sketch)?"
+      },
+      "back": {
+        "tr": "Parselin köşe/kırık noktalarının koordinatlarını ve kenar uzunluklarını gösteren, tapu müdürlüğünce düzenlenen belgedir.",
+        "en": "A document, issued by the land registry office, showing the coordinates of a parcel's corner/break points and its side lengths."
+      },
+      "en": "A survey sketch of parcel corner coordinates and side lengths, issued by the land registry office.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f12",
+      "front": {
+        "tr": "Avan proje nedir?",
+        "en": "What is an avan proje (preliminary design)?"
+      },
+      "back": {
+        "tr": "Uygulama projelerine esas teşkil eden; vaziyet planı, kat planları, kesit-görünüşler ve taban/katlar alanı hesaplarını içeren ön projedir.",
+        "en": "The preliminary design underlying the full implementation drawings; it includes the site plan, floor plans, sections/elevations and footprint/floor-area calculations."
+      },
+      "en": "Avan proje = preliminary design (site plan, floor plans, sections, area calculations) preceding the full implementation design.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f13",
+      "front": {
+        "tr": "Vaziyet planı hangi ölçeklerde çizilir?",
+        "en": "At what scales is a site plan (vaziyet planı) drawn?"
+      },
+      "back": {
+        "tr": "1/500, 1/200 veya 1/100 ölçekli olarak çizilir.",
+        "en": "It is drawn at 1:500, 1:200 or 1:100 scale."
+      },
+      "en": "The site plan (vaziyet planı) is drawn at 1:500, 1:200 or 1:100 scale.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f14",
+      "front": {
+        "tr": "Rölöve nedir?",
+        "en": "What is a rölöve?"
+      },
+      "back": {
+        "tr": "Projesi bulunmayan yapılarda, mevcut durumun yerinde ölçülerek çizilmesidir.",
+        "en": "The as-built survey drawing of an existing structure that lacks original design drawings, made by measuring the current state on site."
+      },
+      "en": "Rölöve = as-built survey drawing of an existing structure that lacks original design drawings.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f15",
+      "front": {
+        "tr": "Ataşman ne için düzenlenir?",
+        "en": "Why is an ataşman prepared?"
+      },
+      "back": {
+        "tr": "İdarenin istediği ilave imalatlar ile altyapıda sonradan gizlenecek imalatların ödemeye esas miktarını belgelemek için düzenlenir.",
+        "en": "To document, for payment purposes, the quantities of extra works ordered by the administration and of works that will later be buried in the substructure."
+      },
+      "en": "Ataşman documents the payment-basis quantities of extra/soon-to-be-buried works before they are covered.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f16",
+      "front": {
+        "tr": "Yeşil defter nedir?",
+        "en": "What is a yeşil defter (green ledger)?"
+      },
+      "back": {
+        "tr": "Projede bulunmayan veya değiştirilen imalatların hakedişe esas metrajlarının kaydedildiği defterdir.",
+        "en": "A ledger recording the progress-payment quantities of works that are not in the design or were changed."
+      },
+      "en": "Yeşil defter = ledger recording quantities of unplanned/changed work for progress-payment purposes.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f17",
+      "front": {
+        "tr": "TAKS'ın açılımı ve formülü nedir?",
+        "en": "What does TAKS stand for and what is its formula?"
+      },
+      "back": {
+        "tr": "Taban Alanı Kat Sayısı = Taban Alanı / Parsel Alanı.",
+        "en": "Taban Alanı Kat Sayısı (footprint coefficient) = footprint area / parcel area."
+      },
+      "en": "TAKS (footprint coefficient) = footprint area / parcel area.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f18",
+      "front": {
+        "tr": "KAKS (Emsal)'in açılımı ve formülü nedir?",
+        "en": "What does KAKS (Emsal) stand for and what is its formula?"
+      },
+      "back": {
+        "tr": "Katlar Alanı Katsayısı (Emsal) = Katlar Alanı (toplam kat alanı) / Parsel Alanı.",
+        "en": "Katlar Alanı Katsayısı (floor area ratio / Emsal) = total floor area / parcel area."
+      },
+      "en": "KAKS/Emsal (floor area ratio) = total floor area / parcel area.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f19",
+      "front": {
+        "tr": "TAKS = 0,35, parsel alanı 1000 m² ise maksimum taban alanı kaçtır?",
+        "en": "If TAKS = 0.35 and the parcel is 1000 m², what is the maximum footprint?"
+      },
+      "back": {
+        "tr": "350 m² (0,35 × 1000).",
+        "en": "350 m² (0.35 × 1000)."
+      },
+      "en": "0.35 × 1000 m² = 350 m² maximum footprint.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f20",
+      "front": {
+        "tr": "KAKS/Emsal = 1,5, parsel alanı 1000 m² ise maksimum toplam kat alanı kaçtır?",
+        "en": "If KAKS/Emsal = 1.5 and the parcel is 1000 m², what is the maximum total floor area?"
+      },
+      "back": {
+        "tr": "1500 m² (1,5 × 1000).",
+        "en": "1500 m² (1.5 × 1000)."
+      },
+      "en": "1.5 × 1000 m² = 1500 m² maximum total floor area.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f21",
+      "front": {
+        "tr": "Ayrık veya blok nizamlı yerlerde, planda TAKS açıkça belirlenmemişse azami TAKS yüzde kaçtır?",
+        "en": "In detached or block layouts where the plan does not specify TAKS, what is the maximum TAKS?"
+      },
+      "back": {
+        "tr": "%40'ı geçemez.",
+        "en": "It may not exceed 40%."
+      },
+      "en": "TAKS may not exceed 40% if the plan doesn't specify it (detached/block layouts).",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f22",
+      "front": {
+        "tr": "Çekme mesafesi ve KAKS verilip TAKS verilmeyen parsellerde azami TAKS yüzde kaçtır?",
+        "en": "Where setbacks and KAKS are given but TAKS is not, what is the maximum TAKS?"
+      },
+      "back": {
+        "tr": "%60'ı geçmemek şartıyla çekme mesafelerine göre uygulama yapılır.",
+        "en": "Application follows the setbacks, provided TAKS does not exceed 60%."
+      },
+      "en": "TAKS may not exceed 60% where setbacks and KAKS are given but TAKS is not.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f23",
+      "front": {
+        "tr": "Emsal harici alanların toplamı, parselin toplam emsale esas alanının yüzde kaçını aşamaz?",
+        "en": "The total of non-emsal areas may not exceed what percentage of the parcel's total emsal-eligible area?"
+      },
+      "back": {
+        "tr": "%30'unu aşamaz.",
+        "en": "It may not exceed 30%."
+      },
+      "en": "Non-emsal areas granted may not exceed 30% of the total emsal-eligible area.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f24",
+      "front": {
+        "tr": "Taban alanı ve emsal hesabı hangi parsel alanı üzerinden yapılır?",
+        "en": "Footprint and emsal are calculated on which parcel area?"
+      },
+      "back": {
+        "tr": "Net imar parseli alanı üzerinden yapılır.",
+        "en": "On the net zoning-parcel area."
+      },
+      "en": "Footprint and emsal are calculated on the net zoning-parcel area.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f25",
+      "front": {
+        "tr": "Taban alanı tanımı nedir?",
+        "en": "What is the definition of taban alanı (footprint)?"
+      },
+      "back": {
+        "tr": "Bahçedeki eklenti/müştemilat dahil, yapının tabii veya tesviye edilmiş zemin üzerindeki kısmının parseldeki izdüşümünün kapladığı alandır.",
+        "en": "The area covered by the vertical projection onto the parcel of the building's portion on natural or graded ground, including garden annexes."
+      },
+      "en": "Taban alanı (footprint) = the vertical projection of the building (incl. garden annexes) on the parcel.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f26",
+      "front": {
+        "tr": "Katlar alanı tanımı nedir?",
+        "en": "What is the definition of katlar alanı (total floor area)?"
+      },
+      "back": {
+        "tr": "Bodrum, asma kat, çatı arası piyesi ve açık/kapalı çıkmalar dahil kullanılabilen bütün katların, hariç tutulan alanlar çıktıktan sonraki toplamıdır.",
+        "en": "The sum of all usable floors (including basement, mezzanine, roof piyes and open/closed projections) after subtracting the excluded areas."
+      },
+      "en": "Katlar alanı = sum of all usable floor areas (incl. basement, mezzanine, roof piyes, projections) minus excluded areas.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f27",
+      "front": {
+        "tr": "Kapıcı dairelerinin toplam kaç m²'si katlar alanına dahil edilmez?",
+        "en": "How many m² of doorman flats in total are excluded from katlar alanı?"
+      },
+      "back": {
+        "tr": "70 m²'si dahil edilmez.",
+        "en": "70 m² are excluded."
+      },
+      "en": "Up to 70 m² of doorman flats is excluded from katlar alanı.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f28",
+      "front": {
+        "tr": "Bağımsız bölüm net alanının yüzde kaçını geçmeyen depo eklentileri katlar alanına dahil edilmez?",
+        "en": "Storage annexes up to what percentage of a unit's net area are excluded from katlar alanı?"
+      },
+      "back": {
+        "tr": "%50'sini geçmeyen depo eklentileri.",
+        "en": "Storage annexes not exceeding 50% of the net area."
+      },
+      "en": "Storage annexes up to 50% of the unit's net area are excluded from katlar alanı.",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f29",
+      "front": {
+        "tr": "Ayrık nizam ne demektir?",
+        "en": "What does ayrık nizam (detached layout) mean?"
+      },
+      "back": {
+        "tr": "Hiçbir yanından komşu parseldeki binalara bitişik olmayan yapı nizamıdır.",
+        "en": "A layout in which the building does not adjoin the buildings on any neighboring parcel."
+      },
+      "en": "Ayrık nizam = detached layout, not touching neighboring buildings on any side.",
+      "tag": "yapi-duzeni"
+    },
+    {
+      "id": "f30",
+      "front": {
+        "tr": "Bitişik nizam ne demektir?",
+        "en": "What does bitişik nizam (attached layout) mean?"
+      },
+      "back": {
+        "tr": "Bir veya birden fazla komşu parseldeki binalara bitişik olan ve ortak alandan arka bahçeye çıkış sağlayan yapı nizamıdır.",
+        "en": "A layout attached to buildings on one or more neighboring parcels, with rear-garden access via a common area."
+      },
+      "en": "Bitişik nizam = attached layout, sharing a wall with neighboring buildings, rear access via common area.",
+      "tag": "yapi-duzeni"
+    },
+    {
+      "id": "f31",
+      "front": {
+        "tr": "Blok nizam ne demektir?",
+        "en": "What does blok nizam (block layout) mean?"
+      },
+      "back": {
+        "tr": "Cephe uzunluğu, derinliği ve yüksekliği belirlenmiş yapı kitlesinin bir parsel/dilatasyonla ayrılarak birden fazla parsel üzerine oturduğu bahçeli yapı nizamıdır.",
+        "en": "A gardened layout in which a building mass of fixed frontage, depth and height, separated by a parcel line or expansion joint, sits across several parcels."
+      },
+      "en": "Blok nizam = block layout, a building mass with fixed frontage/depth/height straddling several parcels, gardened.",
+      "tag": "yapi-duzeni"
+    },
+    {
+      "id": "f32",
+      "front": {
+        "tr": "İkiz nizam (bir yanı bitişik bir yanı ayrık) hangi yapı nizamı sayılır?",
+        "en": "A twin layout (attached one side, detached the other) counts as which layout type?"
+      },
+      "back": {
+        "tr": "Blok nizam olarak değerlendirilir.",
+        "en": "It is treated as blok nizam (block layout)."
+      },
+      "en": "A twin layout (attached one side, detached the other) is classified as blok nizam.",
+      "tag": "yapi-duzeni"
+    },
+    {
+      "id": "f33",
+      "front": {
+        "tr": "İfraz nedir?",
+        "en": "What is ifraz?"
+      },
+      "back": {
+        "tr": "Bir parselin bölünerek ayrılması işlemidir.",
+        "en": "The operation of dividing (splitting) a parcel into separate parcels."
+      },
+      "en": "İfraz = subdividing (splitting) a parcel into multiple parcels.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f34",
+      "front": {
+        "tr": "Tevhit nedir?",
+        "en": "What is tevhit?"
+      },
+      "back": {
+        "tr": "Birden çok parselin birleştirilerek tek parsel haline getirilmesi işlemidir.",
+        "en": "The operation of merging several parcels into a single parcel."
+      },
+      "en": "Tevhit = merging multiple parcels into a single parcel.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f35",
+      "front": {
+        "tr": "İmar adasında ifraz veya tevhit yapılabilmesi için önce ne gereklidir?",
+        "en": "What is required before subdivision or merger can occur in a zoning block?"
+      },
+      "back": {
+        "tr": "Önce imar adasının parselasyon planının yapılıp tapuya tescil edilmesi gerekir.",
+        "en": "First the block's parselasyon planı (lot layout plan) must be prepared and registered at the land registry."
+      },
+      "en": "A registered parselasyon planı (lot layout plan) for the block is required before any subdivision or merger.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f36",
+      "front": {
+        "tr": "İfraz suretiyle nasıl bir parsel oluşturulamaz?",
+        "en": "What kind of parcel cannot be created by subdivision?"
+      },
+      "back": {
+        "tr": "Yola cephesi olmayan parsel oluşturulamaz.",
+        "en": "A parcel with no road frontage cannot be created."
+      },
+      "en": "Subdivision cannot create a parcel that lacks road frontage.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f37",
+      "front": {
+        "tr": "Asma kat tanımındaki iç yükseklik alt sınırı kaç metredir?",
+        "en": "What is the minimum clear height in the mezzanine definition?"
+      },
+      "back": {
+        "tr": "2,40 metreden az olamaz.",
+        "en": "It may not be less than 2.40 metres."
+      },
+      "en": "A mezzanine's clear interior height may not be less than 2.40 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f38",
+      "front": {
+        "tr": "Asma kat, ait olduğu bağımsız bölümün en az kaçta kaçı kadar olmalıdır?",
+        "en": "A mezzanine must be at least what fraction of the unit it belongs to?"
+      },
+      "back": {
+        "tr": "1/3'ünden az olamaz.",
+        "en": "It may not be less than 1/3 of the unit."
+      },
+      "en": "A mezzanine may not be smaller than 1/3 of the unit it belongs to.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f39",
+      "front": {
+        "tr": "Asma kat, yola bakan cephede merdiven dahil kaç metreden fazla yaklaşamaz?",
+        "en": "On the street facade, how close may a mezzanine come (including the stair)?"
+      },
+      "back": {
+        "tr": "3,00 metreden fazla yaklaşamaz.",
+        "en": "It may not come closer than 3.00 metres."
+      },
+      "en": "A mezzanine may not approach the street facade more than 3.00 m (incl. the stair).",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f40",
+      "front": {
+        "tr": "Atrium tanımında karşılıklı iki uzun kenar arasındaki asgari mesafe nedir?",
+        "en": "In the atrium definition, what is the minimum distance between the two facing long sides?"
+      },
+      "back": {
+        "tr": "3,00 metreden az olamaz.",
+        "en": "It may not be less than 3.00 metres."
+      },
+      "en": "An atrium's facing long sides must be at least 3.00 m apart.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f41",
+      "front": {
+        "tr": "Kuranglez genişliği hangi aralıktadır?",
+        "en": "What is the width range of a kuranglez?"
+      },
+      "back": {
+        "tr": "En az 0,80 m, en fazla 1,20 m genişliğinde olabilir.",
+        "en": "It may be at least 0.80 m and at most 1.20 m wide."
+      },
+      "en": "A kuranglez (basement light well) may be 0.80–1.20 m wide.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f42",
+      "front": {
+        "tr": "Kuranglez'in azami derinliği kaç metredir?",
+        "en": "What is the maximum depth of a kuranglez?"
+      },
+      "back": {
+        "tr": "Azami 2,00 metredir.",
+        "en": "At most 2.00 metres."
+      },
+      "en": "A kuranglez may be at most 2.00 m deep.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f43",
+      "front": {
+        "tr": "Çardak (kameriye), bahçenin azami yüzde kaçında yapılabilir?",
+        "en": "A çardak (gazebo) may occupy at most what percentage of the garden?"
+      },
+      "back": {
+        "tr": "Bahçenin azami %5'inde yapılabilir.",
+        "en": "It may occupy at most 5% of the garden."
+      },
+      "en": "A çardak/kameriye may occupy at most 5% of the garden area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f44",
+      "front": {
+        "tr": "Pergola yapmak için yapı ruhsatı gerekir mi?",
+        "en": "Does building a pergola require a building permit?"
+      },
+      "back": {
+        "tr": "Hayır, pergola yapı ruhsatı olmaksızın inşa edilebilir.",
+        "en": "No, a pergola may be built without a building permit."
+      },
+      "en": "No — pergolas can be built without a building permit.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f45",
+      "front": {
+        "tr": "Portik nedir?",
+        "en": "What is a portik?"
+      },
+      "back": {
+        "tr": "Bitişik ön bahçesiz nizamda, zemin kat yüksekliğinde, üç tarafı açık bina altı yaya geçididir.",
+        "en": "A three-sided-open under-building pedestrian passage at ground-floor height, in a blind-front attached row."
+      },
+      "en": "Portik = a three-sided open under-building pedestrian passage at ground-floor height, in blind-front attached rows.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f46",
+      "front": {
+        "tr": "Basit tamir ve tadil, esaslı tadilattan farklı olarak neyi değiştirmez?",
+        "en": "Unlike major alteration, what does simple repair (basit tamir ve tadil) NOT change?"
+      },
+      "back": {
+        "tr": "Taşıyıcı sistemi, bağımsız bölümün dış cephesini, ıslak hacimlerin yerini ve sayısını değiştirmez.",
+        "en": "It does not change the load-bearing system, the unit's exterior facade, or the location and number of wet spaces."
+      },
+      "en": "Basit tamir ve tadil (simple repair) doesn't touch structure, exterior facade, or wet-room layout — unlike esaslı tadilat.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f47",
+      "front": {
+        "tr": "Esaslı tadilat ruhsata tabi midir?",
+        "en": "Is major alteration (esaslı tadilat) subject to a permit?"
+      },
+      "back": {
+        "tr": "Evet, esaslı tadilat ruhsata tabidir.",
+        "en": "Yes, major alteration is subject to a building permit."
+      },
+      "en": "Yes — esaslı tadilat (major alteration) always requires a building permit.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f48",
+      "front": {
+        "tr": "Muvakkat yapıya örnek nedir?",
+        "en": "What is an example of a temporary (muvakkat) structure?"
+      },
+      "back": {
+        "tr": "Şantiye binası — yapı kullanma izni müracaatında yıkılarak tasfiye edilir.",
+        "en": "The site office (şantiye binası) — it is demolished and cleared when the occupancy permit is applied for."
+      },
+      "en": "Example of a muvakkat (temporary) yapı: the site office, demolished before the occupancy-permit application.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f49",
+      "front": {
+        "tr": "Bahçe mesafeleri (Madde 23): ön bahçe ve yol kenarı mesafesi en az kaç metredir?",
+        "en": "Setbacks (Article 23): what is the minimum front/road-facing setback?"
+      },
+      "back": {
+        "tr": "En az 5,00 metredir.",
+        "en": "At least 5.00 metres."
+      },
+      "en": "Front/road-facing setback: at least 5.00 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f50",
+      "front": {
+        "tr": "Bahçe mesafeleri (Madde 23): yan bahçe mesafesi en az kaç metredir?",
+        "en": "Setbacks (Article 23): what is the minimum side setback?"
+      },
+      "back": {
+        "tr": "En az 3,00 metredir.",
+        "en": "At least 3.00 metres."
+      },
+      "en": "Side setback: at least 3.00 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f51",
+      "front": {
+        "tr": "Bahçe mesafeleri (Madde 23): arka bahçe mesafesi en az kaç metredir?",
+        "en": "Setbacks (Article 23): what is the minimum rear setback?"
+      },
+      "back": {
+        "tr": "En az 3,00 metredir.",
+        "en": "At least 3.00 metres."
+      },
+      "en": "Rear setback: at least 3.00 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f52",
+      "front": {
+        "tr": "Siyah kot nedir?",
+        "en": "What is siyah kot (black datum)?"
+      },
+      "back": {
+        "tr": "İmar planında gösterilen yolun doğal (tabii) zemin kotudur.",
+        "en": "The natural ground elevation of the road as shown in the zoning plan."
+      },
+      "en": "Siyah kot = the road's natural ground elevation as shown in the zoning plan.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f53",
+      "front": {
+        "tr": "Kırmızı kot nedir?",
+        "en": "What is kırmızı kot (red datum)?"
+      },
+      "back": {
+        "tr": "Yolun gerekli hesaplar yapıldıktan sonra kullanıma hazır kotudur; kat adedi bu kota göre belirlenir.",
+        "en": "The road's finished, ready-for-use elevation after the required calculations; the floor count is set relative to it."
+      },
+      "en": "Kırmızı kot = the finished, ready-for-use road elevation, used to determine allowable floor count.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f54",
+      "front": {
+        "tr": "Subasman kotu nedir?",
+        "en": "What is subasman kotu?"
+      },
+      "back": {
+        "tr": "Binanın zemin kat taban döşemesinin üst kotudur.",
+        "en": "The top level of the ground-floor slab of the building."
+      },
+      "en": "Subasman kotu = the top level of the ground-floor slab.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f55",
+      "front": {
+        "tr": "Saçak seviyesi nedir?",
+        "en": "What is saçak seviyesi (eave level)?"
+      },
+      "back": {
+        "tr": "Binanın son kat tavan döşemesinin üst kotudur.",
+        "en": "The top level of the roof slab over the topmost floor."
+      },
+      "en": "Saçak seviyesi (eave level) = the top of the top-floor roof slab.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f56",
+      "front": {
+        "tr": "Bina yüksekliği nasıl tanımlanır?",
+        "en": "How is bina yüksekliği (building height) defined?"
+      },
+      "back": {
+        "tr": "Binanın kot aldığı noktadan saçak seviyesine kadar olan yüksekliktir.",
+        "en": "The height from the building's elevation reference point up to the eave level."
+      },
+      "en": "Bina yüksekliği = height from the elevation reference point up to the eave level.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f57",
+      "front": {
+        "tr": "Yapı yüksekliği nasıl tanımlanır?",
+        "en": "How is yapı yüksekliği (structure height) defined?"
+      },
+      "back": {
+        "tr": "Bodrum katlar, asma katlar ve çatı arası piyesler dahil, yapının inşa edilen bütün katlarının toplam yüksekliğidir.",
+        "en": "The total height of all built floors, including basements, mezzanines and roof piyes."
+      },
+      "en": "Yapı yüksekliği = total height of all built floors including basements, mezzanines and roof piyes.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f58",
+      "front": {
+        "tr": "Yüksek yapı sınırı: bina yüksekliği kaç metreyi aşarsa yüksek yapı sayılır?",
+        "en": "High-rise threshold: above what building height is a building a 'yüksek yapı'?"
+      },
+      "back": {
+        "tr": "Bina yüksekliği 21,50 metreden fazla olan binalar yüksek yapı sayılır.",
+        "en": "Buildings with a building height over 21.50 metres are high-rises."
+      },
+      "en": "A building is 'yüksek yapı' (high-rise) above 21.50 m building height.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f59",
+      "front": {
+        "tr": "Yüksek yapı sınırı: yapı yüksekliği kaç metreyi aşarsa yüksek yapı sayılır?",
+        "en": "High-rise threshold: above what structure height is a building a 'yüksek yapı'?"
+      },
+      "back": {
+        "tr": "Yapı yüksekliği 30,50 metreden fazla olan binalar yüksek yapı sayılır.",
+        "en": "Buildings with a structure height over 30.50 metres are high-rises."
+      },
+      "en": "A building is 'yüksek yapı' above 30.50 m structure height.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f60",
+      "front": {
+        "tr": "Çok yüksek yapı sınırı nedir?",
+        "en": "What is the super-high-rise (çok yüksek yapı) threshold?"
+      },
+      "back": {
+        "tr": "Bina yüksekliği 51,50 metreden veya yapı yüksekliği 60,50 metreden fazla olan binalardır.",
+        "en": "Buildings with a building height over 51.50 m or a structure height over 60.50 m."
+      },
+      "en": "'Çok yüksek yapı' (super high-rise): building height >51.50 m or structure height >60.50 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f61",
+      "front": {
+        "tr": "Yol genişliği 7 m veya daha azsa (bodrum hariç) en çok kaç kat yapılabilir?",
+        "en": "If the road is 7 m wide or less, at most how many floors are allowed (excl. basement)?"
+      },
+      "back": {
+        "tr": "En çok 2 kat yapılabilir.",
+        "en": "At most 2 floors."
+      },
+      "en": "Road width ≤7 m → max 2 floors (excl. basement).",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f62",
+      "front": {
+        "tr": "Yol genişliği 50 metreden fazlaysa (bodrum hariç) en çok kaç kat yapılabilir?",
+        "en": "If the road is wider than 50 metres, at most how many floors are allowed (excl. basement)?"
+      },
+      "back": {
+        "tr": "En çok 18 kat yapılabilir.",
+        "en": "At most 18 floors."
+      },
+      "en": "Road width >50 m → max 18 floors (excl. basement).",
+      "tag": "taks-kaks"
+    },
+    {
+      "id": "f63",
+      "front": {
+        "tr": "Aksine hüküm yoksa kotlandırmada esas olan nedir?",
+        "en": "Unless stated otherwise, what is the default basis for elevation (kotlandırma)?"
+      },
+      "back": {
+        "tr": "Yoldan kotlandırma esastır.",
+        "en": "Road-based elevation (yoldan kotlandırma) is the default."
+      },
+      "en": "Unless stated otherwise, road-based elevation datum (yoldan kotlandırma) is the default rule.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f64",
+      "front": {
+        "tr": "Tretuvar seviyesi, kırmızı kota göre yol seviyesinin kaç metre üstü kabul edilir?",
+        "en": "Relative to the red datum, the sidewalk (tretuvar) level is taken as how far above the road level?"
+      },
+      "back": {
+        "tr": "0,18 metre üstü olarak kabul edilir.",
+        "en": "It is taken as 0.18 metres above."
+      },
+      "en": "Sidewalk (tretuvar) level = the red-datum road level + 0.18 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f65",
+      "front": {
+        "tr": "Tabii zeminden kotlandırma hangi koşulda uygulanır (zemin yoldan yüksekse)?",
+        "en": "Under what condition is natural-ground elevation applied (ground above the road)?"
+      },
+      "back": {
+        "tr": "Zemin yoldan yüksek ve ön bahçe mesafesi 10 metre veya daha fazlaysa.",
+        "en": "When the ground is higher than the road AND the front setback is 10 metres or more."
+      },
+      "en": "Natural-ground datum applies if the ground is above the road AND the front setback is ≥10 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f66",
+      "front": {
+        "tr": "Köşe başı parsellerde kotlandırma nasıl yapılır?",
+        "en": "How is elevation set on corner (köşe başı) parcels?"
+      },
+      "back": {
+        "tr": "Parselin cephe aldığı yollardan yüksek olanına göre kot verilir.",
+        "en": "The datum is taken from whichever of the fronting roads is higher."
+      },
+      "en": "Corner parcels take their elevation from whichever adjoining road is higher.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f67",
+      "front": {
+        "tr": "Her müstakil konutta en az hangi piyesler bulunmalıdır?",
+        "en": "What rooms must every detached dwelling have at minimum?"
+      },
+      "back": {
+        "tr": "1 oturma odası, 1 yatak odası, 1 mutfak/pişirme yeri, 1 banyo/yıkanma yeri, 1 tuvalet.",
+        "en": "1 living room, 1 bedroom, 1 kitchen/cooking area, 1 bathroom/washing area, 1 toilet."
+      },
+      "en": "Every detached dwelling needs at least: 1 living room, 1 bedroom, 1 kitchen, 1 bathroom, 1 toilet.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f68",
+      "front": {
+        "tr": "Oturma odasının asgari dar kenarı ve net alanı kaçtır?",
+        "en": "What are the minimum narrow side and net area of a living room?"
+      },
+      "back": {
+        "tr": "Dar kenar 3,00 m, net alan 12,0 m².",
+        "en": "Narrow side 3.00 m, net area 12.0 m²."
+      },
+      "en": "Living room minimums: 3.00 m narrow side, 12.0 m² net area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f69",
+      "front": {
+        "tr": "Yatak odasının asgari dar kenarı ve net alanı kaçtır?",
+        "en": "What are the minimum narrow side and net area of a bedroom?"
+      },
+      "back": {
+        "tr": "Dar kenar 2,50 m, net alan 9,00 m².",
+        "en": "Narrow side 2.50 m, net area 9.00 m²."
+      },
+      "en": "Bedroom minimums: 2.50 m narrow side, 9.00 m² net area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f70",
+      "front": {
+        "tr": "Mutfak/pişirme yerinin asgari dar kenarı ve net alanı kaçtır?",
+        "en": "What are the minimum narrow side and net area of a kitchen/cooking area?"
+      },
+      "back": {
+        "tr": "Dar kenar 1,50 m, net alan 3,30 m².",
+        "en": "Narrow side 1.50 m, net area 3.30 m²."
+      },
+      "en": "Kitchen minimums: 1.50 m narrow side, 3.30 m² net area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f71",
+      "front": {
+        "tr": "Banyo/yıkanma yerinin asgari dar kenarı ve net alanı kaçtır?",
+        "en": "What are the minimum narrow side and net area of a bathroom/washing area?"
+      },
+      "back": {
+        "tr": "Dar kenar 1,50 m, net alan 3,00 m².",
+        "en": "Narrow side 1.50 m, net area 3.00 m²."
+      },
+      "en": "Bathroom minimums: 1.50 m narrow side, 3.00 m² net area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f72",
+      "front": {
+        "tr": "Tuvaletin asgari dar kenarı ve net alanı kaçtır?",
+        "en": "What are the minimum narrow side and net area of a toilet?"
+      },
+      "back": {
+        "tr": "Dar kenar 1,00 m, net alan 1,20 m².",
+        "en": "Narrow side 1.00 m, net area 1.20 m²."
+      },
+      "en": "Toilet minimums: 1.00 m narrow side, 1.20 m² net area.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f73",
+      "front": {
+        "tr": "3 veya daha az odalı konutlarda hol/koridor genişliği en az kaç metredir?",
+        "en": "In dwellings of 3 rooms or fewer, what is the minimum hall/corridor width?"
+      },
+      "back": {
+        "tr": "En az 1,20 metredir.",
+        "en": "At least 1.20 metres."
+      },
+      "en": "In dwellings with ≤3 rooms, hall/corridor width must be ≥1.20 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f74",
+      "front": {
+        "tr": "Ticaret bölgesinde zemin katın azami kat yüksekliği kaç metredir?",
+        "en": "What is the maximum ground-floor height in a commercial zone?"
+      },
+      "back": {
+        "tr": "4,50 metredir.",
+        "en": "4.50 metres."
+      },
+      "en": "Max ground-floor height in commercial zones: 4.50 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f75",
+      "front": {
+        "tr": "Konut bölgesinde zemin ve normal katların azami kat yüksekliği kaç metredir?",
+        "en": "What is the maximum ground/typical-floor height in a residential zone?"
+      },
+      "back": {
+        "tr": "3,60 metredir.",
+        "en": "3.60 metres."
+      },
+      "en": "Max ground/typical floor height in residential zones: 3.60 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f76",
+      "front": {
+        "tr": "Konut yapılarında ortak merdiven kolu/sahanlık genişliği en az kaç metredir?",
+        "en": "In residential buildings, what is the minimum common stair-flight/landing width?"
+      },
+      "back": {
+        "tr": "1,20 metreden az olamaz.",
+        "en": "It may not be less than 1.20 metres."
+      },
+      "en": "Common stair flight/landing width in residential buildings: ≥1.20 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f77",
+      "front": {
+        "tr": "Diğer (konut dışı) yapılarda ortak merdiven kolu/sahanlık genişliği en az kaç metredir?",
+        "en": "In non-residential buildings, what is the minimum common stair-flight/landing width?"
+      },
+      "back": {
+        "tr": "1,50 metreden az olamaz.",
+        "en": "It may not be less than 1.50 metres."
+      },
+      "en": "Common stair flight/landing width in non-residential buildings: ≥1.50 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f78",
+      "front": {
+        "tr": "Bağımsız bölüm içindeki merdivenler en az kaç metre olabilir?",
+        "en": "What is the minimum width of stairs inside a single unit?"
+      },
+      "back": {
+        "tr": "1,00 metreden az olamaz.",
+        "en": "It may not be less than 1.00 metre."
+      },
+      "en": "Stairs inside a single unit: ≥1.00 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f79",
+      "front": {
+        "tr": "Asansörsüz binalarda basamak yüksekliği en fazla kaç metredir?",
+        "en": "In buildings without an elevator, what is the maximum riser height?"
+      },
+      "back": {
+        "tr": "0,16 metreden fazla olamaz.",
+        "en": "It may not exceed 0.16 metres."
+      },
+      "en": "Max riser height without elevator: 0.16 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f80",
+      "front": {
+        "tr": "Asansörlü binalarda basamak yüksekliği en fazla kaç metredir?",
+        "en": "In buildings with an elevator, what is the maximum riser height?"
+      },
+      "back": {
+        "tr": "0,18 metreden fazla olamaz.",
+        "en": "It may not exceed 0.18 metres."
+      },
+      "en": "Max riser height with elevator: 0.18 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f81",
+      "front": {
+        "tr": "Basamak genişliği hangi formülle hesaplanır?",
+        "en": "By what formula is tread width calculated?"
+      },
+      "back": {
+        "tr": "2a+b = 60 ya da 64 formülüyle (a = basamak yüksekliği, b = basamak genişliği).",
+        "en": "By the formula 2a+b = 60 or 64 (a = riser height, b = tread width)."
+      },
+      "en": "Tread width formula: 2a+b = 60 or 64, where a = riser height, b = tread width.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f82",
+      "front": {
+        "tr": "Basamak genişliği en az kaç metre olabilir?",
+        "en": "What is the minimum tread width?"
+      },
+      "back": {
+        "tr": "0,27 metreden az olamaz.",
+        "en": "It may not be less than 0.27 metres."
+      },
+      "en": "Minimum tread width: 0.27 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f83",
+      "front": {
+        "tr": "Kat adedi 3 olan binalarda asansör için ne zorunludur?",
+        "en": "In 3-floor buildings, what is required regarding the elevator?"
+      },
+      "back": {
+        "tr": "Asansör yeri bırakılması zorunludur (tesis zorunlu değil).",
+        "en": "Space for an elevator must be reserved (an actual installation is not yet required)."
+      },
+      "en": "3-floor buildings: elevator SPACE must be reserved (shaft not required yet).",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f84",
+      "front": {
+        "tr": "Kat adedi 4 ve daha fazla olan binalarda asansör için ne zorunludur?",
+        "en": "In buildings of 4 or more floors, what is required regarding the elevator?"
+      },
+      "back": {
+        "tr": "Asansör tesisi (fiilen kurulması) zorunludur.",
+        "en": "An actual elevator installation is mandatory."
+      },
+      "en": "4+ floor buildings: an actual elevator installation is mandatory.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f85",
+      "front": {
+        "tr": "Çok yüksek yapılarda asgari su deposu hacmi kaçtır?",
+        "en": "What is the minimum water-tank volume in super-high-rises?"
+      },
+      "back": {
+        "tr": "30 m³'ten az olamaz.",
+        "en": "It may not be less than 30 m³."
+      },
+      "en": "Min water tank volume for super high-rises: 30 m³.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f86",
+      "front": {
+        "tr": "10 bağımsız bölüme kadar konut binalarında asgari su deposu hacmi kaçtır?",
+        "en": "What is the minimum water-tank volume in residential buildings of up to 10 units?"
+      },
+      "back": {
+        "tr": "3 m³'ten az olamaz.",
+        "en": "It may not be less than 3 m³."
+      },
+      "en": "Min water tank volume for residential buildings up to 10 units: 3 m³.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f87",
+      "front": {
+        "tr": "Diğer binalarda asgari su deposu hacmi kaçtır?",
+        "en": "What is the minimum water-tank volume in other buildings?"
+      },
+      "back": {
+        "tr": "5 m³'ten az olamaz.",
+        "en": "It may not be less than 5 m³."
+      },
+      "en": "Min water tank volume for other buildings: 5 m³.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f88",
+      "front": {
+        "tr": "Korkuluklar döşeme kotundan itibaren en az kaç metre yükseklikte olmalıdır?",
+        "en": "Railings must reach at least what height above the floor level?"
+      },
+      "back": {
+        "tr": "En az 1,10 metre yüksekliğe kadar korkuluk yapılması mecburidir.",
+        "en": "Railings must be provided up to a height of at least 1.10 metres."
+      },
+      "en": "Railings must reach at least 1.10 m above the floor level.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f89",
+      "front": {
+        "tr": "Bina bahçe/yan-arka bahçelerde çıkmalar en fazla kaç metre olabilir?",
+        "en": "At side/rear gardens, what is the maximum projection (çıkma) depth?"
+      },
+      "back": {
+        "tr": "Parsel sınırına 3 metreden fazla yaklaşmamak kaydıyla en fazla 1,5 metre olabilir.",
+        "en": "At most 1.5 metres, provided it stays no closer than 3 metres to the parcel line."
+      },
+      "en": "Max projection depth at side/rear: 1.5 m (staying ≥3 m from the parcel line).",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f90",
+      "front": {
+        "tr": "Bitişik nizamda çıkma, komşuya en fazla ne kadar yaklaşabilir?",
+        "en": "In attached layouts, how close may a projection come to the neighbor?"
+      },
+      "back": {
+        "tr": "2 metreden fazla yaklaşamaz.",
+        "en": "It may not come closer than 2 metres."
+      },
+      "en": "In attached layouts, a projection may not come closer than 2 m to the neighbor.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f91",
+      "front": {
+        "tr": "Saçaklar planda belirlenmemişse en fazla kaç metre olabilir?",
+        "en": "If the plan does not specify, what is the maximum eave (saçak) projection?"
+      },
+      "back": {
+        "tr": "1 metreyi geçmeyen saçak yapılabilir.",
+        "en": "An eave of up to 1 metre may be made."
+      },
+      "en": "Eaves may project up to 1 m if the plan doesn't specify otherwise.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f92",
+      "front": {
+        "tr": "Bahçe duvarının yol tarafındaki cephe önünde azami yüksekliği kaçtır?",
+        "en": "What is the maximum garden-wall height in front of the street facade?"
+      },
+      "back": {
+        "tr": "0,50 metreyi geçemez.",
+        "en": "It may not exceed 0.50 metres."
+      },
+      "en": "Garden wall height in front of the street facade: max 0.50 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f93",
+      "front": {
+        "tr": "Bahçe duvarının gerisinde (arka tarafta) azami yüksekliği kaçtır?",
+        "en": "What is the maximum garden-wall height at the rear?"
+      },
+      "back": {
+        "tr": "2,00 metreyi geçemez.",
+        "en": "It may not exceed 2.00 metres."
+      },
+      "en": "Garden wall height at the rear: max 2.00 m.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f94",
+      "front": {
+        "tr": "Konut kullanımlı bağımsız bölüm sayısı kaçı geçince zorunlu kapıcı dairesi gerekir?",
+        "en": "Above how many residential units is a doorman flat mandatory?"
+      },
+      "back": {
+        "tr": "40'tan fazla olan katı yakıt kullanan binalarda bir kapıcı dairesi zorunludur.",
+        "en": "A doorman flat is mandatory in solid-fuel buildings with more than 40 units."
+      },
+      "en": "A doorman flat becomes mandatory above 40 residential units (solid-fuel buildings).",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f95",
+      "front": {
+        "tr": "Bağımsız bölüm sayısı 80'i aşarsa ne olur?",
+        "en": "What happens once the number of units exceeds 80?"
+      },
+      "back": {
+        "tr": "İkinci bir kapıcı dairesi de yapılması gerekir.",
+        "en": "A second doorman flat must also be provided."
+      },
+      "en": "Above 80 units, a second doorman flat is required.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f96",
+      "front": {
+        "tr": "Katı yakıt kullanan sobalı binalarda her bağımsız bölüm için odunluk/kömürlük alanı aralığı nedir?",
+        "en": "In solid-fuel stove-heated buildings, what is the storage-area range per unit?"
+      },
+      "back": {
+        "tr": "En az 5 m², en fazla 10 m² olmalıdır.",
+        "en": "It must be at least 5 m² and at most 10 m²."
+      },
+      "en": "Storage/coal-room area per unit in solid-fuel buildings: 5–10 m².",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f97",
+      "front": {
+        "tr": "Müştemilat mümkünse nerede, değilse nerede tertiplenir?",
+        "en": "Where are ancillary spaces (müştemilat) located if possible, and if not?"
+      },
+      "back": {
+        "tr": "Mümkünse binanın bodrumunda, aksi halde bahçede tertiplenir.",
+        "en": "In the building's basement if possible, otherwise in the garden."
+      },
+      "en": "Ancillary spaces (müştemilat) go in the basement if possible, otherwise the garden.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f98",
+      "front": {
+        "tr": "Yapı ruhsatı nedir?",
+        "en": "What is a yapı ruhsatı (building permit)?"
+      },
+      "back": {
+        "tr": "Bir parselde öngörülen belgeler ve projelerin onaylanması sonrasında ilgili idarece düzenlenen onaylı resmi izin belgesidir.",
+        "en": "The official approved permit issued by the administration after the required documents and designs for a parcel are approved."
+      },
+      "en": "Yapı ruhsatı = the official building permit issued after required documents/designs are approved.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f99",
+      "front": {
+        "tr": "Ruhsat tarihinden itibaren kaç yıl içinde inşaata başlanmazsa yapı ruhsatsız sayılır?",
+        "en": "If construction has not started within how many years of the permit date is the building deemed unpermitted?"
+      },
+      "back": {
+        "tr": "2 yıl içinde başlanmazsa ruhsatsız sayılır.",
+        "en": "It is deemed unpermitted if not started within 2 years."
+      },
+      "en": "If construction hasn't started within 2 years of the permit date, the building is treated as unpermitted.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f100",
+      "front": {
+        "tr": "Yapı ruhsatının toplam geçerlilik süresi kaç yıldır?",
+        "en": "What is the total validity period of a building permit?"
+      },
+      "back": {
+        "tr": "5 yıllık ruhsat süresi vardır; bu süre içinde tamamlanmayan yapılar ruhsatsız sayılır.",
+        "en": "The permit is valid for 5 years; buildings not completed within it are deemed unpermitted."
+      },
+      "en": "A permit is valid for 5 years; buildings not completed within this period are treated as unpermitted.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f101",
+      "front": {
+        "tr": "Ruhsat süresi en fazla kaç kez yenilenebilir?",
+        "en": "At most how many times may the permit be renewed?"
+      },
+      "back": {
+        "tr": "En çok 2 kez yenilenebilir, her seferinde 5 yıl uzatılır.",
+        "en": "At most twice, each renewal extending it by 5 years."
+      },
+      "en": "The permit may be renewed at most twice, extending it 5 years each time.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f102",
+      "front": {
+        "tr": "Yapı kullanma izin belgesi (iskân) nedir?",
+        "en": "What is the yapı kullanma izin belgesi (occupancy permit / iskân)?"
+      },
+      "back": {
+        "tr": "Yapının ruhsat eki projelerine uygun tamamlandığını gösteren, kullanımına izin veren onaylı belgedir.",
+        "en": "The approved permit confirming the building was completed per its permit-annex designs and allowing its use."
+      },
+      "en": "Yapı kullanma izin belgesi (occupancy permit / iskân) confirms compliant completion and allows use.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f103",
+      "front": {
+        "tr": "Yapı mevzuata uygun bulunursa yapı kullanma izin belgesi kaç gün içinde düzenlenir?",
+        "en": "If the building is found compliant, within how many days is the occupancy permit issued?"
+      },
+      "back": {
+        "tr": "30 gün içinde düzenlenir.",
+        "en": "It is issued within 30 days."
+      },
+      "en": "The occupancy permit is issued within 30 days if the building is compliant.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f104",
+      "front": {
+        "tr": "Yapı kullanma izni alınmayan yapılar hangi hizmetlerden yararlanamaz?",
+        "en": "Which services cannot a building without an occupancy permit use?"
+      },
+      "back": {
+        "tr": "Elektrik, su, kanalizasyon, haberleşme gibi hizmetlerden yararlanamazlar.",
+        "en": "It cannot use services such as electricity, water, sewage and communications."
+      },
+      "en": "Buildings without an occupancy permit cannot connect to electricity, water, sewage, communications.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f105",
+      "front": {
+        "tr": "Fenni mesul kimdir?",
+        "en": "Who is the fenni mesul (technical supervisor)?"
+      },
+      "back": {
+        "tr": "Yapının plana, ruhsata, projelere, standartlara uygun inşa edilmesinin kamu adına denetimini üstlenen uzman meslek mensubudur.",
+        "en": "The qualified professional who undertakes, on the public's behalf, the inspection that the building is built per the plan, permit, designs and standards."
+      },
+      "en": "Fenni mesul = the licensed technical supervisor who certifies compliant construction on the public's behalf.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f106",
+      "front": {
+        "tr": "Yapı tatil tutanağı ne zaman düzenlenir?",
+        "en": "When is a yapı tatil tutanağı (stop-work record) issued?"
+      },
+      "back": {
+        "tr": "Ruhsatsız veya ruhsat/eklerine aykırı yapı tespit edildiğinde, inşai faaliyetin devam edemeyeceğini gösteren belge olarak düzenlenir.",
+        "en": "When unpermitted construction or construction contrary to the permit/annexes is found, as the document showing that construction may not continue."
+      },
+      "en": "A yapı tatil tutanağı (stop-work record) is issued when unpermitted or non-compliant construction is found.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f107",
+      "front": {
+        "tr": "İmar durum belgesi başvurusundan sonra idare bu belgeyi en geç kaç iş günü içinde verir?",
+        "en": "After application, within how many working days does the administration issue the zoning-status certificate?"
+      },
+      "back": {
+        "tr": "En geç 2 iş günü içinde verir.",
+        "en": "Within at most 2 working days."
+      },
+      "en": "The zoning-status certificate is issued within 2 working days of application.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f108",
+      "front": {
+        "tr": "Kanal kotu tutanağı en geç kaç iş günü içinde verilir?",
+        "en": "Within how many working days is the channel-elevation record (kanal kotu tutanağı) issued?"
+      },
+      "back": {
+        "tr": "En geç 5 iş günü içinde verilir.",
+        "en": "Within at most 5 working days."
+      },
+      "en": "The channel-elevation record is issued within 5 working days.",
+      "tag": "ruhsat"
+    },
+    {
+      "id": "f109",
+      "front": {
+        "tr": "Bağımsız bölüm tanımı nedir?",
+        "en": "What is the definition of a bağımsız bölüm (independent unit)?"
+      },
+      "back": {
+        "tr": "Binanın ayrı ayrı ve başlı başına kullanılmaya uygun olup bağımsız mülkiyete konu olan bölümleridir.",
+        "en": "The parts of a building suitable for separate, self-standing use and subject to independent ownership."
+      },
+      "en": "Bağımsız bölüm (independent unit) = a self-contained part of a building subject to independent ownership.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f110",
+      "front": {
+        "tr": "Ortak alanlar hangi kanunda tanımlanan yerlerdir?",
+        "en": "Common areas (ortak alanlar) are places defined in which law?"
+      },
+      "back": {
+        "tr": "634 sayılı Kat Mülkiyeti Kanununda belirtilen ortak yerlerdir.",
+        "en": "The common areas defined in Law No. 634 (the Condominium Law)."
+      },
+      "en": "Ortak alanlar (common areas) are the shared spaces defined by Law No. 634 (Condominium Law).",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f111",
+      "front": {
+        "tr": "Eklenti nedir?",
+        "en": "What is an eklenti (annex)?"
+      },
+      "back": {
+        "tr": "Bir bağımsız bölümün dışında olup doğrudan doğruya o bölüme ait olan yerdir.",
+        "en": "A place outside an independent unit but belonging directly to that unit."
+      },
+      "en": "Eklenti = an annex outside a unit but belonging exclusively to it.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f112",
+      "front": {
+        "tr": "Yapı inşaat alanı neleri kapsar?",
+        "en": "What does yapı inşaat alanı (constructed area) cover?"
+      },
+      "back": {
+        "tr": "Işıklık ve avlular hariç, bodrum kat, asma kat, çatı arası, teraslar, balkonlar, açık çıkmalar ve ortak alanlar dahil binanın inşa edilen bütün katlarının alanıdır.",
+        "en": "The area of all built floors of the building — including basement, mezzanine, roof space, terraces, balconies, open projections and common areas — but excluding light wells and courtyards."
+      },
+      "en": "Yapı inşaat alanı = total constructed area of all floors (incl. basement, mezzanine, terraces, balconies, common areas), excl. light wells/courtyards.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f113",
+      "front": {
+        "tr": "Bağımsız bölüm net alanı nasıl hesaplanır?",
+        "en": "How is a unit's net area (bağımsız bölüm net alanı) calculated?"
+      },
+      "back": {
+        "tr": "İçerden bağlantılı piyesleriyle birlikte, bağımsız bölüm içindeki boşluklar hariç, duvarlar arasında kalan temiz alandır.",
+        "en": "The clear area between the walls, together with its internally connected rooms, excluding voids inside the unit."
+      },
+      "en": "Net unit area = the clear area between walls (incl. internally connected rooms), excluding internal voids.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f114",
+      "front": {
+        "tr": "Umumi bina tanımına örnek verir misiniz?",
+        "en": "Give examples of an umumi bina (public-use building)."
+      },
+      "back": {
+        "tr": "Resmi binalar, ibadet yerleri, okullar, hastaneler, sinema/tiyatro, oteller, çarşılar gibi umumun kullanımına mahsus binalardır.",
+        "en": "Buildings for public use such as government offices, places of worship, schools, hospitals, cinemas/theatres, hotels and markets."
+      },
+      "en": "Umumi bina (public-use building) examples: government offices, places of worship, schools, hospitals, cinemas, hotels, markets.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f115",
+      "front": {
+        "tr": "Meskün (yerleşik) alan nedir?",
+        "en": "What is a meskûn (settled) area?"
+      },
+      "back": {
+        "tr": "Üst ölçek plan kararlarına uygun olarak imar planı ile belirlenmiş ve iskân edilmiş alandır.",
+        "en": "The area defined and settled by the zoning plan in line with higher-level plan decisions."
+      },
+      "en": "Meskûn (yerleşik) alan = the settled area defined by the zoning plan in line with higher-level plan decisions.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f116",
+      "front": {
+        "tr": "Kentin gelişimine ayrılan alana ne denir?",
+        "en": "What is the area reserved for the city's growth called?"
+      },
+      "back": {
+        "tr": "Gelişme (inkişaf) alanı denir.",
+        "en": "It is called the gelişme (inkişaf) alanı (development area)."
+      },
+      "en": "Gelişme (inkişaf) alanı = the area a plan reserves for the city's future growth.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f117",
+      "front": {
+        "tr": "Sobalı binalarda hangi piyesler hariç tüm piyeslerde duman bacası zorunludur (Madde 33)?",
+        "en": "In stove-heated buildings, flues are mandatory in all rooms except which ones (Article 33)?"
+      },
+      "back": {
+        "tr": "Tuvalet ve koridor hariç tüm piyeslerde duman bacası yapılması zorunludur. (Kaloriferli binalarda ise konut bağımsız bölümlerinin oturma/yatma hacimlerinin en az birinde ve sıcak su tesisatı bulunmayan banyo/mutfaklarda gerekir.)",
+        "en": "A flue is mandatory in all rooms except the toilet and corridor. (In central-heated buildings a flue is required in at least one living/sleeping space of residential units and in bathrooms/kitchens without hot-water systems.)"
+      },
+      "en": "In stove-heated buildings, flues are mandatory in all rooms except the toilet and corridor.",
+      "tag": "tanimlar"
+    },
+    {
+      "id": "f118",
+      "front": {
+        "tr": "Her türlü binada hava bacalarının asgari ölçüsü nedir (Madde 32)?",
+        "en": "What is the minimum size of air flues in any building type (Article 32)?"
+      },
+      "back": {
+        "tr": "Asgari 0,60 × 0,60 m²'dir. Ayrıca en az bir oturma odası ile yatak odalarının doğrudan doğruya dışarıdan ışık ve hava alması gereklidir.",
+        "en": "At least 0.60 × 0.60 m². Also, at least one living room and the bedrooms must receive light and air directly from outside."
+      },
+      "en": "Air flues must be at least 0.60 × 0.60 m in any building type.",
+      "tag": "tanimlar"
+    }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Planlı Alanlar İmar Yönetmeliği'nin amacı (Madde 1) aşağıdakilerden hangisidir?",
+        "en": "What is the purpose of the Zoning Regulation for Planned Areas (Article 1)?"
+      },
+      "options": [
+        {
+          "tr": "Yalnızca kamu ihalelerinin usul ve esaslarını belirlemek",
+          "en": "To regulate only the procedures and principles of public tenders"
+        },
+        {
+          "tr": "Plan, fen, sağlık ve sürdürülebilir çevre şartlarına uygun yapı, yapılaşma, projelendirme ve denetime ilişkin usul ve esasları belirlemek",
+          "en": "To set the procedures and principles for building, construction, design and inspection that comply with plan, technical, health and sustainable-environment conditions"
+        },
+        {
+          "tr": "Sadece kamulaştırma bedellerini düzenlemek",
+          "en": "To regulate only expropriation compensation"
+        },
+        {
+          "tr": "Yalnızca eser sözleşmelerinin şekil şartlarını belirlemek",
+          "en": "To set only the formal conditions of works contracts"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Madde 1 tam olarak bunu söyler: plan-fen-sağlık-sürdürülebilir çevre şartlarına uygun yapı/yapılaşma ile projelendirme/denetime ilişkin usul ve esasları belirlemek. Diğer şıklar tamamen farklı konu alanlarına (ihale, kamulaştırma, sözleşme) aittir.",
+        "en": "Article 1 says exactly this: to set the procedures and principles for building/construction and design/inspection compliant with plan-technical-health-sustainable-environment conditions. The other options belong to entirely different fields (tenders, expropriation, contracts)."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yönetmeliğin kapsamını (Madde 2) ve dayanağını (Madde 3) kısaca açıklayınız.",
+        "en": "Briefly explain the scope (Article 2) and legal basis (Article 3) of the regulation."
+      },
+      "answer": {
+        "tr": "**Kapsam:** Yönetmelik yalnızca uygulama imar planı bulunan alanları kapsar; böyle bir plan olmayan alanlarda uygulanmaz. **Dayanak:** Yönetmelik, 3194 sayılı İmar Kanunu ile Çevre ve Şehircilik Bakanlığının teşkilat ve görevlerini düzenleyen Cumhurbaşkanlığı Kararnamesi hükümlerine dayanılarak hazırlanmıştır.",
+        "en": "**Scope:** The regulation covers only areas with an approved implementation zoning plan; it does not apply where there is no such plan. **Basis:** It was prepared under Law No. 3194 (Zoning Law) and the Presidential Decree governing the organization and duties of the Ministry of Environment and Urbanisation."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Planlı Alanlar İmar Yönetmeliği hangi yılda yürürlüğe girerek 1985 tarihli eski yönetmeliği yürürlükten kaldırmıştır?",
+        "en": "In what year did the Zoning Regulation for Planned Areas take effect, repealing the older 1985 regulation?"
+      },
+      "options": [
+        {
+          "tr": "1999",
+          "en": "1999"
+        },
+        {
+          "tr": "2005",
+          "en": "2005"
+        },
+        {
+          "tr": "2017",
+          "en": "2017"
+        },
+        {
+          "tr": "2020",
+          "en": "2020"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 2017'dir. 1999 ve 2005 alakasız yıllardır; 2020 ise yönetmeliğin sonraki değişikliklerinden biridir, yürürlüğe giriş tarihi değildir.",
+        "en": "The correct answer is 2017. 1999 and 2005 are unrelated years; 2020 is one of the regulation's later amendments, not its enactment date."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Tapu belgesi hakkında bilgi veriniz.",
+        "en": "Provide information about the tapu (title deed)."
+      },
+      "answer": {
+        "tr": "Tapu belgesi, Türkiye Cumhuriyeti sınırları içindeki bir taşınmazın mülkiyetini gösteren resmî belgedir. Taşınmazın kime ait olduğu, bulunduğu il/ilçe/mahalle, ada-parsel numarası, yüzölçümü, niteliği, hisse oranı ve varsa şerh-beyan gibi hukuki bilgileri içerir. İnşaat sürecinde arsanın mülkiyet ve parsel bilgilerinin doğrulanması ile ruhsat işlemlerinin başlatılmasında temel belgelerden biridir.",
+        "en": "The tapu is the official document showing ownership of a real property within Turkey. It contains legal information such as the owner, the province/district/neighborhood, the block-parcel number, the area, the nature, the share ratio, and any annotations. In construction it is one of the basic documents for verifying the site's ownership and parcel data and for initiating permit procedures."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İmar çapı belgesi hakkında bilgi veriniz.",
+        "en": "Provide information about the imar çapı (zoning status certificate)."
+      },
+      "answer": {
+        "tr": "İmar çapı, bir parselde yapılabilecek yapının imar planı ve mevzuata göre sınırlarını gösteren belgedir. Yapının yaklaşma mesafeleri, yapı nizamı, taban alanı, kat adedi/yüksekliği ile ön-yan-arka bahçe mesafeleri bu belge üzerinden değerlendirilir. Belediye sınırları içinde belediyelerce, dışında ilgili idarece düzenlenen 1/1000 ölçekli bir belgedir.",
+        "en": "The imar çapı is the document showing the limits of what may be built on a parcel per the zoning plan and legislation. Setbacks, layout type, footprint, floor count/height and front-side-rear setbacks are assessed through it. It is a 1:1000-scale document issued by municipalities within municipal boundaries and by the relevant administration outside them."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Zemin etüt raporu hakkında bilgi veriniz.",
+        "en": "Provide information about the soil/foundation report (zemin etüt raporu)."
+      },
+      "answer": {
+        "tr": "Zemin etüt raporu, yapının oturacağı arsanın zemin ve yeraltı koşullarını belirleyen teknik rapordur. Sondajlar, arazi ve laboratuvar deneyleri ile zemin tabakaları, taşıma gücü/emniyet gerilmesi, yeraltı suyu, oturma, sıvılaşma gibi geoteknik riskler incelenir. Sonuçlara göre uygun temel sistemi, temel kotu, zemin iyileştirmesi, drenaj ve iksa gibi önlemler önerilir.",
+        "en": "The soil report is the technical report determining the ground and subsurface conditions of the site the building will sit on. Through borings and field/laboratory tests, the soil layers, bearing capacity/safe stress, groundwater, settlement and liquefaction risks are examined. Based on the results, a suitable foundation system, foundation level, ground improvement, drainage and shoring measures are recommended."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Plankote hakkında bilgi veriniz.",
+        "en": "Provide information about the plankote."
+      },
+      "answer": {
+        "tr": "Plankote, bir arsanın mevcut yüzey biçimini, yatay ölçülerini ve kotlarını gösteren ölçülü harita/belgedir. Arazideki eğimler, kırık noktaları, yollar ve mevcut yapılar kotlarıyla işlenir. Vaziyet planı, kazı-dolgu hesabı, yol/altyapı projeleri ile bina kotlarının belirlenmesinde kullanılır.",
+        "en": "The plankote is a surveyed map/document showing a site's existing surface form, horizontal dimensions and elevations. Slopes, break points, roads and existing structures are recorded with their elevations. It is used for the site plan, cut-fill calculations, road/infrastructure designs and determining building elevations."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ölçü krokisi hakkında bilgi veriniz.",
+        "en": "Provide information about the ölçü krokisi (survey sketch)."
+      },
+      "answer": {
+        "tr": "Ölçü krokisi, bir arsanın köşe ve kırık noktalarının koordinatlarını ve parsel kenar uzunluklarını gösteren belgedir. Parselin arazide doğru tanınması, sınırlarının kontrolü ve aplikasyon işlemleri için kullanılır; tapu müdürlüklerince düzenlenir.",
+        "en": "The ölçü krokisi is the document showing the coordinates of a site's corner and break points and the parcel's side lengths. It is used to correctly identify the parcel on site, check its boundaries and carry out staking-out; it is issued by the land registry offices."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Rölöve nedir, açıklayınız.",
+        "en": "What is a rölöve? Explain."
+      },
+      "answer": {
+        "tr": "Rölöve, projesi bulunmayan üstyapılarda veya yapımı bittikten sonra üzeri kapatılacak altyapı imalatlarında, yapılan işin yerinde ölçülerek mevcut durumunun çizilmesidir. Doğru rölöve; metraj, ataşman, yeşil defter ve hakedişin doğru hazırlanmasını sağlar.",
+        "en": "A rölöve is the drawing of the current state, obtained by measuring the work on site, for superstructures without design drawings or for substructure works that will be covered after completion. A correct rölöve ensures accurate take-off, ataşman, green ledger and progress payments."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ataşman nedir, ne zaman düzenlenir?",
+        "en": "What is an ataşman and when is it prepared?"
+      },
+      "answer": {
+        "tr": "Ataşman; idarenin istediği veya yapılması zorunlu ilave imalatlar ile altyapıda sonradan toprak altında kalacak imalatların ödemeye esas miktarlarını belgelemek için düzenlenir. İmalatın yerini, boyutlarını gösteren ölçeksiz kroki ile metraj hesaplarından oluşur; imalat kapanmadan önce yerinde ölçülüp taraflarca imzalanır.",
+        "en": "An ataşman is prepared to document, for payment purposes, the quantities of extra works required or ordered by the administration in the superstructure and of works that will later be buried in the substructure. It consists of a scaleless sketch showing the location, dimensions and details of the work plus take-off calculations; it is measured on site and signed by the parties before the work is covered."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Vaziyet planı hangi ölçeklerde çizilebilir?",
+        "en": "At what scales may a site plan (vaziyet planı) be drawn?"
+      },
+      "options": [
+        {
+          "tr": "1/500, 1/200 veya 1/100",
+          "en": "1:500, 1:200 or 1:100"
+        },
+        {
+          "tr": "1/5000, 1/2000 veya 1/1000",
+          "en": "1:5000, 1:2000 or 1:1000"
+        },
+        {
+          "tr": "Yalnızca 1/50",
+          "en": "Only 1:50"
+        },
+        {
+          "tr": "1/25000",
+          "en": "1:25000"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Vaziyet planı tanımı 1/500, 1/200 veya 1/100 ölçekli plan olarak verilir. 1/1000 ölçeği imar çapı için geçerlidir, 1/5000-1/25000 ölçekleri ise üst ölçek nazım planlara aittir.",
+        "en": "The site-plan definition is given as a plan at 1:500, 1:200 or 1:100. The 1:1000 scale applies to the imar çapı, and 1:5000-1:25000 scales belong to higher-level master plans."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Avan proje nedir, hangi bilgileri içerir?",
+        "en": "What is an avan proje and what information does it contain?"
+      },
+      "answer": {
+        "tr": "Avan proje, uygulama projelerinin yapılmasına esas teşkil eden, geçerli imar durumuna göre düzenlenen ön projedir. İçeriğinde vaziyet planı, tüm kat planları, yeterli sayıda kesit-görünüş içeren mimari proje ile taban alanı, katlar alanı ve yapı inşaat alanı hesaplarına ilişkin tüm ölçü ve kotlar bulunur; gerektiğinde silüet de yer alır.",
+        "en": "The avan proje is the preliminary design that forms the basis for the implementation drawings, prepared per the valid zoning status. It contains the site plan, all floor plans, an architectural design with sufficient sections/elevations, and all the dimensions and elevations for footprint, floor-area and constructed-area calculations; a silhouette is included where needed."
+      }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "TAKS 0,35 olan ve alanı 800 m² olan bir parselde azami taban alanı kaç m² olur?",
+        "en": "On a parcel of 800 m² with TAKS 0.35, what is the maximum footprint in m²?"
+      },
+      "options": [
+        {
+          "tr": "180 m²",
+          "en": "180 m²"
+        },
+        {
+          "tr": "240 m²",
+          "en": "240 m²"
+        },
+        {
+          "tr": "280 m²",
+          "en": "280 m²"
+        },
+        {
+          "tr": "320 m²",
+          "en": "320 m²"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Taban alanı = TAKS × Parsel alanı = 0,35 × 800 = 280 m². Diğer şıklar yanlış çarpım veya yuvarlama sonucu elde edilen hatalı değerlerdir.",
+        "en": "Footprint = TAKS × parcel area = 0.35 × 800 = 280 m². The other options are wrong products or rounding results."
+      }
+    },
+    {
+      "id": "q14",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "KAKS (Emsal) 1,2 olan ve alanı 800 m² olan bir parselde azami toplam kat alanı kaç m² olur?",
+        "en": "On a parcel of 800 m² with KAKS (Emsal) 1.2, what is the maximum total floor area in m²?"
+      },
+      "options": [
+        {
+          "tr": "800 m²",
+          "en": "800 m²"
+        },
+        {
+          "tr": "960 m²",
+          "en": "960 m²"
+        },
+        {
+          "tr": "1000 m²",
+          "en": "1000 m²"
+        },
+        {
+          "tr": "1200 m²",
+          "en": "1200 m²"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Katlar alanı = KAKS × Parsel alanı = 1,2 × 800 = 960 m². 1200 m² şıkkı KAKS'ı 1,5 sanma hatasına, 1000 m² şıkkı ise hatalı yuvarlamaya karşılık gelir.",
+        "en": "Floor area = KAKS × parcel area = 1.2 × 800 = 960 m². The 1200 m² option corresponds to mistaking KAKS for 1.5, and 1000 m² to faulty rounding."
+      }
+    },
+    {
+      "id": "q15",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "TAKS ve KAKS (Emsal) kavramlarını tanımlayıp formüllerini yazınız; parsel alanı 1000 m², TAKS 0,35 ve KAKS 1,5 olan bir parsel için azami taban alanını ve azami toplam kat alanını hesaplayınız.",
+        "en": "Define TAKS and KAKS (Emsal) and write their formulas; for a parcel of 1000 m² with TAKS 0.35 and KAKS 1.5, compute the maximum footprint and the maximum total floor area."
+      },
+      "answer": {
+        "tr": "**TAKS** (Taban Alanı Kat Sayısı) = Taban Alanı / Parsel Alanı. **KAKS** (Katlar Alanı Katsayısı / Emsal) = Katlar Alanı / Parsel Alanı.\n\nHesap: Taban alanı = 0,35 × 1000 = **350 m²**. Katlar alanı (toplam kat alanı) = 1,5 × 1000 = **1500 m²**.",
+        "en": "**TAKS** (footprint coefficient) = footprint area / parcel area. **KAKS** (floor area ratio / Emsal) = total floor area / parcel area.\n\nCalculation: Footprint = 0.35 × 1000 = **350 m²**. Total floor area = 1.5 × 1000 = **1500 m²**."
+      }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Taban alanı ve emsal (KAKS) hesabı hangi alan üzerinden yapılır?",
+        "en": "Footprint and emsal (KAKS) are calculated on which area?"
+      },
+      "options": [
+        {
+          "tr": "Brüt (tapu) parsel alanı üzerinden",
+          "en": "On the gross (title-deed) parcel area"
+        },
+        {
+          "tr": "Net imar parseli alanı üzerinden",
+          "en": "On the net zoning-parcel area"
+        },
+        {
+          "tr": "Yalnızca taban alanı üzerinden",
+          "en": "On the footprint area only"
+        },
+        {
+          "tr": "İmar adasının toplam alanı üzerinden",
+          "en": "On the total area of the zoning block"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Madde 5/5 açıkça 'taban alanı ve emsal hesabı; net imar parseli alanı üzerinden yapılır' der. Brüt parsel alanı veya ada toplam alanı gibi kavramlar hesaplamada esas alınmaz.",
+        "en": "Article 5/5 clearly states 'footprint and emsal are calculated on the net zoning-parcel area.' Concepts like the gross parcel area or the block total are not the basis for the calculation."
+      }
+    },
+    {
+      "id": "q17",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdaki alanlardan hangisi katlar alanı hesabına DAHİL EDİLİR?",
+        "en": "Which of the following IS INCLUDED in the katlar alanı calculation?"
+      },
+      "options": [
+        {
+          "tr": "Kapıcı dairelerinin 70 m²'si",
+          "en": "70 m² of doorman flats"
+        },
+        {
+          "tr": "Otopark alanları",
+          "en": "Parking areas"
+        },
+        {
+          "tr": "Asma kat",
+          "en": "Mezzanine (asma kat)"
+        },
+        {
+          "tr": "Minimum sığınak alanı",
+          "en": "Minimum shelter area"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Asma kat, katlar alanı tanımında açıkça 'dahil' sayılan alanlardandır. Kapıcı dairesinin 70 m²'si, otoparklar ve minimum sığınak alanı ise katlar alanı hesabına dahil edilmeyen istisnalardır.",
+        "en": "The mezzanine is explicitly among the areas counted as 'included' in the katlar alanı definition. The 70 m² of doorman flats, parking, and the minimum shelter area are exceptions excluded from the calculation."
+      }
+    },
+    {
+      "id": "q18",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 3,
+      "examStyle": false,
+      "q": {
+        "tr": "Katlar alanı hesabına dahil edilmeyen kullanımlardan en az beşini sayınız.",
+        "en": "List at least five uses that are excluded from the katlar alanı calculation."
+      },
+      "answer": {
+        "tr": "Örnekler: açık oturma yerleri; kapıcı dairelerinin toplam 70 m²'si; atrium ve galeri boşlukları; ortak alan niteliğindeki mescit/müştemilat; minimum sığınak alanı; çocuk oyun alanları; otoparklar; sadece tesisat için oluşturulan tesisat katları; tamamen toprak altındaki bodrum katlardaki (bağımsız bölüm oluşturmayan) toplantı/sosyal alanlar; net alanın %50'sini geçmeyen depo eklentileri; açık çıkma şartını taşıyan balkonlar; açık/kapalı merdiven evi.",
+        "en": "Examples: open sitting areas; up to 70 m² of doorman flats in total; atrium and gallery voids; common-area mosques/ancillaries; minimum shelter area; children's play areas; parking; mechanical floors created solely for services; meeting/social areas in fully-underground basements that form no independent unit; storage annexes not exceeding 50% of the net area; balconies meeting the open-projection condition; open/closed stairwells."
+      }
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Emsal harici alanların toplamı, parselin toplam emsale esas alanının yüzde kaçını aşamaz?",
+        "en": "The total of non-emsal areas may not exceed what percentage of the parcel's total emsal-eligible area?"
+      },
+      "options": [
+        {
+          "tr": "%10",
+          "en": "10%"
+        },
+        {
+          "tr": "%20",
+          "en": "20%"
+        },
+        {
+          "tr": "%30",
+          "en": "30%"
+        },
+        {
+          "tr": "%40",
+          "en": "40%"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Madde 5/8 'toplamı; parselin toplam emsale esas alanının %30'unu aşamaz' hükmünü içerir. Diğer yüzdeler bu maddede geçmez.",
+        "en": "Article 5/8 provides that 'the total may not exceed 30% of the parcel's total emsal-eligible area.' The other percentages do not appear in this article."
+      }
+    },
+    {
+      "id": "q20",
+      "type": "mcq",
+      "covers": [
+        "n4",
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ayrık nizamlı bir yerde, uygulama imar planında TAKS açıkça belirtilmemişse azami TAKS ne olur?",
+        "en": "In a detached-layout area where the implementation plan does not explicitly state TAKS, what is the maximum TAKS?"
+      },
+      "options": [
+        {
+          "tr": "%20",
+          "en": "20%"
+        },
+        {
+          "tr": "%30",
+          "en": "30%"
+        },
+        {
+          "tr": "%40",
+          "en": "40%"
+        },
+        {
+          "tr": "%60",
+          "en": "60%"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Ayrık/blok nizamda planda açıkça belirlenmemişse TAKS %40'ı geçemez (Madde 5/6). %60 sınırı ise sadece çekme mesafesi+KAKS verilip TAKS verilmeyen özel durumda geçerlidir.",
+        "en": "In detached/block layouts where the plan does not specify it, TAKS may not exceed 40% (Article 5/6). The 60% limit applies only in the special case where setbacks and KAKS are given but TAKS is not."
+      }
+    },
+    {
+      "id": "q21",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ayrık, bitişik ve blok nizamı tanımlayıp aralarındaki farkı açıklayınız.",
+        "en": "Define detached, attached and block layouts and explain the difference between them."
+      },
+      "answer": {
+        "tr": "**Ayrık nizam:** Hiçbir yanından komşu parseldeki binalara bitişik olmayan yapı nizamı. **Bitişik nizam:** Bir veya birden fazla komşu parseldeki binalara bitişik olan ve ortak alandan arka bahçeye çıkış sağlanan yapı nizamı. **Blok nizam:** Cephe uzunluğu, derinliği ve yüksekliği belirlenmiş yapı kitlesinin bir parsel veya dilatasyonla ayrılarak birden fazla parsel üzerine oturduğu bahçeli yapı nizamı (ikiz nizam da blok sayılır). Fark: ayrık nizamda bina dört yandan bahçeyle çevrilidir; bitişik nizamda en az bir komşu duvarı paylaşır; blok nizamda birden fazla parsele yayılan tek bir kitle söz konusudur.",
+        "en": "**Detached (ayrık) layout:** a layout not adjoining the buildings on any neighboring parcel. **Attached (bitişik) layout:** a layout adjoining buildings on one or more neighboring parcels, with rear-garden access via a common area. **Block (blok) layout:** a gardened layout in which a building mass of fixed frontage, depth and height, separated by a parcel line or expansion joint, sits across several parcels (a twin layout also counts as block). Difference: in detached the building is surrounded by garden on all sides; in attached it shares at least one neighbor wall; in block a single mass spreads over several parcels."
+      }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir parselin bölünerek ayrılması işlemine ne denir?",
+        "en": "What is the operation of dividing a parcel into separate parcels called?"
+      },
+      "options": [
+        {
+          "tr": "Tevhit",
+          "en": "Tevhit"
+        },
+        {
+          "tr": "İfraz",
+          "en": "İfraz"
+        },
+        {
+          "tr": "Aplikasyon",
+          "en": "Aplikasyon"
+        },
+        {
+          "tr": "Tesviye",
+          "en": "Tesviye"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "İfraz, bir parselin bölünerek ayrılmasıdır. Tevhit bunun tersidir (birleştirme); aplikasyon arazide uygulama işlemi, tesviye ise zemin düzeltme işlemidir.",
+        "en": "İfraz is the division of a parcel. Tevhit is its opposite (merger); aplikasyon is on-site staking-out, and tesviye is ground leveling."
+      }
+    },
+    {
+      "id": "q23",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İmar adasında ifraz veya tevhit yapılabilmesi için önce ne gereklidir?",
+        "en": "What is required before subdivision or merger can occur in a zoning block?"
+      },
+      "options": [
+        {
+          "tr": "Yalnızca ilgili idarenin sözlü onayı yeterlidir",
+          "en": "Only the administration's verbal approval suffices"
+        },
+        {
+          "tr": "İmar adasının parselasyon planının yapılıp tapuya tescil edilmesi gerekir",
+          "en": "The block's lot layout plan (parselasyon planı) must be made and registered"
+        },
+        {
+          "tr": "Hiçbir ön şart aranmaz",
+          "en": "No precondition is required"
+        },
+        {
+          "tr": "Sadece muhtarın onayı yeterlidir",
+          "en": "Only the headman's approval suffices"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yönetmelik açıkça imar adasında parselasyon planı yapılıp tescil edilmeden o adadaki parsellerde ifraz/tevhit yapılamayacağını söyler. Diğer şıklar mevzuatta yer almayan usulsüz kısayollardır.",
+        "en": "The regulation clearly states that subdivision/merger cannot occur in a block's parcels until its lot layout plan is made and registered. The other options are improper shortcuts absent from the legislation."
+      }
+    },
+    {
+      "id": "q24",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İfraz suretiyle nasıl bir parsel oluşturulamaz?",
+        "en": "What kind of parcel cannot be created by subdivision?"
+      },
+      "options": [
+        {
+          "tr": "Köşe başı parsel",
+          "en": "A corner parcel"
+        },
+        {
+          "tr": "Yola cephesi olmayan parsel",
+          "en": "A parcel with no road frontage"
+        },
+        {
+          "tr": "1000 m²'den büyük parsel",
+          "en": "A parcel larger than 1000 m²"
+        },
+        {
+          "tr": "Ayrık nizamlı parsel",
+          "en": "A detached-layout parcel"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yönetmelik ifraz suretiyle yola cephesi olmayan parsel oluşturulamayacağını özellikle vurgular; bu, her parselin yapı ruhsatı alabilmesi için yol bağlantısının şart olmasından kaynaklanır.",
+        "en": "The regulation specifically stresses that a parcel with no road frontage cannot be created by subdivision, because road access is a condition for every parcel to obtain a building permit."
+      }
+    },
+    {
+      "id": "q25",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Genel ilkeler (Madde 5) kapsamında, imar planlarında yer alan alan kullanım tanımlarının işlevleri değiştirilebilir mi? Açıklayınız.",
+        "en": "Under the general principles (Article 5), can the functions of the land-use definitions in zoning plans be changed? Explain."
+      },
+      "answer": {
+        "tr": "Yönetmeliğin alan kullanım tanımlarında belirtilen işlevler imar planlarında **daraltılabilir**, ancak **genişletilemez**. Yani örneğin bir 'park alanı' olarak tanımlanan yer planda daha kısıtlı bir kullanıma çevrilebilir, ama yönetmelikte tanımlanmayan ek kullanım hakları eklenerek genişletilemez.",
+        "en": "The functions stated in the regulation's land-use definitions may be **narrowed** in zoning plans but not **broadened**. For example, an area defined as a 'park' may be converted to a more restricted use in the plan, but it cannot be broadened by adding use rights not defined in the regulation."
+      }
+    },
+    {
+      "id": "q26",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Siyah kot ile kırmızı kot arasındaki fark nedir?",
+        "en": "What is the difference between siyah kot (black datum) and kırmızı kot (red datum)?"
+      },
+      "options": [
+        {
+          "tr": "Siyah kot yolun doğal zemin kotu, kırmızı kot ise yolun kullanıma hazır (proje) kotudur",
+          "en": "Siyah kot is the road's natural ground elevation, kırmızı kot is the road's finished (project) elevation"
+        },
+        {
+          "tr": "Siyah kot binanın kotu, kırmızı kot ise parselin kotudur",
+          "en": "Siyah kot is the building's elevation, kırmızı kot is the parcel's elevation"
+        },
+        {
+          "tr": "İkisi de aynı anlama gelir, farklı isimlerle anılır",
+          "en": "They both mean the same thing under different names"
+        },
+        {
+          "tr": "Siyah kot subasman kotudur, kırmızı kot ise saçak kotudur",
+          "en": "Siyah kot is the subasman level, kırmızı kot is the eave level"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Siyah kot = yolun doğal (tabii) zemin kotu; kırmızı kot = gerekli hesaplar yapıldıktan sonra yolun kullanıma hazır kotu (kat adedi bu kota göre belirlenir). Diğer şıklar tanımları birbirine karıştırır.",
+        "en": "Siyah kot = the road's natural ground elevation; kırmızı kot = the road's finished elevation after the required calculations (the floor count is set relative to it). The other options confuse the definitions."
+      }
+    },
+    {
+      "id": "q27",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bina yüksekliği 25 metre olan bir yapı, yönetmeliğe göre nasıl sınıflandırılır?",
+        "en": "How is a building 25 metres tall classified under the regulation?"
+      },
+      "options": [
+        {
+          "tr": "Normal yapı",
+          "en": "Normal building"
+        },
+        {
+          "tr": "Yüksek yapı",
+          "en": "High-rise (yüksek yapı)"
+        },
+        {
+          "tr": "Çok yüksek yapı",
+          "en": "Super high-rise (çok yüksek yapı)"
+        },
+        {
+          "tr": "Muvakkat yapı",
+          "en": "Temporary building (muvakkat yapı)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Bina yüksekliği 21,50 m'yi aştığı için (25 m > 21,50 m) 'yüksek yapı' sınıfına girer; 51,50 m eşiğini aşmadığı için 'çok yüksek yapı' değildir. 'Muvakkat yapı' geçicilikle ilgili ayrı bir kavramdır.",
+        "en": "Because the building height exceeds 21.50 m (25 m > 21.50 m) it falls in the 'high-rise' class; since it does not exceed the 51.50 m threshold it is not a 'super high-rise.' 'Temporary building' is a separate concept about temporariness."
+      }
+    },
+    {
+      "id": "q28",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yoldan kotlandırma ile tabii zeminden kotlandırma arasındaki farkı ve tabii zeminden kotlandırmanın hangi koşullarda uygulandığını açıklayınız.",
+        "en": "Explain the difference between road-based and natural-ground elevation, and under what conditions natural-ground elevation is applied."
+      },
+      "answer": {
+        "tr": "**Yoldan kotlandırma** esastır: bina, parselin kot aldığı yol cephesindeki köşeleri hizasındaki en yüksek tretuvar seviyesinden kot alır. **Tabii zeminden kotlandırma** istisnadır ve yalnızca arazi meyilliyse uygulanır: parselin tabii zemini yoldan yüksekse ve ön bahçe mesafesi ≥10 m ise, veya zemin yoldan aşağıdaysa ve ön bahçe mesafesi ≥12 m ise tabii zeminden kot verilir.",
+        "en": "**Road-based elevation** is the default: the building takes its datum from the highest sidewalk level at its corners along the road frontage it is elevated from. **Natural-ground elevation** is the exception and applies only on sloped sites: if the parcel's natural ground is higher than the road and the front setback is ≥10 m, or if the ground is lower than the road and the front setback is ≥12 m, elevation is taken from the natural ground."
+      }
+    },
+    {
+      "id": "q29",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İmar planına göre yol genişliği 18 metre olan bir parselde (bodrum hariç) en çok kaç kat yapılabilir?",
+        "en": "On a parcel fronting an 18-metre-wide road, at most how many floors can be built (excl. basement)?"
+      },
+      "options": [
+        {
+          "tr": "5 kat",
+          "en": "5 floors"
+        },
+        {
+          "tr": "6 kat",
+          "en": "6 floors"
+        },
+        {
+          "tr": "8 kat",
+          "en": "8 floors"
+        },
+        {
+          "tr": "10 kat",
+          "en": "10 floors"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yol genişliği 15 ile 20 metre arasındaysa (18 m bu aralıkta) en çok 6 kat yapılabilir. 5 kat 12-15 m aralığına, 8 kat 20-25 m aralığına, 10 kat ise 25-35 m aralığına karşılık gelir.",
+        "en": "If the road width is between 15 and 20 metres (18 m is in this band) at most 6 floors are allowed. 5 floors corresponds to 12-15 m, 8 floors to 20-25 m, and 10 floors to 25-35 m."
+      }
+    },
+    {
+      "id": "q30",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdaki tanımlardan hangisi 'asma kat'a aittir?",
+        "en": "Which of the following definitions belongs to the 'asma kat' (mezzanine)?"
+      },
+      "options": [
+        {
+          "tr": "İki veya daha çok katın içine açılan, üzeri kapalı boşluklu ortak hacim",
+          "en": "A roofed open shaft opening into two or more floors"
+        },
+        {
+          "tr": "Zemin kattaki bağımsız bölümü tamamlayan, o bölümün 1/3'ünden az olmayan, iç yüksekliği 2,40 m'den az olmayan kat",
+          "en": "A floor completing the ground-floor unit, no less than 1/3 of it, with a clear height no less than 2.40 m"
+        },
+        {
+          "tr": "Döşemelerin uzantısı olarak yapılan, en az bir ucu serbest yapı elemanı",
+          "en": "A structural element made as an extension of the slabs, with at least one free end"
+        },
+        {
+          "tr": "Bahçenin azami %5'inde yapılan üstü kapalı yanları açık yapı",
+          "en": "A structure over at most 5% of the garden, roofed and open-sided"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "İkinci şık tam olarak asma kat tanımıdır. Birinci şık atrium, üçüncü şık çıkma, dördüncü şık ise çardak (kameriye) tanımıdır.",
+        "en": "The second option is exactly the mezzanine definition. The first is the atrium, the third is a projection (çıkma), and the fourth is a çardak (gazebo)."
+      }
+    },
+    {
+      "id": "q31",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Atrium tanımında karşılıklı iki uzun kenar arasındaki asgari mesafe kaç metredir?",
+        "en": "In the atrium definition, what is the minimum distance between the two facing long sides?"
+      },
+      "options": [
+        {
+          "tr": "2,00 m",
+          "en": "2.00 m"
+        },
+        {
+          "tr": "2,40 m",
+          "en": "2.40 m"
+        },
+        {
+          "tr": "3,00 m",
+          "en": "3.00 m"
+        },
+        {
+          "tr": "5,00 m",
+          "en": "5.00 m"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Atrium tanımı karşılıklı iki uzun kenar arasındaki mesafenin 3,00 metreden az olmamasını şart koşar. 2,40 m asma kat iç yüksekliğiyle, 2,00 m ise kuranglez derinliğiyle karıştırılmamalıdır.",
+        "en": "The atrium definition requires the distance between the two facing long sides to be no less than 3.00 metres. It should not be confused with the 2.40 m mezzanine clear height or the 2.00 m kuranglez depth."
+      }
+    },
+    {
+      "id": "q32",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kuranglez nedir? Genişlik ve derinlik sınırlarını belirtiniz.",
+        "en": "What is a kuranglez? State its width and depth limits."
+      },
+      "answer": {
+        "tr": "Kuranglez, parsel sınırı içinde kalmak ve binaya bitişik olmak şartıyla, binaların tabii zemin altında kalan bölümlerine doğal ışık ve havalandırma sağlamak amacıyla yapılan ışıklıktır. Genişliği en az 0,80 m, en fazla 1,20 m; derinliği azami 2,00 m'dir. Boyu, yapıldığı pencere genişliğini 0,50 metreden fazla geçemez; giriş-çıkış amacı taşımaz (yol cephesi haricinde kaçış amaçlı çıkış tertiplenebilir).",
+        "en": "A kuranglez is a light well made to provide natural light and ventilation to the below-natural-ground parts of buildings, on condition of staying within the parcel boundary and being attached to the building. Its width is at least 0.80 m and at most 1.20 m; its depth is at most 2.00 m. Its length may not exceed the window width it serves by more than 0.50 m; it is not for entry/exit (an escape exit may be arranged except on the road frontage)."
+      }
+    },
+    {
+      "id": "q33",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı ruhsatı gerektirmeyen, bahçede/terasta hafif malzemeden yapılan, üzerine bitki sardırılabilen yapıya ne denir?",
+        "en": "What is the name of the structure that requires no building permit, is made of light material in the garden/terrace, and can have plants trained over it?"
+      },
+      "options": [
+        {
+          "tr": "Pergola",
+          "en": "Pergola"
+        },
+        {
+          "tr": "Kanopi",
+          "en": "Canopy (kanopi)"
+        },
+        {
+          "tr": "Arkat",
+          "en": "Arcade (arkat)"
+        },
+        {
+          "tr": "Sundurma",
+          "en": "Lean-to (sundurma)"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Pergola tanımı tam olarak budur ve yapı ruhsatı gerektirmez. Kanopi akaryakıt istasyonlarına, arkat sütunlu geçitlere, sundurma ise binaya bitişik üç tarafı açık örtüye aittir.",
+        "en": "This is exactly the pergola definition, and it requires no building permit. The canopy belongs to fuel stations, the arkat to columned passages, and the sundurma to a three-sided-open cover attached to a building."
+      }
+    },
+    {
+      "id": "q34",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Esaslı tadilat ile basit tamir ve tadil arasındaki temel fark nedir?",
+        "en": "What is the essential difference between major alteration (esaslı tadilat) and simple repair (basit tamir ve tadil)?"
+      },
+      "options": [
+        {
+          "tr": "Esaslı tadilat sadece boya-badana işleridir, basit tadil ise taşıyıcı sistemi değiştirir",
+          "en": "Major alteration is only painting work, while simple repair changes the load-bearing system"
+        },
+        {
+          "tr": "Esaslı tadilat taşıyıcı unsuru veya inşaat alanını/bağımsız bölüm sayısını/kullanım amacını değiştirir ve ruhsata tabidir; basit tamir bunları değiştirmez",
+          "en": "Major alteration changes the load-bearing element or the constructed area/unit count/use purpose and is subject to a permit; simple repair does not change these"
+        },
+        {
+          "tr": "İkisi arasında hukuki fark yoktur, ikisi de ruhsata tabidir",
+          "en": "There is no legal difference; both are subject to a permit"
+        },
+        {
+          "tr": "Basit tamir ve tadil daima esaslı tadilattan daha pahalıdır",
+          "en": "Simple repair is always more expensive than major alteration"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Esaslı tadilat; taşıyıcı unsuru etkileyen veya inşaat alanı, bağımsız bölüm sayısı, kullanım amacı gibi unsurları değiştiren işlemlerdir ve ruhsata tabidir. Basit tamir ve tadil (sıva, boya, çatı onarımı vb.) bunları değiştirmez ve ruhsat gerektirmez. Diğer şıklar tanımı tersine çevirir veya alakasız kriterler (maliyet) önerir.",
+        "en": "Major alteration is work affecting the load-bearing element or changing elements such as the constructed area, unit count or use purpose, and is subject to a permit. Simple repair (plaster, paint, roof repair, etc.) does not change these and needs no permit. The other options reverse the definition or propose irrelevant criteria (cost)."
+      }
+    },
+    {
+      "id": "q35",
+      "type": "open",
+      "covers": [
+        "n2",
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı metraj cetveli hakkında bilgi veriniz.",
+        "en": "Provide information about the yapı metraj cetveli (building quantity take-off sheet)."
+      },
+      "answer": {
+        "tr": "Yapı metraj cetveli, bir yapıda gerçekleştirilecek veya gerçekleştirilmiş imalatların miktarlarını proje ölçülerinden belirli kurallarla hesaplamak için kullanılan çizelgedir. Cetvelde imalatın adı ve yeri, benzer eleman sayısı, boy-en-yükseklik gibi ölçüler, eksiltilecek (azı) ve eklenecek (çoğu) miktarlar, sonuç miktarı ve ölçü birimi bulunur. Her imalat kendi birimine göre m, m², m³, adet veya kg/ton cinsinden hesaplanır; metraj özetine, keşfe, yaklaşık maliyete ve hakedişe veri sağlar.",
+        "en": "The building quantity take-off sheet is the schedule used to compute, by specific rules from the design dimensions, the quantities of works to be or already done in a building. It lists the work's name and location, the number of similar elements, dimensions such as length-width-height, quantities to subtract ('azı') and add ('çoğu'), the result quantity and the unit. Each work is computed in its own unit (m, m², m³, piece, kg/ton); it feeds the take-off summary, cost estimate, approximate cost and progress payments."
+      }
+    },
+    {
+      "id": "q36",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Demir metraj cetveli hakkında bilgi veriniz.",
+        "en": "Provide information about the demir metraj cetveli (rebar take-off sheet)."
+      },
+      "answer": {
+        "tr": "Demir metraj cetveli, betonarme yapı elemanlarındaki donatı miktarını statik ve donatı projelerine göre hesaplayan özel metraj çizelgesidir. Temel, kolon, kiriş, perde ve döşeme donatıları için çubuk çapı, açılımı/şekli, bir çubuğun boyu, çubuk sayısı ve benzer eleman sayısı belirlenir. Kancalar ve bindirme-ek boyları dahil toplam uzunluk bulunur; bu değer ilgili çapın kg/m birim ağırlığıyla çarpılarak ağırlığa çevrilir. Projede gösterilmeyen çubuklar/ekler hesaba katılmaz; bağ teli ve normal zayiat için ayrıca ödeme yapılmaz.",
+        "en": "The rebar take-off sheet is the special take-off schedule computing the reinforcement quantity in reinforced-concrete elements per the structural and reinforcement designs. For foundation, column, beam, shear-wall and slab reinforcement, the bar diameter, layout/shape, single-bar length, bar count and number of similar elements are determined. The total length including hooks and lap/splice lengths is found; this value is multiplied by the diameter's kg/m unit weight to convert to weight. Bars/splices not shown in the design are not counted; tie wire and normal waste are not separately paid."
+      }
+    },
+    {
+      "id": "q37",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Her müstakil konutta bulunması ZORUNLU olan piyeslerden biri değildir?",
+        "en": "Which is NOT one of the rooms mandatory in every detached dwelling?"
+      },
+      "options": [
+        {
+          "tr": "1 oturma odası",
+          "en": "1 living room"
+        },
+        {
+          "tr": "1 yatak odası",
+          "en": "1 bedroom"
+        },
+        {
+          "tr": "1 çalışma odası",
+          "en": "1 study room"
+        },
+        {
+          "tr": "1 tuvalet",
+          "en": "1 toilet"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Yönetmelik her müstakil konutta en az 1 oturma odası, 1 yatak odası, 1 mutfak/pişirme yeri, 1 banyo/yıkanma yeri ve 1 tuvalet arar. Çalışma odası bu zorunlu listede yer almaz.",
+        "en": "The regulation requires at least 1 living room, 1 bedroom, 1 kitchen/cooking area, 1 bathroom/washing area and 1 toilet in every detached dwelling. A study room is not on this mandatory list."
+      }
+    },
+    {
+      "id": "q38",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Oturma odasının asgari net alanı kaç m²dir?",
+        "en": "What is the minimum net area of a living room in m²?"
+      },
+      "options": [
+        {
+          "tr": "9,00 m²",
+          "en": "9.00 m²"
+        },
+        {
+          "tr": "12,0 m²",
+          "en": "12.0 m²"
+        },
+        {
+          "tr": "3,30 m²",
+          "en": "3.30 m²"
+        },
+        {
+          "tr": "3,00 m²",
+          "en": "3.00 m²"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Oturma odasının asgari net alanı 12,0 m²'dir (dar kenar 3,00 m). 9,00 m² yatak odasına, 3,30 m² mutfağa, 3,00 m² ise banyoya aittir.",
+        "en": "The living room's minimum net area is 12.0 m² (narrow side 3.00 m). 9.00 m² belongs to the bedroom, 3.30 m² to the kitchen, and 3.00 m² to the bathroom."
+      }
+    },
+    {
+      "id": "q39",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Yatak odası ile tuvaletin asgari dar kenar ve net alan değerlerini karşılaştırınız; hangi mekanların havalandırmaları aynı boşluğa açılamaz?",
+        "en": "Compare the minimum narrow-side and net-area values of a bedroom and a toilet; which spaces' ventilation may not open into the same shaft?"
+      },
+      "answer": {
+        "tr": "Yatak odası: dar kenar 2,50 m, net alan 9,00 m². Tuvalet: dar kenar 1,00 m, net alan 1,20 m². Yatak odası tuvaletten hem dar kenar hem net alan bakımından çok daha büyüktür (2,5 kat dar kenar, 7,5 kat net alan). Havalandırma kısıtı: mutfak-oda havalandırmaları ile banyo-tuvalet havalandırmaları aynı boşluğa açılamaz; ancak banyo ile tuvalet havalandırması aynı boşluğa bakabilir.",
+        "en": "Bedroom: narrow side 2.50 m, net area 9.00 m². Toilet: narrow side 1.00 m, net area 1.20 m². The bedroom is much larger than the toilet in both narrow side and net area (2.5× narrow side, 7.5× net area). Ventilation restriction: kitchen-room ventilation may not open into the same shaft as bathroom-toilet ventilation; however, bathroom and toilet ventilation may share the same shaft."
+      }
+    },
+    {
+      "id": "q40",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Basamak yüksekliği (a) 17 cm olan asansörlü bir binada, 2a+b=64 formülüne göre basamak genişliği (b) kaç cm olur?",
+        "en": "In an elevator building with riser height (a) 17 cm, what is the tread width (b) by the formula 2a+b=64?"
+      },
+      "options": [
+        {
+          "tr": "26 cm",
+          "en": "26 cm"
+        },
+        {
+          "tr": "28 cm",
+          "en": "28 cm"
+        },
+        {
+          "tr": "30 cm",
+          "en": "30 cm"
+        },
+        {
+          "tr": "32 cm",
+          "en": "32 cm"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "2a+b=64 formülünde a=17 cm ise: b = 64 − 2×17 = 64 − 34 = 30 cm. Asansörlü bir binada basamak yüksekliği 0,18 m'yi (18 cm) geçemeyeceğinden a=17 cm sınır içindedir ve sonuç geçerlidir. Diğer şıklar yanlış aritmetik sonuçlardır.",
+        "en": "In 2a+b=64 with a=17 cm: b = 64 − 2×17 = 64 − 34 = 30 cm. In an elevator building the riser height may not exceed 0.18 m (18 cm), so a=17 cm is within the limit and the result is valid. The other options are wrong arithmetic."
+      }
+    },
+    {
+      "id": "q41",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kat adedi 3 olan (tek bağımsız bölümlü konut hariç) bir binada asansörle ilgili zorunluluk nedir?",
+        "en": "In a 3-floor building (except single-unit dwellings), what is the elevator requirement?"
+      },
+      "options": [
+        {
+          "tr": "Hiçbir zorunluluk yoktur",
+          "en": "There is no requirement"
+        },
+        {
+          "tr": "Asansör yeri bırakılması zorunludur, tesis edilmesi zorunlu değildir",
+          "en": "Space for an elevator must be reserved, but installing one is not required"
+        },
+        {
+          "tr": "Asansörün fiilen kurulması (tesisi) zorunludur",
+          "en": "Actually installing the elevator is mandatory"
+        },
+        {
+          "tr": "Sadece merdiven genişliğinin artırılması zorunludur",
+          "en": "Only widening the stairs is required"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kat adedi 3 olan binalarda sadece asansör YERİ bırakılması zorunludur; fiili tesis 4 ve üzeri kat adedinde zorunlu hale gelir. Bu ayrım sınavda sık karıştırılır.",
+        "en": "In 3-floor buildings only reserving elevator SPACE is required; actual installation becomes mandatory at 4 or more floors. This distinction is often confused on the exam."
+      }
+    },
+    {
+      "id": "q42",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "10 bağımsız bölüme kadar olan konut binalarında asgari su deposu hacmi kaçtır?",
+        "en": "In residential buildings of up to 10 units, what is the minimum water-tank volume?"
+      },
+      "options": [
+        {
+          "tr": "3 m³",
+          "en": "3 m³"
+        },
+        {
+          "tr": "5 m³",
+          "en": "5 m³"
+        },
+        {
+          "tr": "15 m³",
+          "en": "15 m³"
+        },
+        {
+          "tr": "30 m³",
+          "en": "30 m³"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "10 bağımsız bölüme kadar konut binalarında asgari 3 m³ su deposu şarttır. 5 m³ diğer binalara, 15 m³ umumi/yüksek katlı binalara, 30 m³ ise çok yüksek yapılara aittir.",
+        "en": "Residential buildings up to 10 units require a minimum 3 m³ water tank. 5 m³ is for other buildings, 15 m³ for public/high-rise buildings, and 30 m³ for super-high-rises."
+      }
+    },
+    {
+      "id": "q43",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Korkuluklar döşeme kotundan itibaren en az hangi yüksekliğe kadar yapılmalıdır?",
+        "en": "Up to what minimum height above the floor level must railings be provided?"
+      },
+      "options": [
+        {
+          "tr": "0,50 m",
+          "en": "0.50 m"
+        },
+        {
+          "tr": "0,90 m",
+          "en": "0.90 m"
+        },
+        {
+          "tr": "1,10 m",
+          "en": "1.10 m"
+        },
+        {
+          "tr": "2,00 m",
+          "en": "2.00 m"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Korkuluklar döşeme kotundan itibaren en az 1,10 metre yüksekliğe kadar yapılmalıdır. 0,90 m tetikleyici pencere kotu eşiğidir (bu kottan düşük pencere boşluklarında korkuluk gerekir), 0,50 m ve 2,00 m ise bahçe duvarı sınırlarıdır.",
+        "en": "Railings must be provided up to at least 1.10 m above the floor level. 0.90 m is the trigger window-sill level (below which a railing is required at window openings); 0.50 m and 2.00 m are garden-wall limits."
+      }
+    },
+    {
+      "id": "q44",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Konut kullanımlı bağımsız bölüm sayısına göre kapıcı dairesi zorunluluğunu açıklayınız.",
+        "en": "Explain the doorman-flat requirement by the number of residential units."
+      },
+      "answer": {
+        "tr": "Konut kullanımlı bağımsız bölüm sayısı 40'tan fazla olan, katı yakıt kullanan kaloriferli veya kalorifersiz binalarda bir kapıcı dairesi yapılması zorunludur. Bağımsız bölüm sayısı 80'i aşarsa ikinci bir kapıcı dairesi de yapılır. Birden fazla yapı bulunan parsellerde, toplam bağımsız bölüm sayısı 40'ı geçiyorsa aynı hüküm uygulanır; ayrıca 60'tan fazla bağımsız bölümü olan her bina için ayrı bir kapıcı dairesi gerekir.",
+        "en": "In solid-fuel-heated buildings (central-heated or not) with more than 40 residential units, one doorman flat is mandatory. If the number of units exceeds 80, a second doorman flat is added. On parcels with more than one building, the same rule applies if the total exceeds 40; additionally, a separate doorman flat is required for each building with more than 60 units."
+      }
+    },
+    {
+      "id": "q45",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bahçe duvarının yol tarafındaki cephe önünde azami yüksekliği ile gerisindeki (arka) azami yüksekliği nedir?",
+        "en": "What are the maximum garden-wall heights in front of the street facade and at the rear?"
+      },
+      "options": [
+        {
+          "tr": "Önde 2,00 m, gerisinde 0,50 m",
+          "en": "2.00 m in front, 0.50 m at the rear"
+        },
+        {
+          "tr": "Önde 0,50 m, gerisinde 2,00 m",
+          "en": "0.50 m in front, 2.00 m at the rear"
+        },
+        {
+          "tr": "Her ikisi de 1,10 m",
+          "en": "1.10 m both"
+        },
+        {
+          "tr": "Önde 1,00 m, gerisinde 3,00 m",
+          "en": "1.00 m in front, 3.00 m at the rear"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yol tarafındaki cephe önünde bahçe duvarı yüksekliği 0,50 metreyi, gerisinde ise 2,00 metreyi geçemez. Bu düzenleme sokaktan görüş açıklığını korumak amacı taşır.",
+        "en": "The garden wall may not exceed 0.50 m in front of the street facade, and 2.00 m at the rear. This aims to preserve sight lines from the street."
+      }
+    },
+    {
+      "id": "q46",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı ruhsatı işlemlerinin genel akışını (başvurudan ruhsatın düzenlenmesine kadar) özetleyiniz.",
+        "en": "Summarize the general flow of the building-permit process (from application to issuance of the permit)."
+      },
+      "answer": {
+        "tr": "1) Yapı sahibi/vekili aplikasyon krokisi ve tapu kaydıyla ilgili idareye başvurarak imar durum belgesi, yol kotu tutanağı, kanal kotu tutanağı ve zemin/temel etüt raporunu talep eder. 2) İdare imar durum belgesini ve eki belgeleri en geç 2 iş günü (kanal kotu tutanağını 5 iş günü) içinde verir. 3) Mimari, statik, elektrik, mekanik projeler ve avan proje hazırlanır (toprak kazı hesabı, otopark/sığınak/ağaç hesapları dahil). 4) Belgeler tamamlanınca en geç 5 iş günü içinde yapı ruhsatı düzenlenir.",
+        "en": "1) The owner/agent applies to the administration with the cadastral survey sketch and title deed, requesting the zoning-status certificate, road-elevation record, channel-elevation record and soil/foundation report. 2) The administration issues the zoning-status certificate and annex documents within at most 2 working days (the channel-elevation record within 5). 3) Architectural, structural, electrical and mechanical designs and the avan proje are prepared (including earth-cut, parking/shelter/tree calculations). 4) Once documents are complete, the building permit is issued within at most 5 working days."
+      }
+    },
+    {
+      "id": "q47",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ruhsat tarihinden itibaren kaç yıl içinde inşaata başlanmazsa yapı ruhsatsız sayılır?",
+        "en": "If construction has not started within how many years of the permit date is the building deemed unpermitted?"
+      },
+      "options": [
+        {
+          "tr": "1 yıl",
+          "en": "1 year"
+        },
+        {
+          "tr": "2 yıl",
+          "en": "2 years"
+        },
+        {
+          "tr": "3 yıl",
+          "en": "3 years"
+        },
+        {
+          "tr": "5 yıl",
+          "en": "5 years"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "İnşaata 2 yıl içinde başlanmaması veya 5 yıllık ruhsat süresi içinde tamamlanmaması halinde yapı ruhsatsız sayılır. 5 yıl, TOPLAM tamamlanma süresidir; başlama süresi ise 2 yıldır — bu ikisi sınavda karıştırılan bir ayrımdır.",
+        "en": "The building is deemed unpermitted if construction has not started within 2 years or was not completed within the 5-year permit term. 5 years is the TOTAL completion term; the start term is 2 years — a distinction often confused on the exam."
+      }
+    },
+    {
+      "id": "q48",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı kullanma izin belgesi (iskân) hangi durumda ve kaç gün içinde düzenlenir?",
+        "en": "Under what condition and within how many days is the occupancy permit (iskân) issued?"
+      },
+      "options": [
+        {
+          "tr": "Yapı mevzuata uygun bulunursa 30 gün içinde düzenlenir",
+          "en": "Within 30 days if the building is found compliant"
+        },
+        {
+          "tr": "Yapı mevzuata uygun bulunursa 90 gün içinde düzenlenir",
+          "en": "Within 90 days if the building is found compliant"
+        },
+        {
+          "tr": "Ruhsat alındığı anda otomatik olarak verilir",
+          "en": "Automatically at the moment the permit is obtained"
+        },
+        {
+          "tr": "Yalnızca mahkeme kararıyla verilir",
+          "en": "Only by a court decision"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Mal sahibinin müracaatı üzerine yapı mevzuata uygun bulunursa 30 gün içinde yapı kullanma izin belgesi düzenlenir. Ruhsat ile iskân ayrı süreçlerdir; ruhsat inşaata başlama izni, iskân ise tamamlanan yapının kullanım iznidir.",
+        "en": "On the owner's application, if the building is found compliant, the occupancy permit is issued within 30 days. Permit and occupancy are separate processes; the permit authorizes starting construction, the occupancy permit authorizes using the completed building."
+      }
+    },
+    {
+      "id": "q49",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Fenni mesul kimdir ve yapı tatil tutanağı ne zaman düzenlenir?",
+        "en": "Who is the fenni mesul and when is a yapı tatil tutanağı (stop-work record) issued?"
+      },
+      "answer": {
+        "tr": "Fenni mesul, yapının tüm malzeme ve tesisatıyla birlikte plana, ruhsata, ruhsat eki etüt ve projelere, standartlara ve teknik şartnamelere uygun olarak inşa edilmesinin kamu adına denetimini üstlenen, gerekli uzmanlığa sahip meslek mensubudur. Yapı tatil tutanağı ise, ruhsat alınmadan başlanan kaçak inşaat ya da ruhsatlı yapılarda ruhsat ve eklerine aykırı yapım tespit edildiğinde, ilgili idarece yetkilendirilmiş teknik elemanlarca düzenlenen; yapının o andaki durumunu ve aykırılıkları belirten, inşai faaliyetin devam edemeyeceğini gösteren onaylı belgedir.",
+        "en": "The fenni mesul is the appropriately qualified professional who undertakes, on the public's behalf, the inspection that the building — with all its materials and installations — is built in conformity with the plan, permit, permit-annex studies and designs, standards and technical specifications. A yapı tatil tutanağı is issued, by the administration's authorized technical staff, when illegal construction started without a permit or construction contrary to the permit and its annexes in permitted buildings is found; it is an approved document stating the building's current state and the non-conformities and showing that construction may not continue."
+      }
+    },
+    {
+      "id": "q50",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı kullanma izni alınmayan bir yapı hakkında aşağıdakilerden hangisi doğrudur?",
+        "en": "Which is true of a building that has not obtained an occupancy permit?"
+      },
+      "options": [
+        {
+          "tr": "Elektrik, su, kanalizasyon gibi hizmetlerden yararlanamaz",
+          "en": "It cannot use services such as electricity, water and sewage"
+        },
+        {
+          "tr": "Ruhsat süresine bakılmaksızın süresiz kullanılabilir",
+          "en": "It may be used indefinitely regardless of the permit term"
+        },
+        {
+          "tr": "Otomatik olarak kaçak yapı sayılır ve yıkılır",
+          "en": "It is automatically deemed illegal and demolished"
+        },
+        {
+          "tr": "Yalnızca mimarın onayıyla iskân sayılır",
+          "en": "It counts as occupancy only with the architect's approval"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Yapı kullanma izni alınmayan yapılar elektrik, su, kanalizasyon, haberleşme gibi hizmetlerden yararlanamaz. Süresizlik, otomatik yıkım veya mimar onayı gibi iddialar yönetmelik hükümlerinde yer almaz.",
+        "en": "Buildings without an occupancy permit cannot use services such as electricity, water, sewage and communications. Claims of indefiniteness, automatic demolition or architect's approval do not appear in the regulation."
+      }
+    },
+    {
+      "id": "q51",
+      "type": "mcq",
+      "covers": [
+        "n3",
+        "n5"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir parselde ayrık nizam uygulanıyor ve uygulama imar planında TAKS belirtilmemiş ancak çekme mesafeleri ile KAKS 1,8 verilmiştir. Bu durumda azami TAKS ne olur?",
+        "en": "A parcel has detached layout; the implementation plan does not state TAKS but gives setbacks and KAKS 1.8. What is the maximum TAKS?"
+      },
+      "options": [
+        {
+          "tr": "%40'ı geçemez",
+          "en": "It may not exceed 40%"
+        },
+        {
+          "tr": "%50'yi geçemez",
+          "en": "It may not exceed 50%"
+        },
+        {
+          "tr": "%60'ı geçmemek şartıyla çekme mesafelerine göre uygulama yapılır",
+          "en": "Application follows the setbacks, provided TAKS does not exceed 60%"
+        },
+        {
+          "tr": "Sınır yoktur, dilediği gibi inşa edilir",
+          "en": "There is no limit; it may be built freely"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Çekme mesafeleri ile KAKS verilip TAKS verilmeyen özel durumda kural %40 değil, %60'tır: TAKS %60'ı geçmemek şartıyla çekme mesafelerine göre uygulama yapılır. %40 kuralı yalnızca hiçbir şey verilmediğinde (genel durumda) geçerlidir.",
+        "en": "In the special case where setbacks and KAKS are given but TAKS is not, the rule is not 40% but 60%: application follows the setbacks provided TAKS does not exceed 60%. The 40% rule applies only when nothing is given (the general case)."
+      }
+    },
+    {
+      "id": "q52",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "500 m² alanlı bir parselde TAKS 0,30 ve KAKS (Emsal) 2,0 verilmiştir. (a) Azami taban alanını, (b) azami toplam kat alanını, (c) her kat taban alanı kadar inşa edilirse kaç kat yapılabileceğini (yaklaşık) hesaplayınız.",
+        "en": "A 500 m² parcel is given TAKS 0.30 and KAKS (Emsal) 2.0. Compute (a) the maximum footprint, (b) the maximum total floor area, (c) how many floors can be built if each floor equals the footprint (approximately)."
+      },
+      "answer": {
+        "tr": "(a) Taban alanı = 0,30 × 500 = **150 m²**. (b) Katlar alanı = 2,0 × 500 = **1000 m²**. (c) Kat sayısı ≈ 1000/150 = **6,67 → yaklaşık 6-7 kat** (tam sayıya yuvarlanır; artan alan çıkma/ortak alanlarla veya daha küçük üst katlarla dengelenebilir).",
+        "en": "(a) Footprint = 0.30 × 500 = **150 m²**. (b) Floor area = 2.0 × 500 = **1000 m²**. (c) Floor count ≈ 1000/150 = **6.67 → about 6-7 floors** (rounded to a whole number; the surplus can be balanced by projections/common areas or smaller upper floors)."
+      }
+    },
+    {
+      "id": "q53",
+      "type": "mcq",
+      "covers": [
+        "n2",
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yeşil defter hangi amaçla tutulur?",
+        "en": "For what purpose is the yeşil defter (green ledger) kept?"
+      },
+      "options": [
+        {
+          "tr": "Yalnızca çevre düzenlemesi için bitki envanteri tutmak amacıyla",
+          "en": "Only to keep a plant inventory for landscaping"
+        },
+        {
+          "tr": "Projede bulunmayan veya idarece değiştirilen imalatların metrajlarını hakedişe esas kaydetmek amacıyla",
+          "en": "To record, for progress-payment purposes, the quantities of works not in the design or changed by the administration"
+        },
+        {
+          "tr": "Yalnızca yeşil alan oranını hesaplamak amacıyla",
+          "en": "Only to compute the green-area ratio"
+        },
+        {
+          "tr": "Şantiye çalışanlarının izin günlerini kaydetmek amacıyla",
+          "en": "To record the leave days of site workers"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yeşil defter, projede olmayan veya idarece değiştirilen imalatların ve tamamlanmamış imalatların hakedişe esas metrajlarının kaydedildiği defterdir; yüklenici ve kontrol teşkilatınca onaylanır. Diğer şıklar tamamen alakasız işlevler önerir.",
+        "en": "The green ledger records, for progress-payment purposes, the quantities of works not in the design or changed by the administration and of incomplete works; it is approved by the contractor and control organization. The other options propose entirely unrelated functions."
+      }
+    },
+    {
+      "id": "q54",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Muvakkat yapıya en iyi örnek aşağıdakilerden hangisidir?",
+        "en": "Which is the best example of a temporary (muvakkat) structure?"
+      },
+      "options": [
+        {
+          "tr": "Kalıcı bir konut binası",
+          "en": "A permanent residential building"
+        },
+        {
+          "tr": "Şantiye binası",
+          "en": "The site office (şantiye binası)"
+        },
+        {
+          "tr": "Umumi bina (hastane)",
+          "en": "A public building (hospital)"
+        },
+        {
+          "tr": "Yüksek yapı",
+          "en": "A high-rise"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Şantiye binası, belirli süreliğine kullanım hakkı öngörülen muvakkat (geçici) bir yapıdır; yapı kullanma izni müracaatında yıkılıp tasfiye edilir. Diğer şıklar kalıcı yapı türleridir.",
+        "en": "The site office is a temporary structure granted a limited-time use right; it is demolished and cleared when the occupancy permit is applied for. The other options are permanent building types."
+      }
+    },
+    {
+      "id": "q55",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bina yüksekliği ile yapı yüksekliği arasındaki farkı tanımlarıyla açıklayınız.",
+        "en": "Explain, with their definitions, the difference between building height and structure height."
+      },
+      "answer": {
+        "tr": "**Bina yüksekliği:** Binanın kot aldığı noktadan saçak seviyesine kadar olan yüksekliktir — yani çatı arası/asma kat gibi unsurlar dahil edilmeden, kottan çatı döşemesi üstüne kadar ölçülür. **Yapı yüksekliği:** Bodrum katlar, asma katlar ve çatı arası piyesler DAHİL, yapının inşa edilen bütün katlarının TOPLAM yüksekliğidir. Yapı yüksekliği bina yüksekliğinden genellikle daha büyük çıkar çünkü bodrum ve çatı arası gibi ek katları da kapsar — bu yüzden yüksek yapı eşikleri de farklıdır (21,50 m bina yüksekliği / 30,50 m yapı yüksekliği).",
+        "en": "**Building height (bina yüksekliği):** the height from the building's elevation reference point up to the eave level — i.e. measured from the datum to the top of the roof slab, without including elements like the roof space/mezzanine. **Structure height (yapı yüksekliği):** the TOTAL height of all built floors INCLUDING basements, mezzanines and roof piyes. Structure height is usually greater than building height because it also covers extra floors like basements and roof space — which is why the high-rise thresholds also differ (21.50 m building height / 30.50 m structure height)."
+      }
+    },
+    {
+      "id": "q56",
+      "type": "mcq",
+      "covers": [
+        "n1",
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Alt kademe planlar, üst kademe planların kesinleştiği tarihten itibaren en geç ne kadar süre içinde üst kademeye uygun hale getirilmelidir?",
+        "en": "Within how long after the higher-tier plans are finalized must lower-tier plans be brought into conformity with them?"
+      },
+      "options": [
+        {
+          "tr": "6 ay",
+          "en": "6 months"
+        },
+        {
+          "tr": "1 yıl",
+          "en": "1 year"
+        },
+        {
+          "tr": "2 yıl",
+          "en": "2 years"
+        },
+        {
+          "tr": "5 yıl",
+          "en": "5 years"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Madde 5/2'ye göre alt kademe planlar en geç 1 yıl içinde üst kademe planlara uygun hale getirilmelidir; aksi halde üst kademeyi onaylayan kurumlar bunu en geç 6 ay içinde resen yapar (bu 6 ay ayrı bir müeyyide süresidir, ilk süre değildir).",
+        "en": "Per Article 5/2 lower-tier plans must be brought into conformity with higher-tier plans within at most 1 year; otherwise the institutions approving the higher tier do so ex officio within at most 6 months (this 6 months is a separate sanction period, not the first term)."
+      }
+    },
+    {
+      "id": "q57",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kat yükseklikleri (Madde 28) döşeme üstünden döşeme üstüne azami olarak verilmiştir. Ticaret bölgelerinde asma katlı zemin katın azami kat yüksekliği kaç metredir?",
+        "en": "Floor heights (Article 28) are given as maxima from slab-top to slab-top. In commercial zones, what is the maximum floor height of a ground floor with a mezzanine?"
+      },
+      "options": [
+        {
+          "tr": "3,60 m",
+          "en": "3.60 m"
+        },
+        {
+          "tr": "4,00 m",
+          "en": "4.00 m"
+        },
+        {
+          "tr": "4,50 m",
+          "en": "4.50 m"
+        },
+        {
+          "tr": "5,50 m",
+          "en": "5.50 m"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Madde 28'e göre ticaret bölgelerinde asma katlı zemin katlarda azami kat yüksekliği 5,50 metredir. 4,50 m asma katsız zemin katın, 4,00 m diğer katların (ticarette), 3,60 m ise konut katlarının azami yüksekliğidir.",
+        "en": "Per Article 28, in commercial zones the maximum floor height for ground floors with a mezzanine is 5.50 metres. 4.50 m is for a ground floor without a mezzanine, 4.00 m for other (commercial) floors, and 3.60 m for residential floors."
+      }
+    },
+    {
+      "id": "q58",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bacalar (Madde 33): sobalı (katı yakıt kullanan) binalarda duman bacası hangi piyeslerde ZORUNLU DEĞİLDİR?",
+        "en": "Flues (Article 33): in stove-heated (solid-fuel) buildings, in which rooms is a smoke flue NOT mandatory?"
+      },
+      "options": [
+        {
+          "tr": "Oturma odası ve yatak odası",
+          "en": "Living room and bedroom"
+        },
+        {
+          "tr": "Tuvalet ve koridor",
+          "en": "Toilet and corridor"
+        },
+        {
+          "tr": "Mutfak ve banyo",
+          "en": "Kitchen and bathroom"
+        },
+        {
+          "tr": "Tüm piyeslerde zorunludur",
+          "en": "It is mandatory in all rooms"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Sobalı binalarda tuvalet ve koridor hariç tüm piyeslerde duman bacası yapılması zorunludur; dolayısıyla duman bacası tuvalet ve koridorda zorunlu değildir. Kaloriferli binalarda ise kural farklıdır (oturma/yatma hacimlerinin en az birinde ve sıcak su tesisatı olmayan banyo/mutfaklarda).",
+        "en": "In stove-heated buildings a smoke flue is mandatory in all rooms except the toilet and corridor; hence a smoke flue is not mandatory in the toilet and corridor. In central-heated buildings the rule is different (in at least one living/sleeping space and in bathrooms/kitchens without hot-water systems)."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "4-1",
+      "code": "Uygulama 4.1",
+      "title": {
+        "tr": "TAKS/KAKS ile taban alanı ve kat sayısı hesabı",
+        "en": "Computing footprint and floor count from TAKS/KAKS"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "25 m × 40 m ölçülerinde dikdörtgen bir imar parseli, imar durum belgesine göre TAKS = 0,30 ve KAKS (Emsal) = 2,1 değerlerine sahiptir. Parselin cephe aldığı yolun genişliği 18,00 metredir. (a) Azami taban alanını, (b) azami toplam kat alanını (katlar alanı) hesaplayınız; (c) her katın taban alanı kadar inşa edildiği varsayımıyla kaç kat yapılabileceğini bulunuz; (d) Madde 9'daki yol genişliği-kat adedi tablosunu da dikkate alarak parselde fiilen kaç kat inşa edilebileceğine karar veriniz.",
+        "en": "A rectangular zoning parcel measuring 25 m × 40 m has TAKS = 0.30 and KAKS (Emsal) = 2.1 per its zoning-status certificate. The road it fronts is 18.00 m wide. (a) Find the maximum footprint. (b) Find the maximum total floor area (katlar alanı). (c) Assuming each floor equals the footprint, find how many floors this allows. (d) Taking Article 9's road-width/floor-count table into account, decide how many floors may actually be built."
+      },
+      "given": [
+        {
+          "symbol": "Parsel",
+          "value": "25\\ \\text{m} \\times 40\\ \\text{m}",
+          "label": {
+            "tr": "Parsel boyutları",
+            "en": "Parcel dimensions"
+          }
+        },
+        {
+          "symbol": "TAKS",
+          "value": "0{,}30",
+          "label": {
+            "tr": "Taban Alanı Kat Sayısı",
+            "en": "Footprint coefficient"
+          }
+        },
+        {
+          "symbol": "KAKS",
+          "value": "2{,}1",
+          "label": {
+            "tr": "Katlar Alanı Katsayısı (Emsal)",
+            "en": "Floor area ratio (Emsal)"
+          }
+        },
+        {
+          "symbol": "Yol",
+          "value": "18{,}00\\ \\text{m}",
+          "label": {
+            "tr": "Cephe aldığı yolun genişliği",
+            "en": "Width of the frontage road"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Taban alanını, katlar alanını, emsale göre olası kat sayısını ve yol genişliği kısıtına göre fiilen izin verilen kat sayısını bulmak.",
+        "en": "Find the footprint, the total floor area, the emsal-implied floor count, and the road-width-limited actual floor count."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Parsel alanını ve taban alanını bul",
+            "en": "Find the parcel area and the footprint"
+          },
+          "guiding": {
+            "tr": "Parsel alanı nasıl bulunur, ve TAKS formülü taban alanını nasıl verir?",
+            "en": "How do you find the parcel area, and how does the TAKS formula give the footprint?"
+          },
+          "hint": {
+            "tr": "Parsel alanı = genişlik × derinlik. Taban alanı = TAKS × Parsel alanı.",
+            "en": "Parcel area = width × depth. Footprint = TAKS × parcel area."
+          },
+          "work": {
+            "tr": "$$A_{parsel} = 25 \\times 40 = 1000\\ \\text{m}^2$$\n\n$$A_{taban} = TAKS \\times A_{parsel} = 0{,}30 \\times 1000 = 300\\ \\text{m}^2$$",
+            "en": "$$A_{parcel} = 25 \\times 40 = 1000\\ \\text{m}^2$$\n\n$$A_{footprint} = TAKS \\times A_{parcel} = 0.30 \\times 1000 = 300\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "TAKS ve KAKS her ikisi de PARSEL alanı üzerinden tanımlanır (net imar parseli alanı), bina alanı üzerinden değil — bu yüzden ilk iş her zaman parsel alanını bulmaktır. Sınav ipucu: 'TAKS/KAKS verilmiş, taban/kat alanı iste' görünce ilk adım her zaman Parsel Alanı × Katsayı çarpımıdır.",
+            "en": "Both TAKS and KAKS are defined relative to the PARCEL area (the net zoning-parcel area), not the building area — so the first move is always to find the parcel area. Exam cue: whenever TAKS/KAKS are given and a footprint/floor area is asked for, the first step is always Parcel Area × Coefficient."
+          },
+          "result": "A_{taban} = 300\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Katlar alanını (toplam kat alanı) bul",
+            "en": "Find the total floor area (katlar alanı)"
+          },
+          "guiding": {
+            "tr": "KAKS formülü katlar alanını nasıl verir?",
+            "en": "How does the KAKS formula give the total floor area?"
+          },
+          "hint": {
+            "tr": "Katlar alanı = KAKS × Parsel alanı.",
+            "en": "Katlar alanı = KAKS × parcel area."
+          },
+          "work": {
+            "tr": "$$A_{katlar} = KAKS \\times A_{parsel} = 2{,}1 \\times 1000 = 2100\\ \\text{m}^2$$",
+            "en": "$$A_{floors} = KAKS \\times A_{parcel} = 2.1 \\times 1000 = 2100\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Katlar alanı, binanın TÜM katlarının (bodrum, asma kat, çatı arası piyesi ve çıkmalar dahil, hariç tutulan alanlar çıktıktan sonra) toplam alanıdır — tek bir katın değil. Bu değer, parselin toplam 'inşa hakkını' m² cinsinden ifade eder.",
+            "en": "Katlar alanı is the sum across ALL floors of the building (basement, mezzanine, roof piyes, projections included, minus exclusions) — not a single floor. This value expresses the parcel's total buildable floor area in m²."
+          },
+          "result": "A_{katlar} = 2100\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Emsale göre olası kat sayısını bul",
+            "en": "Find the emsal-implied floor count"
+          },
+          "guiding": {
+            "tr": "Eğer her kat taban alanı kadar (300 m²) inşa edilirse, 2100 m²'lik toplam hakla kaç kat yapılabilir?",
+            "en": "If each floor equals the footprint (300 m²), how many floors does the 2100 m² total right allow?"
+          },
+          "hint": {
+            "tr": "Kat sayısı = Katlar alanı / Taban alanı (eşit kat varsayımıyla).",
+            "en": "Floor count = total floor area / footprint (equal-floor assumption)."
+          },
+          "work": {
+            "tr": "$$n = \\frac{A_{katlar}}{A_{taban}} = \\frac{2100}{300} = 7\\ \\text{kat}$$",
+            "en": "$$n = \\frac{A_{floors}}{A_{footprint}} = \\frac{2100}{300} = 7\\ \\text{floors}$$"
+          },
+          "why": {
+            "tr": "Bu, sadece EMSAL HAKKININ izin verdiği kat sayısıdır — yönetmeliğin başka bir maddesi (Madde 9: yol genişliğine göre kat adedi) bunu daha da sınırlayabilir. Emsal hesabı ile yol genişliği kısıtı BİRBİRİNDEN BAĞIMSIZ iki kuraldır ve ikisi de aynı anda sağlanmalıdır.",
+            "en": "This is only the floor count that the EMSAL RIGHT allows — another article of the regulation (Art. 9: floor count by road width) may restrict it further. The emsal calculation and the road-width limit are two INDEPENDENT rules, and both must be satisfied simultaneously."
+          },
+          "result": "n_{emsal} = 7\\ \\text{kat}",
+          "check": {
+            "q": {
+              "tr": "7 kat, bu parselde kesin olarak inşa edilebilecek kat sayısı mıdır?",
+              "en": "Is 7 floors definitely the number of floors that can be built on this parcel?"
+            },
+            "options": [
+              {
+                "tr": "Evet, emsal hesabı yeterlidir",
+                "en": "Yes, the emsal calculation is sufficient"
+              },
+              {
+                "tr": "Hayır, Madde 9'daki yol genişliği kısıtını da kontrol etmek gerekir",
+                "en": "No, Article 9's road-width limit must also be checked"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Emsal hesabı yalnızca 'toplam inşaat hakkının' kaç kata bölünebileceğini gösterir; yönetmelik ayrıca yol genişliğine göre azami kat adedini de sınırlar (Madde 9). İkisinden KÜÇÜK olanı bağlayıcıdır.",
+              "en": "The emsal calculation only shows how the total buildable right divides into floors; the regulation separately caps floor count by road width (Art. 9). The SMALLER of the two values is binding."
+            }
+          }
+        },
+        {
+          "title": {
+            "tr": "Yol genişliği kısıtını uygula ve fiili kat sayısına karar ver",
+            "en": "Apply the road-width limit and decide the actual floor count"
+          },
+          "guiding": {
+            "tr": "Madde 9 tablosunda 18 m'lik yol genişliği hangi aralığa düşer ve bu aralık en çok kaç kata izin verir?",
+            "en": "Where does an 18 m road width fall in Article 9's table, and how many floors does that band allow?"
+          },
+          "hint": {
+            "tr": "Tablo aralığı: 15 < Yol G. ≤ 20 → en çok 6 kat (bodrum hariç).",
+            "en": "Table band: 15 < road width ≤ 20 → max 6 floors (excluding basement)."
+          },
+          "work": {
+            "tr": "Yol genişliği 18,00 m, tablonun \"15,00 < Yol G. ≤ 20,00\" aralığına düşer → bu aralıkta **en çok 6 kat** (bodrum hariç) yapılabilir.\n\nEmsal hesabı 7 kata izin verse de, Madde 9 kısıtı bunu **6 kata** düşürür — bağlayıcı olan **daha küçük** değerdir:\n\n$$n_{fiili} = \\min(7, 6) = 6\\ \\text{kat}$$\n\n6 kat × 300 m²/kat = **1800 m²** fiilen inşa edilebilir; bu, 2100 m²'lik emsal hakkının **300 m²'lik kısmının kullanılamadığı** anlamına gelir (o hak, çıkma, ortak alan veya küçültülmüş üst kat gibi biçimlerde kısmen değerlendirilebilir, ama 7. tam kat olarak inşa edilemez).",
+            "en": "An 18.00 m road width falls in the table's \"15.00 < road ≤ 20.00\" band → this band allows at most 6 floors (excluding basement).\n\nAlthough the emsal calculation allows 7 floors, Article 9 caps it at 6 floors — the binding value is the SMALLER one:\n\n$$n_{actual} = \\min(7, 6) = 6\\ \\text{floors}$$\n\n6 floors × 300 m²/floor = 1800 m² can actually be built; this means 300 m² of the 2100 m² emsal right goes unused as a full 7th floor (it may partly be absorbed via projections, common areas, or a smaller top floor, but not as a full additional storey)."
+          },
+          "why": {
+            "tr": "Bu adım imar hesaplarının en sık atlanan tuzağıdır: TAKS/KAKS bir ÜST SINIR verir, ama yol genişliği, bina yüksekliği sınırları gibi başka maddeler bunu DAHA DA kısıtlayabilir. Sınavda 'emsale göre X kat çıkıyor, o zaman X kat yapılır' sonucuna hemen atlamayın — her zaman diğer yapılaşma kısıtlarını (Madde 9 vb.) da kontrol edin.",
+            "en": "This step is the most commonly missed trap in zoning calculations: TAKS/KAKS give an UPPER bound, but other articles (road width, height limits) can restrict it FURTHER. Don't jump to \"emsal gives X floors, so X floors are built\" on the exam — always cross-check the other buildability constraints (Art. 9, etc.)."
+          },
+          "result": "n_{fiili} = 6\\ \\text{kat}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "(a) Azami taban alanı: $\\boxed{300\\ \\text{m}^2}$. (b) Azami katlar alanı: $\\boxed{2100\\ \\text{m}^2}$. (c) Emsale göre olası kat sayısı: $\\boxed{7\\ \\text{kat}}$. (d) Ancak 18 m'lik yol genişliği Madde 9 uyarınca en çok 6 kata izin verdiğinden, fiilen inşa edilebilecek kat sayısı $\\boxed{6\\ \\text{kat}}$'tır (daha kısıtlayıcı kural bağlayıcıdır).",
+        "en": "(a) Max footprint: 300 m². (b) Max total floor area: 2100 m². (c) Emsal-implied floor count: 7 floors. (d) Since the 18 m road width caps it at 6 floors under Article 9, the actually buildable floor count is 6 floors (the more restrictive rule governs)."
+      },
+      "traps": [
+        {
+          "tr": "Emsal (KAKS) hesabından çıkan kat sayısını (7) doğrudan nihai cevap sanmak — Madde 9'daki yol genişliği kısıtını kontrol etmeden sonuca varmak yanlıştır.",
+          "en": "Assuming the emsal-derived floor count (7) is the final answer without checking Article 9's road-width cap."
+        },
+        {
+          "tr": "TAKS ve KAKS'ı bina alanı yerine parsel alanı üzerinden hesaplamayı unutmak; ikisi de HER ZAMAN net imar parseli alanına göre hesaplanır.",
+          "en": "Forgetting that TAKS and KAKS are always computed relative to the net parcel area, not any building-side quantity."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya yol genişliği 18 m yerine 30 m olsaydı?",
+            "en": "What if the road width were 30 m instead of 18 m?"
+          },
+          "answer": {
+            "tr": "30 m, Madde 9 tablosunun \"25,00 < Yol G. ≤ 35,00\" aralığına düşer ve bu aralık en çok 10 kata izin verir. Bu durumda yol genişliği kısıtı (10 kat) emsal hesabından çıkan 7 kattan DAHA GEVŞEK olur; bağlayıcı sınır artık emsal hesabı olur ve fiilen inşa edilebilecek kat sayısı 7 kat olarak kalır.",
+            "en": "30 m falls in Article 9's \"25.00 < road ≤ 35.00\" band, allowing up to 10 floors. In that case the road-width limit (10) is LOOSER than the emsal-implied 7, so the emsal calculation becomes the binding constraint and the buildable floor count remains 7."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya KAKS 2,1 yerine 1,5 olsaydı (diğer her şey aynı)?",
+            "en": "What if KAKS were 1.5 instead of 2.1 (all else equal)?"
+          },
+          "answer": {
+            "tr": "Katlar alanı = 1,5 × 1000 = 1500 m² olur. Emsale göre kat sayısı = 1500/300 = 5 kat olur — bu, Madde 9'un 18 m yol için verdiği 6 kat sınırından DAHA KÜÇÜKTÜR. Bu durumda bağlayıcı sınır tekrar emsal hesabı olur ve fiilen inşa edilebilecek kat sayısı 5 kat olur.",
+            "en": "The total floor area becomes 1.5 × 1000 = 1500 m². The emsal-implied floor count becomes 1500/300 = 5 floors — SMALLER than Article 9's 6-floor cap for an 18 m road. Here the binding constraint reverts to the emsal calculation, and the buildable floor count is 5 floors."
+          }
+        }
+      ]
+    }
+  ]
+}

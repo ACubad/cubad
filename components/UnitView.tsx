@@ -7,12 +7,14 @@ import type { Unit } from "@/lib/types";
 import { Md, Tex } from "./Md";
 import { Callout, DifficultyDots, LikelihoodBadge, WaterProgress } from "./ui";
 
-export function UnitView({ unit }: { unit: Unit }) {
+export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
   const { t, bi } = useLang();
   const { state } = useProgress();
 
-  const done = unit.questions.filter((q) => state.q[q.id]?.done).length;
-  const quizScore = state.quiz[unit.slug];
+  const questions = unit.questions ?? [];
+  const concept = unit.concept;
+  const done = questions.filter((q) => state.q[`${subject}/${q.id}`]?.done).length;
+  const quizScore = state.quiz[`${subject}/${unit.slug}`];
 
   return (
     <div className="space-y-8">
@@ -29,57 +31,59 @@ export function UnitView({ unit }: { unit: Unit }) {
           <div className="mb-1 flex justify-between text-xs font-medium text-ink-soft">
             <span>{t("progress")}</span>
             <span>
-              {done}/{unit.questions.length}
+              {done}/{questions.length}
             </span>
           </div>
-          <WaterProgress value={unit.questions.length ? done / unit.questions.length : 0} />
+          <WaterProgress value={questions.length ? done / questions.length : 0} />
         </div>
       </div>
 
       {/* concept primer */}
-      <section className="rounded-2xl border border-line bg-card p-5 sm:p-6">
-        <h2 className="mb-3 font-display text-xl font-semibold text-ink">
-          {t("conceptPrimer")}
-        </h2>
-        <Md>{bi(unit.concept.overview)}</Md>
+      {concept && (
+        <section className="rounded-2xl border border-line bg-card p-5 sm:p-6">
+          <h2 className="mb-3 font-display text-xl font-semibold text-ink">
+            {t("conceptPrimer")}
+          </h2>
+          <Md>{bi(concept.overview)}</Md>
 
-        {unit.concept.keyFormulas.length > 0 && (
-          <>
-            <h3 className="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-ink-soft">
-              {t("keyFormulas")}
-            </h3>
-            <div className="grid gap-3 md:grid-cols-2">
-              {unit.concept.keyFormulas.map((f, i) => (
-                <div key={i} className="rounded-xl border border-line-soft bg-paper p-4">
-                  <p className="mb-1 text-sm font-semibold text-deniz-deep">{bi(f.name)}</p>
-                  <div className="overflow-x-auto py-1">
-                    <Tex tex={f.latex} />
+          {concept.keyFormulas.length > 0 && (
+            <>
+              <h3 className="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-ink-soft">
+                {t("keyFormulas")}
+              </h3>
+              <div className="grid gap-3 md:grid-cols-2">
+                {concept.keyFormulas.map((f, i) => (
+                  <div key={i} className="rounded-xl border border-line-soft bg-paper p-4">
+                    <p className="mb-1 text-sm font-semibold text-deniz-deep">{bi(f.name)}</p>
+                    <div className="overflow-x-auto py-1">
+                      <Tex tex={f.latex} />
+                    </div>
+                    <p className="mt-1 text-[13px] text-ink-soft">{bi(f.meaning)}</p>
+                    <p className="mt-2 text-[13px]">
+                      <span className="font-semibold text-deniz">{t("whenToUse")}: </span>
+                      <span className="text-ink-soft">{bi(f.whenToUse)}</span>
+                    </p>
                   </div>
-                  <p className="mt-1 text-[13px] text-ink-soft">{bi(f.meaning)}</p>
-                  <p className="mt-2 text-[13px]">
-                    <span className="font-semibold text-deniz">{t("whenToUse")}: </span>
-                    <span className="text-ink-soft">{bi(f.whenToUse)}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {unit.concept.traps.length > 0 && (
-          <div className="mt-6">
-            <Callout kind="trap" title={t("traps")}>
-              <ul className="list-disc space-y-1 pl-4">
-                {unit.concept.traps.map((tr, i) => (
-                  <li key={i}>
-                    <Md className="[&_p]:inline">{bi(tr)}</Md>
-                  </li>
                 ))}
-              </ul>
-            </Callout>
-          </div>
-        )}
-      </section>
+              </div>
+            </>
+          )}
+
+          {concept.traps.length > 0 && (
+            <div className="mt-6">
+              <Callout kind="trap" title={t("traps")}>
+                <ul className="list-disc space-y-1 pl-4">
+                  {concept.traps.map((tr, i) => (
+                    <li key={i}>
+                      <Md className="[&_p]:inline">{bi(tr)}</Md>
+                    </li>
+                  ))}
+                </ul>
+              </Callout>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* questions */}
       <section>
@@ -88,7 +92,7 @@ export function UnitView({ unit }: { unit: Unit }) {
             {t("questions").charAt(0).toUpperCase() + t("questions").slice(1)}
           </h2>
           <Link
-            href={`/unit/${unit.slug}/quiz`}
+            href={`/s/${subject}/unit/${unit.slug}/quiz`}
             className="rounded-full bg-deniz px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
           >
             {t("quiz")}
@@ -96,13 +100,13 @@ export function UnitView({ unit }: { unit: Unit }) {
           </Link>
         </div>
         <div className="grid gap-2.5">
-          {unit.questions.map((q) => {
-            const p = state.q[q.id];
+          {questions.map((q) => {
+            const p = state.q[`${subject}/${q.id}`];
             const started = (p?.step ?? 0) > 0;
             return (
               <Link
                 key={q.id}
-                href={`/q/${q.id}`}
+                href={`/s/${subject}/q/${q.id}`}
                 className="group flex items-center gap-4 rounded-xl border border-line bg-card px-4 py-3 transition-all hover:border-deniz/40 hover:shadow-[0_4px_16px_rgba(14,90,109,0.08)]"
               >
                 <span

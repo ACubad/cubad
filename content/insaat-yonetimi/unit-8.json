@@ -1,0 +1,3107 @@
+{
+  "unit": 8,
+  "slug": "kik-sartname",
+  "title": {
+    "tr": "KİK Sözleşmeleri ve Teknik Şartname",
+    "en": "Public Procurement Contracts and Technical Specifications"
+  },
+  "tagline": {
+    "tr": "Sözleşme türleri, zorunlu hükümler, iş artışı sınırları ve teknik şartname ilkeleri",
+    "en": "Contract types, mandatory clauses, scope-change limits, and spec-writing principles"
+  },
+  "sources": {
+    "videos": [
+      {
+        "id": "v09-teknik-sartname",
+        "title": "Teknik Şartname",
+        "length": "16:30"
+      },
+      {
+        "id": "v10-kik-sozlesmeleri",
+        "title": "Kamu İhale Sözleşmeleri Kanunu",
+        "length": "33:56"
+      }
+    ],
+    "pdfs": [
+      "teknik_şartname.pdf"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": {
+        "tr": "Kamu İhale Sözleşmeleri Kanunu: Amaç ve Tip Sözleşme",
+        "en": "Public Procurement Contracts Law: Purpose and Standard Contract"
+      },
+      "body": {
+        "tr": "**Kamu İhale Sözleşmeleri Kanunu (KİSK)**, Kamu İhale Kanunu'na göre yapılan ihalelere ilişkin **sözleşmelerin düzenlenmesi ve uygulanması** ile ilgili esas ve usulleri belirler. Kamu İhale Kanunu \"ihale nasıl yapılır\"ı anlatırken, KİSK \"o ihalenin sonunda imzalanan sözleşme nasıl olur\"u anlatır. Kanuna tabi kurum ve kuruluşların yaptığı ihaleler sonucu düzenlenen sözleşmeleri kapsar. Bu kanuna göre düzenlenecek sözleşmelerde **ihale dokümanında yer alan şartlara aykırı hükümler bulunamaz** — yani sözleşme, ihale sürecinde ilan edilen şartların dışına çıkamaz.\n\n**Tip sözleşme**: tarafları bağlayacak koşulları, sözleşmeye taraf olmayan bir merci (örneğin idari makamlar) veya taraflardan biri tarafından önceden belirlenmiş, tarafların bu çerçevede sözleşme yapmak zorunda olduğu sözleşme örneğidir. Kanuna göre hazırlanan tip sözleşmeler **Resmî Gazete'de yayımlanır**. İdarece yapılacak sözleşmeler bu tip sözleşme hükümleri esas alınarak düzenlenir; mal ve hizmet alımlarında kurumun uygun görüşü alınmak kaydıyla, istekliler tarafından hazırlanması alışılmış olan sözleşmeler de kullanılabilir.",
+        "en": "The Public Procurement Contracts Law (KİSK) sets the rules for drafting and executing contracts that result from tenders held under the Public Procurement Law. While the Procurement Law explains how a tender is run, KİSK explains how the resulting contract is written. Contract terms may not contradict the tender documents. A 'tip sözleşme' (standard/model contract) is a pre-set contract template — published in the Official Gazette — that binding parties must build their contract around; agencies base their contracts on it, though customary sector contracts may be used for goods/services with the institution's approval."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": {
+        "tr": "Sözleşme Türleri",
+        "en": "Contract Types"
+      },
+      "body": {
+        "tr": "KİSK'e göre yapılan ihaleler sonucunda **5 sözleşme türü** ortaya çıkabilir:\n\n1. **Anahtar teslimi götürü bedel sözleşme** — yapım işlerinde, uygulama projeleri ve mahal listelerine dayalı olarak işin **tamamı** için isteklinin teklif ettiği **toplam bedel** üzerinden yapılır.\n2. **Götürü bedel sözleşme** — mal veya hizmet alımı işlerinde, ayrıntılı özellikleri ve miktarı idarece belirlenen işin tamamı için teklif edilen toplam bedel üzerinden yapılır.\n3. **Birim fiyat sözleşme** — yapım işlerinde ön/kesin projeler ve mahal listeleri ile birim fiyat tariflerine; mal/hizmet alımında ise idarece hazırlanmış cetveldeki **her iş kaleminin miktarı × birim fiyatı** çarpımının toplamı üzerinden yapılır.\n4. **Karma sözleşme** — yapım işlerinde iş kalemlerinin bir kısmı anahtar teslimi götürü bedel, bir kısmı birim fiyat usulüyle birlikte uygulanarak yapılır.\n5. **Çerçeve anlaşmaya dayalı münferit sözleşme** — çerçeve anlaşmaya dayanarak idare ile yüklenici arasında imzalanır; çerçeve anlaşma ve münferit sözleşmede yer alması zorunlu hususları **kurum** belirler.\n\n**Kısa ayrım**: götürü bedel = toplam iş için tek fiyat; birim fiyat = kalem × miktar üzerinden hesap; karma = ikisi bir arada; çerçeve anlaşma = tekrarlayan alımlar için şemsiye anlaşma.",
+        "en": "Five contract types under KİSK: (1) lump-sum turnkey (anahtar teslimi götürü bedel) — one total price for the whole works job; (2) lump-sum (götürü bedel) — one total price for the whole goods/services job; (3) unit price (birim fiyat) — sum of (quantity × unit price) per line item; (4) mixed contract — part lump-sum turnkey, part unit-price; (5) individual contract under a framework agreement, whose mandatory content is set by the contracting institution."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": {
+        "tr": "Sözleşmede Yer Alması Zorunlu Hususlar",
+        "en": "Mandatory Contents of the Contract"
+      },
+      "body": {
+        "tr": "Kanun, sözleşmede bulunması **zorunlu** olan hususları sayar — bunlar olmadan sözleşme eksik sayılır. Başlıcaları:\n\n- İşin adı, niteliği, türü ve miktarı; idarenin adı ve adresi; yüklenicinin adı/ticari unvanı ve adresi\n- Varsa alt yüklenicilere ilişkin bilgiler ve sorumlulukları\n- Sözleşmenin bedeli, türü ve süresi\n- Ödeme yeri ve şartları; avans verilip verilmeyeceği, şartları ve miktarı\n- **Fiyat farkı** ödenecekse ne şekilde ödeneceği\n- Ulaşım, sigorta, vergi resim ve harç giderlerinden hangisinin sözleşme bedeline dahil olduğu ve kimin ödeyeceği\n- Montaj, işletmeye alma, eğitim, bakım-onarım, yedek parça gibi destek hizmetlerine ait şartlar\n- **Kesin teminat** miktarı ve iadesine ait şartlar; garanti süresi ve şartları\n- İşin yapılma yeri, teslim etme/alma şekli ve şartları\n- Gecikme halinde uygulanacak **cezalar**\n- **Mücbir sebepler** ve süre uzatımı verilme şartları\n- **İş artışı / iş eksilişi** ile ilgili yükümlülükler\n- Denetim, muayene ve kabul işlemlerine ilişkin şartlar\n- Yapım işlerinde iş ve iş yerinin sigortalanması, yapı denetimi ve sorumluluğuna ilişkin şartlar\n- Sözleşmede **değişiklik** yapılma şartları\n- Sözleşmenin **feshine** ilişkin şartlar\n- Yüklenicinin çalıştıracağı personele ilişkin sorumluluklar\n- İhale dokümanındaki tüm belgelerin sözleşmenin eki olduğu\n- Anlaşmazlıkların çözüm yolu; iş sağlığı ve güvenliğine ilişkin yükümlülükler\n\nBu liste sınavda \"sözleşmede olmazsa olmaz nedir\" tipi sorularda madde madde sorulabilir; ezberlemek yerine mantığını kavramak yeterli: **kim-ne-ne kadar-nasıl-ne zaman-ne olursa** sorularının hepsine cevap vermelidir.",
+        "en": "The law lists mandatory contract contents: identity/scope/quantity of the work, parties' names and addresses, subcontractor info, contract price/type/duration, payment terms and advance rules, how price adjustment is paid, which costs (transport, insurance, taxes) are included and who pays them, support services (installation, training, maintenance, spare parts), final guarantee amount and return conditions, place/manner of delivery, delay penalties, force majeure and time-extension conditions, scope-increase/decrease obligations, inspection/acceptance terms, insurance and site-supervision duties for works contracts, amendment conditions, termination conditions, staffing responsibilities, that all tender documents are contract annexes, dispute resolution, and occupational health & safety duties."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": {
+        "tr": "Fiyat Farkı, Sigorta ve Mücbir Sebepler",
+        "en": "Price Adjustment, Insurance, and Force Majeure"
+      },
+      "body": {
+        "tr": "**Fiyat farkı**: sözleşme kapsamında yapılan imalatın **ihale tarihi** ile **iş programına göre uygulamanın yapılacağı ay** arasındaki fiyat değişimini ifade eder. Fiyat farkı kararnamelerine göre hesaplanan tutar, endekslerdeki artış/azalış oranına göre hakedişe **ek olarak ödenir ya da düşülür**. Sözleşmede yer alan fiyat farkına ilişkin esas ve usuller, **sözleşme imzalandıktan sonra değiştirilemez**.\n\n**Sigorta zorunluluğu**: Yüklenici, iş yerindeki her türlü araç-gereç-tesis ile sözleşme konusu işi, **işe başlama tarihinden geçici kabul tarihine kadar** doğal afetler (deprem, su baskını, toprak kayması, fırtına, yangın) ile hırsızlık/sabotaj gibi risklere karşı sigortalamak zorundadır — buna **\"all risk\" sigorta** denir. **Geçici kabulden kesin kabule kadar** olan süre için ise, ihale dokümanında belirtilen kapsamda **genişletilmiş bakım devresi teminatını** içeren sigorta yaptırmak zorundadır.\n\n**Mücbir sebepler**: kanunda sayılan haller şunlardır — doğal afetler, kanuni grev, genel salgın hastalık (pandemi), kısmi veya genel seferberlik ilanı, ve kurumca belirlenecek benzeri diğer haller. Bir halin mücbir sebep sayılıp süre uzatımı/fesih gibi haklar doğurması için **3 şart birlikte** aranır:\n1. Yükleniciden kaynaklanan bir kusurdan ileri gelmemiş olması\n2. Yüklenicinin taahhüdünü yerine getirmesine **engel nitelikte** olması\n3. Yüklenicinin bu engeli **ortadan kaldırmaya gücünün yetmemiş** olması\n\nAyrıca yüklenici, mücbir sebebin meydana geldiği tarihi izleyen **20 gün içinde** idareye **yazılı** bildirimde bulunmalı ve yetkili merci tarafından belgelendirilmelidir. Örnek: pandemi yükleniciden kaynaklanmamıştır, taahhüdü yerine getirmeye engeldir ve yüklenicinin gücü bunu aşamaz — üç şart da sağlanır, mücbir sebep sayılır.",
+        "en": "Price adjustment (fiyat farkı) captures the price change between the tender date and the month the work is actually carried out per the schedule; it is added to or deducted from progress payments and, once set in the contract, its method cannot change. The contractor must carry 'all risk' insurance (natural disasters, theft, sabotage) from start of work to provisional acceptance, and an extended maintenance-period guarantee insurance from provisional to final acceptance. Force majeure (mücbir sebep) — natural disasters, lawful strikes, pandemics, mobilization declarations, or similar — grants rights only if: (1) not caused by the contractor's fault, (2) it prevents performance, and (3) the contractor cannot overcome it; written notice to the agency is required within 20 days."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": {
+        "tr": "Muayene-Kabul, Teminatlar ve Sözleşme Değişikliği/Devri",
+        "en": "Inspection-Acceptance, Guarantees, and Contract Amendment/Assignment"
+      },
+      "body": {
+        "tr": "**Muayene ve kabul**: teslim edilen mal, hizmet veya yapım işinin muayene-kabul işlemleri, idarece kurulacak **en az 3 kişilik muayene-kabul komisyonu** tarafından yapılır. İş, yüklenici tarafından idareye teslim edilmedikçe bu işlemler yapılamaz. Taahhüdün tamamlanan ve müstakil kullanıma elverişli bölümleri için **kısmi kabul** de yapılabilir (örn. yol etaplar hâlinde açılabiliyorsa).\n\n**Ek kesin teminat**: fiyat farkı ödenmesi öngörülen işlerde, fiyat farkı nedeniyle sözleşme bedelinde artış olursa, bu artış tutarının **%6'sı** oranında ek kesin teminat alınır (hakedişten kesinti yoluyla da karşılanabilir).\n\n**Kesin teminatın iadesi**: (1) yapım işlerinde — eksik/kusurlar giderilip **geçici kabul** onaylandıktan ve **SGK ilişiksiz belgesi** getirildikten sonra **yarısı**; **kesin kabul** onaylandıktan sonra kalan yarısı. (2) yapım dışı işlerde — SGK ilişiksizlik belgesi sonrası, garanti süresi öngörülmüşse yarısı hemen, garanti süresi dolunca kalanı; garanti süresi öngörülmemişse tamamı birden iade edilir. Teminat mektupları, ilgili tarihten itibaren **2 yıl içinde** talep edilmezse ve idarenin yazılı uyarısına rağmen alınmazsa hükümsüz kalır ve bankasına iade edilir.\n\n**Sözleşmede değişiklik**: sözleşme bedeli **aşılmamak** ve idare ile yüklenici **karşılıklı anlaşmak** şartıyla — bu iki şart birlikte gerekir — şu hususlarda değişiklik yapılabilir: işin yapılma/teslim yeri; işin **süresinden önce** yapılması/teslimi kaydıyla işin süresi ve buna uygun ödeme planı.\n\n**Sözleşmenin devri**: zorunlu hallerde, **ihale yetkilisinin yazılı izniyle** başkasına devredilebilir; devralacak kişide **ilk ihaledeki şartlar** aranır. İsim/statü değişikliği hariç, bir sözleşmenin devredildiği tarihten itibaren **3 yıl içinde** aynı yüklenici başka bir sözleşme devredemez/devralamaz; izinsiz devir veya bu 3 yıl kuralının ihlali hâlinde sözleşme feshedilir.",
+        "en": "Inspection-acceptance is done by a committee of at least 3 members; partial acceptance is possible for completed, independently usable portions. If price adjustment applies and raises the contract price, an extra final guarantee of 6% of that increase is collected. Final guarantee return: works contracts release half after provisional acceptance + social-security clearance, the rest after final acceptance; other contracts release half (if a warranty period applies) after clearance, rest after the warranty ends, or all at once if no warranty applies. Unclaimed guarantee letters lapse after 2 years. Contract amendment requires both: price ceiling not exceeded, and mutual agreement — only place of performance/delivery, or an earlier completion date with its payment plan, may change. Contract assignment needs written permission from the tender authority, the assignee must meet original eligibility conditions, and the same contractor cannot assign/receive another contract within 3 years of an assignment."
+      },
+      "story": null
+    },
+    {
+      "id": "n6",
+      "title": {
+        "tr": "Yüklenicinin Durumunda Değişiklik ve Fesih Halleri",
+        "en": "Changes in the Contractor's Status and Termination Grounds"
+      },
+      "body": {
+        "tr": "**Yüklenicinin ölümü**: sözleşme feshedilerek hesabı genel hükümlere göre tasfiye edilir, kesin teminat ve alacaklar mirasçılara verilir. Ancak aynı şartları taşıyan ve talepte bulunan mirasçıya, idare uygun görürse, **ölüm tarihini izleyen 30 gün içinde** gerekli kesin teminatı vermesi şartıyla sözleşme devredilebilir.\n\n**Yüklenicinin iflası**: sözleşme feshedilir, yasaklama hariç ilgili hükümlere göre işlem yapılır.\n\n**Ağır hastalık / tutukluluk / özgürlüğü kısıtlayıcı ceza**: taahhüdün yerine getirilememesi halinde, bu durumu izleyen **30 gün içinde** yüklenicinin teklif edeceği ve idarenin kabul edeceği bir **vekil** tayiniyle işe devam edilebilir. Yüklenici kendi iradesiyle vekil tayin edemeyecek durumdaysa (örn. bilinç kaybı), aynı süre içinde bir **yasal temsilci** tayini istenebilir. Bu uygulanmazsa sözleşme feshedilir.\n\n**Ortak girişimlerde**: ortaklardan birinin ölümü/iflası/ağır hastalığı/tutukluluğu/mahkumiyeti veya ortaklığın dağılması, kural olarak sözleşmenin devamına engel değildir. Ancak bu ortak **pilot veya koordinatör ortak** olarak bildirilmişse, aynı haller sözleşmenin feshine yol açar (istisna: ölüm halinde, 30 gün içinde diğer ortaklar teklif eder ve idare uygun görürse teminat dahil sorumluluklar üstlenilerek sözleşme yenilenip devam edilebilir). Pilot/koordinatör **dışındaki** bir ortağın aynı hallere düşmesi halinde ise diğer ortaklar o ortağın sorumluluklarını (teminat dahil) üstlenerek taahhüdü sürdürür.\n\n**Yüklenicinin sözleşmeyi feshi**: mücbir sebep halleri **dışında**, mali acz nedeniyle taahhüdü yerine getiremeyeceğini gerekçesiyle yazılı bildirirse, kesin (ve varsa ek kesin) teminat **gelir kaydedilerek** devlete geçer ve sözleşme feshedilerek hesabı tasfiye edilir.\n\n**İdarenin sözleşmeyi feshi**: idare iki halde fesih yapabilir — (1) yüklenicinin taahhüdünü sözleşme hükümlerine göre yerine getirmemesi/işi süresinde bitirmemesi üzerine, idarenin **en az 10 gün** süreli ve nedenleri açık ihtarına rağmen durumun devam etmesi; (2) sözleşme uygulaması sırasında yüklenicinin **yasak fiil veya davranışlarda** bulunduğunun tespiti. Her iki halde de kesin teminat ve varsa ek kesin teminat gelir kaydedilir.",
+        "en": "Contractor death: contract terminated and settled; guarantee and receivables go to heirs, but an eligible heir may take over the contract within 30 days if the agency agrees and required guarantees are posted. Bankruptcy: contract terminated. Serious illness/detention/imprisonment preventing performance: within 30 days a proxy (agreed by both sides) or, if the contractor cannot appoint one themself, a legal representative may continue the work — otherwise termination follows. In joint ventures, a partner's death/bankruptcy/etc. generally does not stop the contract unless that partner was the declared pilot/coordinating partner, in which case it does (with a 30-day heir/partner takeover option on death). The contractor may terminate for financial incapacity (non-force-majeure), forfeiting the final guarantee to the state. The agency may terminate for (1) uncured breach after at least a 10-day written warning, or (2) detected prohibited acts — both forfeiting the final guarantee(s)."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": {
+        "tr": "İş Artışı, İş Eksilişi ve İşin Tasfiyesi",
+        "en": "Scope Increase, Scope Decrease, and Work Liquidation"
+      },
+      "body": {
+        "tr": "Öngörülmeyen durumlar nedeniyle bir işte artış **zorunlu** olursa, artışa konu iş **sözleşmeye esas proje içinde kalmalı** ve idareyi külfete sokmaksızın **asıl işten ayrılması teknik/ekonomik olarak mümkün olmamalıdır**. Bu şartlarla, sözleşme bedelinin (süre hariç):\n\n- **Anahtar teslimi götürü bedel** yapım işlerinde: **%10**'una kadar\n- **Birim fiyat** ile ihale edilen mal/hizmet alımları ve yapım işlerinde: **%20**'sine kadar\n\naynı yükleniciye yaptırılabilir. **Birim fiyat sözleşmeyle yürütülen yapım işlerinde**, Cumhurbaşkanı bu oranı sözleşme bazında **%40**'a kadar artırmaya yetkilidir.\n\nİşin bu sınırlar dahilinde tamamlanamayacağı anlaşılırsa, artış yapılmaksızın hesap genel hükümlere göre tasfiye edilir; ancak işin **tamamının** ihale dokümanı ve sözleşme hükümlerine uygun bitirilmesi zorunludur.\n\n**İş eksilişi / maliyet düşüşü**: sözleşme bedelinin **%80'inden daha düşük** bedelle tamamlanacağı anlaşılan işlerde de yüklenici işi bitirmek zorundadır. Bu durumda yükleniciye, yaptığı gerçek giderleri ve karına karşılık olarak, **sözleşme bedelinin %80'i ile sözleşme fiyatlarıyla yapılan işin tutarı arasındaki farkın %5'i**, geçici kabul tarihindeki fiyatlar üzerinden ayrıca ödenir.\n\n**Kısayol hatırlatma**: %10 anahtar teslimi, %20 birim fiyat, %40 Cumhurbaşkanı yetkisi (yapım/birim fiyat), %80 tasfiye eşiği, %5 tasfiye tazminatı.",
+        "en": "When a mandatory scope increase stays within the project's scope and cannot economically be split off as a separate job, the same contractor may be asked to perform additional work up to: 10% of the contract price for lump-sum turnkey works, or 20% for unit-price goods/services/works — the President may raise this to 40% for unit-price works contracts. If completion within these limits is impossible, the account is liquidated per general provisions, but the finished part must still fully comply with the tender/contract terms. If a job will be completed for less than 80% of the contract price, the contractor must still finish it, and is additionally paid 5% of the difference between 80% of the contract price and the value of work actually done (at provisional-acceptance-date prices) to cover real costs and profit."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": {
+        "tr": "Yasak Fiiller, İhalelere Katılmaktan Yasaklama ve Cezai Sorumluluk",
+        "en": "Prohibited Acts, Debarment from Tenders, and Criminal Liability"
+      },
+      "body": {
+        "tr": "**Yasak fiil ve davranışlar** (sözleşme uygulaması sırasında): hile, vaat, tehdit, nüfuz kullanma, çıkar sağlama, anlaşma, irtikap, rüşvet suretiyle veya başka yollarla sözleşmeye ilişkin işlemlere fesat karıştırmak/teşebbüs etmek; sahte belge düzenlemek; iş yapımı/tesliminde hileli malzeme kullanmak; taahhüdü yerine getirirken idareye zarar vermek; bilgi ve deneyimini idarenin zararına kullanmak; mücbir sebepler dışında taahhüdü yerine getirmemek; sözleşmeyi kanuna aykırı devretmek/devralmak.\n\n**İhalelere katılmaktan yasaklama**: bu fiiller tespit edilenler hakkında, fiilin özelliğine göre **1 yıldan az olmamak üzere 2 yıla kadar** tüm kamu kurum/kuruluşlarının ihalelerine katılmaktan yasaklama kararı verilir. Tüzel kişi şahıs şirketiyse tüm ortakları, sermaye şirketiyse sermayenin **yarısından fazlasına** sahip ortakları da bu yasaktan etkilenir (ve tersi yönde de uygulanır — yasaklı kişinin ortak olduğu şirketler de yasaklanır). Yasaklama kararı, fiilin tespit edildiği tarihi izleyen en geç **45 gün** içinde verilir; karar Resmî Gazete'de yayımlanmak üzere en geç **15 gün** içinde gönderilir ve **yayım tarihinde yürürlüğe girer**.\n\n**%80 istisnası (sözleşme sonrası tespit edilen yasaklılık)**: Yasaklı olduğu sözleşme yapıldıktan *sonra* anlaşılan yüklenicinin sözleşmesi kural olarak feshedilir ve teminatları gelir kaydedilir. Ancak yüklenici taahhüdün **en az %80'ini tamamlamışsa** ve taahhüdün tamamlattırılmasında **kamu yararı** varsa — bu iki şart *birlikte* — idare, ayrıca şu **3 koşulun** da sağlanması hâlinde sözleşmeyi feshetmeksizin işi tamamlatabilir: (1) kalan kısmın (en çok %20) yeniden ihalesi için yeterli süre bulunmaması (**aciliyet**), (2) taahhüdün başka bir yükleniciye yaptırılmasının mümkün olmaması, (3) yasak fiilin taahhüdün tamamlanmasını engelleyecek nitelikte olmaması. Bu durumda yüklenici işi tamamlamak zorundadır — fakat **işe devam izni cezadan muafiyet sağlamaz**: yüklenici hakkında ilgili madde hükmüne göre işlem yapılır ve ayrıca **kesin teminat tutarı kadar** ceza tahsil edilir (hakedişlerden kesinti yoluyla da tahsil edilebilir).\n\n**Cezai sorumluluk**: yasak fiiller Türk Ceza Kanunu'na göre suç teşkil ediyorsa, kamu ihale kurumu/idare yetkili Cumhuriyet savcılığına **suç duyurusunda bulunur** — bu, KİSK'teki idari yasaklamadan **ayrı ve ek** bir süreçtir. Mahkeme, verilecek cezanın yanı sıra, yasaklama kararının bitiş tarihinden itibaren uygulanmak üzere **1 yıldan az olmamak üzere 3 yıla kadar** tüm kamu ihalelerine katılmaktan yasaklama kararı verebilir. Aynı fiiller nedeniyle **mükerrer** ceza hükmü alanlar (ve sermayelerinin yarısından fazlasına sahip oldukları/ortağı oldukları şirketler) **sürekli olarak** kamu ihalelerine katılmaktan yasaklanır.\n\n**Görevlilerin sorumluluğu**: muayene-kabul komisyonu üyeleri, yapı denetim görevlileri ve sürecin her aşamasındaki diğer görevliler, görevlerini kanuni gereklere/tarafsızlığa aykırı yürütüp bir tarafın zararına yol açacak ihmal/kusurlu davranışta bulunurlarsa, ilgili mevzuata göre **disiplin cezası** ve gerekirse **ceza kovuşturmasına** tabi tutulurlar.",
+        "en": "Prohibited acts during contract execution include fraud, threats, bribery, forgery, using defective materials, damaging the agency, and unlawful assignment. Those found guilty are debarred from all public tenders for 1–2 years (extending to majority shareholders/partners of any implicated legal entity); the debarment decision must issue within 45 days of detection, be sent for Official Gazette publication within 15 days, and takes effect on publication. 80% exception: if a contractor's debarment is discovered only after signing, the contract is normally terminated and guarantees forfeited — but if the contractor has completed at least 80% of the obligation AND finishing it serves the public interest, the agency may (without terminating) have the work completed, provided three further conditions all hold: (1) urgency — no time to re-tender the remaining ≤20%, (2) the work cannot be given to another contractor, and (3) the prohibited act does not itself prevent completion; even so, permission to continue does not exempt the contractor from penalty — the relevant provisions still apply and a fine equal to the final guarantee amount is also collected. Separately, if the act is also a crime under the Turkish Penal Code, a criminal complaint is filed; courts may add a further 1–3 year nationwide tender ban starting after the administrative ban ends, and repeat offenders (and their controlled companies) are permanently banned. Officials on inspection/acceptance committees or site supervision who act negligently or partially face disciplinary and possibly criminal proceedings too."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": {
+        "tr": "Yapı Denetiminde 15 Yıllık Sorumluluk: Müteselsil ve Müşterek",
+        "en": "The 15-Year Structural-Defect Liability: Joint-and-Several vs Several"
+      },
+      "body": {
+        "tr": "**Yüklenicinin sorumluluğu**: yapının fen ve sanat kurallarına aykırı yapılması, kötü malzeme kullanılması vb. nedenlerle ortaya çıkan zarar-ziyandan yüklenici, **işe başlama tarihinden kesin kabul tarihine kadar** sorumludur; **kesin kabul onay tarihinden itibaren de 15 yıl süreyle müteselsilen** sorumludur. **Yapı denetimi** yerine getiren idare görevlileri de, denetim eksikliğinden doğan zarardan yüklenici ile birlikte **15 yıl süreyle müteselsilen** sorumludur. Danışmanlık/yapı denetim hizmeti sunucuları ile alt yükleniciler de aynı **15 yıl müteselsil** sorumluluk kapsamındadır; tedarikçiler ve hizmet sunucular ise kendi neden oldukları zarardan **doğrudan** sorumludur.\n\n**Müteselsil sorumluluk**: birden fazla kişinin bir borç/zararın **tamamını** ödemekten zincirleme şekilde sorumlu olmasıdır. Alacaklı, borçlulardan **seçtiği herhangi birine** başvurup borcun **tamamını** o kişiden isteyebilir. *Örnek*: toplam borç 4 TL, 4 müteselsil borçlu varsa, alacaklı seçtiği tek bir borçludan 4 TL'nin tamamını tahsil edebilir.\n\n**Müşterek sorumluluk**: birden fazla kişinin bir borç/zararın tümünden **kendi payı oranında** sorumlu olmasıdır. Alacaklı her borçludan **sadece o kişinin payına düşen kısmı** isteyebilir. *Örnek*: toplam borç 4 TL, 4 eşit paylı müşterek borçlu varsa, alacaklı her borçludan sadece 1'er TL tahsil edebilir.\n\n**Müşterek ve müteselsil sorumluluk bir arada** olursa: alacaklı, toplam borcu tahsil edene kadar **dilediği borçludan dilediği miktarı** isteyebilir (örn. birinden 2 TL, diğerinden 1,5 TL, diğerinden 0,5 TL...).\n\n**Yüksek Fen Kurulu**: yapım işleri danışmanlık sözleşmelerinin uygulanmasında yetkilidir. Yüklenici veya idareler, yargıya veya sayıştay incelemesine konu edilmemiş anlaşmazlıklar için Yüksek Fen Kurulu'na başvurabilir. Yüklenici itirazları, **kesin kabul aşaması tamamlanana kadar** ilgili idareye yazılı yapılır; idare bu itirazı en geç **30 gün** içinde Kurula gönderir; Kurul itirazı en geç **60 gün** içinde inceleyip karara bağlar ve karar ilgili idarece uygulanır.",
+        "en": "The contractor is liable for defects (violations of professional/technical rules, poor materials) from start of work through final acceptance, and jointly-and-severally for 15 years after final acceptance approval; site-supervision officials share that same 15-year joint-and-several liability with the contractor, as do consultancy/supervision providers and subcontractors; suppliers and service providers are directly liable only for damage they themselves caused. Joint-and-several liability (müteselsil) means the creditor can recover the FULL debt from any one debtor of their choosing. Several liability (müşterek) means the creditor can only recover each debtor's own share. When both apply together, the creditor may collect any amount from any debtor until the whole debt is recovered. The Supreme Technical Board (Yüksek Fen Kurulu) resolves consultancy-contract disputes not yet before a court or the Court of Accounts: contractor objections go in writing to the agency until final acceptance, the agency forwards them within 30 days, and the Board rules within 60 days."
+      },
+      "story": null
+    },
+    {
+      "id": "n10",
+      "title": {
+        "tr": "Teknik Şartname: Tanım ve İnşaattaki Önemi",
+        "en": "Technical Specification: Definition and Its Role in Construction"
+      },
+      "body": {
+        "tr": "**Şartname**, sözlük anlamıyla \"şartlı anlaşma metni\"dir — bir işin gerçekleştirilmesiyle ilgili koşulların tanımlandığı metin. **Teknik şartname** ise bir hammadde, yarı mamul, mamul ya da bir üretim sürecinin/hizmetin **teknik niteliğini** belirleyen belgedir: üretimi söz konusu olan cismin, cihazın veya faaliyetin sahip olması gereken **fiziksel, kimyasal, mekanik ve/veya işlemsel** özellikleri somut şekilde belirler. *Örnek*: beton yapımında kullanılacak kum-çakılın tane iriliği, elek analizi gerekip gerekmeyeceği, yıkanmış olup olmayacağı, doğal ocaktan mı kırma taş mı olacağı, yabancı madde sınır değerleri.\n\n**Neden gerekli?** Proje (paftalar, kesitler) tasarlanan yapının üretiminde kullanılacak tekniği ve malzemenin **her ayrıntısını** açıklamaya yetmez — çünkü proje çizgisel anlatım ağırlıklı bir belgedir. Örneğin projede duvarda kullanılacak tuğlanın boyutu ve türü belirtilse de, tuğlanın **boyut toleransları, basınç mukavemeti, su emme düzeyi** gibi özellikleri projede yer almaz — bunlar teknik şartname ile belirlenir. Teknik şartname aynı zamanda bir **denetim aracıdır**: yapı sahibi, şartname sayesinde işin ne kadar sağlam ve doğru yapıldığını denetleyebilir.\n\n**Özet formül**: teknik şartnamesi eklenmemiş bir projede *ne yapılacağı* belirtilebilir, ama üretimin *hangi kalitede* yapılacağı yeterince anlatılamaz.",
+        "en": "A specification (şartname) is literally a 'conditional agreement text.' A technical specification (teknik şartname) defines the technical properties — physical, chemical, mechanical, and/or process — that a raw material, semi-product, product, production process, or service must have, in concrete terms (e.g. grain size, washing, source of sand/gravel for concrete). Projects (drawings, sections) cannot specify every material/technique detail because they are primarily graphical documents — e.g. a drawing shows brick size and type but not tolerance, compressive strength, or water absorption. The technical spec also serves as an inspection tool for the owner. In short: a project without a technical spec can state WHAT will be built, but not reliably WHAT QUALITY it will be built to."
+      },
+      "story": null
+    },
+    {
+      "id": "n11",
+      "title": {
+        "tr": "Teknik Şartname Hazırlama İlkeleri (3 Kriter)",
+        "en": "Principles for Drafting a Technical Specification (3 Criteria)"
+      },
+      "body": {
+        "tr": "Teknik şartname hazırlanırken **3 kriter** göz önünde tutulmalıdır:\n\n**a) Projede açıklanmayan her konu şartnamede yer almalı.** İnşaatta kullanılan malzeme/teknolojiyle ilgili olarak projede yeterince açıklanmayan veya hiç açıklanmayan her konu (örn. tuğlanın fiziksel/mekanik özellikleri, duvarın tekniğine uygun örülmesi) şartnamede tanımlanır. Şartnameye konulacak her bilgi, projede eksik kalan ama bilinmesi gereken bilgilerden oluşmalı — gereksiz ayrıntı doldurulmamalı (**\"gerekli ve yeterli\"** ölçütü).\n\n**b) Uygulanabilir, ulaşılabilir ve denetlenebilir olmalı.** Soyut/öznel tanımlar (\"1. sınıf olacak\", \"kaliteli olacak\") yerine **somut, ölçülebilir, kıyaslanabilir** tanımlar kullanılmalı. *Örnek*: \"1. sınıf doğrama\" yerine, doğramanın üretiminde kullanılacak malzemenin niteliği ve işçilik düzeyinin kesin tanımlanması; gerekirse üretici firma adı ve ürün kodu verilmesi. Aynı zamanda **aşırı** ayrıntı ve hassasiyet de zararlıdır: bir makine üretiminde mikron hassasiyeti gerekirken, inşaatta milimetre hassasiyeti yeterlidir — örneğin duvar sapmasının **±1 mm** olacağı şeklinde bir madde uygulanamaz, çünkü tuğla standartlarının öngördüğü tolerans bile **±3 mm**'dir. Çok miktarda kullanılan malzemenin kalite kontrolü, tek tek değil **örnekleme yöntemiyle** yapılmalıdır. **Denetim** = belirlenen standartlara uyulup uyulmadığının izlenmesi faaliyetidir; şartnamedeki tanım ve kriterler ölçülerek, tartılarak veya deney aletleriyle test edilerek denetlenebilir olmalıdır.\n\n**c) Uzman bilgi/deneyimi + standartlardan yararlanılmalı.** Yapılacak işlerin teknik niteliği tanımlanırken, konunun uzmanlarının bilgi ve deneyiminin yanında **standartlardan da** yararlanılır — uzman da olsa bazı ayrıntılar unutulabilir; ilgili standarda atıfta bulunmak hem zaman kazandırır hem de eksik tanımlamadan korur. *Örnek*: sıvayla ilgili tüm teknik özellikleri tek tek yazmak yerine, \"dış sıvalarda TS EN 13914-1'e, iç sıvalarda TS EN 13914-2'ye uyulacaktır\" denilerek standart şartname eki sayılır.",
+        "en": "Three criteria for drafting a technical spec: (a) it must cover everything the project drawings leave unexplained or under-explained — no more, no less ('necessary and sufficient'); (b) every technical requirement must be applicable, attainable, and verifiable — concrete measurable terms instead of vague ones ('first-class', 'good quality'), and not so hyper-precise that it can't realistically be checked (construction needs millimeter, not micron, precision; bulk materials are quality-checked by sampling, not by inspecting every unit); (c) it should combine expert knowledge/experience with references to existing standards (referencing a standard number, e.g. for plastering TS EN 13914-1/2, pulls in that whole document as an annex, saving time and avoiding omissions)."
+      },
+      "story": null
+    },
+    {
+      "id": "n12",
+      "title": {
+        "tr": "Teknik Şartnamenin Kapsamı ve Düzenleme Yaklaşımları",
+        "en": "Scope and Organizational Approaches of Technical Specifications"
+      },
+      "body": {
+        "tr": "Bina inşaatlarına ait teknik şartnamelerde ele alınan teknik tanımlar; kullanılacak **malzeme (gereç), yapı bileşimi, yapı elemanı, cihaz/makine ile montaj ve test işleri** ile ilgilidir. Konuların şartnamede belirli bir **sistem içinde** ele alınması, izlenmesini kolaylaştırır ve unutma/eksik tanım gibi hataları azaltır. İki temel düzenleme yaklaşımı vardır:\n\n1. **Malzeme–yapı bileşimi–eleman bazlı yaklaşım**: her konu, malzeme, yapı bileşimi ve eleman düzeyinde her yönüyle birlikte anlatılır (örn. beton için önce kum-çakıl-çimento-su-demir nitelikleri, sonra imalat koşulları aynı bölümde). Pratik görünür ama aynı malzeme (çimento, kum gibi) birçok elemanda tekrar tekrar anlatılmak zorunda kalır.\n2. **5 ana başlıklı yaklaşım (daha yaygın)**: tanımlar, **malzemeler, yapı bileşimleri, yapı elemanları, makine ve cihazlar** olmak üzere ayrı ayrı bölümlerde toplanır (makine-cihaz bölümünde montaj/test şartları alt başlık olarak yer alır). Binada makine-cihaz yoksa o bölüm kullanılmaz — kapsam, işin özelliğine göre belirlenir.\n\n**Bilgi toplama süreci** 3 adımdır: (1) şartname, **konunun uzmanları** tarafından veya onların gözetiminde hazırlanmalı; (2) **kaynak araştırması** yapılıp hangi kaynaklardan (standartlar vb.) yararlanılacağı belirlenmeli; (3) toplanan bilgiler işin **özgün koşullarına uyarlanarak** şartname hükmü haline getirilmeli (örn. kimyasal atıklı suda kullanılacak köprü ayağı betonu için özel şartname).",
+        "en": "Building technical specs cover materials, building assemblies, building elements, and machinery/equipment (including installation and testing). Two drafting approaches exist: (1) material–assembly–element based — each topic explained fully together (practical to read but repeats shared materials like cement across many sections); (2) the more common 5-heading approach — definitions, materials, building assemblies, building elements, machinery & equipment as separate sections (equipment section dropped if not applicable). Drafting follows 3 steps: expert preparation/oversight, researching and sourcing relevant standards, then adapting that pooled knowledge to the specific job's conditions."
+      },
+      "story": null
+    },
+    {
+      "id": "n13",
+      "title": {
+        "tr": "Standart Kaynakları: TS, ISO, EN ve Diğer Ulusal Standartlar",
+        "en": "Standards Sources: TS, ISO, EN, and Other National Standards"
+      },
+      "body": {
+        "tr": "**Türk Standartları (TS)**: Türk Standartları Enstitüsü (TSE) tarafından hazırlanır. Her standart, \"TS\" harfleri + bir **tanım numarası** ile yazılır (örn. **TS 500**, **TS 825**); ayrıca uluslararası kod sistemine göre sayısal bir **ICS kodu** da taşır (örn. TS 825'in ICS kodu 91.120.10). TSE, madde/ürün/işlem/hizmet ile ilgili **7 ana grupta** belgelendirme yapar: üretim yerleri, ürünler, parti malları, ithal mallar, laboratuvarlar, hizmet yerleri, kalite sistemleri.\n\n- **TSE işareti**: ürünün ilgili Türk standardına göre üretildiğini ve TSE garantisi altında olduğunu gösterir.\n- **TSEK işareti** (\"Kalite Uygunluk Markası\"): henüz Türk standardı bulunmayan bir ürünün, ilgili uluslararası/başka ülke standardına veya TSE'nin kabul ettiği teknik özelliklere uygun üretildiğini gösterir.\n- **Tadilat**: standardın kısmi güncellenmesi \"T\" harfi + sıra numarasıyla belirtilir (örn. **TS 825/T3** = 3. kez tadil edilmiş).\n- **Zorunlu standart**: Resmî Gazete'de duyurulur, uyulmaması yasal yaptırım getirir — **kamu ihalelerinde sözleşme konusu ürün/üretimin Türk standartlarına uygun olması zorunludur**. **İsteğe bağlı standart**: uyulup uyulmaması kişi/kurumun kendi inisiyatifindedir.\n\n**Uluslararası ve Avrupa standartları**: **ISO** (Uluslararası Standartlar Organizasyonu) ve **EN** (Avrupa Standartları) tarafından hazırlanan standartlar Türk standardı ile **içerik olarak birebir aynıysa**, TS numarasının yanına ilgili sembol eklenir:\n- **TS ISO 9882** → içerik uluslararası ISO standardıyla birebir aynı\n- **TS EN 933-2** → içerik Avrupa (EN) standardıyla birebir aynı\n- **TS EN ISO 7783** → içerik hem EN hem ISO ile birebir aynı (kombine)\n\n**Diğer ulusal standartlar** (işin yurt dışında/uluslararası nitelikli olması halinde kullanılabilir): **DIN** (Alman), **BSI** (İngiliz), **ASTM** (Amerikan), **JIS** (Japon). İş sağlığı-güvenliği alanında **OHSAS** (hem Avrupa'da hem Amerika'da geçerli) önemli bir referanstır.",
+        "en": "Turkish Standards (TS) are issued by the Turkish Standards Institute (TSE), each with a number (TS 500, TS 825) and an ICS international code. TSE certifies in 7 groups: production sites, products, lot goods, imports, laboratories, service premises, quality systems. TSE mark = made to the Turkish standard, TSE-guaranteed; TSEK mark = no Turkish standard yet exists, but made to an accepted international/foreign standard or TSE-accepted spec. Revisions are marked with /T + a sequence number (TS 825/T3 = 3rd revision). Mandatory standards (announced in the Official Gazette; required for public procurement) contrast with voluntary ones. When a TS standard is identical in content to an ISO and/or EN standard, the symbols are combined (TS ISO 9882, TS EN 933-2, TS EN ISO 7783 — the last both ISO and EN). Other national standards used for international jobs: DIN (Germany), BSI (Britain), ASTM (USA), JIS (Japan); OHSAS covers occupational health & safety, valid in both Europe and the US."
+      },
+      "story": null
+    },
+    {
+      "id": "n14",
+      "title": {
+        "tr": "Hazır Şartname Kaynakları ve Şartname Türleri",
+        "en": "Ready-Made Specification Sources and Specification Types"
+      },
+      "body": {
+        "tr": "**Yatırımcı kamu kuruluşlarının şartnameleri**: Karayolları, Devlet Su İşleri (DSİ), Çevre ve Şehircilik Bakanlığı, Toplu Konut İdaresi (TOKİ) gibi kuruluşlar, kendi alanlarıyla ilgili önceden hazırlanmış teknik şartnamelere sahiptir — önemli bir deneyimin ürünü olan bu dokümanlar, temel malzeme ve imalatlara ilişkin genel teknik nitelikleri içerir ve pek çok maddesinde Türk standartlarına atıfta bulunur. Kamuya ait olmayan inşaatların şartnamesinde de bunlardan yararlanılabilir. En yaygın kullanılanı, Çevre ve Şehircilik Bakanlığı Fen İşleri Başkanlığı'nca hazırlanan **Genel Teknik Şartname**'dir.\n\n**Dikkat edilmesi gereken nokta**: hazır şartnamelerden yararlanırken, (1) sözleşme konusu inşaattaki imalatları **kapsayıp kapsamadığı** ve (2) yapılan tanımların **güncel olup olmadığı** incelenmelidir — genel amaçlı hazırlanan bu şartnameler sık güncellenmediği için bazı tanımlar ve atıf yapılan standartlar geçerliliğini yitirebilir.\n\n**Şartname türleri (kapsam açısından)**: bir ihale dokümanında, işin *idari* koşullarını (teklif usulü, teminatlar, ödeme, süre gibi hususlar) düzenleyen **idari şartname** ile işin *teknik* niteliğini tanımlayan **teknik şartname** birlikte yer alır. Teknik şartname de kapsamına göre ikiye ayrılabilir: belirli bir işe özgü hazırlanan **özel (iş özel) teknik şartname** ve genel amaçlı, önceden hazırlanmış, birçok işte referans olarak kullanılan **genel teknik şartname** (yukarıdaki örnekte olduğu gibi). Bir işin şartnamesi, genel teknik şartnameye atıfta bulunarak + işe özgü ek koşullar ekleyerek de oluşturulabilir.\n\n**En kritik ilke** (tekrar): teknik şartname hazırlanırken yararlanılan tüm hazır dokümanların içerikleri, **işveren ve yüklenici tarafından yeterince incelenmiş ve anlaşılmış olmalıdır** — uygulamada sıkça görülen anlaşmazlıkların en büyük nedeni, tarafların şartnameye konan referans belgelerin içeriğini yeterince incelememiş olmasıdır; içerik ancak yargıya intikal ettiğinde öğrenilmektedir.",
+        "en": "Public investment agencies (Highways, State Hydraulic Works/DSİ, Ministry of Environment & Urbanization, Mass Housing Authority/TOKİ) maintain pre-drafted technical specs for their own fields — the most widely used being the Ministry's 'General Technical Specification' (Genel Teknik Şartname). When reusing such ready-made specs, check whether they (1) actually cover the works in question and (2) are still current, since general-purpose specs are not updated often and referenced standards can lapse. In scope terms, a tender dossier pairs an administrative specification (idari şartname — tender procedure, guarantees, payment, duration) with a technical specification (teknik şartname); the latter can be either job-specific (özel/iş özel teknik şartname) or a general, reusable one (genel teknik şartname), often combined by referencing the general spec plus adding job-specific clauses. The governing principle throughout: both employer and contractor must actually read and understand every referenced document's content — most spec-related disputes trace back to a party only discovering what a referenced standard actually required once the case reached court."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": {
+        "tr": "Kamu İhale Sözleşmeleri Kanunu'nun amacı nedir?",
+        "en": "What is the purpose of the Public Procurement Contracts Law?"
+      },
+      "back": {
+        "tr": "Kamu İhale Kanunu'na göre yapılan ihalelere ilişkin sözleşmelerin düzenlenmesi ve uygulanmasıyla ilgili esas ve usulleri belirlemektir.",
+        "en": "To set the rules and procedures for drafting and executing contracts resulting from tenders held under the Public Procurement Law."
+      },
+      "en": "Public Procurement Contracts Law (KİSK) purpose",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f2",
+      "front": {
+        "tr": "Sözleşmede ihale dokümanına aykırı hüküm bulunabilir mi?",
+        "en": "Can a contract contain terms contrary to the tender documents?"
+      },
+      "back": {
+        "tr": "Hayır — kanuna göre düzenlenecek sözleşmelerde ihale dokümanında yer alan şartlara aykırı hükümler yer alamaz.",
+        "en": "No — contracts under the law cannot contain provisions contrary to the tender documents' terms."
+      },
+      "en": "no contradiction with tender documents",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f3",
+      "front": {
+        "tr": "Tip sözleşme nedir?",
+        "en": "What is a 'tip sözleşme' (standard/model contract)?"
+      },
+      "back": {
+        "tr": "Tarafları bağlayacak koşulların, sözleşmeye taraf olmayan bir merci veya taraflardan birince önceden belirlendiği, tarafların bu çerçevede sözleşme yapmak zorunda olduğu sözleşme örneğidir.",
+        "en": "A pre-set contract template, determined by a non-party authority or one of the parties, that binds the contracting parties to build their agreement within its framework."
+      },
+      "en": "standard/model contract template",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f4",
+      "front": {
+        "tr": "Tip sözleşmeler nerede yayımlanır?",
+        "en": "Where are standard contracts published?"
+      },
+      "back": {
+        "tr": "Resmî Gazete'de yayımlanır.",
+        "en": "In the Official Gazette."
+      },
+      "en": "Official Gazette publication",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f5",
+      "front": {
+        "tr": "Anahtar teslimi götürü bedel sözleşme nedir?",
+        "en": "What is a lump-sum turnkey contract?"
+      },
+      "back": {
+        "tr": "Yapım işlerinde, uygulama projeleri ve mahal listelerine dayalı olarak işin tamamı için isteklinin teklif ettiği toplam bedel üzerinden yapılan sözleşmedir.",
+        "en": "In works contracts, a contract based on application projects and room/quantity lists, priced at the bidder's total offer for the entire job."
+      },
+      "en": "lump-sum turnkey contract (works)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f6",
+      "front": {
+        "tr": "Götürü bedel sözleşme (mal/hizmet) nedir?",
+        "en": "What is a lump-sum contract for goods/services?"
+      },
+      "back": {
+        "tr": "Mal veya hizmet alımı işlerinde, ayrıntılı özellikleri ve miktarı idarece belirlenen işin tamamı için isteklinin teklif ettiği toplam bedel üzerinden yapılan sözleşmedir.",
+        "en": "In goods/services procurement, a contract priced at the bidder's total offer for the whole job, whose detailed specs and quantity are set by the agency."
+      },
+      "en": "lump-sum contract (goods/services)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f7",
+      "front": {
+        "tr": "Birim fiyat sözleşme nasıl hesaplanır?",
+        "en": "How is a unit-price contract priced?"
+      },
+      "back": {
+        "tr": "İdarece hazırlanmış cetvelde yer alan her bir iş kaleminin miktarı ile bu kalemler için istekli tarafından teklif edilen birim fiyatların çarpımı toplanarak bulunan toplam bedel üzerinden.",
+        "en": "As the sum, over all line items in the agency's schedule, of (item quantity × the bidder's offered unit price)."
+      },
+      "en": "unit-price contract calculation",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f8",
+      "front": {
+        "tr": "Karma sözleşme nedir?",
+        "en": "What is a mixed contract?"
+      },
+      "back": {
+        "tr": "Yapım işlerinde iş kalemlerinin bir kısmının anahtar teslimi götürü bedel, bir kısmının birim fiyat usulüyle birlikte uygulandığı sözleşmedir.",
+        "en": "A works contract where some line items are priced lump-sum turnkey and others unit-price, applied together."
+      },
+      "en": "mixed contract (lump-sum + unit-price)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f9",
+      "front": {
+        "tr": "Çerçeve anlaşmaya dayalı münferit sözleşmede zorunlu hususları kim belirler?",
+        "en": "Who sets the mandatory content of an individual contract under a framework agreement?"
+      },
+      "back": {
+        "tr": "Kurum belirler.",
+        "en": "The contracting institution (kurum) determines it."
+      },
+      "en": "framework-agreement individual contract",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f10",
+      "front": {
+        "tr": "Kamu ihale kanununa göre kaç tür sözleşme vardır?",
+        "en": "How many contract types exist under the Public Procurement Law?"
+      },
+      "back": {
+        "tr": "Beş: anahtar teslimi götürü bedel, götürü bedel, birim fiyat, karma sözleşme, çerçeve anlaşmaya dayalı münferit sözleşme.",
+        "en": "Five: lump-sum turnkey, lump-sum, unit-price, mixed, and individual contracts under a framework agreement."
+      },
+      "en": "5 contract types",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f11",
+      "front": {
+        "tr": "Sözleşmede yer alması zorunlu hususlardan 5 tanesini sayınız.",
+        "en": "List 5 mandatory contents of the contract."
+      },
+      "back": {
+        "tr": "İşin adı/niteliği/türü/miktarı; sözleşme bedeli/türü/süresi; ödeme yeri ve şartları; kesin teminat miktarı ve iade şartları; gecikme halinde uygulanacak cezalar (örnek cevaplardan biri).",
+        "en": "Job identity/nature/type/quantity; contract price/type/duration; payment place and terms; final guarantee amount and return conditions; delay penalties (example answer)."
+      },
+      "en": "mandatory contract contents (examples)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f12",
+      "front": {
+        "tr": "Sözleşmede fiyat farkı ile ilgili ne belirtilmek zorundadır?",
+        "en": "What must the contract specify about price adjustment?"
+      },
+      "back": {
+        "tr": "Sözleşme konusu işler için fiyat farkı ödenecekse, bunun ne şekilde ödeneceği belirtilmek zorundadır.",
+        "en": "If price adjustment will be paid for the contracted work, how it will be paid must be specified."
+      },
+      "en": "price-adjustment clause requirement",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f13",
+      "front": {
+        "tr": "İhale dokümanındaki belgelerin sözleşmeyle ilişkisi nedir?",
+        "en": "What is the relationship between tender documents and the contract?"
+      },
+      "back": {
+        "tr": "İhale dokümanında yer alan bütün belgeler sözleşmenin ekidir — bu husus sözleşmede belirtilmek zorundadır.",
+        "en": "All documents in the tender dossier are annexes to the contract — this must be stated in the contract."
+      },
+      "en": "tender documents = contract annexes",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f14",
+      "front": {
+        "tr": "Fiyat farkı nedir?",
+        "en": "What is 'fiyat farkı' (price adjustment)?"
+      },
+      "back": {
+        "tr": "Sözleşme kapsamında yapılan imalatın ihale tarihi ile iş programına göre uygulamanın yapılacağı ay arasındaki fiyat değişimini ifade eder.",
+        "en": "The price change between the tender date and the month the contracted work is actually carried out per the schedule."
+      },
+      "en": "price adjustment / escalation clause",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f15",
+      "front": {
+        "tr": "Fiyat farkına ilişkin esas ve usuller sözleşme imzalandıktan sonra değiştirilebilir mi?",
+        "en": "Can the price-adjustment method be changed after the contract is signed?"
+      },
+      "back": {
+        "tr": "Hayır, sözleşme imzalandıktan sonra değiştirilemez.",
+        "en": "No, it cannot be changed after signing."
+      },
+      "en": "price-adjustment terms are fixed after signing",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f16",
+      "front": {
+        "tr": "\"All risk\" sigorta hangi dönemi kapsar?",
+        "en": "What period does 'all risk' insurance cover?"
+      },
+      "back": {
+        "tr": "İşe başlama tarihinden geçici kabul tarihine kadar geçen süreyi; doğal afetler, hırsızlık, sabotaj gibi risklere karşı yaptırılır.",
+        "en": "From the start of work to provisional acceptance; covers natural disasters, theft, sabotage, etc."
+      },
+      "en": "'all risk' insurance (start to provisional acceptance)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f17",
+      "front": {
+        "tr": "Genişletilmiş bakım devresi teminatını içeren sigorta hangi dönemi kapsar?",
+        "en": "What period does the extended maintenance-period guarantee insurance cover?"
+      },
+      "back": {
+        "tr": "Geçici kabul tarihinden kesin kabul tarihine kadar geçen süreyi kapsar.",
+        "en": "From provisional acceptance to final acceptance."
+      },
+      "en": "extended maintenance-period insurance",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f18",
+      "front": {
+        "tr": "Kanunda sayılan mücbir sebep halleri nelerdir?",
+        "en": "What are the recognized force-majeure grounds?"
+      },
+      "back": {
+        "tr": "Doğal afetler, kanuni grev, genel salgın hastalık, kısmi veya genel seferberlik ilanı ve kurumca belirlenecek benzeri diğer haller.",
+        "en": "Natural disasters, lawful strikes, pandemics, partial/general mobilization declarations, and similar cases the institution determines."
+      },
+      "en": "force majeure grounds",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f19",
+      "front": {
+        "tr": "Bir halin mücbir sebep sayılması için gereken 3 şart nedir?",
+        "en": "What 3 conditions must be met for a situation to count as force majeure?"
+      },
+      "back": {
+        "tr": "1) Yükleniciden kaynaklanan bir kusurdan ileri gelmemiş olması, 2) taahhüdün yerine getirilmesine engel nitelikte olması, 3) yüklenicinin bu engeli ortadan kaldırmaya gücünün yetmemiş olması.",
+        "en": "1) Not caused by the contractor's fault, 2) it prevents performance of the obligation, 3) the contractor lacks the power to overcome it."
+      },
+      "en": "3 conditions for force majeure",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f20",
+      "front": {
+        "tr": "Mücbir sebep bildirimi kaç gün içinde ve nasıl yapılmalıdır?",
+        "en": "Within how many days, and how, must force majeure be reported?"
+      },
+      "back": {
+        "tr": "Mücbir sebebin meydana geldiği tarihi izleyen 20 gün içinde idareye yazılı olarak bildirilmeli ve yetkili merci tarafından belgelendirilmelidir.",
+        "en": "In writing to the agency within 20 days of the event, certified by the competent authority."
+      },
+      "en": "force-majeure notice: 20 days, written",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f21",
+      "front": {
+        "tr": "Muayene ve kabul işlemlerini kim yapar?",
+        "en": "Who performs inspection and acceptance?"
+      },
+      "back": {
+        "tr": "İdarece kurulacak en az 3 kişilik muayene-kabul komisyonu yapar.",
+        "en": "An inspection-acceptance committee of at least 3 members set up by the agency."
+      },
+      "en": "inspection-acceptance committee (min. 3 members)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f22",
+      "front": {
+        "tr": "Kısmi kabul ne zaman yapılabilir?",
+        "en": "When can partial acceptance be granted?"
+      },
+      "back": {
+        "tr": "Taahhüdün tamamlanan ve müstakil kullanıma elverişli bölümleri için yapılabilir.",
+        "en": "For completed portions of the work that are independently usable."
+      },
+      "en": "partial acceptance",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f23",
+      "front": {
+        "tr": "Ek kesin teminat oranı nedir ve ne zaman alınır?",
+        "en": "What is the additional final guarantee rate, and when is it collected?"
+      },
+      "back": {
+        "tr": "Fiyat farkı ödenmesi öngörülen işlerde, fiyat farkı nedeniyle sözleşme bedelinde oluşan artış tutarının %6'sı oranında ek kesin teminat alınır.",
+        "en": "6% of the price-increase amount arising from price adjustment, in contracts where price adjustment is anticipated."
+      },
+      "en": "additional final guarantee: 6% of price-adjustment increase",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f24",
+      "front": {
+        "tr": "Yapım işlerinde kesin teminatın yarısı ne zaman iade edilir?",
+        "en": "In works contracts, when is half the final guarantee returned?"
+      },
+      "back": {
+        "tr": "Eksik ve kusurlar giderilip geçici kabul tutanağı onaylandıktan ve SGK ilişiksizlik belgesi getirildikten sonra.",
+        "en": "After defects are cured, provisional acceptance is approved, and a social-security (SGK) clearance certificate is submitted."
+      },
+      "en": "half of final guarantee returned after provisional acceptance",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f25",
+      "front": {
+        "tr": "Yapım işlerinde kesin teminatın kalan yarısı ne zaman iade edilir?",
+        "en": "When is the remaining half of the final guarantee returned in works contracts?"
+      },
+      "back": {
+        "tr": "Kesin kabul tutanağının onaylanmasından sonra.",
+        "en": "After the final acceptance record is approved."
+      },
+      "en": "remaining half returned after final acceptance",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f26",
+      "front": {
+        "tr": "Talep edilmeyen teminat mektupları kaç yıl içinde hükümsüz kalır?",
+        "en": "After how many years do unclaimed guarantee letters lapse?"
+      },
+      "back": {
+        "tr": "İlgili tarihten itibaren 2 yıl içinde idarenin yazılı uyarısına rağmen talep edilmezse hükümsüz kalır ve bankasına iade edilir.",
+        "en": "2 years — if not claimed despite the agency's written warning, the letter lapses and is returned to its bank."
+      },
+      "en": "unclaimed guarantee letters lapse: 2 years",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f27",
+      "front": {
+        "tr": "Sözleşmede değişiklik yapılabilmesi için gereken 2 şart nedir?",
+        "en": "What 2 conditions allow a contract to be amended?"
+      },
+      "back": {
+        "tr": "Sözleşme bedelinin aşılmaması ve idare ile yüklenicinin karşılıklı olarak anlaşması — bu iki şart bir arada olmalıdır.",
+        "en": "The contract price must not be exceeded, and the agency and contractor must mutually agree — both together."
+      },
+      "en": "2 conditions for contract amendment",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f28",
+      "front": {
+        "tr": "Sözleşmede hangi hususlarda değişiklik yapılabilir?",
+        "en": "Which aspects of the contract may be amended?"
+      },
+      "back": {
+        "tr": "İşin yapılma veya teslim yeri; işin süresinden önce yapılması/teslimi kaydıyla işin süresi ve buna uygun ödeme şartları.",
+        "en": "The place of performance/delivery; and, provided the work finishes early, the duration and its matching payment plan."
+      },
+      "en": "amendable contract aspects",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f29",
+      "front": {
+        "tr": "Sözleşme devri için hangi izin gereklidir?",
+        "en": "What permission is required to assign a contract?"
+      },
+      "back": {
+        "tr": "İhale yetkilisinin yazılı izni gereklidir; devralacak kişide ilk ihaledeki şartların aranması zorunludur.",
+        "en": "Written permission from the tender authority; the assignee must meet the original tender's eligibility conditions."
+      },
+      "en": "contract assignment requires written authority approval",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f30",
+      "front": {
+        "tr": "Bir sözleşme devredildikten sonra aynı yüklenici kaç yıl içinde başka bir sözleşme devredemez/devralamaz?",
+        "en": "For how many years after an assignment can the same contractor not assign/receive another contract?"
+      },
+      "back": {
+        "tr": "3 yıl içinde (isim/statü değişikliği gereği yapılan devirler hariç).",
+        "en": "3 years (except assignments due to a name/status change)."
+      },
+      "en": "3-year re-assignment restriction",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f31",
+      "front": {
+        "tr": "Yüklenicinin ölümü halinde sözleşme mirasçıya kaç gün içinde devredilebilir?",
+        "en": "Within how many days of a contractor's death can the contract pass to an heir?"
+      },
+      "back": {
+        "tr": "Ölüm tarihini izleyen 30 gün içinde, aynı şartları taşıyan ve talepte bulunan mirasçının gerekli kesin teminatı vermesi ve idarenin uygun görmesi şartıyla.",
+        "en": "Within 30 days of death, if an eligible, requesting heir posts the required final guarantee and the agency approves."
+      },
+      "en": "heir may take over contract: 30 days",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f32",
+      "front": {
+        "tr": "Yüklenicinin ağır hastalık/tutukluluk nedeniyle taahhüdünü yerine getirememesi halinde ne yapılır?",
+        "en": "What happens if the contractor cannot perform due to serious illness or detention?"
+      },
+      "back": {
+        "tr": "Bu durumu izleyen 30 gün içinde yüklenicinin teklif edeceği ve idarenin kabul edeceği bir vekil tayiniyle işe devam edilebilir.",
+        "en": "Within 30 days, work may continue via a proxy nominated by the contractor and approved by the agency."
+      },
+      "en": "proxy appointment: 30 days",
+      "tag": "fesih"
+    },
+    {
+      "id": "f33",
+      "front": {
+        "tr": "Ortak girişimde pilot/koordinatör ortağın ölümü ne sonuç doğurur?",
+        "en": "What happens if the pilot/coordinating partner in a joint venture dies?"
+      },
+      "back": {
+        "tr": "Sözleşme feshedilerek yapılmış işler tasfiye edilir ve kesin teminat iade edilir; ancak 30 gün içinde diğer ortakların teklifi ve idarenin uygun görmesiyle sorumluluklar üstlenilerek sözleşme yenilenip devam edilebilir.",
+        "en": "The contract is terminated and settled, guarantee returned — but within 30 days the other partners may propose (agency permitting) to take over responsibilities and renew the contract."
+      },
+      "en": "pilot partner's death: termination, 30-day renewal option",
+      "tag": "fesih"
+    },
+    {
+      "id": "f34",
+      "front": {
+        "tr": "Yüklenici sözleşmeyi hangi gerekçeyle feshedebilir?",
+        "en": "On what ground may the contractor terminate the contract?"
+      },
+      "back": {
+        "tr": "Mücbir sebep halleri dışında, mali acz içine düşmesi nedeniyle taahhüdünü yerine getiremeyeceğini gerekçeleriyle yazılı bildirmesi halinde.",
+        "en": "Financial incapacity (outside force majeure), reported in writing with reasons."
+      },
+      "en": "contractor termination: financial incapacity",
+      "tag": "fesih"
+    },
+    {
+      "id": "f35",
+      "front": {
+        "tr": "Yüklenici sözleşmeyi feshederse kesin teminatına ne olur?",
+        "en": "What happens to the final guarantee if the contractor terminates?"
+      },
+      "back": {
+        "tr": "Kesin teminat ve varsa ek kesin teminat gelir kaydedilerek devlete geçer.",
+        "en": "The final (and any additional) guarantee is forfeited to the state."
+      },
+      "en": "guarantee forfeited on contractor termination",
+      "tag": "fesih"
+    },
+    {
+      "id": "f36",
+      "front": {
+        "tr": "İdare sözleşmeyi hangi 2 halde feshedebilir?",
+        "en": "Under what 2 circumstances may the agency terminate the contract?"
+      },
+      "back": {
+        "tr": "1) Yüklenicinin taahhüdünü sözleşme hükümlerine göre yerine getirmemesi/işi süresinde bitirmemesi üzerine en az 10 gün süreli ihtara rağmen durumun devam etmesi; 2) yüklenicinin yasak fiil veya davranışlarda bulunduğunun tespiti.",
+        "en": "1) Uncured breach or delay after at least a 10-day written warning; 2) detection of prohibited acts by the contractor."
+      },
+      "en": "2 grounds for agency termination",
+      "tag": "fesih"
+    },
+    {
+      "id": "f37",
+      "front": {
+        "tr": "İdarenin fesihten önce vereceği ihtar süresi en az kaç gündür?",
+        "en": "What is the minimum length of the agency's warning notice before termination?"
+      },
+      "back": {
+        "tr": "En az 10 gün süreli ve nedenleri açıkça belirtilen bir ihtar verilmelidir.",
+        "en": "At least 10 days, clearly stating the reasons."
+      },
+      "en": "minimum warning notice: 10 days",
+      "tag": "fesih"
+    },
+    {
+      "id": "f38",
+      "front": {
+        "tr": "Anahtar teslimi götürü bedel yapım işlerinde iş artışı sözleşme bedelinin yüzde kaçına kadar yaptırılabilir?",
+        "en": "In lump-sum turnkey works contracts, up to what percentage of the contract price can scope be increased?"
+      },
+      "back": {
+        "tr": "%10'una kadar.",
+        "en": "Up to 10%."
+      },
+      "en": "scope increase cap: 10% (lump-sum turnkey)",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f39",
+      "front": {
+        "tr": "Birim fiyatla ihale edilen mal/hizmet alımları ve yapım işlerinde iş artışı sözleşme bedelinin yüzde kaçına kadar yaptırılabilir?",
+        "en": "In unit-price goods/services/works contracts, up to what percentage can scope be increased?"
+      },
+      "back": {
+        "tr": "%20'sine kadar.",
+        "en": "Up to 20%."
+      },
+      "en": "scope increase cap: 20% (unit-price)",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f40",
+      "front": {
+        "tr": "Birim fiyat sözleşmeyle yürütülen yapım işlerinde iş artışı oranını %40'a kadar artırmaya kim yetkilidir?",
+        "en": "Who has authority to raise the scope-increase rate up to 40% for unit-price works contracts?"
+      },
+      "back": {
+        "tr": "Cumhurbaşkanı, sözleşme bazında %40'a kadar artırmaya yetkilidir.",
+        "en": "The President, on a per-contract basis, up to 40%."
+      },
+      "en": "40% cap authority: the President (unit-price works)",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f41",
+      "front": {
+        "tr": "İş artışının aynı yükleniciye yaptırılabilmesi için gereken 2 şart nedir?",
+        "en": "What 2 conditions must be met for scope-increase work to go to the same contractor?"
+      },
+      "back": {
+        "tr": "1) Artışa konu iş sözleşmeye esas proje içinde kalmalı; 2) idareyi külfete sokmaksızın asıl işten ayrılması teknik veya ekonomik olarak mümkün olmamalıdır.",
+        "en": "1) The added work must stay within the contract's base project; 2) splitting it off must be technically/economically impossible without burdening the agency."
+      },
+      "en": "2 conditions for scope increase to same contractor",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f42",
+      "front": {
+        "tr": "İş artışı sözleşme bedelinin süresini de kapsar mı?",
+        "en": "Does the scope-increase percentage also extend the contract duration?"
+      },
+      "back": {
+        "tr": "Hayır, oranlar süre hariç sözleşme bedeli üzerinden hesaplanır.",
+        "en": "No, the percentages apply to the contract price excluding duration."
+      },
+      "en": "scope-increase % excludes duration",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f43",
+      "front": {
+        "tr": "Sözleşme bedelinin %80'inden düşük bedelle tamamlanacağı anlaşılan işlerde yüklenici ne yapmak zorundadır?",
+        "en": "If a job will be completed for less than 80% of the contract price, what must the contractor do?"
+      },
+      "back": {
+        "tr": "Yine de işi bitirmek zorundadır.",
+        "en": "Still finish the job."
+      },
+      "en": "80% threshold: contractor must still finish",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f44",
+      "front": {
+        "tr": "%80 eşiğinin altında tamamlanan işte yükleniciye ek olarak ne ödenir?",
+        "en": "What extra payment does the contractor receive when work finishes below the 80% threshold?"
+      },
+      "back": {
+        "tr": "Sözleşme bedelinin %80'i ile sözleşme fiyatlarıyla yapılan işin tutarı arasındaki farkın %5'i, geçici kabul tarihindeki fiyatlar üzerinden ödenir.",
+        "en": "5% of the gap between 80% of the contract price and the value of work actually completed, priced at provisional-acceptance-date rates."
+      },
+      "en": "5% compensation on sub-80% completion",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f45",
+      "front": {
+        "tr": "İşin öngörülen sınırlar dahilinde tamamlanamayacağı anlaşılırsa ne olur?",
+        "en": "What happens if the work cannot be completed within the prescribed scope-increase limits?"
+      },
+      "back": {
+        "tr": "Artış yapılmaksızın hesap genel hükümlere göre tasfiye edilir; ancak işin tamamının ihale dokümanı ve sözleşme hükümlerine uygun bitirilmesi zorunludur.",
+        "en": "The account is liquidated under general provisions without further increase, but the finished part must still fully comply with the tender/contract terms."
+      },
+      "en": "liquidation when scope-increase limits are insufficient",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f46",
+      "front": {
+        "tr": "Yasak fiil ve davranışlara örnek veriniz.",
+        "en": "Give examples of prohibited acts."
+      },
+      "back": {
+        "tr": "Hile, vaat, tehdit, nüfuz kullanma, rüşvet, sahte belge düzenleme, hileli malzeme kullanma, idareye zarar verme, mücbir sebepler dışında taahhüdü yerine getirmeme, sözleşmeyi kanuna aykırı devretme.",
+        "en": "Fraud, promises, threats, undue influence, bribery, forging documents, using defective materials, damaging the agency, non-performance without force majeure, unlawful assignment."
+      },
+      "en": "prohibited acts examples",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f47",
+      "front": {
+        "tr": "İhalelere katılmaktan idari yasaklama süresi ne kadardır?",
+        "en": "How long is the administrative debarment period from tenders?"
+      },
+      "back": {
+        "tr": "1 yıldan az olmamak üzere 2 yıla kadar, tüm kamu kurum ve kuruluşlarının ihalelerinden.",
+        "en": "Not less than 1 year, up to 2 years, from all public tenders."
+      },
+      "en": "administrative debarment: 1-2 years",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f48",
+      "front": {
+        "tr": "Yasaklama kararı, fiilin tespit edildiği tarihten itibaren en geç kaç gün içinde verilir?",
+        "en": "Within how many days of detection must the debarment decision be issued?"
+      },
+      "back": {
+        "tr": "En geç 45 gün içinde.",
+        "en": "Within 45 days at the latest."
+      },
+      "en": "debarment decision deadline: 45 days",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f49",
+      "front": {
+        "tr": "Yasaklama kararı Resmî Gazete'ye yayımlanmak üzere kaç gün içinde gönderilir ve ne zaman yürürlüğe girer?",
+        "en": "Within how many days is the debarment decision sent for Gazette publication, and when does it take effect?"
+      },
+      "back": {
+        "tr": "En geç 15 gün içinde gönderilir; yayım tarihinde yürürlüğe girer.",
+        "en": "Within 15 days at the latest; it takes effect on the date of publication."
+      },
+      "en": "Gazette submission: 15 days; effective on publication",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f50",
+      "front": {
+        "tr": "Sermaye şirketi ortaklarından yasaklamadan etkilenenler kimlerdir?",
+        "en": "Which shareholders of a capital company are affected by debarment?"
+      },
+      "back": {
+        "tr": "Sermayesinin yarısından fazlasına sahip olan gerçek veya tüzel kişi ortaklar.",
+        "en": "Real or legal-person shareholders owning more than half the company's capital."
+      },
+      "en": "debarment reaches majority (>50%) shareholders",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f51",
+      "front": {
+        "tr": "Yasak fiil suç teşkil ediyorsa idare/kurum ne yapmak zorundadır?",
+        "en": "What must the agency/institution do if the prohibited act also constitutes a crime?"
+      },
+      "back": {
+        "tr": "Yetkili Cumhuriyet savcılığına suç duyurusunda bulunmakla yükümlüdür — bu, idari yasaklamadan ayrı bir süreçtir.",
+        "en": "It must file a criminal complaint with the competent public prosecutor — separate from the administrative debarment."
+      },
+      "en": "criminal complaint duty",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f52",
+      "front": {
+        "tr": "Mahkeme kararıyla verilebilecek ek yasaklama süresi ne kadardır ve ne zaman başlar?",
+        "en": "How long is the additional court-ordered debarment, and when does it start?"
+      },
+      "back": {
+        "tr": "1 yıldan az olmamak üzere 3 yıla kadar; idari yasaklama kararının bitiş tarihinden itibaren uygulanır.",
+        "en": "Not less than 1 year, up to 3 years; applied starting after the administrative debarment ends."
+      },
+      "en": "court-ordered debarment: 1-3 years, after admin ban ends",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f53",
+      "front": {
+        "tr": "Mükerrer ceza hükmü alanların kamu ihalelerine katılma durumu nedir?",
+        "en": "What is the tender-participation status of repeat offenders?"
+      },
+      "back": {
+        "tr": "Sürekli olarak kamu ihalelerine katılmaktan yasaklanırlar (kendilerinin çoğunluk hissedarı/ortağı olduğu şirketler dahil).",
+        "en": "They are permanently banned from public tenders (including companies where they hold a majority stake/partnership)."
+      },
+      "en": "repeat offenders: permanent ban",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f54",
+      "front": {
+        "tr": "Görevlilerin (muayene-kabul komisyonu, yapı denetim) kusurlu davranışının sonucu nedir?",
+        "en": "What is the consequence of misconduct by officials (inspection committee, site supervision)?"
+      },
+      "back": {
+        "tr": "İlgili mevzuata göre disiplin cezası uygulanır; fiilin özelliğine göre ayrıca ceza kovuşturması da yapılabilir.",
+        "en": "Disciplinary penalties under relevant regulations, and possibly criminal prosecution depending on the act."
+      },
+      "en": "officials' liability: disciplinary + possible criminal",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f55",
+      "front": {
+        "tr": "Yasaklı olduğu sonradan anlaşılan bir yüklenicinin işe devam edebilmesi için gereken 2 şart nedir?",
+        "en": "What 2 conditions allow a contractor later found to be debarred to still continue the work?"
+      },
+      "back": {
+        "tr": "Taahhüdün en az %80'ini tamamlamış olması ve taahhüdün tamamlattırılmasında kamu yararı bulunması — ikisi birlikte gerekir.",
+        "en": "At least 80% of the obligation completed, and public interest in finishing it — both required together."
+      },
+      "en": "80%-completion exception: 2 joint conditions",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f56",
+      "front": {
+        "tr": "%80 istisnasında işe devam için gereken 3 ek koşul nedir?",
+        "en": "What 3 additional conditions allow continuation under the 80% exception?"
+      },
+      "back": {
+        "tr": "1) Kalan kısmın (en çok %20) yeniden ihalesi için yeterli süre bulunmaması (aciliyet), 2) taahhüdün başka bir yükleniciye yaptırılmasının mümkün olmaması, 3) yasak fiilin taahhüdün tamamlanmasını engelleyecek nitelikte olmaması.",
+        "en": "1) No time to re-tender the remaining ≤20% (urgency), 2) it cannot be handed to another contractor, 3) the prohibited act does not prevent completing the obligation."
+      },
+      "en": "3 additional conditions for the 80% exception",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f57",
+      "front": {
+        "tr": "%80 istisnasıyla işe devam eden yasaklı yüklenici cezadan muaf mıdır?",
+        "en": "Is a debarred contractor allowed to continue under the 80% exception exempt from penalties?"
+      },
+      "back": {
+        "tr": "Hayır — işe devam etmesine izin verilmesi cezadan kurtulduğu anlamına gelmez; yüklenici hakkında ilgili madde hükmüne göre işlem yapılır ve kesin teminat tutarı kadar ayrıca ceza tahsil edilir.",
+        "en": "No — being allowed to continue does not exempt them from penalty; the relevant provisions still apply, and a penalty equal to the final guarantee amount is also collected."
+      },
+      "en": "80% exception does not exempt from penalty",
+      "tag": "is-artisi"
+    },
+    {
+      "id": "f58",
+      "front": {
+        "tr": "Yüklenici kesin kabulden sonra kaç yıl müteselsilen sorumludur?",
+        "en": "For how many years after final acceptance is the contractor jointly-and-severally liable?"
+      },
+      "back": {
+        "tr": "15 yıl süreyle müteselsilen sorumludur.",
+        "en": "15 years, jointly and severally."
+      },
+      "en": "15-year post-acceptance liability",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f59",
+      "front": {
+        "tr": "Yapı denetim görevlileri hangi sürede yükleniciyle birlikte müteselsilen sorumludur?",
+        "en": "For how long are site-supervision officials jointly-and-severally liable with the contractor?"
+      },
+      "back": {
+        "tr": "15 yıl süreyle, denetim eksikliğinden doğan zarar için yüklenici ile birlikte müteselsilen sorumludur.",
+        "en": "15 years, jointly and severally with the contractor, for damage from inadequate supervision."
+      },
+      "en": "site-supervision officials: 15-year joint liability",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f60",
+      "front": {
+        "tr": "Müteselsil sorumluluk nedir?",
+        "en": "What is joint-and-several liability (müteselsil sorumluluk)?"
+      },
+      "back": {
+        "tr": "Birden fazla kişinin bir borç veya zararın tamamının ödenmesinden zincirleme şekilde sorumlu olmasıdır; alacaklı, borçlulardan seçtiği herhangi birine borcun tamamı için başvurabilir.",
+        "en": "Multiple debtors are each liable for the FULL debt/damage; the creditor may demand the entire amount from any one debtor of their choosing."
+      },
+      "en": "joint-and-several liability (müteselsil)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f61",
+      "front": {
+        "tr": "Müşterek sorumluluk nedir?",
+        "en": "What is several (proportional) liability (müşterek sorumluluk)?"
+      },
+      "back": {
+        "tr": "Birden fazla kişinin bir borç veya zararın tümünden kendi payı oranında sorumlu olmasıdır; alacaklı her borçludan yalnızca kendi payına düşen kısmı isteyebilir.",
+        "en": "Multiple debtors are each liable only for their own proportional share; the creditor may demand from each debtor only their share."
+      },
+      "en": "several liability, proportional (müşterek)",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f62",
+      "front": {
+        "tr": "Toplam borç 4 TL ve 4 müteselsil borçlu varsa alacaklı ne kadar tahsil edebilir?",
+        "en": "If the total debt is 4 TL and there are 4 jointly-and-severally liable debtors, how much can the creditor collect from one?"
+      },
+      "back": {
+        "tr": "Seçtiği tek bir borçludan 4 TL'nin (borcun) tamamını tahsil edebilir.",
+        "en": "The full 4 TL from any single debtor of their choosing."
+      },
+      "en": "müteselsil example: full amount from one debtor",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f63",
+      "front": {
+        "tr": "Toplam borç 4 TL ve 4 eşit paylı müşterek borçlu varsa alacaklı her borçludan ne kadar tahsil edebilir?",
+        "en": "If the total debt is 4 TL split equally among 4 several (müşterek) debtors, how much can be collected from each?"
+      },
+      "back": {
+        "tr": "Her borçludan sadece kendi payı olan 1 TL tahsil edebilir.",
+        "en": "Only each debtor's own 1 TL share."
+      },
+      "en": "müşterek example: only proportional share",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f64",
+      "front": {
+        "tr": "Müşterek ve müteselsil sorumluluk bir arada olursa alacaklı nasıl tahsilat yapar?",
+        "en": "How does the creditor collect when both several and joint-and-several liability apply together?"
+      },
+      "back": {
+        "tr": "Toplam borcu tahsil edene kadar dilediği borçludan dilediği miktarı isteyebilir.",
+        "en": "They may demand any amount from any debtor of their choosing, until the whole debt is recovered."
+      },
+      "en": "combined joint-several liability collection",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f65",
+      "front": {
+        "tr": "Yüksek Fen Kurulu ne amaçla başvurulan bir mercidir?",
+        "en": "For what purpose is the Supreme Technical Board (Yüksek Fen Kurulu) approached?"
+      },
+      "back": {
+        "tr": "Yapım işleri danışmanlık hizmeti sözleşmelerinin uygulamasından doğan, yargı veya sayıştay incelemesine konu edilmemiş anlaşmazlıkların çözümü için başvurulur.",
+        "en": "To resolve disputes arising from works-consultancy contracts that have not yet been brought before a court or the Court of Accounts."
+      },
+      "en": "Supreme Technical Board dispute resolution",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f66",
+      "front": {
+        "tr": "Yüklenici itirazları Yüksek Fen Kurulu'na kaç gün içinde gönderilir, Kurul kaç gün içinde karar verir?",
+        "en": "Within how many days is a contractor's objection forwarded to the Board, and how long does the Board have to rule?"
+      },
+      "back": {
+        "tr": "İdare itirazı en geç 30 gün içinde Kurula gönderir; Kurul en geç 60 gün içinde inceleyip karara bağlar.",
+        "en": "The agency forwards it within 30 days; the Board decides within 60 days."
+      },
+      "en": "Board timeline: 30 days forward, 60 days decide",
+      "tag": "kik-sozlesme"
+    },
+    {
+      "id": "f67",
+      "front": {
+        "tr": "Teknik şartname nedir?",
+        "en": "What is a technical specification (teknik şartname)?"
+      },
+      "back": {
+        "tr": "Bir hammadde, yarı mamul, mamul ya da bir üretim sürecinin veya hizmetin teknik niteliğini belirleyen belgedir.",
+        "en": "A document defining the technical properties of a raw material, semi-finished good, finished product, production process, or service."
+      },
+      "en": "technical specification (teknik şartname)",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f68",
+      "front": {
+        "tr": "Teknik şartnamede hangi tür özellikler somut olarak belirlenmelidir?",
+        "en": "What kinds of properties must a technical specification define concretely?"
+      },
+      "back": {
+        "tr": "Fiziksel, kimyasal, mekanik ve/veya işlemsel özellikler.",
+        "en": "Physical, chemical, mechanical, and/or process properties."
+      },
+      "en": "physical/chemical/mechanical/process properties",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f69",
+      "front": {
+        "tr": "Teknik şartname eklenmemiş bir projede ne eksik kalır?",
+        "en": "What is missing from a project that lacks a technical specification?"
+      },
+      "back": {
+        "tr": "Ne yapılacağı belirtilebilir ama üretimin hangi kalitede yapılacağı yeterince anlatılamaz.",
+        "en": "It can state what will be built, but not reliably what quality it will be built to."
+      },
+      "en": "project without spec: quality is undefined",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f70",
+      "front": {
+        "tr": "Teknik şartnamenin denetim aracı olarak rolü nedir?",
+        "en": "What role does a technical specification play as an inspection tool?"
+      },
+      "back": {
+        "tr": "Yapı sahibi, teknik şartname sayesinde işin ne kadar sağlam ve doğru yapıldığını denetleyebilir.",
+        "en": "It lets the owner check how soundly and correctly the work is being done."
+      },
+      "en": "spec as inspection/monitoring tool",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f71",
+      "front": {
+        "tr": "Teknik şartname hazırlarken göz önünde tutulması gereken kaç kriter vardır?",
+        "en": "How many criteria must be considered when drafting a technical specification?"
+      },
+      "back": {
+        "tr": "Üç kriter.",
+        "en": "Three criteria."
+      },
+      "en": "3 drafting criteria",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f72",
+      "front": {
+        "tr": "1. kriter: şartnameye hangi bilgiler konulmalıdır?",
+        "en": "1st criterion: what information belongs in the specification?"
+      },
+      "back": {
+        "tr": "Projede yeterince açıklanmayan veya hiç açıklanmayan, ancak bilinmesi gereken her bilgi — gereksiz ayrıntı doldurulmamalı (\"gerekli ve yeterli\" ölçütü).",
+        "en": "Everything the project leaves under-explained or unexplained but that must be known — no unnecessary detail ('necessary and sufficient')."
+      },
+      "en": "criterion 1: fill only project gaps",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f73",
+      "front": {
+        "tr": "2. kriter: teknik özellikler nasıl olmalıdır?",
+        "en": "2nd criterion: how must technical properties be defined?"
+      },
+      "back": {
+        "tr": "Uygulanabilir, ulaşılabilir ve denetlenebilir olmalı; soyut/öznel değil somut/ölçülebilir tanımlar kullanılmalı.",
+        "en": "Applicable, attainable, and verifiable; concrete/measurable definitions instead of vague/subjective ones."
+      },
+      "en": "criterion 2: applicable, attainable, verifiable",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f74",
+      "front": {
+        "tr": "3. kriter: teknik nitelikler tanımlanırken neden yararlanılmalıdır?",
+        "en": "3rd criterion: what should be drawn on when defining technical qualities?"
+      },
+      "back": {
+        "tr": "Konuyla ilgili uzman elemanların bilgi ve deneyiminin yanında standartlardan da yararlanılmalıdır.",
+        "en": "The knowledge/experience of relevant experts, as well as existing standards."
+      },
+      "en": "criterion 3: expert knowledge + standards",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f75",
+      "front": {
+        "tr": "\"1. sınıf doğrama olacak\" ifadesi neden şartnamede kullanılmamalıdır?",
+        "en": "Why shouldn't a phrase like 'must be first-class joinery' be used in a specification?"
+      },
+      "back": {
+        "tr": "Soyut ve kişiye göre değişen bir tanımdır, ölçülemez; bunun yerine malzemenin niteliği ve işçilik düzeyinin kesin tanımlanması, gerekirse üretici firma adı ve ürün kodunun verilmesi gerekir.",
+        "en": "It is a vague, subjective description that cannot be measured; instead the material's quality and workmanship level should be precisely defined, with brand/product code if needed."
+      },
+      "en": "avoid vague terms like 'first-class'",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f76",
+      "front": {
+        "tr": "Tuğla duvarda ±1 mm sapma toleransı koymak neden hatalıdır?",
+        "en": "Why is specifying a ±1 mm deviation tolerance for a brick wall a mistake?"
+      },
+      "back": {
+        "tr": "Çünkü uygulanabilir değildir — normal tuğla standartlarının öngördüğü boyut toleransı bile ±3 mm'dir; aşırı hassas kriterler şartnamenin işlerliğini azaltır.",
+        "en": "It is not achievable — even the standard brick tolerance itself is ±3 mm; overly precise criteria reduce the specification's practicality."
+      },
+      "en": "±1mm tolerance is unrealistic (standard is ±3mm)",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f77",
+      "front": {
+        "tr": "Çok miktarda kullanılan malzemenin kalite kontrolü nasıl yapılmalıdır?",
+        "en": "How should quality control be done for bulk-quantity materials?"
+      },
+      "back": {
+        "tr": "Tek tek değil, örnekleme yöntemiyle — her yığın/partiden rastgele alınan sınırlı sayıda malzemenin incelenmesiyle yapılmalıdır.",
+        "en": "Not unit-by-unit, but by sampling — examining a limited number of randomly selected items from each batch/lot."
+      },
+      "en": "bulk material QC: sampling method",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f78",
+      "front": {
+        "tr": "Denetim nedir (teknik şartname bağlamında)?",
+        "en": "What is 'denetim' (inspection/monitoring) in the technical-spec context?"
+      },
+      "back": {
+        "tr": "Yapılan üretimin, belirlenmiş standartlara uyup uymadığının izlenmesi faaliyetidir.",
+        "en": "The activity of monitoring whether production conforms to the specified standards."
+      },
+      "en": "denetim = monitoring conformance to standards",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f79",
+      "front": {
+        "tr": "İnşaat işlerinde uygulamada yeterli hassasiyet düzeyi nedir (makineyle karşılaştırınız)?",
+        "en": "What precision level is sufficient in construction practice (compared to machinery)?"
+      },
+      "back": {
+        "tr": "İnşaat işlerinde milimetre hassasiyeti yeterlidir; bir makine üretiminde ise mikron hassasiyeti gerekebilir.",
+        "en": "Millimeter precision suffices in construction, whereas machine manufacturing may require micron precision."
+      },
+      "en": "construction precision: mm (vs micron for machines)",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f80",
+      "front": {
+        "tr": "Standarda atıfta bulunmanın (örn. TS EN 13914-1) şartnameye faydası nedir?",
+        "en": "What is the benefit of referencing a standard (e.g. TS EN 13914-1) in a specification?"
+      },
+      "back": {
+        "tr": "Tüm ayrıntıları tek tek yazmak yerine, standardın tamamı şartname eki sayılır — zaman kazandırır ve eksik tanımlamadan korur.",
+        "en": "Instead of writing out every detail, the entire standard is deemed an annex to the spec — saving time and preventing omissions."
+      },
+      "en": "referencing a standard = importing it as an annex",
+      "tag": "sartname-ilkeleri"
+    },
+    {
+      "id": "f81",
+      "front": {
+        "tr": "Teknik şartnamenin 5 ana başlıklı düzenleme yaklaşımındaki başlıklar nelerdir?",
+        "en": "What are the 5 headings in the more common technical-spec organization approach?"
+      },
+      "back": {
+        "tr": "Tanımlar, malzemeler, yapı bileşimleri, yapı elemanları, makine ve cihazlar.",
+        "en": "Definitions, materials, building assemblies, building elements, machinery and equipment."
+      },
+      "en": "5-heading spec structure",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f82",
+      "front": {
+        "tr": "Malzeme-yapı bileşimi-eleman bazlı yaklaşımın dezavantajı nedir?",
+        "en": "What is the drawback of the material–assembly–element based approach?"
+      },
+      "back": {
+        "tr": "Çok sayıda elemanda girdi olarak kullanılan malzemelerin (çimento, kum vb.) teknik niteliklerinin defalarca tekrarlanmasına neden olur.",
+        "en": "It causes the technical properties of widely-used materials (cement, sand, etc.) to be repeated many times across elements."
+      },
+      "en": "material-based approach: repetition drawback",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f83",
+      "front": {
+        "tr": "Şartname hazırlığında bilgi toplamanın 3 adımı nedir?",
+        "en": "What are the 3 steps of gathering information for spec drafting?"
+      },
+      "back": {
+        "tr": "1) Uzman ekip tarafından/gözetiminde hazırlama, 2) kaynak araştırması, 3) toplanan bilgilerin işin özgün koşullarına uyarlanması.",
+        "en": "1) Preparation by/under expert oversight, 2) source research, 3) adapting gathered information to the job's specific conditions."
+      },
+      "en": "3 steps of info gathering",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f84",
+      "front": {
+        "tr": "TS 825 hangi konuyu düzenleyen standarttır ve ICS kodu nedir?",
+        "en": "What does TS 825 regulate, and what is its ICS code?"
+      },
+      "back": {
+        "tr": "Binalarda Isı Yalıtım Kuralları'nı düzenler; ICS kodu 91.120.10'dur.",
+        "en": "Thermal insulation rules for buildings; ICS code 91.120.10."
+      },
+      "en": "TS 825: thermal insulation standard",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f85",
+      "front": {
+        "tr": "TSE kaç ana grupta belgelendirme yapar? Sayınız.",
+        "en": "In how many main groups does TSE certify? List them."
+      },
+      "back": {
+        "tr": "7 ana grup: üretim yerleri, ürünler, parti malları, ithal mallar, laboratuvarlar, hizmet yerleri, kalite sistemleri.",
+        "en": "7 groups: production sites, products, lot goods, imports, laboratories, service premises, quality systems."
+      },
+      "en": "TSE 7 certification groups",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f86",
+      "front": {
+        "tr": "TSE işareti ne anlama gelir?",
+        "en": "What does the TSE mark signify?"
+      },
+      "back": {
+        "tr": "Ürünün ilgili Türk standardına göre üretildiğini ve Türk Standartları Enstitüsü'nün garantisi altında olduğunu ifade eder.",
+        "en": "The product was made to the relevant Turkish standard and is guaranteed by the Turkish Standards Institute."
+      },
+      "en": "TSE mark meaning",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f87",
+      "front": {
+        "tr": "TSEK işareti ne anlama gelir?",
+        "en": "What does the TSEK mark signify?"
+      },
+      "back": {
+        "tr": "Ürünün henüz Türk standardı bulunmadığından, ilgili milletlerarası/diğer ülke standardına ya da TSE'nin kabul ettiği teknik özelliklere uygun üretildiğini ifade eder (\"Kalite Uygunluk Markası\").",
+        "en": "The product has no Turkish standard yet, but was made to an accepted international/foreign standard or TSE-accepted technical spec ('Quality Conformity Mark')."
+      },
+      "en": "TSEK mark meaning",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f88",
+      "front": {
+        "tr": "Bir standardın \"TS 825/T3\" şeklinde yazılması ne anlama gelir?",
+        "en": "What does labeling a standard 'TS 825/T3' mean?"
+      },
+      "back": {
+        "tr": "Standardın üçüncü kez tadil edildiğini (kısmi değişikliğe uğradığını) gösterir — \"T\" tadilat harfi, 3 kaçıncı değişiklik olduğunu belirtir.",
+        "en": "The standard has been revised (partially amended) for the third time — 'T' marks the revision, 3 the sequence number."
+      },
+      "en": "'T' + number = revision count",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f89",
+      "front": {
+        "tr": "Zorunlu standart ile isteğe bağlı standart arasındaki fark nedir?",
+        "en": "What is the difference between a mandatory and a voluntary standard?"
+      },
+      "back": {
+        "tr": "Zorunlu standart Resmî Gazete'de duyurulur ve uyulmaması yasal yaptırım getirir (kamu ihalelerinde zorunludur); isteğe bağlı standarda uyulup uyulmaması kişi/kurumun inisiyatifindedir.",
+        "en": "A mandatory standard is announced in the Official Gazette and non-compliance brings legal sanctions (required in public tenders); a voluntary standard's use is up to the party's discretion."
+      },
+      "en": "mandatory vs voluntary standards",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f90",
+      "front": {
+        "tr": "TS ISO 9882 kodundaki \"ISO\" ifadesi neyi gösterir?",
+        "en": "What does the 'ISO' in the code 'TS ISO 9882' indicate?"
+      },
+      "back": {
+        "tr": "İlgili Türk standardının içeriğinin, Uluslararası Standartlar Organizasyonu (ISO) standardıyla birebir aynı olduğunu gösterir.",
+        "en": "That the Turkish standard's content is identical to the corresponding ISO (International Organization for Standardization) standard."
+      },
+      "en": "TS ISO = identical to ISO standard",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f91",
+      "front": {
+        "tr": "TS EN ISO 7783 kodunun anlamı nedir?",
+        "en": "What does the code 'TS EN ISO 7783' mean?"
+      },
+      "back": {
+        "tr": "İlgili standardın içeriğinin hem Avrupa (EN) hem de uluslararası (ISO) standartlarıyla birebir aynı olduğunu gösteren kombine bir kodlamadır.",
+        "en": "A combined code showing the standard's content is identical to both the European (EN) and international (ISO) standards."
+      },
+      "en": "TS EN ISO = identical to both EN and ISO",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f92",
+      "front": {
+        "tr": "ASTM, DIN, BSI, JIS neyi ifade eder?",
+        "en": "What do ASTM, DIN, BSI, and JIS refer to?"
+      },
+      "back": {
+        "tr": "Sırasıyla Amerikan, Alman, İngiliz ve Japon ulusal standartlarıdır; işin uluslararası nitelikli olması halinde teknik şartnamede bunlardan yararlanılabilir.",
+        "en": "American, German, British, and Japanese national standards respectively; usable in a technical spec when the job has an international character."
+      },
+      "en": "ASTM/DIN/BSI/JIS = US/German/British/Japanese standards",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f93",
+      "front": {
+        "tr": "OHSAS neyi kapsayan bir standarttır?",
+        "en": "What does the OHSAS standard cover?"
+      },
+      "back": {
+        "tr": "İş sağlığı ve güvenliği yönetim sistemini kapsar; hem Avrupa'da hem Amerika'da geçerlidir.",
+        "en": "Occupational health and safety management systems; valid in both Europe and the US."
+      },
+      "en": "OHSAS = occupational health & safety standard",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f94",
+      "front": {
+        "tr": "Genel Teknik Şartname'yi kim hazırlamıştır?",
+        "en": "Who prepared the 'General Technical Specification' (Genel Teknik Şartname)?"
+      },
+      "back": {
+        "tr": "Çevre ve Şehircilik Bakanlığı Fen İşleri Başkanlığı hazırlamıştır.",
+        "en": "The Ministry of Environment and Urbanization's Directorate of Technical Works."
+      },
+      "en": "General Technical Specification: prepared by the Ministry",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f95",
+      "front": {
+        "tr": "Yatırımcı kamu kuruluşlarının hazır şartnamelerine hangi kuruluşlar örnektir?",
+        "en": "Which institutions are examples of investor public agencies with ready-made specs?"
+      },
+      "back": {
+        "tr": "Karayolları, Devlet Su İşleri (DSİ), Çevre ve Şehircilik Bakanlığı, Toplu Konut İdaresi (TOKİ).",
+        "en": "Highways Authority, State Hydraulic Works (DSİ), Ministry of Environment and Urbanization, Mass Housing Authority (TOKİ)."
+      },
+      "en": "public agencies with ready-made technical specs",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f96",
+      "front": {
+        "tr": "Hazır şartnamelerden yararlanırken hangi 2 husus incelenmelidir?",
+        "en": "What 2 things must be checked before reusing a ready-made specification?"
+      },
+      "back": {
+        "tr": "1) Sözleşme konusu inşaattaki imalatları kapsayıp kapsamadığı, 2) yapılan tanımların güncel olup olmadığı.",
+        "en": "1) Whether it actually covers the works in the contract, 2) whether its definitions are still current."
+      },
+      "en": "2 checks before reusing a ready-made spec",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f97",
+      "front": {
+        "tr": "İdari şartname ile teknik şartname arasındaki fark nedir?",
+        "en": "What is the difference between an administrative specification and a technical specification?"
+      },
+      "back": {
+        "tr": "İdari şartname işin idari koşullarını (teklif usulü, teminatlar, ödeme, süre vb.) düzenler; teknik şartname ise işin teknik niteliğini (malzeme, imalat, kalite) tanımlar.",
+        "en": "The administrative spec governs procedural/administrative terms (bidding method, guarantees, payment, duration); the technical spec defines the technical nature (material, workmanship, quality) of the job."
+      },
+      "en": "administrative spec vs technical spec",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f98",
+      "front": {
+        "tr": "Özel (iş özel) teknik şartname ile genel teknik şartname arasındaki fark nedir?",
+        "en": "What is the difference between a job-specific and a general technical specification?"
+      },
+      "back": {
+        "tr": "Özel teknik şartname belirli bir işe özgü hazırlanır; genel teknik şartname ise genel amaçlı, önceden hazırlanmış ve birçok işte referans olarak kullanılan bir dokümandır.",
+        "en": "A job-specific spec is drafted for one particular project; a general spec is a pre-existing, general-purpose document reused as a reference across many jobs."
+      },
+      "en": "job-specific vs general technical specification",
+      "tag": "sartname-turleri"
+    },
+    {
+      "id": "f99",
+      "front": {
+        "tr": "Şartnameyle ilgili anlaşmazlıkların en büyük nedeni nedir?",
+        "en": "What is the biggest cause of specification-related disputes?"
+      },
+      "back": {
+        "tr": "Mal sahibi ve yüklenicinin, şartnameye konulan referans nitelikli belgelerin (standartlar vb.) içeriğini yeterince incelememiş olmalarıdır.",
+        "en": "The employer and contractor not having adequately reviewed the content of the reference documents (standards, etc.) cited in the specification."
+      },
+      "en": "main cause of spec disputes: unread references",
+      "tag": "sartname-turleri"
+    }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Kamu İhale Sözleşmeleri Kanunu'nun temel amacı nedir?",
+        "en": "What is the core purpose of the Public Procurement Contracts Law?"
+      },
+      "options": [
+        {
+          "tr": "Kamu ihalelerinin nasıl ilan edileceğini düzenlemek",
+          "en": "Regulating how public tenders are announced"
+        },
+        {
+          "tr": "Kamu İhale Kanunu'na göre yapılan ihalelere ilişkin sözleşmelerin düzenlenmesi ve uygulanmasının esas ve usullerini belirlemek",
+          "en": "Setting rules and procedures for drafting/executing contracts from tenders under the Procurement Law"
+        },
+        {
+          "tr": "İhaleye katılacak firmaların ön yeterliliğini belirlemek",
+          "en": "Determining bidders' prequalification"
+        },
+        {
+          "tr": "Kamu personelinin atanma usullerini düzenlemek",
+          "en": "Regulating civil servant appointment procedures"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: KİSK, ihalelerin nasıl yapılacağını değil, o ihaleler sonucunda imzalanan sözleşmelerin düzenleniş ve uygulanış esaslarını belirler. 1 ve 3. şıklar Kamu İhale Kanunu'nun (ihale süreci) konusudur, sözleşme kanunu değil. 4. şık konu dışıdır.",
+        "en": "Correct answer 2: KİSK sets the rules for drafting/executing the contracts resulting from tenders, not how tenders themselves are run (that is the Procurement Law's job, options 1 and 3). Option 4 is unrelated."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Tip sözleşme hakkında bilgi veriniz.",
+        "en": "Give information about the standard/model contract (tip sözleşme)."
+      },
+      "answer": {
+        "tr": "Tip sözleşme, tarafları bağlayacak koşulların, sözleşmeye taraf olmayan bir merci (örn. idari makamlar) veya taraflardan birince önceden belirlendiği, tarafların bu çerçevede sözleşme yapmak zorunda olduğu sözleşme örneğidir. Kanuna göre hazırlanan tip sözleşmeler Resmî Gazete'de yayımlanır. İdarece yapılacak sözleşmeler, tip sözleşme hükümleri esas alınarak düzenlenir. Mal ve hizmet alımlarında, kurumun uygun görüşü alınması kaydıyla, isteklilerce hazırlanması alışılmış olan sözleşmeler de kullanılabilir.",
+        "en": "A standard/model contract is a pre-set template — determined by a non-party authority (e.g. administrative bodies) or one of the parties — within whose framework the parties must draft their agreement. Standard contracts issued under the law are published in the Official Gazette. Agency contracts are based on these standard-contract provisions; for goods/services procurement, customary bidder-prepared contracts may be used with the institution's approval."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Kanuna göre düzenlenecek sözleşmelerde ihale dokümanına aykırı hükümler bulunabilir mi?",
+        "en": "Under the law, may contracts contain provisions contrary to the tender documents?"
+      },
+      "options": [
+        {
+          "tr": "Evet, taraflar serbestçe anlaşabilir",
+          "en": "Yes, the parties are free to agree"
+        },
+        {
+          "tr": "Hayır, ihale dokümanında yer alan şartlara aykırı hükümler yer alamaz",
+          "en": "No, provisions contrary to the tender document terms cannot appear"
+        },
+        {
+          "tr": "Sadece idare izin verirse mümkündür",
+          "en": "Only possible if the agency permits"
+        },
+        {
+          "tr": "Sadece fiyat konusunda mümkündür",
+          "en": "Only possible regarding price"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: kanun, sözleşmenin ihale dokümanındaki şartlara aykırı hüküm içeremeyeceğini açıkça belirtir; bu, ihale sürecinin bütünlüğünü korumak içindir.",
+        "en": "Correct answer 2: the law explicitly bars contract terms from contradicting the tender documents, preserving the integrity of the tender process."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapım işlerinde, uygulama projeleri ve mahal listelerine dayalı olarak işin tamamı için teklif edilen toplam bedel üzerinden yapılan sözleşme türü hangisidir?",
+        "en": "In works contracts, which contract type is priced on the total bid for the whole job, based on application projects and quantity lists?"
+      },
+      "options": [
+        {
+          "tr": "Birim fiyat sözleşme",
+          "en": "Unit-price contract"
+        },
+        {
+          "tr": "Anahtar teslimi götürü bedel sözleşme",
+          "en": "Lump-sum turnkey contract"
+        },
+        {
+          "tr": "Karma sözleşme",
+          "en": "Mixed contract"
+        },
+        {
+          "tr": "Çerçeve anlaşma",
+          "en": "Framework agreement"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: anahtar teslimi götürü bedel sözleşme tam olarak bu tanıma uyar. Birim fiyat kalem×miktar esaslıdır, karma ikisinin birleşimidir, çerçeve anlaşma ise tekrarlayan alımlar için şemsiye sözleşmedir.",
+        "en": "Correct answer 2: this is exactly the lump-sum turnkey definition. Unit-price is quantity×price based, mixed combines both methods, and a framework agreement is an umbrella arrangement for repeat purchases."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Bir mal alımı ihalesinde, idarece hazırlanan cetvelde yer alan her iş kaleminin miktarı ile isteklinin teklif ettiği birim fiyatların çarpımları toplanarak bulunan bedel üzerinden yapılan sözleşme hangisidir?",
+        "en": "In a goods-procurement tender, which contract is priced by summing (quantity × bidder's unit price) over every line item in the agency's schedule?"
+      },
+      "options": [
+        {
+          "tr": "Götürü bedel sözleşme",
+          "en": "Lump-sum contract"
+        },
+        {
+          "tr": "Anahtar teslimi götürü bedel sözleşme",
+          "en": "Lump-sum turnkey contract"
+        },
+        {
+          "tr": "Birim fiyat sözleşme",
+          "en": "Unit-price contract"
+        },
+        {
+          "tr": "Münferit sözleşme",
+          "en": "Individual contract"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: bu, birim fiyat sözleşmenin tam tanımıdır (kalem miktarı × birim fiyat toplamı). Götürü bedel ve anahtar teslimi götürü bedel, işin tamamı için TEK toplam bedel öngörür; kalem bazlı çarpım yapılmaz.",
+        "en": "Correct answer 3: this is the exact definition of a unit-price contract (sum of item quantity × unit price). Lump-sum and lump-sum turnkey instead set a SINGLE total price for the whole job, with no per-item multiplication."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Karma sözleşme ile çerçeve anlaşmaya dayalı münferit sözleşme arasındaki farkı açıklayınız.",
+        "en": "Explain the difference between a mixed contract and an individual contract under a framework agreement."
+      },
+      "answer": {
+        "tr": "Karma sözleşme, yapım işlerinde iş kalemlerinin bir kısmının anahtar teslimi götürü bedel, bir kısmının birim fiyat usulüyle BİRLİKTE uygulanmasıyla oluşan tek bir sözleşmedir — yani iki fiyatlandırma yöntemi aynı sözleşme içinde bir arada kullanılır. Çerçeve anlaşmaya dayalı münferit sözleşme ise, önce idare ile yüklenici(ler) arasında genel bir çerçeve anlaşma yapılır (fiyat, süre, koşullar gibi genel çerçeveyi belirler), sonra bu çerçeveye dayanarak ihtiyaç oldukça ayrı münferit sözleşmeler imzalanır. Çerçeve anlaşma ve münferit sözleşmede yer alması zorunlu hususları kurum belirler.",
+        "en": "A mixed contract combines two pricing methods (lump-sum turnkey for some line items, unit-price for others) within a single works contract. An individual contract under a framework agreement works differently: the agency and contractor(s) first sign a general framework agreement (setting broad price/duration/terms), and then separate individual contracts are signed as needs arise, each governed by that framework. The mandatory content of both the framework and individual contracts is set by the contracting institution."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kamu İhale Sözleşmeleri Kanunu'na göre sözleşmede yer alması zorunlu hususlardan en az 8 tanesini sayınız.",
+        "en": "List at least 8 mandatory contents that must appear in the contract under the Public Procurement Contracts Law."
+      },
+      "answer": {
+        "tr": "Örnek 8 husus: (1) işin adı, niteliği, türü ve miktarı; (2) idarenin ve yüklenicinin adı/adresi; (3) sözleşmenin bedeli, türü ve süresi; (4) ödeme yeri ve şartları, avans şartları; (5) fiyat farkı ödenecekse ödeme şekli; (6) kesin teminat miktarı ve iade şartları; (7) işin teslim şekli ve şartları; (8) gecikme halinde uygulanacak cezalar; (9) mücbir sebepler ve süre uzatımı şartları; (10) iş artışı/eksilişi yükümlülükleri; (11) denetim-muayene-kabul şartları; (12) sözleşmede değişiklik/fesih şartları; (13) anlaşmazlıkların çözümü; (14) iş sağlığı ve güvenliği yükümlülükleri. (Herhangi 8 tanesi doğru kabul edilir.)",
+        "en": "Example 8 items: (1) job identity, nature, type, quantity; (2) agency and contractor names/addresses; (3) contract price, type, duration; (4) payment place/terms and advance conditions; (5) how price adjustment is paid, if applicable; (6) final guarantee amount and return conditions; (7) delivery method and conditions; (8) delay penalties; (9) force majeure and time-extension conditions; (10) scope increase/decrease obligations; (11) inspection/acceptance conditions; (12) amendment/termination conditions; (13) dispute resolution; (14) health & safety obligations. (Any 8 of these are acceptable.)"
+      }
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi sözleşmede yer alması zorunlu hususlardan biri DEĞİLDİR?",
+        "en": "Which of the following is NOT one of the mandatory contract contents?"
+      },
+      "options": [
+        {
+          "tr": "Kesin teminat miktarı ve iadesine ait şartlar",
+          "en": "Final guarantee amount and its return conditions"
+        },
+        {
+          "tr": "Gecikme halinde uygulanacak cezalar",
+          "en": "Delay penalties"
+        },
+        {
+          "tr": "Yüklenicinin daha önce katıldığı ihalelerin listesi",
+          "en": "A list of tenders the contractor previously entered"
+        },
+        {
+          "tr": "Sözleşmenin feshine ilişkin şartlar",
+          "en": "Contract termination conditions"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: yüklenicinin geçmiş ihale katılımlarının listesi kanunda sayılan zorunlu sözleşme hususları arasında değildir — bu bilgi ihaleye katılım/yeterlilik aşamasında değerlendirilir, sözleşme metninde yer alması zorunlu değildir. Diğer üç şık kanunda açıkça sayılan zorunlu hususlardandır.",
+        "en": "Correct answer 3: a list of the contractor's past tender participations is not among the law's mandatory contract contents — that is assessed at the bidding/eligibility stage, not required in the contract text. The other three are explicitly mandatory."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Fiyat farkı kavramını tanımlayınız ve sözleşme imzalandıktan sonra bu esasların değiştirilip değiştirilemeyeceğini belirtiniz.",
+        "en": "Define 'fiyat farkı' (price adjustment) and state whether its rules can be changed after signing."
+      },
+      "answer": {
+        "tr": "Fiyat farkı, sözleşme kapsamında yapılan imalatın ihale tarihi ile iş programına göre uygulamanın yapılacağı ay arasındaki fiyat değişimini ifade eder. Fiyat farkı kararnamelerinde belirtilen esaslara göre hesaplanan tutar, ilgili endekslerdeki artış veya azalış oranına göre hakedişe ek olarak ödenir ya da hakedişten düşülür. Sözleşmede yer alan fiyat farkına ilişkin esas ve usuller, sözleşme imzalandıktan sonra DEĞİŞTİRİLEMEZ.",
+        "en": "Price adjustment (fiyat farkı) captures the price change between the tender date and the month the work is actually performed per the schedule. The amount, calculated under the applicable price-adjustment decree based on index movements, is added to or deducted from the progress payment. The price-adjustment method set in the contract CANNOT be changed after signing."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "\"All risk\" sigorta hangi süreyi kapsar?",
+        "en": "What period does 'all risk' insurance cover?"
+      },
+      "options": [
+        {
+          "tr": "Sözleşme imzalanmasından işe başlamaya kadar",
+          "en": "From contract signing to start of work"
+        },
+        {
+          "tr": "İşe başlama tarihinden geçici kabul tarihine kadar",
+          "en": "From start of work to provisional acceptance"
+        },
+        {
+          "tr": "Geçici kabulden kesin kabule kadar",
+          "en": "From provisional to final acceptance"
+        },
+        {
+          "tr": "Kesin kabulden sonraki 15 yıl",
+          "en": "The 15 years after final acceptance"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: all risk sigorta işe başlama tarihinden geçici kabul tarihine kadar geçen süreyi, doğal afet/hırsızlık/sabotaj gibi risklere karşı kapsar. Geçici-kesin kabul arası dönem için ise genişletilmiş bakım devresi teminatını içeren ayrı bir sigorta gerekir (3. şık). 4. şık ise yüklenicinin 15 yıllık müteselsil sorumluluk süresidir, sigorta dönemi değildir.",
+        "en": "Correct answer 2: all-risk insurance covers start of work through provisional acceptance against natural disaster/theft/sabotage risk. The provisional-to-final acceptance period needs a separate extended maintenance-period guarantee insurance (option 3). Option 4 is the 15-year joint liability period, not an insurance period."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi kanunda sayılan mücbir sebep hallerinden biri DEĞİLDİR?",
+        "en": "Which of the following is NOT one of the force-majeure grounds listed in the law?"
+      },
+      "options": [
+        {
+          "tr": "Genel salgın hastalık",
+          "en": "Pandemic"
+        },
+        {
+          "tr": "Kanuni grev",
+          "en": "Lawful strike"
+        },
+        {
+          "tr": "Yüklenicinin finansman planlamasını hatalı yapması",
+          "en": "The contractor's poor financial planning"
+        },
+        {
+          "tr": "Kısmi veya genel seferberlik ilanı",
+          "en": "Partial or general mobilization declaration"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: yüklenicinin kendi hatasından kaynaklanan bir durum (finansman planlaması hatası) mücbir sebep olamaz, çünkü mücbir sebebin ilk şartı yükleniciden kaynaklanan bir kusurdan ileri gelmemiş olmasıdır. Diğer üç şık kanunda sayılan mücbir sebep hallerindendir.",
+        "en": "Correct answer 3: a situation caused by the contractor's own fault (poor financial planning) cannot be force majeure, since the first condition is precisely that it must NOT stem from the contractor's fault. The other three are listed grounds."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir yüklenici, deprem nedeniyle işini 15 gün durdurmak zorunda kaldığını öne sürerek süre uzatımı talep ediyor. Bu talebin kabul edilmesi için hangi şartların birlikte sağlanması ve hangi süre içinde ne yapılması gerekir?",
+        "en": "A contractor claims an earthquake forced a 15-day work stoppage and requests a time extension. What conditions must jointly be met, and what must be done within what timeframe, for this claim to be accepted?"
+      },
+      "answer": {
+        "tr": "Depremin mücbir sebep sayılıp süre uzatımı hakkı doğurması için 3 şartın birlikte sağlanması gerekir: (1) yükleniciden kaynaklanan bir kusurdan ileri gelmemiş olması (deprem doğal afettir, bu şartı otomatik sağlar), (2) yüklenicinin taahhüdünü yerine getirmesine engel nitelikte olması (işi gerçekten durdurmuş olmalı), (3) yüklenicinin bu engeli ortadan kaldırmaya gücünün yetmemiş olması. Ayrıca yüklenici, depremin meydana geldiği tarihi izleyen 20 gün içinde idareye YAZILI olarak bildirimde bulunmalı ve durumu yetkili merci tarafından belgelendirmelidir. Bu şartlar sağlanırsa süre uzatımı verilebilir.",
+        "en": "For the earthquake to count as force majeure and grant a time extension, 3 conditions must jointly hold: (1) not caused by the contractor's fault (an earthquake automatically satisfies this), (2) it actually prevented performance (work genuinely stopped), (3) the contractor lacked the power to overcome it. Additionally, the contractor must give WRITTEN notice to the agency within 20 days of the earthquake and have the situation certified by the competent authority. If all these are met, the extension may be granted."
+      }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Muayene ve kabul işlemleri kim tarafından yapılır?",
+        "en": "Who carries out inspection and acceptance procedures?"
+      },
+      "options": [
+        {
+          "tr": "İdarenin tek bir yetkilisi tarafından",
+          "en": "By a single agency official"
+        },
+        {
+          "tr": "İdarece kurulacak en az 3 kişilik muayene-kabul komisyonu tarafından",
+          "en": "By an inspection-acceptance committee of at least 3 members set up by the agency"
+        },
+        {
+          "tr": "Yüklenicinin kendi kalite kontrol biriminin onayıyla",
+          "en": "By the contractor's own QC department's approval"
+        },
+        {
+          "tr": "Yüksek Fen Kurulu tarafından",
+          "en": "By the Supreme Technical Board"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: kanun en az 3 kişilik bir komisyon şartı koyar; tek kişi veya yüklenicinin kendi onayı yeterli değildir. Yüksek Fen Kurulu, muayene-kabul değil, danışmanlık sözleşmesi anlaşmazlıklarının çözümünde görevlidir.",
+        "en": "Correct answer 2: the law requires a committee of at least 3 members; a single official or the contractor's self-certification is not sufficient. The Supreme Technical Board handles consultancy-contract disputes, not inspection/acceptance."
+      }
+    },
+    {
+      "id": "q14",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ek kesin teminat hangi durumda, ne oranda alınır?",
+        "en": "Under what circumstance, and at what rate, is an additional final guarantee collected?"
+      },
+      "answer": {
+        "tr": "Fiyat farkı ödenmesi öngörülerek ihale edilen işlerde, fiyat farkı olarak ödenecek bedelin sözleşme bedelinde artış meydana getirmesi halinde, bu artış tutarının %6'sı oranında ek kesin teminat alınır. Bu kesinti hak edişlerden kesinti yapılmak suretiyle de karşılanabilir.",
+        "en": "In tenders where price adjustment is anticipated, if the price-adjustment amount causes an increase in the contract price, an additional final guarantee equal to 6% of that increase amount is collected — which may also be recovered by deducting it from progress payments."
+      }
+    },
+    {
+      "id": "q15",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapım işleri dışındaki (mal/hizmet) bir işte garanti süresi öngörülmemişse kesin teminat ne zaman iade edilir?",
+        "en": "In a non-works (goods/services) contract with no warranty period, when is the final guarantee returned?"
+      },
+      "options": [
+        {
+          "tr": "Hiçbir zaman iade edilmez",
+          "en": "It is never returned"
+        },
+        {
+          "tr": "SGK ilişiksizlik belgesi getirildikten sonra tamamı birden iade edilir",
+          "en": "The full amount is returned at once, once an SGK clearance certificate is submitted"
+        },
+        {
+          "tr": "Sadece yarısı iade edilir, kalanı hazineye kalır",
+          "en": "Only half is returned, the rest goes to the treasury"
+        },
+        {
+          "tr": "15 yıl sonra iade edilir",
+          "en": "It is returned after 15 years"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: yapım dışı işlerde SGK ilişiksizlik belgesi şartı sağlandıktan sonra, garanti süresi öngörülmüşse teminat yarı yarıya (garanti başında yarısı, sonunda kalanı) iade edilir; garanti süresi öngörülmemişse tamamı birden iade edilir.",
+        "en": "Correct answer 2: for non-works contracts, once the SGK clearance is submitted, if a warranty period was set the guarantee is split in half (half now, half after the warranty ends); if no warranty period applies, the whole amount is returned at once."
+      }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Talep edilmeyen bir kesin teminat mektubu, ilgili tarihten itibaren kaç yıl içinde hükümsüz kalır?",
+        "en": "An unclaimed final guarantee letter lapses within how many years of the relevant date?"
+      },
+      "options": [
+        {
+          "tr": "1 yıl",
+          "en": "1 year"
+        },
+        {
+          "tr": "2 yıl",
+          "en": "2 years"
+        },
+        {
+          "tr": "3 yıl",
+          "en": "3 years"
+        },
+        {
+          "tr": "5 yıl",
+          "en": "5 years"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap: 2 yıl. İdarenin yazılı uyarısına rağmen 2 yıl içinde talep edilmeyen teminat mektupları hükümsüz kalır ve bankasına iade edilir. (Not: teminat mektubu dışındaki teminatlar sürenin bitiminde hazineye gelir kaydedilir — bu ayrı bir kural.)",
+        "en": "Correct answer: 2 years. Guarantee letters not claimed within 2 years despite the agency's written warning lapse and are returned to their issuing bank. (Note: non-letter guarantees instead become treasury revenue at period end — a separate rule.)"
+      }
+    },
+    {
+      "id": "q17",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Sözleşme imzalandıktan sonra sözleşmede değişiklik yapılabilmesi için gereken şartları ve değiştirilebilecek hususları açıklayınız.",
+        "en": "Explain the conditions required to amend a signed contract, and which aspects may be changed."
+      },
+      "answer": {
+        "tr": "Değişiklik için 2 şartın BİRLİKTE sağlanması gerekir: (1) sözleşme bedelinin aşılmaması, (2) idare ile yüklenicinin karşılıklı olarak anlaşması. Bu şartlar sağlanırsa şu hususlarda değişiklik yapılabilir: (a) işin yapılma veya teslim yeri (örn. arsa değiştirilebilir), (b) işin süresinden ÖNCE yapılması veya teslim edilmesi kaydıyla işin süresi ve buna uygun olarak oluşturulacak ödeme şartları (süre sadece kısaltılabilir, uzatılamaz).",
+        "en": "Two conditions must hold TOGETHER: (1) the contract price is not exceeded, and (2) the agency and contractor mutually agree. If both hold, changes are allowed to: (a) the place of performance/delivery (e.g. the site/plot may change), (b) the duration and matching payment plan, but only if the work is completed EARLIER than scheduled (duration can only be shortened, not extended)."
+      }
+    },
+    {
+      "id": "q18",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir sözleşme, ihale yetkilisinin yazılı izniyle başka bir firmaya devredildi. Devralan firma hakkında hangi şart aranır?",
+        "en": "A contract is assigned to another firm with the tender authority's written permission. What condition applies to the assignee firm?"
+      },
+      "options": [
+        {
+          "tr": "Sadece mali yeterliliği olması yeterlidir",
+          "en": "Only financial capacity is required"
+        },
+        {
+          "tr": "Devralacak kişide/firmada ilk ihaledeki şartların (katılım şartlarının) aranması zorunludur",
+          "en": "The assignee must meet the eligibility conditions of the original tender"
+        },
+        {
+          "tr": "Herhangi bir şart aranmaz, izin yeterlidir",
+          "en": "No condition applies, permission alone suffices"
+        },
+        {
+          "tr": "Sadece devreden firmanın onayı yeterlidir",
+          "en": "Only the assignor's consent is required"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: kanun, devir alacak kişide ilk ihaledeki (ihaleye katılım) şartlarının aranmasını zorunlu kılar — yasaklı biri veya ihaleye katılamayacak biri devir yoluyla işi alamaz.",
+        "en": "Correct answer 2: the law requires the assignee to meet the original tender's eligibility conditions — someone debarred or otherwise ineligible cannot acquire the job through assignment."
+      }
+    },
+    {
+      "id": "q19",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yüklenicinin ölümü halinde sözleşmenin akıbeti ne olur? Mirasçıya devir mümkün müdür?",
+        "en": "What happens to the contract if the contractor dies? Can it be assigned to an heir?"
+      },
+      "answer": {
+        "tr": "Kural olarak sözleşme feshedilir, hesabı genel hükümlere göre tasfiye edilir; kesin teminat ve varsa diğer alacaklar mirasçılara verilir. Ancak istisna olarak, aynı şartları taşıyan ve talepte bulunan mirasçıya idarenin uygun görmesi halinde, ölüm tarihini izleyen 30 gün içinde varsa ek teminatlar dahil taahhüdün tamamı için gerekli kesin teminatı vermesi şartıyla sözleşme devredilebilir.",
+        "en": "As a rule, the contract is terminated and settled under general provisions; the final guarantee and any receivables go to the heirs. As an exception, an eligible heir who requests it may take over the contract if the agency approves, provided they post the required final guarantee (including any additional guarantees) for the whole obligation within 30 days of the death."
+      }
+    },
+    {
+      "id": "q20",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yüklenicinin ağır hastalık nedeniyle taahhüdünü yerine getirememesi halinde, işin devamı için ne yapılabilir?",
+        "en": "If the contractor cannot perform due to serious illness, how can the work continue?"
+      },
+      "options": [
+        {
+          "tr": "İş otomatik olarak feshedilir",
+          "en": "The work is automatically terminated"
+        },
+        {
+          "tr": "Bu durumu izleyen 30 gün içinde, yüklenicinin teklif edeceği ve idarenin kabul edeceği bir vekil tayiniyle işe devam edilebilir",
+          "en": "Within 30 days, work may continue via a proxy nominated by the contractor and accepted by the agency"
+        },
+        {
+          "tr": "İdare işi kendi personeliyle tamamlar",
+          "en": "The agency completes the work with its own staff"
+        },
+        {
+          "tr": "Sözleşme otomatik olarak bir yıl süreyle askıya alınır",
+          "en": "The contract is automatically suspended for a year"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: kanun, bu durumda 30 gün içinde vekil tayinini öngörür (yüklenici kendi iradesiyle vekil tayin edemeyecek durumdaysa aynı süre içinde yasal temsilci tayini istenebilir). Bu uygulanmazsa sözleşme feshedilir; ancak otomatik fesih ilk seçenek değildir.",
+        "en": "Correct answer 2: the law provides for proxy appointment within 30 days (or a legal representative if the contractor cannot appoint one themself). Termination only follows if this is not implemented — it is not the automatic first step."
+      }
+    },
+    {
+      "id": "q21",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Ortak girişim olarak yürütülen bir işte pilot ortağın iflas etmesi ile pilot OLMAYAN bir ortağın iflas etmesi arasındaki sonuç farkını açıklayınız.",
+        "en": "Explain the difference in consequences between the pilot partner's bankruptcy versus a non-pilot partner's bankruptcy in a joint-venture contract."
+      },
+      "answer": {
+        "tr": "Ortaklardan birinin iflası kural olarak sözleşmenin devamına engel değildir. Ancak bu ortak idareye pilot veya koordinatör ortak olarak bildirilmişse, iflas hâlinde sözleşme FESEDİLİR ve yasaklama hariç ilgili hükümlere göre işlem yapılır. Buna karşılık, pilot/koordinatör DIŞINDAKİ bir ortağın iflası sözleşmenin devamına engel olmaz — diğer ortaklar, o ortağın teminat dahil yüklendiği sorumlulukları üstlenerek taahhüdü sürdürürler.",
+        "en": "A partner's bankruptcy generally does not stop the joint-venture contract. But if that partner was declared the pilot/coordinating partner, bankruptcy leads to TERMINATION (with related provisions applying, debarment aside). By contrast, if a non-pilot partner goes bankrupt, the contract continues — the remaining partners simply take over that partner's responsibilities, including their share of the guarantee."
+      }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İdarenin bir sözleşmeyi feshedebileceği 2 halden biri, yüklenicinin taahhüdünü yerine getirmemesi/işi geciktirmesidir. Bu durumda fesihten önce idare ne yapmak zorundadır?",
+        "en": "One of the 2 grounds for agency termination is the contractor's non-performance/delay. What must the agency do before terminating in this case?"
+      },
+      "options": [
+        {
+          "tr": "Doğrudan feshedebilir, ihtar gerekmez",
+          "en": "It may terminate directly, no warning required"
+        },
+        {
+          "tr": "En az 10 gün süreli ve nedenleri açıkça belirtilen bir ihtar vermek zorundadır",
+          "en": "It must give at least a 10-day written warning clearly stating the reasons"
+        },
+        {
+          "tr": "Yüksek Fen Kurulu'na başvurmak zorundadır",
+          "en": "It must apply to the Supreme Technical Board"
+        },
+        {
+          "tr": "En az 30 gün süreli bir ihtar vermek zorundadır",
+          "en": "It must give at least a 30-day warning"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: idare en az 10 gün süreli, nedenleri açık bir ihtar vermeli; bu ihtara rağmen durum devam ederse fesih yapılabilir. Yüksek Fen Kurulu, danışmanlık sözleşmesi anlaşmazlıklarında devreye girer, fesih öncesi zorunlu bir adım değildir.",
+        "en": "Correct answer 2: the agency must issue at least a 10-day, clearly-reasoned warning; if the breach continues, termination follows. The Supreme Technical Board handles consultancy-contract disputes, not a mandatory pre-termination step."
+      }
+    },
+    {
+      "id": "q57",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yüklenici, mücbir sebep dışında mali acz içine düştüğü için taahhüdünü yerine getiremeyeceğini yazılı olarak bildirerek sözleşmeyi feshederse ne olur?",
+        "en": "If the contractor terminates the contract by giving written notice that financial incapacity (outside force majeure) prevents performance, what happens?"
+      },
+      "options": [
+        {
+          "tr": "Kesin teminat iade edilir ve yüklenici herhangi bir cezaya tabi tutulmaz",
+          "en": "The final guarantee is returned and the contractor faces no penalty"
+        },
+        {
+          "tr": "Kesin teminat ve varsa ek kesin teminat gelir kaydedilerek devlete geçer, sözleşme feshedilerek hesabı genel hükümlere göre tasfiye edilir",
+          "en": "The final (and any additional) guarantee is forfeited to the state, and the contract is terminated and settled under general provisions"
+        },
+        {
+          "tr": "İdare, yükleniciye 30 gün ek süre vermek zorundadır",
+          "en": "The agency must grant the contractor a 30-day extension"
+        },
+        {
+          "tr": "Sözleşme askıya alınır, mali durum düzelince devam edilir",
+          "en": "The contract is suspended and resumes once finances recover"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: mücbir sebep dışında mali acz gerekçesiyle yüklenici sözleşmeyi feshederse, ayrıca protesto çekmeye gerek kalmaksızın kesin (ve varsa ek kesin) teminatı gelir kaydedilir ve sözleşme feshedilerek hesap genel hükümlere göre tasfiye edilir. Teminatın iade edilmesi (1. şık) yalnızca yüklenicinin ölümü gibi kusursuz hallerde söz konusudur; mali acz yüklenicinin kendi feshidir ve teminat kaybıyla sonuçlanır.",
+        "en": "Correct answer 2: when a contractor terminates for financial incapacity (outside force majeure), the final (and any additional) guarantee is forfeited to the state without need for protest, and the contract is terminated and settled under general provisions. Guarantee return (option 1) applies only in no-fault cases such as the contractor's death; financial-incapacity termination is the contractor's own act and forfeits the guarantee."
+      }
+    },
+    {
+      "id": "q23",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Anahtar teslimi götürü bedel ile ihale edilen bir yapım işinde, sözleşme bedeli 10.000.000 TL'dir. Kanuna göre bu işte aynı yükleniciye yaptırılabilecek azami iş artışı tutarı nedir?",
+        "en": "In a lump-sum turnkey works contract with a 10,000,000 TL contract price, what is the maximum scope-increase amount the same contractor may be assigned?"
+      },
+      "options": [
+        {
+          "tr": "500.000 TL (%5)",
+          "en": "500,000 TL (5%)"
+        },
+        {
+          "tr": "1.000.000 TL (%10)",
+          "en": "1,000,000 TL (10%)"
+        },
+        {
+          "tr": "2.000.000 TL (%20)",
+          "en": "2,000,000 TL (20%)"
+        },
+        {
+          "tr": "4.000.000 TL (%40)",
+          "en": "4,000,000 TL (40%)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: anahtar teslimi götürü bedel yapım işlerinde iş artışı sınırı sözleşme bedelinin %10'udur → 10.000.000 × 0,10 = 1.000.000 TL. %20 birim fiyat işleri için, %40 ise Cumhurbaşkanı kararıyla artırılmış birim fiyat yapım işleri içindir — anahtar teslimi götürü bedele uygulanmaz.",
+        "en": "Correct answer 2: the cap for lump-sum turnkey works is 10% of the contract price → 10,000,000 × 0.10 = 1,000,000 TL. 20% applies to unit-price works, and 40% only to unit-price works raised by presidential decision — neither applies to lump-sum turnkey."
+      }
+    },
+    {
+      "id": "q24",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Birim fiyat teklif almak suretiyle ihale edilen bir mal alımı sözleşmesinde bedel 5.000.000 TL'dir. Kanundaki standart iş artışı sınırına göre azami artış tutarı nedir?",
+        "en": "In a unit-price goods-procurement contract worth 5,000,000 TL, what is the maximum scope-increase amount under the standard statutory limit?"
+      },
+      "options": [
+        {
+          "tr": "500.000 TL (%10)",
+          "en": "500,000 TL (10%)"
+        },
+        {
+          "tr": "1.000.000 TL (%20)",
+          "en": "1,000,000 TL (20%)"
+        },
+        {
+          "tr": "2.000.000 TL (%40)",
+          "en": "2,000,000 TL (40%)"
+        },
+        {
+          "tr": "250.000 TL (%5)",
+          "en": "250,000 TL (5%)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: birim fiyatla ihale edilen mal/hizmet alımları ve yapım işlerinde standart sınır %20'dir → 5.000.000 × 0,20 = 1.000.000 TL. %40 sadece birim fiyat YAPIM işlerinde Cumhurbaşkanı kararıyla uygulanabilir; bu soru bir MAL alımı olduğu için %40 seçeneği uygulanmaz.",
+        "en": "Correct answer 2: the standard limit for unit-price goods/services/works is 20% → 5,000,000 × 0.20 = 1,000,000 TL. The 40% option applies only to unit-price WORKS contracts by presidential decision, and this question is about a goods contract, so it does not apply."
+      }
+    },
+    {
+      "id": "q25",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Birim fiyat sözleşmeyle yürütülen 20.000.000 TL bedelli bir yapım işinde, Cumhurbaşkanı kararıyla iş artışı oranı azami sınıra kadar kullanılmıştır. Bu durumda iş artışı tutarını hesaplayınız ve dayanağını açıklayınız.",
+        "en": "In a 20,000,000 TL unit-price works contract, the scope-increase rate was used up to its maximum under a presidential decision. Calculate the increase amount and explain the basis."
+      },
+      "answer": {
+        "tr": "Birim fiyat sözleşmeyle yürütülen yapım işlerinde, standart sınır %20 olmakla birlikte, Cumhurbaşkanı bu oranı sözleşme bazında %40'a kadar artırmaya yetkilidir. Azami sınır (%40) kullanıldığında: 20.000.000 × 0,40 = 8.000.000 TL iş artışı yapılabilir. Dayanak: KİSK'in birim fiyat yapım işlerinde iş artışı sınırını Cumhurbaşkanı kararıyla %40'a kadar yükseltme yetkisi tanıyan hükmüdür.",
+        "en": "For unit-price works contracts, while the standard cap is 20%, the President has authority to raise it to 40% on a per-contract basis. Using the maximum (40%): 20,000,000 × 0.40 = 8,000,000 TL of additional scope may be assigned. Basis: the KİSK provision granting the President authority to raise the unit-price-works scope-increase cap up to 40%."
+      }
+    },
+    {
+      "id": "q26",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "İş artışının aynı yükleniciye yaptırılabilmesi için hangi şart aranmaz?",
+        "en": "Which of the following is NOT a required condition for scope-increase work to be assigned to the same contractor?"
+      },
+      "options": [
+        {
+          "tr": "Artışa konu iş, sözleşmeye esas proje içinde kalmalıdır",
+          "en": "The added work must remain within the contract's base project"
+        },
+        {
+          "tr": "İdareyi külfete sokmaksızın asıl işten ayrılması teknik/ekonomik olarak mümkün olmamalıdır",
+          "en": "Splitting it off without burdening the agency must be technically/economically impossible"
+        },
+        {
+          "tr": "Yüklenicinin bu artışı kabul etmesi için ayrıca yeni bir ihaleye girmesi gerekir",
+          "en": "The contractor must enter a new separate tender to accept the increase"
+        },
+        {
+          "tr": "Artış, sözleşme bedelinin (süre hariç) belirlenen yüzdesini aşmamalıdır",
+          "en": "The increase must not exceed the set percentage of the contract price (excluding duration)"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: iş artışının amacı, tam da yeni bir ihaleye gerek kalmadan aynı yükleniciye ek iş yaptırabilmektir — bu yüzden yeni ihale şartı aranmaz. Diğer üç şık, iş artışının kanundaki gerçek şartlarıdır.",
+        "en": "Correct answer 3: the entire point of a scope increase is to assign extra work to the SAME contractor without a new tender — so a new tender is not required. The other three are the law's actual conditions."
+      }
+    },
+    {
+      "id": "q27",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Sözleşme bedeli 8.000.000 TL olan bir yapım işi, %70 bedelle (5.600.000 TL) tamamlanacağı anlaşılmıştır. Yükleniciye ek olarak ödenmesi gereken tazminat tutarını hesaplayınız.",
+        "en": "An 8,000,000 TL works contract will be completed for only 70% (5,600,000 TL) of its price. Calculate the extra compensation owed to the contractor."
+      },
+      "answer": {
+        "tr": "Sözleşme bedelinin %80'inden düşük bedelle tamamlanacağı anlaşılan işlerde, yükleniciye gerçek giderleri ve karına karşılık olarak, sözleşme bedelinin %80'i ile yapılan işin sözleşme fiyatlarıyla tutarı arasındaki FARKIN %5'i ödenir. Hesap: sözleşme bedelinin %80'i = 8.000.000 × 0,80 = 6.400.000 TL. Yapılan işin tutarı = 5.600.000 TL. Fark = 6.400.000 − 5.600.000 = 800.000 TL. Ek ödeme = 800.000 × 0,05 = 40.000 TL. (Yüklenici işi %70 bedelle bitirmek zorundadır; buna ek olarak 40.000 TL tazminat alır.)",
+        "en": "For works completing below 80% of the contract price, the contractor receives, as compensation for real costs and profit, 5% of the GAP between 80% of the contract price and the value of work actually done. Calculation: 80% of contract price = 8,000,000 × 0.80 = 6,400,000 TL. Value of work done = 5,600,000 TL. Gap = 6,400,000 − 5,600,000 = 800,000 TL. Extra payment = 800,000 × 0.05 = 40,000 TL. (The contractor must still finish the work for 70% of the price, plus receives this 40,000 TL compensation.)"
+      }
+    },
+    {
+      "id": "q28",
+      "type": "open",
+      "covers": [
+        "n7",
+        "n8"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "İhaleye girip kazanan ve sözleşme yapılan bir yüklenicinin aslında yasaklı olduğu, sözleşme yapıldıktan sonra tespit edildi. Yüklenici taahhüdün %85'ini tamamlamış durumda ve işin bitirilmesinde kamu yararı var. Bu durumda idare ne yapabilir? Hangi ek şartlar aranır?",
+        "en": "A contractor who won a tender and signed a contract turns out to have been debarred, discovered only after signing. The contractor has completed 85% of the obligation, and finishing it serves the public interest. What can the agency do, and what additional conditions apply?"
+      },
+      "answer": {
+        "tr": "Kural olarak, yasaklı olduğu sonradan anlaşılan yüklenicinin sözleşmesi feshedilir ve kesin teminat gelir kaydedilir. Ancak istisnai olarak, yüklenici taahhüdün EN AZ %80'ini tamamlamışsa (burada %85, şart sağlanır) VE taahhüdün tamamlattırılmasında kamu yararı VARSA (verilmiş, şart sağlanır), idare sözleşmeyi feshetmeksizin yükleniciden taahhüdünü tamamlamasını isteyebilir. Bunun için ayrıca 3 şartın da sağlanması gerekir: (1) kalan kısmın (en çok %20) yeniden ihalesi için yeterli süre bulunmaması (aciliyet), (2) taahhüdün başka bir yükleniciye yaptırılmasının mümkün olmaması, (3) yüklenicinin yasak fiilinin taahhüdün tamamlanmasını engelleyecek nitelikte olmaması. Tüm şartlar sağlanırsa iş tamamlattırılabilir — ANCAK yüklenici hakkında ilgili madde hükmüne göre işlem yapılır (yasaklama ve kesin teminat tutarı kadar ayrıca ceza tahsili devam eder); işe devam izni cezadan muafiyet sağlamaz.",
+        "en": "Normally, a contract with a contractor later found to have been debarred is terminated and the final guarantee forfeited. Exceptionally, if the contractor has completed AT LEAST 80% of the obligation (85% here satisfies this) AND completing it serves the public interest (given, satisfies this), the agency may — without terminating — require the contractor to finish. Three further conditions must also hold: (1) urgency — no time to re-tender the remaining ≤20%, (2) it cannot be handed to another contractor, (3) the prohibited act does not itself prevent completion. If all hold, the work may be completed — BUT the contractor is still subject to the relevant penalty provisions (debarment and a penalty equal to the final guarantee amount are still collected); permission to continue does not exempt them from punishment."
+      }
+    },
+    {
+      "id": "q29",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Sözleşme uygulaması sırasındaki yasak fiil ve davranışlardan en az 6 tanesini sayınız.",
+        "en": "List at least 6 prohibited acts/behaviors during contract execution."
+      },
+      "answer": {
+        "tr": "Hile, vaat, tehdit, nüfuz kullanma, çıkar sağlama, anlaşma, irtikap veya rüşvet suretiyle ya da başka yollarla sözleşmeye ilişkin işlemlere fesat karıştırmak veya buna teşebbüs etmek; sahte belge düzenlemek; sözleşme konusu işin yapılması veya teslimi sırasında hileli malzeme kullanmak; taahhüdünü yerine getirirken idareye zarar vermek; bilgi ve deneyimini idarenin zararına kullanmak; mücbir sebepler dışında ihale dokümanı ve sözleşme hükümlerine uygun olarak taahhüdünü yerine getirmemek; sözleşmenin kanuna aykırı olarak devredilmesi veya devir alınması. (Herhangi 6 tanesi doğru kabul edilir.)",
+        "en": "Fraud, promise, threat, undue influence, seeking benefit, collusion, extortion, or bribery (or other means) to corrupt or attempt to corrupt contract-related transactions; forging documents; using fraudulent materials in performing/delivering the work; damaging the agency while performing the obligation; using one's knowledge/experience to the agency's detriment; failing to perform the obligation per the tender documents/contract without force majeure; unlawfully assigning or receiving the contract. (Any 6 are acceptable.)"
+      }
+    },
+    {
+      "id": "q30",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yasak fiil ve davranışlarda bulunduğu tespit edilenler hakkında idarece verilecek yasaklama süresi nedir?",
+        "en": "What is the administrative debarment period for those found engaging in prohibited acts?"
+      },
+      "options": [
+        {
+          "tr": "6 aydan az olmamak üzere 1 yıla kadar",
+          "en": "Not less than 6 months, up to 1 year"
+        },
+        {
+          "tr": "1 yıldan az olmamak üzere 2 yıla kadar",
+          "en": "Not less than 1 year, up to 2 years"
+        },
+        {
+          "tr": "2 yıldan az olmamak üzere 3 yıla kadar",
+          "en": "Not less than 2 years, up to 3 years"
+        },
+        {
+          "tr": "Süresiz (kalıcı)",
+          "en": "Indefinite (permanent)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: idari yasaklama fiilin özelliğine göre 1 yıldan az olmamak üzere 2 yıla kadar uygulanır. Mahkeme kararıyla verilen EK yasaklama ise 1-3 yıl arasıdır (idari yasaklamanın bitişinden sonra başlar) — bunu karıştırmayınız.",
+        "en": "Correct answer 2: administrative debarment runs 1-2 years depending on the act's severity. Note this is distinct from the ADDITIONAL 1-3 year court-ordered debarment that starts after the administrative one ends — don't conflate the two."
+      }
+    },
+    {
+      "id": "q31",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yasaklama kararı, fiilin tespit edildiği tarihten itibaren en geç kaç gün içinde verilmeli ve Resmî Gazete'ye ne zaman gönderilmelidir?",
+        "en": "Within how many days of detection must the debarment decision be issued, and when must it be sent to the Official Gazette?"
+      },
+      "options": [
+        {
+          "tr": "En geç 30 gün içinde verilir, 10 gün içinde gönderilir",
+          "en": "Issued within 30 days, sent within 10 days"
+        },
+        {
+          "tr": "En geç 45 gün içinde verilir, en geç 15 gün içinde gönderilir",
+          "en": "Issued within 45 days, sent within 15 days"
+        },
+        {
+          "tr": "En geç 60 gün içinde verilir, en geç 30 gün içinde gönderilir",
+          "en": "Issued within 60 days, sent within 30 days"
+        },
+        {
+          "tr": "En geç 90 gün içinde verilir, en geç 45 gün içinde gönderilir",
+          "en": "Issued within 90 days, sent within 45 days"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: yasaklama kararı en geç 45 gün içinde verilir; karar, Resmî Gazete'de yayımlanmak üzere en geç 15 gün içinde gönderilir ve yayım tarihinde yürürlüğe girer. (Bu süreleri Yüksek Fen Kurulu'nun 30/60 günlük itiraz sürecinden ayırt ediniz.)",
+        "en": "Correct answer 2: the debarment decision must issue within 45 days; it is sent for Gazette publication within 15 days and takes effect on the publication date. (Distinguish these from the Supreme Technical Board's 30/60-day objection timeline.)"
+      }
+    },
+    {
+      "id": "q32",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir yüklenicinin yasak fiili aynı zamanda Türk Ceza Kanunu'na göre suç teşkil ediyorsa, KİSK'teki idari yasaklamaya ek olarak hangi süreçler işler?",
+        "en": "If a contractor's prohibited act also constitutes a crime under the Turkish Penal Code, what additional processes run alongside the KİSK administrative debarment?"
+      },
+      "answer": {
+        "tr": "İdare/kurum, yetkili Cumhuriyet savcılığına suç duyurusunda bulunmakla yükümlüdür — bu, KİSK'teki idari yasaklamadan AYRI bir süreçtir. Mahkeme, hükmedeceği cezanın yanı sıra, idari yasaklama kararının bitiş tarihinden itibaren uygulanmak üzere, 1 yıldan az olmamak üzere 3 yıla kadar bütün kamu kurum ve kuruluşlarının ihalelerine katılmaktan yasaklama kararı verebilir. Aynı fiiller nedeniyle mükerrer ceza hükmü alanlar (ve sermayelerinin yarısından fazlasına sahip oldukları/ortağı oldukları şirketler) sürekli olarak kamu ihalelerine katılmaktan yasaklanır.",
+        "en": "The agency/institution must file a criminal complaint with the competent public prosecutor — a process SEPARATE from the KİSK administrative debarment. Alongside any sentence, the court may impose an additional 1-3 year nationwide tender ban, starting once the administrative ban ends. Repeat offenders convicted again for the same kinds of acts (and companies where they hold majority ownership/partnership) are permanently banned from public tenders."
+      }
+    },
+    {
+      "id": "q33",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Muayene-kabul komisyonu üyelerinin görevlerini tarafsızlıkla yapmayıp bir tarafın zararına yol açacak ihmalde bulunması hangi sonucu doğurur?",
+        "en": "What is the consequence if inspection-acceptance committee members act with bias and cause loss to one party through negligence?"
+      },
+      "options": [
+        {
+          "tr": "Hiçbir yaptırım uygulanmaz, sadece uyarılırlar",
+          "en": "No sanction, only a warning"
+        },
+        {
+          "tr": "İlgili mevzuata göre disiplin cezası uygulanır, ayrıca ceza kovuşturması da yapılabilir",
+          "en": "Disciplinary penalties apply under relevant regulations, and criminal prosecution may also follow"
+        },
+        {
+          "tr": "Sadece görevden alınırlar, başka yaptırım yoktur",
+          "en": "They are only removed from duty, no further sanction"
+        },
+        {
+          "tr": "Otomatik olarak kamu ihalelerinden yasaklanırlar",
+          "en": "They are automatically debarred from public tenders"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: görevlilerin ihmali/kusurlu davranışı disiplin cezasına tabidir, davranışın niteliğine göre ayrıca ceza kovuşturması da yapılabilir. Bu, yüklenicinin ihalelerden yasaklanmasından farklı bir sorumluluk rejimidir.",
+        "en": "Correct answer 2: officials' negligent/faulty conduct triggers disciplinary penalties, and possibly criminal prosecution depending on the nature of the act — a distinct liability regime from the contractor's tender debarment."
+      }
+    },
+    {
+      "id": "q34",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yüklenicinin yapı işindeki sorumluluk süresini, başlangıç ve bitiş noktalarıyla birlikte açıklayınız.",
+        "en": "Explain the contractor's liability period for a works job, including its start and end points."
+      },
+      "answer": {
+        "tr": "Yüklenici, yapının fen ve sanat kurallarına aykırı yapılması, kötü malzeme kullanılması vb. nedenlerle ortaya çıkan zarar ve ziyandan, yapının tamamı için İŞE BAŞLAMA TARİHİNDEN KESİN KABUL TARİHİNE KADAR sorumludur. Ayrıca, KESİN KABUL ONAY TARİHİNDEN İTİBAREN DE 15 YIL SÜREYLE MÜTESELSİLEN sorumludur. Yani sorumluluk iki aşamalıdır: inşaat süresince (doğrudan) ve kesin kabul sonrası 15 yıl boyunca (müteselsil).",
+        "en": "The contractor is liable for damage from violations of professional/technical rules, poor materials, etc., for the entire building from the START OF WORK until FINAL ACCEPTANCE. Beyond that, they remain JOINTLY-AND-SEVERALLY liable for 15 YEARS from the date final acceptance is approved. So liability has two phases: during construction (direct) and for 15 years after final acceptance (joint-and-several)."
+      }
+    },
+    {
+      "id": "q35",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı denetim görevlileri, denetim eksikliğinden doğan zarardan yüklenici ile birlikte hangi süre ve hangi sorumluluk türüyle sorumludur?",
+        "en": "For what period and what type of liability are site-supervision officials responsible, jointly with the contractor, for damage caused by inadequate supervision?"
+      },
+      "options": [
+        {
+          "tr": "5 yıl süreyle müştereken",
+          "en": "5 years, severally"
+        },
+        {
+          "tr": "10 yıl süreyle müteselsilen",
+          "en": "10 years, jointly-and-severally"
+        },
+        {
+          "tr": "15 yıl süreyle müteselsilen",
+          "en": "15 years, jointly-and-severally"
+        },
+        {
+          "tr": "Süresiz olarak müştereken",
+          "en": "Indefinitely, severally"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: yapı denetim görevlileri de yüklenici gibi 15 yıl süreyle müteselsilen sorumludur — bu, yükleniciyle aynı süre ve aynı sorumluluk türüdür (müteselsil, müşterek değil).",
+        "en": "Correct answer 3: site-supervision officials share the same 15-year joint-and-several liability as the contractor — same duration, same liability type (joint-and-several, not several)."
+      }
+    },
+    {
+      "id": "q36",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "4 kişilik bir yüklenici/danışman grubu toplam 12.000 TL zarardan MÜTESELSİLEN sorumludur. Zarar gören taraf, sadece bir kişiden (A'dan) ne kadar tahsil edebilir?",
+        "en": "A 4-person contractor/consultant group is JOINTLY-AND-SEVERALLY liable for 12,000 TL total damage. How much can the injured party collect from just one of them (A)?"
+      },
+      "options": [
+        {
+          "tr": "12.000 TL'nin tamamını",
+          "en": "The full 12,000 TL"
+        },
+        {
+          "tr": "Sadece 3.000 TL (payına düşen)",
+          "en": "Only 3,000 TL (their proportional share)"
+        },
+        {
+          "tr": "Hiçbir şey, önce diğerlerine başvurmalıdır",
+          "en": "Nothing, must approach the others first"
+        },
+        {
+          "tr": "6.000 TL (yarısı)",
+          "en": "6,000 TL (half)"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Doğru cevap 1: müteselsil sorumlulukta alacaklı, seçtiği HERHANGİ BİR borçludan borcun TAMAMINI isteyebilir. Payına düşen kısmı isteme kuralı (3.000 TL) müşterek sorumluluğa aittir, müteselsile değil.",
+        "en": "Correct answer 1: under joint-and-several liability, the creditor can demand the ENTIRE debt from ANY ONE debtor of their choosing. The proportional-share rule (3,000 TL) belongs to several (müşterek) liability, not joint-and-several."
+      }
+    },
+    {
+      "id": "q37",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Aynı 4 kişilik grup, aynı 12.000 TL zarardan MÜŞTEREKEN (eşit paylı) sorumlu olsaydı, zarar gören taraf tek bir kişiden en fazla ne kadar tahsil edebilirdi?",
+        "en": "If the same 4-person group were instead SEVERALLY (müşterek, equal shares) liable for the same 12,000 TL, how much could be collected from just one person at most?"
+      },
+      "options": [
+        {
+          "tr": "12.000 TL'nin tamamı",
+          "en": "The full 12,000 TL"
+        },
+        {
+          "tr": "3.000 TL (kendi payı)",
+          "en": "3,000 TL (their own share)"
+        },
+        {
+          "tr": "6.000 TL",
+          "en": "6,000 TL"
+        },
+        {
+          "tr": "9.000 TL",
+          "en": "9,000 TL"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: müşterek sorumlulukta her borçlu sadece kendi payından sorumludur. 12.000 TL ÷ 4 kişi = 3.000 TL — alacaklı bir kişiden en fazla bu kadarını isteyebilir.",
+        "en": "Correct answer 2: under several liability, each debtor answers only for their own share. 12,000 TL ÷ 4 people = 3,000 TL — the most that can be demanded from one person."
+      }
+    },
+    {
+      "id": "q38",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yüksek Fen Kurulu'na itiraz süreci nasıl işler? Süreleri belirtiniz.",
+        "en": "How does the objection process to the Supreme Technical Board work? State the timeframes."
+      },
+      "answer": {
+        "tr": "Yüksek Fen Kurulu, yapım işleri danışmanlık hizmeti sözleşmelerinin uygulamasında yetkilidir ve yargı/sayıştay incelemesine konu edilmemiş anlaşmazlıkların çözümü için başvurulur. Süreç: (1) yüklenici itirazını, kesin kabul aşaması tamamlanana kadar, sözleşmeyi düzenleyen idareye YAZILI olarak yapar; (2) idare bu itirazı en geç 30 GÜN içinde Yüksek Fen Kurulu'na gönderir; (3) Kurul itirazı en geç 60 GÜN içinde inceleyip karara bağlar; (4) verilen karar ilgili idarece uygulanır.",
+        "en": "The Supreme Technical Board (Yüksek Fen Kurulu) has authority over works-consultancy contract disputes not yet before a court or the Court of Accounts. Process: (1) the contractor files a WRITTEN objection with the contracting agency, any time up until final acceptance is completed; (2) the agency forwards the objection to the Board within 30 DAYS; (3) the Board reviews and rules within 60 DAYS; (4) the ruling is then implemented by the agency."
+      }
+    },
+    {
+      "id": "q39",
+      "type": "open",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Teknik şartname hakkında bilgi veriniz.",
+        "en": "Give information about the technical specification (teknik şartname)."
+      },
+      "answer": {
+        "tr": "Şartname, sözlük anlamıyla \"şartlı anlaşma metni\"dir; bir işin gerçekleştirilmesiyle ilgili koşulların tanımlandığı metindir. Teknik şartname ise bir hammadde, yarı mamul, mamul ya da bir üretim sürecinin/hizmetin teknik niteliğini belirleyen belgedir — üretimi söz konusu olan cismin/cihazın/faaliyetin sahip olması gereken fiziksel, kimyasal, mekanik ve/veya işlemsel özellikleri somut şekilde belirler. Proje (paftalar, kesitler) yapının üretiminde kullanılacak tekniği ve malzemenin her ayrıntısını açıklamaya yetmediği için teknik şartnameye ihtiyaç duyulur; teknik şartname aynı zamanda yapı sahibi için bir denetim aracıdır. Özetle: şartnamesiz bir projede ne yapılacağı belirtilebilir, ama üretimin hangi kalitede yapılacağı yeterince anlatılamaz.",
+        "en": "A specification (şartname) is literally 'conditional agreement text' — defining the conditions for carrying out a job. A technical specification defines the technical nature (physical, chemical, mechanical, and/or process properties) that a raw material, product, process, or service must concretely have. Projects (drawings, sections) alone cannot cover every technique/material detail, since they are primarily graphical — hence the need for a technical spec, which also serves as an inspection tool for the owner. In short: a project without a spec can state what will be built, but not reliably what quality."
+      }
+    },
+    {
+      "id": "q40",
+      "type": "mcq",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Teknik şartname eklenmemiş bir projede ne söylenebilir?",
+        "en": "What can be determined from a project lacking a technical specification?"
+      },
+      "options": [
+        {
+          "tr": "Hem ne yapılacağı hem hangi kalitede yapılacağı açıkça bellidir",
+          "en": "Both what and to what quality it will be built are clear"
+        },
+        {
+          "tr": "Ne yapılacağı belirtilebilir ama hangi kalitede yapılacağı yeterince anlatılamaz",
+          "en": "What will be built can be stated, but not reliably to what quality"
+        },
+        {
+          "tr": "Hiçbir bilgi elde edilemez",
+          "en": "No information can be obtained at all"
+        },
+        {
+          "tr": "Sadece malzeme miktarları belli olur",
+          "en": "Only material quantities are known"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: bu, teknik şartnamenin gerekliliğini özetleyen temel ilkedir — proje NE yapılacağını gösterir, teknik şartname ise HANGİ KALİTEDE yapılacağını tanımlar.",
+        "en": "Correct answer 2: this is the core principle summarizing why technical specs are needed — the project shows WHAT will be built, the spec defines WHAT QUALITY it will be built to."
+      }
+    },
+    {
+      "id": "q41",
+      "type": "open",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Teknik şartname hazırlanırken göz önünde tutulması gereken 3 kriteri örneklerle açıklayınız.",
+        "en": "Explain, with examples, the 3 criteria to consider when drafting a technical specification."
+      },
+      "answer": {
+        "tr": "(a) Projede yeterince açıklanmayan veya hiç açıklanmayan her konu şartnamede yer almalıdır — örneğin tuğlanın boyut toleransı, basınç mukavemeti, su emme düzeyi projede yoktur, şartnamede tanımlanır; gereksiz ayrıntı doldurulmamalıdır (\"gerekli ve yeterli\" ölçütü). (b) Teknik özellikler uygulanabilir, ulaşılabilir ve denetlenebilir olmalıdır — soyut ifadeler yerine (\"1. sınıf doğrama\") somut ölçülebilir tanımlar (malzeme niteliği, işçilik düzeyi, gerekirse marka/kod) kullanılmalı; aşırı hassas kriterler de (örn. ±1 mm sapma, standart ±3 mm iken) zararlıdır, çünkü uygulanamaz ve denetlenemez. (c) Uzman bilgi ve deneyimi yanında standartlardan da yararlanılmalıdır — örneğin dış sıva için TS EN 13914-1'e atıfta bulunmak, o standardın tamamını şartname eki hâline getirir ve unutulan ayrıntılardan korur.",
+        "en": "(a) Everything the project leaves under- or unexplained belongs in the spec — e.g. brick tolerance, compressive strength, water absorption are not in the drawings, so the spec defines them; avoid unnecessary detail ('necessary and sufficient'). (b) Technical properties must be applicable, attainable, and verifiable — concrete measurable definitions (material quality, workmanship level, brand/code if needed) instead of vague phrases like 'first-class joinery'; excessive precision (e.g. ±1mm when the standard tolerance is ±3mm) is equally harmful since it can't realistically be applied or checked. (c) Draw on expert knowledge plus existing standards — e.g. referencing TS EN 13914-1 for exterior plaster imports that whole standard as an annex and guards against forgotten details."
+      }
+    },
+    {
+      "id": "q42",
+      "type": "mcq",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "\"Musluk, lavabo, küvet vs. tesisat uç malzemeleri en iyi kalitede olacak\" ifadesi teknik şartname açısından neden sorunludur?",
+        "en": "Why is the phrase 'faucet, sink, tub etc. fixtures shall be of the best quality' problematic in a technical specification?"
+      },
+      "options": [
+        {
+          "tr": "Çünkü çok uzun bir cümledir",
+          "en": "Because it is too long a sentence"
+        },
+        {
+          "tr": "Soyut ve ölçülemeyen bir tanımdır; uygulanabilir/denetlenebilir değildir",
+          "en": "It is a vague, unmeasurable description; not applicable/verifiable"
+        },
+        {
+          "tr": "Çünkü malzeme isimlerini içermektedir",
+          "en": "Because it lists material names"
+        },
+        {
+          "tr": "Çünkü çok fazla malzeme türü saymaktadır",
+          "en": "Because it lists too many material types"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: \"en iyi kalite\" gibi ifadeler soyut ve kişiye göre değişir, ölçülemez ve dolayısıyla denetlenemez. Doğru yaklaşım; boyut, şekil, renk, fonksiyon, gerekirse üretici/ürün kodu gibi somut niteliklerin belirtilmesidir.",
+        "en": "Correct answer 2: phrases like 'best quality' are vague and subjective, cannot be measured, and therefore cannot be verified. The correct approach specifies concrete traits — size, shape, color, function, and brand/product code if needed."
+      }
+    },
+    {
+      "id": "q43",
+      "type": "mcq",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Şantiyeye gelen tüm tuğlaların tek tek boyut kontrolünün yapılmasını şart koşan bir madde neden hatalıdır?",
+        "en": "Why is a clause requiring every single delivered brick to be individually measured problematic?"
+      },
+      "options": [
+        {
+          "tr": "Çünkü tuğlaların boyutu zaten hep aynıdır",
+          "en": "Because bricks are always exactly the same size"
+        },
+        {
+          "tr": "Çünkü gereksiz zaman kaybına yol açar ve muhtemelen uygulanmayacaktır; kalite kontrolü örnekleme yöntemiyle yapılmalıdır",
+          "en": "Because it wastes time needlessly and likely won't be applied; QC should use sampling instead"
+        },
+        {
+          "tr": "Çünkü tuğla üreticileri buna izin vermez",
+          "en": "Because brick manufacturers won't allow it"
+        },
+        {
+          "tr": "Çünkü böyle bir kontrol yasal olarak yasaktır",
+          "en": "Because such inspection is legally prohibited"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: çok miktarda kullanılan malzemenin kalite kontrolü, her birimin tek tek incelenmesiyle değil, örnekleme yöntemiyle (yığın/partiden rastgele alınan sınırlı sayıda malzemenin incelenmesiyle) yapılmalıdır — aksi hem pratik değildir hem de gereksiz zaman kaybına yol açar.",
+        "en": "Correct answer 2: bulk-material quality control should use sampling (examining a limited random selection per batch/lot), not unit-by-unit inspection — the latter is impractical and wastes time needlessly."
+      }
+    },
+    {
+      "id": "q44",
+      "type": "mcq",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Denetim (teknik şartname bağlamında) nasıl tanımlanır?",
+        "en": "How is 'denetim' (inspection/monitoring) defined in the technical-spec context?"
+      },
+      "options": [
+        {
+          "tr": "Yapılan üretimin belirlenmiş standartlara uyup uymadığının izlenmesi faaliyetidir",
+          "en": "The activity of monitoring whether production conforms to specified standards"
+        },
+        {
+          "tr": "Sadece resmi kurumların yaptığı bir işlemdir",
+          "en": "A procedure carried out only by official state bodies"
+        },
+        {
+          "tr": "Malzemenin fiyatının kontrol edilmesidir",
+          "en": "Checking the price of a material"
+        },
+        {
+          "tr": "Yüklenicinin mali durumunun incelenmesidir",
+          "en": "Examining the contractor's financial situation"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Doğru cevap 1: denetim, üretimin belirlenmiş standartlara uygunluğunun izlenmesidir. Bu tanım kalite/teknik uygunlukla ilgilidir, fiyat veya mali durum kontrolüyle değildir.",
+        "en": "Correct answer 1: inspection/monitoring is about tracking conformance of production to set standards — a quality/technical-conformance concept, not a price or financial check."
+      }
+    },
+    {
+      "id": "q45",
+      "type": "open",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Teknik şartnamenin düzenlenmesinde kullanılan 2 yaklaşımı karşılaştırınız.",
+        "en": "Compare the 2 approaches used to organize a technical specification."
+      },
+      "answer": {
+        "tr": "1) Malzeme–yapı bileşimi–eleman bazlı yaklaşım: her konu bu üç düzeyde birlikte ve tam olarak anlatılır (örn. beton için önce malzemeler, sonra imalat koşulları aynı bölümde). Avantajı: bir konuyla ilgili her şey bir arada. Dezavantajı: çok sayıda elemanda ortak kullanılan malzemelerin (çimento, kum gibi) nitelikleri defalarca tekrarlanır. 2) 5 ana başlıklı yaklaşım (daha yaygın): tanımlar, malzemeler, yapı bileşimleri, yapı elemanları, makine ve cihazlar olmak üzere ayrı bölümlerde toplanır — tekrarı önler, ama konuyla ilgili bilgi farklı bölümlere dağılmış olabilir. Hangi başlıkların kullanılacağı işin özelliğine göre değişir (örn. makine-cihaz yoksa o bölüm kullanılmaz).",
+        "en": "1) Material–assembly–element based: each topic is explained fully at all three levels together (e.g. for concrete, materials first, then execution conditions, same section). Pro: everything about one topic is together. Con: shared materials (cement, sand) used across many elements get repeated many times. 2) The more common 5-heading approach: definitions, materials, building assemblies, building elements, machinery & equipment as separate sections — avoids repetition but spreads related info across sections. Which headings are used depends on the job (e.g. no machinery section if the building has none)."
+      }
+    },
+    {
+      "id": "q46",
+      "type": "mcq",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "5 ana başlıklı teknik şartname yaklaşımında hangi başlık, binada makine/cihaz yoksa kullanılmaz?",
+        "en": "Which heading in the 5-heading approach is omitted if the building has no machinery/equipment?"
+      },
+      "options": [
+        {
+          "tr": "Malzemeler",
+          "en": "Materials"
+        },
+        {
+          "tr": "Yapı bileşimleri",
+          "en": "Building assemblies"
+        },
+        {
+          "tr": "Makine ve cihazlar",
+          "en": "Machinery and equipment"
+        },
+        {
+          "tr": "Tanımlar",
+          "en": "Definitions"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: makine ve cihazlar bölümü, ancak işte gerçekten makine/cihaz varsa kullanılır — örneğin sıradan bir konut binasında böyle bir bölüme gerek olmayabilir. Diğer 4 başlık (tanımlar, malzemeler, yapı bileşimleri, yapı elemanları) genelde her binada geçerlidir.",
+        "en": "Correct answer 3: the machinery/equipment section is used only when the job genuinely involves machinery — e.g. an ordinary residential building may not need it. The other 4 headings (definitions, materials, assemblies, elements) generally apply to every building."
+      }
+    },
+    {
+      "id": "q47",
+      "type": "mcq",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "TS 825 hangi konuyu düzenler?",
+        "en": "What does TS 825 regulate?"
+      },
+      "options": [
+        {
+          "tr": "Beton agregaları",
+          "en": "Concrete aggregates"
+        },
+        {
+          "tr": "Binalarda ısı yalıtım kuralları",
+          "en": "Thermal insulation rules for buildings"
+        },
+        {
+          "tr": "Betonarme demiri özellikleri",
+          "en": "Rebar properties"
+        },
+        {
+          "tr": "Yapı denetimi esasları",
+          "en": "Site-supervision principles"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: TS 825, \"Binalarda Isı Yalıtım Kuralları\" standardıdır; ICS kodu 91.120.10'dur. Diğer şıklar farklı standartların veya kanunların konusudur.",
+        "en": "Correct answer 2: TS 825 is the 'Thermal Insulation Rules for Buildings' standard, ICS code 91.120.10. The other options belong to different standards or laws."
+      }
+    },
+    {
+      "id": "q48",
+      "type": "open",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "TSE'nin 7 ana belgelendirme grubunu sayınız.",
+        "en": "List TSE's 7 main certification groups."
+      },
+      "answer": {
+        "tr": "1) Üretim yerlerinin belgelendirilmesi, 2) ürünlerin (madde, mamul, mahsul) belgelendirilmesi, 3) parti mallarının belgelendirilmesi, 4) ithal malların belgelendirilmesi, 5) laboratuvarların belgelendirilmesi, 6) hizmet yerlerinin belgelendirilmesi, 7) kalite sistemlerinin belgelendirilmesi.",
+        "en": "1) Certification of production sites, 2) certification of products (materials, goods, produce), 3) certification of lot goods, 4) certification of imported goods, 5) certification of laboratories, 6) certification of service premises, 7) certification of quality systems."
+      }
+    },
+    {
+      "id": "q49",
+      "type": "mcq",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "TSE işareti ile TSEK işareti arasındaki fark nedir?",
+        "en": "What is the difference between the TSE mark and the TSEK mark?"
+      },
+      "options": [
+        {
+          "tr": "İkisi de aynı anlama gelir",
+          "en": "Both mean the same thing"
+        },
+        {
+          "tr": "TSE, ürünün ilgili Türk standardına göre üretildiğini gösterir; TSEK ise henüz Türk standardı olmayan bir ürünün uluslararası/kabul edilen özelliklere uygunluğunu gösterir",
+          "en": "TSE shows the product was made to the relevant Turkish standard; TSEK shows a product with no Turkish standard yet conforms to accepted international/other specs"
+        },
+        {
+          "tr": "TSE zorunlu, TSEK isteğe bağlıdır — ikisi de aynı standarda dayanır",
+          "en": "TSE is mandatory, TSEK voluntary — both based on the same standard"
+        },
+        {
+          "tr": "TSEK sadece ithal ürünler içindir",
+          "en": "TSEK is only for imported products"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: TSE işareti Türk standardına uygunluğu ve TSE garantisini gösterir; TSEK (\"Kalite Uygunluk Markası\") ise henüz bir Türk standardı bulunmayan ürünler için, uluslararası/başka ülke standardına veya TSE'nin kabul ettiği özelliklere uygunluğu belgeler.",
+        "en": "Correct answer 2: the TSE mark denotes compliance with the Turkish standard and TSE's guarantee; the TSEK ('Quality Conformity') mark instead certifies, for products without a Turkish standard yet, compliance with an accepted international/foreign standard or TSE-accepted spec."
+      }
+    },
+    {
+      "id": "q50",
+      "type": "mcq",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "\"TS EN 933-2\" kodu ne anlama gelir?",
+        "en": "What does the code 'TS EN 933-2' signify?"
+      },
+      "options": [
+        {
+          "tr": "Standardın içeriği hem Türk hem uluslararası (ISO) standardıyla aynıdır",
+          "en": "The standard's content matches both the Turkish and international (ISO) standard"
+        },
+        {
+          "tr": "Standardın içeriği Türk standardı ile Avrupa (EN) standardıyla birebir aynıdır",
+          "en": "The standard's content is identical to both the Turkish standard and the European (EN) standard"
+        },
+        {
+          "tr": "Standart sadece Avrupa'da geçerlidir, Türkiye'de geçerli değildir",
+          "en": "The standard is valid only in Europe, not in Turkey"
+        },
+        {
+          "tr": "Standart henüz onay aşamasındadır",
+          "en": "The standard is still pending approval"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap 2: TS EN öneki, ilgili Türk standardının içeriğinin Avrupa (EN) standardıyla birebir aynı olduğunu gösterir. TS ISO olsaydı ISO ile aynı olduğunu, TS EN ISO ise her ikisiyle de aynı olduğunu gösterirdi.",
+        "en": "Correct answer 2: the TS EN prefix shows the Turkish standard's content is identical to the European (EN) standard. TS ISO would show identity with ISO, and TS EN ISO with both."
+      }
+    },
+    {
+      "id": "q51",
+      "type": "open",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Zorunlu standart ile isteğe bağlı standart arasındaki farkı, kamu ihaleleri bağlamında açıklayınız.",
+        "en": "Explain the difference between mandatory and voluntary standards, in the context of public tenders."
+      },
+      "answer": {
+        "tr": "Zorunlu standart, Resmî Gazete'de yayımlanarak duyurulur; bu tür standartlara uyulmaması yasal yaptırımları beraberinde getirir. Kamu ihalelerinde ve satın almalarda, sözleşme konusu ürün veya üretimin Türk standartlarına uygun olması ZORUNLUDUR — bu, ihale yapan idare ve denetim kurumlarının denetim mekanizmasıdır. İsteğe bağlı standartlarda ise, standarda uyulup uyulmaması kişi ya da kurumun kendi inisiyatifindedir; denetim mekanizması, varsa sözleşme hükümlerinde belirtilen esaslara göre işler.",
+        "en": "A mandatory standard is announced in the Official Gazette; failing to comply carries legal sanctions. In public tenders and procurement, the tendered product or production process MUST comply with Turkish standards — this is enforced through the tendering agency's and oversight bodies' inspection mechanisms. For voluntary standards, compliance is left to the discretion of the individual/institution, and enforcement (if any) follows whatever the contract specifies."
+      }
+    },
+    {
+      "id": "q52",
+      "type": "mcq",
+      "covers": [
+        "n13"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "ASTM hangi ülkenin ulusal standardını temsil eder?",
+        "en": "Which country's national standard does ASTM represent?"
+      },
+      "options": [
+        {
+          "tr": "Almanya",
+          "en": "Germany"
+        },
+        {
+          "tr": "İngiltere",
+          "en": "Britain"
+        },
+        {
+          "tr": "Amerika Birleşik Devletleri",
+          "en": "United States"
+        },
+        {
+          "tr": "Japonya",
+          "en": "Japan"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: ASTM (American Society for Testing and Materials), Amerikan standartlarını temsil eder. Almanya = DIN, İngiltere = BSI, Japonya = JIS.",
+        "en": "Correct answer 3: ASTM (American Society for Testing and Materials) represents US standards. Germany = DIN, Britain = BSI, Japan = JIS."
+      }
+    },
+    {
+      "id": "q53",
+      "type": "open",
+      "covers": [
+        "n14"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Hazır (yatırımcı kamu kuruluşu) teknik şartnamelerinden yararlanırken nelere dikkat edilmelidir?",
+        "en": "What must be checked when reusing ready-made technical specifications from investor public agencies?"
+      },
+      "answer": {
+        "tr": "İki husus incelenmelidir: (1) sözleşme konusu inşaatta yapılacak imalatları kapsayıp kapsamadığı — genel amaçlı hazırlanan bu şartnamelerin sadece küçük bir kısmı belirli bir işle ilgili olabilir; (2) yapılan tanımların güncel olup olmadığı — genel amaçlı şartnameler sık güncellenmediği için bazı tanımlar ve atıf yapılan standartlar geçerliliğini yitirmiş olabilir. Örnekler: Karayolları, DSİ, Çevre ve Şehircilik Bakanlığı, TOKİ gibi kuruluşların şartnameleri; en yaygın kullanılanı Çevre ve Şehircilik Bakanlığı'nın Genel Teknik Şartnamesi'dir.",
+        "en": "Two things must be checked: (1) whether it actually covers the works to be done in the contract at hand — general-purpose specs may only be partially relevant to a specific job; (2) whether its definitions are current — general specs are not updated often, so some definitions and referenced standards may have lapsed. Examples of such sources: Highways Authority, DSİ, Ministry of Environment and Urbanization, TOKİ; the most widely used is the Ministry's General Technical Specification."
+      }
+    },
+    {
+      "id": "q54",
+      "type": "mcq",
+      "covers": [
+        "n14"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "\"Genel Teknik Şartname\"yi hangi kurum hazırlamıştır?",
+        "en": "Which institution prepared the 'General Technical Specification' (Genel Teknik Şartname)?"
+      },
+      "options": [
+        {
+          "tr": "Karayolları Genel Müdürlüğü",
+          "en": "General Directorate of Highways"
+        },
+        {
+          "tr": "Devlet Su İşleri (DSİ)",
+          "en": "State Hydraulic Works (DSİ)"
+        },
+        {
+          "tr": "Çevre ve Şehircilik Bakanlığı Fen İşleri Başkanlığı",
+          "en": "Ministry of Environment and Urbanization's Directorate of Technical Works"
+        },
+        {
+          "tr": "Toplu Konut İdaresi (TOKİ)",
+          "en": "Mass Housing Authority (TOKİ)"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap 3: en yaygın kullanılan Genel Teknik Şartname, Çevre ve Şehircilik Bakanlığı Fen İşleri Başkanlığı'nca hazırlanmıştır. Diğer kuruluşların (Karayolları, DSİ, TOKİ) da kendi alanlarına özgü şartnameleri vardır, ama soru özellikle bu belgeyi sormaktadır.",
+        "en": "Correct answer 3: the most widely used General Technical Specification was prepared by the Ministry of Environment and Urbanization's Directorate of Technical Works. Other agencies (Highways, DSİ, TOKİ) have their own field-specific specs, but the question asks about this particular document."
+      }
+    },
+    {
+      "id": "q55",
+      "type": "open",
+      "covers": [
+        "n14"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İdari şartname, teknik şartname, özel (iş özel) teknik şartname ve genel teknik şartname kavramlarını birbirinden ayırt ederek açıklayınız.",
+        "en": "Distinguish and explain: administrative specification, technical specification, job-specific technical specification, and general technical specification."
+      },
+      "answer": {
+        "tr": "İdari şartname, bir ihale dokümanında işin idari koşullarını (teklif usulü, teminatlar, ödeme şartları, süre gibi) düzenleyen belgedir. Teknik şartname ise işin teknik niteliğini (malzeme, imalat, kalite) tanımlar. Teknik şartname kapsamına göre ikiye ayrılır: özel (iş özel) teknik şartname belirli bir işe özgü hazırlanır; genel teknik şartname ise genel amaçlı, önceden hazırlanmış ve birçok işte referans olarak kullanılan bir dokümandır (örn. Çevre ve Şehircilik Bakanlığı'nın Genel Teknik Şartnamesi). Bir işin şartnamesi, genel teknik şartnameye atıfta bulunarak ve işe özgü ek koşullar ekleyerek de oluşturulabilir.",
+        "en": "The administrative specification governs a tender's administrative/procedural terms (bidding method, guarantees, payment terms, duration). The technical specification defines the job's technical nature (materials, workmanship, quality). Technical specs split into: job-specific (özel/iş özel), drafted for one particular project, and general (genel), a pre-existing general-purpose document reused as a reference across many jobs (e.g. the Ministry's General Technical Specification). A job's spec can also be built by referencing the general spec and adding job-specific supplementary conditions."
+      }
+    },
+    {
+      "id": "q56",
+      "type": "mcq",
+      "covers": [
+        "n14"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Uygulamada sıkça görülen sözleşme anlaşmazlıklarının en büyük nedeni nedir (teknik şartname bağlamında)?",
+        "en": "What is the most common cause of contract disputes in practice, in the context of technical specifications?"
+      },
+      "options": [
+        {
+          "tr": "Tarafların şartnameye konulan referans belgelerin içeriğini yeterince incelememiş olmaları",
+          "en": "The parties not having adequately reviewed the content of the reference documents cited in the specification"
+        },
+        {
+          "tr": "Şartnamenin çok kısa yazılmış olması",
+          "en": "The specification being written too briefly"
+        },
+        {
+          "tr": "Standartların İngilizce olması",
+          "en": "The standards being written in English"
+        },
+        {
+          "tr": "Yüklenicinin deneyimsiz olması",
+          "en": "The contractor being inexperienced"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Doğru cevap 1: uygulamada sıkça rastlanan durum, şartnameye konulan standartların içeriğinin, ancak taraflar arasında anlaşmazlık çıkıp konu yargıya intikal ettiğinde öğrenilmesidir — bu da her iki tarafın da referans belgeleri baştan yeterince incelememiş olmasından kaynaklanır.",
+        "en": "Correct answer 1: a commonly seen pattern is that parties only discover what a referenced standard actually required once a dispute reaches court — precisely because neither party thoroughly reviewed the referenced documents up front."
+      }
+    }
+  ],
+  "questions": []
+}

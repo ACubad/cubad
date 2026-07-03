@@ -6,6 +6,7 @@ import { Tex } from "./Md";
 
 export function FormulasView({ units }: { units: Unit[] }) {
   const { t, bi } = useLang();
+  const withFormulas = units.filter((u) => (u.concept?.keyFormulas?.length ?? 0) > 0);
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -14,7 +15,8 @@ export function FormulasView({ units }: { units: Unit[] }) {
             {t("formulas")}
           </h1>
           <p className="mt-1 text-sm text-ink-soft">
-            {t("keyFormulas")} · {units.reduce((n, u) => n + u.concept.keyFormulas.length, 0)}
+            {t("keyFormulas")} ·{" "}
+            {withFormulas.reduce((n, u) => n + (u.concept?.keyFormulas.length ?? 0), 0)}
           </p>
         </div>
         <button
@@ -25,7 +27,7 @@ export function FormulasView({ units }: { units: Unit[] }) {
         </button>
       </div>
 
-      {units.map((u) => (
+      {withFormulas.map((u) => (
         <section key={u.slug}>
           <h2 className="mb-3 border-b border-line pb-1 font-display text-xl font-semibold text-ink">
             <span className="mr-2 font-mono text-sm text-deniz">
@@ -34,7 +36,7 @@ export function FormulasView({ units }: { units: Unit[] }) {
             {bi(u.title)}
           </h2>
           <div className="grid gap-3 md:grid-cols-2">
-            {u.concept.keyFormulas.map((f, i) => (
+            {(u.concept?.keyFormulas ?? []).map((f, i) => (
               <div
                 key={i}
                 className="break-inside-avoid rounded-xl border border-line bg-card p-4"

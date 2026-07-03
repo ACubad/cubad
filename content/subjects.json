@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "hidroloji",
+    "kind": "walkthrough",
+    "title": { "tr": "Hidroloji", "en": "Hydrology" },
+    "tagline": {
+      "tr": "Su dengesi'nden taşkınlara — 40 çözümlü soru",
+      "en": "From water balance to floods — 40 worked questions"
+    }
+  },
+  {
+    "slug": "insaat-yonetimi",
+    "kind": "study",
+    "title": { "tr": "İnşaat Yönetimi", "en": "Construction Management" },
+    "tagline": {
+      "tr": "Metrajdan CPM'e — sorularla öğren",
+      "en": "From take-offs to CPM — learn through questions"
+    }
+  }
+]

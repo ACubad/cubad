@@ -1,0 +1,2748 @@
+{
+ "unit": 5,
+ "slug": "ihale",
+ "title": {
+  "tr": "Kamu İhale Kanunu ve İhale Usulleri",
+  "en": "Public Procurement Law and Tender Procedures"
+ },
+ "tagline": {
+  "tr": "4734 sayılı Kanun'a göre kamu ihalelerinin usul ve süreçleri",
+  "en": "Procedures and process of public tenders under Law No. 4734"
+ },
+ "sources": {
+  "videos": [
+   {
+    "id": "v05-kamu-ihale-kanunu",
+    "title": "Kamu İhale Kanunu",
+    "length": "~75:00"
+   }
+  ],
+  "pdfs": [
+   "ihaleler_Kamu İhale Kanunu.pdf",
+   "Kamu İhale Kanunu.pdf"
+  ]
+ },
+ "notes": [
+  {
+   "id": "n1",
+   "title": {
+    "tr": "Kanunun Amacı, Kapsamı ve Temel Tanımlar",
+    "en": "Purpose, Scope, and Key Definitions of the Law"
+   },
+   "body": {
+    "tr": "4734 sayılı **Kamu İhale Kanunu**'nun amacı (Madde 1), kamu hukukuna tabi olan veya kamunun denetimi altında bulunan yahut kamu kaynağı kullanan kamu kurum ve kuruluşlarının yapacakları ihalelerde uygulanacak esas ve usulleri belirlemektir. Kanun (Madde 2) genel bütçeli daireler, özel bütçeli idareler, il özel idareleri, belediyeler, KİT'ler ve bunların sermayesinin yarısından fazlasına sahip olduğu kuruluşları kapsar.\n\nKanunda geçen temel tanımlar (Madde 4) şöyledir:\n\n| Terim | Tanım |\n|---|---|\n| **Mal** | Satın alınan her türlü ihtiyaç maddesi ile taşınır/taşınmaz mal ve haklar |\n| **Hizmet** | Bakım-onarım, taşıma, haberleşme, sigorta, danışmanlık, yazılım vb. |\n| **Yapım** | Bina, karayolu, köprü, tünel, metro, yıkım, güçlendirme ve benzeri yapım işleri |\n| **Tedarikçi** | Mal alımı ihalesine teklif veren gerçek/tüzel kişi |\n| **Hizmet sunucusu** | Hizmet alımı ihalesine teklif veren gerçek/tüzel kişi |\n| **Aday** | Ön yeterlik için başvuran gerçek/tüzel kişi |\n| **İstekli** | Mal/hizmet alımı veya yapım işi ihalesine teklif veren taraf (tedarikçi, hizmet sunucusu veya müteahhit) |\n| **İdare** | İhaleyi yapan, kanun kapsamındaki kurum/kuruluş |\n| **İhale yetkilisi** | İdarenin ihale ve harcama yapma yetki/sorumluluğuna sahip kişi veya kurul |\n\n**İhale dokümanı**: isteklilere talimatları da içeren idari şartname + teknik şartname + sözleşme tasarısı + gerekli diğer belgeler. **İhale**: mal/hizmet alımı veya yapım işinin istekliler arasından seçilecek birine bırakıldığını gösteren ve **sözleşmenin imzalanmasıyla tamamlanan** işlemler.\n\nDiğer önemli tanımlar: **Kurum** = Kamu İhale Kurumu, **Kurul** = Kamu İhale Kurulu, **ön ilan** = yıl içinde ihale edilmesi planlanan işler için mali yıl başında yapılan duyuru, **EKAP** (Elektronik Kamu Alımları Platformu) = idarelerin ve isteklilerin işlemlerini internet üzerinden yürüttüğü elektronik ortam, **çerçeve anlaşma** = bir/birden fazla idare ile bir/birden fazla istekli arasında belli bir zaman aralığındaki alımların fiyat ve miktar şartlarını belirleyen anlaşma, **dinamik alım sistemi** = piyasada mamul olarak bulunan malların tedarikinde, ön teklif veren ve yeterlik kriterlerini sağlayan bütün isteklilerin kabul edildiği, tamamen elektronik ortamda yürütülen alım süreci, **elektronik eksiltme** = tekliflerin değerlendirilmesinin ardından yeni fiyat/değerlerin bir elektronik araçla otomatik olarak yeniden değerlendirilip sıralandığı, tekrar eden elektronik işlemler, **teminat mektubu** = bankaların veya yetkili sigorta şirketlerinin verdiği kefalet belgesi.",
+    "en": "The purpose of **Public Procurement Law No. 4734** (Article 1) is to set the principles and procedures applied in tenders held by public bodies subject to public law, under public oversight, or using public funds. The Law (Article 2) covers general and special-budget administrations, provincial special administrations, municipalities, state economic enterprises, and entities more than half-owned by these bodies.\n\nKey definitions (Article 4) include: **Good** (any purchased need item plus movable/immovable property and rights), **Service** (maintenance, transport, communication, insurance, consultancy, software, etc.), **Works/Construction** (buildings, roads, bridges, tunnels, metro, demolition, reinforcement), **Supplier**, **Service provider**, **Candidate** (applies for pre-qualification), **Tenderer** (bids on the tender), **Contracting authority** (the public body running the tender), **Tender officer** (the person/board with authority and responsibility for the tender and spending).\n\n**Tender documents**: the administrative specification with instructions to tenderers, the technical specification, the draft contract, and other required documents. **Tender**: the process of awarding a good/service/works contract to one of the tenderers, completed once the **contract is signed**.\n\nOther key terms: **Institution** = Public Procurement Authority (Kurum), **Board** = Public Procurement Board (Kurul), **pre-notice** = an early-year announcement of tenders planned for the year, **EKAP** (Electronic Public Procurement Platform) = the electronic environment for running procurement transactions online, **framework agreement** = an agreement fixing price/quantity terms for purchases over a set period, **dynamic purchasing system** = a fully electronic acquisition process for off-the-shelf goods in which all tenderers submitting a preliminary bid and meeting the eligibility criteria are admitted, **electronic auction (reverse auction)** = repeated electronic operations in which new prices/values are automatically re-evaluated and ranked after bids are assessed, **letter of guarantee** = a surety instrument issued by banks or authorized insurance companies."
+   },
+   "story": null
+  },
+  {
+   "id": "n2",
+   "title": {
+    "tr": "Temel İlkeler ve İhale Komisyonu",
+    "en": "Fundamental Principles and the Tender Committee"
+   },
+   "body": {
+    "tr": "İdareler, bu Kanuna göre yapacakları ihalelerde (Madde 5) şu ilkeleri sağlamakla sorumludur: **saydamlık, rekabet, eşit muamele, güvenirlik, gizlilik, kamuoyu denetimi**, ihtiyaçların uygun şartlarda ve zamanında karşılanması, kaynakların verimli kullanılması.\n\nÖnemli bir kural: aralarında **kabul edilebilir doğal bir bağlantı olmadığı sürece**, mal alımı, hizmet alımı ve yapım işi **bir arada ihale edilemez** — her biri ayrı ihale edilmelidir. Ayrıca **ödeneği bulunmayan hiçbir iş için ihaleye çıkılamaz**.\n\n**Temel usuller**: Kanun açık ihale usulü ile belli istekliler arasında ihale usulünü *temel usul* sayar; diğer usuller (pazarlık, doğrudan temin) sadece kanunda belirtilen özel hallerde kullanılır.\n\n**İhale komisyonu** (Madde 6): biri başkan olmak üzere, ikisi ihale konusu işin uzmanı olan idare personelinden en az 4 kişi + muhasebe/mali işlerden sorumlu 1 personel ile kurulur — toplamda **en az 5 ve tek sayıda** üyeden oluşur (5, 7, 9…). Tek sayı şartı oylamada eşitlik çıkmasını önlemek içindir. İdarede yeterli personel yoksa başka idarelerden üye alınabilir. Komisyon eksiksiz toplanır, kararlar çoğunlukla alınır, çekimser oy kullanılamaz; karşı oy kullanan üye gerekçesini yazıp imzalamak zorundadır.\n\nHer ihale için bir **ihale işlem dosyası** (Madde 7) düzenlenir: onay belgesi, yaklaşık maliyet hesap cetveli, ihale dokümanı, ilan metinleri, teklifler, komisyon tutanak ve kararları.\n\n**Yaklaşık maliyet** (Madde 8): ihaleden önce idarece her türlü fiyat araştırmasıyla, **KDV hariç** olarak belirlenir ve hesap cetvelinde gösterilir. İlanlarda **açıklanmaz** — sadece idarenin gelen teklifleri değerlendirmesi için kullanılır.",
+    "en": "Contracting authorities running tenders under this Law (Article 5) must ensure: **transparency, competition, equal treatment, reliability, confidentiality, public oversight**, meeting needs on suitable terms and on time, and efficient use of resources.\n\nKey rule: unless there is an **acceptable natural link** between them, goods, services, and works **cannot be tendered together** — each must be tendered separately. Also, **no tender may be opened for work without an allocated budget**.\n\n**Base procedures**: the Law treats the open tender procedure and the restricted (selected tenderers) procedure as the *base procedures*; other procedures (negotiated, direct supply) are used only in the special cases the Law specifies.\n\n**Tender committee** (Article 6): one chair plus at least 4 staff from the authority (two of whom must be experts in the subject of the tender) plus one staff member responsible for accounting/financial matters — an **odd number, minimum 5** members total (5, 7, 9…). The odd-number rule prevents tie votes. If the authority lacks enough qualified staff, members may be drawn from other authorities. The committee must convene in full, decisions are by majority, no abstentions are allowed, and a dissenting member must record and sign their reasoning.\n\nA **tender transaction file** (Article 7) is prepared for every tender: approval document, approximate-cost worksheet, tender documents, announcement texts, bids, and committee minutes/decisions.\n\n**Approximate cost** (Article 8): determined by the authority before the tender through market research, **excluding VAT**, and recorded in a worksheet. It is **not disclosed** in announcements — it is used only by the authority to evaluate incoming bids."
+   },
+   "story": null
+  },
+  {
+   "id": "n3",
+   "title": {
+    "tr": "Eşik Değerler, Katılım Yasakları ve Şartnameler",
+    "en": "Threshold Values, Participation Bans, and Specifications"
+   },
+   "body": {
+    "tr": "**Eşik değerler** (Madde 8/13), ihalenin hangi usul ve ilan süreleriyle yapılacağını belirleyen sınır tutarlardır (derste kullanılan örnek rakamlar — güncellenebilir):\n\n| İdare / iş türü | Eşik değer |\n|---|---|\n| Genel bütçeli daireler + katma bütçeli idareler — mal/hizmet alımı | 300.000 TL |\n| Diğer kanun kapsamı idareler — mal/hizmet alımı | 500.000 TL |\n| Kanun kapsamındaki idareler — yapım işi | 11.000.000 TL |\n\nYaklaşık maliyeti eşik değere eşit veya bunu aşan ihalelerde ilan süreleri (Madde 13): **açık ihale usulü → ihale tarihinden en az 40 gün önce**; **belli istekliler arasında → ön yeterlik ilanı son başvuru tarihinden en az 14 gün önce**; **pazarlık usulü → ihale tarihinden en az 25 gün önce**. İlanlar Kamu İhale Bülteninde yayımlanır.\n\n**İhaleye katılamayacak olanlar** (Madde 11): kamu ihalelerine katılmaktan yasaklılar; terörle mücadele/örgütlü suç veya rüşvet suçundan hükümlüler; hileli iflas edenler; ihaleyi yapan idarenin ihale yetkilisi ve ihale işlemlerini hazırlayan/yürüten/sonuçlandıran/onaylayan görevlileri (ve bunların eşleri, 3. dereceye kadar kan hısımları, 2. dereceye kadar kayın hısımları, evlatlıkları, ortakları/şirketleri); işin **danışmanlık hizmetini yapan yüklenici**, aynı işin ihalesine (ör. yapım ihalesine) katılamaz — kendi işini kendisi denetleyemez. Yasağa rağmen katılanlar ihale dışı bırakılır ve **geçici teminatları gelir kaydedilir**.\n\n**Şartnameler** (Madde 12): idari ve teknik şartnamelerin idarece hazırlanması esastır (özellik gereği mümkün değilse üçüncü kişilere hazırlattırılabilir). Teknik şartnamede **belli bir marka, model, patent, menşei veya kaynak belirtilemez** — rekabeti ve fırsat eşitliğini bozar. **İstisna**: ulusal/uluslararası teknik standardı yoksa veya teknik özellik belirlemek mümkün değilse, **'veya dengi'** ifadesiyle marka/model belirtilebilir.",
+    "en": "**Threshold values** (Articles 8/13) are limit amounts that determine which procedure and announcement periods apply (course figures — subject to periodic updates):\n\n| Authority / work type | Threshold |\n|---|---|\n| General + annexed-budget administrations — goods/services | 300,000 TL |\n| Other Law-covered authorities — goods/services | 500,000 TL |\n| Law-covered authorities — works (construction) | 11,000,000 TL |\n\nFor tenders at or above the threshold, announcement periods are (Article 13): **open procedure → at least 40 days before the tender date**; **restricted procedure → pre-qualification notice at least 14 days before the application deadline**; **negotiated procedure → at least 25 days before the tender date**. Announcements are published in the Public Procurement Bulletin.\n\n**Persons barred from participating** (Article 11): those banned from public tenders; those convicted of terrorism/organized-crime or bribery offenses; those declared fraudulently bankrupt; the tender officer and staff who prepare/run/finalize/approve the tender for the authority (plus their spouses, relatives by blood to the 3rd degree, relatives by marriage to the 2nd degree, adopted children, partners/companies); a **contractor providing consultancy services for the work** cannot bid on the same work's tender (e.g. construction) — you cannot supervise your own work. Anyone who participates despite the ban is excluded and their **bid bond is forfeited to revenue**.\n\n**Specifications** (Article 12): administrative and technical specifications are, in principle, prepared by the authority (third parties may draft them if the nature of the work makes this necessary). Technical specifications **may not name a specific brand, model, patent, or origin** — this would harm competition and equal opportunity. **Exception**: if no national/international technical standard exists or technical specification is not possible, a brand/model may be named using the phrase **'or equivalent'**."
+   },
+   "story": null
+  },
+  {
+   "id": "n4",
+   "title": {
+    "tr": "İhale Usulleri: Açık, Belli İstekliler Arası ve Pazarlık",
+    "en": "Tender Procedures: Open, Restricted, and Negotiated"
+   },
+   "body": {
+    "tr": "İdareler mal/hizmet alımı ve yapım işi ihalelerinde şu usullerden birini uygular (Madde 18): **açık ihale usulü**, **belli istekliler arasında ihale usulü**, **pazarlık usulü**. Bazı hallerde **doğrudan temin** de uygulanabilir (bu bir 'ihale usulü' değil, ihalesiz temin yoludur).\n\n**Açık ihale usulü** (Madde 19): bütün isteklilerin teklif verebildiği usuldür — temel usul, en yaygın kullanılan.\n\n**Belli istekliler arasında ihale usulü** (Madde 20): ön yeterlik değerlendirmesi sonucunda idarenin davet ettiği isteklilerin teklif verebildiği usuldür. Şu durumlarda kullanılır: (a) işin özelliği **uzmanlık veya ileri teknoloji** gerektirdiği için açık ihale usulü uygulanamıyorsa, (b) yaklaşık maliyeti **eşik değerin yarısını aşan yapım işi** ihaleleri.\n\n**Pazarlık usulü** (Madde 21) — ihale sürecinin iki aşamalı yürütüldüğü, teknik detay ve gerçekleştirme yöntemlerinin (bazen fiyatın da) isteklilerle görüşüldüğü usul. Şu hallerde kullanılabilir:\n\n- (a) açık ihale veya belli istekliler arası usulle ihale yapılmış ama **teklif çıkmamışsa**\n- (b) doğal afet, salgın hastalık, can/mal kaybı tehlikesi gibi **ani ve beklenmeyen** haller veya idarece **ivedi** olması gerektiği belirlenen haller\n- (c) **savunma ve güvenlikle** ilgili özel durumların ivediliği\n- (d) **araştırma-geliştirme** sürecine ihtiyaç gösteren, seri üretime konu olmayan işler\n- (e) işin **özgün ve karmaşık** olması nedeniyle teknik/mali özelliklerin netlikte belirlenememesi\n- (f) yaklaşık maliyeti **50.000.000 TL'ye kadar** olan mamul mal, malzeme veya hizmet alımları (**yapım işi bu bende dahil değildir**)\n\nPazarlıkta (b), (c), (f) hallerinde **ilan zorunlu değildir** — en az 3 istekli davet edilir.",
+    "en": "Authorities apply one of these procedures for goods/services/works tenders (Article 18): **open tender procedure**, **restricted (selected tenderers) procedure**, **negotiated procedure**. In some cases **direct supply** may also be used (this is not a 'tender procedure' — it is a non-competitive acquisition route).\n\n**Open procedure** (Article 19): all tenderers may submit bids — the most common base procedure.\n\n**Restricted procedure** (Article 20): only tenderers invited by the authority after a pre-qualification assessment may bid. Used when: (a) the work requires **specialized expertise or advanced technology** such that the open procedure cannot be applied, or (b) the approximate cost of a **works (construction)** tender **exceeds half the threshold value**.\n\n**Negotiated procedure** (Article 21) — a two-stage process where technical details and delivery methods (sometimes price too) are discussed with tenderers. Used when:\n\n- (a) an open or restricted tender was held but **produced no bid**\n- (b) natural disaster, epidemic, danger to life/property, or other **sudden/unforeseen** events, or cases the authority determines require **urgency**\n- (c) urgent **defense and security**-related special circumstances\n- (d) work requiring an **R&D process**, not intended for serial production\n- (e) the work's **unique and complex** nature prevents technical/financial specs from being clearly determined\n- (f) approximate cost **up to 50,000,000 TL** for manufactured goods, materials, or services (**works/construction is not included** in this clause)\n\nFor cases (b), (c), (f), **advertising is not mandatory** — at least 3 tenderers are invited."
+   },
+   "story": {
+    "title": {
+     "tr": "İhale Süreci Akışı: İlandan Sözleşmeye",
+     "en": "The Tender Process Flow: From Announcement to Contract"
+    },
+    "xLabel": "Süreç",
+    "yLabel": "",
+    "xDomain": [
+     0,
+     12
+    ],
+    "yDomain": [
+     0,
+     4
+    ],
+    "square": false,
+    "showAxes": false,
+    "frames": [
+     {
+      "caption": {
+       "tr": "İhale süreci ilan ile başlar. Eşik değeri aşan açık ihalelerde ilan, ihale tarihinden en az 40 gün önce Kamu İhale Bülteninde yayımlanır.",
+       "en": "The tender process begins with the announcement. For open tenders above the threshold, the notice is published in the Public Procurement Bulletin at least 40 days before the tender date."
+      },
+      "add": [
+       {
+        "type": "polygon",
+        "points": [
+         [
+          0.5,
+          1.5
+         ],
+         [
+          3,
+          1.5
+         ],
+         [
+          3,
+          2.5
+         ],
+         [
+          0.5,
+          2.5
+         ]
+        ],
+        "color": "deniz",
+        "width": 2
+       },
+       {
+        "type": "text",
+        "x": 1.75,
+        "y": 2,
+        "text": {
+         "tr": "İlan\n(≥40 gün önce)",
+         "en": "Announcement\n(≥40 days prior)"
+        },
+        "color": "ink"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "İstekliler teklif zarflarını hazırlar (teklif mektubu + geçici teminat, en az %3) ve ihale saatine kadar idareye sunar.",
+       "en": "Tenderers prepare their bid envelopes (bid letter + bid bond, at least 3%) and submit them to the authority before the tender deadline."
+      },
+      "add": [
+       {
+        "type": "arrow",
+        "x1": 3,
+        "y1": 2,
+        "x2": 4,
+        "y2": 2,
+        "color": "faint"
+       },
+       {
+        "type": "polygon",
+        "points": [
+         [
+          4,
+          1.5
+         ],
+         [
+          6.5,
+          1.5
+         ],
+         [
+          6.5,
+          2.5
+         ],
+         [
+          4,
+          2.5
+         ]
+        ],
+        "color": "deniz",
+        "width": 2
+       },
+       {
+        "type": "text",
+        "x": 5.25,
+        "y": 2,
+        "text": {
+         "tr": "Teklif Sunumu\n(zarf + %3 teminat)",
+         "en": "Bid Submission\n(envelope + 3% bond)"
+        },
+        "color": "ink"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "İhale komisyonu zarfları alınış sırasına göre açar, belgeleri kontrol eder, aşırı düşük teklifleri sorgular ve ekonomik açıdan en avantajlı teklifi belirler.",
+       "en": "The tender committee opens envelopes in the order received, checks documents, queries abnormally low bids, and identifies the most economically advantageous bid."
+      },
+      "add": [
+       {
+        "type": "arrow",
+        "x1": 6.5,
+        "y1": 2,
+        "x2": 7.5,
+        "y2": 2,
+        "color": "faint"
+       },
+       {
+        "type": "polygon",
+        "points": [
+         [
+          7.5,
+          1.5
+         ],
+         [
+          10,
+          1.5
+         ],
+         [
+          10,
+          2.5
+         ],
+         [
+          7.5,
+          2.5
+         ]
+        ],
+        "color": "amber",
+        "width": 2
+       },
+       {
+        "type": "text",
+        "x": 8.75,
+        "y": 2,
+        "text": {
+         "tr": "Değerlendirme\n(aşırı düşük kontrolü)",
+         "en": "Evaluation\n(low-bid check)"
+        },
+        "color": "ink"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "İhale yetkilisi 5 iş günü içinde kararı onaylar. Sonuç, onay gününü izleyen en geç 3 gün içinde tüm isteklilere bildirilir.",
+       "en": "The tender officer approves the decision within 5 working days. The result is notified to all tenderers within 3 days of approval."
+      },
+      "add": [
+       {
+        "type": "arrow",
+        "x1": 10,
+        "y1": 2,
+        "x2": 11,
+        "y2": 2,
+        "color": "faint"
+       },
+       {
+        "type": "polygon",
+        "points": [
+         [
+          8.5,
+          0.2
+         ],
+         [
+          11.5,
+          0.2
+         ],
+         [
+          11.5,
+          1.2
+         ],
+         [
+          8.5,
+          1.2
+         ]
+        ],
+        "color": "clay",
+        "width": 2
+       },
+       {
+        "type": "text",
+        "x": 10,
+        "y": 0.7,
+        "text": {
+         "tr": "Karar Onayı\n(≤5 iş günü, bildirim ≤3 gün)",
+         "en": "Decision Approval\n(≤5 workdays, notice ≤3 days)"
+        },
+        "color": "ink"
+       }
+      ]
+     },
+     {
+      "caption": {
+       "tr": "Kazanan istekli tebliğ tarihinden itibaren 10 gün içinde (yabancı istekli için 12 gün) kesin teminatı (%6) vererek sözleşmeyi imzalar. Süreç sözleşmenin imzalanmasıyla tamamlanır.",
+       "en": "Within 10 days of notification (12 days for foreign tenderers), the winning tenderer provides the performance bond (6%) and signs the contract. The process is complete once the contract is signed."
+      },
+      "add": [
+       {
+        "type": "arrow",
+        "x1": 10,
+        "y1": 1.5,
+        "x2": 10,
+        "y2": 1.2,
+        "color": "faint"
+       },
+       {
+        "type": "polygon",
+        "points": [
+         [
+          7,
+          2.7
+         ],
+         [
+          12,
+          2.7
+         ],
+         [
+          12,
+          3.7
+         ],
+         [
+          7,
+          3.7
+         ]
+        ],
+        "color": "moss",
+        "width": 2
+       },
+       {
+        "type": "text",
+        "x": 9.5,
+        "y": 3.2,
+        "text": {
+         "tr": "Sözleşme İmzası\n(10 gün, kesin teminat %6)",
+         "en": "Contract Signature\n(10 days, 6% performance bond)"
+        },
+        "color": "ink"
+       },
+       {
+        "type": "arrow",
+        "x1": 8.75,
+        "y1": 2.5,
+        "x2": 9.5,
+        "y2": 2.7,
+        "color": "faint"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "n5",
+   "title": {
+    "tr": "Doğrudan Temin ve Tasarım Yarışmaları",
+    "en": "Direct Supply and Design Competitions"
+   },
+   "body": {
+    "tr": "**Doğrudan temin** (Madde 22): ihale usulü değildir — ihtiyaçların **ilan yapılmaksızın ve teminat alınmaksızın** doğrudan temin edilmesidir. Şu hallerde başvurulabilir:\n\n1. İhtiyacın **sadece tek bir gerçek/tüzel kişi** tarafından karşılanabileceğinin tespiti\n2. Tek kişinin ihtiyaçla ilgili **özel bir hakka** sahip olması\n3. Mevcut mal/ekipman/teknolojiyle **uyum ve standardizasyon** için ilk alımı yapan kişiden, toplam süresi **3 yılı geçmeyen** sözleşmeyle devam alımı\n4. Büyükşehir belediyesi sınırındaki idareler **15.000 TL**, diğer idareler **5.000 TL**'yi aşmayan temsil-ağırlama (konaklama, seyahat, iaşe) alımları\n5. İdarenin ihtiyacına uygun **taşınmaz mal alımı veya kiralanması**\n6. Stoklanması ekonomik olmayan/acil durum ilaç, aşı, serum vb. alımları\n7. Milletlerarası tahkimde idareyi temsil edecek avukatlardan hizmet alımı\n8. Seçim dönemlerinde YSK'nin oy pusulası/zarfı alımı, basımı\n\nDoğrudan teminde ihale komisyonu kurma ve yeterlik arama zorunluluğu yoktur — ihale yetkilisinin görevlendirdiği kişi(ler) piyasa fiyat araştırması yaparak ihtiyacı temin eder.\n\n**Tasarım yarışmaları** (Madde 23): idareler, mimarlık, peyzaj mimarlığı, mühendislik, kentsel tasarım, şehir-bölge planlama veya güzel sanat eseri ile ilgili bir **plan/tasarım projesi elde etmek** amacıyla, rekabeti sağlayacak şekilde ilan yaparak **jüri değerlendirmesiyle ödüllü veya ödülsüz yarışma** düzenleyebilir.\n\n**Danışmanlık hizmet ihaleleri** (Madde 48-51): mimarlık-mühendislik, etüt-proje, harita-kadastro, imar planı, ÇED, teknik şartname hazırlama, denetim-kontrolörlük gibi hizmetler danışmanlık hizmet sunucularından alınır ve kural olarak yalnızca **belli istekliler arasında ihale usulüyle** ihale edilir. Ancak yaklaşık maliyeti **240.000 TL'nin (ders örneği; güncellenir) altında** kalan danışmanlık hizmetleri, normal hizmet alımı ihalesiyle yapılabilir. Ön yeterlik değerlendirmesi sonucunda yeterli bulunan adaylar arasından **en az 3, en fazla 10 adayın** yer aldığı bir **kısa liste** oluşturulur; kısa listedeki adaylara ihale dokümanı ve davet mektubu gönderilir. İhaleye davet edilecek aday sayısı **3'ten az olursa davet mektubu gönderilmez ve ihale yapılmaz**.",
+    "en": "**Direct supply** (Article 22) is not a tender procedure — it is acquiring needs **without advertising and without taking a bond**. It may be used when:\n\n1. The need can be met by **only one** real/legal person\n2. That single person holds a **special right** related to the need\n3. Continuity purchase from the original supplier for **compatibility/standardization** with existing goods/equipment/technology, under contracts totaling **no more than 3 years**\n4. Hospitality/representation purchases (accommodation, travel, catering) not exceeding **15,000 TL** (metropolitan municipalities) or **5,000 TL** (other authorities)\n5. Purchase or lease of **real property** suited to the authority's needs\n6. Purchases of drugs/vaccines/serum etc. that are uneconomical to stock or needed urgently\n7. Legal services for representing the authority in international arbitration\n8. During elections, the Supreme Election Board's ballot paper/envelope purchase and printing\n\nDirect supply requires no tender committee or qualification checks — a person designated by the tender officer secures the need via market price research.\n\n**Design competitions** (Article 23): authorities may hold, with an announcement to ensure competition and jury evaluation, a **prize or non-prize competition** to obtain an architecture, landscape architecture, engineering, urban design, city/regional planning, or fine-art plan/design project.\n\n**Consultancy service tenders** (Articles 48-51): services such as architecture-engineering, survey-design, mapping-cadastre, zoning plans, EIA, technical-specification drafting, and supervision are procured from consultancy service providers and, as a rule, tendered **only under the restricted (selected tenderers) procedure**. However, consultancy services below an approximate cost of **240,000 TL (course example; updated periodically)** may be procured through a regular services tender. After pre-qualification, a **short list** of the qualified candidates is drawn up with **at least 3 and at most 10 candidates**; the tender documents and an invitation letter are sent to the short-listed candidates. If fewer than **3 candidates** would be invited, **no invitation is sent and the tender is not held**."
+   },
+   "story": null
+  },
+  {
+   "id": "n6",
+   "title": {
+    "tr": "Teklif Süreci: Zarf, Teminat, Açılış ve Değerlendirme",
+    "en": "The Bid Process: Envelope, Bond, Opening, and Evaluation"
+   },
+   "body": {
+    "tr": "**Tekliflerin hazırlanması** (Madde 30): teklif mektubu ve geçici teminat dahil bütün belgeler tek bir **zarfa** konur. Zarf üzerine isteklinin adı/unvanı, açık adresi, teklifin hangi işe ait olduğu ve idarenin adresi yazılır; yapıştırılan yer istekli tarafından imzalanıp mühürlenir. Teklif mektubu yazılı-imzalı olur, ihale dokümanının okunup kabul edildiği belirtilir, bedel rakam ve yazıyla uyumlu yazılır, **kazıntı-silinti-düzeltme bulunmaz**.\n\n**Geçici teminat** (Madde 33): teklif edilen bedelin **%3'ünden az olmamak üzere** alınır (örn. 100.000 TL teklif → en az 3.000 TL geçici teminat). Danışmanlık hizmeti ihalelerinde zorunlu değildir. **Teminat olarak kabul edilenler** (Madde 34): tedavüldeki Türk parası, teminat mektupları, Hazine'nin devlet iç borçlanma senetleri. Teminat mektubu dışındakiler ihale komisyonunca teslim alınmaz — saymanlık/muhasebeye yatırılır.\n\n**Tekliflerin alınması ve açılması** (Madde 36): teklifler ihale saatine kadar idareye verilir; kaç teklif verildiği tutanakla tespit edilip duyurulur. Komisyon zarfları **alınış sırasına göre** inceler; uygun olmayanlar tutanakla ayrılır; uygun zarflar hazır bulunanlar önünde sırayla açılır. Belge eksiği/teminat-mektup usulsüzlüğü tutanakla tespit edilir; istekli adları, teklif fiyatları ve yaklaşık maliyet açıklanır — ama bu oturumda **hiçbir teklif reddedilmez veya kabul edilmez**, belgeler düzeltilemez/tamamlanamaz.\n\n**Değerlendirme** (Madde 37): idare, net olmayan hususlarda isteklilerden yazılı açıklama isteyebilir — ama bu **asla fiyat değiştirmek veya uygunsuz teklifi düzeltmek için kullanılamaz**. Belgesi eksik/teminatı usulsüz olanlar değerlendirme dışı bırakılır; teklifin esasını etkilemeyen küçük bilgi eksiklikleri için süre verilir — tamamlanmazsa yine dışı bırakılıp **geçici teminat gelir kaydedilir**. Ardından yeterlik kriterleri ve birim fiyat cetvelindeki **aritmetik hata** kontrol edilir; hatalı teklifler reddedilir.",
+    "en": "**Preparing bids** (Article 30): the bid letter and bid bond, along with all required documents, go into a single **envelope**. The envelope carries the tenderer's name/title, full address, which work the bid concerns, and the authority's address; the sealed flap is signed by the tenderer. The bid letter must be written and signed, confirm the tender documents were read and accepted, state the price in both figures and words consistently, and have **no erasures, corrections, or overwrites**.\n\n**Bid bond** (Article 33): taken at **not less than 3%** of the bid amount (e.g., a 100,000 TL bid → at least 3,000 TL bond). Not mandatory for consultancy tenders. **Accepted forms of security** (Article 34): circulating Turkish currency, letters of guarantee, Treasury government domestic debt instruments. Anything other than a letter of guarantee cannot be accepted by the committee directly — it must be deposited with the treasury/accounting office.\n\n**Receiving and opening bids** (Article 36): bids are submitted to the authority before the tender deadline; the number of bids received is recorded and announced. The committee reviews envelopes **in the order received**; non-compliant ones are set aside and recorded; compliant envelopes are opened in order in front of those present. Missing documents/bond irregularities are recorded; tenderer names, bid prices, and the approximate cost are disclosed — but at this session **no bid is rejected or accepted**, and documents cannot be corrected or completed.\n\n**Evaluation** (Article 37): the authority may request written clarification from tenderers on unclear points — but this can **never be used to change the price or fix a non-compliant bid**. Bids with missing documents/irregular bonds are excluded; minor information gaps that don't affect the substance of the bid get a deadline to fix — failing that, the bid is excluded and the **bid bond is forfeited**. Then eligibility criteria and **arithmetic errors** in unit-price schedules are checked; bids with errors are rejected."
+   },
+   "story": null
+  },
+  {
+   "id": "n7",
+   "title": {
+    "tr": "Aşırı Düşük Teklif, Karar ve Sözleşme",
+    "en": "Abnormally Low Bids, Decision, and Contract"
+   },
+   "body": {
+    "tr": "**Aşırı düşük teklifler** (Madde 38): komisyon, diğer tekliflere veya yaklaşık maliyete göre **aşırı düşük** görünen teklifleri tespit eder. Bunları **reddetmeden önce**, önemli bileşenlerle ilgili yazılı açıklama ister (imalat sürecinin ekonomikliği, seçilen teknik çözümler, işin özgünlüğü gibi hususlar dikkate alınır). Açıklama yetersizse veya hiç gelmezse teklif **reddedilir**. Kurum, sınır değer belirleyip bunun altındaki teklifleri açıklama istemeden reddetme yetkisine sahiptir. **Not**: en düşük teklifi veren otomatik olarak ihaleyi kazanmaz.\n\n**İhale saatinden önce iptal** (Madde 16): ihale dokümanında ihalenin yapılmasına engel olan ve düzeltilmesi mümkün olmayan bir husus tespit edilirse, idare ihale saati gelmeden ihaleyi iptal edebilir; durum hemen ilan edilir, o ana kadar teklif verenlere ayrıca tebliğ edilir ve teklifleri açılmadan iade edilir. İstekliler bu iptalden dolayı idareden hak talep edemez.\n\n**Bütün tekliflerin reddi** (Madde 39): idare, komisyon kararıyla verilmiş tüm teklifleri reddedip ihaleyi iptal etmekte **serbesttir** — bu yüzden herhangi bir yükümlülük altına girmez; ama talep halinde gerekçesini bildirir.\n\n**Karara bağlama** (Madde 40): ihale, **ekonomik açıdan en avantajlı teklifi** veren isteklide kalır. Bu sadece fiyat değil; fiyatla birlikte işletme-bakım maliyeti, maliyet etkinliği, verimlilik, kalite, teknik değer gibi unsurlar da (belirtilmişse) dikkate alınabilir. İhale yetkilisi kararı **en geç 5 iş günü** içinde onaylar veya gerekçeyle iptal eder.\n\n**Bildirim ve sözleşme**: karar onaylandıktan sonra en geç **3 gün** içinde tüm isteklilere bildirilir. Kazanan istekliye tebliğ tarihinden itibaren **10 gün** (yabancı istekli için 12 gün) içinde kesin teminat vererek sözleşmeyi imzalaması bildirilir. **Kesin teminat** (Madde 43): ihale bedeli üzerinden **%6** oranında alınır (Kurum, sınır değerin altındaki tekliflerde yaklaşık maliyetin %6-%15'i arasında bir oran belirleyebilir). İhale üzerinde kalan isteklinin kesin teminatı verip sözleşmeyi imzalama görev ve sorumluluğu ise Madde 44'te düzenlenir. İmzalamaktan kaçınan istekli varsa **geçici teminatı gelir kaydedilir**; idare isterse ikinci en avantajlı teklif sahibiyle sözleşme yapabilir — o da kabul etmezse ihale iptal olur. Sözleşme imzalandıktan hemen sonra geçici teminat iade edilir. Yapım/mal/hizmet ihale sonuçları en geç **15 gün** içinde Kuruma bildirilir.",
+    "en": "**Abnormally low bids** (Article 38): the committee identifies bids that appear **abnormally low** compared to other bids or the approximate cost. **Before rejecting** them, it requests written explanation of significant components (economics of the production process, chosen technical solutions, originality of the work, etc.). If the explanation is inadequate or missing, the bid is **rejected**. The Authority may set a limit value and reject bids below it without requesting explanation. **Note**: the lowest bidder does not automatically win.\n\n**Cancellation before the tender hour** (Article 16): if the tender documents contain an issue that prevents holding the tender and cannot be corrected, the authority may cancel the tender before the tender hour; this is announced immediately, separately notified to anyone who has already bid, and their bids are returned unopened. Tenderers cannot claim any right from this cancellation.\n\n**Rejecting all bids** (Article 39): the authority is **free** to reject all submitted bids and cancel the tender on the committee's decision — incurring no liability, though it must state its reasons if requested.\n\n**Finalizing the decision** (Article 40): the tender is awarded to the tenderer offering the **most economically advantageous bid**. This need not be price alone — operating/maintenance cost, cost efficiency, productivity, quality, and technical value may also be weighed (if specified). The tender officer approves the decision or cancels it with reasons within **5 working days**.\n\n**Notification and contract**: once approved, the result is notified to all tenderers within **3 days**. The winner is notified to sign the contract, providing the performance bond, within **10 days** of notice (12 days for foreign tenderers). **Performance bond** (Article 43): **6%** of the contract value (for bids below the limit value the Authority may set a rate between 6%–15% of the approximate cost). The winner's obligation to provide the bond and sign is set out in Article 44. If the winner refuses to sign, their **bid bond is forfeited**; the authority may then contract with the second-most advantageous bidder — if that bidder also refuses, the tender is cancelled. The bid bond is returned right after the contract is signed. Results of works/goods/services tenders are reported to the Authority within **15 days**."
+   },
+   "story": null
+  },
+  {
+   "id": "n8",
+   "title": {
+    "tr": "Yasaklar, Şikayet Süreci ve Kamu İhale Kurumu",
+    "en": "Prohibitions, the Complaint Process, and the Public Procurement Authority"
+   },
+   "body": {
+    "tr": "**Yasak fiil ve davranışlar** (Madde 17): hile/vaat/tehdit/rüşvetle ihaleye fesat karıştırmak; istekleri tereddüde düşürmek, katılımı engellemek, anlaşma teklif etmek, rekabeti etkilemek; sahte belge/teminat düzenlemek-kullanmak; alternatif teklif hali dışında **birden fazla teklif vermek** (doğrudan/dolaylı, asaleten/vekaleten); katılamayacağı halde ihaleye katılmak.\n\n**İhalelere katılmaktan yasaklama** (Madde 58): yasak fiil tespit edilenlere **1-2 yıl**; ihale üzerinde kaldığı halde mücbir sebep dışında sözleşme yapmayanlara **6 ay - 1 yıl** yasaklama verilir. Karar, fiilin tespit tarihinden en geç **45 gün** içinde verilir; Resmi Gazete'de yayımlanmak üzere en geç **15 gün** içinde gönderilir ve yayım tarihinde yürürlüğe girer. Yasaklanan tüzel kişi **şahıs şirketi** ise ortakların tamamı, **sermaye şirketi** ise sermayenin yarısından fazlasına sahip ortaklar da yasaklanır.\n\n**Görevlilerin ceza sorumluluğu** (Madde 60): ihale yetkilisi, komisyon başkan/üyeleri ve sürece görev alan diğer ilgililer yasak fiil işlerse ya da görevlerini kanuna/tarafsızlığa aykırı yaparsa haklarında **disiplin cezası** uygulanır; ayrıca fiilin özelliğine göre **ceza kovuşturması** yapılır ve tarafların zararı genel hükümlere göre tazmin ettirilir. Hüküm giyen idare görevlileri artık bu Kanun kapsamındaki işlerde görevlendirilemez. İhale sürecinde gizli kalması gereken bilgileri veya yaklaşık maliyeti ifşa etmek de yasaktır.\n\n**Şikayet ve itirazen şikayet** (Madde 54-57): hukuka aykırı işlem/eylem nedeniyle zarara uğrayan/uğraması muhtemel aday, istekli veya istekli olabilecekler başvurabilir.\n\n1. **Şikayet**: ihaleyi yapan idareye, farkına varıldığı tarihten itibaren ihale türüne göre **5 veya 10 gün** içinde ve sözleşme imzalanmadan önce yapılır. İdare **10 gün** içinde gerekçeli karar verir.\n2. **İtirazen şikayet**: idare süresinde karar vermez veya kararı beğenilmezse, kararın bildiriminden itibaren **10 gün** içinde **Kamu İhale Kurumu**'na yapılır.\n\nİtirazen şikayet başvurusunda bulunulmadan veya Kurum nihai karar vermeden **sözleşme imzalanamaz**. Kurum kararına karşı Türkiye Cumhuriyeti mahkemelerinde dava açılabilir (öncelikli görülür) — ama önce idari başvuru yollarının **tüketilmesi zorunludur**.\n\n**Kamu İhale Kurumu** (Madde 53): kamu tüzel kişiliğine sahip, Maliye Bakanlığı ile ilişkili, merkezi **Ankara**'da bağımsız bir kurum. Görevleri: şikayetleri inceleyip sonuçlandırmak; standart ihale dokümanı ve tip sözleşme hazırlamak; eğitim vermek; istatistik tutmak; yasaklı sicili tutmak; Kamu İhale Bültenini yayımlamak. **Kamu İhale Kurulu**: 1 başkan + 1 ikinci başkan + toplam **9 üye**den oluşur, Cumhurbaşkanı tarafından atanır; üyeler siyasi parti üyeliği/görevi bulunmayan, 4 yıllık öğrenim görmüş kişilerdendir; görev süresi dolmadan görevden alınamazlar (istisnai hallerde alınabilir).",
+    "en": "**Prohibited acts and conduct** (Article 17): corrupting the tender through fraud/promise/threat/bribery; confusing tenderers, obstructing participation, proposing collusion, affecting competition; producing/using forged documents or bonds; **submitting more than one bid** outside allowed alternative-bid cases (directly/indirectly, personally/by proxy); participating despite being barred.\n\n**Banning from tenders** (Article 58): those found engaging in prohibited acts are banned for **1-2 years**; those who win but fail to sign the contract without force majeure are banned for **6 months to 1 year**. The decision is issued within **45 days** of the act being identified; it is sent for publication in the Official Gazette within **15 days** and takes effect on publication. If the banned legal entity is a **partnership (şahıs şirketi)** all partners are banned; if a **capital company** the partners owning more than half the capital are also banned.\n\n**Criminal/disciplinary liability of officials** (Article 60): the tender officer, committee chair/members, and other officials involved in the process face **disciplinary sanctions** if they commit prohibited acts or perform their duties contrary to law or impartiality; depending on the act, **criminal prosecution** also follows and any harm to the parties is compensated under general provisions. Officials convicted may no longer be assigned to work under this Law. Disclosing confidential process information or the approximate cost is likewise prohibited.\n\n**Complaint and appeal-complaint** (Articles 54-57): candidates, tenderers, or potential tenderers who suffered or may suffer harm from an unlawful act may apply.\n\n1. **Complaint (şikayet)**: filed with the contracting authority within **5 or 10 days** (depending on tender type) of becoming aware, and before the contract is signed. The authority issues a reasoned decision within **10 days**.\n2. **Appeal-complaint (itirazen şikayet)**: if the authority fails to decide in time or the decision is unsatisfactory, the applicant may appeal to the **Public Procurement Authority** within **10 days** of notification.\n\nThe **contract cannot be signed** until an appeal-complaint deadline has passed without one being filed, or the Authority has issued a final decision. The Authority's decisions may be challenged in Turkish courts (heard on a priority basis) — but administrative remedies must be **exhausted first**.\n\n**Public Procurement Authority** (Article 53): an independent public legal entity linked to the Ministry of Finance, headquartered in **Ankara**. Its duties: reviewing and resolving complaints; preparing standard tender documents and model contracts; providing training; keeping statistics; maintaining the register of banned parties; publishing the Public Procurement Bulletin. **Public Procurement Board**: a chair, a deputy chair, and **9 members total**, appointed by the President; members must have no political party affiliation and hold at least a 4-year degree; they cannot be removed before their term ends except in exceptional circumstances."
+   },
+   "story": null
+  },
+  {
+   "id": "n9",
+   "title": {
+    "tr": "Ortak Girişimler, Alt Yükleniciler ve Yerli İstekli Avantajı",
+    "en": "Joint Ventures, Subcontractors, and the Domestic-Bidder Advantage"
+   },
+   "body": {
+    "tr": "**Ortak girişimler** (Madde 14): birden fazla gerçek/tüzel kişi **iş ortaklığı** veya **konsorsiyum** olarak iki türlü kurulabilir.\n\n| | İş ortaklığı | Konsorsiyum |\n|---|---|---|\n| Sorumluluk | Hep birlikte, işin **tümü** için | Ayrı ayrı, kendi **uzmanlık alanı** için |\n| Ne zaman | Her türlü ihaleye teklif verebilir | Sadece idare izin verirse (işin farklı uzmanlık gerektirdiği hallerde) |\n\n**Alt yükleniciler** (Madde 15): işin özelliği gerektiriyorsa, isteklilerden alt yüklenicilere yaptırmayı düşündükleri işleri belirtmeleri istenebilir; sözleşme öncesi alt yüklenici listesi idarenin onayına sunulabilir. **Ama** alt yüklenicinin yaptığı işten dolayı **yüklenicinin sorumluluğu ortadan kalkmaz** — ana yüklenici her zaman sorumludur.\n\n**Yerli istekli fiyat avantajı** (Madde 63): yalnızca yerli isteklilerin katılabileceği ihaleler düzenlenebilir (eşik değerin altındaki ihalelerde). Hizmet alımı ve yapım işi ihalelerinde yerli istekliler lehine, mal alımında yerli malı teklif edenler lehine **%15'e kadar** fiyat avantajı sağlanabilir.\n\n**Nasıl hesaplanır?** Yerli malı/istekli teklifine avantaj *eklenmez* — bunun yerine **yabancı mal/istekli tekliflerine** belirlenen oran eklenerek karşılaştırma yapılır. Örnek: %11 avantaj uygulanan bir ihalede A (yabancı, 100 TL) → 111 TL, B (yabancı, 105 TL) → 116,55 TL olarak değerlendirilir; C (yerli, 110 TL) **değişmeden** kalır. En düşük (ayarlanmış) teklif C olduğu için ihale C'de kalır — yerli malın gerçek fiyatı en düşük olmasa bile.",
+    "en": "**Joint ventures** (Article 14): multiple real/legal persons may form either a **business partnership (iş ortaklığı)** or a **consortium**.\n\n| | Business partnership | Consortium |\n|---|---|---|\n| Liability | Jointly, for the **whole** work | Separately, each for their own **area of expertise** |\n| When allowed | May bid on any tender | Only if the authority allows it (when the work needs different specialties) |\n\n**Subcontractors** (Article 15): if the nature of the work requires it, tenderers may be asked to state which parts they intend to subcontract; before signing, the list of subcontractors may need authority approval. **However**, the work done by a subcontractor **does not remove the main contractor's liability** — the main contractor remains responsible at all times.\n\n**Domestic-bidder price advantage** (Article 63): tenders may be restricted to domestic tenderers only (for tenders below the threshold). Service and works tenders may give domestic tenderers, and goods tenders may give domestic-product tenderers, a price advantage of **up to 15%**.\n\n**How is it calculated?** The advantage is not *subtracted* from the domestic bid — instead, the set percentage is *added* to **foreign bids** for comparison. Example: with an 11% advantage, A (foreign, 100 TL) → evaluated as 111 TL, B (foreign, 105 TL) → 116.55 TL; C (domestic, 110 TL) **stays unchanged**. Since the lowest (adjusted) bid is C, the tender goes to C — even though the domestic bid's actual price was not the lowest raw number."
+   },
+   "story": null
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "f1",
+   "front": {
+    "tr": "Kamu İhale Kanunu'nun numarası ve kabul tarihi nedir?",
+    "en": "What is the number and enactment date of the Public Procurement Law?"
+   },
+   "back": {
+    "tr": "4734 sayılı Kanun, 4/1/2002 tarihinde kabul edilmiştir.",
+    "en": "Law No. 4734, enacted on 4/1/2002."
+   },
+   "en": "Law No. 4734 — the Turkish Public Procurement Law",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f2",
+   "front": {
+    "tr": "Kamu İhale Kanunu Madde 1'in konusu nedir?",
+    "en": "What does Article 1 of the Public Procurement Law cover?"
+   },
+   "back": {
+    "tr": "Amaç: kamu kurum ve kuruluşlarının yapacakları ihalelerde uygulanacak esas ve usulleri belirlemek.",
+    "en": "Purpose: to set the principles and procedures for tenders held by public bodies."
+   },
+   "en": "Article 1 — Purpose of the Law",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f3",
+   "front": {
+    "tr": "'Yapım' tanımına Kanun'da hangi işler girer?",
+    "en": "What kinds of work fall under the Law's definition of 'yapım' (works)?"
+   },
+   "back": {
+    "tr": "Bina, karayolu, demiryolu, otoyol, havalimanı, rıhtım, liman, tersane, köprü, tünel, metro, yıkım, güçlendirme ve montaj işleri.",
+    "en": "Buildings, roads, railways, motorways, airports, docks, ports, shipyards, bridges, tunnels, metro, demolition, reinforcement, and assembly works."
+   },
+   "en": "Yapım — construction/works",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f4",
+   "front": {
+    "tr": "'İstekli' kimdir?",
+    "en": "Who is an 'istekli' (tenderer)?"
+   },
+   "back": {
+    "tr": "Mal veya hizmet alımları ile yapım işlerinin ihalesine teklif veren tedarikçi, hizmet sunucusu veya yapım müteahhidi.",
+    "en": "The supplier, service provider, or contractor who submits a bid for a goods/services/works tender."
+   },
+   "en": "İstekli — tenderer/bidder",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f5",
+   "front": {
+    "tr": "'Aday' ile 'istekli' arasındaki fark nedir?",
+    "en": "What is the difference between 'aday' (candidate) and 'istekli' (tenderer)?"
+   },
+   "back": {
+    "tr": "Aday, ön yeterlik için başvuran kişidir; istekli, doğrudan ihaleye teklif veren kişidir.",
+    "en": "A 'candidate' applies for pre-qualification; a 'tenderer' directly submits a bid on the tender."
+   },
+   "en": "Aday vs istekli — candidate vs tenderer",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f6",
+   "front": {
+    "tr": "İhale ne zaman 'tamamlanmış' sayılır?",
+    "en": "When is a tender considered 'complete'?"
+   },
+   "back": {
+    "tr": "İhale, istekliler arasından seçilen birine bırakıldığını gösteren ve sözleşmenin imzalanmasıyla tamamlanan işlemdir.",
+    "en": "A tender is complete once it is awarded to a chosen tenderer and the contract is signed."
+   },
+   "en": "İhale — the tender process, complete upon contract signature",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f7",
+   "front": {
+    "tr": "Temel ilkeler nelerdir (Madde 5)?",
+    "en": "What are the fundamental principles (Article 5)?"
+   },
+   "back": {
+    "tr": "Saydamlık, rekabet, eşit muamele, güvenirlik, gizlilik, kamuoyu denetimi, uygun şartlarda-zamanında karşılama, kaynakların verimli kullanımı.",
+    "en": "Transparency, competition, equal treatment, reliability, confidentiality, public oversight, timely fulfillment on suitable terms, efficient use of resources."
+   },
+   "en": "Temel ilkeler — the Law's fundamental principles",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f8",
+   "front": {
+    "tr": "Mal, hizmet ve yapım işleri aynı ihalede birleştirilebilir mi?",
+    "en": "Can goods, services, and works be combined in a single tender?"
+   },
+   "back": {
+    "tr": "Hayır — aralarında kabul edilebilir doğal bir bağlantı olmadığı sürece bir arada ihale edilemezler.",
+    "en": "No — unless there is an acceptable natural link between them, they cannot be tendered together."
+   },
+   "en": "Rule against bundling unrelated goods/services/works in one tender",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f9",
+   "front": {
+    "tr": "Ödeneği bulunmayan bir iş için ihaleye çıkılabilir mi?",
+    "en": "Can a tender be opened for work with no allocated budget?"
+   },
+   "back": {
+    "tr": "Hayır — ödeneği bulunmayan hiçbir iş için ihaleye çıkılamaz.",
+    "en": "No — no tender may be opened for work without an allocated budget."
+   },
+   "en": "No tender without an allocated appropriation",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f10",
+   "front": {
+    "tr": "Kanunun 'temel usulleri' hangileridir?",
+    "en": "Which are the Law's 'base procedures'?"
+   },
+   "back": {
+    "tr": "Açık ihale usulü ve belli istekliler arasında ihale usulü; diğer usuller (pazarlık vb.) sadece özel hallerde kullanılır.",
+    "en": "The open tender procedure and the restricted (selected tenderers) procedure; other procedures are used only in special cases."
+   },
+   "en": "Base procedures: open and restricted",
+   "tag": "usuller"
+  },
+  {
+   "id": "f11",
+   "front": {
+    "tr": "İhale komisyonu en az kaç kişiden oluşur ve neden tek sayıda olmalıdır?",
+    "en": "How many members minimum in a tender committee, and why must it be an odd number?"
+   },
+   "back": {
+    "tr": "En az 5 kişiden oluşur; tek sayı olması oylamada eşitlik çıkmasını önlemek içindir.",
+    "en": "At least 5 members; the odd number prevents a tie vote."
+   },
+   "en": "Tender committee — minimum 5, odd number",
+   "tag": "surec"
+  },
+  {
+   "id": "f12",
+   "front": {
+    "tr": "İhale komisyonunun kaç üyesi ihale konusu işin uzmanı olmalıdır?",
+    "en": "How many committee members must be experts in the tender's subject matter?"
+   },
+   "back": {
+    "tr": "Başkan hariç en az ikisi ihale konusu işin uzmanı olmalıdır (+ 1 muhasebe/mali işler sorumlusu).",
+    "en": "At least two (besides the chair) must be subject-matter experts, plus one accounting/finance officer."
+   },
+   "en": "Committee composition — at least 2 subject experts",
+   "tag": "surec"
+  },
+  {
+   "id": "f13",
+   "front": {
+    "tr": "Komisyon kararlarında çekimser oy kullanılabilir mi?",
+    "en": "Can committee members abstain when voting?"
+   },
+   "back": {
+    "tr": "Hayır — kararlarda çekimser kalınmaz; karşı oy kullanan üye gerekçesini yazıp imzalamak zorundadır.",
+    "en": "No — abstention is not allowed; a dissenting member must record and sign their reasoning."
+   },
+   "en": "No abstentions in committee decisions",
+   "tag": "surec"
+  },
+  {
+   "id": "f14",
+   "front": {
+    "tr": "Yaklaşık maliyet KDV dahil mi hesaplanır?",
+    "en": "Is the approximate cost calculated including VAT?"
+   },
+   "back": {
+    "tr": "Hayır — yaklaşık maliyet katma değer vergisi hariç belirlenir.",
+    "en": "No — the approximate cost is determined excluding VAT."
+   },
+   "en": "Approximate cost — excludes VAT",
+   "tag": "surec"
+  },
+  {
+   "id": "f15",
+   "front": {
+    "tr": "Yaklaşık maliyet ilanlarda açıklanır mı?",
+    "en": "Is the approximate cost disclosed in announcements?"
+   },
+   "back": {
+    "tr": "Hayır — ilan ve ön yeterlik ilanlarında yer verilmez, isteklilere veya ilgisiz kişilere açıklanmaz.",
+    "en": "No — it is not included in announcements and is not disclosed to tenderers or unrelated parties."
+   },
+   "en": "Approximate cost — kept confidential",
+   "tag": "surec"
+  },
+  {
+   "id": "f16",
+   "front": {
+    "tr": "Genel bütçeli dairelerin mal/hizmet alımında eşik değer nedir?",
+    "en": "What is the threshold for goods/services purchases by general-budget administrations?"
+   },
+   "back": {
+    "tr": "300.000 TL (ders örneği; rakamlar periyodik güncellenir).",
+    "en": "300,000 TL (course example; figures are updated periodically)."
+   },
+   "en": "Threshold — general-budget goods/services: 300,000 TL",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f17",
+   "front": {
+    "tr": "Diğer kanun kapsamı idarelerin mal/hizmet alımında eşik değer nedir?",
+    "en": "What is the threshold for goods/services purchases by other Law-covered authorities?"
+   },
+   "back": {
+    "tr": "500.000 TL (ders örneği).",
+    "en": "500,000 TL (course example)."
+   },
+   "en": "Threshold — other authorities' goods/services: 500,000 TL",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f18",
+   "front": {
+    "tr": "Kanun kapsamındaki idarelerin yapım işlerinde eşik değer nedir?",
+    "en": "What is the threshold for works (construction) by Law-covered authorities?"
+   },
+   "back": {
+    "tr": "11.000.000 TL (ders örneği).",
+    "en": "11,000,000 TL (course example)."
+   },
+   "en": "Threshold — works (construction): 11,000,000 TL",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f19",
+   "front": {
+    "tr": "Eşik değeri aşan açık ihalede ilan süresi kaç gündür?",
+    "en": "What is the announcement period for an open tender above the threshold?"
+   },
+   "back": {
+    "tr": "İhale tarihinden en az 40 gün önce.",
+    "en": "At least 40 days before the tender date."
+   },
+   "en": "Open-procedure notice period: 40 days",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f20",
+   "front": {
+    "tr": "Eşik değeri aşan belli istekliler arası ihalede ön yeterlik ilan süresi kaç gündür?",
+    "en": "What is the pre-qualification notice period for a restricted tender above the threshold?"
+   },
+   "back": {
+    "tr": "Son başvuru tarihinden en az 14 gün önce.",
+    "en": "At least 14 days before the application deadline."
+   },
+   "en": "Restricted-procedure pre-qualification notice: 14 days",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f21",
+   "front": {
+    "tr": "İşin danışmanlık hizmetini yapan yüklenici o işin ihalesine katılabilir mi?",
+    "en": "Can a contractor providing consultancy for a project bid on that project's own tender?"
+   },
+   "back": {
+    "tr": "Hayır — kendi yaptığı işi kendisi denetleyemeyeceği için o işin danışmanlık/yapım ihalesine katılamaz.",
+    "en": "No — since it cannot supervise its own work, it may not bid on that same work's tender."
+   },
+   "en": "A project's consultant cannot also bid on that project",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f22",
+   "front": {
+    "tr": "Yasaklı olduğu halde ihaleye giren isteklinin geçici teminatına ne olur?",
+    "en": "What happens to the bid bond of a banned tenderer who participates anyway?"
+   },
+   "back": {
+    "tr": "Gelir kaydedilir (idareye kalır) ve istekli ihale dışı bırakılır.",
+    "en": "It is forfeited to revenue, and the tenderer is excluded from the tender."
+   },
+   "en": "A banned participant's bid bond is forfeited",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f23",
+   "front": {
+    "tr": "Teknik şartnamede belli bir marka/model belirtmek yasak mıdır?",
+    "en": "Is naming a specific brand/model in the technical specification prohibited?"
+   },
+   "back": {
+    "tr": "Evet, esas olarak yasaktır — rekabeti engeller; istisnası ulusal/uluslararası standart yoksa 'veya dengi' ifadesiyle belirtilebilmesidir.",
+    "en": "Yes, in principle prohibited — it restricts competition; exception: if no standard exists, a brand may be named using 'or equivalent'."
+   },
+   "en": "Naming a brand in specs is banned except with 'or equivalent'",
+   "tag": "ilkeler"
+  },
+  {
+   "id": "f24",
+   "front": {
+    "tr": "İhale ve ön yeterlik dokümanını idarede görmek ücretli midir?",
+    "en": "Is viewing tender/pre-qualification documents at the authority's office paid?"
+   },
+   "back": {
+    "tr": "Hayır, bedelsiz görülebilir; ancak katılmak/teklif vermek isteyenlerin dokümanı satın alması zorunludur.",
+    "en": "No, it can be viewed for free; but purchasing it is mandatory for those who want to participate/bid."
+   },
+   "en": "Documents: free to view, must be purchased to bid",
+   "tag": "surec"
+  },
+  {
+   "id": "f25",
+   "front": {
+    "tr": "Açık ihale usulü nedir?",
+    "en": "What is the open tender procedure?"
+   },
+   "back": {
+    "tr": "Bütün isteklilerin teklif verebildiği usuldür.",
+    "en": "The procedure in which all tenderers may submit bids."
+   },
+   "en": "Açık ihale usulü — open procedure",
+   "tag": "usuller"
+  },
+  {
+   "id": "f26",
+   "front": {
+    "tr": "Belli istekliler arasında ihale usulü nedir?",
+    "en": "What is the restricted tender procedure?"
+   },
+   "back": {
+    "tr": "Ön yeterlik değerlendirmesi sonucunda idarenin davet ettiği isteklilerin teklif verebildiği usuldür.",
+    "en": "The procedure in which only tenderers invited by the authority after pre-qualification may bid."
+   },
+   "en": "Belli istekliler arası — restricted procedure",
+   "tag": "usuller"
+  },
+  {
+   "id": "f27",
+   "front": {
+    "tr": "Belli istekliler arası usul hangi yapım işlerinde kullanılabilir?",
+    "en": "For which works tenders can the restricted procedure be used?"
+   },
+   "back": {
+    "tr": "Yaklaşık maliyeti eşik değerin yarısını aşan yapım işi ihalelerinde.",
+    "en": "For works tenders whose approximate cost exceeds half the threshold value."
+   },
+   "en": "Restricted procedure allowed for works above half the threshold",
+   "tag": "usuller"
+  },
+  {
+   "id": "f28",
+   "front": {
+    "tr": "Pazarlık usulü nedir?",
+    "en": "What is the negotiated procedure?"
+   },
+   "back": {
+    "tr": "İhale sürecinin iki aşamalı yürütüldüğü, teknik detay ve gerçekleştirme yöntemlerinin (bazen fiyatın) isteklilerle görüşüldüğü usuldür.",
+    "en": "A two-stage procedure where technical details and delivery methods (sometimes price) are negotiated with tenderers."
+   },
+   "en": "Pazarlık usulü — negotiated procedure",
+   "tag": "usuller"
+  },
+  {
+   "id": "f29",
+   "front": {
+    "tr": "Açık ihale sonucunda hiç teklif çıkmazsa hangi usul uygulanabilir?",
+    "en": "If an open tender produces no bids, which procedure can be applied?"
+   },
+   "back": {
+    "tr": "Pazarlık usulü (Madde 21/a).",
+    "en": "The negotiated procedure (Article 21/a)."
+   },
+   "en": "No-bid open tender → negotiated procedure",
+   "tag": "usuller"
+  },
+  {
+   "id": "f30",
+   "front": {
+    "tr": "Pazarlık usulünün hangi bendi doğal afet/salgın gibi ivedi durumları kapsar?",
+    "en": "Which clause of the negotiated procedure covers urgent cases like disasters/epidemics?"
+   },
+   "back": {
+    "tr": "Madde 21/b — doğal afet, salgın hastalık, can/mal kaybı tehlikesi gibi ani ve beklenmeyen haller.",
+    "en": "Article 21/b — natural disasters, epidemics, danger to life/property, and other sudden unforeseen events."
+   },
+   "en": "Article 21/b — urgent/unforeseen events",
+   "tag": "usuller"
+  },
+  {
+   "id": "f31",
+   "front": {
+    "tr": "Pazarlık usulünün hangi bendi 50.000.000 TL'ye kadar mamul mal/hizmet alımını kapsar?",
+    "en": "Which clause of the negotiated procedure covers manufactured goods/services up to 50,000,000 TL?"
+   },
+   "back": {
+    "tr": "Madde 21/f. Not: yapım işleri bu bende dahil değildir.",
+    "en": "Article 21/f. Note: works (construction) are not included in this clause."
+   },
+   "en": "Article 21/f — up to 50,000,000 TL, goods/services only",
+   "tag": "usuller"
+  },
+  {
+   "id": "f32",
+   "front": {
+    "tr": "Pazarlık usulünün hangi hallerinde ilan zorunlu değildir?",
+    "en": "In which negotiated-procedure cases is advertising not mandatory?"
+   },
+   "back": {
+    "tr": "(b), (c) ve (f) bentlerinde; en az 3 istekli davet edilir.",
+    "en": "Cases (b), (c), and (f); at least 3 tenderers must be invited."
+   },
+   "en": "No mandatory ad for cases b, c, f — invite ≥3 tenderers",
+   "tag": "usuller"
+  },
+  {
+   "id": "f33",
+   "front": {
+    "tr": "Doğrudan temin bir ihale usulü müdür?",
+    "en": "Is direct supply a tender procedure?"
+   },
+   "back": {
+    "tr": "Hayır — ilan yapılmaksızın ve teminat alınmaksızın doğrudan temin edilen, ihalesiz bir yoldur.",
+    "en": "No — it is a non-competitive route to acquire needs without advertising or taking a bond."
+   },
+   "en": "Doğrudan temin — not a tender procedure",
+   "tag": "usuller"
+  },
+  {
+   "id": "f34",
+   "front": {
+    "tr": "Doğrudan teminde ihale komisyonu kurulması zorunlu mudur?",
+    "en": "Is forming a tender committee mandatory for direct supply?"
+   },
+   "back": {
+    "tr": "Hayır — ihale yetkilisinin görevlendirdiği kişi(ler) piyasa fiyat araştırmasıyla ihtiyacı temin eder.",
+    "en": "No — a person designated by the tender officer secures the need via market price research."
+   },
+   "en": "Direct supply — no tender committee required",
+   "tag": "usuller"
+  },
+  {
+   "id": "f35",
+   "front": {
+    "tr": "Doğrudan temin ile büyükşehir belediyesindeki idareler için temsil-ağırlama sınırı nedir?",
+    "en": "What is the direct-supply hospitality/representation limit for authorities within a metropolitan municipality?"
+   },
+   "back": {
+    "tr": "15.000 TL (diğer idareler için 5.000 TL).",
+    "en": "15,000 TL (5,000 TL for other authorities)."
+   },
+   "en": "Direct supply hospitality limit: 15,000 TL metro / 5,000 TL other",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f36",
+   "front": {
+    "tr": "Tasarım yarışmalarının amacı nedir?",
+    "en": "What is the purpose of design competitions?"
+   },
+   "back": {
+    "tr": "Mimarlık, peyzaj mimarlığı, mühendislik, kentsel tasarım, şehir-bölge planlama veya güzel sanat eseriyle ilgili bir plan/tasarım projesi elde etmek.",
+    "en": "To obtain an architecture, landscape architecture, engineering, urban design, city/regional planning, or fine-art plan/design project."
+   },
+   "en": "Design competitions — purpose",
+   "tag": "usuller"
+  },
+  {
+   "id": "f37",
+   "front": {
+    "tr": "Geçici teminat oranı nedir?",
+    "en": "What is the bid bond (geçici teminat) rate?"
+   },
+   "back": {
+    "tr": "Teklif edilen bedelin %3'ünden az olmamak üzere alınır.",
+    "en": "Not less than 3% of the bid amount."
+   },
+   "en": "Bid bond — minimum 3%",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f38",
+   "front": {
+    "tr": "Danışmanlık hizmeti ihalelerinde geçici teminat zorunlu mudur?",
+    "en": "Is a bid bond mandatory for consultancy service tenders?"
+   },
+   "back": {
+    "tr": "Hayır, ihale dokümanında belirtilmesi şartıyla zorunlu değildir.",
+    "en": "No, provided this is stated in the tender documents."
+   },
+   "en": "Bid bond optional for consultancy tenders",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f39",
+   "front": {
+    "tr": "Teminat olarak kabul edilen değerler nelerdir?",
+    "en": "What forms of value are accepted as security/bonds?"
+   },
+   "back": {
+    "tr": "Tedavüldeki Türk parası, teminat mektupları, Hazine'nin devlet iç borçlanma senetleri.",
+    "en": "Circulating Turkish currency, letters of guarantee, and Treasury government domestic debt instruments."
+   },
+   "en": "Accepted forms of security",
+   "tag": "surec"
+  },
+  {
+   "id": "f40",
+   "front": {
+    "tr": "Teminat mektubu dışındaki teminatlar ihale komisyonunca teslim alınabilir mi?",
+    "en": "Can forms of security other than letters of guarantee be received directly by the tender committee?"
+   },
+   "back": {
+    "tr": "Hayır — bunlar saymanlık veya muhasebe müdürlüklerine yatırılmak zorundadır.",
+    "en": "No — they must be deposited with the treasury or accounting office."
+   },
+   "en": "Only letters of guarantee accepted directly by the committee",
+   "tag": "surec"
+  },
+  {
+   "id": "f41",
+   "front": {
+    "tr": "Teklif zarfları hangi sıraya göre açılır?",
+    "en": "In what order are bid envelopes opened?"
+   },
+   "back": {
+    "tr": "Alınış sırasına göre açılır.",
+    "en": "In the order they were received."
+   },
+   "en": "Bid envelopes opened in order received",
+   "tag": "surec"
+  },
+  {
+   "id": "f42",
+   "front": {
+    "tr": "Zarf açma oturumunda teklifler reddedilebilir mi?",
+    "en": "Can bids be rejected during the envelope-opening session?"
+   },
+   "back": {
+    "tr": "Hayır — bu oturumda hiçbir teklif reddedilmez veya kabul edilmez, belgeler düzeltilemez/tamamlanamaz.",
+    "en": "No — at this session no bid is accepted or rejected, and documents cannot be corrected or completed."
+   },
+   "en": "No bid accept/reject during the opening session",
+   "tag": "surec"
+  },
+  {
+   "id": "f43",
+   "front": {
+    "tr": "İdare, isteklilerden açıklama isterken fiyat değiştirmelerine izin verebilir mi?",
+    "en": "Can the authority allow tenderers to change price when requesting clarification?"
+   },
+   "back": {
+    "tr": "Hayır — açıklama, hiçbir şekilde fiyat değiştirmek veya uygunsuz teklifi düzeltmek için kullanılamaz.",
+    "en": "No — clarification can never be used to change price or to fix a non-compliant bid."
+   },
+   "en": "Clarification cannot be used to change price",
+   "tag": "surec"
+  },
+  {
+   "id": "f44",
+   "front": {
+    "tr": "Aşırı düşük teklif tespit edilirse idare ne yapar önce reddetmeden?",
+    "en": "What must the authority do before rejecting a bid identified as abnormally low?"
+   },
+   "back": {
+    "tr": "Önemli bileşenlerle ilgili teklif sahibinden yazılı açıklama ister.",
+    "en": "It requests written explanation of significant components from the bidder."
+   },
+   "en": "Abnormally low bids: request explanation before rejecting",
+   "tag": "surec"
+  },
+  {
+   "id": "f45",
+   "front": {
+    "tr": "En düşük teklifi veren istekli ihaleyi otomatik olarak kazanır mı?",
+    "en": "Does the lowest bidder automatically win the tender?"
+   },
+   "back": {
+    "tr": "Hayır — ihale ekonomik açıdan en avantajlı teklife verilir; bu her zaman en düşük fiyat anlamına gelmez.",
+    "en": "No — the tender goes to the most economically advantageous bid, which is not always the lowest price."
+   },
+   "en": "Lowest bid does not automatically win",
+   "tag": "surec"
+  },
+  {
+   "id": "f46",
+   "front": {
+    "tr": "İdare tüm teklifleri reddedip ihaleyi iptal edebilir mi?",
+    "en": "Can the authority reject all bids and cancel the tender?"
+   },
+   "back": {
+    "tr": "Evet — komisyon kararıyla idare bütün teklifleri reddetmekte ve ihaleyi iptal etmekte serbesttir.",
+    "en": "Yes — the authority is free, on the committee's decision, to reject all bids and cancel the tender."
+   },
+   "en": "Authority may reject all bids and cancel",
+   "tag": "surec"
+  },
+  {
+   "id": "f47",
+   "front": {
+    "tr": "İhale yetkilisi karar tarihinden itibaren kaç iş günü içinde ihale kararını onaylar?",
+    "en": "Within how many working days must the tender officer approve the tender decision?"
+   },
+   "back": {
+    "tr": "En geç 5 iş günü içinde.",
+    "en": "Within 5 working days."
+   },
+   "en": "Tender officer approves within 5 working days",
+   "tag": "surec"
+  },
+  {
+   "id": "f48",
+   "front": {
+    "tr": "Kesinleşen ihale kararı isteklilere kaç gün içinde bildirilir?",
+    "en": "Within how many days is the finalized tender decision notified to tenderers?"
+   },
+   "back": {
+    "tr": "Onay gününü izleyen en geç 3 gün içinde.",
+    "en": "Within 3 days of the approval date."
+   },
+   "en": "Decision notified within 3 days of approval",
+   "tag": "surec"
+  },
+  {
+   "id": "f49",
+   "front": {
+    "tr": "Kazanan istekli tebliğ tarihinden itibaren kaç gün içinde sözleşme imzalamalıdır?",
+    "en": "Within how many days of notification must the winning tenderer sign the contract?"
+   },
+   "back": {
+    "tr": "10 gün (yabancı istekli için 12 gün).",
+    "en": "10 days (12 days for a foreign tenderer)."
+   },
+   "en": "Contract signing deadline: 10 days (12 for foreign)",
+   "tag": "surec"
+  },
+  {
+   "id": "f50",
+   "front": {
+    "tr": "Kesin teminat oranı nedir?",
+    "en": "What is the performance bond (kesin teminat) rate?"
+   },
+   "back": {
+    "tr": "İhale bedeli üzerinden %6 oranında alınır (sınır değer altındaki tekliflerde %6-%15 arası belirlenebilir).",
+    "en": "6% of the contract value (may be set 6%-15% for bids below the limit value)."
+   },
+   "en": "Performance bond — 6% of contract value",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f51",
+   "front": {
+    "tr": "Kazanan istekli kesin teminat vermeden sözleşme imzalamayı reddederse ne olur?",
+    "en": "What happens if the winning tenderer refuses to provide the performance bond and sign?"
+   },
+   "back": {
+    "tr": "Geçici teminatı gelir kaydedilir; idare ikinci en avantajlı teklif sahibiyle sözleşme yapabilir.",
+    "en": "Their bid bond is forfeited; the authority may contract with the second-most advantageous bidder."
+   },
+   "en": "Refusing to sign forfeits the bid bond",
+   "tag": "surec"
+  },
+  {
+   "id": "f52",
+   "front": {
+    "tr": "Yapım/mal/hizmet ihale sonuçları Kuruma kaç gün içinde bildirilir?",
+    "en": "Within how many days are works/goods/services tender results reported to the Authority?"
+   },
+   "back": {
+    "tr": "En geç 15 gün içinde.",
+    "en": "Within 15 days."
+   },
+   "en": "Tender results reported to Authority within 15 days",
+   "tag": "surec"
+  },
+  {
+   "id": "f53",
+   "front": {
+    "tr": "İş ortaklığı ile konsorsiyum arasındaki temel fark nedir?",
+    "en": "What is the core difference between a business partnership and a consortium?"
+   },
+   "back": {
+    "tr": "İş ortaklığında üyeler işin tümü için birlikte sorumludur; konsorsiyumda üyeler kendi uzmanlık alanları için ayrı ayrı sorumludur.",
+    "en": "In a business partnership, members are jointly liable for the whole work; in a consortium, each member is liable only for its own area of expertise."
+   },
+   "en": "İş ortaklığı (joint liability) vs konsorsiyum (separate liability)",
+   "tag": "usuller"
+  },
+  {
+   "id": "f54",
+   "front": {
+    "tr": "Konsorsiyumlar her ihaleye teklif verebilir mi?",
+    "en": "Can consortiums bid on any tender?"
+   },
+   "back": {
+    "tr": "Hayır — idare, işin farklı uzmanlık gerektirmesi durumunda konsorsiyumların teklif verip veremeyeceğini ihale dokümanında belirtir.",
+    "en": "No — the authority states in the tender documents whether consortiums may bid when the work needs different specialties."
+   },
+   "en": "Consortium bidding depends on the tender documents",
+   "tag": "usuller"
+  },
+  {
+   "id": "f55",
+   "front": {
+    "tr": "Alt yüklenicinin yaptığı işten dolayı kim sorumludur?",
+    "en": "Who remains liable for work carried out by a subcontractor?"
+   },
+   "back": {
+    "tr": "Ana yüklenici — alt yüklenicinin sorumluluğu, yüklenicinin sorumluluğunu ortadan kaldırmaz.",
+    "en": "The main contractor — the subcontractor's involvement does not remove the main contractor's liability."
+   },
+   "en": "Main contractor stays liable for subcontracted work",
+   "tag": "surec"
+  },
+  {
+   "id": "f56",
+   "front": {
+    "tr": "Yasak fiil tespit edilenler kaç yıl ihalelere katılmaktan yasaklanır?",
+    "en": "For how many years are those found engaging in prohibited acts banned from tenders?"
+   },
+   "back": {
+    "tr": "1 yıldan az olmamak üzere 2 yıla kadar.",
+    "en": "Not less than 1 year, up to 2 years."
+   },
+   "en": "Ban for prohibited acts: 1-2 years",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f57",
+   "front": {
+    "tr": "İhaleyi kazanıp mücbir sebep dışında sözleşme yapmayanlar kaç süre yasaklanır?",
+    "en": "How long are winners who fail to sign the contract without force majeure banned?"
+   },
+   "back": {
+    "tr": "6 aydan az olmamak üzere 1 yıla kadar.",
+    "en": "Not less than 6 months, up to 1 year."
+   },
+   "en": "Ban for not signing after winning: 6 months-1 year",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f58",
+   "front": {
+    "tr": "Yasaklama kararı fiilin tespitinden itibaren en geç kaç gün içinde verilir?",
+    "en": "Within how many days of detection must a ban decision be issued?"
+   },
+   "back": {
+    "tr": "En geç 45 gün içinde.",
+    "en": "Within 45 days at the latest."
+   },
+   "en": "Ban decision issued within 45 days",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f59",
+   "front": {
+    "tr": "Yasaklama kararı Resmi Gazete'de yayımlanmak üzere kaç gün içinde gönderilir?",
+    "en": "Within how many days is the ban decision sent for Official Gazette publication?"
+   },
+   "back": {
+    "tr": "En geç 15 gün içinde; yayım tarihinde yürürlüğe girer.",
+    "en": "Within 15 days at the latest; it takes effect on publication."
+   },
+   "en": "Ban decision sent for publication within 15 days",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f60",
+   "front": {
+    "tr": "Şikayet başvurusu kime ve ne zamana kadar yapılır?",
+    "en": "To whom, and by when, is a complaint (şikayet) filed?"
+   },
+   "back": {
+    "tr": "İhaleyi yapan idareye, farkına varıldığı tarihten itibaren 5 veya 10 gün içinde, sözleşme imzalanmadan önce.",
+    "en": "To the contracting authority, within 5 or 10 days of becoming aware, before the contract is signed."
+   },
+   "en": "Şikayet — filed with the authority, 5-10 days",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f61",
+   "front": {
+    "tr": "İdare şikayet başvurusuna kaç gün içinde gerekçeli karar vermek zorundadır?",
+    "en": "Within how many days must the authority issue a reasoned decision on a complaint?"
+   },
+   "back": {
+    "tr": "10 gün içinde.",
+    "en": "Within 10 days."
+   },
+   "en": "Authority must decide on complaint within 10 days",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f62",
+   "front": {
+    "tr": "İtirazen şikayet kime ve ne zaman yapılır?",
+    "en": "To whom, and when, is an appeal-complaint (itirazen şikayet) filed?"
+   },
+   "back": {
+    "tr": "Kamu İhale Kurumu'na, idarenin kararının bildiriminden (veya süresinin bitiminden) itibaren 10 gün içinde.",
+    "en": "To the Public Procurement Authority, within 10 days of the authority's decision (or the deadline expiring)."
+   },
+   "en": "İtirazen şikayet — filed with the Authority, 10 days",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f63",
+   "front": {
+    "tr": "İtirazen şikayet incelenirken veya süresi dolmadan sözleşme imzalanabilir mi?",
+    "en": "Can the contract be signed while an appeal-complaint is pending or before its deadline expires?"
+   },
+   "back": {
+    "tr": "Hayır — Kurum nihai karar vermeden veya itiraz süresi geçmeden sözleşme imzalanamaz.",
+    "en": "No — the contract cannot be signed until the Authority's final decision or the appeal deadline has passed."
+   },
+   "en": "Contract signing blocked pending appeal-complaint",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f64",
+   "front": {
+    "tr": "İdari başvuru yolları tüketilmeden doğrudan mahkemeye gidilebilir mi?",
+    "en": "Can a party go straight to court without exhausting administrative remedies?"
+   },
+   "back": {
+    "tr": "Hayır — şikayet ve itirazen şikayet yolları dava açılmadan önce tüketilmesi zorunlu idari başvuru yollarıdır.",
+    "en": "No — the complaint and appeal-complaint routes are mandatory administrative remedies that must be exhausted before going to court."
+   },
+   "en": "Administrative remedies must be exhausted before court",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f65",
+   "front": {
+    "tr": "Kamu İhale Kurumu'nun merkezi neresidir ve hangi bakanlıkla ilişkilidir?",
+    "en": "Where is the Public Procurement Authority headquartered and which ministry is it linked to?"
+   },
+   "back": {
+    "tr": "Merkezi Ankara'dadır, Maliye Bakanlığı ile ilişkilidir.",
+    "en": "Headquartered in Ankara, linked to the Ministry of Finance."
+   },
+   "en": "Public Procurement Authority — Ankara, Ministry of Finance",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f66",
+   "front": {
+    "tr": "Kamu İhale Kurulu kaç üyeden oluşur?",
+    "en": "How many members does the Public Procurement Board have?"
+   },
+   "back": {
+    "tr": "1 başkan + 1 ikinci başkan dahil toplam 9 üyeden oluşur, Cumhurbaşkanı tarafından atanır.",
+    "en": "9 members total, including a chair and a deputy chair, appointed by the President."
+   },
+   "en": "Public Procurement Board — 9 members",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f67",
+   "front": {
+    "tr": "Kamu İhale Kurumu'nun görevlerinden biri nedir?",
+    "en": "What is one of the Public Procurement Authority's duties?"
+   },
+   "back": {
+    "tr": "Standart ihale dokümanlarını ve tip sözleşmeleri hazırlamak, geliştirmek ve uygulamayı yönlendirmek (ayrıca şikayetleri incelemek, istatistik tutmak).",
+    "en": "Preparing, developing, and guiding the use of standard tender documents and model contracts (also reviewing complaints, keeping statistics)."
+   },
+   "en": "Public Procurement Authority duties",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f68",
+   "front": {
+    "tr": "Danışmanlık hizmetleri hangi usulle ihale edilir?",
+    "en": "Which procedure is used to tender consultancy services?"
+   },
+   "back": {
+    "tr": "Sadece belli istekliler arasında ihale usulüyle (küçük tutarlar hizmet alımı ihalesiyle yapılabilir).",
+    "en": "Only the restricted (selected tenderers) procedure (small amounts may use a regular services tender)."
+   },
+   "en": "Consultancy services — restricted procedure only",
+   "tag": "usuller"
+  },
+  {
+   "id": "f69",
+   "front": {
+    "tr": "Danışmanlık hizmetlerinde ön yeterlik sonucu kısa listeye kaç aday alınır?",
+    "en": "How many candidates are placed on the short list after pre-qualification for consultancy services?"
+   },
+   "back": {
+    "tr": "En az 3, en fazla 10 aday.",
+    "en": "At least 3, at most 10 candidates."
+   },
+   "en": "Consultancy short list: 3-10 candidates",
+   "tag": "usuller"
+  },
+  {
+   "id": "f70",
+   "front": {
+    "tr": "Yerli istekliler/yerli malı lehine sağlanabilecek azami fiyat avantajı oranı nedir?",
+    "en": "What is the maximum price advantage that can be given in favor of domestic tenderers/domestic goods?"
+   },
+   "back": {
+    "tr": "%15'e kadar.",
+    "en": "Up to 15%."
+   },
+   "en": "Domestic-bidder price advantage — up to 15%",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f71",
+   "front": {
+    "tr": "Yerli malı fiyat avantajı hesabında bu oran hangi teklife eklenir?",
+    "en": "In the domestic-goods price-advantage calculation, to which bid is the percentage added?"
+   },
+   "back": {
+    "tr": "Yerli teklife değil — yabancı mal/istekli tekliflerine eklenerek karşılaştırma yapılır.",
+    "en": "Not the domestic bid — it is added to foreign goods/tenderer bids for comparison."
+   },
+   "en": "Advantage percentage added to foreign bids, not domestic",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f72",
+   "front": {
+    "tr": "Ortak girişimin yerli istekli sayılabilmesi için şart nedir?",
+    "en": "What is required for a joint venture to be counted as a domestic tenderer?"
+   },
+   "back": {
+    "tr": "Bütün ortaklarının yerli olması gerekir.",
+    "en": "All of its partners must be domestic."
+   },
+   "en": "Joint venture counts as domestic only if all partners are domestic",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f73",
+   "front": {
+    "tr": "Eşik değeri aşan pazarlık usulü ihalede ilan süresi kaç gündür?",
+    "en": "What is the announcement period for a negotiated-procedure tender above the threshold?"
+   },
+   "back": {
+    "tr": "İhale tarihinden en az 25 gün önce (Madde 13).",
+    "en": "At least 25 days before the tender date (Article 13)."
+   },
+   "en": "Negotiated-procedure notice period: 25 days",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f74",
+   "front": {
+    "tr": "Danışmanlık kısa listesinde davet edilecek aday 3'ten az olursa ne olur?",
+    "en": "What happens if fewer than 3 candidates would be invited from the consultancy short list?"
+   },
+   "back": {
+    "tr": "Davet mektubu gönderilmez ve ihale yapılmaz.",
+    "en": "No invitation letter is sent and the tender is not held."
+   },
+   "en": "Consultancy short list: under 3 candidates → no tender",
+   "tag": "usuller"
+  },
+  {
+   "id": "f75",
+   "front": {
+    "tr": "Yaklaşık maliyeti hangi tutarın altındaki danışmanlık hizmeti normal hizmet alımı ihalesiyle yapılabilir?",
+    "en": "Below what approximate cost may a consultancy service be procured via a regular services tender?"
+   },
+   "back": {
+    "tr": "240.000 TL (ders örneği; güncellenir). Bunun üzerindekiler belli istekliler arasında ihale usulüyle yapılır.",
+    "en": "240,000 TL (course example; updated). Above it, the restricted procedure is used."
+   },
+   "en": "Consultancy regular-tender limit: 240,000 TL",
+   "tag": "esik-degerler"
+  },
+  {
+   "id": "f76",
+   "front": {
+    "tr": "İhale saati gelmeden ihale hangi durumda iptal edilebilir (Madde 16)?",
+    "en": "When may a tender be cancelled before the tender hour (Article 16)?"
+   },
+   "back": {
+    "tr": "İhalenin yapılmasına engel olan ve düzeltilmesi mümkün olmayan bir husus tespit edilirse; teklifler açılmadan iade edilir, istekliler hak talep edemez.",
+    "en": "If an issue preventing the tender that cannot be corrected is found; bids are returned unopened and tenderers cannot claim any right."
+   },
+   "en": "Article 16 — cancellation before the tender hour",
+   "tag": "surec"
+  },
+  {
+   "id": "f77",
+   "front": {
+    "tr": "Kesin teminat oranı (%6) kanunun hangi maddesinde düzenlenir?",
+    "en": "Which article of the Law sets the performance-bond rate (6%)?"
+   },
+   "back": {
+    "tr": "Madde 43. Madde 44 ise isteklinin kesin teminatı verip sözleşme imzalama görev ve sorumluluğunu düzenler.",
+    "en": "Article 43. Article 44 governs the tenderer's obligation to provide the bond and sign the contract."
+   },
+   "en": "Performance-bond rate is set in Article 43",
+   "tag": "surec"
+  },
+  {
+   "id": "f78",
+   "front": {
+    "tr": "İhale görevlileri yasak fiil işler veya görevini kötüye kullanırsa (Madde 60) ne uygulanır?",
+    "en": "What applies to tender officials who commit prohibited acts or misuse their duties (Article 60)?"
+   },
+   "back": {
+    "tr": "Disiplin cezası uygulanır; ayrıca fiilin özelliğine göre ceza kovuşturması yapılır ve tarafların zararı genel hükümlere göre tazmin ettirilir.",
+    "en": "Disciplinary sanctions apply; depending on the act, criminal prosecution also follows and the parties' losses are compensated under general provisions."
+   },
+   "en": "Article 60 — officials' disciplinary/criminal liability",
+   "tag": "yasaklar"
+  },
+  {
+   "id": "f79",
+   "front": {
+    "tr": "Yasaklanan bir sermaye şirketinde yasaklama hangi ortakları da kapsar?",
+    "en": "In a banned capital company, which partners does the ban also cover?"
+   },
+   "back": {
+    "tr": "Sermayesinin yarısından fazlasına sahip olan ortakları (şahıs şirketinde ise ortakların tamamını).",
+    "en": "The partners owning more than half the capital (in a partnership, all partners)."
+   },
+   "en": "Ban extends to majority owners of a capital company",
+   "tag": "yasaklar"
+  }
+ ],
+ "practice": [
+  {
+   "id": "q1",
+   "type": "mcq",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Kamu İhale Kanunu'nun amacı aşağıdakilerden hangisidir?",
+    "en": "What is the purpose of the Public Procurement Law?"
+   },
+   "options": [
+    {
+     "tr": "Sadece belediyelerin yapacağı ihaleleri düzenlemek",
+     "en": "Regulating only tenders held by municipalities"
+    },
+    {
+     "tr": "Kamu kaynağı kullanan kurum ve kuruluşların ihalelerinde uygulanacak esas ve usulleri belirlemek",
+     "en": "Setting the principles and procedures for tenders by bodies using public funds"
+    },
+    {
+     "tr": "Özel sektör şirketleri arasındaki ticari sözleşmeleri düzenlemek",
+     "en": "Regulating commercial contracts between private companies"
+    },
+    {
+     "tr": "Sadece yapım işi ihalelerini kapsamak",
+     "en": "Covering only works/construction tenders"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Madde 1'e göre amaç, kamu hukukuna tabi olan, kamunun denetimi altında bulunan veya kamu kaynağı kullanan kurum ve kuruluşların ihalelerinde esas ve usulleri belirlemektir. (A) çok dar, (C) kanunun konusu değil, (D) sadece yapım işini değil mal/hizmet alımını da kapsar.",
+    "en": "Under Article 1, the purpose is to set the principles and procedures for tenders by bodies subject to public law, under public oversight, or using public funds. (A) is too narrow, (C) is outside the Law's scope, (D) is wrong because the Law also covers goods/services, not just works."
+   }
+  },
+  {
+   "id": "q2",
+   "type": "open",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "'Mal', 'hizmet' ve 'yapım' tanımlarını örnekleriyle birlikte açıklayınız.",
+    "en": "Explain the definitions of 'goods', 'services', and 'works', with examples."
+   },
+   "answer": {
+    "tr": "**Mal**: satın alınan her türlü ihtiyaç maddesi ile taşınır/taşınmaz mal ve haklar (örn. büro malzemesi, araç, arsa). **Hizmet**: bakım-onarım, taşıma, haberleşme, sigorta, araştırma-geliştirme, muhasebe, danışmanlık, yazılım gibi işler. **Yapım**: bina, karayolu, demiryolu, köprü, tünel, metro, yıkım, güçlendirme ve montaj gibi inşaat nitelikli işler.",
+    "en": "**Goods**: any purchased need item plus movable/immovable property and rights (e.g. office supplies, vehicles, land). **Services**: maintenance-repair, transport, communication, insurance, R&D, accounting, consultancy, software, etc. **Works**: construction-type activities such as buildings, roads, railways, bridges, tunnels, metro, demolition, reinforcement, and assembly."
+   }
+  },
+  {
+   "id": "q3",
+   "type": "mcq",
+   "covers": [
+    "n1"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Aşağıdakilerden hangisi 'aday' tanımına uygundur?",
+    "en": "Which of the following matches the definition of 'aday' (candidate)?"
+   },
+   "options": [
+    {
+     "tr": "Doğrudan ihaleye teklif veren kişi",
+     "en": "A person who directly submits a bid on the tender"
+    },
+    {
+     "tr": "Ön yeterlik için başvuran gerçek veya tüzel kişi",
+     "en": "A real or legal person who applies for pre-qualification"
+    },
+    {
+     "tr": "İhaleyi yapan idarenin görevlisi",
+     "en": "An official of the contracting authority"
+    },
+    {
+     "tr": "İhale komisyonunun başkanı",
+     "en": "The chair of the tender committee"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Aday, ön yeterlik için başvuran kişidir; doğrudan teklif veren kişi 'istekli'dir (A yanlış). (C) ve (D) idare tarafı görevlileridir, tanımla ilgisizdir.",
+    "en": "A candidate applies for pre-qualification; the person who bids directly is an 'istekli' (tenderer) — so (A) is wrong. (C) and (D) are authority-side officials, unrelated to the definition."
+   }
+  },
+  {
+   "id": "q4",
+   "type": "mcq",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Aşağıdakilerden hangisi Kanun'un Madde 5'te sayılan temel ilkelerinden biri DEĞİLDİR?",
+    "en": "Which of the following is NOT one of the fundamental principles listed in Article 5 of the Law?"
+   },
+   "options": [
+    {
+     "tr": "Saydamlık",
+     "en": "Transparency"
+    },
+    {
+     "tr": "Rekabet",
+     "en": "Competition"
+    },
+    {
+     "tr": "En düşük fiyatı garanti etmek",
+     "en": "Guaranteeing the lowest price"
+    },
+    {
+     "tr": "Kamuoyu denetimi",
+     "en": "Public oversight"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Madde 5'teki ilkeler saydamlık, rekabet, eşit muamele, güvenirlik, gizlilik, kamuoyu denetimi, uygun şartlarda-zamanında karşılama ve kaynakların verimli kullanımıdır. 'En düşük fiyatı garanti etmek' bir ilke değildir — nitekim ihale en düşük fiyata değil ekonomik açıdan en avantajlı teklife verilir.",
+    "en": "Article 5's principles are transparency, competition, equal treatment, reliability, confidentiality, public oversight, timely fulfillment on suitable terms, and efficient use of resources. 'Guaranteeing the lowest price' is not a principle — indeed the tender is awarded to the most economically advantageous bid, not necessarily the lowest price."
+   }
+  },
+  {
+   "id": "q5",
+   "type": "open",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir idare aynı iş için hem yapım hem mal alımı hem de hizmet alımı ihtiyacı olduğunu tespit etmiştir. Bu üç ihtiyacı tek bir ihalede birleştirebilir mi? Kuralı ve istisnasını açıklayınız.",
+    "en": "An authority identifies a need for works, goods, and services all for the same job. Can it combine these three needs into a single tender? Explain the rule and its exception."
+   },
+   "answer": {
+    "tr": "Kural olarak hayır — mal alımı, hizmet alımı ve yapım işi bir arada ihale edilemez, ayrı ayrı ihale edilmelidir. **İstisna**: aralarında kabul edilebilir doğal bir bağlantı varsa birlikte ihale edilebilir (örn. bir yapım işinin ayrılmaz parçası olan malzeme temini). Bu kural rekabeti ve ihaleye katılımı geniş tutmak; farklı uzmanlık alanlarındaki firmaların ayrı ayrı teklif verebilmesini sağlamak amacını taşır.",
+    "en": "As a rule, no — goods, services, and works cannot be tendered together; each must be tendered separately. **Exception**: if there is an acceptable natural link between them, they may be tendered together (e.g., supply of materials that is an inseparable part of a works contract). This rule aims to keep competition and participation broad, letting firms with different specialties bid separately."
+   }
+  },
+  {
+   "id": "q6",
+   "type": "mcq",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "İhale komisyonu ile ilgili aşağıdaki ifadelerden hangisi YANLIŞTIR?",
+    "en": "Which of the following statements about the tender committee is INCORRECT?"
+   },
+   "options": [
+    {
+     "tr": "Komisyon en az 5 ve tek sayıda üyeden oluşur",
+     "en": "The committee has at least 5 members, an odd number"
+    },
+    {
+     "tr": "Komisyon üyelerinden en az ikisi ihale konusu işin uzmanı olmalıdır",
+     "en": "At least two committee members must be experts in the tender's subject"
+    },
+    {
+     "tr": "Komisyon üyeleri kararlarda çekimser kalabilir",
+     "en": "Committee members may abstain from decisions"
+    },
+    {
+     "tr": "Komisyon eksiksiz olarak toplanmak zorundadır",
+     "en": "The committee must convene in full"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Yanlış olan (C): komisyon üyeleri çekimser kalamaz, her üye oy kullanmak ve karşı oyunu gerekçeleriyle yazıp imzalamak zorundadır. Diğer ifadeler doğrudur.",
+    "en": "The incorrect statement is (C): committee members cannot abstain — every member must vote, and a dissenting member must record and sign their reasoning. The other statements are correct."
+   }
+  },
+  {
+   "id": "q7",
+   "type": "open",
+   "covers": [
+    "n2"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Yaklaşık maliyet nedir, kim tarafından ve nasıl belirlenir, neden ilanlarda açıklanmaz?",
+    "en": "What is the approximate cost, who determines it and how, and why is it not disclosed in announcements?"
+   },
+   "answer": {
+    "tr": "Yaklaşık maliyet, ihale yapılmadan önce idarece her türlü fiyat araştırması yapılarak, KDV hariç olarak belirlenen ve dayanaklarıyla bir hesap cetvelinde gösterilen tutardır. İlanlarda açıklanmaz çünkü idarenin gelen teklifleri objektif biçimde değerlendirmesi için bir referans niteliğindedir — önceden bilinirse isteklilerin teklif fiyatlarını buna göre şekillendirmesi ihaleyi bozar ve rekabeti anlamsızlaştırır.",
+    "en": "The approximate cost is an amount the authority determines through market price research before the tender, excluding VAT, recorded with its basis in a worksheet. It is not disclosed in announcements because it serves as a reference for the authority to objectively evaluate incoming bids — if known in advance, tenderers would shape their bids around it, undermining the tender and making competition meaningless."
+   }
+  },
+  {
+   "id": "q8",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Aşağıdakilerden hangisi Madde 11 uyarınca ihaleye katılamayacak olanlar arasında YER ALMAZ?",
+    "en": "Which of the following is NOT among those barred from participating under Article 11?"
+   },
+   "options": [
+    {
+     "tr": "Kamu ihalelerine katılmaktan yasaklanmış olanlar",
+     "en": "Those banned from public tenders"
+    },
+    {
+     "tr": "İhaleyi yapan idarenin ihale yetkilisi",
+     "en": "The tender officer of the contracting authority"
+    },
+    {
+     "tr": "İşin danışmanlık hizmetini yapan yüklenici",
+     "en": "The contractor providing consultancy services for the work"
+    },
+    {
+     "tr": "Daha önce başka bir idarenin ihalesini kazanmış olan istekli",
+     "en": "A tenderer who previously won a tender from a different authority"
+    }
+   ],
+   "correct": 3,
+   "explain": {
+    "tr": "Başka bir idarenin ihalesini kazanmış olmak katılım engeli değildir — her ihale ayrı değerlendirilir. Diğer üçü Madde 11'de açıkça sayılan yasaklı gruplardır.",
+    "en": "Having won a tender from a different authority is not a participation bar — each tender is evaluated separately. The other three are explicitly listed groups barred under Article 11."
+   }
+  },
+  {
+   "id": "q9",
+   "type": "open",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir mühendislik firması X idaresinin bir yapım işi için danışmanlık/kontrolörlük hizmetini yürütmektedir. Bu firma aynı işin yapım (müteahhitlik) ihalesine katılabilir mi? Nedenini açıklayınız.",
+    "en": "An engineering firm is providing consultancy/supervision services for a works project of authority X. Can this firm bid on the same project's construction (contractor) tender? Explain why."
+   },
+   "answer": {
+    "tr": "Hayır, katılamaz. Kanun'a göre işin danışmanlık hizmetini yapan yüklenici, o işin (yapım) ihalesine katılamaz. Sebep açıktır: aynı firma hem işi yapıp hem de kendi işini denetlerse çıkar çatışması doğar ve tarafsız denetim mümkün olmaz — bu da kanunun eşit muamele ve güvenirlik ilkelerine aykırıdır.",
+    "en": "No, it cannot. Under the Law, a contractor providing consultancy services for a job may not bid on that same job's (works) tender. The reason is clear: if the same firm both performs the work and supervises its own work, a conflict of interest arises and impartial oversight becomes impossible — which violates the Law's principles of equal treatment and reliability."
+   }
+  },
+  {
+   "id": "q10",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Ders örneğine göre kanun kapsamındaki idarelerin yapım işlerinde eşik değer nedir?",
+    "en": "Per the course example, what is the threshold value for works (construction) tenders by Law-covered authorities?"
+   },
+   "options": [
+    {
+     "tr": "300.000 TL",
+     "en": "300,000 TL"
+    },
+    {
+     "tr": "500.000 TL",
+     "en": "500,000 TL"
+    },
+    {
+     "tr": "11.000.000 TL",
+     "en": "11,000,000 TL"
+    },
+    {
+     "tr": "50.000.000 TL",
+     "en": "50,000,000 TL"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "11.000.000 TL yapım işleri için eşik değerdir. 300.000 ve 500.000 TL mal/hizmet alımı eşik değerleridir (genel bütçeli/diğer idareler), 50.000.000 TL ise pazarlık usulünün (f) bendindeki mamul mal/hizmet limitidir.",
+    "en": "11,000,000 TL is the threshold for works. 300,000 and 500,000 TL are the goods/services thresholds (general-budget/other authorities), while 50,000,000 TL is the manufactured-goods/services limit under negotiated-procedure clause (f)."
+   }
+  },
+  {
+   "id": "q11",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Teknik şartnamede belli bir marka veya model ne zaman istisnai olarak belirtilebilir?",
+    "en": "When may a specific brand or model exceptionally be named in a technical specification?"
+   },
+   "options": [
+    {
+     "tr": "İdare o markayı tercih ediyorsa her zaman",
+     "en": "Whenever the authority prefers that brand"
+    },
+    {
+     "tr": "Ulusal/uluslararası teknik standart yoksa veya teknik özellik belirlenemiyorsa, 'veya dengi' ifadesiyle",
+     "en": "When no national/international technical standard exists or the specification cannot be determined, using 'or equivalent'"
+    },
+    {
+     "tr": "İhale değeri eşik değerin altındaysa",
+     "en": "Whenever the tender value is below the threshold"
+    },
+    {
+     "tr": "Sadece yapım işlerinde",
+     "en": "Only in works/construction tenders"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Kanun kural olarak marka/model belirtmeyi yasaklar (rekabeti bozar); istisna, standardın bulunmadığı veya özelliklerin belirlenemediği hallerde 'veya dengi' ifadesiyle marka/model belirtilebilmesidir. Diğer seçenekler kanunda yer alan bir istisna değildir.",
+    "en": "As a rule the Law bans naming a brand/model (it distorts competition); the exception is when no standard exists or specs cannot be determined, in which case a brand/model may be named using 'or equivalent'. The other options are not exceptions found in the Law."
+   }
+  },
+  {
+   "id": "q12",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Kanun'a göre idarelerce uygulanacak temel/ana ihale usulleri hangileridir?",
+    "en": "According to the Law, which are the main tender procedures authorities apply?"
+   },
+   "options": [
+    {
+     "tr": "Açık ihale usulü, belli istekliler arasında ihale usulü, pazarlık usulü",
+     "en": "Open procedure, restricted procedure, negotiated procedure"
+    },
+    {
+     "tr": "Sadece açık ihale usulü",
+     "en": "Only the open procedure"
+    },
+    {
+     "tr": "Doğrudan temin ve pazarlık usulü",
+     "en": "Direct supply and negotiated procedure"
+    },
+    {
+     "tr": "İhale usulleri idarenin tercihine bağlıdır, kanunda sayılmamıştır",
+     "en": "Procedures are up to the authority's preference, not listed in the Law"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Madde 18'e göre idareler açık ihale usulü, belli istekliler arasında ihale usulü ve pazarlık usulünden birini uygular; bazı hallerde doğrudan temin de uygulanabilir ama bu bir 'ihale usulü' değildir.",
+    "en": "Under Article 18, authorities apply one of: open procedure, restricted procedure, or negotiated procedure; direct supply may also apply in some cases, but it is not a 'tender procedure'."
+   }
+  },
+  {
+   "id": "q13",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir yapım işinin yaklaşık maliyeti eşik değerin yarısını aşıyor ve idare işin uzmanlık gerektirdiğini düşünüyor. Bu durumda hangi usul kullanılabilir?",
+    "en": "A works tender's approximate cost exceeds half the threshold, and the authority believes the work requires specialization. Which procedure may be used?"
+   },
+   "options": [
+    {
+     "tr": "Doğrudan temin",
+     "en": "Direct supply"
+    },
+    {
+     "tr": "Belli istekliler arasında ihale usulü",
+     "en": "Restricted (selected-tenderers) procedure"
+    },
+    {
+     "tr": "Zorunlu olarak açık ihale usulü",
+     "en": "Mandatorily the open procedure"
+    },
+    {
+     "tr": "Tasarım yarışması",
+     "en": "Design competition"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Madde 20'ye göre yaklaşık maliyeti eşik değerin yarısını aşan yapım işi ihaleleri veya işin uzmanlık/ileri teknoloji gerektirdiği haller belli istekliler arasında ihale usulüne göre yaptırılabilir. Doğrudan temin ve tasarım yarışması bu senaryoya uymaz; açık ihale usulü burada zorunlu değildir.",
+    "en": "Under Article 20, works tenders whose approximate cost exceeds half the threshold, or work requiring specialization/advanced technology, may be carried out under the restricted procedure. Direct supply and design competitions don't fit this scenario; the open procedure is not mandatory here."
+   }
+  },
+  {
+   "id": "q14",
+   "type": "open",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Pazarlık usulünün uygulanabileceği altı halin (Madde 21, a-f) her birini kısaca açıklayınız.",
+    "en": "Briefly explain each of the six cases (Article 21, a-f) in which the negotiated procedure may be applied."
+   },
+   "answer": {
+    "tr": "(a) Açık ihale veya belli istekliler arası usulle ihale yapılmış ama teklif çıkmamışsa. (b) Doğal afet, salgın hastalık, can/mal kaybı tehlikesi gibi ani-beklenmeyen veya idarece ivedi olması belirlenen haller. (c) Savunma ve güvenlikle ilgili özel durumların ivediliği. (d) Araştırma-geliştirme sürecine ihtiyaç gösteren, seri üretime konu olmayan işler. (e) İşin özgün ve karmaşık olması nedeniyle teknik/mali özelliklerin netlikte belirlenememesi. (f) Yaklaşık maliyeti 50.000.000 TL'ye kadar olan mamul mal, malzeme veya hizmet alımları (yapım işi hariç).",
+    "en": "(a) An open or restricted tender was held but produced no bid. (b) Natural disasters, epidemics, danger to life/property, or other sudden/unforeseen events, or cases the authority determines require urgency. (c) Urgent defense and security-related special circumstances. (d) Work requiring an R&D process, not intended for serial production. (e) The work's unique and complex nature prevents technical/financial specs from being clearly determined. (f) Approximate cost up to 50,000,000 TL for manufactured goods, materials, or services (works excluded)."
+   }
+  },
+  {
+   "id": "q15",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Pazarlık usulünün hangi bendinde yapım işleri kapsam DIŞINDA bırakılmıştır?",
+    "en": "In which clause of the negotiated procedure are works (construction) excluded from scope?"
+   },
+   "options": [
+    {
+     "tr": "(a) bendi",
+     "en": "clause (a)"
+    },
+    {
+     "tr": "(d) bendi",
+     "en": "clause (d)"
+    },
+    {
+     "tr": "(f) bendi",
+     "en": "clause (f)"
+    },
+    {
+     "tr": "(b) bendi",
+     "en": "clause (b)"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "(f) bendi sadece mamul mal, malzeme veya hizmet alımlarını kapsar; yapım işleri bu bentte yer almaz. Diğer bentler (a, b, d) iş türüne göre sınırlı değildir.",
+    "en": "Clause (f) covers only manufactured goods, materials, or services; works are not included in this clause. The other clauses (a, b, d) are not limited by type of work."
+   }
+  },
+  {
+   "id": "q16",
+   "type": "mcq",
+   "covers": [
+    "n4"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Doğrudan temin usulünün açık ihale usulünden temel farkı nedir?",
+    "en": "What is the main difference between direct supply and the open procedure?"
+   },
+   "options": [
+    {
+     "tr": "Doğrudan teminde ilan ve teminat alınmaz, açık ihalede alınır",
+     "en": "Direct supply requires no advertisement or bond, while the open procedure does"
+    },
+    {
+     "tr": "Doğrudan temin sadece yapım işlerinde kullanılır",
+     "en": "Direct supply is used only for works/construction"
+    },
+    {
+     "tr": "Açık ihalede teminat alınmaz",
+     "en": "The open procedure does not require a bond"
+    },
+    {
+     "tr": "Aralarında fark yoktur",
+     "en": "There is no difference between them"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Doğrudan temin, ilan yapılmaksızın ve teminat alınmaksızın ihtiyacın doğrudan temin edildiği bir yoldur; açık ihale usulünde ise ilan yapılır ve geçici teminat alınır. (B) yanlıştır çünkü doğrudan temin daha çok küçük tutarlı mal/hizmet alımlarında kullanılır.",
+    "en": "Direct supply is a route where needs are acquired directly, without advertising or taking a bond; the open procedure requires both advertising and a bid bond. (B) is wrong because direct supply is mostly used for smaller goods/services purchases."
+   }
+  },
+  {
+   "id": "q17",
+   "type": "open",
+   "covers": [
+    "n4",
+    "n5"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir idare 40.000 TL değerinde ofis malzemesi (mamul mal) satın almak istiyor. Bu alım için hangi usul(ler) kullanılabilir? Karşılaştırınız.",
+    "en": "An authority wants to purchase 40,000 TL of office supplies (manufactured goods). Which procedure(s) can be used for this purchase? Compare them."
+   },
+   "answer": {
+    "tr": "40.000 TL, pazarlık usulünün (f) bendindeki 50.000.000 TL sınırının altında olduğu için **pazarlık usulü** kullanılabilir (bu bentte ilan zorunlu değildir, en az 3 istekli davet edilir). Ayrıca tutar küçük olduğu için idare dilerse **açık ihale usulünü** de tercih edebilir (temel usul her zaman kullanılabilir). Ancak **doğrudan temin** sadece Madde 22'deki özel hallerden biri (tek kaynak, özel hak, standardizasyon, küçük temsil-ağırlama harcaması vb.) gerçekleşiyorsa kullanılabilir — sırf tutar küçük diye doğrudan temin seçilemez.",
+    "en": "Since 40,000 TL is below the 50,000,000 TL limit in negotiated-procedure clause (f), the **negotiated procedure** can be used (no mandatory advertisement in this clause, at least 3 tenderers invited). Because the amount is small, the authority could also choose the **open procedure** (the base procedure is always available). However, **direct supply** may only be used if one of the specific Article 22 cases applies (sole source, special right, standardization, small hospitality expense, etc.) — a small amount alone does not justify direct supply."
+   }
+  },
+  {
+   "id": "q18",
+   "type": "mcq",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir idarenin kullandığı özel bir yazılımın lisans yenilemesi sadece o yazılımı üreten firmadan alınabiliyor. Bu durumda hangi doğrudan temin hali uygulanır?",
+    "en": "An authority's license renewal for specific software can only be obtained from the firm that produces it. Which direct-supply case applies?"
+   },
+   "options": [
+    {
+     "tr": "İhtiyacın sadece tek bir gerçek/tüzel kişi tarafından karşılanabileceğinin tespiti",
+     "en": "The need can be met by only one real/legal person"
+    },
+    {
+     "tr": "Taşınmaz mal alımı",
+     "en": "Purchase of real property"
+    },
+    {
+     "tr": "Temsil-ağırlama faaliyeti",
+     "en": "Hospitality/representation activity"
+    },
+    {
+     "tr": "Milletlerarası tahkim",
+     "en": "International arbitration"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Bu, 'ihtiyacın sadece gerçek veya tüzel tek kişi tarafından karşılanabileceğinin tespiti' haline (Madde 22/a) örnektir — tek kaynaklı (sole-source) tedarik. Diğer seçenekler farklı doğrudan temin hallerine aittir ve bu senaryoya uymaz.",
+    "en": "This is an example of 'the need can only be met by one real/legal person' (Article 22/a) — sole-source procurement. The other options belong to different direct-supply cases and don't fit this scenario."
+   }
+  },
+  {
+   "id": "q19",
+   "type": "open",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Doğrudan temin usulünde ihale komisyonu kurulur mu ve alım nasıl gerçekleştirilir?",
+    "en": "Is a tender committee formed under direct supply, and how is the purchase carried out?"
+   },
+   "answer": {
+    "tr": "Hayır, doğrudan teminde ihale komisyonu kurma ve Madde 10'daki yeterlik kurallarını arama zorunluluğu yoktur. Alım, ihale yetkilisince görevlendirilecek kişi veya kişiler tarafından piyasada fiyat araştırması yapılarak gerçekleştirilir — ilan yapılmaz, teminat alınmaz.",
+    "en": "No, direct supply requires neither forming a tender committee nor applying the eligibility rules of Article 10. The purchase is carried out by a person or persons designated by the tender officer, who conduct market price research — no advertisement is made and no bond is taken."
+   }
+  },
+  {
+   "id": "q20",
+   "type": "mcq",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Tasarım yarışmaları hangi amaçla düzenlenir?",
+    "en": "For what purpose are design competitions held?"
+   },
+   "options": [
+    {
+     "tr": "Sadece maliyeti düşürmek için",
+     "en": "Solely to reduce cost"
+    },
+    {
+     "tr": "Mimarlık, mühendislik, kentsel tasarım gibi alanlarda bir plan/tasarım projesi elde etmek için",
+     "en": "To obtain a plan/design project in fields like architecture, engineering, urban design"
+    },
+    {
+     "tr": "İhale komisyonu üyelerini belirlemek için",
+     "en": "To select tender committee members"
+    },
+    {
+     "tr": "Sadece kamu binalarının bakımı için",
+     "en": "Solely for the maintenance of public buildings"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "İdareler, mimarlık, peyzaj mimarlığı, mühendislik, kentsel tasarım, şehir-bölge planlama veya güzel sanat eseriyle ilgili bir plan/tasarım projesi elde etmek amacıyla jüri değerlendirmesiyle ödüllü/ödülsüz yarışma düzenleyebilir. Diğer seçenekler amaca uymaz.",
+    "en": "Authorities may hold prize/non-prize competitions, judged by a jury, to obtain a plan/design project in fields such as architecture, landscape architecture, engineering, urban design, or city/regional planning, or fine art. The other options don't match the stated purpose."
+   }
+  },
+  {
+   "id": "q21",
+   "type": "open",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir istekli 250.000 TL'lik bir işe teklif vermek istiyor. Geçici teminat olarak en az ne kadar tutar yatırması gerekir? Hesaplayınız.",
+    "en": "A tenderer wants to bid on a 250,000 TL job. What is the minimum bid bond amount they must provide? Calculate it."
+   },
+   "answer": {
+    "tr": "Geçici teminat, teklif edilen bedelin %3'ünden az olamaz. 250.000 × 0,03 = **7.500 TL**. İstekli en az 7.500 TL tutarında geçici teminat sunmalıdır (Türk parası, teminat mektubu veya Hazine'nin devlet iç borçlanma senedi olarak).",
+    "en": "The bid bond cannot be less than 3% of the bid amount. 250,000 × 0.03 = **7,500 TL**. The tenderer must provide a bid bond of at least 7,500 TL (as Turkish currency, a letter of guarantee, or Treasury government debt instruments)."
+   }
+  },
+  {
+   "id": "q22",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Teklif zarfı üzerinde aşağıdakilerden hangisinin yazılı olması ZORUNLU DEĞİLDİR?",
+    "en": "Which of the following is NOT required to be written on the bid envelope?"
+   },
+   "options": [
+    {
+     "tr": "İsteklinin adı, soyadı veya ticaret unvanı",
+     "en": "The tenderer's name/surname or trade name"
+    },
+    {
+     "tr": "İsteklinin banka hesap numarası",
+     "en": "The tenderer's bank account number"
+    },
+    {
+     "tr": "Teklifin hangi işe ait olduğu",
+     "en": "Which job the bid concerns"
+    },
+    {
+     "tr": "İhaleyi yapan idarenin açık adresi",
+     "en": "The contracting authority's full address"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Banka hesap numarası zarf üzerinde aranan bir bilgi değildir. Zarf üzerinde istekli adı/unvanı, tebligata esas adres, teklifin ait olduğu iş ve idarenin adresi bulunmalıdır.",
+    "en": "A bank account number is not required on the envelope. The envelope must show the tenderer's name/title, address for notification, which job the bid concerns, and the authority's address."
+   }
+  },
+  {
+   "id": "q23",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Zarf açma ve teklif alma oturumunda ihale komisyonu hangi işlemi YAPMAZ?",
+    "en": "Which of the following does the tender committee NOT do during the envelope-opening/bid-receiving session?"
+   },
+   "options": [
+    {
+     "tr": "Zarfları alınış sırasına göre incelemek",
+     "en": "Reviewing envelopes in the order received"
+    },
+    {
+     "tr": "Uygun olmayan zarfları tutanakla belirlemek",
+     "en": "Recording non-compliant envelopes in the minutes"
+    },
+    {
+     "tr": "Bazı teklifleri o oturumda reddetmek",
+     "en": "Rejecting some bids during that same session"
+    },
+    {
+     "tr": "Teklif fiyatlarını ve yaklaşık maliyeti açıklamak",
+     "en": "Disclosing bid prices and the approximate cost"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Bu oturumda hiçbir teklif reddedilmez veya kabul edilmez — bu, ayrı bir değerlendirme aşamasında (Madde 37) yapılır. Diğer üç işlem bu oturumun parçasıdır.",
+    "en": "No bid is accepted or rejected during this session — that happens in a separate evaluation stage (Article 37). The other three actions are part of this session."
+   }
+  },
+  {
+   "id": "q24",
+   "type": "open",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "İdare, isteklilerden teklifleriyle ilgili açıklama isteyebilir mi? Bu yetkinin sınırı nedir?",
+    "en": "May the authority request clarification from tenderers about their bids? What is the limit of this power?"
+   },
+   "answer": {
+    "tr": "Evet, ihale komisyonunun talebi üzerine idare, tekliflerin incelenmesi-karşılaştırılması-değerlendirilmesinde yararlanmak üzere net olmayan hususlarda isteklilerden yazılı açıklama isteyebilir. **Sınır**: bu açıklama hiçbir şekilde teklif fiyatında değişiklik yapılması veya ihale dokümanına uygun olmayan bir teklifin uygun hale getirilmesi amacıyla istenemez ve yapılamaz. Amaç sadece belirsizliği gidermektir, teklifi iyileştirmek değildir.",
+    "en": "Yes, at the tender committee's request, the authority may ask tenderers for written clarification on unclear points to help review, compare, and evaluate the bids. **Limit**: this clarification can never be requested or used to change the bid price or to make a non-compliant bid compliant. Its purpose is only to remove ambiguity, not to improve the bid."
+   }
+  },
+  {
+   "id": "q25",
+   "type": "mcq",
+   "covers": [
+    "n6"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Birim fiyat teklif cetvelinde aritmetik hata bulunan bir teklife ne olur?",
+    "en": "What happens to a bid whose unit-price schedule contains an arithmetic error?"
+   },
+   "options": [
+    {
+     "tr": "Hata küçükse görmezden gelinir",
+     "en": "It is ignored if the error is minor"
+    },
+    {
+     "tr": "Teklif reddedilir",
+     "en": "The bid is rejected"
+    },
+    {
+     "tr": "İdare hatayı kendisi düzeltip değerlendirmeye devam eder",
+     "en": "The authority corrects the error itself and continues evaluating"
+    },
+    {
+     "tr": "İsteklinin fiyatını değiştirmesine izin verilir",
+     "en": "The tenderer is allowed to change the price"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Birim fiyat teklif cetvellerinde aritmetik hata bulunan teklifler değerlendirme dışı bırakılır (reddedilir) — hata büyüklüğüne bakılmaksızın. İdare fiyatı düzeltemez veya isteklinin değiştirmesine izin veremez, çünkü bu tekliflerin dokunulmazlığı ilkesini bozar.",
+    "en": "Bids whose unit-price schedules contain an arithmetic error are excluded from evaluation (rejected), regardless of the size of the error. The authority cannot correct the price itself or let the tenderer change it, as this would violate the principle that submitted bids are untouchable."
+   }
+  },
+  {
+   "id": "q26",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir teklif, diğer tekliflere göre aşırı düşük görünüyor. İhale komisyonu bu teklifi doğrudan reddedebilir mi?",
+    "en": "A bid appears abnormally low compared to other bids. Can the tender committee reject it outright?"
+   },
+   "options": [
+    {
+     "tr": "Evet, aşırı düşük teklifler her zaman doğrudan reddedilir",
+     "en": "Yes, abnormally low bids are always rejected outright"
+    },
+    {
+     "tr": "Hayır, önce teklif sahibinden önemli bileşenlerle ilgili yazılı açıklama istenir",
+     "en": "No, written explanation of significant components must first be requested from the bidder"
+    },
+    {
+     "tr": "Evet, çünkü en düşük teklif her zaman kazanır",
+     "en": "Yes, because the lowest bid always wins"
+    },
+    {
+     "tr": "Hayır, aşırı düşük teklifler hiçbir zaman reddedilemez",
+     "en": "No, abnormally low bids can never be rejected"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Komisyon, reddetmeden önce teklif sahibinden imalat sürecinin ekonomikliği, seçilen teknik çözümler, işin özgünlüğü gibi önemli bileşenlerle ilgili yazılı açıklama ister. Açıklama yetersizse veya hiç verilmezse teklif reddedilir. (C) yanlıştır çünkü en düşük teklif otomatik kazanmaz.",
+    "en": "Before rejecting, the committee must request written explanation from the bidder about significant components — economics of the production process, chosen technical solutions, originality of the work, etc. If the explanation is inadequate or not provided, the bid is rejected. (C) is wrong because the lowest bid does not automatically win."
+   }
+  },
+  {
+   "id": "q27",
+   "type": "open",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "'Ekonomik açıdan en avantajlı teklif' kavramını açıklayınız. Bu kavram sadece en düşük fiyat anlamına mı gelir?",
+    "en": "Explain the concept of the 'most economically advantageous bid'. Does this concept mean only the lowest price?"
+   },
+   "answer": {
+    "tr": "Hayır. Ekonomik açıdan en avantajlı teklif, sadece fiyat esasına göre belirlenebileceği gibi, fiyatla birlikte işletme ve bakım maliyeti, maliyet etkinliği, verimlilik, kalite ve teknik değer gibi fiyat dışı unsurlar da dikkate alınarak belirlenebilir. Fiyat dışı unsurlar kullanılacaksa bunların parasal değerleri veya nispi ağırlıkları ihale dokümanında önceden belirtilmelidir — böylece isteklinin nasıl puanlanacağı baştan bellidir. Sadece en düşük fiyat esasına göre değerlendirilen ihalelerde bile, aynı en düşük fiyat birden fazla istekli tarafından verilmişse fiyat dışı unsurlara bakılarak karar verilir.",
+    "en": "No. The most economically advantageous bid may be determined on a price-only basis, or by weighing price together with non-price factors such as operating/maintenance cost, cost efficiency, productivity, quality, and technical value. If non-price factors are used, their monetary values or relative weights must be stated in advance in the tender documents — so tenderers know how they will be scored. Even in tenders evaluated purely by lowest price, if multiple tenderers submit the same lowest price, non-price factors are used to break the tie."
+   }
+  },
+  {
+   "id": "q28",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "İhale yetkilisi ihale kararını karar tarihinden itibaren en geç kaç iş günü içinde onaylar?",
+    "en": "Within how many working days at the latest must the tender officer approve the tender decision from the decision date?"
+   },
+   "options": [
+    {
+     "tr": "3 iş günü",
+     "en": "3 working days"
+    },
+    {
+     "tr": "5 iş günü",
+     "en": "5 working days"
+    },
+    {
+     "tr": "10 iş günü",
+     "en": "10 working days"
+    },
+    {
+     "tr": "15 iş günü",
+     "en": "15 working days"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "İhale yetkilisi karar tarihini izleyen en geç 5 iş günü içinde ihale kararını onaylar veya gerekçesini belirterek iptal eder.",
+    "en": "The tender officer approves the tender decision, or cancels it with reasons, within 5 working days at the latest from the decision date."
+   }
+  },
+  {
+   "id": "q29",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "İhale üzerinde kalan istekli kesin teminatı verip sözleşme imzalamaktan kaçınırsa ne olur?",
+    "en": "What happens if the winning tenderer refuses to provide the performance bond and sign the contract?"
+   },
+   "options": [
+    {
+     "tr": "Hiçbir şey, isteğe bağlıdır",
+     "en": "Nothing, it is optional"
+    },
+    {
+     "tr": "Geçici teminatı gelir kaydedilir ve idare ikinci avantajlı teklif sahibiyle sözleşme yapabilir",
+     "en": "Their bid bond is forfeited, and the authority may contract with the second-most advantageous bidder"
+    },
+    {
+     "tr": "İhale otomatik olarak açık ihale usulüyle yeniden yapılır",
+     "en": "The tender is automatically redone under the open procedure"
+    },
+    {
+     "tr": "İstekliye ek süre tanınır, başka yaptırım uygulanmaz",
+     "en": "The tenderer is given extra time, with no other sanction"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "İhale üzerinde kalan istekli kesin teminatı verip sözleşme imzalamak zorundadır; bu zorunluluğa uyulmazsa geçici teminatı gelir kaydedilir. İdare, ekonomik açıdan en avantajlı ikinci teklif sahibiyle (uygun görürse) sözleşme yapabilir; o da kabul etmezse ihale iptal olur.",
+    "en": "The winning tenderer is obliged to provide the performance bond and sign; failing this, the bid bond is forfeited. The authority may then (if it approves) contract with the second-most advantageous bidder; if that bidder also declines, the tender is cancelled."
+   }
+  },
+  {
+   "id": "q30",
+   "type": "open",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "İhalenin sonuçlanmasından sözleşmenin imzalanmasına kadar geçen süreçteki bildirim ve süreleri sırasıyla anlatınız.",
+    "en": "Describe, in order, the notifications and deadlines from the tender's finalization to the contract's signature."
+   },
+   "answer": {
+    "tr": "1) İhale yetkilisi, karar tarihinden itibaren en geç **5 iş günü** içinde ihale kararını onaylar veya iptal eder. 2) Onaydan sonra en geç **3 gün** içinde ihale sonucu (ihale üzerinde kalan dahil) tüm isteklilere bildirilir. 3) Kazanan istekliye, tebliğ tarihinden itibaren **10 gün** (yabancı istekli için 12 gün) içinde kesin teminatı vererek sözleşme imzalaması bildirilir. 4) İstekli süresinde kesin teminatı verip sözleşmeyi imzalar; imzalanır imzalanmaz geçici teminatı iade edilir. 5) Yapım/mal/hizmet ihale sonuçları en geç **15 gün** içinde Kuruma bildirilir.",
+    "en": "1) The tender officer approves or cancels the decision within **5 working days** of the decision date. 2) Within **3 days** of approval, the result (including the winner) is notified to all tenderers. 3) The winner is notified to provide the performance bond and sign the contract within **10 days** of notice (12 days for foreign tenderers). 4) The tenderer provides the bond and signs on time; the bid bond is returned immediately after signing. 5) Results of works/goods/services tenders are reported to the Authority within **15 days**."
+   }
+  },
+  {
+   "id": "q31",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "Aşağıdakilerden hangisi Madde 17'de sayılan yasak fiil ve davranışlardan biri DEĞİLDİR?",
+    "en": "Which of the following is NOT a prohibited act/conduct listed in Article 17?"
+   },
+   "options": [
+    {
+     "tr": "Hile, vaat, tehdit veya rüşvetle ihaleye fesat karıştırmak",
+     "en": "Corrupting the tender through fraud, promise, threat, or bribery"
+    },
+    {
+     "tr": "Sahte belge veya teminat düzenlemek",
+     "en": "Producing forged documents or bonds"
+    },
+    {
+     "tr": "İhale sonuçlandıktan sonra idareye şikayet başvurusunda bulunmak",
+     "en": "Filing a complaint with the authority after the tender concludes"
+    },
+    {
+     "tr": "Alternatif teklif hali dışında birden fazla teklif vermek",
+     "en": "Submitting more than one bid outside allowed alternative-bid cases"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Şikayet başvurusu yasal bir haktır, yasak bir fiil değildir — kanunun kendisi bu yolu tanımlar. Diğer üçü Madde 17'de açıkça sayılan yasak fiillerdir.",
+    "en": "Filing a complaint is a legal right, not a prohibited act — the Law itself establishes this route. The other three are explicitly listed prohibited acts under Article 17."
+   }
+  },
+  {
+   "id": "q32",
+   "type": "open",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Şikayet ile itirazen şikayet arasındaki farkı, başvurulacak merci ve süreleriyle birlikte açıklayınız.",
+    "en": "Explain the difference between 'şikayet' (complaint) and 'itirazen şikayet' (appeal-complaint), including where and within what deadlines each is filed."
+   },
+   "answer": {
+    "tr": "**Şikayet**: ihale sürecindeki hukuka aykırı işlem/eylem nedeniyle zarar gören/görmesi muhtemel aday, istekli veya istekli olabilecekler tarafından, farkına varıldığı tarihten itibaren ihale türüne göre **5 veya 10 gün** içinde ve sözleşme imzalanmadan önce, **ihaleyi yapan idareye** yapılır. İdare **10 gün** içinde gerekçeli karar vermek zorundadır. **İtirazen şikayet**: idare süresinde karar vermezse (10 günün bitiminden itibaren) veya verilen karar tatmin etmezse (bildirimden itibaren), **10 gün** içinde **Kamu İhale Kurumu**'na yapılır. Yani şikayet idareye, itirazen şikayet ise (idarenin cevabından memnun kalınmaması ya da cevap verilmemesi halinde) Kuruma yapılan ikinci aşamadır — ve dava açmadan önce ikisinin de tüketilmesi zorunludur.",
+    "en": "**Complaint (şikayet)**: filed by a candidate, tenderer, or potential tenderer who suffered or may suffer harm from an unlawful act during the tender process, within **5 or 10 days** (depending on tender type) of becoming aware, and before the contract is signed, with **the contracting authority**. The authority must issue a reasoned decision within **10 days**. **Appeal-complaint (itirazen şikayet)**: if the authority fails to decide in time (from the end of the 10-day period) or the decision is unsatisfactory (from notification), it is filed within **10 days** with the **Public Procurement Authority**. So the complaint goes to the authority first, and the appeal-complaint is the second stage to the Authority (if unsatisfied or no response) — both must be exhausted before going to court."
+   }
+  },
+  {
+   "id": "q33",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Bir istekli ihale üzerine bırakıldığı halde mücbir sebep olmaksızın sözleşme yapmaktan kaçınmıştır. Bu durumda kaç süreyle ihalelere katılmaktan yasaklanır?",
+    "en": "A tenderer, though awarded the tender, refuses without force majeure to sign the contract. For how long is it banned from tenders?"
+   },
+   "options": [
+    {
+     "tr": "6 aydan az olmamak üzere 1 yıla kadar",
+     "en": "Not less than 6 months, up to 1 year"
+    },
+    {
+     "tr": "1 yıldan az olmamak üzere 2 yıla kadar",
+     "en": "Not less than 1 year, up to 2 years"
+    },
+    {
+     "tr": "3 aydan az olmamak üzere 6 aya kadar",
+     "en": "Not less than 3 months, up to 6 months"
+    },
+    {
+     "tr": "Süresiz yasaklanır",
+     "en": "Banned indefinitely"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Üzerine ihale yapıldığı halde mücbir sebep dışında sözleşme yapmayanlar hakkında 6 aydan az olmamak üzere 1 yıla kadar yasaklama uygulanır. 1-2 yıllık yasaklama ise Madde 17'deki yasak fiil ve davranışlarda bulunanlar içindir — bu senaryo o değildir.",
+    "en": "Those who fail to sign the contract without force majeure, despite winning, are banned for not less than 6 months, up to 1 year. The 1-2 year ban applies to those who commit prohibited acts under Article 17 — that is a different scenario."
+   }
+  },
+  {
+   "id": "q34",
+   "type": "mcq",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Kamu İhale Kurulu kaç üyeden oluşur ve kim tarafından atanır?",
+    "en": "How many members does the Public Procurement Board have, and who appoints them?"
+   },
+   "options": [
+    {
+     "tr": "5 üye, Maliye Bakanı tarafından",
+     "en": "5 members, appointed by the Minister of Finance"
+    },
+    {
+     "tr": "9 üye, Cumhurbaşkanı tarafından",
+     "en": "9 members, appointed by the President"
+    },
+    {
+     "tr": "7 üye, Meclis tarafından",
+     "en": "7 members, appointed by Parliament"
+    },
+    {
+     "tr": "11 üye, Bakanlar Kurulu tarafından",
+     "en": "11 members, appointed by the Council of Ministers"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Kamu İhale Kurulu, biri başkan biri ikinci başkan olmak üzere toplam 9 üyeden oluşur ve üyeler en az 4 yıllık öğrenim görenler arasından Cumhurbaşkanı tarafından atanır.",
+    "en": "The Public Procurement Board has 9 members total, including a chair and a deputy chair, appointed by the President from among those with at least a 4-year degree."
+   }
+  },
+  {
+   "id": "q35",
+   "type": "open",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Kamu İhale Kurumu'nun görev ve yetkilerinden en az dört tanesini sayınız.",
+    "en": "List at least four of the Public Procurement Authority's duties and powers."
+   },
+   "answer": {
+    "tr": "Örnekler: (1) ihale sürecindeki şikayetleri inceleyip sonuçlandırmak, (2) standart ihale dokümanları ve tip sözleşmeleri hazırlamak/geliştirmek/uygulamayı yönlendirmek, (3) ihale mevzuatıyla ilgili eğitim vermek ve ulusal/uluslararası koordinasyonu sağlamak, (4) yapılan ihaleler hakkında istatistik oluşturmak ve yayımlamak, (5) ihalelere katılmaktan yasaklananların sicillerini tutmak, (6) Kamu İhale Bültenini yayımlamak.",
+    "en": "Examples: (1) reviewing and resolving complaints in the tender process, (2) preparing/developing standard tender documents and model contracts and guiding their use, (3) providing training on procurement legislation and ensuring national/international coordination, (4) compiling and publishing statistics on tenders held, (5) maintaining the register of those banned from tenders, (6) publishing the Public Procurement Bulletin."
+   }
+  },
+  {
+   "id": "q36",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 1,
+   "examStyle": true,
+   "q": {
+    "tr": "İş ortaklığı ile konsorsiyum arasındaki temel fark nedir?",
+    "en": "What is the core difference between a business partnership (iş ortaklığı) and a consortium?"
+   },
+   "options": [
+    {
+     "tr": "İş ortaklığında üyeler işin tümünden birlikte sorumludur, konsorsiyumda üyeler kendi uzmanlık alanından ayrı ayrı sorumludur",
+     "en": "In a business partnership, members are jointly liable for the whole; in a consortium, each is liable only for its own specialty"
+    },
+    {
+     "tr": "Aralarında hiçbir fark yoktur",
+     "en": "There is no difference between them"
+    },
+    {
+     "tr": "Konsorsiyum her zaman iş ortaklığından daha büyük bir yapıdır",
+     "en": "A consortium is always a larger structure than a business partnership"
+    },
+    {
+     "tr": "İş ortaklığı sadece yapım işlerinde kurulabilir",
+     "en": "A business partnership can only be formed for works/construction"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "İş ortaklığı üyeleri hak ve sorumluluklarıyla işin tümünü birlikte üstlenirken, konsorsiyum üyeleri sorumluluklarını ayırarak kendi uzmanlık alanlarını üstlenir. (C) ve (D) kanunda yer alan bir ayrım değildir.",
+    "en": "Business-partnership members jointly take on the whole work with shared rights and responsibilities, while consortium members separate their liability by their own area of expertise. (C) and (D) are not distinctions found in the Law."
+   }
+  },
+  {
+   "id": "q37",
+   "type": "open",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "Bir idare, farklı uzmanlık alanları gerektiren büyük bir yapım işi için konsorsiyumların teklif verip veremeyeceğine karar verme yetkisine sahip midir? Açıklayınız.",
+    "en": "Does an authority have the power to decide whether consortiums may bid on a large works project requiring different specialties? Explain."
+   },
+   "answer": {
+    "tr": "Evet. İş ortaklığı her türlü ihaleye teklif verebilir, ancak idareler işin farklı uzmanlıklar gerektirmesi durumunda konsorsiyumların teklif verip veremeyeceğini ihale dokümanında belirtir. Yani konsorsiyum katılımı otomatik bir hak değildir — idarenin takdirine ve ihale dokümanındaki düzenlemeye bağlıdır.",
+    "en": "Yes. A business partnership may bid on any tender, but authorities specify in the tender documents whether consortiums may bid when the work requires different specialties. So consortium participation is not an automatic right — it depends on the authority's discretion and what the tender documents state."
+   }
+  },
+  {
+   "id": "q38",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Alt yüklenicinin yaptığı işte bir hata/kusur ortaya çıkarsa sorumluluk kime aittir?",
+    "en": "If a defect/error arises in work performed by a subcontractor, who bears responsibility?"
+   },
+   "options": [
+    {
+     "tr": "Sadece alt yükleniciye",
+     "en": "Only the subcontractor"
+    },
+    {
+     "tr": "Ana yükleniciye — alt yüklenicinin sorumluluğu ana yüklenicinin sorumluluğunu ortadan kaldırmaz",
+     "en": "The main contractor — the subcontractor's liability does not remove the main contractor's"
+    },
+    {
+     "tr": "İdareye, çünkü alt yükleniciyi o onaylamıştır",
+     "en": "The authority, since it approved the subcontractor"
+    },
+    {
+     "tr": "Hiç kimseye, alt yüklenici işlerinde sorumluluk aranmaz",
+     "en": "No one — liability does not apply to subcontracted work"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Kanun açıkça, alt yüklenicilerin yaptıkları işlerle ilgili sorumluluğun yüklenicinin (ana yüklenicinin) sorumluluğunu ortadan kaldırmayacağını belirtir. Ana yüklenici işin bütününden idareye karşı sorumlu kalmaya devam eder.",
+    "en": "The Law explicitly states that a subcontractor's liability for its work does not remove the main contractor's liability. The main contractor remains responsible to the authority for the whole of the work."
+   }
+  },
+  {
+   "id": "q39",
+   "type": "open",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 3,
+   "examStyle": true,
+   "q": {
+    "tr": "Bir mal alım ihalesinde idare yerli malına %11 fiyat avantajı uygulayacağını belirtmiştir. A isteklisi (yabancı mal) 100 TL, B isteklisi (yabancı mal) 105 TL, C isteklisi (yerli mal) 110 TL teklif vermiştir. En düşük fiyat esasına göre ihale kimde kalır? Hesabınızı gösteriniz.",
+    "en": "In a goods tender, the authority has stated it will apply an 11% price advantage to domestic goods. Tenderer A (foreign goods) bids 100 TL, tenderer B (foreign goods) bids 105 TL, and tenderer C (domestic goods) bids 110 TL. Based on the lowest-price rule, who wins the tender? Show your calculation."
+   },
+   "answer": {
+    "tr": "Fiyat avantajı yerli teklife değil, yabancı tekliflere eklenir. A: 100 × 1,11 = **111 TL** (değerlendirmede). B: 105 × 1,11 = **116,55 TL** (değerlendirmede). C (yerli): **110 TL**, değişmeden kalır. Karşılaştırma: 111 > 110 ve 116,55 > 110, dolayısıyla en düşük değerlendirme bedeli **C isteklisine** aittir — ihale **C'de kalır**. (Not: C'nin teklifi 115 TL olsaydı, A'nın değerlendirme bedeli 111 TL ile en düşük olacağından ihale A'da kalırdı.)",
+    "en": "The price advantage is added to the foreign bids, not the domestic bid. A: 100 × 1.11 = **111 TL** (evaluated). B: 105 × 1.11 = **116.55 TL** (evaluated). C (domestic): **110 TL**, unchanged. Comparison: 111 > 110 and 116.55 > 110, so the lowest evaluated price belongs to **tenderer C** — the tender goes to **C**. (Note: had C bid 115 TL instead, A's evaluated price of 111 TL would be lowest, and the tender would go to A.)"
+   }
+  },
+  {
+   "id": "q40",
+   "type": "mcq",
+   "covers": [
+    "n9"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Bir ortak girişimin 'yerli istekli' sayılabilmesi için gereken şart nedir?",
+    "en": "What is required for a joint venture to be counted as a 'domestic tenderer'?"
+   },
+   "options": [
+    {
+     "tr": "Sadece pilot ortağın yerli olması yeterlidir",
+     "en": "It suffices for only the lead/pilot partner to be domestic"
+    },
+    {
+     "tr": "Ortakların çoğunluğunun yerli olması yeterlidir",
+     "en": "It suffices for a majority of the partners to be domestic"
+    },
+    {
+     "tr": "Bütün ortaklarının yerli olması gerekir",
+     "en": "All of its partners must be domestic"
+    },
+    {
+     "tr": "Şirket merkezinin Türkiye'de olması yeterlidir",
+     "en": "It suffices for the company's headquarters to be in Turkey"
+    }
+   ],
+   "correct": 2,
+   "explain": {
+    "tr": "Ortak girişimin yerli istekli sayılabilmesi için bütün ortaklarının yerli olması gerekir — tek bir yabancı ortak bile varsa ortak girişim yerli istekli sayılmaz.",
+    "en": "For a joint venture to count as a domestic tenderer, all of its partners must be domestic — even a single foreign partner disqualifies the joint venture from domestic status."
+   }
+  },
+  {
+   "id": "q41",
+   "type": "mcq",
+   "covers": [
+    "n5"
+   ],
+   "difficulty": 2,
+   "examStyle": true,
+   "q": {
+    "tr": "Danışmanlık hizmeti ihalelerinde ön yeterlik sonucunda oluşturulan kısa listeyle ilgili aşağıdakilerden hangisi DOĞRUDUR?",
+    "en": "Which of the following is CORRECT about the short list formed after pre-qualification in consultancy service tenders?"
+   },
+   "options": [
+    {
+     "tr": "Listede en az 3, en fazla 10 aday yer alır; davet edilecek aday 3'ten az olursa ihale yapılmaz",
+     "en": "The list has at least 3 and at most 10 candidates; if fewer than 3 would be invited, the tender is not held"
+    },
+    {
+     "tr": "Listeye sınırsız sayıda aday alınır",
+     "en": "An unlimited number of candidates is placed on the list"
+    },
+    {
+     "tr": "Listeye en fazla 3 aday alınır",
+     "en": "At most 3 candidates are placed on the list"
+    },
+    {
+     "tr": "Kısa liste sadece yapım işi ihalelerinde oluşturulur",
+     "en": "The short list is formed only in works tenders"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Danışmanlık ihalelerinde ön yeterlik sonucunda yeterli bulunan adaylar arasından en az 3, en fazla 10 adaydan oluşan bir kısa liste yapılır; davet edilecek aday sayısı 3'ten az olursa davet mektubu gönderilmez ve ihale yapılmaz. Danışmanlık ihaleleri kural olarak belli istekliler arasında ihale usulüyle yapılır.",
+    "en": "In consultancy tenders, a short list of at least 3 and at most 10 qualified candidates is drawn up; if fewer than 3 would be invited, no invitation is sent and the tender is not held. Consultancy tenders are, as a rule, run under the restricted procedure."
+   }
+  },
+  {
+   "id": "q42",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "İhale dokümanında ihalenin yapılmasına engel olan ve düzeltilemeyen bir husus, ihale saati gelmeden tespit edilirse ne olur (Madde 16)?",
+    "en": "If an uncorrectable issue preventing the tender is found before the tender hour, what happens (Article 16)?"
+   },
+   "options": [
+    {
+     "tr": "İhale iptal edilir; o ana kadar verilen teklifler açılmadan iade edilir ve istekliler hak talep edemez",
+     "en": "The tender is cancelled; bids submitted until then are returned unopened and tenderers cannot claim any right"
+    },
+    {
+     "tr": "İhale mutlaka ertelenir, iptal edilemez",
+     "en": "The tender must be postponed and cannot be cancelled"
+    },
+    {
+     "tr": "Teklifler açılıp değerlendirilmeye devam edilir",
+     "en": "Bids are opened and evaluation continues"
+    },
+    {
+     "tr": "İstekliler idareden tazminat talep edebilir",
+     "en": "Tenderers may claim damages from the authority"
+    }
+   ],
+   "correct": 0,
+   "explain": {
+    "tr": "Madde 16'ya göre idare ihale saatinden önce ihaleyi iptal edebilir; durum ilan edilir, teklif verenlere ayrıca tebliğ edilir, teklifler açılmadan iade edilir ve istekliler bu iptalden dolayı idareden hak talep edemez.",
+    "en": "Under Article 16, the authority may cancel the tender before the tender hour; the situation is announced, those who bid are separately notified, bids are returned unopened, and tenderers cannot claim any right from this cancellation."
+   }
+  },
+  {
+   "id": "q43",
+   "type": "open",
+   "covers": [
+    "n8"
+   ],
+   "difficulty": 2,
+   "examStyle": false,
+   "q": {
+    "tr": "İhale sürecinde görev alan bir görevlinin (ör. komisyon üyesi) yasak fiil işlemesi veya görevini tarafsızlıkla yapmaması halinde karşılaşacağı sonuçları açıklayınız (Madde 60).",
+    "en": "Explain the consequences an official involved in the tender process (e.g., a committee member) faces if they commit a prohibited act or fail to perform their duty impartially (Article 60)."
+   },
+   "answer": {
+    "tr": "İhale yetkilisi, komisyon başkan ve üyeleri ile süreçte görev alan diğer ilgililer yasak fiil/davranışta bulunur ya da görevlerini kanuna ve tarafsızlığa aykırı yapıp bir tarafın zararına yol açarsa: (1) haklarında ilgili mevzuata göre **disiplin cezası** uygulanır; (2) fiilin özelliğine göre ayrıca **ceza kovuşturması** yapılır ve hükmedilecek cezayla birlikte tarafların uğradığı zarar genel hükümlere göre kendilerine **tazmin ettirilir**; (3) hüküm giyen idare görevlileri bu Kanun kapsamındaki işlerde bir daha **görevlendirilemez**. Ayrıca gizli kalması gereken bilgileri veya yaklaşık maliyeti ifşa etmek de yasaktır.",
+    "en": "If the tender officer, committee chair/members, or other officials in the process commit prohibited acts or perform their duties contrary to law and impartiality, causing harm to a party: (1) **disciplinary sanctions** apply under the relevant legislation; (2) depending on the act, **criminal prosecution** also follows, and along with the sentence the parties' losses are **compensated** under general provisions; (3) convicted officials may **no longer be assigned** to work under this Law. Disclosing confidential information or the approximate cost is also prohibited."
+   }
+  },
+  {
+   "id": "q44",
+   "type": "mcq",
+   "covers": [
+    "n7"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Kesin teminatın ihale bedeli üzerinden %6 oranında alınacağı kanunun hangi maddesinde düzenlenir?",
+    "en": "Which article of the Law sets that the performance bond is 6% of the contract value?"
+   },
+   "options": [
+    {
+     "tr": "Madde 33",
+     "en": "Article 33"
+    },
+    {
+     "tr": "Madde 43",
+     "en": "Article 43"
+    },
+    {
+     "tr": "Madde 44",
+     "en": "Article 44"
+    },
+    {
+     "tr": "Madde 58",
+     "en": "Article 58"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Kesin teminat oranı (%6) Madde 43'te düzenlenir. Madde 44 isteklinin kesin teminatı verip sözleşme imzalama görev ve sorumluluğunu; Madde 33 geçici teminatı (%3); Madde 58 ise yasaklamayı düzenler.",
+    "en": "The performance-bond rate (6%) is set in Article 43. Article 44 covers the tenderer's obligation to provide the bond and sign; Article 33 covers the bid bond (3%); Article 58 covers banning."
+   }
+  },
+  {
+   "id": "q45",
+   "type": "mcq",
+   "covers": [
+    "n3"
+   ],
+   "difficulty": 1,
+   "examStyle": false,
+   "q": {
+    "tr": "Eşik değeri aşan pazarlık usulü ihalelerinde ilan, ihale tarihinden en az kaç gün önce yapılır?",
+    "en": "For negotiated-procedure tenders above the threshold, at least how many days before the tender date is the announcement made?"
+   },
+   "options": [
+    {
+     "tr": "14 gün",
+     "en": "14 days"
+    },
+    {
+     "tr": "25 gün",
+     "en": "25 days"
+    },
+    {
+     "tr": "40 gün",
+     "en": "40 days"
+    },
+    {
+     "tr": "7 gün",
+     "en": "7 days"
+    }
+   ],
+   "correct": 1,
+   "explain": {
+    "tr": "Madde 13'e göre eşik değeri aşan ihalelerde ilan süreleri: açık ihale en az 40 gün, belli istekliler arası ön yeterlik en az 14 gün, pazarlık usulü en az 25 gün öncedir.",
+    "en": "Under Article 13, for tenders above the threshold: open procedure at least 40 days, restricted pre-qualification at least 14 days, and negotiated procedure at least 25 days before."
+   }
+  }
+ ],
+ "questions": []
+}

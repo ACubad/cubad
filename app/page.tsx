@@ -1,7 +1,10 @@
-import { getUnits } from "@/lib/content";
-import { HomeView } from "@/components/HomeView";
+import { getSubjects, getUnits } from "@/lib/content";
+import { SubjectPicker } from "@/components/SubjectPicker";
 
 export default function HomePage() {
-  const units = getUnits();
-  return <HomeView units={units} />;
+  const subjects = getSubjects();
+  const unitsBySubject = Object.fromEntries(
+    subjects.map((s) => [s.slug, getUnits(s.slug)])
+  );
+  return <SubjectPicker subjects={subjects} unitsBySubject={unitsBySubject} />;
 }

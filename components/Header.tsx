@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
 
 export function Header() {
   const { lang, setLang, t } = useLang();
+  const pathname = usePathname();
+  const subjectMatch = pathname?.match(/^\/s\/([^/]+)/);
+  const subject = subjectMatch?.[1];
+  // Formula sheet exists only for the hydrology subject's content today.
+  const showFormulas = subject === "hidroloji";
+
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
@@ -21,12 +28,14 @@ export function Header() {
           >
             {t("units")}
           </Link>
-          <Link
-            href="/formulas"
-            className="rounded-lg px-2.5 py-1.5 font-medium text-ink-soft hover:bg-wash hover:text-deniz-deep"
-          >
-            {t("formulas")}
-          </Link>
+          {showFormulas && (
+            <Link
+              href={`/s/${subject}/formulas`}
+              className="rounded-lg px-2.5 py-1.5 font-medium text-ink-soft hover:bg-wash hover:text-deniz-deep"
+            >
+              {t("formulas")}
+            </Link>
+          )}
           <div
             className="ml-2 flex overflow-hidden rounded-full border border-line text-xs font-semibold"
             role="group"

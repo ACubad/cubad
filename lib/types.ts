@@ -152,12 +152,67 @@ export interface Question {
   whatIfs: WhatIf[];
 }
 
+export interface SubjectMeta {
+  slug: string;
+  kind: "walkthrough" | "study";
+  title: Bi;
+  tagline: Bi;
+}
+
+export interface NoteSection {
+  id: string;
+  title: Bi;
+  body: Bi;
+  story?: GraphStory | null;
+}
+
+export interface Flashcard {
+  id: string;
+  front: Bi;
+  back: Bi;
+  en: string;
+  tag: string;
+}
+
+export interface PracticeMcq {
+  id: string;
+  type: "mcq";
+  covers: string[];
+  difficulty: 1 | 2 | 3;
+  examStyle?: boolean;
+  q: Bi;
+  options: Bi[];
+  correct: number;
+  explain: Bi;
+}
+
+export interface PracticeOpen {
+  id: string;
+  type: "open";
+  covers: string[];
+  difficulty: 1 | 2 | 3;
+  examStyle?: boolean;
+  q: Bi;
+  answer: Bi;
+}
+
+export type PracticeItem = PracticeMcq | PracticeOpen;
+
+export interface UnitSources {
+  videos: { id: string; title: string; length: string }[];
+  pdfs: string[];
+}
+
 export interface Unit {
   unit: number;
   slug: string;
   title: Bi;
   tagline: Bi;
-  concept: UnitConcept;
-  questions: Question[];
-  quiz: QuizItem[];
+  concept?: UnitConcept;
+  questions?: Question[];
+  quiz?: QuizItem[];
+  sources?: UnitSources;
+  notes?: NoteSection[];
+  flashcards?: Flashcard[];
+  practice?: PracticeItem[];
 }

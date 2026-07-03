@@ -1,0 +1,968 @@
+{
+  "unit": 6,
+  "slug": "sozlesme-ilkeler",
+  "title": { "tr": "Sözleşme İlkeleri ve Eser Sözleşmesi", "en": "Contract Principles and the Contract for Work" },
+  "tagline": { "tr": "Sözleşme nasıl kurulur, taraflar neye borçlu?", "en": "How contracts form and what parties owe" },
+  "sources": {
+    "videos": [
+      { "id": "v06-sozlesme-hazirlama", "title": "Sözleşme Hazırlama", "length": "26:41" },
+      { "id": "v07-eser-sozlesmesi", "title": "Eser Sözleşmesi (TBK)", "length": "21:40" }
+    ],
+    "pdfs": [ "sözleşme_temel_ilkeler.pdf", "Borçlar_kanunu-Eser_Sözleşmesi.pdf" ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": { "tr": "Sözleşme Nedir? Temel Nitelikleri", "en": "What Is a Contract? Basic Properties" },
+      "body": {
+        "tr": "**Sözleşme**, bir iş ilişkisi içindeki tarafların, o faaliyeti sürdürürken neleri, nasıl ve hangi koşullarda yapacaklarını ya da yapmayacaklarını gösteren kararlaştırmaları içeren belgedir. Sözlü de olabilir — yazılı olma her zaman şart değildir — ama sözleşme aynı zamanda bir **risk paylaşım aracıdır**: taraflar riskleri karşı tarafa atabilir, kısmen üstlenebilir veya bölüşebilir.\n\nBir sözleşmenin işlevini yerine getirebilmesi için üç temel niteliği olmalıdır:\n\n1. **Şekil bakımından yasal olma** — ispat ve şekil şartını sağlamalı.\n2. **İçerik bakımından yasal olma** — anayasaya ve mevzuata aykırı hüküm içermemeli.\n3. **Gerekli ölçüde kapsamlı, anlaşılır ve uygulanabilir olma.**\n\n**İspat şartı:** Taraflarca imzalanmış yazılı bir sözleşme, ispat şartını sağlar. Sözlü sözleşmelerde uyuşmazlık çıkarsa ispat şahitlere bağlı kalır — bu yüzden \"söz uçar, yazı kalır\" ilkesiyle yazılı yapmak her zaman daha güvenlidir, zorunlu olmasa bile.\n\n**Şekil şartı:** Genel olarak sözleşme düzenlenmesiyle ilgili bir şekil şartı yoktur (yazılı ya da sözlü olabilir), ancak bazı özel durumlarda (örn. kat karşılığı inşaat sözleşmesi) belirli bir şekil zorunludur.\n\n**İçerik bakımından yasal olma:** İki taraf da razı olsa dahi, mevzuatın emredici hükümlerine aykırı bir madde geçersizdir. Örnek: Borçlar Kanunu'na göre yüklenicinin iş sahibini bilgilendirme (aydınlatma) borcunu kaldıran bir madde koysanız da bu madde hükümsüzdür.\n\nSözleşme hazırlarken teknik bilgi yeterli değildir — hukuki yönler için bir hukukçudan destek almakta fayda vardır.",
+        "en": "A **contract** is a document recording what parties to a work relationship will, won't, or must do, and how, while carrying out that activity. It can be verbal — writing is not always required — but a contract is also a **risk-sharing tool**: parties can shift risks to the other side, share them, or split them.\n\nFor a contract to fulfill its function, it needs three basic qualities:\n\n1. **Legally valid in form** — must satisfy the proof and form requirements.\n2. **Legally valid in content** — must not contain provisions contrary to the constitution or law.\n3. **Sufficiently comprehensive, clear, and enforceable.**\n\n**Proof requirement:** A written contract signed by the parties satisfies the proof requirement. In verbal contracts, if a dispute arises, proof depends on witnesses — so writing things down is always safer, even when not mandatory ('words fly away, writing remains').\n\n**Form requirement:** Generally there is no form requirement for drafting a contract (it can be written or verbal), but in certain special cases (e.g. floor-for-land construction contracts) a specific form is mandatory.\n\n**Legal validity of content:** Even if both parties consent, a clause contrary to a mandatory legal provision is void. Example: under the Code of Obligations, a clause removing the contractor's duty to inform (disclosure duty) the owner would be void.\n\nTechnical knowledge alone is not enough when drafting a contract — it helps to get support from a lawyer for the legal aspects."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": { "tr": "Şekle Göre Sözleşme Türleri", "en": "Contract Types by Form" },
+      "body": {
+        "tr": "Sözleşmeler düzenlenme şekli bakımından üçe ayrılır:\n\n| Tür | Tanım | Örnek |\n|---|---|---|\n| **Resmi olmayan sözleşme** | Tarafların kendi rızasıyla düzenleyip imzalamasıyla geçerli olur | Çoğu özel sözleşme |\n| **Resmi sözleşme** | Düzenlendikten sonra resmi bir kurumca (genelde noter) onaylanması (tescili) gereken sözleşme | Kamu kurumlarının gerçek/tüzel kişilerle yaptığı bazı sözleşmeler |\n| **Düzenleme şeklindeki sözleşme** | Taraflarca değil, doğrudan **noter tarafından** kaleme alınıp düzenlenen sözleşme | Kat karşılığı bina yapım sözleşmesi |\n\nÖnemli bir ayrım: Bir arsa alım-satım sözleşmesi taraflarca imzalanmış olsa bile (ispat niteliği taşısa da) **şekil şartına uymaz** — çünkü gayrimenkul devri **tapuda** yapılmalıdır. Şekil şartına uymayan bu sözleşme, satıcının işlemden vazgeçmesini engelleyemez.\n\nŞekil şartı bulunmayan bir sözleşmenin ayrıca notere onaylatılması **zorunlu değildir**, ama taraflar için isteğe bağlı (ihtiyari) bir güvencedir: noterin sakladığı suret, sözleşme metninde sonradan yapılacak değişiklik (tahrifat) veya kaybolma/yanma gibi risklere karşı korur.",
+        "en": "Contracts fall into three categories by form:\n\n| Type | Definition | Example |\n|---|---|---|\n| **Unofficial contract** | Becomes valid simply by the parties drafting and signing it | Most private contracts |\n| **Official contract** | Must be certified/registered by an official body (usually a notary) after drafting | Some contracts public bodies sign with natural/legal persons |\n| **Notary-drafted contract** | Drawn up directly by a **notary**, not by the parties | Floor-for-land construction contracts |\n\nAn important distinction: a land sale contract signed by the parties (which has proof value) still **fails the form requirement**, because real estate transfer must occur at the **land registry (tapu)**. Such a contract cannot stop the seller from backing out.\n\nNotarizing a contract that has no form requirement is **not mandatory**, but it's an optional (elective) safeguard for the parties: the copy the notary keeps protects against later tampering with the text or loss/destruction of the document."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": { "tr": "Sözleşmede Yer Alması Gereken Temel Unsurlar", "en": "Core Elements a Contract Must Contain" },
+      "body": {
+        "tr": "Her sözleşme, işin niteliğine göre değişse de, aşağıdaki ana başlıkları içermelidir (17 temel unsur):\n\n1. İçindekiler\n2. Tarafların tanımı\n3. Sözleşmenin konusu, kapsamı\n4. Sözleşmenin türü ve bedeli\n5. Sözleşmenin ekleri\n6. Yaptırımlar (müeyyideler)\n7. İşe başlama-bitirme tarihi ve gecikme cezaları\n8. İş programı\n9. İhale teminatı\n10. Yükleniciye yapılacak ödemeler\n11. Alt yüklenicilere ilişkin düzenlemeler\n12. İşin ve iş yerinin korunması, sigortalanması\n13. Teslim, muayene, kabul şartları\n14. İşin denetimi\n15. Sözleşme kapsamında değişiklik ve devir\n16. Fesih koşulları\n17. Anlaşmazlıkların çözümü ve düzenlenme tarihi (yürürlük)\n\nBir sözleşme maddesi kaleme alınırken üç soruya yanıt vermelidir: **(1)** Faaliyet yeterince anlaşılır tanımlanmış mı? **(2)** Bunu hangi taraf yerine getirecek? **(3)** Yapılmazsa yaptırımı ne olacak ve nasıl uygulanacak?\n\nÖrnek: \"İş 200 günde tamamlanacaktır\" yetersizdir — takvim günü mü iş günü mü, bitmezse ne olur, belirtilmelidir. Benzer şekilde \"hatalı işler sökülüp yeniden yapılır\" ifadesi de belirsizdir: ek maliyeti kim karşılayacak, süre uzayacak mı, açık değildir.",
+        "en": "Every contract, though it varies with the work's nature, should cover the following main headings (17 core elements):\n\n1. Table of contents\n2. Definition of the parties\n3. Subject and scope of the contract\n4. Type and price of the contract\n5. Annexes of the contract\n6. Sanctions\n7. Start/finish dates and delay penalties\n8. Work program\n9. Bid guarantee\n10. Payments to the contractor\n11. Provisions on subcontractors\n12. Protection and insurance of the work/site\n13. Delivery, inspection, acceptance terms\n14. Supervision of the work\n15. Amendment and assignment within the contract\n16. Termination conditions\n17. Dispute resolution and drafting date (entry into force)\n\nWhen drafting a clause, it must answer three questions: **(1)** Is the activity clearly defined? **(2)** Which party will perform it? **(3)** What sanction applies, and how, if it isn't?\n\nExample: \"The work will be completed in 200 days\" is insufficient — whether these are calendar or working days, and what happens if it isn't finished, must be stated. Likewise, \"defective work will be demolished and redone\" is ambiguous: who bears the extra cost, and whether the schedule extends, is left unclear."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": { "tr": "Taraflar, Konu/Kapsam, Tür ve Bedel, Ekler", "en": "Parties, Subject/Scope, Type and Price, Annexes" },
+      "body": {
+        "tr": "**Tarafların tanımı:** Sözleşme en az iki taraf arasında düzenlenir — biri işi yapmayı taahhüt eder (yüklenici), diğeri karşılığında ücret öder (iş sahibi). Taraflar gerçek kişi, tüzel kişi, adi ortaklık veya kamu kurumu olabilir. Açık adres, telefon, e-posta gibi tebligat bilgileri yazılmalıdır; kamu kurumlarının taraf olduğu sözleşmelerde genellikle **resmi şekil şartı** aranır.\n\n**Konu ve kapsam:** İşin açık tanımı yapılmalı — sadece \"bir bina inşaatı\" değil, hangi il/ilçe/ada/parselde, hangi kapsamda (çevre düzenlemesi, bağlantı yolu dahil mi?) net yazılmalıdır. Ana iş kalemleri de belirtilmelidir; aksi halde kim neyi üstlendi tartışmalı kalır.\n\n**Tür ve bedel:** Sözleşme bedeli türe göre ifade edilir — **birim fiyat usulünde** keşif bedeli ve tenzilat (indirim) tutarı, **anahtar teslimi usulünde** toplam yapım bedeli belirtilir. Bedele **dahil olan giderler** (ulaşım, sigorta, vergi, resim, harç) ile **KDV'nin dahil olup olmadığı ve kimin ödeyeceği** açıkça yazılmalıdır.\n\n**Ekler:** Kroki, çizim, teknik şartname gibi belgeler sözleşme ekidir. Kurallar: (a) her sözleşme ekleriyle bir bütündür; (b) eke konan her sözcük/çizgi sözleşme hükmü sayılır ve tarafları bağlar; (c) ekler de taraflarca imzalanmalıdır; (d) ekler arasında çelişki varsa **hangi belgenin öncelikli olacağı** (önceliksıralaması) belirtilmelidir.",
+        "en": "**Definition of the parties:** A contract is made between at least two parties — one undertakes to perform the work (the contractor), the other pays for it (the owner). Parties can be natural persons, legal persons, ordinary partnerships, or public bodies. Full address, phone, and email for notices must be listed; contracts where a public body is a party usually require the **official form**.\n\n**Subject and scope:** The work must be clearly defined — not just \"a building,\" but which province/district/block/parcel, and what scope (does it include landscaping, the access road?). Main work items should also be listed; otherwise who undertook what stays disputable.\n\n**Type and price:** The contract price is expressed according to type — **unit-price contracts** state the estimated (keşif) cost and discount (tenzilat) amount; **turnkey contracts** state the total construction cost. **Expenses included in the price** (transport, insurance, taxes, duties, fees) and **whether VAT is included and who pays it** must be stated explicitly.\n\n**Annexes:** Sketches, drawings, technical specs are contract annexes. Rules: (a) every contract is a whole together with its annexes; (b) every word/line added to an annex counts as a contract provision and binds the parties; (c) annexes must also be signed by the parties; (d) if annexes conflict, which document takes priority must be stated (priority order)."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": { "tr": "Yaptırımlar, Süre, Mücbir Sebep, İş Programı", "en": "Sanctions, Duration, Force Majeure, Work Program" },
+      "body": {
+        "tr": "**Yaptırımlar (müeyyideler):** Her görev/sorumluluğun yerine getirilmemesi halinde uygulanacak yaptırım da mutlaka yazılmalıdır — aksi halde sözleşmenin hayata geçirilmesi güçleşir. İki yöntem var: ayrı bir \"yaptırımlar\" başlığı altında toplama, ya da her maddenin içinde/hemen ardından ilgili yaptırımı belirtme (daha pratik kabul edilir).\n\n**Süre:** Saat, gün, hafta veya yıl olarak ifade edilebilir. Gün olarak belirtiliyorsa **takvim günü mü iş günü mü** olduğu açıkça yazılmalıdır; iş günüyse hangi günlerin çalışma günü sayıldığı da belirtilmelidir. Gecikme halinde uygulanacak **para cezasının miktarı ve tahsil şekli** de sözleşmede yer almalıdır.\n\n**Mücbir sebep (zorunlu sebep):** Yüklenicinin kusurundan kaynaklanmayan, taahhüdün yerine getirilmesini engelleyen ve yüklenicinin gücünün yetmediği haller. Örnek mücbir sebepler: doğal afetler, kanuni grev, genel salgın hastalık, kısmi/genel seferberlik ilanı. Yüklenici, mücbir sebebi izleyen **20 gün içinde** yazılı bildirimde bulunmalı ve belgelemelidir; iş sahibi bu süre kadar işin süresini uzatır.\n\n**İş programı:** Süre ve parasal harcamanın denetlenmesini sağladığı için sözleşme yönetiminin önemli araçlarındandır. Hakediş ödemeleri iş programına bağlıysa programın hazırlığı ve izlenmesi daha kritik hale gelir. Program onaylanmadan yükleniciye hakediş ödemesi yapılmaz.",
+        "en": "**Sanctions:** The sanction applying if a duty/responsibility is not fulfilled must always be written — otherwise enforcing the contract becomes difficult. Two approaches: gathering all sanctions under a separate \"Sanctions\" heading, or stating the relevant sanction inside/right after each clause (considered more practical).\n\n**Duration:** May be expressed in hours, days, weeks, or years. If in days, whether they are **calendar days or working days** must be stated explicitly; if working days, which days count as such must also be specified. The **amount of the penalty and how it is collected** in case of delay must also appear in the contract.\n\n**Force majeure:** Circumstances not caused by the contractor's fault, that prevent performance, and that are beyond the contractor's power to overcome. Examples: natural disasters, lawful strikes, epidemics, partial/general mobilization. The contractor must give written, documented notice within **20 days** of the event; the owner extends the duration by that period.\n\n**Work program:** An important contract-management tool since it enables control over duration and spending. If progress payments depend on the work program, its preparation and monitoring become even more critical. No progress payment is made to the contractor until the program is approved."
+      },
+      "story": null
+    },
+    {
+      "id": "n6",
+      "title": { "tr": "Teminat, Ödemeler, Alt Yükleniciler, Sigorta, Teslim/Denetim", "en": "Guarantee, Payments, Subcontractors, Insurance, Delivery/Inspection" },
+      "body": {
+        "tr": "**İhale teminatı:** Teminatın miktarı, niteliği, iş artışına paralel artırılıp artırılmayacağı ve ne zaman geri ödeneceği sözleşmede belirtilmelidir.\n\n**Ödemeler:** Hakedişlerin hangi aralıkla ödeneceği, ödeme düzeyinin neye göre belirleneceği, avans verilip verilmeyeceği tereddüde yer bırakmayacak şekilde açıklanmalıdır.\n\n**Alt yükleniciler (taşeron):** Yüklenicinin aldığı işin bir bölümünü/tamamını, yüklenici ile yaptığı sözleşmeye dayanarak üstlenen gerçek/tüzel kişidir. İş sahibinin resmi muhatabı her zaman **yüklenicidir** — taşerona devredilen işlerden de iş sahibine karşı yüklenici sorumludur. Yüklenicinin işi taşerona devredip devredemeyeceği ve koşulları sözleşmede açıkça yazılmalıdır.\n\n**Sigorta:** İnşaat işlerinde genelde **all risk** (tüm riskleri kapsayan) sigorta istenir: deprem, su baskını, toprak kayması, fırtına, yangın gibi doğal afetler ile hırsızlık, sabotaj gibi riskler işe başlama tarihinden kesin kabul tarihine kadar kapsanır.\n\n**Teslim, muayene, kabul:** İnşaat işlerinde kabul genelde iki aşamalıdır: **geçici kabul** (yapının ana unsurları tamamlanmış, kullanıma hazır; eksikler varsa süre verilir) ve **kesin kabul** (garanti süresi sonunda son kabul; genelde geçici-kesin kabul arası **12 ay**dır). Kesin kabulde yüklenicinin teminatı iade edilir.\n\n**Denetim:** İş, iş sahibince görevlendirilen teknik elemanlarca denetlenir. Denetim, yüklenicinin projeye/şartnameye/fen ve sanat kurallarına uygun yapma yükümlülüğünü **ortadan kaldırmaz**. Yüklenici, gerekli teknik personeli iş yerinde sürekli bulundurmak zorundadır; bulundurmazsa günlük ceza öder.",
+        "en": "**Bid guarantee:** Its amount, nature, whether it increases in step with extra work, and when it is refunded must be stated in the contract.\n\n**Payments:** The intervals for progress payments, how the payment level is determined, and whether advances are given must be spelled out without leaving room for doubt.\n\n**Subcontractors:** A natural/legal person who undertakes part or all of the contractor's work, based on a contract signed with the contractor. The owner's official counterpart is always the **contractor** — the contractor remains liable to the owner even for work delegated to a subcontractor. Whether the contractor may delegate work to a subcontractor, and under what conditions, must be stated explicitly.\n\n**Insurance:** Construction works typically require **all-risk** insurance: natural disasters (earthquake, flood, landslide, storm, fire) plus theft and sabotage, covered from the start of work through final acceptance.\n\n**Delivery, inspection, acceptance:** Construction acceptance is usually two-staged: **provisional acceptance** (main elements complete and usable; deficiencies get a deadline) and **final acceptance** (last acceptance at the end of the warranty period; typically **12 months** after provisional acceptance). The contractor's guarantee is returned at final acceptance.\n\n**Supervision:** The work is supervised by technical staff appointed by the owner. Supervision does **not remove** the contractor's own duty to build according to the project, specs, and professional standards. The contractor must keep the required technical staff on site continuously; failing to do so incurs a daily penalty."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": { "tr": "Değişiklik, Devir, Fesih, Anlaşmazlık, Yürürlük", "en": "Amendment, Assignment, Termination, Dispute Resolution, Effective Date" },
+      "body": {
+        "tr": "**Değişiklik:** Sözleşme imzalandıktan sonra, **sözleşme bedelinin %10'unu aşmamak** ve taraflar karşılıklı anlaşmak kaydıyla proje kapsamında ek işler yaptırılabilir (örnek metinden). Ek işlerin fiyatı piyasadan alınacak üç ayrı teklifin ortalamasıyla belirlenebilir.\n\n**Devir:** Sözleşmenin tamamen/kısmen devredilip edilemeyeceği ve koşulları belirtilmelidir. **Sözleşme devri**, işin taşerona verilmesinden farklıdır: devirde iş sahibi yeni bir yüklenici ile doğrudan sözleşme imzalar.\n\n**Fesih:** Taraflardan birinin isteğiyle, temerrüdü (görevini yerine getirmemekte ısrarı) sonucu, ya da ölüm/iflas gibi olağandışı gelişmeler sonucu gündeme gelir. Fesih koşulları sözleşmede ayrıntılı tanımlanmalı ve **yasalara aykırı olmamalıdır** — örneğin \"yüklenicinin işe vaktinde başlamaması iş sahibi için fesih koşulu olamaz\" maddesi Borçlar Kanunu'na aykırı olduğundan geçersizdir.\n\n**Anlaşmazlıkların çözümü:** İki seçenek: **(1)** yetkili mahkemelerin belirlenmesi (hangi şehrin mahkemeleri/icra daireleri), **(2)** **tahkim** — taraflarca atanan hakem(ler) aracılığıyla çözüm.\n\n**Düzenlenme tarihi (yürürlük):** Sözleşmenin imza tarihi, aksi belirtilmedikçe aynı zamanda yürürlüğe giriş tarihidir. Madde sayısı ve kaç nüsha düzenlendiği de aynı maddede belirtilir — bu bütünlük ifade eder.",
+        "en": "**Amendment:** After signing, extra works within the project may be ordered as long as they **do not exceed 10% of the contract price** and both parties mutually agree (per the sample clause). The price of extra works may be set as the average of three separate market quotes.\n\n**Assignment:** Whether the contract may be assigned in whole or in part, and under what conditions, must be stated. **Contract assignment** differs from subcontracting: in assignment, the owner signs a new contract directly with a new contractor.\n\n**Termination:** Arises at either party's request, from default (persistent failure to perform), or from extraordinary events like death/bankruptcy. Termination conditions must be defined in detail and **must not violate the law** — e.g. a clause saying \"the contractor's late start cannot be a termination ground\" is void because it contradicts the Code of Obligations.\n\n**Dispute resolution:** Two options: **(1)** designating competent courts (which city's courts/enforcement offices), **(2)** **arbitration (tahkim)** — resolution via arbitrator(s) appointed by the parties.\n\n**Drafting date (entry into force):** Unless stated otherwise, the signing date is also the effective date. The number of clauses and how many copies were made are typically stated in the same clause — expressing completeness."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": { "tr": "Eser Sözleşmesi Nedir? Yüklenicinin Genel Borçları", "en": "What Is a Contract for Work? Contractor's General Duties" },
+      "body": {
+        "tr": "İnşaat sözleşmeleri, **6098 sayılı Türk Borçlar Kanunu**'nun 7. bölümünde düzenlenen **eser sözleşmesi** hükümlerine tabidir. **Eser sözleşmesi (Madde 470):** Yüklenicinin bir eser meydana getirmeyi, iş sahibinin de bunun karşılığında bir bedel ödemeyi üstlendiği sözleşmedir.\n\n**Yüklenicinin borçları — genel olarak (Madde 471):**\n- Yüklenici, üstlendiği edimleri iş sahibinin haklı menfaatlerini gözeterek **sadakat ve özenle** ifa etmek zorundadır.\n- Özen borcunun ölçüsü: benzer işleri üstlenen **basiretli bir yüklenicinin** göstermesi gereken mesleki/teknik kurallara uygun davranış esas alınır.\n- Yüklenici, eseri **doğrudan kendisi** yapmak veya **kendi yönetimi altında** yaptırmakla yükümlüdür. Ancak eserin meydana getirilmesinde yüklenicinin **kişisel özellikleri önemli değilse**, işi başkasına da yaptırabilir.\n- Aksine adet veya anlaşma yoksa, yüklenici eserin yapımında kullanılacak **araç ve gereçleri kendisi sağlamak** zorundadır.\n\nBu madde eser sözleşmesinin can damarıdır: yüklenici sadece \"iş yapan\" değil, **mesleki özenle iş yapmakla yükümlü** bir taraftır — basiretli bir yüklenicinin göstereceği standart esas alınır.",
+        "en": "Construction contracts are subject to the **contract-for-work** provisions in Section 7 of **Turkish Code of Obligations No. 6098**. **Contract for work (Article 470):** A contract where the contractor undertakes to produce a work and the owner undertakes to pay a price for it in return.\n\n**Contractor's duties — general (Article 471):**\n- The contractor must perform the undertaken duties **loyally and carefully**, safeguarding the owner's legitimate interests.\n- Standard of care: the professional/technical conduct expected of a **prudent contractor** doing similar work.\n- The contractor must produce the work **personally** or **under its own management**. However, if the contractor's **personal characteristics are not material** to producing the work, it may be delegated to someone else.\n- Absent contrary custom or agreement, the contractor must **supply the tools and equipment** used to produce the work itself.\n\nThis article is the backbone of the contract for work: the contractor is not merely \"someone who does work\" but a party **obliged to work with professional care** — measured against the prudent-contractor standard."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": { "tr": "Malzeme, İşe Başlama, Ayıp ve Seçimlik Haklar (M.472-476)", "en": "Materials, Commencement, Defects and Elective Rights (Art. 472-476)" },
+      "body": {
+        "tr": "**Malzeme bakımından (Madde 472):**\n- Malzeme **yüklenici** tarafından sağlanmışsa, malzemenin ayıplı olmasından iş sahibine karşı **satıcı gibi** sorumludur.\n- Malzeme **iş sahibi** tarafından sağlanmışsa, yüklenici bunları özenle kullanmak ve **hesap ile artanı geri vermekle** yükümlüdür.\n- İş sahibinin sağladığı malzeme veya gösterdiği yer ayıplıysa ya da eserin zamanında/gereği gibi tamamlanmasını tehlikeye düşürecek bir durum varsa, yüklenici bunu **hemen iş sahibine bildirmek** zorundadır (bildirmezse sonuçlarından kendisi sorumlu olur).\n\n**İşe başlama ve yürütme (Madde 473):**\n- Yüklenicinin işi kararlaştırılan zamanda bitiremeyeceği **açıkça anlaşılırsa**, iş sahibi teslim gününü beklemeden **sözleşmeden dönebilir**.\n- Eserin yüklenicinin kusuruyla ayıplı/sözleşmeye aykırı olacağı açıkça görülüyorsa, iş sahibi uygun bir süre vererek düzeltme isteyebilir; aksi halde masraf yükleniciye ait olmak üzere işi bir üçüncü kişiye yaptırabileceğini ihtar edebilir.\n\n**Ayıbın belirlenmesi (Madde 474):** İş sahibi, teslimden sonra ilk fırsatta eseri gözden geçirmek ve ayıp varsa uygun sürede yükleniciye bildirmek zorundadır. Taraflardan her biri, giderini karşılayarak bilirkişi incelemesi isteyebilir.\n\n**İş sahibinin seçimlik hakları (Madde 475):** Eserdeki ayıptan yüklenici sorumluysa, iş sahibi üç haktan birini kullanabilir:\n1. **Sözleşmeden dönme** — eser kullanılamayacak veya hakkaniyet gereği kabul edilemeyecek ölçüde ayıplıysa.\n2. **Eseri alıkoyup ayıp oranında bedelden indirim** isteme.\n3. **Ücretsiz onarım** isteme — aşırı masraf gerektirmiyorsa (masraf yükleniciye ait).\n\n**Sözleşmeden dönme hakkının sınırı:** Eser, iş sahibinin taşınmazı üzerinde yapılmışsa ve sökülüp kaldırılması aşırı zarar doğuracaksa, iş sahibi **sözleşmeden dönme** hakkını kullanamaz — bu durumda ancak kalan iki haktan (bedelden indirim veya ücretsiz onarım) birini seçebilir. Bu kural, ekonomik açıdan anlamsız bir yıkımı önlemeyi amaçlar.\n\nİş sahibinin genel hükümlere göre **tazminat isteme hakkı** da ayrıca saklıdır.",
+        "en": "**Materials (Article 472):**\n- If the material is supplied by the **contractor**, the contractor is liable to the owner for defects **as if it were a seller**.\n- If the material is supplied by the **owner**, the contractor must use it carefully and **account for its use and return any surplus**.\n- If owner-supplied material or the designated site turns out to be defective, or another circumstance threatens timely/proper completion, the contractor must **notify the owner immediately** (failing to do so makes the contractor liable for the consequences).\n\n**Commencement and progress (Article 473):**\n- If it becomes **clearly apparent** the contractor cannot finish on the agreed date, the owner may **withdraw from the contract** without waiting for the delivery date.\n- If it's clearly apparent the work will be defective/non-compliant due to the contractor's fault, the owner may give a reasonable deadline for correction; otherwise, warn that the work (or its completion) will be given to a third party at the contractor's expense.\n\n**Determination of defects (Article 474):** The owner must inspect the work at the first opportunity after delivery and, if defects exist, notify the contractor within a reasonable time. Either party may request an expert (bilirkişi) review at its own expense.\n\n**Owner's elective rights (Article 475):** If the contractor is liable for a defect, the owner may exercise one of three rights:\n1. **Withdraw from the contract** — if the work is unusable or defective to a degree unacceptable on grounds of equity.\n2. **Keep the work and request a price reduction** proportional to the defect.\n3. **Request free repair** — if it doesn't require excessive expense (cost borne by the contractor).\n\n**Limit on the right to withdraw:** If the work is built on the owner's real property and removing it would cause excessive damage, the owner **cannot** use the right to withdraw — only one of the remaining two rights (price reduction or free repair) may be chosen. This rule prevents an economically senseless demolition.\n\nThe owner's **right to claim damages** under general provisions is separately preserved."
+      },
+      "story": null
+    },
+    {
+      "id": "n10",
+      "title": { "tr": "İş Sahibinin Sorumluluğu, Kabul, Zamanaşımı (M.476-478)", "en": "Owner's Liability, Acceptance, Statute of Limitations (Art. 476-478)" },
+      "body": {
+        "tr": "**İş sahibinin sorumluluğu (Madde 476):** Eserin ayıplı olması, yüklenicinin açıkça yaptığı ihtara rağmen **iş sahibinin verdiği talimattan** doğmuşsa veya herhangi bir sebeple iş sahibine yüklenebiliyorsa, iş sahibi ayıba dayalı haklarını (Madde 475'teki seçimlik haklar) **kullanamaz**.\n\n**Eserin kabulü (Madde 477):**\n- Eser **açıkça veya örtülü** kabul edilince yüklenici her türlü sorumluluktan kurtulur — **istisna:** yüklenicinin **kasten gizlediği** ve usulüne uygun gözden geçirmede fark edilemeyecek ayıplar için sorumluluk devam eder.\n- İş sahibi gözden geçirme/bildirimi **ihmal ederse**, eseri kabul etmiş sayılır.\n- Ayıp sonradan ortaya çıkarsa, iş sahibi **gecikmeksizin** bildirmek zorundadır; bildirmezse yine kabul etmiş sayılır.\n\n**Zamanaşımı (Madde 478):** Ayıba dayalı davalar, teslim tarihinden itibaren:\n- **Taşınmaz olmayan eserlerde: 2 yıl**\n- **Taşınmaz yapılarda: 5 yıl**\n- **Yüklenicinin ağır kusuru** varsa, eserin niteliğine bakılmaksızın **20 yıl**\n\nsonunda zamanaşımına uğrar. Bu üçlü süre yapısı (2/5/20 yıl) sınavda sıkça sorulan bir noktadır — taşınmaz yapı = 5 yıl temel kural, ağır kusur = her durumda 20 yıl'a uzar.",
+        "en": "**Owner's liability (Article 476):** If a defect resulted from the **owner's own instructions** despite the contractor's clear warning, or is otherwise attributable to the owner, the owner **cannot exercise** the defect-based rights (the elective rights of Article 475).\n\n**Acceptance of the work (Article 477):**\n- Once the work is **expressly or impliedly** accepted, the contractor is released from all liability — **exception:** liability continues for defects the contractor **intentionally concealed** and which could not be detected through a proper inspection.\n- If the owner **neglects** to inspect/notify, the work is deemed accepted.\n- If a defect appears later, the owner must notify **without delay**; failing to do so, the work is again deemed accepted.\n\n**Statute of limitations (Article 478):** Defect-based claims lapse, counted from the delivery date:\n- **Non-real-property works: 2 years**\n- **Real-property buildings: 5 years**\n- If the contractor's **fault is severe**, regardless of the work's nature: **20 years**\n\nThis three-tier structure (2/5/20 years) is a frequently tested point — building = 5-year base rule, severe fault = extends to 20 years in every case."
+      },
+      "story": null
+    },
+    {
+      "id": "n11",
+      "title": { "tr": "Bedel: Muacceliyet, Götürü Bedel, Değere Göre Bedel (M.479-481)", "en": "Price: Due Date, Lump-Sum Price, Value-Based Price (Art. 479-481)" },
+      "body": {
+        "tr": "**Bedelin muacceliyeti (Madde 479):** İş sahibinin bedel ödeme borcu, **eserin tesliminde muaccel olur** (yani vadesi gelmiş, talep edilebilir hale gelir). Eser parça parça teslim ediliyor ve bedel de parçalara göre belirlenmişse, her parçanın bedeli o parçanın **teslim anında** muaccel olur.\n\n**Götürü bedel (Madde 480):** Bedel götürü (toplu/sabit) olarak belirlenmişse:\n- Eser öngörülenden **fazla** emek/masraf gerektirse bile yüklenici **bedelin artırılmasını isteyemez**.\n- Eser öngörülenden **az** emek/masraf gerektirse bile iş sahibi **bedelin tamamını ödemekle** yükümlüdür.\n\nGötürü bedel, tarafların en başta kuşkuya yer bırakmayacak şekilde tek bir toplam bedel üzerinde anlaşmasıdır — yüklenici için iş kapsamı belli, iş sahibi için ödeyeceği tutar bellidir; bu karşılıklı güven sağlar. **İstisna:** öngörülemeyen durumlar (örn. ani ekonomik değişim, malzeme fiyatlarının aşırı artması) yüzünden götürü bedelle iş yapmak yükleniciyi **aşırı derecede güç duruma düşürürse**, yüklenici hakimden sözleşmenin yeni koşullara uyarlanmasını isteyebilir; bu mümkün değilse sözleşmeden dönebilir.\n\n**Değere göre bedel (Madde 481):** Bedel önceden belirlenmemiş veya sadece **yaklaşık olarak** belirlenmişse, bedel işin yapıldığı **yer ve zamandaki eserin değerine ve yüklenicinin giderine** bakılarak belirlenir. (Bu, götürü bedelden farklıdır: burada sabit rakam yok, sonradan hesaplanır.)",
+        "en": "**Due date of the price (Article 479):** The owner's payment obligation **becomes due at the delivery of the work** (i.e., matures and becomes demandable). If the work is delivered in parts and the price is set per part, each part's price becomes due **at that part's delivery**.\n\n**Lump-sum price (Article 480):** If the price is set as a lump sum (fixed total):\n- Even if the work requires **more** effort/expense than expected, the contractor **cannot demand an increase**.\n- Even if the work requires **less** effort/expense than expected, the owner must still **pay the full price**.\n\nA lump-sum price means the parties agree on a single total amount from the outset, leaving no room for doubt — the contractor knows the scope, the owner knows what it will pay; this builds mutual trust. **Exception:** if unforeseen circumstances (e.g. sudden economic shifts, sharp material price increases) put the contractor under **excessive hardship**, the contractor may ask a judge to adapt the contract to the new conditions; if that's not possible, it may withdraw from the contract.\n\n**Value-based price (Article 481):** If the price was not fixed in advance, or only **estimated**, it is determined based on **the work's value and the contractor's expenses, at the place and time** the work was done. (Unlike the lump sum, there is no fixed figure here — it's computed afterward.)"
+      },
+      "story": null
+    },
+    {
+      "id": "n12",
+      "title": { "tr": "Sözleşmenin Sona Ermesi (M.482-486)", "en": "Termination of the Contract (Art. 482-486)" },
+      "body": {
+        "tr": "**Yaklaşık bedelin aşılması (Madde 482):** Başlangıçta yaklaşık verilen bedel, iş sahibinin **kusuru olmaksızın aşırı ölçüde aşılacağı** anlaşılırsa, iş sahibi eser tamamlanmadan veya tamamlandıktan sonra **sözleşmeden dönebilir**.\n\n**Eserin yok olması (Madde 483):** Eser teslimden önce **beklenmedik bir olay** (deprem, yangın, sabotaj vb.) sonucu yok olursa:\n- İş sahibi teslim almada temerrüde düşmediği sürece, yüklenici **ücret ve giderlerinin ödenmesini isteyemez**.\n- Malzemeye gelen hasar, **onu sağlayan tarafa** ait olur (yüklenici sağladıysa yükleniciye, iş sahibi sağladıysa iş sahibine).\n- **İstisna:** İş sahibi teslim almada **temerrüde düşerse**, temerrüdün başladığı andan itibaren hasar iş sahibine geçer.\n\n**Tazminat karşılığı fesih (Madde 484):** İş sahibi, tamamlanan kısmın karşılığını ödeyip yüklenicinin **tüm zararlarını gidermek** koşuluyla sözleşmeyi tek taraflı feshedebilir (herhangi bir sebep göstermeden).\n\n**İş sahibi yüzünden ifanın imkansızlaşması (Madde 485):** Eserin tamamlanması, iş sahibiyle ilgili beklenmedik bir olay yüzünden imkansızlaşırsa, yüklenici yaptığı işin **değerini ve buna girmeyen giderlerini** isteyebilir; iş sahibinin kusuru varsa ayrıca **tazminat** da isteyebilir.\n\n**Yüklenicinin ölümü veya yeteneğini kaybetmesi (Madde 486):** Yüklenicinin **kişisel özellikleri** göz önünde tutularak yapılmış bir sözleşme, onun ölümü veya (kusuru olmaksızın) işi tamamlama yeteneğini kaybetmesiyle **kendiliğinden sona erer**. İş sahibi, tamamlanan kısımdan yararlanabiliyorsa onu kabul edip karşılığını ödemekle yükümlüdür.",
+        "en": "**Overrun of an estimated price (Article 482):** If it becomes clear the initially estimated price will be **excessively exceeded through no fault of the owner**, the owner may **withdraw from the contract**, either before or after completion.\n\n**Destruction of the work (Article 483):** If the work is destroyed by an **unexpected event** (earthquake, fire, sabotage, etc.) before delivery:\n- Unless the owner is in default on taking delivery, the contractor **cannot claim payment for the work or its costs**.\n- Damage to materials falls on **whoever supplied them** (the contractor if contractor-supplied, the owner if owner-supplied).\n- **Exception:** if the owner **defaults** on taking delivery, the risk shifts to the owner from the moment the default begins.\n\n**Termination against compensation (Article 484):** The owner may unilaterally terminate the contract (without giving any reason), provided it pays for the completed portion and **compensates all the contractor's losses**.\n\n**Impossibility of performance caused by the owner (Article 485):** If completion becomes impossible due to an unexpected event related to the owner, the contractor may claim **the value of the work done and costs not covered by that**; if the owner was at fault, the contractor may also claim **damages**.\n\n**Contractor's death or loss of capacity (Article 486):** A contract concluded in reliance on the contractor's **personal characteristics** ends **automatically** upon the contractor's death, or loss (without fault) of the capacity to complete the work. If the owner can make use of the completed portion, it must accept it and pay for it."
+      },
+      "story": null
+    },
+    {
+      "id": "n13",
+      "title": { "tr": "Temerrüt ve Raiç Bedel Kavramları", "en": "Default (Temerrüt) and Market-Value Price (Raiç Bedel)" },
+      "body": {
+        "tr": "**Temerrüt:** Kişinin borçlandığı **edimi** (yerine getirmekle yükümlü olduğu davranışı) hukuka aykırı biçimde yerine getirmemesi halidir. Eser sözleşmesinde iki önemli temerrüt durumu vardır:\n- **İş sahibinin temerrüdü:** Eseri teslim almakta gecikirse (Madde 483) — bu andan itibaren eserin hasar riski iş sahibine geçer.\n- **Yüklenicinin temerrüdü:** İşi zamanında bitirmemesi/geciktirmesi — iş sahibine sözleşmeden dönme hakkı doğurabilir (Madde 473).\n\n**Raiç bedel (piyasa rayiç değeri):** Eser sözleşmesi yazılı olma şartına tabi değildir; bu yüzden taraflar sözleşmenin varlığında anlaşsa da **bedelde anlaşamayabilir** — özellikle sözleşme dışı (ek) imalatlarda sık görülür. Böyle durumda **bilirkişiye** işin yapıldığı yer ve zamandaki **mahalli piyasa rayiç değeri** hesaplattırılır. Rayiç bedele malzeme, işçilik, kâr ve (kararlaştırılmışsa) yüklenicinin diğer giderleri dahildir; KDV ayrıca eklenmez.\n\n**Yıllara sari işler:** İşin niteliği/hacmi aynı yılda tamamlanamıyorsa ve taraflar bedelde anlaşamıyorsa, her yıl gerçekleştirilen imalat bedeli **o yılın mahalli piyasa rayiçlerinden** hesaplatılıp toplanarak belirlenir. Bu, ekonomik dalgalanmanın yüksek olduğu ülkelerde (Türkiye dahil) yaygın bir durumdur.",
+        "en": "**Default (temerrüt):** A party's unlawful failure to perform the **edim** (the obligated conduct it owes). Two important default scenarios arise in a contract for work:\n- **Owner's default:** delaying acceptance of delivery (Article 483) — from that moment, the risk of loss shifts to the owner.\n- **Contractor's default:** failing to finish on time / delaying — may give the owner a right to withdraw from the contract (Article 473).\n\n**Raiç bedel (prevailing market value):** A contract for work is not subject to a writing requirement; so even when parties agree the contract exists, they may **disagree on the price** — especially common for extra work outside the written scope. In such cases, an **expert (bilirkişi)** computes the **local market value** at the place and time the work was done. The market value includes materials, labor, profit, and (if agreed) the contractor's other costs; VAT is not separately added.\n\n**Multi-year works:** If the work's nature/volume prevents completion within a single year and the parties cannot agree on price, the price for each year's completed work must be computed at that year's local market rates and then totaled. This is common in countries with volatile economic conditions (including Turkey)."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    { "id": "f1", "front": { "tr": "Sözleşme nedir? (temel tanım)", "en": "What is a contract? (basic definition)" }, "back": { "tr": "Bir iş ilişkisindeki tarafların, faaliyeti sürdürürken neleri, nasıl ve hangi koşullarda yapacaklarını/yapmayacaklarını gösteren kararlaştırmaları içeren belgedir.", "en": "A document recording what parties to a work relationship will and won't do, and how." }, "en": "contract — an agreement defining parties' duties and conditions", "tag": "kurulus" },
+    { "id": "f2", "front": { "tr": "Sözleşmenin ispat şartı ne demektir?", "en": "What does the 'proof requirement' of a contract mean?" }, "back": { "tr": "Tarafların belirli konuda anlaştıklarını sözlü ya da yazılı beyan etmeleridir; yazılı ve imzalı sözleşme sözlüye göre çok daha güçlü ispat sağlar.", "en": "Parties declaring their agreement verbally or in writing; a signed written contract proves it much more strongly." }, "en": "proof requirement (ispat şartı) — how agreement is evidenced", "tag": "kurulus" },
+    { "id": "f3", "front": { "tr": "Sözleşmede genel olarak bir şekil şartı var mıdır?", "en": "Is there generally a form requirement for contracts?" }, "back": { "tr": "Hayır, bazı özel durumlar hariç genel olarak şekil şartı yoktur — sözleşme yazılı veya sözlü olarak yapılabilir.", "en": "No — except in special cases, contracts may be written or verbal." }, "en": "form requirement (şekil şartı) — generally not mandatory", "tag": "kurulus" },
+    { "id": "f4", "front": { "tr": "Sözleşmenin geçerli olması için hangi iki şart birlikte sağlanmalıdır?", "en": "Which two conditions must a contract satisfy together to be valid?" }, "back": { "tr": "İspat şartı ve şekil şartı.", "en": "The proof requirement and the form requirement." }, "en": "validity = proof requirement + form requirement", "tag": "kurulus" },
+    { "id": "f5", "front": { "tr": "Resmi olmayan sözleşme nedir?", "en": "What is an 'unofficial' (resmi olmayan) contract?" }, "back": { "tr": "Tarafların kendi rızalarıyla düzenleyip imzalamasıyla geçerlilik kazanan sözleşmedir; başka bir onay gerekmez.", "en": "A contract that becomes valid simply by the parties drafting and signing it themselves." }, "en": "unofficial contract — valid by parties' own signatures", "tag": "kurulus" },
+    { "id": "f6", "front": { "tr": "Resmi sözleşme nedir?", "en": "What is an 'official' (resmi) contract?" }, "back": { "tr": "Düzenlendikten sonra resmi bir kurum (genellikle noter) tarafından onaylanması (tescili) gereken sözleşmedir.", "en": "A contract that must be certified/registered by an official body (usually a notary) after being drafted." }, "en": "official contract — requires notarial certification", "tag": "kurulus" },
+    { "id": "f7", "front": { "tr": "Düzenleme şeklindeki sözleşme nedir? Örnek?", "en": "What is a 'düzenleme şeklinde' contract? Example?" }, "back": { "tr": "Taraflarca değil, doğrudan noter tarafından kaleme alınıp düzenlenen sözleşmedir. Örnek: kat karşılığı bina yapım sözleşmesi.", "en": "A contract drafted directly by a notary, not the parties. Example: floor-for-land construction contract." }, "en": "notary-drafted contract — e.g. floor-for-land agreement", "tag": "kurulus" },
+    { "id": "f8", "front": { "tr": "İki taraf da razı olsa, mevzuata aykırı bir sözleşme maddesi geçerli midir?", "en": "Is a contract clause that violates the law valid even if both parties agree to it?" }, "back": { "tr": "Hayır. Yasaların emredici hükümlerine aykırı sözleşme maddeleri, taraflar kabul etmiş olsa dahi hükümsüzdür.", "en": "No. Clauses violating mandatory legal provisions are void even with both parties' consent." }, "en": "clauses against mandatory law are void regardless of consent", "tag": "kurulus" },
+    { "id": "f9", "front": { "tr": "Bir sözleşmenin işlevini yerine getirmesi için gereken üç temel nitelik nedir?", "en": "What are the three basic qualities a functional contract needs?" }, "back": { "tr": "Şekil bakımından yasal olma, içerik bakımından yasal olma, gerekli ölçüde kapsamlı/anlaşılır/uygulanabilir olma.", "en": "Legally valid in form, legally valid in content, sufficiently comprehensive/clear/enforceable." }, "en": "3 basic contract qualities: form, content, clarity", "tag": "kurulus" },
+    { "id": "f10", "front": { "tr": "Kapsamlılık (sözleşme niteliği) ne demektir?", "en": "What does 'comprehensiveness' mean as a contract quality?" }, "back": { "tr": "Sözleşmeye konu olan işin tüm teknik yönleriyle, tarafların sorumluluklarıyla ve yaptırımlarla ayrıntılı şekilde ele alınmasıdır.", "en": "Covering the subject work's technical aspects, parties' responsibilities, and sanctions in full detail." }, "en": "comprehensiveness — full detail on scope, duties, sanctions", "tag": "kurulus" },
+    { "id": "f11", "front": { "tr": "Bir sözleşmede yer alması gereken kaç ana unsur/başlık sayılabilir?", "en": "How many core headings should a contract contain (per the course)?" }, "back": { "tr": "17 ana başlık: içindekiler, taraflar, konu/kapsam, tür/bedel, ekler, yaptırımlar, süre/ceza, iş programı, teminat, ödemeler, alt yükleniciler, sigorta, teslim/kabul, denetim, değişiklik/devir, fesih, anlaşmazlık çözümü/yürürlük.", "en": "17 core headings from parties to entry-into-force date." }, "en": "17 core headings every contract should cover", "tag": "kurulus" },
+    { "id": "f12", "front": { "tr": "Bir sözleşme maddesi kaleme alınırken yanıtlanması gereken üç soru nedir?", "en": "What three questions must a contract clause answer?" }, "back": { "tr": "(1) Faaliyet yeterince tanımlanmış mı? (2) Hangi taraf yerine getirecek? (3) Yerine getirilmezse yaptırımı ne olacak?", "en": "(1) Is the activity clearly defined? (2) Which party performs it? (3) What sanction applies if not?" }, "en": "3 questions every clause must answer", "tag": "kurulus" },
+    { "id": "f13", "front": { "tr": "Birim fiyat usulü sözleşmede bedel maddesinde ne belirtilir?", "en": "What is stated in the price clause of a unit-price contract?" }, "back": { "tr": "İşin keşif bedeli ve tenzilat (indirim) tutarı belirtilir.", "en": "The estimated (keşif) cost and the discount (tenzilat) amount." }, "en": "unit-price contract price clause: keşif bedeli + tenzilat", "tag": "kurulus" },
+    { "id": "f14", "front": { "tr": "Anahtar teslimi usulü sözleşmede bedel maddesinde ne belirtilir?", "en": "What is stated in the price clause of a turnkey (anahtar teslimi) contract?" }, "back": { "tr": "Projenin toplam yapım bedeli belirtilir.", "en": "The total construction cost of the project." }, "en": "turnkey contract price clause: total project cost", "tag": "kurulus" },
+    { "id": "f15", "front": { "tr": "Sözleşme eklerine dair en önemli kural nedir?", "en": "What is the key rule about contract annexes?" }, "back": { "tr": "Eke konulan her sözcük ya da çizgi sözleşme hükmü sayılır ve tarafları bağlar; ekler de taraflarca imzalanmalıdır.", "en": "Every word or line in an annex is deemed a contract provision and binds the parties; annexes must also be signed." }, "en": "annexes bind parties just like the main text", "tag": "kurulus" },
+    { "id": "f16", "front": { "tr": "Sözleşme ekleri arasında çelişki olursa ne yapılır?", "en": "What happens if annexes conflict with each other?" }, "back": { "tr": "Hangi belgenin öncelikli sayılacağı sözleşmede önceden belirtilmiş olmalıdır (öncelik sıralaması).", "en": "The contract must state in advance which document takes priority (priority order)." }, "en": "conflicting annexes need a pre-stated priority order", "tag": "kurulus" },
+    { "id": "f17", "front": { "tr": "Yaptırımlar (müeyyideler) neden sözleşmede mutlaka yer almalıdır?", "en": "Why must sanctions always be included in a contract?" }, "back": { "tr": "Görev ve sorumluluklar yerine getirilmezse ne olacağı belirtilmezse sözleşmenin hayata geçirilmesi güçleşir/imkansızlaşır.", "en": "Without stated consequences for non-performance, enforcing the contract becomes difficult or impossible." }, "en": "sanctions are what make a contract enforceable", "tag": "kurulus" },
+    { "id": "f18", "front": { "tr": "Yaptırımları düzenlemenin iki yöntemi nedir?", "en": "What are the two ways to organize sanctions in a contract?" }, "back": { "tr": "(1) Tüm yaptırımları ayrı bir 'Yaptırımlar' başlığı altında toplama; (2) her maddenin içinde/hemen ardından ilgili yaptırımı tanımlama (daha pratik).", "en": "(1) A separate 'Sanctions' section; (2) embedding the sanction right after each duty clause (more practical)." }, "en": "sanctions: separate section vs. embedded per clause", "tag": "kurulus" },
+    { "id": "f19", "front": { "tr": "İşin süresi 'gün' olarak belirtildiğinde nelerin açıklığa kavuşturulması gerekir?", "en": "When duration is stated in 'days', what must be clarified?" }, "back": { "tr": "Takvim günü mü iş günü mü olduğu; iş günüyse hangi günlerin çalışma günü sayıldığı.", "en": "Whether they are calendar days or working days; if working days, which days count as such." }, "en": "duration in days: calendar day vs. working day", "tag": "kurulus" },
+    { "id": "f20", "front": { "tr": "Mücbir sebep sayılabilmesi için üç koşul nedir?", "en": "What three conditions must be met for something to count as force majeure?" }, "back": { "tr": "Yükleniciden kaynaklanan bir kusurdan ileri gelmemeli, taahhüdün yerine getirilmesini engellemeli, yüklenicinin bu engeli ortadan kaldırmaya gücü yetmemelidir.", "en": "Not caused by contractor fault, must prevent performance, and be beyond the contractor's power to overcome." }, "en": "3 conditions for force majeure classification", "tag": "kurulus" },
+    { "id": "f21", "front": { "tr": "Mücbir sebep örnekleri nelerdir?", "en": "What are examples of force majeure?" }, "back": { "tr": "Doğal afetler, kanuni grev, genel salgın hastalık, kısmi/genel seferberlik ilanı.", "en": "Natural disasters, lawful strikes, epidemics, partial/general mobilization." }, "en": "force majeure examples: disaster, strike, epidemic, mobilization", "tag": "kurulus" },
+    { "id": "f22", "front": { "tr": "Mücbir sebep bildirim süresi kaç gündür?", "en": "How many days does the contractor have to report a force majeure event?" }, "back": { "tr": "Yüklenici, mücbir sebebin meydana geldiği tarihi izleyen 20 gün içinde iş sahibine yazılı bildirimde bulunmalıdır.", "en": "The contractor must give written notice within 20 days of the force majeure event." }, "en": "force majeure notice deadline: 20 days", "tag": "kurulus" },
+    { "id": "f23", "front": { "tr": "İş programının onaylanmaması ne sonuç doğurur?", "en": "What happens if the work program is not approved?" }, "back": { "tr": "Program onaylanmadan yükleniciye hakediş ödemesi yapılmaz.", "en": "No progress payment (hakediş) can be made to the contractor until the program is approved." }, "en": "unapproved work program blocks hakediş payments", "tag": "kurulus" },
+    { "id": "f24", "front": { "tr": "Taşeron (alt yüklenici) kime karşı sorumludur, kim iş sahibine karşı sorumludur?", "en": "Who is the subcontractor responsible to, and who answers to the owner?" }, "back": { "tr": "Taşeron, kendisiyle sözleşme yapan yükleniciye karşı sorumludur; iş sahibinin resmi muhatabı her zaman yüklenicidir, yani devredilen işlerden de yüklenici iş sahibine karşı sorumludur.", "en": "The subcontractor answers to the main contractor; the contractor always remains liable to the owner, even for subcontracted work." }, "en": "subcontractor liability flows through the main contractor", "tag": "kurulus" },
+    { "id": "f25", "front": { "tr": "İnşaat işlerinde tipik olarak istenen sigorta türü nedir?", "en": "What type of insurance is typically required on construction works?" }, "back": { "tr": "All risk (tüm riskleri kapsayan) sigorta — deprem, su baskını, toprak kayması, fırtına, yangın, hırsızlık, sabotaj gibi riskleri kapsar.", "en": "'All risk' insurance covering earthquake, flood, landslide, storm, fire, theft, and sabotage." }, "en": "all-risk insurance is standard on construction sites", "tag": "kurulus" },
+    { "id": "f26", "front": { "tr": "Geçici kabul ile kesin kabul arasındaki süre genellikle ne kadardır?", "en": "How long is the typical gap between provisional and final acceptance?" }, "back": { "tr": "Genellikle 12 aydır (garanti süresi).", "en": "Typically 12 months (the warranty period)." }, "en": "provisional-to-final acceptance gap: ~12 months", "tag": "kurulus" },
+    { "id": "f27", "front": { "tr": "Geçici kabul nedir?", "en": "What is provisional acceptance (geçici kabul)?" }, "back": { "tr": "Yapının ana unsurlarının tamamlanıp kullanıma hazır olduğunun tespit edildiği ilk kabul aşamasıdır; eksikler varsa tamamlama süresi verilir.", "en": "The first acceptance stage confirming the building's main elements are complete and usable; deficiencies get a completion deadline." }, "en": "provisional acceptance = first-stage handover check", "tag": "kurulus" },
+    { "id": "f28", "front": { "tr": "Kesin kabul nedir?", "en": "What is final acceptance (kesin kabul)?" }, "back": { "tr": "Garanti süresi sonunda yapılan son kabul işlemidir; tüm eksikler giderilmiş, yapı sorunsuz bulunmuşsa yapılır ve yüklenicinin teminatı iade edilir.", "en": "The final acceptance after the warranty period, once all deficiencies are fixed; the contractor's guarantee is returned." }, "en": "final acceptance releases the contractor's guarantee", "tag": "kurulus" },
+    { "id": "f29", "front": { "tr": "Denetim görevlisinin denetimi, yüklenicinin sorumluluğunu ortadan kaldırır mı?", "en": "Does site supervision remove the contractor's own responsibility?" }, "back": { "tr": "Hayır. Yapı denetim görevlisinin denetimi, yüklenicinin projeye/şartnameye/fen ve sanat kurallarına uygun yapma yükümlülüğünü ortadan kaldırmaz.", "en": "No — supervision does not relieve the contractor of the duty to build according to the project, specs, and professional standards." }, "en": "site supervision never removes contractor's own duty", "tag": "kurulus" },
+    { "id": "f30", "front": { "tr": "Sözleşme kapsamında değişiklikle ek iş yaptırma sınırı örnek metinde ne kadardır?", "en": "In the sample clause, what is the cap for extra works via contract amendment?" }, "back": { "tr": "Sözleşme bedelinin %10'unu aşmamak ve taraflar karşılıklı anlaşmak kaydıyla ek işler yaptırılabilir.", "en": "Extra works may be ordered up to 10% of the contract price, with both parties' mutual agreement." }, "en": "extra-works cap example: 10% of contract price", "tag": "kurulus" },
+    { "id": "f31", "front": { "tr": "Sözleşme devri ile taşerona iş verme arasındaki fark nedir?", "en": "How does contract assignment differ from subcontracting?" }, "back": { "tr": "Sözleşme devrinde iş sahibi yeni bir yüklenici ile doğrudan sözleşme imzalar; taşeronlaştırmada asıl yüklenici sorumlu kalmaya devam eder.", "en": "In assignment, the owner signs directly with a new contractor; in subcontracting, the original contractor remains liable." }, "en": "assignment = new direct contract; subcontracting keeps original liable", "tag": "kurulus" },
+    { "id": "f32", "front": { "tr": "Anlaşmazlıkların çözümü için sözleşmede öngörülebilecek iki seçenek nedir?", "en": "What two dispute-resolution options can a contract specify?" }, "back": { "tr": "Yetkili mahkemelerin belirlenmesi veya hakem/hakem heyeti aracılığıyla çözüm (tahkim).", "en": "Designating competent courts, or resolution via arbitrator(s) (tahkim)." }, "en": "dispute resolution: courts vs. arbitration", "tag": "kurulus" },
+    { "id": "f33", "front": { "tr": "Tahkim nedir?", "en": "What is 'tahkim' (arbitration)?" }, "back": { "tr": "Anlaşmazlıkların, taraflarca atanacak hakem veya hakemler vasıtasıyla çözülmesidir.", "en": "Resolving disputes through arbitrator(s) appointed by the parties." }, "en": "tahkim = arbitration", "tag": "kurulus" },
+    { "id": "f34", "front": { "tr": "Sözleşmenin yürürlük tarihi nedir (aksi belirtilmemişse)?", "en": "What is a contract's effective date (if not otherwise specified)?" }, "back": { "tr": "Aksi öngörülmemişse, sözleşmenin imza (düzenleme) tarihi aynı zamanda yürürlüğe giriş tarihidir.", "en": "Unless otherwise stated, the signing date is also the effective date." }, "en": "default effective date = signing date", "tag": "kurulus" },
+    { "id": "f35", "front": { "tr": "Eser sözleşmesi hangi kanunda ve hangi bölümde düzenlenir?", "en": "In which law and section is the contract for work regulated?" }, "back": { "tr": "6098 sayılı Türk Borçlar Kanunu'nun 7. bölümünde.", "en": "In Section 7 of Turkish Code of Obligations No. 6098." }, "en": "eser sözleşmesi is governed by TBK 6098, Section 7", "tag": "eser-sozlesmesi" },
+    { "id": "f36", "front": { "tr": "Eser sözleşmesinin tanımı nedir? (Madde 470)", "en": "What is the definition of a contract for work? (Art. 470)" }, "back": { "tr": "Yüklenicinin bir eser meydana getirmeyi, iş sahibinin de bunun karşılığında bir bedel ödemeyi üstlendiği sözleşmedir.", "en": "A contract where the contractor undertakes to produce a work and the owner undertakes to pay a price for it." }, "en": "Madde 470: contractor makes a work, owner pays", "tag": "eser-sozlesmesi" },
+    { "id": "f37", "front": { "tr": "Madde 471 neyi düzenler?", "en": "What does Article 471 regulate?" }, "back": { "tr": "Yüklenicinin genel borçlarını: sadakat/özenle ifa, basiretli yüklenici standardı, eseri kendisi/kendi yönetiminde yapma, araç-gereç sağlama.", "en": "The contractor's general duties: loyal/careful performance, the 'prudent contractor' standard, personal/self-managed performance, providing tools." }, "en": "Art. 471 = contractor's general duties", "tag": "eser-sozlesmesi" },
+    { "id": "f38", "front": { "tr": "Yüklenicinin özen borcunun ölçüsü nedir?", "en": "What is the benchmark for the contractor's duty of care?" }, "back": { "tr": "Benzer alandaki işleri üstlenen basiretli (dikkatli, öngörülü) bir yüklenicinin göstermesi gereken mesleki ve teknik kurallara uygun davranış.", "en": "The professional/technical conduct expected of a prudent contractor doing similar work." }, "en": "duty of care = 'prudent contractor' standard", "tag": "eser-sozlesmesi" },
+    { "id": "f39", "front": { "tr": "Yüklenici işi ne zaman başkasına yaptırabilir? (M.471)", "en": "When may the contractor have the work done by someone else? (Art. 471)" }, "back": { "tr": "Eserin meydana getirilmesinde yüklenicinin kişisel özellikleri önem taşımıyorsa.", "en": "When the contractor's personal characteristics are not material to producing the work." }, "en": "delegation allowed only if personal traits are not essential", "tag": "eser-sozlesmesi" },
+    { "id": "f40", "front": { "tr": "Aksine adet/anlaşma yoksa araç-gereci kim sağlar? (M.471)", "en": "Absent contrary custom/agreement, who supplies the tools? (Art. 471)" }, "back": { "tr": "Yüklenici kendisi sağlamak zorundadır.", "en": "The contractor must supply them." }, "en": "default: contractor supplies own tools/equipment", "tag": "eser-sozlesmesi" },
+    { "id": "f41", "front": { "tr": "Madde 472 neyi düzenler?", "en": "What does Article 472 regulate?" }, "back": { "tr": "Malzeme bakımından yüklenicinin borçlarını: yüklenici sağladıysa satıcı gibi sorumluluk, iş sahibi sağladıysa özenle kullanma ve hesap verme, ayıp/tehlike halinde bildirim yükümü.", "en": "Contractor's duties regarding materials: seller-like liability if contractor supplies them, careful use/accounting if owner supplies them, duty to report defects/dangers." }, "en": "Art. 472 = contractor's material-related duties", "tag": "eser-sozlesmesi" },
+    { "id": "f42", "front": { "tr": "Malzemeyi yüklenici sağlamışsa, ayıplı çıkarsa sorumluluğu nasıldır?", "en": "If the contractor supplies the material and it's defective, how is liability framed?" }, "back": { "tr": "Yüklenici, iş sahibine karşı satıcı gibi sorumludur.", "en": "The contractor is liable to the owner as if it were a seller." }, "en": "contractor-supplied defective material = seller-like liability", "tag": "eser-sozlesmesi" },
+    { "id": "f43", "front": { "tr": "Malzemeyi iş sahibi sağlamışsa yüklenicinin yükümlülüğü nedir?", "en": "If the owner supplies the material, what is the contractor's duty?" }, "back": { "tr": "Gereken özeni göstererek kullanmak ve bundan dolayı hesap vermek ve artanı geri vermekle yükümlüdür.", "en": "To use it carefully, account for its use, and return any surplus." }, "en": "owner-supplied material: contractor must use carefully & account for it", "tag": "eser-sozlesmesi" },
+    { "id": "f44", "front": { "tr": "Madde 473 neyi düzenler?", "en": "What does Article 473 regulate?" }, "back": { "tr": "İşe başlama ve yürütmeyi: iş zamanında bitmeyeceği açıkça anlaşılırsa iş sahibinin teslim gününü beklemeden sözleşmeden dönebilmesi; ayıplı/aykırı iş yapılıyorsa ihtar hakkı.", "en": "Commencement and progress: owner may withdraw before the delivery date if timely completion is clearly impossible; right to warn if defective work is evident." }, "en": "Art. 473 = commencement/progress + owner's early withdrawal right", "tag": "eser-sozlesmesi" },
+    { "id": "f45", "front": { "tr": "İşi kararlaştırılan zamanda bitiremeyeceği açıkça anlaşılırsa iş sahibinin hakkı nedir? (M.473)", "en": "If timely completion is clearly impossible, what right does the owner have? (Art. 473)" }, "back": { "tr": "Teslim için belirlenen günü beklemek zorunda olmaksızın sözleşmeden dönebilir.", "en": "The owner may withdraw from the contract without waiting for the agreed delivery date." }, "en": "clear delay risk lets owner withdraw early", "tag": "eser-sozlesmesi" },
+    { "id": "f46", "front": { "tr": "Madde 474 neyi düzenler?", "en": "What does Article 474 regulate?" }, "back": { "tr": "Ayıbın belirlenmesini: iş sahibinin eseri gözden geçirip ayıp varsa bildirme zorunluluğu; taraflardan her birinin bilirkişi incelemesi isteyebilmesi.", "en": "Determination of defects: owner's duty to inspect and report defects; either party may request a bilirkişi (expert) review." }, "en": "Art. 474 = defect determination / inspection duty", "tag": "eser-sozlesmesi" },
+    { "id": "f47", "front": { "tr": "Madde 475'teki iş sahibinin üç seçimlik hakkı nedir?", "en": "What are the owner's three elective rights under Art. 475?" }, "back": { "tr": "(1) Sözleşmeden dönme (kullanılamayacak/kabul edilemeyecek ölçüde ayıp), (2) bedelden ayıp oranında indirim isteme, (3) ücretsiz onarım isteme (aşırı masraf gerektirmiyorsa).", "en": "(1) Withdraw from contract, (2) request a price reduction proportional to the defect, (3) demand free repair (if not excessively costly)." }, "en": "3 elective rights: withdraw, reduce price, free repair", "tag": "eser-sozlesmesi" },
+    { "id": "f48", "front": { "tr": "İş sahibi hangi durumda sözleşmeden dönme hakkını kullanamaz? (eser taşınmaz üzerindeyken)", "en": "When can the owner NOT use the right to withdraw, if the work is on real property?" }, "back": { "tr": "Eser iş sahibinin taşınmazı üzerine yapılmışsa ve sökülüp kaldırılması aşırı zarar doğuracaksa.", "en": "If the work is built on the owner's real property and removal would cause excessive damage." }, "en": "withdrawal barred if removal would cause excessive damage", "tag": "eser-sozlesmesi" },
+    { "id": "f49", "front": { "tr": "Madde 476 neyi düzenler?", "en": "What does Article 476 regulate?" }, "back": { "tr": "İş sahibinin sorumluluğunu: ayıp, yüklenicinin ihtarına rağmen iş sahibinin talimatından doğmuşsa iş sahibi ayıp haklarını kullanamaz.", "en": "Owner's liability: if a defect resulted from the owner's instructions despite the contractor's warning, the owner loses the defect-based rights." }, "en": "Art. 476 = owner loses rights if defect is owner's own fault", "tag": "eser-sozlesmesi" },
+    { "id": "f50", "front": { "tr": "Madde 477 neyi düzenler?", "en": "What does Article 477 regulate?" }, "back": { "tr": "Eserin kabulünü: açık/örtülü kabulden sonra yüklenici sorumluluktan kurtulur (kasten gizlenen ayıplar hariç); gözden geçirmeyi ihmal eden veya bildirmeyen iş sahibi kabul etmiş sayılır.", "en": "Acceptance of the work: contractor is released from liability after acceptance (except intentionally hidden defects); failure to inspect/notify counts as acceptance." }, "en": "Art. 477 = acceptance releases contractor (except hidden defects)", "tag": "eser-sozlesmesi" },
+    { "id": "f51", "front": { "tr": "Eserin açıkça/örtülü kabulünden sonra hangi ayıplar için yüklenicinin sorumluluğu devam eder?", "en": "After acceptance, which defects still make the contractor liable?" }, "back": { "tr": "Yüklenici tarafından kasten gizlenen ve usulüne göre gözden geçirilme sırasında fark edilemeyecek ayıplar için.", "en": "Defects the contractor intentionally concealed and which could not be detected by a proper inspection." }, "en": "post-acceptance liability survives only for intentionally hidden defects", "tag": "eser-sozlesmesi" },
+    { "id": "f52", "front": { "tr": "Madde 478'e göre ayıp davalarında zamanaşımı süreleri nedir?", "en": "Under Article 478, what are the statute-of-limitations periods for defect claims?" }, "back": { "tr": "Taşınmaz olmayan eserlerde 2 yıl, taşınmaz yapılarda 5 yıl, yüklenicinin ağır kusuru varsa (eserin niteliğine bakılmaksızın) 20 yıl.", "en": "2 years for non-real-property works, 5 years for buildings, 20 years regardless of nature if the contractor's fault was severe." }, "en": "Art. 478: limitation periods 2 / 5 / 20 years", "tag": "eser-sozlesmesi" },
+    { "id": "f53", "front": { "tr": "Taşınmaz yapılarda ayıp davası zamanaşımı süresi kaç yıldır?", "en": "What is the limitation period for defect claims on real-property buildings?" }, "back": { "tr": "5 yıl (teslim tarihinden itibaren).", "en": "5 years from the date of delivery." }, "en": "buildings: 5-year defect claim limitation", "tag": "eser-sozlesmesi" },
+    { "id": "f54", "front": { "tr": "Yüklenicinin ağır kusuru varsa ayıp davası zamanaşımı kaç yıldır?", "en": "If the contractor's fault is severe, what is the limitation period for defect claims?" }, "back": { "tr": "20 yıl — eserin niteliğine (taşınır/taşınmaz) bakılmaksızın.", "en": "20 years — regardless of whether the work is movable or a building." }, "en": "severe contractor fault: 20-year limitation, any work type", "tag": "eser-sozlesmesi" },
+    { "id": "f55", "front": { "tr": "Madde 479 neyi düzenler?", "en": "What does Article 479 regulate?" }, "back": { "tr": "Bedelin muacceliyetini: iş sahibinin bedel ödeme borcu, eserin teslimi anında muaccel olur.", "en": "Due date of the price: the owner's payment obligation becomes due at the moment of delivery." }, "en": "Art. 479 = price becomes due at delivery", "tag": "eser-sozlesmesi" },
+    { "id": "f56", "front": { "tr": "'Muaccel' kelimesi ne anlama gelir?", "en": "What does the legal term 'muaccel' mean?" }, "back": { "tr": "Vadesi gelmiş, ödenmesi/talep edilmesi gereken hale gelmiş anlamına gelir.", "en": "Due — meaning the debt has matured and is now payable/demandable." }, "en": "muaccel = due and payable", "tag": "eser-sozlesmesi" },
+    { "id": "f57", "front": { "tr": "Eser parça parça teslim ediliyorsa, her parçanın bedeli ne zaman muaccel olur?", "en": "If the work is delivered in parts, when does each part's price become due?" }, "back": { "tr": "O parçanın teslim anında.", "en": "At the moment that part is delivered." }, "en": "partial delivery: each part's price is due at its own delivery", "tag": "eser-sozlesmesi" },
+    { "id": "f58", "front": { "tr": "Madde 480 neyi düzenler?", "en": "What does Article 480 regulate?" }, "back": { "tr": "Götürü bedeli: yüklenici, öngörülenden fazla emek/masraf gerektirse bile bedelin artırılmasını isteyemez; öngörülenden az gerektirse bile iş sahibi bedelin tamamını öder.", "en": "The lump-sum price: the contractor may not seek more even if the work costs more effort; the owner must pay in full even if it costs less." }, "en": "Art. 480 = lump-sum (götürü) price is fixed both ways", "tag": "eser-sozlesmesi" },
+    { "id": "f59", "front": { "tr": "Götürü bedelde eser öngörülenden fazla masraf gerektirirse ne olur?", "en": "In a lump-sum contract, what if the work costs more than expected?" }, "back": { "tr": "Yüklenici belirlenen bedelin artırılmasını isteyemez.", "en": "The contractor cannot demand an increase in the agreed price." }, "en": "lump-sum: contractor bears cost overruns", "tag": "eser-sozlesmesi" },
+    { "id": "f60", "front": { "tr": "Götürü bedelde eser öngörülenden az masraf gerektirirse ne olur?", "en": "In a lump-sum contract, what if the work costs less than expected?" }, "back": { "tr": "İş sahibi yine de belirlenen bedelin tamamını ödemekle yükümlüdür.", "en": "The owner must still pay the full agreed price." }, "en": "lump-sum: owner pays full price even if actual cost is lower", "tag": "eser-sozlesmesi" },
+    { "id": "f61", "front": { "tr": "Götürü bedel aşırı güç duruma düşürürse yüklenicinin hakkı nedir?", "en": "If a lump-sum price becomes excessively burdensome, what can the contractor do?" }, "back": { "tr": "Hakimden sözleşmenin yeni koşullara uyarlanmasını isteyebilir; bu mümkün değilse sözleşmeden dönebilir.", "en": "Request judicial adaptation of the contract to new conditions; if not possible, withdraw from the contract." }, "en": "extreme hardship: judicial adaptation or withdrawal", "tag": "eser-sozlesmesi" },
+    { "id": "f62", "front": { "tr": "Madde 481 neyi düzenler?", "en": "What does Article 481 regulate?" }, "back": { "tr": "Değere göre bedeli: bedel önceden belirlenmemiş/yaklaşık belirlenmişse, işin yapıldığı yer ve zamandaki değer ve giderlere göre belirlenir.", "en": "Value-based price: if the price wasn't fixed (or only estimated), it's set based on the work's value and the contractor's costs at that time and place." }, "en": "Art. 481 = price set by value when not fixed in advance", "tag": "eser-sozlesmesi" },
+    { "id": "f63", "front": { "tr": "Madde 482 neyi düzenler?", "en": "What does Article 482 regulate?" }, "back": { "tr": "Yaklaşık bedelin aşılmasını: bedel iş sahibinin kusuru olmaksızın aşırı ölçüde aşılacaksa, iş sahibi eser tamamlanmadan veya sonra sözleşmeden dönebilir.", "en": "Overrun of an estimated price: if the owner isn't at fault and the price will be exceeded excessively, the owner may withdraw before or after completion." }, "en": "Art. 482 = owner may withdraw if estimate is excessively exceeded", "tag": "sona-erme" },
+    { "id": "f64", "front": { "tr": "Madde 483 neyi düzenler?", "en": "What does Article 483 regulate?" }, "back": { "tr": "Eserin yok olmasını: teslimden önce beklenmedik olayla yok olursa, iş sahibi temerrüde düşmedikçe yüklenici ücret/gider isteyemez; malzeme hasarı onu sağlayana ait olur.", "en": "Destruction of the work: if destroyed before delivery by an unexpected event, the contractor cannot claim payment unless the owner was in default; material damage falls on whoever supplied it." }, "en": "Art. 483 = risk of accidental destruction before delivery", "tag": "sona-erme" },
+    { "id": "f65", "front": { "tr": "Eser teslimden önce yok olursa ve iş sahibi temerrüde düşmemişse, yüklenicinin hakkı nedir?", "en": "If the work is destroyed before delivery and the owner is not in default, what can the contractor claim?" }, "back": { "tr": "Hiçbir şey — yaptığı işin ücretini ve giderlerini isteyemez.", "en": "Nothing — the contractor cannot claim payment for the work done or its costs." }, "en": "pre-delivery destruction, no owner default: contractor gets nothing", "tag": "sona-erme" },
+    { "id": "f66", "front": { "tr": "İş sahibi eseri teslim almada temerrüde düşerse hasar kime geçer?", "en": "If the owner defaults on taking delivery, who bears the risk of loss?" }, "back": { "tr": "Temerrüdün başladığı andan itibaren hasar iş sahibine ait olur.", "en": "The risk shifts to the owner from the moment the default begins." }, "en": "owner's delivery default shifts risk of loss to owner", "tag": "sona-erme" },
+    { "id": "f67", "front": { "tr": "Madde 484 neyi düzenler?", "en": "What does Article 484 regulate?" }, "back": { "tr": "Tazminat karşılığı feshi: iş sahibi, tamamlanan kısmın karşılığını ödeyip yüklenicinin tüm zararlarını gidermek koşuluyla sözleşmeyi feshedebilir.", "en": "Termination against compensation: the owner may terminate by paying for the completed portion and compensating all the contractor's losses." }, "en": "Art. 484 = owner's no-cause termination against full compensation", "tag": "sona-erme" },
+    { "id": "f68", "front": { "tr": "Madde 485 neyi düzenler?", "en": "What does Article 485 regulate?" }, "back": { "tr": "İş sahibi yüzünden ifanın imkansızlaşmasını: yüklenici yaptığı işin değerini ve giderlerini isteyebilir; iş sahibinin kusuru varsa tazminat da isteyebilir.", "en": "Impossibility of performance caused by the owner: the contractor may claim the value of work done plus costs, and damages if the owner was at fault." }, "en": "Art. 485 = owner-caused impossibility compensates the contractor", "tag": "sona-erme" },
+    { "id": "f69", "front": { "tr": "Madde 486 neyi düzenler?", "en": "What does Article 486 regulate?" }, "back": { "tr": "Yüklenicinin ölümü veya yeteneğini kaybetmesini: kişisel özellikleri esas alınarak yapılan sözleşme, bu durumlarda kendiliğinden sona erer.", "en": "Contractor's death or incapacity: a contract based on the contractor's personal qualities ends automatically in such cases." }, "en": "Art. 486 = contract ends automatically on contractor's death/incapacity", "tag": "sona-erme" },
+    { "id": "f70", "front": { "tr": "Yüklenici öldüğünde tamamlanan kısım ne olur?", "en": "What happens to the completed portion when the contractor dies?" }, "back": { "tr": "İş sahibi, tamamlanan kısımdan yararlanabilecekse onu kabul etmek ve karşılığını vermekle yükümlüdür.", "en": "If the owner can make use of the completed part, they must accept it and pay for it." }, "en": "owner must pay for usable completed work after contractor's death", "tag": "sona-erme" },
+    { "id": "f71", "front": { "tr": "Temerrüt nedir?", "en": "What is 'temerrüt' (default)?" }, "back": { "tr": "Kişinin borçlandığı edimi hukuka aykırı olarak yerine getirmemesi halidir.", "en": "A party's unlawful failure to perform an obligation it owes." }, "en": "temerrüt = default on a legal obligation", "tag": "eser-sozlesmesi" },
+    { "id": "f72", "front": { "tr": "Edim nedir?", "en": "What is 'edim' (the obligated act)?" }, "back": { "tr": "Bir borç ilişkisinde tarafların yerine getirmekle yükümlü olduğu davranış biçimidir.", "en": "The conduct/performance a party is obliged to render under an obligation." }, "en": "edim = the performance owed under an obligation", "tag": "eser-sozlesmesi" },
+    { "id": "f73", "front": { "tr": "Raiç (rayiç) bedel nedir?", "en": "What is 'raiç bedel' (market/prevailing value)?" }, "back": { "tr": "İşin yapıldığı yer ve zamandaki piyasa değeridir; malzeme, işçilik, kâr ve (varsa) diğer giderleri içerir.", "en": "The prevailing market value at the place and time the work was done; includes materials, labor, profit, and other costs." }, "en": "raiç bedel = local market value at time/place of work", "tag": "eser-sozlesmesi" },
+    { "id": "f74", "front": { "tr": "Bilir kişiye rayiç bedel hesaplattırılması ne zaman gerekir?", "en": "When is expert (bilirkişi) valuation of market price needed?" }, "back": { "tr": "Eser sözleşmesi yazılı olma şartına tabi olmadığından, taraflar bedelde (özellikle sözleşme dışı ek imalatlarda) anlaşamazsa.", "en": "Since contracts for work need not be in writing, when parties cannot agree on price (especially for extra work outside the written scope)." }, "en": "expert valuation used when parties dispute unwritten price terms", "tag": "eser-sozlesmesi" },
+    { "id": "f75", "front": { "tr": "Yıllara sari işlerde bedel anlaşmazlığı nasıl çözülür?", "en": "How is a price dispute resolved for multi-year (yıllara sari) works?" }, "back": { "tr": "Her yıl gerçekleştirilen imalat bedeli, o yılın mahalli piyasa rayiçlerinden hesaplattırılıp toplanarak belirlenir.", "en": "Each year's completed work is priced at that year's local market rates, and the amounts are totaled." }, "en": "multi-year works: price per year at that year's market rate", "tag": "eser-sozlesmesi" },
+    { "id": "f76", "front": { "tr": "Eser sözleşmesi yazılı olma şartına tabi midir?", "en": "Must a contract for work be in writing?" }, "back": { "tr": "Hayır, çoğu sözleşme gibi eser sözleşmesi de yazılı olma şartına tabi değildir.", "en": "No — like most contracts, it does not require a written form." }, "en": "eser sözleşmesi has no writing requirement", "tag": "eser-sozlesmesi" },
+    { "id": "f77", "front": { "tr": "Kat karşılığı inşaat sözleşmesinin şekil şartı nedir?", "en": "What form requirement applies to floor-for-land (kat karşılığı) construction contracts?" }, "back": { "tr": "Yazılı olması ve noterde düzenleme şeklinde yapılması gerekir.", "en": "It must be in writing and drawn up by a notary (düzenleme şeklinde)." }, "en": "kat karşılığı contracts require notarial form", "tag": "eser-sozlesmesi" },
+    { "id": "f78", "front": { "tr": "Yüklenici terimi ne anlama gelir?", "en": "What does the term 'yüklenici' mean?" }, "back": { "tr": "Eseri meydana getirmeyi üstlenen taraf; müteahhit olarak da bilinir.", "en": "The party who undertakes to produce the work; also known as the contractor (müteahhit)." }, "en": "yüklenici = the contractor", "tag": "taraflarin-borclari" },
+    { "id": "f79", "front": { "tr": "İş sahibi terimi ne anlama gelir?", "en": "What does the term 'iş sahibi' mean?" }, "back": { "tr": "Eserin karşılığında bedel ödemeyi üstlenen taraf; işveren de denir.", "en": "The party who undertakes to pay the price for the work; also called the employer/owner." }, "en": "iş sahibi = the owner/employer", "tag": "taraflarin-borclari" },
+    { "id": "f80", "front": { "tr": "Taşeron olarak tanımlanabilmek için hangi iki koşul gerekir?", "en": "What two conditions must be met to be classified as a subcontractor (taşeron)?" }, "back": { "tr": "Üstlendiği işi bir sözleşmeye dayalı almış olması ve vergi mükellefi olan gerçek ya da tüzel kişi olması.", "en": "Having taken on the work under a contract, and being a taxpaying natural or legal person." }, "en": "subcontractor definition: contract-based + taxpayer status", "tag": "taraflarin-borclari" },
+    { "id": "f81", "front": { "tr": "Sözleşme neden aynı zamanda bir 'risk paylaşım aracı'dır?", "en": "Why is a contract also a 'risk-sharing tool'?" }, "back": { "tr": "İşin gerçekleştirilmesi sürecinde çeşitli risklerle karşılaşılabilir; sözleşmeye konulan hükümlerle taraflar olası riskleri karşı tarafa atabilir, kısmen üstlenebilir veya bölüşebilirler.", "en": "During the work, various risks may arise; through its clauses the parties can shift risks to the other side, partly assume them, or split them." }, "en": "contract = risk-sharing tool between the parties", "tag": "kurulus" },
+    { "id": "f82", "front": { "tr": "Yükleniciye yapılacak ödemeler (hakedişler) maddesinde nelerin açıklığa kavuşturulması gerekir?", "en": "In the payments (hakediş) clause, what must be clarified?" }, "back": { "tr": "Hakedişlerin hangi aralıklarla ödeneceği, ödeme düzeyinin neye göre belirleneceği, ödeme evrakının nasıl oluşturulacağı ve avans verilip verilmeyeceği tereddüde yer bırakmayacak şekilde belirtilmelidir.", "en": "The intervals for progress payments, how the payment level is set, how payment documents are prepared, and whether advances (avans) are given — all stated without ambiguity." }, "en": "payments clause: intervals, basis, documents, advances", "tag": "kurulus" },
+    { "id": "f83", "front": { "tr": "Sözleşme bedeli maddesinde KDV ile ilgili neyin belirtilmesi gerekir?", "en": "Regarding VAT (KDV), what must the price clause state?" }, "back": { "tr": "KDV'nin sözleşme bedeline dahil olup olmadığı ve kimin ödeyeceği açıkça yazılmalıdır; genelde KDV bedele dahil değildir ve iş sahibi tarafından yükleniciye ödenir.", "en": "Whether VAT is included in the contract price and who pays it must be stated explicitly; typically VAT is not included and is paid by the owner to the contractor." }, "en": "price clause must state VAT inclusion and who pays it", "tag": "kurulus" }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "open",
+      "covers": ["n1"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Sözleşme kavramını tanımlayınız ve önemini açıklayınız.", "en": "Define the concept of a contract and explain its importance." },
+      "answer": { "tr": "Sözleşme, bir iş ilişkisi içindeki tarafların, faaliyeti sürdürürken neleri, nasıl ve hangi koşullarda yapacaklarını ya da yapmayacaklarını gösteren kararlaştırmaları içeren belgedir (yazılı olma şartı her zaman yoktur). Önemi: taraflar arasındaki yetki, sorumluluk ve hakları ayrıntılı şekilde tanımlar; bir **risk paylaşım aracıdır** — olası riskler karşı tarafa atılabilir, kısmen üstlenilebilir veya bölüşülebilir. İyi hazırlanmış bir sözleşme, anlaşmazlık olasılığını azaltır ve çıkan anlaşmazlıkların sözleşme maddeleriyle çözülmesini sağlar.", "en": "A contract records what parties to a work relationship will/won't do and how. Written form isn't always required. It defines authority, responsibility and rights, and is a risk-sharing tool. A well-drafted contract reduces disputes and enables them to be resolved via its own clauses." }
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "covers": ["n1"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Bir sözleşmenin işlevini tam olarak yerine getirebilmesi için sahip olması gereken üç temel nitelik aşağıdakilerden hangisinde doğru verilmiştir?", "en": "Which option correctly lists the three basic qualities a contract needs to fully perform its function?" },
+      "options": [
+        { "tr": "Şekil bakımından yasal olma, içerik bakımından yasal olma, gerekli ölçüde kapsamlı/anlaşılır/uygulanabilir olma", "en": "Legally valid in form, legally valid in content, sufficiently comprehensive/clear/enforceable" },
+        { "tr": "Resmi olma, noter onaylı olma, taraflarca imzalanmış olma", "en": "Being official, notarized, and signed by the parties" },
+        { "tr": "Kısa olma, ucuz olma, hızlı hazırlanmış olma", "en": "Being short, cheap, and quickly drafted" },
+        { "tr": "Kamu kurumunca onaylanmış olma, tescilli olma, resmi dilde yazılmış olma", "en": "Being approved by a public body, registered, and written in formal language" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap: şekil bakımından yasal olma, içerik bakımından yasal olma, gerekli ölçüde kapsamlı/anlaşılır/uygulanabilir olma. Diğer seçenekler bu üç niteliği doğru yansıtmıyor; örneğin noter onayı yalnızca bazı özel sözleşme türleri için zorunludur, genel kural değildir.", "en": "The correct three qualities are legal form, legal content, and comprehensiveness/clarity/enforceability. The other options misstate these — e.g. notarization is only mandatory for special contract types, not a general rule." }
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "covers": ["n1"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Bir inşaat sözleşmesine, 'iş sahibinin temin ettiği malzemenin niteliği konusunda yükleniciye hiçbir sorumluluk yükletilemez' şeklinde bir madde konulmuş ve her iki taraf da bunu imzalamıştır. Bu madde hakkında ne söylenebilir?", "en": "A construction contract clause states 'the contractor bears no responsibility regarding the quality of owner-supplied material,' signed by both parties. What can be said about this clause?" },
+      "options": [
+        { "tr": "Her iki taraf da kabul ettiği için geçerlidir", "en": "It is valid because both parties agreed to it" },
+        { "tr": "Borçlar Kanunu'nun ilgili maddesine (aydınlatma/malzeme borcu) aykırı olduğundan geçersizdir", "en": "It is invalid because it contradicts the relevant Code of Obligations provision on the material/disclosure duty" },
+        { "tr": "Yalnızca resmi sözleşmelerde geçersizdir, özel sözleşmelerde geçerlidir", "en": "It is invalid only in official contracts, valid in private ones" },
+        { "tr": "Noterce onaylanırsa geçerli hale gelir", "en": "It becomes valid if notarized" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: mevzuatın emredici hükümlerine aykırı sözleşme maddeleri, iki taraf da kabul etmiş olsa dahi geçersizdir (içerik bakımından yasal olmama). A yanlış çünkü karşılıklı rıza mevzuata aykırılığı gidermez. C ve D yanlış çünkü bu geçersizlik resmiyet ya da noter onayına bağlı değildir; içeriğin mevzuata aykırılığından kaynaklanır.", "en": "Correct answer B: clauses contrary to mandatory legal provisions are void regardless of mutual consent. A is wrong because mutual agreement cannot cure an unlawful clause. C and D are wrong because the invalidity stems from unlawful content, not from formality or notarization." }
+    },
+    {
+      "id": "q4",
+      "type": "open",
+      "covers": ["n1"],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": { "tr": "Sözleşmenin ispat şartı ile şekil şartı arasındaki farkı açıklayınız.", "en": "Explain the difference between a contract's proof requirement and its form requirement." },
+      "answer": { "tr": "**İspat şartı**, tarafların belirli konuda anlaştıklarını sözlü ya da yazılı olarak beyan etmeleriyle sağlanır; yazılı ve imzalı bir sözleşme, sözlüye göre çok daha güçlü ispat sağlar. **Şekil şartı** ise sözleşmenin düzenlenme biçimiyle ilgilidir; genel kural olarak böyle bir şart yoktur (sözlü de olabilir), ancak bazı özel işlemlerde (örn. gayrimenkul devri, kat karşılığı inşaat sözleşmesi) belirli bir şekle (resmi/noter) uyulması zorunludur. Bir sözleşme geçerli olmak için hem ispat hem şekil şartını birlikte sağlamalıdır.", "en": "The proof requirement is satisfied by the parties declaring their agreement, orally or in writing — written and signed proves it far more strongly. The form requirement concerns how the contract is drafted; generally there is none, but special transactions (e.g. real estate transfer, floor-for-land contracts) require a specific (official/notarial) form. Validity requires both together." }
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "covers": ["n2"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Kat karşılığı bina yapım sözleşmesi hangi türe girer?", "en": "Which category does a floor-for-land (kat karşılığı) construction contract fall into?" },
+      "options": [
+        { "tr": "Resmi olmayan sözleşme", "en": "Unofficial contract" },
+        { "tr": "Resmi sözleşme", "en": "Official contract" },
+        { "tr": "Düzenleme şeklindeki sözleşme", "en": "Notary-drafted (düzenleme şeklinde) contract" },
+        { "tr": "Sözlü sözleşme", "en": "Verbal contract" }
+      ],
+      "correct": 2,
+      "explain": { "tr": "Doğru cevap C: kat karşılığı bina yapım sözleşmesi, noterlikçe düzenlenmesi gereken 'düzenleme şeklindeki sözleşme' türüne girer. A yanlış çünkü bu tür sözleşmede sadece tarafların imzası yetmez. B yanlış çünkü resmi sözleşmede taraflarca düzenlenip sonradan onaylanır, burada ise doğrudan noter kaleme alır. D yanlış çünkü yazılı ve noter şekli zorunludur.", "en": "Correct answer C: floor-for-land contracts must be drafted by a notary (düzenleme şeklinde). A is wrong since party signatures alone are insufficient. B is wrong because official contracts are drafted by parties then certified, whereas here the notary drafts it directly. D is wrong because written notarial form is mandatory." }
+    },
+    {
+      "id": "q6",
+      "type": "open",
+      "covers": ["n2"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Resmi olmayan sözleşme, resmi sözleşme ve düzenleme şeklindeki sözleşme arasındaki farkları örneklerle açıklayınız.", "en": "Explain the differences between unofficial, official, and notary-drafted contracts, with examples." },
+      "answer": { "tr": "**Resmi olmayan sözleşme:** Tarafların kendi rızalarıyla düzenleyip imzalamasıyla geçerlilik kazanır; ek bir onay gerekmez (çoğu özel sözleşme). **Resmi sözleşme:** Düzenlendikten sonra resmi bir kurum (genelde noter) tarafından onaylanması (tescili) gerekir — örn. bazı kamu kurumu sözleşmeleri, araç alım-satımı. **Düzenleme şeklindeki sözleşme:** Taraflarca değil, doğrudan noter tarafından kaleme alınır; içerik taraflarca belirlenir ama metni noter yazar ve huzurda imzalanır — örnek: kat karşılığı bina yapım sözleşmesi.", "en": "Unofficial: valid by the parties' own signatures, no further approval needed (most private contracts). Official: must be certified/registered by an official body (usually a notary) after drafting — e.g. some public-body contracts, vehicle sales. Notary-drafted: the notary itself writes the text (content set by parties) and it's signed in the notary's presence — e.g. floor-for-land construction contracts." }
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "covers": ["n2"],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": { "tr": "Bir arsa alım-satımı, taraflar arasında imzalanan özel bir belgeyle yapılmış ama tapuda işlem gerçekleştirilmemiştir. Bu durumda ne söylenebilir?", "en": "A land sale was made via a private document signed between the parties, but the transaction was not processed at the land registry (tapu). What can be said?" },
+      "options": [
+        { "tr": "Belge ispat niteliği taşır ama şekil şartına uymadığından mülkiyet geçmez", "en": "The document has proof value but does not meet the form requirement, so ownership does not transfer" },
+        { "tr": "Belge hem ispat hem şekil şartını sağladığından mülkiyet geçerlidir", "en": "The document satisfies both proof and form requirements, so ownership validly transfers" },
+        { "tr": "Belge geçersizdir çünkü hiçbir ispat değeri yoktur", "en": "The document is worthless because it has no proof value at all" },
+        { "tr": "Belge noterce onaylanmasa da mülkiyeti otomatik olarak devreder", "en": "The document automatically transfers ownership even without notarization" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: gayrimenkul alım-satımında işlemin tapuda yapılması şekil şartıdır. Belge taraflar arasında ödenen bedeli ispat eder (ispat niteliği var) ama tapu işlemi olmadığı için mülkiyet satın alana geçmez; satıcı vazgeçerse alıcının elindeki sözleşme buna engel olamaz. B, C, D bu ayrımı yanlış yansıtıyor.", "en": "Correct answer A: real estate transfers require registration at the land registry (form requirement). The document proves the price paid (has evidentiary value) but ownership does not transfer without registration; the buyer's document cannot block the seller from reneging. B, C, D misstate this distinction." }
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "covers": ["n3"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Aşağıdakilerden hangisi bir sözleşmede yer alması gereken temel unsurlardan biri DEĞİLDİR?", "en": "Which of the following is NOT one of the core elements a contract should contain?" },
+      "options": [
+        { "tr": "Tarafların tanımı", "en": "Definition of the parties" },
+        { "tr": "Sözleşmenin türü ve bedeli", "en": "Type and price of the contract" },
+        { "tr": "Yüklenicinin kişisel siyasi görüşü", "en": "The contractor's personal political views" },
+        { "tr": "Anlaşmazlıkların çözümü", "en": "Dispute resolution" }
+      ],
+      "correct": 2,
+      "explain": { "tr": "Doğru cevap C: yüklenicinin kişisel siyasi görüşü sözleşme unsuru değildir ve konuyla ilgisizdir. Diğer üç seçenek (taraflar, tür/bedel, anlaşmazlık çözümü) ders notlarında sayılan 17 temel unsurdan üçüdür.", "en": "Correct answer C: a contractor's political views are irrelevant and not a contract element. The other three (parties, type/price, dispute resolution) are among the 17 core elements listed in the notes." }
+    },
+    {
+      "id": "q9",
+      "type": "open",
+      "covers": ["n3"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Bir sözleşme maddesi kaleme alınırken hangi üç soruya cevap vermelidir? Bir örnekle açıklayınız.", "en": "What three questions must a contract clause answer? Illustrate with an example." },
+      "answer": { "tr": "(1) Sözleşme kapsamında gerçekleştirilecek faaliyet yeterince anlaşılır tanımlanmış mıdır? (2) Bu faaliyeti hangi taraf yerine getirecektir? (3) Faaliyet tanımlandığı gibi yapılmazsa yaptırımı ne olacak ve nasıl uygulanacaktır? Örnek: 'İş, yükleniciye işyeri teslim edildikten sonra başlayacaktır' maddesi belirsizdir — kaç gün sonra başlanacağı, iş sahibi geç teslim ederse ne olacağı, yüklenici başlamazsa ne olacağı belirtilmemiştir. Doğru kaleme alınmış hali, bu üç soruyu (görev, taraf, yaptırım) açıkça yanıtlamalıdır: örneğin '3 gün içinde teslim edilir, gecikilirse süreye eklenir, 40 günden fazla gecikirse yüklenici fesih hakkına sahiptir' gibi.", "en": "(1) Is the activity clearly defined? (2) Which party performs it? (3) What sanction applies, and how, if not performed as defined? Example: 'Work begins after the site is handed to the contractor' is vague — it doesn't say how many days after, what happens if the owner delays, or if the contractor doesn't start. A properly drafted version answers all three: e.g., handover within 3 days, delay added to duration, and contractor may terminate if delay exceeds 40 days." }
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "covers": ["n4"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Birim fiyat usulü sözleşme ile anahtar teslimi usulü sözleşme arasında, sözleşme bedeli maddesinde ne fark vardır?", "en": "In the price clause, how does a unit-price contract differ from a turnkey contract?" },
+      "options": [
+        { "tr": "Birim fiyatta keşif bedeli ve tenzilat tutarı, anahtar teslimde toplam yapım bedeli belirtilir", "en": "Unit-price states the estimated cost and discount; turnkey states the total construction cost" },
+        { "tr": "İkisinde de aynı şekilde sadece toplam bedel yazılır", "en": "Both simply state a single total price the same way" },
+        { "tr": "Birim fiyatta KDV her zaman dahildir, anahtar teslimde hiçbir zaman dahil değildir", "en": "Unit-price always includes VAT; turnkey never includes it" },
+        { "tr": "Anahtar teslimde bedel maddesi hiç yazılmaz", "en": "Turnkey contracts never include a price clause" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: birim fiyat usulünde işin keşif bedeli ve tenzilat (indirim) tutarı, anahtar teslimi usulünde ise projenin toplam yapım bedeli belirtilir. B yanlış çünkü ifade biçimleri farklıdır. C yanlış, KDV genelde ayrıca belirtilir, dahil değildir ama her iki türde de bu böyledir, birinde 'her zaman dahil' değildir. D yanlış çünkü her sözleşmede bedel maddesi olmalıdır.", "en": "Correct A: unit-price states the estimated cost and discount; turnkey states the total construction cost. B is wrong since the wording differs. C is wrong — VAT is typically stated as excluded in both, not 'always included' in one. D is wrong since every contract needs a price clause." }
+    },
+    {
+      "id": "q11",
+      "type": "open",
+      "covers": ["n4"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Sözleşme ekleri ile ilgili dört önemli kuralı sayınız.", "en": "List four important rules regarding contract annexes." },
+      "answer": { "tr": "(1) Her sözleşme ekleriyle bir bütündür; eklerin yetersizliği sözleşmeye yansır. (2) Eke konulan her sözcük veya çizgi sözleşme hükmü sayılır ve tarafları bağlar. (3) Taraflarca hazırlanmış ek belgeler de taraflarca imzalanmalıdır. (4) Ekler arasında çelişki/farklılık olması halinde hangi belgenin öncelikli sayılacağı sözleşmede belirtilmelidir (öncelik sıralaması).", "en": "(1) Every contract is a whole with its annexes; deficiencies in annexes carry through to the contract. (2) Every word or line in an annex is a binding contract provision. (3) Annexes prepared by the parties must also be signed by them. (4) If annexes conflict, the contract must state which document takes priority." }
+    },
+    {
+      "id": "q12",
+      "type": "mcq",
+      "covers": ["n4"],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": { "tr": "Sözleşme konusu 'İli, ilçesi, ana kalemleri belirtilmeden bir bina inşaatının yapılmasıdır' şeklinde yazılırsa hangi sorun ortaya çıkar?", "en": "If the subject clause just says 'construction of a building' without location/parcel/main items, what problem arises?" },
+      "options": [
+        { "tr": "İşin kapsamı ve sınırları belirsiz kalır, taraflar arasında anlaşmazlığa yol açar", "en": "The scope and boundaries remain unclear, leading to disputes between parties" },
+        { "tr": "Hiçbir sorun olmaz, genel ifade her zaman yeterlidir", "en": "No problem at all — a general statement is always sufficient" },
+        { "tr": "Sözleşme otomatik olarak resmi sözleşmeye dönüşür", "en": "The contract automatically becomes an official contract" },
+        { "tr": "Bedel maddesi geçersiz sayılır", "en": "The price clause becomes void" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: konu/kapsam net tanımlanmazsa (parsel, ada, ana iş kalemleri gibi) taraflar farklı beklentilere sahip olabilir ve anlaşmazlık çıkar — nakliye örneğinde olduğu gibi yükleme/indirme kimin işi belirsiz kalabilir. B, C, D bu somut riski göz ardı ediyor.", "en": "Correct A: without clear scope (parcel, block, main work items), parties may have differing expectations, causing disputes — as in the transport example where loading/unloading responsibility becomes unclear. B, C, D ignore this concrete risk." }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": ["n5"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Sözleşmede yaptırımların (müeyyidelerin) bulunmaması neden sorun yaratır?", "en": "Why is the absence of sanctions in a contract problematic?" },
+      "options": [
+        { "tr": "Sözleşmenin hayata geçirilmesi güçleşir hatta imkansız hale gelebilir çünkü ihlalin sonucu belirsizdir", "en": "It makes enforcing the contract difficult or impossible because the consequence of a breach is undefined" },
+        { "tr": "Sözleşme otomatik olarak geçersiz sayılır", "en": "The contract automatically becomes void" },
+        { "tr": "Vergi dairesine bildirilmesi gerekir", "en": "It must be reported to the tax office" },
+        { "tr": "Hiçbir etkisi yoktur, yaptırım isteğe bağlıdır", "en": "It has no effect at all — sanctions are optional" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: bir tarafın yükümlülüğünü yerine getirmemesi halinde ne olacağı belirtilmemişse, taraf zarara uğramayacağını bilerek gecikme riskini artırır ve karşı tarafın elinde bir yaptırım aracı kalmaz. B, C, D bu mekanizmayı doğru yansıtmıyor.", "en": "Correct A: if consequences for non-performance aren't defined, a party knows it won't suffer loss and delay risk increases, leaving the other side without recourse. B, C, D misstate the mechanism." }
+    },
+    {
+      "id": "q14",
+      "type": "open",
+      "covers": ["n5"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "İşin süresi sözleşmede 'gün' olarak belirtilecekse, belirsizliği önlemek için nelere dikkat edilmelidir?", "en": "If a contract states duration in 'days', what must be specified to avoid ambiguity?" },
+      "answer": { "tr": "Sürenin **takvim günü mü yoksa iş günü mü** olduğu açıkça belirtilmelidir. İş günü olarak belirlenmişse, **hangi günlerin çalışma günü sayıldığı** (örn. cumartesi iş günü mü) da açıkça tanımlanmalıdır. Ayrıca işin süresinde bitmemesi halinde uygulanacak para cezasının miktarı, nasıl tahsil edileceği ve hangi hallerin **mücbir sebep** sayılıp süre uzatımına yol açacağı da belirtilmelidir. Aksi halde 'işin süresi 365 gündür' gibi bir ifade uyuşmazlığa açık kalır — taraflardan biri pazar/cumartesi günlerini iş günü saymayabilir.", "en": "Whether the duration is in calendar days or working days must be stated explicitly; if working days, which days count as such (e.g., is Saturday a working day) must also be defined. The penalty amount for delay, how it's collected, and what counts as force majeure warranting an extension must also be specified. Otherwise, a bare '365 days' invites disputes over which days count." }
+    },
+    {
+      "id": "q15",
+      "type": "mcq",
+      "covers": ["n5"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Aşağıdakilerden hangisi mücbir sebep (zorunlu sebep) sayılabilmesi için gereken üç koşuldan biri DEĞİLDİR?", "en": "Which is NOT one of the three required conditions for something to count as force majeure?" },
+      "options": [
+        { "tr": "Yükleniciden kaynaklanan bir kusurdan ileri gelmemesi", "en": "Not arising from the contractor's fault" },
+        { "tr": "Taahhüdün yerine getirilmesini engelleyecek nitelikte olması", "en": "Being of a nature that prevents performance of the obligation" },
+        { "tr": "Yüklenicinin bu engeli ortadan kaldırmaya gücünün yetmemesi", "en": "The contractor lacking the power to overcome the obstacle" },
+        { "tr": "İş sahibinin mücbir sebebi önceden yazılı olarak onaylaması", "en": "The owner pre-approving the force majeure event in writing" }
+      ],
+      "correct": 3,
+      "explain": { "tr": "Doğru cevap D: mücbir sebep için önceden iş sahibi onayı aranmaz; koşul, olayın gerçekleşmesinden sonra yüklenicinin 20 gün içinde bildirimde bulunmasıdır. A, B, C ise gerçekten aranan üç koşuldur.", "en": "Correct D: force majeure does not require the owner's prior written approval; the requirement is post-event notice by the contractor within 20 days. A, B, C are the actual three conditions." }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": ["n5"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Mücbir sebep meydana geldikten sonra yüklenicinin bildirim süresi kaç gündür?", "en": "After a force majeure event, within how many days must the contractor give notice?" },
+      "options": [
+        { "tr": "5 gün", "en": "5 days" },
+        { "tr": "10 gün", "en": "10 days" },
+        { "tr": "20 gün", "en": "20 days" },
+        { "tr": "40 gün", "en": "40 days" }
+      ],
+      "correct": 2,
+      "explain": { "tr": "Doğru cevap C: yüklenici, mücbir sebebin meydana geldiği tarihi izleyen 20 gün içinde iş sahibine yazılı bildirimde bulunmalı ve belgelendirmelidir. Diğer süreler örnek metinde farklı bağlamlarda geçer (örn. 40 gün yer teslimi gecikmesi örneğinde).", "en": "Correct C: the contractor must give written, documented notice within 20 days of the force majeure event. The other numbers appear in different contexts in the sample clauses (e.g. 40 days relates to a site-handover delay example)." }
+    },
+    {
+      "id": "q17",
+      "type": "open",
+      "covers": ["n5"],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": { "tr": "İş programının sözleşme yönetimindeki önemini açıklayınız.", "en": "Explain the importance of the work program in contract management." },
+      "answer": { "tr": "İş programı, süre ve parasal harcamanın denetlenmesini sağladığı için sözleşme yönetiminin önemli araçlarından biridir. İşin niteliğine uygun bir program hazırlanması sözleşmede öngörülmelidir. Hakediş ödemeleri iş programının aşamalarıyla ilişkilendirilmişse (örn. tamamlanan %'lere göre ödeme), programın doğru hazırlanması ve izlenmesi daha da kritik hale gelir. Program iş sahibince onaylanmadan yükleniciye hakediş ödemesi yapılmaz — bu, programın uygulamadaki bağlayıcılığını gösterir.", "en": "The work program is a key contract-management tool because it enables control over duration and spending. The contract should require a program suited to the work's nature. When progress payments (hakediş) are tied to program milestones (e.g. paid per completed percentage), accurate preparation and monitoring become even more critical. No hakediş payment is made until the program is approved — showing its binding role in practice." }
+    },
+    {
+      "id": "q18",
+      "type": "mcq",
+      "covers": ["n6"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "İşin bir bölümünü taşerona (alt yükleniciye) devreden yüklenici, iş sahibine karşı hâlâ sorumlu mudur?", "en": "If the contractor subcontracts part of the work, does the contractor remain liable to the owner?" },
+      "options": [
+        { "tr": "Evet, iş sahibinin resmi muhatabı her zaman yüklenicidir; taşerona devredilen işlerden de yüklenici sorumludur", "en": "Yes, the contractor is always the owner's official counterpart and remains liable even for subcontracted work" },
+        { "tr": "Hayır, taşeron devraldığı andan itibaren tüm sorumluluk taşerona geçer", "en": "No, all liability shifts to the subcontractor once it takes over" },
+        { "tr": "Sadece iş sahibi onay vermemişse yüklenici sorumludur", "en": "The contractor is liable only if the owner did not approve the subcontracting" },
+        { "tr": "Sorumluluk taraflar arasında otomatik olarak eşit paylaşılır", "en": "Liability is automatically split equally between the parties" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: iş sahibinin resmi muhatabı her zaman yüklenicidir; taşerona devredilen işlerden de iş sahibine karşı yüklenici sorumlu olmaya devam eder. B, C, D bu temel kuralı yanlış yansıtıyor.", "en": "Correct A: the owner's official counterpart is always the contractor, who remains liable to the owner even for work delegated to a subcontractor. B, C, D misstate this basic rule." }
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "covers": ["n6"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "İnşaat işlerinde genellikle istenen sigorta türü hangisidir?", "en": "What insurance type is typically required for construction works?" },
+      "options": [
+        { "tr": "Sadece yangın sigortası", "en": "Fire insurance only" },
+        { "tr": "All risk (tüm riskleri kapsayan) sigorta", "en": "All-risk insurance" },
+        { "tr": "Sadece hırsızlık sigortası", "en": "Theft insurance only" },
+        { "tr": "Sadece deprem sigortası", "en": "Earthquake insurance only" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: inşaat işlerinde genelde tüm riskleri kapsayan (all risk) sigorta istenir — deprem, su baskını, toprak kayması, fırtına, yangın gibi doğal afetler ile hırsızlık, sabotaj riskleri dahildir. Diğer seçenekler sadece tek bir riski kapsar, yetersizdir.", "en": "Correct B: construction typically requires all-risk insurance covering earthquake, flood, landslide, storm, fire, theft, and sabotage. The other options cover only a single risk and are insufficient." }
+    },
+    {
+      "id": "q20",
+      "type": "open",
+      "covers": ["n6"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Geçici kabul ve kesin kabul arasındaki farkı, aralarındaki süre de dahil olmak üzere açıklayınız.", "en": "Explain the difference between provisional and final acceptance, including the interval between them." },
+      "answer": { "tr": "**Geçici kabul:** Yapının ana unsurlarının tamamlanıp kullanıma hazır olduğunun tespit edildiği ilk kabul aşamasıdır; eksikler tespit edilirse tamamlanması için süre verilir. **Kesin kabul:** Garanti süresi sonunda yapılan son kabul işlemidir; bu süre içinde ortaya çıkan eksiklik ve kusurlar yüklenici tarafından giderilir, tüm eksikler giderilip yapı sorunsuz bulunduğunda kesin kabul yapılır ve yüklenicinin teminatı iade edilir. İki kabul arasındaki süre genellikle **12 aydır** (garanti süresi).", "en": "Provisional acceptance is the first stage confirming the building's main elements are complete and usable, with deficiencies given a deadline. Final acceptance happens at the end of the warranty period; any defects surfacing during that time are fixed by the contractor, and once all is resolved, final acceptance is granted and the guarantee returned. The interval between the two is typically 12 months (the warranty period)." }
+    },
+    {
+      "id": "q21",
+      "type": "mcq",
+      "covers": ["n6"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Yapı denetim görevlisinin işi denetlemesi, yüklenicinin projeye uygun yapma yükümlülüğünü nasıl etkiler?", "en": "How does site inspection by a supervisor affect the contractor's duty to build to the project's specifications?" },
+      "options": [
+        { "tr": "Yükümlülüğü tamamen ortadan kaldırır, artık yüklenici sorumlu değildir", "en": "It fully removes the duty — the contractor is no longer responsible" },
+        { "tr": "Yükümlülüğü ortadan kaldırmaz; yüklenici projeye/şartnameye/fen ve sanat kurallarına uygun yapmakla sorumlu kalmaya devam eder", "en": "It does not remove the duty; the contractor remains responsible for compliance with the project, specs, and professional standards" },
+        { "tr": "Yükümlülüğü iş sahibine devreder", "en": "It transfers the duty to the owner" },
+        { "tr": "Yükümlülüğü yarı yarıya azaltır", "en": "It halves the duty" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: denetim görevlisinin denetimi, yüklenicinin işi projelerine, şartnamelerine, sözleşmesine ve fen-sanat kurallarına uygun yapma yükümlülüğünü ve sorumluluğunu ortadan kaldırmaz. A, C, D bu ilkeyi yanlış yansıtıyor.", "en": "Correct B: supervision does not remove the contractor's duty and responsibility to build in accordance with the project, specs, contract, and professional standards. A, C, D misstate this principle." }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": ["n7"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Örnek sözleşme maddesine göre, sözleşme bedelinin yüzde kaçını aşmamak kaydıyla ek işler yaptırılabilir?", "en": "Per the sample clause, up to what percentage of the contract price may extra works be ordered without exceeding it?" },
+      "options": [
+        { "tr": "%5", "en": "5%" },
+        { "tr": "%10", "en": "10%" },
+        { "tr": "%20", "en": "20%" },
+        { "tr": "%30", "en": "30%" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: örnek metne göre sözleşme bedelinin %10'unun aşılmaması ve tarafların karşılıklı anlaşması kaydıyla ek işler yaptırılabilir. Diğer yüzdeler bu örnek maddede geçmez.", "en": "Correct B: per the sample clause, extra works may be ordered up to 10% of the contract price, with both parties' mutual agreement. The other percentages are not stated in this example." }
+    },
+    {
+      "id": "q23",
+      "type": "open",
+      "covers": ["n7"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Sözleşmenin devri ile alt yükleniciye (taşerona) iş verilmesi arasındaki farkı açıklayınız.", "en": "Explain the difference between assigning a contract and subcontracting part of the work." },
+      "answer": { "tr": "**Sözleşme devrinde**, iş sahibi asıl yükleniciyle ilişkiyi sonlandırıp **yeni bir yüklenici ile doğrudan sözleşme imzalar** — asıl yüklenici artık taraf değildir. **Taşeronlaştırmada (alt yüklenici)** ise asıl yüklenici sözleşmenin tarafı olarak kalmaya devam eder; taşeron sadece işin bir kısmını fiilen yapar ama iş sahibine karşı sorumluluk yine asıl yüklenicidedir. Bu nedenle sözleşmede her iki konunun da (devir koşulları ve taşeron çalıştırma izni/koşulları) ayrı ayrı düzenlenmesi gerekir.", "en": "In assignment, the owner ends the relationship with the original contractor and signs a new direct contract with a different contractor — the original contractor is no longer a party. In subcontracting, the original contractor remains a party to the contract; the subcontractor only physically performs part of the work, but liability to the owner stays with the original contractor. Both topics (assignment conditions and subcontracting permission/conditions) must be separately addressed in the contract." }
+    },
+    {
+      "id": "q24",
+      "type": "mcq",
+      "covers": ["n7"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "\"Yüklenicinin işe vaktinde başlamaması iş sahibi için sözleşmeyi fesih koşulu olamaz\" şeklindeki bir sözleşme maddesi neden geçersiz sayılabilir?", "en": "Why might a clause saying 'the contractor's late start cannot be a termination ground for the owner' be void?" },
+      "options": [
+        { "tr": "Çünkü inşaat sözleşmelerinin dayanağı olan Borçlar Kanunu'na aykırıdır — kanun, işe başlamadaki gecikme belirli düzeye ulaşınca iş sahibine dönme hakkı verir", "en": "Because it contradicts the Code of Obligations underlying construction contracts, which grants the owner a withdrawal right once the delay reaches a certain level" },
+        { "tr": "Çünkü tüm fesih maddeleri otomatik olarak geçersizdir", "en": "Because all termination clauses are automatically void" },
+        { "tr": "Çünkü fesih maddeleri sadece kamu sözleşmelerinde yazılabilir", "en": "Because termination clauses may only be written into public contracts" },
+        { "tr": "Çünkü bu madde iş sahibi lehine olduğu için geçersizdir", "en": "Because it is void for being in the owner's favor" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: Borçlar Kanunu, yüklenicinin işe başlamadaki gecikmesinin işin kalan sürede teknik olarak bitirilemeyecek düzeye ulaşması halinde iş sahibine sözleşmeden dönme hakkı verir; bu hakkı ortadan kaldıran bir madde mevzuata aykırı olduğundan geçersizdir. B, C, D bu spesifik gerekçeyi yanlış yansıtıyor.", "en": "Correct A: the Code of Obligations grants the owner a right to withdraw once the contractor's delay in starting reaches a point where timely completion becomes technically impossible; a clause removing this right is contrary to law and thus void. B, C, D misstate the actual reasoning." }
+    },
+    {
+      "id": "q25",
+      "type": "mcq",
+      "covers": ["n7"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Anlaşmazlıkların hakem(ler) aracılığıyla çözülmesine ne ad verilir?", "en": "What is the term for resolving disputes through arbitrator(s)?" },
+      "options": [
+        { "tr": "Tenzilat", "en": "Tenzilat (discount)" },
+        { "tr": "Tahkim", "en": "Tahkim (arbitration)" },
+        { "tr": "Temerrüt", "en": "Temerrüt (default)" },
+        { "tr": "Muacceliyet", "en": "Muacceliyet (maturity)" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: tahkim, anlaşmazlıkların taraflarca atanacak hakem veya hakemler vasıtasıyla çözülmesidir. Diğer terimler farklı kavramlara aittir: tenzilat indirim, temerrüt borcun ifa edilmemesi, muacceliyet borcun vadesinin gelmesidir.", "en": "Correct B: tahkim (arbitration) means resolving disputes via arbitrator(s) appointed by the parties. The other terms refer to different concepts: tenzilat (discount), temerrüt (default), muacceliyet (maturity/due date)." }
+    },
+    {
+      "id": "q26",
+      "type": "open",
+      "covers": ["n7"],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": { "tr": "Sözleşmenin yürürlük tarihi genel kural olarak nedir? Bir istisna belirtiniz.", "en": "What is the general rule for a contract's effective date? Name an exception." },
+      "answer": { "tr": "Genel kural: sözleşmenin imzalandığı (düzenlendiği) tarih, aynı zamanda yürürlüğe giriş tarihidir; ayrıca farklı bir yürürlük tarihi öngörülmemişse bu böyle kabul edilir. İstisna: sözleşmede açıkça 'sözleşmenin yürürlüğe girdiği tarihten itibaren...' gibi ayrı bir yürürlük tarihi belirtilmişse, o tarih esas alınır — bu durumda hangi tarihin kastedildiği net tanımlanmalıdır, aksi halde tereddüde yol açar.", "en": "General rule: the signing (drafting) date is also the effective date, unless a different effective date is specified. Exception: if the contract explicitly sets a separate effective date ('effective as of...'), that date governs — but it must be clearly defined, or it causes ambiguity." }
+    },
+    {
+      "id": "q27",
+      "type": "mcq",
+      "covers": ["n8"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Eser sözleşmesi hangi kanunun kaçıncı maddesinde tanımlanmıştır?", "en": "In which article of which law is the contract for work defined?" },
+      "options": [
+        { "tr": "6098 sayılı TBK, Madde 470", "en": "TBK No. 6098, Article 470" },
+        { "tr": "4734 sayılı Kamu İhale Kanunu, Madde 1", "en": "Public Procurement Law No. 4734, Article 1" },
+        { "tr": "6098 sayılı TBK, Madde 480", "en": "TBK No. 6098, Article 480" },
+        { "tr": "2886 sayılı Kanun, Madde 5", "en": "Law No. 2886, Article 5" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: eser sözleşmesinin tanımı, 6098 sayılı Türk Borçlar Kanunu'nun 470. maddesinde yer alır. Madde 480 götürü bedeli düzenler, diğer kanunlar farklı konulara ilişkindir.", "en": "Correct A: the definition of the contract for work is in Article 470 of Turkish Code of Obligations No. 6098. Article 480 concerns the lump-sum price; the other laws address different subjects." }
+    },
+    {
+      "id": "q28",
+      "type": "open",
+      "covers": ["n8"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Eser sözleşmesini tanımlayınız (Madde 470).", "en": "Define the contract for work (Article 470)." },
+      "answer": { "tr": "Eser sözleşmesi, yüklenicinin bir eser meydana getirmeyi, iş sahibinin de bunun karşılığında bir bedel ödemeyi üstlendiği sözleşmedir (TBK Madde 470). İnşaat sözleşmeleri genel olarak bu hükümlere tabidir.", "en": "A contract for work is one where the contractor undertakes to produce a work and the owner undertakes to pay a price in return (TBK Art. 470). Construction contracts are generally subject to these provisions." }
+    },
+    {
+      "id": "q29",
+      "type": "mcq",
+      "covers": ["n8"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Yüklenicinin özen borcundan doğan sorumluluğu belirlenirken hangi standart esas alınır?", "en": "What standard is used to determine the contractor's liability arising from the duty of care?" },
+      "options": [
+        { "tr": "Ortalama bir vatandaşın göstereceği özen", "en": "The care an average citizen would show" },
+        { "tr": "Benzer alandaki işleri üstlenen basiretli bir yüklenicinin mesleki/teknik kurallara uygun davranışı", "en": "The professional/technical conduct of a prudent contractor undertaking similar work" },
+        { "tr": "Sadece sözleşmede yazılanla sınırlı özen", "en": "Care limited strictly to what is written in the contract" },
+        { "tr": "İş sahibinin belirlediği özen düzeyi", "en": "The care level determined by the owner" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: kanun, benzer alandaki işleri üstlenen basiretli bir yüklenicinin göstermesi gereken mesleki ve teknik kurallara uygun davranışı esas alır (M.471). A, C, D bu objektif mesleki standardı yansıtmıyor.", "en": "Correct B: the law applies the professional/technical conduct expected of a prudent contractor doing similar work (Art. 471). A, C, D fail to reflect this objective professional standard." }
+    },
+    {
+      "id": "q30",
+      "type": "mcq",
+      "covers": ["n8"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Yüklenici, eseri meydana getirme işini hangi durumda başka birine yaptırabilir? (Madde 471)", "en": "Under what condition may the contractor delegate production of the work to another? (Article 471)" },
+      "options": [
+        { "tr": "Her zaman serbestçe yaptırabilir", "en": "Always freely, without conditions" },
+        { "tr": "Eserin meydana getirilmesinde yüklenicinin kişisel özellikleri önem taşımıyorsa", "en": "When the contractor's personal characteristics are not material to producing the work" },
+        { "tr": "Sadece iş sahibi başka birini önerirse", "en": "Only if the owner proposes someone else" },
+        { "tr": "Hiçbir zaman yaptıramaz, mutlaka kendisi yapmalıdır", "en": "Never — the contractor must always do it personally" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: kanun, yüklenicinin kişisel özelliklerinin önemli olmadığı durumlarda işi başkasına da yaptırabileceğini belirtir. A ve D iki uçta yanlış genelleme yapıyor, C metinde yer almayan bir koşul.", "en": "Correct B: the law allows delegation when the contractor's personal characteristics are not material. A and D are both incorrect overgeneralizations, and C is a condition not found in the text." }
+    },
+    {
+      "id": "q31",
+      "type": "open",
+      "covers": ["n8"],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": { "tr": "Madde 471'e göre yüklenicinin genel borçlarını maddeler halinde sıralayınız.", "en": "List the contractor's general duties under Article 471." },
+      "answer": { "tr": "1) Üstlendiği edimleri iş sahibinin haklı menfaatlerini gözeterek sadakat ve özenle ifa etmek. 2) Özen borcunda basiretli bir yüklenicinin mesleki/teknik standardına uymak. 3) Eseri doğrudan kendisi yapmak veya kendi yönetimi altında yaptırmak (kişisel özellik önemli değilse başkasına yaptırabilir). 4) Aksine adet/anlaşma yoksa, işin yapımında kullanılacak araç ve gereçleri kendisi sağlamak.", "en": "1) Perform the undertaken duties loyally and carefully, safeguarding the owner's legitimate interests. 2) Meet the 'prudent contractor' professional/technical standard for the duty of care. 3) Produce the work personally or under own management (may delegate if personal traits are immaterial). 4) Absent contrary custom/agreement, supply the tools and equipment needed." }
+    },
+    {
+      "id": "q32",
+      "type": "mcq",
+      "covers": ["n9"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Malzeme yüklenici tarafından sağlanmışsa ve ayıplı çıkarsa, yüklenicinin sorumluluğu nasıl nitelendirilir? (Madde 472)", "en": "If the contractor supplies defective material, how is the contractor's liability characterized? (Article 472)" },
+      "options": [
+        { "tr": "Satıcı gibi sorumludur", "en": "Liable as if it were a seller" },
+        { "tr": "Hiçbir sorumluluğu yoktur", "en": "Bears no liability at all" },
+        { "tr": "Sadece iş sahibi talep ederse sorumludur", "en": "Liable only if the owner specifically demands it" },
+        { "tr": "Kiracı gibi sorumludur", "en": "Liable as if it were a tenant" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: malzeme yüklenici tarafından sağlanmışsa, yüklenici bu malzemenin ayıplı olması yüzünden iş sahibine karşı satıcı gibi sorumludur (M.472). B, C, D bu hükmü yanlış yansıtıyor.", "en": "Correct A: if the contractor supplies the material, it is liable to the owner for defects as if it were a seller (Art. 472). B, C, D misstate this rule." }
+    },
+    {
+      "id": "q33",
+      "type": "open",
+      "covers": ["n9"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Malzeme iş sahibi tarafından sağlanmışsa, yüklenicinin borçları nelerdir? (Madde 472)", "en": "If the owner supplies the material, what are the contractor's obligations? (Article 472)" },
+      "answer": { "tr": "Yüklenici, iş sahibinin sağladığı malzemeleri gereken özeni göstererek kullanmak ve bundan dolayı hesap vermek ve artan malzemeyi geri vermekle yükümlüdür. Ayrıca, iş sahibinin sağladığı malzemenin veya gösterdiği yerin ayıplı olduğu anlaşılırsa ya da eserin gereği gibi veya zamanında meydana getirilmesini tehlikeye düşürecek başka bir durum ortaya çıkarsa, yüklenici bu durumu hemen iş sahibine bildirmek zorundadır; bildirmezse doğacak sonuçlardan kendisi sorumlu olur.", "en": "The contractor must use owner-supplied materials carefully, account for their use, and return any surplus. Additionally, if the owner-supplied material or designated site turns out to be defective, or another circumstance threatens timely/proper completion, the contractor must immediately notify the owner; failing to do so makes the contractor liable for the resulting consequences." }
+    },
+    {
+      "id": "q34",
+      "type": "mcq",
+      "covers": ["n9"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Yüklenicinin işi kararlaştırılan zamanda bitiremeyeceği açıkça anlaşılırsa, iş sahibinin hakkı nedir? (Madde 473)", "en": "If it becomes clear the contractor cannot finish on time, what right does the owner have? (Article 473)" },
+      "options": [
+        { "tr": "Teslim için belirlenen günü beklemek zorunda olmaksızın sözleşmeden dönebilir", "en": "May withdraw from the contract without waiting for the agreed delivery date" },
+        { "tr": "Yalnızca bedelden indirim isteyebilir", "en": "May only request a price reduction" },
+        { "tr": "Hiçbir hakkı yoktur, teslim gününü beklemek zorundadır", "en": "Has no right and must wait for the delivery date" },
+        { "tr": "Sadece mahkemeye başvurabilir, sözleşmeden dönemez", "en": "May only go to court, cannot withdraw" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: kanun, işin zamanında bitmeyeceğinin açıkça anlaşılması halinde iş sahibine, teslim gününü beklemeden sözleşmeden dönme hakkı tanır (M.473). B, C, D bu hakkı yanlış/eksik yansıtıyor.", "en": "Correct A: the law grants the owner the right to withdraw without waiting for the delivery date once timely completion is clearly impossible (Art. 473). B, C, D misstate or understate this right." }
+    },
+    {
+      "id": "q35",
+      "type": "mcq",
+      "covers": ["n9"],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": { "tr": "Eserdeki ayıp sebebiyle yüklenicinin sorumlu olduğu hallerde, iş sahibinin Madde 475'e göre kullanamayacağı hak aşağıdakilerden hangisidir?", "en": "Which of the following is NOT one of the owner's rights under Article 475 for a defect the contractor is liable for?" },
+      "options": [
+        { "tr": "Sözleşmeden dönme", "en": "Withdraw from the contract" },
+        { "tr": "Ayıp oranında bedelden indirim isteme", "en": "Request a price reduction proportional to the defect" },
+        { "tr": "Ücretsiz onarım isteme", "en": "Request free repair" },
+        { "tr": "Yükleniciyi cezaevine gönderme", "en": "Have the contractor imprisoned" }
+      ],
+      "correct": 3,
+      "explain": { "tr": "Doğru cevap D: Madde 475, iş sahibine üç seçimlik hak tanır — sözleşmeden dönme, bedelden indirim, ücretsiz onarım. 'Cezaevine gönderme' hukuki bir seçimlik hak değildir, bu bir ceza hukuku kavramıdır ve eser sözleşmesiyle ilgisizdir.", "en": "Correct D: Article 475 grants three elective rights — withdrawal, price reduction, free repair. 'Imprisonment' is not a civil elective right; it belongs to criminal law and is unrelated to contracts for work." }
+    },
+    {
+      "id": "q36",
+      "type": "open",
+      "covers": ["n9"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "İş sahibinin ayıp sebebiyle sözleşmeden dönme hakkını kullanamayacağı durumu açıklayınız.", "en": "Explain when the owner cannot exercise the right to withdraw for a defect." },
+      "answer": { "tr": "Eser, iş sahibinin **taşınmazı üzerine** yapılmışsa ve bunun **sökülüp kaldırılması aşırı zarar doğuracaksa**, iş sahibi sözleşmeden dönme hakkını kullanamaz — bu durumda diğer iki seçimlik haktan (bedelden indirim veya ücretsiz onarım) birini kullanması gerekir. Bu kural, ekonomik olarak anlamsız bir yıkımı önlemeyi amaçlar.", "en": "If the work is built on the owner's real property and its removal would cause excessive damage, the owner cannot exercise the right to withdraw — instead, one of the other two elective rights (price reduction or free repair) must be used. This rule prevents economically senseless demolition." }
+    },
+    {
+      "id": "q37",
+      "type": "mcq",
+      "covers": ["n10"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Eserin ayıplı olması, yüklenicinin açık ihtarına rağmen iş sahibinin verdiği talimattan doğmuşsa, iş sahibinin durumu nedir? (Madde 476)", "en": "If a defect resulted from the owner's instructions despite the contractor's clear warning, what is the owner's position? (Article 476)" },
+      "options": [
+        { "tr": "İş sahibi, eserin ayıplı olmasından doğan haklarını kullanamaz", "en": "The owner cannot exercise the rights arising from the defect" },
+        { "tr": "İş sahibi yine de tam tazminat alır", "en": "The owner still receives full compensation" },
+        { "tr": "Yüklenici otomatik olarak sorumlu tutulur", "en": "The contractor is automatically held liable regardless" },
+        { "tr": "Sözleşme kendiliğinden feshedilir", "en": "The contract is automatically terminated" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: ayıp, yüklenicinin ihtarına rağmen iş sahibinin talimatından doğmuşsa veya herhangi bir sebeple iş sahibine yüklenebilirse, iş sahibi ayıba dayalı haklarını (M.475) kullanamaz. B, C, D kanunun bu istisnasını göz ardı ediyor.", "en": "Correct A: if the defect arose from the owner's instructions despite the contractor's warning, or is otherwise attributable to the owner, the owner loses the Article 475 rights. B, C, D ignore this statutory exception." }
+    },
+    {
+      "id": "q38",
+      "type": "mcq",
+      "covers": ["n10"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Eserin açıkça veya örtülü kabulünden sonra yüklenicinin sorumluluğu ne olur? (Madde 477)", "en": "What happens to the contractor's liability after express or implied acceptance of the work? (Article 477)" },
+      "options": [
+        { "tr": "Yüklenici, kasten gizlediği ve gözden geçirmede fark edilemeyecek ayıplar hariç, her türlü sorumluluktan kurtulur", "en": "The contractor is released from all liability except for intentionally hidden, undetectable defects" },
+        { "tr": "Yüklenicinin sorumluluğu değişmez, tüm ayıplardan sonsuza kadar sorumludur", "en": "Liability is unchanged — the contractor remains liable for all defects forever" },
+        { "tr": "Sorumluluk otomatik olarak iş sahibine geçer", "en": "Liability automatically shifts to the owner" },
+        { "tr": "Kabulün hiçbir hukuki etkisi yoktur", "en": "Acceptance has no legal effect at all" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: kabulden sonra yüklenici her türlü sorumluluktan kurtulur, istisna kasten gizlenen ve usulüne uygun incelemede fark edilemeyecek ayıplardır (M.477). B, C, D yanlıştır.", "en": "Correct A: after acceptance, the contractor is released from liability except for intentionally concealed, undetectable defects (Art. 477). B, C, D are incorrect." }
+    },
+    {
+      "id": "q39",
+      "type": "open",
+      "covers": ["n10"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "İş sahibi eseri gözden geçirmeyi veya ayıp bildirmeyi ihmal ederse ne olur? (Madde 477)", "en": "What happens if the owner fails to inspect the work or report defects? (Article 477)" },
+      "answer": { "tr": "İş sahibi, eseri gözden geçirmeyi ve bildirimde bulunmayı ihmal ederse, eseri **kabul etmiş sayılır**. Aynı şekilde, ayıp sonradan ortaya çıkarsa iş sahibi gecikmeksizin durumu yükleneceye bildirmek zorundadır; bunu da yapmazsa yine eseri kabul etmiş sayılır. Bu kural, iş sahibinin belirsiz süre boyunca yükleniciyi sorumlu tutmaya devam etmesini engeller.", "en": "If the owner neglects to inspect and notify, the work is deemed accepted. Likewise, if a defect emerges later, the owner must notify the contractor without delay; failing to do so again results in deemed acceptance. This rule prevents the owner from holding the contractor liable indefinitely." }
+    },
+    {
+      "id": "q40",
+      "type": "mcq",
+      "covers": ["n10"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Taşınmaz olmayan bir eserde ayıp sebebiyle açılacak davalarda zamanaşımı süresi kaç yıldır? (Madde 478)", "en": "For a non-real-property work, what is the statute of limitations for defect claims? (Article 478)" },
+      "options": [
+        { "tr": "1 yıl", "en": "1 year" },
+        { "tr": "2 yıl", "en": "2 years" },
+        { "tr": "5 yıl", "en": "5 years" },
+        { "tr": "20 yıl", "en": "20 years" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: taşınmaz olmayan eserlerde zamanaşımı süresi 2 yıldır; taşınmaz yapılarda 5 yıl, ağır kusur halinde ise 20 yıldır (M.478).", "en": "Correct B: the limitation period is 2 years for non-real-property works; 5 years for buildings; 20 years if the contractor's fault was severe (Art. 478)." }
+    },
+    {
+      "id": "q41",
+      "type": "mcq",
+      "covers": ["n10"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Bir bina inşaatında (taşınmaz yapı) ayıp davası için genel zamanaşımı süresi kaç yıldır?", "en": "For a building (real-property work), what is the general limitation period for defect claims?" },
+      "options": [
+        { "tr": "2 yıl", "en": "2 years" },
+        { "tr": "5 yıl", "en": "5 years" },
+        { "tr": "10 yıl", "en": "10 years" },
+        { "tr": "15 yıl", "en": "15 years" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: taşınmaz yapılarda ayıp davaları için genel zamanaşımı süresi 5 yıldır. Yüklenicinin ağır kusuru varsa bu süre 20 yıla çıkar (M.478).", "en": "Correct B: the general limitation period for real-property (building) defect claims is 5 years. It extends to 20 years if the contractor's fault was severe (Art. 478)." }
+    },
+    {
+      "id": "q42",
+      "type": "mcq",
+      "covers": ["n11"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "İş sahibinin bedel ödeme borcu ne zaman muaccel olur? (Madde 479)", "en": "When does the owner's payment obligation become due? (Article 479)" },
+      "options": [
+        { "tr": "Sözleşmenin imzalandığı anda", "en": "At the moment the contract is signed" },
+        { "tr": "Eserin teslimi anında", "en": "At the moment the work is delivered" },
+        { "tr": "İşin başlangıcında", "en": "At the start of the work" },
+        { "tr": "Kesin kabulden 1 yıl sonra", "en": "One year after final acceptance" }
+      ],
+      "correct": 1,
+      "explain": { "tr": "Doğru cevap B: iş sahibinin bedel ödeme borcu, eserin teslimi anında muaccel olur (M.479). Eser parça parça teslim ediliyorsa, her parçanın bedeli o parçanın teslim anında muaccel olur.", "en": "Correct B: the owner's payment obligation becomes due at the moment the work is delivered (Art. 479). If delivered in parts, each part's price is due at its own delivery." }
+    },
+    {
+      "id": "q43",
+      "type": "open",
+      "covers": ["n11"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Götürü bedel nedir? Yüklenici ve iş sahibi açısından sonuçlarını Madde 480'e göre açıklayınız.", "en": "What is a lump-sum (götürü) price? Explain its consequences for contractor and owner under Article 480." },
+      "answer": { "tr": "Götürü bedel, yapılacak işin bedelinin taraflarca kuşkuya yer bırakmayacak şekilde açık ve kesin (tek bir toplam rakam) olarak belirlenmesidir. Madde 480'e göre: eser öngörülenden **fazla** emek/masraf gerektirse bile yüklenici bedelin artırılmasını **isteyemez** — riski yüklenici üstlenir. Eser öngörülenden **az** emek/masraf gerektirse bile iş sahibi bedelin **tamamını ödemekle** yükümlüdür — kazancı yüklenici elde eder. Bu yapı her iki tarafa da güvenlik sağlar: yüklenici için iş kapsamı, iş sahibi için ödeyeceği tutar baştan bellidir. İstisna: öngörülemeyen aşırı durumlar yükleniciyi çok güç duruma düşürürse, yüklenici hakimden uyarlama isteyebilir veya sözleşmeden dönebilir.", "en": "A lump-sum price is a single, definite total amount agreed for the whole work, leaving no room for doubt. Under Article 480: if the work costs more effort/expense than expected, the contractor cannot demand more — the contractor bears that risk. If it costs less, the owner must still pay the full price — the contractor keeps the gain. This gives both sides certainty. Exception: if unforeseen circumstances place the contractor under excessive hardship, judicial adaptation or withdrawal may be sought." }
+    },
+    {
+      "id": "q44",
+      "type": "mcq",
+      "covers": ["n11"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Götürü bedelli bir sözleşmede eser öngörülenden daha AZ emek ve masraf gerektirmiştir. Bu durumda ne olur?", "en": "In a lump-sum contract, the work required LESS effort and expense than expected. What happens?" },
+      "options": [
+        { "tr": "İş sahibi bedelin tamamını ödemekle yükümlüdür", "en": "The owner must still pay the full price" },
+        { "tr": "İş sahibi otomatik olarak bedelden indirim alır", "en": "The owner automatically gets a price reduction" },
+        { "tr": "Yüklenici fazladan kâr elde edemez, farkı iade etmelidir", "en": "The contractor cannot keep extra profit and must refund the difference" },
+        { "tr": "Sözleşme geçersiz hale gelir", "en": "The contract becomes void" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: eser öngörülenden az emek ve masraf gerektirmiş olsa bile iş sahibi belirlenen bedelin tamamını ödemekle yükümlüdür (M.480). Bu, götürü bedelin simetrik yapısının bir sonucudur. B, C, D yanlıştır.", "en": "Correct A: even if the work required less effort/expense than expected, the owner must still pay the full agreed price (Art. 480) — the flip side of the lump-sum symmetry. B, C, D are incorrect." }
+    },
+    {
+      "id": "q45",
+      "type": "mcq",
+      "covers": ["n11"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Eserin bedeli önceden belirlenmemiş veya sadece yaklaşık olarak belirlenmişse, bedel nasıl saptanır? (Madde 481)", "en": "If the price wasn't fixed in advance or was only estimated, how is it determined? (Article 481)" },
+      "options": [
+        { "tr": "İşin yapıldığı yer ve zamandaki eserin değerine ve yüklenicinin giderine bakılarak", "en": "Based on the work's value and the contractor's costs, at the place and time it was done" },
+        { "tr": "Sadece iş sahibinin belirlediği rakama göre", "en": "Solely based on a figure the owner sets" },
+        { "tr": "Sözleşmenin imzalandığı tarihteki asgari ücrete göre", "en": "Based on the minimum wage as of the contract's signing date" },
+        { "tr": "Belirlenemez, dava açılamaz", "en": "It cannot be determined, and no claim may be filed" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: bedel önceden belirlenmemiş veya yaklaşık belirlenmişse, işin yapıldığı yer ve zamandaki eserin değerine ve yüklenicinin giderine bakılarak belirlenir (M.481). B, C, D bu kuralı yanlış yansıtıyor.", "en": "Correct A: if not fixed or only estimated, the price is set based on the work's value and the contractor's expenses, at the place and time of performance (Art. 481). B, C, D misstate this rule." }
+    },
+    {
+      "id": "q46",
+      "type": "mcq",
+      "covers": ["n12"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Başlangıçta yaklaşık olarak belirlenen bedel, iş sahibinin kusuru olmaksızın aşırı ölçüde aşılacaksa, iş sahibinin hakkı nedir? (Madde 482)", "en": "If an initially estimated price will be excessively exceeded through no fault of the owner, what right does the owner have? (Article 482)" },
+      "options": [
+        { "tr": "Eser tamamlanmadan veya tamamlandıktan sonra sözleşmeden dönebilir", "en": "May withdraw from the contract before or after completion" },
+        { "tr": "Sadece yükleniciyi dava edebilir, dönemez", "en": "May only sue the contractor, cannot withdraw" },
+        { "tr": "Hiçbir hakkı yoktur, aşan tutarı ödemek zorundadır", "en": "Has no right and must pay the excess" },
+        { "tr": "Sadece bedelde indirim isteyebilir", "en": "May only request a price reduction" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: kanun, iş sahibinin kusuru olmaksızın yaklaşık bedelin aşırı ölçüde aşılacağı anlaşılırsa, eser tamamlanmadan veya tamamlandıktan sonra sözleşmeden dönebileceğini belirtir (M.482). B, C, D yanlıştır.", "en": "Correct A: the law allows the owner to withdraw before or after completion if the estimated price will be excessively exceeded without owner fault (Art. 482). B, C, D are incorrect." }
+    },
+    {
+      "id": "q47",
+      "type": "open",
+      "covers": ["n12"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Eser teslimden önce beklenmedik bir olay sonucu yok olursa, taraflar arasında hasar ve ücret sorumluluğu nasıl paylaşılır? (Madde 483)", "en": "If the work is destroyed by an unexpected event before delivery, how is risk and payment liability allocated between the parties? (Article 483)" },
+      "answer": { "tr": "Kural: iş sahibi eseri teslim almada **temerrüde düşmediği sürece**, yüklenici yaptığı işin ücretini ve giderlerinin ödenmesini isteyemez. Malzemeye gelen hasar, **onu sağlayan tarafa** ait olur (yüklenici sağladıysa yükleniciye, iş sahibi sağladıysa iş sahibine). **İstisna:** iş sahibi eseri teslim almada temerrüde düşerse, temerrüdün başladığı andan itibaren hasar **iş sahibine** geçer — bu durumda müteahhidin (yüklenicinin) yapabileceği bir şey kalmaz, risk iş sahibi üzerindedir.", "en": "Rule: unless the owner is in default on taking delivery, the contractor cannot claim payment for work done or costs incurred. Material damage falls on whoever supplied it (contractor if contractor-supplied, owner if owner-supplied). Exception: if the owner defaults on taking delivery, risk shifts to the owner from the moment of default — the contractor is then no longer responsible." }
+    },
+    {
+      "id": "q48",
+      "type": "mcq",
+      "covers": ["n12"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "İş sahibi, tamamlanan kısmın karşılığını ödeyip yüklenicinin tüm zararlarını gidermek koşuluyla sözleşmeyi feshedebilir — bu hangi maddede düzenlenmiştir?", "en": "The owner may terminate by paying for the completed portion and compensating all the contractor's losses — which article regulates this?" },
+      "options": [
+        { "tr": "Madde 482", "en": "Article 482" },
+        { "tr": "Madde 483", "en": "Article 483" },
+        { "tr": "Madde 484", "en": "Article 484" },
+        { "tr": "Madde 486", "en": "Article 486" }
+      ],
+      "correct": 2,
+      "explain": { "tr": "Doğru cevap C: bu, 'tazminat karşılığı fesih' başlıklı Madde 484'te düzenlenmiştir. Madde 482 yaklaşık bedelin aşılmasını, Madde 483 eserin yok olmasını, Madde 486 yüklenicinin ölümünü düzenler.", "en": "Correct C: this is 'termination against compensation' under Article 484. Article 482 covers estimate overruns, 483 covers destruction of the work, and 486 covers the contractor's death." }
+    },
+    {
+      "id": "q49",
+      "type": "mcq",
+      "covers": ["n12"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Eserin tamamlanması, iş sahibiyle ilgili beklenmedik bir olay nedeniyle imkansızlaşırsa, yüklenicinin hakkı nedir? (Madde 485)", "en": "If completion becomes impossible due to an unexpected event related to the owner, what can the contractor claim? (Article 485)" },
+      "options": [
+        { "tr": "Yaptığı işin değerini ve buna girmeyen giderlerini isteyebilir; iş sahibinin kusuru varsa ayrıca tazminat da isteyebilir", "en": "May claim the value of work done plus non-included costs; and damages too if the owner was at fault" },
+        { "tr": "Hiçbir şey isteyemez", "en": "May claim nothing" },
+        { "tr": "Sadece malzeme bedelini isteyebilir", "en": "May only claim the cost of materials" },
+        { "tr": "Sadece sözleşme bedelinin yarısını isteyebilir", "en": "May only claim half the contract price" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: iş sahibiyle ilgili beklenmedik olay yüzünden ifa imkansızlaşırsa yüklenici, yaptığı işin değerini ve bu değere girmeyen giderlerini isteyebilir; iş sahibinin kusuru varsa ayrıca tazminat da isteyebilir (M.485). B, C, D yanlıştır.", "en": "Correct A: if performance becomes impossible due to an unexpected owner-related event, the contractor may claim the value of the work plus non-included costs, and damages if the owner was at fault (Art. 485). B, C, D are incorrect." }
+    },
+    {
+      "id": "q50",
+      "type": "open",
+      "covers": ["n12"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Yüklenicinin ölümü veya yeteneğini kaybetmesi sözleşmeyi nasıl etkiler? (Madde 486)", "en": "How does the contractor's death or loss of capacity affect the contract? (Article 486)" },
+      "answer": { "tr": "Yüklenicinin **kişisel özellikleri** göz önünde tutularak yapılmış bir sözleşme, yüklenicinin ölümü veya (kusuru olmaksızın) eseri tamamlama yeteneğini kaybetmesi durumunda **kendiliğinden sona erer**. Bu durumda, iş sahibi eserin tamamlanan kısmından yararlanabilecekse, bu kısmı kabul etmek ve karşılığını (yükleniciye veya mirasçılarına) ödemekle yükümlüdür.", "en": "A contract concluded in reliance on the contractor's personal characteristics automatically terminates upon the contractor's death, or loss of capacity to complete the work through no fault of the contractor. In that case, if the owner can make use of the completed portion, the owner must accept it and pay for it (to the contractor or their heirs)." }
+    },
+    {
+      "id": "q51",
+      "type": "mcq",
+      "covers": ["n13"],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": { "tr": "Temerrüt terimi neyi ifade eder?", "en": "What does the term 'temerrüt' mean?" },
+      "options": [
+        { "tr": "Kişinin borçlandığı edimi hukuka aykırı olarak yerine getirmemesi", "en": "A person's unlawful failure to perform an obligation owed" },
+        { "tr": "Bir sözleşmenin noter tarafından onaylanması", "en": "Notarial certification of a contract" },
+        { "tr": "Bedelin vadesinin gelmesi", "en": "The maturing of a debt's due date" },
+        { "tr": "İki taraf arasında imzalanan ek protokol", "en": "An additional protocol signed between two parties" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: temerrüt, kişinin borçlandığı edimi hukuka aykırı olarak yerine getirmemesi halidir. C tanımı 'muacceliyet' terimine aittir, B ve D alakasız kavramlardır.", "en": "Correct A: temerrüt is a party's unlawful failure to perform an obligation owed. C describes 'muacceliyet' instead, and B, D are unrelated concepts." }
+    },
+    {
+      "id": "q52",
+      "type": "mcq",
+      "covers": ["n13"],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": { "tr": "Rayiç (raiç) bedel neyi ifade eder ve hangi durumda hesaplattırılır?", "en": "What does 'raiç bedel' mean and when is it computed?" },
+      "options": [
+        { "tr": "İşin yapıldığı yer ve zamandaki piyasa değeridir; taraflar bedelde anlaşamadığında bilirkişiye hesaplattırılır", "en": "The market value at the place/time of the work; computed by an expert (bilirkişi) when parties can't agree on price" },
+        { "tr": "Sözleşmenin resmi noter ücretidir", "en": "The official notary fee for the contract" },
+        { "tr": "Devlet tarafından belirlenen sabit fiyat listesidir", "en": "A fixed price list set by the government" },
+        { "tr": "Sadece kamu ihalelerinde kullanılan bir terimdir", "en": "A term used only in public tenders" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: rayiç bedel, işin yapıldığı yer ve zamandaki mahalli piyasa değeridir; eser sözleşmesi yazılı olma şartına tabi olmadığından taraflar (özellikle ek imalat) bedelinde anlaşamazsa bilirkişiye hesaplattırılır. B, C, D yanlıştır.", "en": "Correct A: raiç bedel is the local market value at the place/time of performance; since contracts for work needn't be written, when parties (especially over extra work) disagree on price, an expert computes it. B, C, D are incorrect." }
+    },
+    {
+      "id": "q53",
+      "type": "open",
+      "covers": ["n13"],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": { "tr": "Yıllara sari inşaat işlerinde bedel anlaşmazlığı nasıl çözülür? Neden bu yöntem tercih edilir?", "en": "How is a price dispute resolved for multi-year construction works, and why is this method used?" },
+      "answer": { "tr": "İşin niteliği/hacmi aynı yılda tamamlanamıyorsa ve taraflar bedelde anlaşamıyorsa, **her yıl gerçekleştirilen imalat bedeli o yılın mahalli piyasa rayiçlerinden hesaplattırılıp toplanmak suretiyle** belirlenir. Bu yöntem, özellikle ekonomik dengelerin oynak olduğu ülkelerde (yüksek enflasyon gibi) adil sonuç verir — çünkü tek bir yıl için sabitlenmiş bir fiyat, yıllar sonra gerçek değeri yansıtmayabilir; her yılın kendi rayiciyle değerlendirilmesi, taraflardan hiçbirinin haksız kazanç/kayıp yaşamamasını sağlar.", "en": "If the work cannot be completed in a single year and the parties disagree on price, each year's completed work is priced using that year's local market rates, and the amounts are summed. This method is fair especially in economically volatile (e.g., high-inflation) settings, since a single fixed price could badly misrepresent real value years later; pricing each year separately prevents unfair gain or loss for either party." }
+    },
+    {
+      "id": "q54",
+      "type": "mcq",
+      "covers": ["n13", "n9"],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": { "tr": "Bir yüklenici, iş sahibinin sağladığı kalıp malzemesinin ayıplı olduğunu fark etmiş ama bunu iş sahibine bildirmeden inşaata devam etmiştir. Eser bu yüzden ayıplı çıkmıştır. Aşağıdakilerden hangisi doğrudur?", "en": "A contractor noticed the owner-supplied formwork material was defective but continued without notifying the owner. The work ended up defective as a result. Which is correct?" },
+      "options": [
+        { "tr": "Yüklenici, bildirmediği için doğacak sonuçlardan kendisi sorumlu olur", "en": "The contractor is liable for the resulting consequences, since it failed to notify" },
+        { "tr": "Sorumluluk tamamen iş sahibine aittir çünkü malzemeyi o sağlamıştır", "en": "Liability falls entirely on the owner, since it supplied the material" },
+        { "tr": "Hiç kimse sorumlu değildir, malzeme kusuru kader sayılır", "en": "No one is liable — a material defect is treated as an act of fate" },
+        { "tr": "Sadece iş sahibi tazminat talep edebilir, yüklenici hiçbir savunma yapamaz", "en": "Only the owner may claim damages; the contractor has no defense" }
+      ],
+      "correct": 0,
+      "explain": { "tr": "Doğru cevap A: Madde 472 uyarınca, iş sahibinin sağladığı malzemenin ayıplı olduğu anlaşılırsa yüklenici bunu hemen iş sahibine bildirmek zorundadır; bildirmezse bundan doğacak sonuçlardan kendisi sorumlu olur. B yanlış çünkü bildirim yükümlülüğünü ihmal eden yüklenici sorumluluktan kurtulamaz. C ve D bu kuralı hiç yansıtmıyor.", "en": "Correct A: under Article 472, if owner-supplied material proves defective, the contractor must notify the owner immediately; failure to do so makes the contractor liable for the consequences. B is wrong because neglecting the notice duty does not excuse the contractor. C and D ignore the rule entirely." }
+    },
+    {
+      "id": "q55",
+      "type": "open",
+      "covers": ["n3", "n9"],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": { "tr": "Bir inşaat sözleşmesi kaleme alınırken hem 'sözleşmede yer alması gereken temel unsurlar' konusunu hem de eser sözleşmesindeki yüklenici/iş sahibi borçlarını göz önünde bulundurarak, iyi hazırlanmış bir sözleşmenin neden anlaşmazlık riskini azalttığını açıklayınız.", "en": "Considering both the core contract elements and the contractor/owner duties under the contract-for-work provisions, explain why a well-drafted contract reduces dispute risk." },
+      "answer": { "tr": "İyi hazırlanmış bir sözleşme, (1) her faaliyetin hangi tarafça, nasıl ve ne zaman yapılacağını (görev tanımı), (2) yapılmazsa doğacak sorumluluğu (yaptırım) ve (3) bu yaptırımın nasıl uygulanacağını (prosedür) net biçimde tanımlar. Bu, TBK'nin eser sözleşmesi hükümleriyle de örtüşür: kanun zaten yüklenici ve iş sahibinin temel borçlarını (özen, malzeme, bildirim, ödeme, ayıp sorumluluğu vb.) tanımlamıştır, ancak kanunun bıraktığı boşlukları (süre, ceza miktarı, teminat, denetim, fesih koşulları gibi somut detaylar) sözleşme doldurmalıdır. Boşluk bırakılan her nokta, tarafların farklı yorumlamasına ve anlaşmazlığa yol açabilir; net ve kapsamlı yazılmış bir sözleşme ise bir uyuşmazlık çıktığında doğrudan ilgili maddeye bakılarak çözülebilir, mahkemeye gitmeye gerek kalmadan.", "en": "A well-drafted contract clearly defines (1) which party performs each activity and how/when, (2) the liability triggered by non-performance, and (3) the procedure for applying that sanction. This complements TBK's contract-for-work provisions: the law already defines core duties (care, materials, notice, payment, defect liability), but the contract must fill in the specifics the law leaves open (duration, penalty amounts, guarantees, supervision, termination conditions). Every gap invites differing interpretations and disputes; a clear, comprehensive contract lets disputes be resolved by referring directly to its clauses, without going to court." }
+    },
+    {
+      "id": "q56",
+      "type": "open",
+      "covers": ["n6"],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": { "tr": "Yükleniciye yapılacak ödemeler (hakedişler) ile ilgili sözleşme maddesinde hangi hususların açıklığa kavuşturulması gerekir?", "en": "What matters must be clarified in the contract clause on payments (hakediş) to the contractor?" },
+      "answer": { "tr": "Yükleniciye yapılacak ödemeler tereddüde yer bırakmayacak şekilde açıklığa kavuşturulmalıdır: **hakedişlerin hangi aralıklarla ödeneceği** (örn. aylık mı, iş programı aşamalarına göre mi), **ödeme düzeyinin neye göre belirleneceği** (tamamlanan iş oranı vb.), **ödeme evrakının nasıl oluşturulacağı** ve **avans verilip verilmeyeceği** belirtilmelidir. Bu ayrıntılar sözleşme metninde ya da eki olan genel şartnamede verilebilir; şartnamede verilecekse sözleşmede ona atıf yapılır. Ödemelerin belirsiz bırakılması (örn. 'aylık ödenir' deyip düzeyini tanımlamamak) taraflar arasında anlaşmazlığa yol açar.", "en": "Payments to the contractor must be spelled out without leaving room for doubt: the **intervals** at which progress payments are made (e.g. monthly, or tied to work-program milestones), **how the payment level is determined** (share of work completed, etc.), **how payment documents are prepared**, and **whether advances (avans) are given**. These details may be in the contract text or in an annexed general specification referenced by the contract. Leaving payments vague (e.g. saying 'paid monthly' without defining the level) invites disputes." }
+    }
+  ]
+}

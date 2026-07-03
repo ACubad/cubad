@@ -1,0 +1,3553 @@
+{
+  "unit": 1,
+  "slug": "giris",
+  "title": {
+    "tr": "İnşaat Yönetimine Giriş",
+    "en": "Introduction to Construction Management"
+  },
+  "tagline": {
+    "tr": "Yapı gereksiniminden ruhsata: inşaat öncesi çalışmalar",
+    "en": "From need to permit: pre-construction works"
+  },
+  "sources": {
+    "videos": [
+      {
+        "id": "v01-giris-1-hafta",
+        "title": "İnşaat Yönetimi - 1. Hafta: Giriş",
+        "length": "33:43"
+      },
+      {
+        "id": "v02-giris-2-hafta",
+        "title": "İnşaat Yönetimi - 2. Hafta: Metraj ve Keşif",
+        "length": "22:57"
+      }
+    ],
+    "pdfs": [
+      "İnşaat_Yönetimi_1.pdf",
+      "İnşaat_Yönetimi.pdf"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": {
+        "tr": "Yapı Gereksinimi, Fizibilite ve Ön Etütler",
+        "en": "Building Need, Feasibility, and Preliminary Studies"
+      },
+      "body": {
+        "tr": "Her mühendislik yapısı önce bir **gereksinim (ihtiyaç)** olarak ortaya çıkar. Bir eser gerek duyulmadan yapılmaz. Dersin kaynaklarına göre gereksinimler üç şekilde doğar:\n\n| Kaynak | Açıklama | Örnek |\n|---|---|---|\n| **İstekler** | Halkın/toplumun yöneticilerden talepleri | Köylülerin yol-su-elektrik istemesi |\n| **Planlama sonucu** | Kalkınma planı veya sınırlı bir amacın planlanması | Bir ilçe için okul planlaması |\n| **Başka bir yapının sonucu** | Bir yapı, başka bir yapıyı zorunlu kılar | Boğaz Köprüsü → çevre yollarının yapımı |\n\nGereksinim belirince ilk adım **fizibilite (yapılabilirlik) çalışmasıdır**: işin ekonomik, sosyal ve çevresel boyutuyla öngörülen bölgede yapılabilir olup olmadığının saptanması. Fizibilite sadece inşaat işleri için değil, her türlü iş için yapılabilir (örnek: bir kebapçı dükkânı açmadan önce sadece en ucuz kirayı değil, çevredeki müşteri potansiyelini de değerlendirmek gerekir — yoksa iflas riski doğar).\n\nGereklilik ortaya çıktıktan sonra konunun bir **tasarı** olarak ele alınmasına **proje** denir (örn. Atatürk Barajı Projesi). Dikkat: günlük dilde 'proje' kâğıda basılmış çizim gibi algılansa da, bu aslında sürecin **en son aşamasıdır** — önce birçok çalışma yapılmalıdır.\n\nBu ilk çalışmalara **ön etütler** denir; bu aşamada yapının ana çizgileri, büyüklüğü, tipi ve yeri kabaca tasarlanır (**ilk tasarı**). Beş araştırma yapılır:\n\n1. **Olanakların araştırılması** — projeye kimin sahip olacağı, hangi kaynak ve hammaddelerin kullanılabileceği belirlenir (örn. bir HES için akarsuyun düşü yüksekliği ve debisi).\n2. **Yer araştırması** — yapı için en uygun konum incelenir (bina için arsa, fabrika için hammadde-taşıma imkânı, baraj için topografya/jeoloji).\n3. **Tip araştırması** — yapı tipi belirlenir (bina: ahşap mı, betonarme mi, çelik mi; baraj: toprak dolgu mu, beton ağırlık mı, kemer mi).\n4. **Boyut araştırması** — ana ünitelerin boyutları; gereksinim miktarı, olanak sınırları, statik/hidrolik hesap sınırlamaları ve işletme şekli boyutlandırmayı etkiler.\n5. **İlk seçeneklerin değerlendirilmesi** — alternatiflerin (A planı, B planı...) kabaca maliyet ve güvenlik hesapları yapılır, en uygun alternatif seçilir.\n\nBu beş araştırmanın sonucu **ön etüt raporu (istikşaf raporu)** adlı bir sonuç raporunda özetlenir. Rapor; araştırmaların ana çizgilerini, alternatif çözümleri, seçilen alternatifi ve bu seçimin gerekçesini kapsamalıdır; ayrıca küçük ölçekli (örn. 1/25.000 topografik) detaysız çizimler de eklenir.",
+        "en": "Every engineering structure first emerges as a **need**. A structure is not built without necessity. Needs arise in three ways: **requests** from the public (e.g. villagers wanting roads/water/electricity), as a **result of planning**, or as a **consequence of another structure** (e.g. the Bosphorus Bridge necessitating access roads). Once a need appears, the first step is a **feasibility study**: determining whether the work is viable economically, socially, and environmentally in the intended location — this applies to any undertaking, not just construction. After the need is established, treating the matter as a design proposal is called a **project** — note that 'project' in everyday language suggests a finished drawing, but that is actually the LAST stage of a long process. These first studies are called **preliminary studies (ön etütler)**, where the structure's general outline, size, type, and location are roughly designed (the first sketch). Five research areas are covered: **feasibility of resources**, **site research**, **type research**, **size research**, and **evaluation of initial alternatives**. The outcome is summarized in a **preliminary study report (istikşaf raporu)** documenting the alternatives considered, the one selected, and the justification."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": {
+        "tr": "Proje ve Yapı Projesi Kavramları; Yapı Projelerinin Amacı",
+        "en": "Project and Building-Project Concepts; Purpose of Building Projects"
+      },
+      "body": {
+        "tr": "**Proje**, yapılması düşünülen eylemlerin tüm unsurlarıyla (hayali veya yazılı) oluşturulmuş düşünce ve dokümanların tümüdür. **Yapı projesi** ise canlıların ihtiyaçlarının karşılanması amacıyla yerüstünde, yeraltında veya suda yapılacak tesislerin çizim ve hesaplar dâhil tüm unsurlarıyla, belirli kurallar çerçevesinde kâğıda aktarılmasıyla ortaya çıkan dokümanların tümüdür.\n\nYapı projelerini genel projelerden ayıran özellikler:\n- **Ekip çalışmasıyla** oluşturulur (tek kişi değil).\n- Uluslararası, ulusal ve yöresel şartlara **uygun** olmalıdır.\n- **Kanunla yetkilendirilmiş teknik elemanlarca** yapılmalıdır.\n- Yetkili kurumların **kanun ve yönetmeliklerine** uygun hazırlanmalıdır.\n\nYapı projesi türlerine örnekler: bina projeleri, sulama/içme suyu projeleri, baraj, yol, köprü, peyzaj projeleri.\n\n**Yapı projelerinin yapılmasının amacı** (5 madde):\n1. Yapının amacına uygun olmasını sağlar.\n2. Yapının zamanında tamamlanmasını sağlar.\n3. Yapının ekonomik olarak inşa edilmesini sağlar.\n4. İnşaat sırasında geriye dönülmesi zor hataların yapılmamasını sağlar.\n5. Tasarlanacak yapıdaki eksikliklerin önceden görülmesini sağlar.\n\nBu amaçlar, büyük maddi yatırımla inşa edilen yapıların mükemmele yakın şekilde tamamlanmasına yardımcı olur.",
+        "en": "A **project** is the entirety of ideas and documents (imagined or written) covering all elements of a planned undertaking. A **building/construction project (yapı projesi)** is the set of documents that results from putting a structure above, below, or in water — including all drawings and calculations — onto paper according to defined rules, to meet human needs. What distinguishes building projects from general projects: they are produced by **teamwork**, must comply with international/national/local requirements, must be prepared by **legally authorized technical personnel**, and must follow the relevant laws/regulations. The **5 purposes of building projects**: ensuring the structure fits its purpose, ensuring timely completion, ensuring economical construction, preventing hard-to-reverse mistakes during construction, and revealing design deficiencies in advance."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": {
+        "tr": "Yapı Projelerinde Taraflar",
+        "en": "Parties in Building Projects"
+      },
+      "body": {
+        "tr": "Tüm yapı projelerinde birlikte çalışması gereken dört taraf vardır:\n\n| Taraf | Tanım |\n|---|---|\n| **Proje sahibi** | Yapılacak tesisin arsasının mülkiyetine sahip gerçek/tüzel kişi; hem projenin hem yapının hukuki sahibidir. Projeciyi seçme hakkına sahiptir. |\n| **Proje yapımcıları (projeci)** | Mühendis/mimarlardan oluşan, projelendirmeye kanunla yetkilendirilmiş kişi/ofisler. |\n| **Yapı denetim şirketleri** | Projeleri idareye sunulmadan denetleyen, sonra inşaatı da denetleyen kurumlar (1999 depremi sonrası yaygınlaştı; önce 19 pilot il). |\n| **İdareler** | Belediyeler, Çevre ve Şehircilik İl Müdürlükleri, meslek odaları — projeleri kanun/yönetmeliğe uygunluk yönünden inceleyip onaylayan, ruhsat veren kurumlar. |\n\n**Proje yapımcısı** kavramı: mühendisler/mimarlar sadece kendi yetki alanlarındaki projeleri yapmaya yetkilidir (yol/sulama projeleri → inşaat mühendisleri; peyzaj → peyzaj mimarları; iç mekân → iç mimarlar). Bina projelerinde birden fazla meslek grubu gerektiği için proje kategorilere ayrılır: **mimari proje** (mimar), **statik/betonarme proje** (inşaat mühendisi), **mekanik tesisat** (makine mühendisi), **elektrik tesisat** (elektrik mühendisi), **zemin projesi** (jeoloji mühendisi). Arsa sahibi tüm bu meslek gruplarıyla tek tek anlaşabilir ya da tek bir **koordinatör projeci** (inşaat mühendisi veya mimar) ile muhatap olabilir; koordinatör diğer meslek gruplarıyla irtibatı kendisi sağlar — bu, projenin daha doğru, eksiksiz ve hızlı tamamlanmasını sağlar.\n\n**İdareler**in görevi: imar ve altyapı açısından yönetmelik/plan uygunluğunu incelemek, uygunsa **inşaat ruhsatı** vermek, uygulama sırasında inşaatı kontrol etmektir.",
+        "en": "Every building project requires four parties working together: the **project owner** (holds title to the land, legally owns both project and structure, chooses the designer), the **project producers/designers** (engineers/architects legally authorized to design), the **construction supervision (yapı denetim) companies** (review projects before submission to the authority and later supervise construction; widespread since after the 1999 earthquake), and the **authorities (idareler)** — municipalities, Provincial Directorates of Environment and Urbanization, and professional chambers — who review compliance and issue the **construction permit**. Because building projects require several professions (architectural by architects, structural/reinforced-concrete by civil engineers, mechanical by mechanical engineers, electrical by electrical engineers, soil by geological engineers), the owner may deal with each separately or appoint one **coordinating designer** who liaises with the rest."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": {
+        "tr": "İnşaat Ruhsatı için Gerekli Belgeler",
+        "en": "Documents Required for a Construction Permit"
+      },
+      "body": {
+        "tr": "Bir yapıya ait **inşaat ruhsatı** alınabilmesi için idareye (genellikle belediyeye) sunulması gereken belgeler: dilekçe, imar durum belgesi, plankote, arsa tapusu, ölçü krokisi, fenni mesuliyet ve sicil durum belgeleri, (kooperatif ise) imza sirküsü, mimari proje, statik proje ve hesapları, tesisat/kalorifer projeleri ve hesapları, elektrik/PTT projeleri, zemin etüt projesi, yapı aplikasyon projesi, (özel durumlarda) ÇED raporu ve yol geçiş izni, harç makbuzları.\n\nBu belgelerden beşi tanım olarak özellikle önemlidir (midterm'de sıkça sorulur):\n\n| Belge | Tanım | Kim düzenler |\n|---|---|---|\n| **Tapu** | Türkiye Cumhuriyeti sınırları içindeki bir taşınmazın kime ait olduğunu, nerede ve ne büyüklükte olduğunu gösteren mülkiyet belgesi | Tapu ve Kadastro Müdürlükleri |\n| **İmar çapı** | Tapudaki bilgileri belli arsa üzerine yapılacak binanın büyüklük, yükseklik ve yaklaşım sınırlarını gösteren 1/1000 ölçekli belge | Belediye sınırı içinde belediyeler, dışında Çevre ve Şehircilik Müdürlüğü |\n| **Plankote** | Tapu bilgileri belli arsanın yüzey şeklini, kotlarını ve ölçülerini gösteren belge | Belediyeler veya tapu müdürlükleri |\n| **Ölçü krokisi** | Arsanın köşe ve kırık noktalarının koordinatlarını, kenar uzunluklarını gösteren belge | Tapu müdürlükleri |\n| **Zemin raporu** | Arsanın zemin yapısını ve zemin emniyet gerilmesini gösteren rapor | Yetkili jeoloji mühendisleri |\n\n**Ruhsat süreleri:** İnşaat ruhsatı alındıktan sonra **2 yıl** içinde inşaata başlanmalı, ruhsat tarihinden itibaren **5 yıl** içinde inşaat bitirilmelidir. Bu sürelere uyulmazsa ruhsat iptal olur ve yenilenmesi gerekir.",
+        "en": "To obtain a **construction permit (inşaat ruhsatı)**, an owner must submit: a petition, zoning-status document (imar durum belgesi), plankote, land title deed, survey sketch (ölçü krokisi), site-supervision and registry documents, architectural/structural/mechanical/electrical/soil-survey/building-layout projects, and (in special cases) EIA report, road-crossing permit, and fee receipts. Five documents are definitionally central: **tapu** (title deed — ownership, location, size of the parcel, issued by the Land Registry), **imar çapı** (zoning plot plan — allowed building size/height/setbacks, 1:1000 scale, issued by the municipality or provincial directorate), **plankote** (a survey showing the parcel's surface shape, elevations, and dimensions), **ölçü krokisi** (survey sketch — corner coordinates and edge lengths of the parcel), and **zemin raporu** (soil report — soil structure and safe bearing pressure, prepared by geological engineers). **Timing rule:** construction must start within **2 years** of permit issuance and finish within **5 years**, or the permit is cancelled and must be renewed."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": {
+        "tr": "Fenni Mesul ve Meslek Odaları",
+        "en": "Site Supervisor (Fenni Mesul) and Professional Chambers"
+      },
+      "body": {
+        "tr": "**Fenni mesul**, yapının tüm malzeme ve tesisatıyla birlikte plana, ruhsata, ruhsat eki etüt ve projelere, standartlara ve teknik şartnamelere uygun inşa edilmesinin **kamu adına denetimini** üstlenen, gerekli uzmanlığa sahip meslek mensubudur. Her teknik eleman, kendi alanında yaptığı proje/uygulamanın fenni mesullüğünü otomatik olarak üstlenmiş sayılır. Ayrıca her bina için inşaat mühendisi veya mimarlardan biri **uygulama fenni mesulü** görevini üstlenmelidir; resmî inşaatlarda bu görevi **şantiye şefleri** yürütür. Fenni mesullükle ilgili kriterler Çevre ve Şehircilik Bakanlığı Fen İşleri Yüksek Kurulu'nun hazırladığı Fen ve Sanat Kaideleri Yönergesi'nde belirtilir.\n\n**Meslek odaları**, ilgili kanun hükümleri çerçevesinde kamu yararına dernek statüsünde kurulan ve üyelerinin mesleki alanlarında devlet adına denetim/düzenleme yapan kurumlardır (örn. ticaret odaları, mühendis odaları, esnaf odaları). İnşaat alanında ilgili odalar (Mimarlar Odası, İnşaat Mühendisleri Odası, Makine Mühendisleri Odası, Elektrik Mühendisleri Odası, Jeoloji Mühendisleri Odası) kendi üyelerinin hazırladığı projeleri fen ve sanat kaideleri çerçevesinde **inceleme ve vize etme** sorumluluğu taşır; ayrıca kamuoyuna açıklama yapma ve bilirkişilik hizmetlerini koordine etme görevleri de vardır.\n\n**Önemli tarih:** 2013 yılına kadar oda vizesi kanuni bir zorunluluktu. 2013'ten itibaren, belediye ile odalar arasında yapılan bir **etik anlaşma** sonucu, oda vizesi artık kanuni zorunluluk değildir — ancak ilgili belediye isterse hâlâ şart koşabilir.",
+        "en": "The **fenni mesul (technical supervisor)** is the qualified professional who undertakes, on behalf of the public, the supervision that a structure — with all its materials and installations — is built according to the plan, permit, surveys/projects attached to the permit, standards, and technical specifications. Every technical staff member automatically assumes fenni mesul responsibility for the project/application within their own field; additionally, one civil engineer or architect must take the **application fenni mesul** role for each building (performed by site chiefs on official/public construction). **Professional chambers (meslek odaları)** are public-interest associations established under law that perform inspection/regulation duties on behalf of the state within their members' fields (e.g. trade chambers, engineering chambers). Chambers relevant to construction (Chamber of Architects, Chamber of Civil Engineers, etc.) review and **endorse (vize)** the projects prepared by their members according to professional rules. **Key date:** chamber endorsement (oda vizesi) was a legal requirement until **2013**; since 2013 it results only from an ethics agreement between municipalities and chambers, so it is no longer a legal obligation unless the specific municipality requires it."
+      },
+      "story": null
+    },
+    {
+      "id": "n6",
+      "title": {
+        "tr": "İdeal Yapı Projesi Kriterleri ve Hazırlama Aşamaları",
+        "en": "Ideal Building Project Criteria and Preparation Stages"
+      },
+      "body": {
+        "tr": "Kullanış amacı belirlenmiş ve arsa seçimi yapılmış bir yapının projesinin hazırlanması için önce arsa sahibi gerekli belgeleri (tapu, imar çapı, ölçü krokisi) hazırlar, sonra **projeci seçimi** yapılır (ayrı ayrı meslek grupları ya da tek bir **koordinatör projeci**).\n\n**İdeal bir yapı projesinin ortaya çıkabilmesi için kriterler** (4 madde):\n1. Mevcut arsaya imar planı, imar yönetmeliği ve kanunlar çerçevesinde yapılabilecek yapının büyüklüğü, niteliği ve şeklinin belirlenmesi.\n2. Mal sahibi veya kullanıcının uygun özel istek ve dileklerinin belirlenmesi.\n3. Yapıda kullanılacak malzemelerin teknik, estetik ve kalite özelliklerinin tespiti.\n4. Yapıya hâkim olacak geometrik şekillerin belirlenmesi.\n\nAyrıca 'Yapı Projelerinin Yapılmasında İzlenecek Yol' başlığında proje **dört aşamadan** geçer:\n\n1. **Tasarım aşaması**\n2. **Hesap aşaması**\n3. **Çizim aşaması**\n4. **İnceleme ve onay aşaması**\n\n(Not: bu dört aşamayı yetkili teknik elemanlar entegre biçimde yürütür — birbirinden kopuk aşamalar olarak görülmemelidir. Projeler hazırlanırken kavramsal olarak ayrıca üç aşamadan da söz edilir: avan proje, kesin proje ve detay proje — bkz. sonraki not.)",
+        "en": "To prepare the project for a building whose purpose and plot are already set, the owner first assembles the required documents (title deed, zoning plot plan, survey sketch), then selects the **designer(s)** — either separate specialists per profession, or a single **coordinating designer**. **Four criteria for an ideal building project**: (1) determining the size/nature/form the building may take under the zoning plan, regulation, and laws for the given plot; (2) determining the owner's/user's specific wishes; (3) determining the technical, aesthetic, and quality properties of materials to be used; (4) determining the geometric forms that will dominate the structure. After these criteria are set, the project passes through **four stages**: design, calculation, drawing, and review-and-approval — carried out by authorized technical staff in an integrated way, not as disconnected steps."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": {
+        "tr": "Proje Türleri: Avan Proje, Kesin Proje, Detay Proje",
+        "en": "Project Types: Preliminary, Final, and Detail Projects"
+      },
+      "body": {
+        "tr": "Proje hazırlığının ilk adımı **avan (ön) projedir**. Bu aşamada yapının kullanım amacına göre istenenlerin listesi (**program**) çıkarılır — bu, projeyi hazırlayacak kişi/kuruluşun en önemli veri kaynağıdır. Avan proje şu bölümlerden oluşur:\n\n| Bölüm | Ölçek |\n|---|---|\n| Genel durum (vaziyet) planı | 1/100 – 1/500 |\n| Kat planları | 1/50 – 1/200 |\n| Görünüşler | 1/50 – 1/200 |\n| Kesitler | 1/50 – 1/200 |\n| Maket | 1/5 – 1/200 |\n\nAvan proje aşamasında ileride çıkabilecek eksiklik/aksaklıklar görülüp giderilebilir; ayrıca statik projeye mesnet oluşturacak zemin/sondaj çalışmaları bu aşamada başlatılıp bitirilmelidir (zaman kaybını önlemek için).\n\nAvan proje incelenip eksikleri giderildikten sonra **kesin proje (uygulama projesi)** hazırlanır — bunlar aynı zamanda uygulama projeleri olacağından daha titiz ve açık hazırlanmalıdır. Kesin projeler üç grupta toplanır:\n\n- **Yapılması zorunlu projeler:** mimari, statik-betonarme, sıhhi tesisat, elektrik tesisat, zemin etüt, yapı aplikasyon projesi.\n- **Yapının niteliğine/ihtiyacına göre zorunlu projeler:** kalorifer tesisat, asansör, havalandırma-klima, telefon tesisat, doğalgaz tesisat, arıtma projesi (örn. asansör yoksa asansör projesi gerekmez).\n- **İsteğe bağlı projeler:** uydu-internet tesisat, dâhili yayın (kablo) tesisat, kapı konuşma (diafon) tesisat, mutfak tesisat, çamaşırhane tesisat projesi.\n\nBinanın bazı bölümlerinin/elemanlarının plan-kesit-görünüşten çözülemeyen özellikleri için daha büyük ölçekte **detay projeler** çizilir (ölçek 1/1 – 1/20): yalıtım detayı, sistem detayı, kapı detayı, pencere detayı, ıslak hacim detayı, merdiven detayı.\n\nSon olarak **teknik şartname ve yönetmelikler**: proje uygulaması sırasında yapı ünitelerinin ve malzemelerin tüm teknik özellikleri çizim yapan mühendis/mimar tarafından şartnamelerde belirtilmelidir. Şartname, işi yaptıranın (idare/kuruluş) yapım/satın alma/satma/kiralama gibi işlerde her iki tarafın da uymayı üstlendiği maddelerin sıralı olduğu belgedir. Yönetmelikler ise bir kuruluşun uyacağı ilkeleri kapsayan basılı yayınlardır.",
+        "en": "Project preparation begins with the **avan (preliminary) project**, based on a **program** listing everything required of the building given its purpose. It consists of: site plan (1:100–1:500), floor plans, elevations, and sections (1:50–1:200 each), and a model/maquette (1:5–1:200). Soil/borehole studies that will support the structural project should be started and finished at this stage to avoid delays. After review, the **kesin proje (final/working project)** is prepared, more rigorously, since it doubles as the construction (application) document. Kesin proje documents fall into three groups: **mandatory** (architectural, structural/RC, sanitary, electrical, soil-survey, building-layout/aplikasyon), **mandatory depending on building need** (central heating, elevator, HVAC, telephone, natural gas, wastewater treatment), and **optional** (satellite/internet, in-house broadcast, intercom, kitchen, laundry installations). Where plan/section/elevation cannot resolve certain elements, larger-scale **detail projects** (1:1–1:20) are drawn: insulation, system, door, window, wet-area, and staircase details. **Technical specifications (şartname) and regulations**: all technical properties of building units/materials must be stated in specifications by the designing engineer/architect; a şartname is the document listing the clauses both the contracting authority and the executor commit to."
+      },
+      "story": {
+        "title": {
+          "tr": "İnşaat öncesi çalışmalardan ruhsata: proje yaşam evreleri",
+          "en": "From pre-construction works to permit: project life stages"
+        },
+        "xLabel": "Süreç →",
+        "yLabel": "",
+        "xDomain": [
+          0,
+          12
+        ],
+        "yDomain": [
+          0,
+          4
+        ],
+        "square": false,
+        "showAxes": false,
+        "frames": [
+          {
+            "caption": {
+              "tr": "Her şey bir GEREKSİNİM ile başlar — istekler, planlama sonucu ya da başka bir yapının zorunlu kıldığı ihtiyaç. Ardından fizibilite: bu iş, bu yerde yapılabilir mi?",
+              "en": "Everything starts with a NEED — a request, a planning outcome, or a need forced by another structure. Then feasibility: can this work be done, here?"
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0.3,
+                    1
+                  ],
+                  [
+                    2.6,
+                    1
+                  ],
+                  [
+                    2.6,
+                    3
+                  ],
+                  [
+                    0.3,
+                    3
+                  ]
+                ],
+                "color": "ink",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 1.45,
+                "y": 2.3,
+                "text": {
+                  "tr": "Gereksinim",
+                  "en": "Need"
+                },
+                "color": "ink"
+              },
+              {
+                "type": "text",
+                "x": 1.45,
+                "y": 1.6,
+                "text": {
+                  "tr": "+ Fizibilite",
+                  "en": "+ Feasibility"
+                },
+                "color": "faint"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Ön etütler: olanak, yer, tip, boyut araştırması ve alternatif değerlendirme. Sonuç, ÖN ETÜT (İSTİKŞAF) RAPORU'nda özetlenir — bu, mimarın/mühendisin en fazla yaratıcılık gösterdiği aşamadır.",
+              "en": "Preliminary studies: resource, site, type, size research and alternative evaluation. Summarized in the PRELIMINARY STUDY REPORT — the stage demanding the most design creativity."
+            },
+            "add": [
+              {
+                "type": "arrow",
+                "x1": 2.6,
+                "y1": 2,
+                "x2": 3.3,
+                "y2": 2,
+                "color": "faint",
+                "width": 2
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    3.3,
+                    1
+                  ],
+                  [
+                    5.6,
+                    1
+                  ],
+                  [
+                    5.6,
+                    3
+                  ],
+                  [
+                    3.3,
+                    3
+                  ]
+                ],
+                "color": "deniz",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 4.45,
+                "y": 2.3,
+                "text": {
+                  "tr": "Ön Etütler",
+                  "en": "Preliminary"
+                },
+                "color": "deniz"
+              },
+              {
+                "type": "text",
+                "x": 4.45,
+                "y": 1.6,
+                "text": {
+                  "tr": "(avan tasarı)",
+                  "en": "(first sketch)"
+                },
+                "color": "faint"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Proje sahibi bir koordinatör projeci seçer; taraflar (proje sahibi, projeci, yapı denetim, idareler) devreye girer. AVAN PROJE hazırlanır: vaziyet planı, kat planları, görünüş, kesit, maket.",
+              "en": "The owner selects a coordinating designer; the parties (owner, designer, supervision company, authorities) enter. The AVAN PROJECT is prepared: site plan, floor plans, elevations, sections, model."
+            },
+            "add": [
+              {
+                "type": "arrow",
+                "x1": 5.6,
+                "y1": 2,
+                "x2": 6.3,
+                "y2": 2,
+                "color": "faint",
+                "width": 2
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    6.3,
+                    1
+                  ],
+                  [
+                    8.6,
+                    1
+                  ],
+                  [
+                    8.6,
+                    3
+                  ],
+                  [
+                    6.3,
+                    3
+                  ]
+                ],
+                "color": "amber",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 7.45,
+                "y": 2.3,
+                "text": {
+                  "tr": "Avan Proje",
+                  "en": "Avan Project"
+                },
+                "color": "amber"
+              },
+              {
+                "type": "text",
+                "x": 7.45,
+                "y": 1.6,
+                "text": {
+                  "tr": "Taraflar devrede",
+                  "en": "Parties engage"
+                },
+                "color": "faint"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Avan projedeki eksikler giderilir; KESİN PROJE (mimari, statik, tesisat, elektrik, zemin etüt, aplikasyon) ve gerekiyorsa DETAY PROJELER hazırlanır. Bu artık uygulama projesidir — açık ve kesin olmalı.",
+              "en": "Gaps in the avan project are fixed; the FINAL PROJECT (architectural, structural, MEP, soil survey, layout) and DETAIL PROJECTS are prepared. This is now the construction document — must be exact."
+            },
+            "add": [
+              {
+                "type": "arrow",
+                "x1": 8.6,
+                "y1": 2,
+                "x2": 9.3,
+                "y2": 2,
+                "color": "faint",
+                "width": 2
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    9.3,
+                    1
+                  ],
+                  [
+                    11.7,
+                    1
+                  ],
+                  [
+                    11.7,
+                    3
+                  ],
+                  [
+                    9.3,
+                    3
+                  ]
+                ],
+                "color": "clay",
+                "fill": true,
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 10.5,
+                "y": 2.3,
+                "text": {
+                  "tr": "Kesin Proje",
+                  "en": "Final Project"
+                },
+                "color": "clay"
+              },
+              {
+                "type": "text",
+                "x": 10.5,
+                "y": 1.6,
+                "text": {
+                  "tr": "→ Ruhsat başvurusu",
+                  "en": "→ Permit application"
+                },
+                "color": "faint"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n8",
+      "title": {
+        "tr": "Metraj, Keşif ve Kesin Hesap Uzmanlığı",
+        "en": "Quantity Take-off, Cost Estimate, and the Quantity Surveyor"
+      },
+      "body": {
+        "tr": "İnşaat öncesi çalışmaların bir diğer temel adımı **metraj ve keşiftir**. Her yapı imalatı için çıkartılan **metraj değerleri**, güncel **birim fiyatlarla** çarpılıp kümülatif olarak toplanır; bu toplam bedele **keşif bedeli**, bu işleme **keşif çıkartılması** denir.\n\nBu alanda çalışan teknik elemanlara (inşaat mühendisi/mimar) **kesin hesap uzmanı** denir; resmî kurumlarda, özel bürolarda ve şantiyelerde görev alırlar. 2003 yılında yürürlüğe giren **Kamu İhale Kanunu**, ölçümleme ve gerçek maliyetle teklif verme esasını temel dayanak yaptığından, kesin hesap uzmanlığının önemini artırmıştır. Kesin hesap işleri klasik (elle) veya bilgisayar paket programlarıyla yapılabilir.\n\nİki temel kavram:\n- **İmalat:** Projede belirlenmiş ya da projede olmamasına rağmen yapılması gerekli olan, malzeme ve işçiliklerin bir araya getirilmesiyle ortaya çıkan **yeni üründür** (örn. kapı, pencere, sıva — malzemenin kendisi değil, uygulanmış hâlidir). Yapılar oluşurken imalatlar belirli bir sıra ve zaman dilimi gözetilerek yapılır; hangi imalatın hangi sırayla yapılacağını gösteren iş ve işlem akış diyagramına **imal(at) zinciri** denir (örn. kalıp imal edilmeden beton dökülemez).\n- **İhrazat:** İnşaatta kullanılacak, idarece belirlenmiş malzemelerin (örn. demir, çimento, agrega) temin edilerek üretildiği yerde ya da şantiye deposunda **istiflenmesi** işlemidir. İhrazatı yapılan malzemenin bedeli idarece önceden ödenir; malzeme imalata girdikçe bu bedel toplam ödemeden **kesilir** (buna **ihrazat kesintisi** denir). İhrazatı yapılan malzeme artık idarenin malıdır — başka yere taşınması veya başka işte kullanılması yasaktır. İhrazat, özellikle enflasyonun yüksek olduğu dönemlerde fiyat artışlarından etkilenmemek için önemlidir.\n\nMetraj ve keşfin **unsurları**: birim fiyatlar, birim fiyat analizleri, metraj, özel metrajlar, keşif, hakediş.",
+        "en": "Another core pre-construction step is **quantity take-off (metraj) and cost estimation (keşif)**. For every item of work, the calculated **quantities** are multiplied by current **unit prices** and summed cumulatively; the resulting total is the **cost estimate (keşif bedeli)**, and the process is called **preparing the estimate**. Specialists in this field (civil engineers/architects) are called **kesin hesap uzmanı (final-accounts experts)**; they work in public agencies, private offices, and on site. Turkey's **Public Procurement Law**, effective from 2003, increased the importance of this role because it is based on measurement and bidding at real cost. Two key concepts: **imalat (finished work item)** — a new product created by combining materials and labor, whether specified in the project or not, but necessary (e.g. plastering, a door installed — not the raw material itself); items are built in a set order and timing, and the workflow diagram showing which item is built in which sequence is called the **imal(at) zinciri (production chain)** (e.g. concrete cannot be poured before the formwork is made); and **ihrazat (material stockpiling)** — storing administration-designated materials (e.g. steel, cement, aggregate) at the production site or on-site depot; their cost is paid in advance and later deducted from progress payments as they are consumed (**ihrazat kesintisi**); stockpiled material becomes the property of the administration and cannot be relocated or used elsewhere. The **elements of quantity/cost work**: unit prices, unit price analyses, quantity take-off (metraj), special take-offs, cost estimate (keşif), and progress payment (hakediş)."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": {
+        "tr": "Birim Fiyat ve Birim Fiyat Analizi",
+        "en": "Unit Price and Unit Price Analysis"
+      },
+      "body": {
+        "tr": "**Birim fiyat**, bir imalatın bir biriminin (m, m², m³, kg, ton, adet vb.) yapım bedelidir (örn. kazı, dolgu, beton, kalıp, demir, sıva, duvar imalatlarının her biri için bir birim fiyat vardır). İki tür birim fiyat kullanılır:\n\n- **Çevre ve Şehircilik Bakanlığı (Yüksek Fen Kurulu) birim fiyatları** — eskiden Bayındırlık Bakanlığı; **yılda bir kez** belirlenir ve o yılın tamamı için geçerlidir.\n- **Piyasa birim fiyatları** — güncel piyasa şartlarına göre hesaplanır, genellikle özel inşaatlarda kullanılır; normalde yılda bir belirlense de yüksek enflasyon dönemlerinde birkaç kez güncellenebilir.\n\nHangi birim fiyatın geçerli olacağı, **yapı sahibinin (işverenin) tasarrufundadır**.\n\nHer imalatın Bakanlık birim fiyatı, bir **birim fiyat tarifiyle** tanımlanır: imalatın nasıl yapılacağı, hangi malzemeden ne kadar kullanılacağı, hangi işçinin/makinenin ne kadar çalışacağı ve **ölçüm şeklinin** ne olduğu ayrıntılı yazılır. Her tarifin bir **poz numarası** (kimlik numarası) vardır — örnek: **15.120 / 15.120.1001**, 'Makine ile yumuşak ve sert toprak kazılması (serbest kazı)'; bu birim fiyat, kazının 25 metreye kadar taşınmasını, boşaltılmasını, serilmesini, boşlukların doldurulmasını, tesviyeyi, her türlü malzeme zayiatını, işçilik ve araç-gereç giderlerini, müteahhit genel gideri ve kârını **dâhil** eder; ama 25 metre dışındaki taşıma ile dolgunun sulama/sıkıştırma bedelini ve derinlik zammını **dâhil etmez** — bunlar ayrıca ödenir. Ölçü kuralı: kazının hacmi kazı **projesi üzerinden** hesaplanır.\n\n**Birim fiyat analizi**, bir imalatın oluşmasını sağlayan tüm unsurların (malzeme, işçilik, makine saatleri vb.) birim miktarlarının alt alta yazılıp toplanmasıyla yapılır. Bu ara toplama, **%25 müteahhit kârı ve genel giderler** eklenerek nihai birim fiyat elde edilir. Örnek (serbest kazı, poz no 15.120): ekskavatör 0,076 saat + kazı yükleyici 0,025 saat gibi makine-saat girdileri toplanır, malzeme+işçilik ara toplamı bulunur, üzerine %25 eklenerek nihai birim fiyat (örnekte 38,23) elde edilir.",
+        "en": "A **unit price (birim fiyat)** is the construction cost of one unit (m, m², m³, kg, ton, piece, etc.) of a work item (excavation, fill, concrete, formwork, rebar, plaster, masonry each have their own unit price). Two types exist: **Ministry of Environment and Urbanization unit prices** (set once a year, valid for the whole year) and **market unit prices** (based on current market conditions, mainly used on private jobs, occasionally revised more than once a year during high inflation). Which one applies is at the **owner's discretion**. Each Ministry unit price is defined by a **unit price specification (birim fiyat tarifi)** detailing exactly how the work is done, material/labor/machine quantities, and the **measurement method**; each has a **poz (code) number**, e.g. **15.120**, 'machine excavation of soft and hard soil (free excavation)' — which includes hauling up to 25 m, unloading, spreading, backfilling voids, leveling, all material waste, labor, and equipment costs, plus contractor overhead and profit, but EXCLUDES hauling beyond 25 m and watering/compaction of the fill (paid separately) and any depth surcharge. The measurement rule: excavation volume is computed from the excavation **project (drawings)**. A **unit price analysis (birim fiyat analizi)** lists and sums every input (materials, labor, machine-hours) that goes into one unit of the work item, then adds **25% contractor profit and overhead** to arrive at the final unit price."
+      },
+      "story": null
+    },
+    {
+      "id": "n10",
+      "title": {
+        "tr": "Metraj: Tanım, Cetvel ve Özet",
+        "en": "Metraj: Definition, Sheet, and Summary"
+      },
+      "body": {
+        "tr": "**Metraj**, inşa edilecek veya inşası tamamlanmış bir yapıda gerçekleştirilmiş/gerçekleştirilecek imalatların, belirli kurallar dâhilinde bu iş için hazırlanmış çizelgeler kullanılarak **miktarlarının hesaplanması** işlemidir. İki şekilde yapılabilir: **proje üzerinden** (çizim ölçülerinden) veya **yerinde ölçerek** (röleve ile).\n\nMetraj, standart boş evraklar olan **metraj cetvellerine** işlenir; iki sınıfa ayrılır: **yapı metraj cetveli** ve **demir metraj cetveli**.\n\n**Yapı metraj cetveli** mantığı: her satırda imalatın yeri, benzeri (kaç adet aynısı varsa tek satırda 'benzer' sütununa yazılır, tek tek tekrar yazılmaz), ölçüler (boy × en × yükseklik) yer alır. Çarpım sonucu **'azı'** (bürüt/kaba miktar, artı sütununda) sütununa yazılır; boşluklar (pencere, baca gibi düşülecek kısımlar) **'azı eksi'** (minha) sütununa yazılır. Azı artı − azı eksi = **'çoğu'** (net/asıl yapılacak miktar) sütununa yazılır ve en altta toplanır. Bazı cetvellerde artı/eksi ayrımı olmadan sadece azı ve çoğu sütunları bulunur.\n\n**Demir metraj cetveli**: çap, boy, benzer sayısı gibi bilgiler yazılır, birim ağırlıkla çarpılıp ilgili hücreye işlenir, sonda toplanır; **12 mm'ye kadar ince demir, 12 mm üstü kalın demir** olarak ayrı toplanır.\n\n**Metraj özeti**: hazırlanan metrajdaki sonuç rakamlarının birkaç sayfada belirli kurallarla toplanarak gösterilmesidir; genelde imalatın cinsi/numarası, alındığı metraj sayfası, o sayfadaki miktar ve toplam miktar yer alır.\n\n**Özel metraj**: karışımlı imalatlarda (örn. özel beton) her kalemin ayrı ayrı metrajlandırılmasıdır — rutin yapım metrajının dışında kalan ek metraj türüdür.\n\n(Beton, demir, duvar, kalıp ve kaplama metrajının kurallı, çözümlü örnekleri Ünite 3 — Metraj'da işlenir.)",
+        "en": "**Metraj (quantity take-off)** is the calculation of quantities of work items — completed or to be built — using standard sheets and defined rules, either from the **project drawings** or by **measuring on site (röleve)**. It is recorded on **metraj cetveli (quantity sheets)**, of two kinds: the **building quantity sheet (yapı metraj cetveli)** and the **rebar quantity sheet (demir metraj cetveli)**. On a building quantity sheet, each row lists the location, count of identical items ('benzer'), and dimensions (length×width×height); the product is entered under **'azı' (gross, +)**; deductions such as window/chimney openings go under **'azı eksi' (−)**; the net figure is **'çoğu' (net, actually to be built)**, totaled at the bottom. The rebar sheet lists diameter, length, and count, multiplied by unit weight per meter, and totals are kept separately for **thin bars (≤12mm)** and **thick bars (>12mm)**. A **metraj özeti (quantity summary)** compiles the result figures from several quantity sheets onto one or a few pages. **Özel metraj (special take-off)** breaks down composite work items (e.g. a special concrete mix) item by item, beyond routine quantity work.\n\n(Worked, rule-by-rule take-off examples for concrete, rebar, walls, formwork and finishes are covered in Unit 3 — Metraj.)"
+      },
+      "story": {
+        "title": {
+          "tr": "Metraj cetveli mantığı: azı, azı-eksi, çoğu",
+          "en": "Quantity sheet logic: gross, minus, net"
+        },
+        "xLabel": "",
+        "yLabel": "",
+        "xDomain": [
+          0,
+          10
+        ],
+        "yDomain": [
+          0,
+          6
+        ],
+        "square": false,
+        "showAxes": false,
+        "frames": [
+          {
+            "caption": {
+              "tr": "PDF'teki metraj cetveli örneğinden: 'Isı merkezi tavanı' iç sıvası, boy 5,30 m, en 5,10 m. Bu iki ölçü çarpılır ve 'azı artı' sütununa yazılır.",
+              "en": "From the PDF's quantity-sheet example: a 'boiler-room ceiling' plaster item, length 5.30 m, width 5.10 m. Multiply the two and write it under the 'azı +' (gross) column."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    6,
+                    1
+                  ],
+                  [
+                    6,
+                    4
+                  ],
+                  [
+                    1,
+                    4
+                  ]
+                ],
+                "color": "ink",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 3.5,
+                "y": 2.5,
+                "text": {
+                  "tr": "5,30 × 5,10 = 27,03 m²",
+                  "en": "5.30 × 5.10 = 27.03 m²"
+                },
+                "color": "ink"
+              },
+              {
+                "type": "text",
+                "x": 3.5,
+                "y": 5.3,
+                "text": {
+                  "tr": "AZI (+) = 27,03",
+                  "en": "AZI (+) = 27.03"
+                },
+                "color": "deniz"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Aynı mahalde 0,20 × 0,20 m'lik bir baca (minha baca) boşluğu var — burada sıva yapılmayacak. Bu alan 'azı eksi' (minha) sütununa yazılır.",
+              "en": "The same area has a 0.20 × 0.20 m chimney (minha baca) opening — no plaster there. This area goes into the 'azı −' (minha/deduction) column."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    3.1,
+                    2.2
+                  ],
+                  [
+                    3.5,
+                    2.2
+                  ],
+                  [
+                    3.5,
+                    2.6
+                  ],
+                  [
+                    3.1,
+                    2.6
+                  ]
+                ],
+                "color": "clay",
+                "fill": true,
+                "width": 1.5
+              },
+              {
+                "type": "text",
+                "x": 3.5,
+                "y": 0.4,
+                "text": {
+                  "tr": "AZI (−) = 0,04",
+                  "en": "AZI (−) = 0.04"
+                },
+                "color": "clay"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Cetvelde 'benzer' sütunu da vardır: aynı boyuttaki başka bir duvar/tavan varsa, tekrar ölçüp yazmak yerine 'benzer = 2' gibi bir sayı yazılır ve azı(+) o sayıyla çarpılır. Bu, tekrarlı imalatlarda zaman kazandırır.",
+              "en": "The sheet also has a 'benzer' (similar-count) column: if another wall/ceiling of the same size exists, instead of re-measuring you write 'benzer = 2' and multiply azı(+) by that count — saving time on repeated items."
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 3.5,
+                "y": -0.3,
+                "text": {
+                  "tr": "Benzer = 1 (bu örnekte tek duvar)",
+                  "en": "Benzer = 1 (single wall in this example)"
+                },
+                "color": "faint"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "ÇOĞU (net, gerçekten yapılacak alan) = AZI(+) − AZI(−) = 27,03 − 0,04 = 26,99 m². Metraj cetvelinin en alt satırına bu net değer yazılır — hakedişe giden değer budur.",
+              "en": "ÇOĞU (net, actually-built area) = AZI(+) − AZI(−) = 27.03 − 0.04 = 26.99 m². This net value goes in the sheet's bottom row — it is the value that feeds into payment."
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 3.5,
+                "y": 5.7,
+                "text": {
+                  "tr": "ÇOĞU = 27,03 − 0,04 = 26,99 m²",
+                  "en": "ÇOĞU = 27.03 − 0.04 = 26.99 m²"
+                },
+                "color": "moss",
+                "size": 16
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n11",
+      "title": {
+        "tr": "Rölöve, Ataşman, Yeşil Defter",
+        "en": "Rölöve, Ataşman, Yeşil Defter (Site-Record Documents)"
+      },
+      "body": {
+        "tr": "Bu üç kavram, imalatların **doğru ödenmesi** için sahada tutulan kayıt belgeleridir ve birbiriyle ilişkilidir:\n\n**Rölöve:** Projesi olmayan üstyapı inşaatlarında veya bitirildikten sonra üzeri kapatılmak zorunda olan altyapı inşaatlarında (içme suyu, kanalizasyon, yağmur suyu, baraj, sulama, enerji nakil hatları, eski bina onarımları, yeni bina ek imalatları), yapılan imalatların metrajının çıkarılabilmesi için gerekli **ölçü, kroki ve alt imalat bilgilerini** gösteren **ölçeksiz** plan ve detay çizimleridir. Röleve, tümüyle bitirilmiş imalatların yerinde taraflarca görülüp ölçülmesiyle oluşturulur; gerekirse kesit, görünüş ve nokta detayları da eklenir. Doğru röleve, doğru metraj/ataşman/yeşil defter/hakediş hazırlanmasını sağlar.\n\n**Ataşman:** Üstyapıda idarenin istediği veya yapımı zorunlu ilave imalatlar ile altyapıda toprak altında kalacak (sonradan görülemeyecek) tüm imalatların **ödemeye esas metrajlarının** belgelenmesi için düzenlenen, imalatın ölçeksiz krokisi ve metraj hesabından oluşan belgedir. Özel **ataşman defterlerine** işlenir. Bir ataşmanın yapılabilmesi için işin röleve alınmış, kurala uygun çizilmiş, tamamen bitirilmiş ve idarenin görevli teknik elemanınca kontrol edilmiş olması gerekir.\n\n**Yeşil defter:** Projede olmayan veya projede olup idarece değişiklik yapılan imalatların, **henüz tam bitirilmeden** hakedişe alınabilmesi için metrajın işlendiği deftere denir (adı, eskiden sayfaların yeşil renginden gelir). Daha çok altyapı inşaatlarının hakedişlerinde kullanılır; imalat tamamlanınca yeşil defter **ataşmana dönüşür**. Yeşil defterdeki miktarlar kesin olmayıp imalatların tamamlanma şekline göre değişebilir.\n\nKısaca sıralama: **Röleve** (mevcut durumu ölçüp çizme) → **Ataşman** (bitmiş, ölçülmüş, onaylı imalatın kalıcı kaydı) → tamamlanmamış/proje-dışı kısımlar için geçici kayıt olan **Yeşil defter** (tamamlanınca ataşmana döner).",
+        "en": "These three site-record documents ensure work items are **paid correctly** and are closely related. **Rölöve:** for superstructure work without a project, or substructure work that will be covered over once finished (water supply, sewage, storm drainage, dams, irrigation, power lines, renovations, additions), an **unscaled** plan/detail drawing capturing the measurements, sketch, and sub-item information needed to take off quantities of completed work; created by measuring the fully finished work on site with both parties present. **Ataşman:** a document (unscaled sketch + quantity calculation) recording the payment-basis quantities of extra superstructure work requested/required by the authority, or substructure work that will be buried and unobservable later; recorded in dedicated **ataşman defteri (ledgers)**; requires the work to be surveyed (rölöve), correctly drawn, fully finished, and checked by the authority's technical staff. **Yeşil defter (green ledger):** the ledger where quantities of work not in the project (or changed by the authority) are recorded **before being fully finished**, so they can still be included in progress payments; used mostly for infrastructure works; once the work is completed it **converts into an ataşman**. In short: Rölöve (survey the as-built state) → Ataşman (permanent record of finished, verified work) → Yeşil defter (temporary record for unfinished/off-project work, later becomes an ataşman)."
+      },
+      "story": null
+    },
+    {
+      "id": "n12",
+      "title": {
+        "tr": "Keşif: Ön Keşif ve Son Keşif",
+        "en": "Keşif: Preliminary and Final Cost Estimate"
+      },
+      "body": {
+        "tr": "İnşaata başlanmadan önce, gerekli finansmanın temin edilebilmesi için yapının ekonomik büyüklüğünün ve maliyet bedelinin bilinmesi gerekir. Bunun için gerekli etüt ve hesaplama çalışmalarının tümüne **keşif** denir; iki aşamadan oluşur.\n\n**Keşfin hazırlanması için gerekli alt unsurlar:** projeler, imalat metrajları, birim fiyat araştırma ve tespitleri, gerekliyse röleveler, gerekliyse ataşmanlar.\n\n**Birinci keşif (ön keşif):** büyük yaklaşıklıkla yapı maliyetinin hesaplanmasıdır. İki türü vardır:\n- **Tahmini ön keşif:** henüz uygulama projeleri oluşmamışken, detay imalatlar belirlenmeden, mühendislik önsezisi, piyasa tecrübesi ve geleneksel düz-ölçü (birim m²) maliyetlerinin harmanlanmasıyla kabaca maliyet tahminidir.\n- **Metraja dayalı ön keşif:** yapıya ait projeler oluşmuş; yapı elemanlarının metrajı çıkarılır ve birim fiyatla çarpılarak maliyet belirlenir (inşaat maliyeti yanında tesisat ve diğer kalemler de dâhil edilir). 'Ön' denmesinin nedeni: proje aşamasında planlananla gerçekleşen aynı olmayabilir.\n\n**Son keşif (kesin keşif):** yapının inşaatı tamamlandıktan sonra, inşaat süresince alınan tüm hakedişler ve yapılan değişikliklerden kaynaklanan ek maliyetler belgelerle birlikte tek bir dokümanda toplanarak yapının **gerçek maliyetinin** ortaya çıkarılmasıdır. Son keşfin ortaya çıkarılması için yapılan tüm işlemlere **kesin hesap işlemleri** denir; bunları **kesin hesap uzmanları** yürütür. Sonuçta miktar, birim fiyat, tutar ve toplam tutarın tek sayfada göründüğü bir belge — **keşif özeti** — ortaya çıkar.",
+        "en": "Before construction begins, the economic scale and cost of the structure must be known to secure financing. All the studies and calculations for this are called **keşif (cost estimation)**, in two stages. **Required inputs**: project drawings, quantity take-offs, unit-price research, and (if needed) rölöve/ataşman records. **Birinci keşif (preliminary estimate)** is a rough calculation of the building cost, in two forms: **tahmini ön keşif (guesstimate)** — before working drawings exist, based on engineering intuition, market experience, and traditional per-m² cost rules; and **metraja dayalı ön keşif (quantity-based preliminary estimate)** — once project drawings exist, quantities are taken off and multiplied by unit prices (including installations and other cost items besides raw construction). It is called 'preliminary' because what is planned may not match what is finally built. **Son keşif (final/definitive estimate)** is prepared after construction is complete: all progress payments and change-order costs during construction are consolidated with supporting documents into a single record showing the structure's **actual (real) cost**. The whole process of producing it is called **kesin hesap işlemleri (final accounting)**, carried out by **kesin hesap uzmanları**. The result is a **keşif özeti (cost summary)** — a single page showing quantity, unit price, amount, and total amount for every item."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": {
+        "tr": "Gereksinimler kaç şekilde ortaya çıkar?",
+        "en": "In how many ways do needs (gereksinim) arise?"
+      },
+      "back": {
+        "tr": "Üç şekilde: istekler, planlama sonucu, başka bir yapının sonucu.",
+        "en": "Three ways: requests, as a result of planning, as a consequence of another structure."
+      },
+      "en": "gereksinim = need/requirement",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f2",
+      "front": {
+        "tr": "Fizibilite (yapılabilirlik çalışması) nedir?",
+        "en": "What is feasibility study (fizibilite)?"
+      },
+      "back": {
+        "tr": "İşin ekonomik, sosyal ve çevresel boyutuyla öngörülen bölgede yapılabilirliğinin saptanmasına yönelik çalışmadır. Her iş için yapılabilir, sadece inşaat için zorunlu değildir.",
+        "en": "A study determining whether a work is viable — economically, socially, environmentally — in its intended location; applicable to any undertaking, not only construction."
+      },
+      "en": "fizibilite = feasibility",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f3",
+      "front": {
+        "tr": "'Proje' kelimesi inşaat sürecinde neyi ifade eder?",
+        "en": "What does 'proje' mean in the construction process?"
+      },
+      "back": {
+        "tr": "Gerekliliğin ortaya çıkmasından sonra konunun bir tasarı olarak ele alınmasıdır; günlük algının aksine sürecin EN SON aşamasıdır, çizimden ibaret değildir.",
+        "en": "Treating a need as a design proposal; contrary to everyday perception it is the LAST stage of the process, not merely a finished drawing."
+      },
+      "en": "proje = project",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f4",
+      "front": {
+        "tr": "Ön etütlerde yapılan 5 araştırma nedir?",
+        "en": "What are the 5 preliminary studies (ön etütler)?"
+      },
+      "back": {
+        "tr": "Olanakların araştırılması, yer araştırması, tip araştırması, boyut araştırması, ilk seçeneklerin değerlendirilmesi.",
+        "en": "Feasibility-of-resources, site, type, size research, and evaluation of initial alternatives."
+      },
+      "en": "ön etüt = preliminary study",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f5",
+      "front": {
+        "tr": "Ön etüt raporu başka hangi isimle anılır?",
+        "en": "What is another name for the preliminary study report?"
+      },
+      "back": {
+        "tr": "İstikşaf raporu.",
+        "en": "İstikşaf raporu (reconnaissance/exploratory report)."
+      },
+      "en": "istikşaf raporu = reconnaissance report",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f6",
+      "front": {
+        "tr": "Ön etüt aşamasında yapılan ilk tasarıya ne denir?",
+        "en": "What is the first sketch produced in the preliminary study stage called?"
+      },
+      "back": {
+        "tr": "Avan proje (ilk tasarı).",
+        "en": "Avan proje (preliminary design/first sketch)."
+      },
+      "en": "avan proje = preliminary design",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f7",
+      "front": {
+        "tr": "Yapı projesi tanımı nedir?",
+        "en": "What is the definition of a building project (yapı projesi)?"
+      },
+      "back": {
+        "tr": "Canlıların ihtiyaçlarının karşılanması amacıyla yerüstünde, yeraltında veya suda yapılacak tesislerin, çizim ve hesaplar dâhil tüm unsurlarıyla, belirli kurallar çerçevesinde kâğıda aktarılmasıyla ortaya çıkan dokümanların tümüdür.",
+        "en": "The complete set of documents — drawings and calculations — resulting from putting a structure (above/below ground or in water) on paper per defined rules, to meet human needs."
+      },
+      "en": "yapı projesi = building project",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f8",
+      "front": {
+        "tr": "Yapı projelerini genel projelerden ayıran 4 özellik nedir?",
+        "en": "What are the 4 features distinguishing building projects from general projects?"
+      },
+      "back": {
+        "tr": "Ekip çalışmasıyla oluşturulur; uluslararası/ulusal/yöresel şartlara uygun olmalı; kanunla yetkilendirilmiş teknik elemanlarca yapılmalı; ilgili kanun ve yönetmeliklere uygun hazırlanmalıdır.",
+        "en": "Created by teamwork; must fit international/national/local requirements; must be made by legally authorized technical staff; must follow relevant laws/regulations."
+      },
+      "en": "yapı projesi özellikleri",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f9",
+      "front": {
+        "tr": "Yapı projelerinin yapılmasının amacı nelerdir? (5 madde)",
+        "en": "What are the 5 purposes of preparing building projects?"
+      },
+      "back": {
+        "tr": "1) Amacına uygunluğu sağlar, 2) zamanında tamamlanmasını sağlar, 3) ekonomik inşayı sağlar, 4) geri dönüşü zor hataları önler, 5) eksikliklerin önceden görülmesini sağlar.",
+        "en": "1) Ensures fitness for purpose, 2) ensures timely completion, 3) ensures economical construction, 4) prevents hard-to-reverse mistakes, 5) reveals deficiencies in advance."
+      },
+      "en": "proje amaçları",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f10",
+      "front": {
+        "tr": "Yapı projelerinin hazırlanmasında izlenecek 4 aşama nedir?",
+        "en": "What are the 4 stages in preparing building projects?"
+      },
+      "back": {
+        "tr": "Tasarım aşaması, hesap aşaması, çizim aşaması, inceleme ve onay aşaması.",
+        "en": "Design stage, calculation stage, drawing stage, review-and-approval stage."
+      },
+      "en": "izlenecek yol",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f11",
+      "front": {
+        "tr": "Yapı projesi türlerine örnekler nelerdir?",
+        "en": "What are examples of building-project types?"
+      },
+      "back": {
+        "tr": "Bina projeleri, sulama/içme suyu projeleri, baraj, yol, köprü, peyzaj projeleri.",
+        "en": "Building, irrigation/drinking-water, dam, road, bridge, landscape projects."
+      },
+      "en": "yapı projesi türleri",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f12",
+      "front": {
+        "tr": "Yapı projelerinde 4 taraf kimlerdir?",
+        "en": "Who are the 4 parties in building projects?"
+      },
+      "back": {
+        "tr": "Proje sahibi, proje yapımcıları, yapı denetim şirketleri, idareler.",
+        "en": "Project owner, project producers (designers), construction supervision companies, authorities."
+      },
+      "en": "yapı projesi tarafları",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f13",
+      "front": {
+        "tr": "Proje sahibi kimdir?",
+        "en": "Who is the project owner (proje sahibi)?"
+      },
+      "back": {
+        "tr": "Projesi yapılacak tesisin arsasının mülkiyetine sahip gerçek veya tüzel kişidir; hem projenin hem yapının hukuki sahibidir.",
+        "en": "The real or legal person who owns the land the facility will be built on; the legal owner of both project and structure."
+      },
+      "en": "proje sahibi = project owner",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f14",
+      "front": {
+        "tr": "Proje yapımcısı (projeci) kimdir?",
+        "en": "Who is the project producer/designer (projeci)?"
+      },
+      "back": {
+        "tr": "Mühendis ve mimarlardan oluşan, projelendirmeye kanunla yetkilendirilmiş kişi veya kuruluşlardır; yalnızca kendi yetki alanlarındaki projeleri yapabilirler.",
+        "en": "Engineers and architects legally authorized to design; each may only design within their own field of authority."
+      },
+      "en": "projeci = designer",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f15",
+      "front": {
+        "tr": "Koordinatör projeci nedir?",
+        "en": "What is a coordinating designer (koordinatör projeci)?"
+      },
+      "back": {
+        "tr": "Arsa sahibinin tek bir muhatap olarak anlaştığı, diğer meslek gruplarıyla irtibatı kendisi sağlayan inşaat mühendisi veya mimardır; projenin daha doğru, eksiksiz ve hızlı tamamlanmasını sağlar.",
+        "en": "A civil engineer or architect the owner deals with as sole point of contact, who liaises with other disciplines; ensures faster, more accurate, more complete project delivery."
+      },
+      "en": "koordinatör projeci",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f16",
+      "front": {
+        "tr": "Bina projelerinde hangi proje kategorisi hangi meslek grubuna aittir?",
+        "en": "Which building-project category belongs to which profession?"
+      },
+      "back": {
+        "tr": "Mimari proje → mimar; statik/betonarme proje → inşaat mühendisi; mekanik tesisat → makine mühendisi; elektrik tesisat → elektrik mühendisi; zemin projesi → jeoloji mühendisi.",
+        "en": "Architectural → architect; structural/RC → civil engineer; mechanical → mechanical engineer; electrical → electrical engineer; soil → geological engineer."
+      },
+      "en": "proje kategorileri",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f17",
+      "front": {
+        "tr": "Yapı denetim şirketleri ne yapar?",
+        "en": "What do construction-supervision (yapı denetim) companies do?"
+      },
+      "back": {
+        "tr": "Projelerin idareye götürülmeden önce denetlenmesi için sunulduğu, sonrasında inşaatı da denetleyen kurumlardır.",
+        "en": "Companies to which projects are submitted for review before going to the authority, and which then also supervise construction."
+      },
+      "en": "yapı denetim şirketi",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f18",
+      "front": {
+        "tr": "Yapı denetim şirketleri ne zaman yaygınlaştı?",
+        "en": "When did construction-supervision companies become widespread?"
+      },
+      "back": {
+        "tr": "1999 depreminden sonra; önce 19 ilde pilot olarak başlayıp sonra tüm Türkiye'ye yayıldı.",
+        "en": "After the 1999 earthquake; started as a pilot in 19 provinces, then spread nationwide."
+      },
+      "en": "yapı denetim tarihçesi",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f19",
+      "front": {
+        "tr": "İdareler kimlerdir?",
+        "en": "Who are the 'idareler' (authorities)?"
+      },
+      "back": {
+        "tr": "Belediyeler, Çevre ve Şehircilik İl Müdürlükleri, meslek odaları.",
+        "en": "Municipalities, Provincial Directorates of Environment and Urbanization, professional chambers."
+      },
+      "en": "idareler = authorities",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f20",
+      "front": {
+        "tr": "İdarelerin görevi nedir?",
+        "en": "What is the role of the authorities (idareler)?"
+      },
+      "back": {
+        "tr": "Hazırlanan projeleri kanun/yönetmelik/plana uygunluk yönünden inceler, onaylar, inşaat ruhsatı verir ve uygulama sırasında inşaatı kontrol eder.",
+        "en": "Review projects for compliance with laws/regulations/plans, approve them, issue the construction permit, and inspect construction during execution."
+      },
+      "en": "idarelerin görevi",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f21",
+      "front": {
+        "tr": "Fenni mesul kimdir?",
+        "en": "Who is the fenni mesul (technical/site supervisor)?"
+      },
+      "back": {
+        "tr": "Yapının plana, ruhsata, projelere, standartlara ve teknik şartnamelere uygun inşasının kamu adına denetimini üstlenen, gerekli uzmanlığa sahip meslek mensubudur.",
+        "en": "The qualified professional who, on behalf of the public, supervises that a structure is built per the plan, permit, projects, standards, and specifications."
+      },
+      "en": "fenni mesul = site supervisor",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f22",
+      "front": {
+        "tr": "Resmî inşaatlarda uygulama fenni mesulü görevini kim yürütür?",
+        "en": "Who performs the application fenni mesul role on official/public construction?"
+      },
+      "back": {
+        "tr": "Şantiye şefleri.",
+        "en": "Site chiefs (şantiye şefleri)."
+      },
+      "en": "şantiye şefi = site chief",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f23",
+      "front": {
+        "tr": "Meslek odaları nedir?",
+        "en": "What are professional chambers (meslek odaları)?"
+      },
+      "back": {
+        "tr": "İlgili kanun hükümleri çerçevesinde kamu yararına dernek statüsünde kurulan, üyelerinin meslekleriyle ilgili alanlarda devlet adına denetim/düzenleme yapan kurumlardır.",
+        "en": "Public-interest associations established by law that perform inspection/regulation on behalf of the state within their members' professional fields."
+      },
+      "en": "meslek odası = professional chamber",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f24",
+      "front": {
+        "tr": "Meslek odalarının proje vizesi zorunluluğu ne zaman değişti?",
+        "en": "When did the requirement for chamber endorsement (oda vizesi) change?"
+      },
+      "back": {
+        "tr": "2013 yılına kadar kanuni zorunluluktu; 2013'ten sonra belediye-odalar arası etik anlaşmanın sonucu oldu, artık kanuni zorunluluk değil (belediye isterse hâlâ şart koşabilir).",
+        "en": "It was a legal requirement until 2013; since then it results from an ethics agreement between municipalities and chambers and is no longer a legal obligation (though a municipality may still require it)."
+      },
+      "en": "oda vizesi = chamber endorsement",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f25",
+      "front": {
+        "tr": "İnşaat ruhsatı almak için gerekli temel belgeler nelerdir?",
+        "en": "What are the basic documents required for a construction permit?"
+      },
+      "back": {
+        "tr": "Dilekçe, imar durum belgesi, plankote, arsa tapusu, ölçü krokisi, fenni mesuliyet ve sicil durum belgeleri, mimari/statik/tesisat/elektrik/zemin etüt/aplikasyon projeleri, gerekirse ÇED raporu ve yol geçiş izni, harç makbuzları.",
+        "en": "Petition, zoning-status document, plankote, land title, survey sketch, site-supervision/registry documents, architectural/structural/MEP/soil/layout projects, and (if needed) EIA report, road-crossing permit, fee receipts."
+      },
+      "en": "ruhsat belgeleri",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f26",
+      "front": {
+        "tr": "Tapu nedir?",
+        "en": "What is a tapu (title deed)?"
+      },
+      "back": {
+        "tr": "Türkiye Cumhuriyeti sınırları içindeki bir taşınmazın kime ait olduğunu, nerede ve ne büyüklükte olduğunu gösteren mülkiyet belgesidir.",
+        "en": "The ownership document showing who owns a real-estate parcel within Turkey, and its location and size."
+      },
+      "en": "tapu = title deed",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f27",
+      "front": {
+        "tr": "Tapuyu kim düzenler?",
+        "en": "Who issues the tapu (title deed)?"
+      },
+      "back": {
+        "tr": "Tapu ve Kadastro Müdürlükleri.",
+        "en": "Land Registry and Cadastre Directorates."
+      },
+      "en": "tapu ve kadastro müdürlüğü",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f28",
+      "front": {
+        "tr": "İmar çapı nedir?",
+        "en": "What is imar çapı (zoning plot plan)?"
+      },
+      "back": {
+        "tr": "Tapudaki bilgileri belli bir arsa üzerine yapılacak binanın büyüklük, yükseklik ve yaklaşım (çekme) sınırlarını gösteren 1/1000 ölçekli belgedir.",
+        "en": "A 1:1000-scale document showing the allowed size, height, and setback limits of a building on a titled parcel."
+      },
+      "en": "imar çapı = zoning plot plan",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f29",
+      "front": {
+        "tr": "İmar çapını kim düzenler?",
+        "en": "Who issues the imar çapı?"
+      },
+      "back": {
+        "tr": "Belediye sınırları içinde belediyeler; belediye sınırları dışında Çevre ve Şehircilik Müdürlükleri düzenler.",
+        "en": "Municipalities within municipal boundaries; Directorates of Environment and Urbanization outside them."
+      },
+      "en": "imar çapı düzenleyicisi",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f30",
+      "front": {
+        "tr": "Plankote nedir?",
+        "en": "What is plankote (site survey plan)?"
+      },
+      "back": {
+        "tr": "Tapu bilgileri belli olan arsanın yüzey şeklini, kotlarını ve ölçülerini gösteren belgedir; belediyeler veya tapu müdürlüklerince düzenlenir.",
+        "en": "A document showing a titled parcel's surface shape, elevations, and measurements; issued by municipalities or land registries."
+      },
+      "en": "plankote = site survey plan",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f31",
+      "front": {
+        "tr": "Ölçü krokisi nedir?",
+        "en": "What is ölçü krokisi (survey sketch)?"
+      },
+      "back": {
+        "tr": "Tapu bilgileri belli olan arsanın köşe ve kırık noktalarının koordinatlarını ve kenar uzunluklarını gösteren belgedir; tapu müdürlüklerince düzenlenir.",
+        "en": "A document showing the coordinates of a parcel's corner/break points and its edge lengths; issued by land registries."
+      },
+      "en": "ölçü krokisi = survey sketch",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f32",
+      "front": {
+        "tr": "Zemin raporu nedir?",
+        "en": "What is zemin raporu (soil report)?"
+      },
+      "back": {
+        "tr": "Arsanın zemin yapısını ve zemin emniyet gerilmesini gösteren rapordur; yetkili jeoloji mühendislerince düzenlenir.",
+        "en": "A report showing the parcel's soil structure and safe bearing pressure; prepared by authorized geological engineers."
+      },
+      "en": "zemin raporu = soil report",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f33",
+      "front": {
+        "tr": "İnşaat ruhsatı alındıktan sonra kaç yıl içinde inşaata başlanmalıdır?",
+        "en": "Within how many years must construction start after permit issuance?"
+      },
+      "back": {
+        "tr": "2 yıl içinde.",
+        "en": "Within 2 years."
+      },
+      "en": "ruhsat başlama süresi = 2 yıl",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f34",
+      "front": {
+        "tr": "İnşaat ruhsatı alındıktan sonra kaç yıl içinde inşaat bitirilmelidir?",
+        "en": "Within how many years must construction be completed after permit issuance?"
+      },
+      "back": {
+        "tr": "5 yıl içinde.",
+        "en": "Within 5 years."
+      },
+      "en": "ruhsat bitirme süresi = 5 yıl",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f35",
+      "front": {
+        "tr": "Ruhsat süreleri (2/5 yıl) aşılırsa ne olur?",
+        "en": "What happens if the 2/5-year permit deadlines are exceeded?"
+      },
+      "back": {
+        "tr": "Ruhsat iptal olur ve yenilenmesi gerekir.",
+        "en": "The permit is cancelled and must be renewed."
+      },
+      "en": "ruhsat iptali",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f36",
+      "front": {
+        "tr": "İdeal bir yapı projesi için 4 kriter nedir?",
+        "en": "What are the 4 criteria for an ideal building project?"
+      },
+      "back": {
+        "tr": "1) Arsaya imar planı/yönetmeliği/kanunlar çerçevesinde yapılabilecek büyüklük-nitelik-şekil belirlenmesi, 2) mal sahibi/kullanıcı isteklerinin belirlenmesi, 3) malzeme teknik-estetik-kalite özelliklerinin tespiti, 4) yapıya hâkim geometrik şekillerin belirlenmesi.",
+        "en": "1) Determining the allowed size/nature/form under zoning rules, 2) determining owner/user wishes, 3) determining material technical/aesthetic/quality properties, 4) determining dominant geometric forms."
+      },
+      "en": "ideal proje kriterleri",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f37",
+      "front": {
+        "tr": "Avan projenin bölümleri nelerdir?",
+        "en": "What are the sections of the avan (preliminary) project?"
+      },
+      "back": {
+        "tr": "Genel durum (vaziyet) planı, kat planları, görünüşler, kesitler, maket.",
+        "en": "Site plan, floor plans, elevations, sections, model."
+      },
+      "en": "avan proje bölümleri",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f38",
+      "front": {
+        "tr": "Avan projede vaziyet planı hangi ölçekte çizilir?",
+        "en": "At what scale is the site plan (vaziyet planı) drawn in the avan project?"
+      },
+      "back": {
+        "tr": "1/100 – 1/500.",
+        "en": "1:100–1:500."
+      },
+      "en": "vaziyet planı ölçeği",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f39",
+      "front": {
+        "tr": "Avan projede kat planları, görünüşler ve kesitler hangi ölçekte çizilir?",
+        "en": "At what scale are floor plans, elevations, and sections drawn in the avan project?"
+      },
+      "back": {
+        "tr": "1/50 – 1/200.",
+        "en": "1:50–1:200."
+      },
+      "en": "kat planı ölçeği",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f40",
+      "front": {
+        "tr": "Avan proje maketi hangi ölçekte yapılır?",
+        "en": "At what scale is the avan project model made?"
+      },
+      "back": {
+        "tr": "1/5 – 1/200.",
+        "en": "1:5–1:200."
+      },
+      "en": "maket ölçeği",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f41",
+      "front": {
+        "tr": "Kesin proje (uygulama projesi) neden avan projeden daha titiz hazırlanır?",
+        "en": "Why is the kesin (final) project prepared more rigorously than the avan project?"
+      },
+      "back": {
+        "tr": "Çünkü aynı zamanda uygulama projesi de olacaktır; çizimler sade, herkesçe anlaşılır ve kesin metrajlı olmalıdır.",
+        "en": "Because it also serves as the construction document; drawings must be clear, universally understandable, and give exact quantities."
+      },
+      "en": "kesin proje = final project",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f42",
+      "front": {
+        "tr": "Kesin projede yapılması zorunlu 6 proje nedir?",
+        "en": "What are the 6 mandatory projects in the kesin (final) project?"
+      },
+      "back": {
+        "tr": "Mimari, statik-betonarme, sıhhi tesisat, elektrik tesisat, zemin etüt, yapı aplikasyon projesi.",
+        "en": "Architectural, structural/RC, sanitary installation, electrical installation, soil survey, building-layout (aplikasyon) project."
+      },
+      "en": "zorunlu projeler",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f43",
+      "front": {
+        "tr": "Yapının niteliğine/ihtiyacına göre zorunlu projelere örnekler nelerdir?",
+        "en": "What are examples of projects mandatory depending on building need?"
+      },
+      "back": {
+        "tr": "Kalorifer tesisat, asansör, havalandırma-klima, telefon tesisat, doğalgaz tesisat, arıtma projesi.",
+        "en": "Central heating, elevator, HVAC, telephone, natural gas, wastewater treatment projects."
+      },
+      "en": "ihtiyaca göre zorunlu projeler",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f44",
+      "front": {
+        "tr": "İsteğe bağlı (özelliğe göre) projelere örnekler nelerdir?",
+        "en": "What are examples of optional (feature-based) projects?"
+      },
+      "back": {
+        "tr": "Uydu-internet tesisat, dâhili yayın tesisat, kapı konuşma tesisat, mutfak tesisat, çamaşırhane tesisat projesi.",
+        "en": "Satellite/internet, in-house broadcast, intercom, kitchen, laundry installation projects."
+      },
+      "en": "isteğe bağlı projeler",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f45",
+      "front": {
+        "tr": "Detay projeler nedir ve hangi ölçekte çizilir?",
+        "en": "What are detail projects and at what scale are they drawn?"
+      },
+      "back": {
+        "tr": "Plan/kesit/görünüşten çözülemeyen bina bölümlerinin daha büyük ölçekte çizilmiş hâlidir (yalıtım, sistem, kapı, pencere, ıslak hacim, merdiven detayı); ölçek 1/1 – 1/20.",
+        "en": "Larger-scale drawings of building parts that plan/section/elevation cannot resolve (insulation, system, door, window, wet-area, staircase details); scale 1:1–1:20."
+      },
+      "en": "detay proje ölçeği",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f46",
+      "front": {
+        "tr": "Teknik şartname nedir?",
+        "en": "What is a teknik şartname (technical specification)?"
+      },
+      "back": {
+        "tr": "İşi yaptıran tarafından, yapım/satın alma/satma/kiralama gibi işleri gerçekleştirmek için yazılan; yapan ve yaptıranın uymayı üstlendiği maddelerin sıralı olduğu belgedir.",
+        "en": "A document written by the contracting authority for construction/purchase/sale/lease work, listing the clauses both the executor and the authority commit to."
+      },
+      "en": "teknik şartname = technical specification",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f47",
+      "front": {
+        "tr": "Yönetmelik nedir?",
+        "en": "What is a yönetmelik (regulation/bylaw)?"
+      },
+      "back": {
+        "tr": "Bir kuruluşun çalışmalarında uymak üzere ortaya çıkardığı ve uyulacak ilkeleri kapsayan basılı yayınlardır.",
+        "en": "Printed publications an organization issues, containing the principles to be followed in its operations."
+      },
+      "en": "yönetmelik = regulation",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f48",
+      "front": {
+        "tr": "Metraj (genel) nedir?",
+        "en": "What is metraj (quantity take-off), generally speaking?"
+      },
+      "back": {
+        "tr": "Yapı elemanlarının miktarlarının belirlenmesi işlemidir.",
+        "en": "The determination of quantities of building elements."
+      },
+      "en": "metraj = quantity take-off",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f49",
+      "front": {
+        "tr": "Metrajın inşaat özelindeki tam tanımı nedir?",
+        "en": "What is the precise construction-specific definition of metraj?"
+      },
+      "back": {
+        "tr": "İnşa edilecek veya inşası tamamlanmış bir yapıda gerçekleştirilmiş/gerçekleştirilecek imalatların, belirli kurallar dâhilinde, bu iş için hazırlanmış çizelgeler kullanılarak miktarlarının hesaplanması işlemidir.",
+        "en": "The process of calculating, under defined rules and using purpose-built sheets, the quantities of work items in a structure to be built or already completed."
+      },
+      "en": "metraj tanımı",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f50",
+      "front": {
+        "tr": "Metraj kaç şekilde yapılabilir?",
+        "en": "In how many ways can metraj be done?"
+      },
+      "back": {
+        "tr": "İki şekilde: proje üzerinden (çizim ölçülerinden) veya yerinde ölçerek (röleve ile).",
+        "en": "Two ways: from the project drawings, or by measuring on site (rölöve)."
+      },
+      "en": "metraj yöntemleri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f51",
+      "front": {
+        "tr": "Keşif bedeli nasıl hesaplanır?",
+        "en": "How is the keşif bedeli (cost estimate amount) calculated?"
+      },
+      "back": {
+        "tr": "Her yapı imalatı için çıkartılan metraj değerleri, güncel birim fiyatlarla çarpılıp kümülatif olarak toplanarak hesaplanır.",
+        "en": "By multiplying each work item's quantity (metraj) by its current unit price and summing cumulatively."
+      },
+      "en": "keşif bedeli = cost estimate",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f52",
+      "front": {
+        "tr": "Keşif çıkartılması nedir?",
+        "en": "What is 'keşif çıkartılması' (preparing the cost estimate)?"
+      },
+      "back": {
+        "tr": "Metraj değerleriyle birim fiyatların çarpılıp toplanarak yapının maliyet bedelinin (keşif bedeli) hesaplanması işlemidir.",
+        "en": "The process of calculating a structure's cost (keşif bedeli) by multiplying and summing quantities and unit prices."
+      },
+      "en": "keşif çıkartılması",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f53",
+      "front": {
+        "tr": "Kesin hesap uzmanı kimdir?",
+        "en": "Who is a kesin hesap uzmanı (final-accounts/quantity-surveying expert)?"
+      },
+      "back": {
+        "tr": "Metraj, keşif ve kesin hesap işlerini yürüten inşaat mühendisi veya mimardır; resmî kurumlarda, özel bürolarda ve şantiyelerde görev alır.",
+        "en": "A civil engineer or architect who carries out quantity, cost-estimation, and final-accounts work; employed in public agencies, private offices, and construction sites."
+      },
+      "en": "kesin hesap uzmanı",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f54",
+      "front": {
+        "tr": "Kamu İhale Kanunu ne zaman yürürlüğe girdi ve metraj-keşifle ilişkisi nedir?",
+        "en": "When did the Public Procurement Law take effect, and how does it relate to metraj/keşif?"
+      },
+      "back": {
+        "tr": "2003 yılı başında yürürlüğe girdi; ölçümleme ve gerçek maliyetle teklif verme esasını temel dayanak yaptığından kesin hesap uzmanlığının önemini artırdı.",
+        "en": "It took effect at the start of 2003; because it is founded on measurement and bidding at real cost, it increased the importance of the final-accounts (quantity surveying) profession."
+      },
+      "en": "Kamu İhale Kanunu 2003",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f55",
+      "front": {
+        "tr": "İmalat nedir?",
+        "en": "What is imalat (finished work item)?"
+      },
+      "back": {
+        "tr": "Projede belirlenmiş ya da projede olmamasına rağmen yapılması gerekli olan, malzeme ve işçiliklerin bir araya getirilmesiyle ortaya çıkan yeni üründür.",
+        "en": "A new product arising from combining materials and labor, whether specified in the project or not, but necessary — e.g. installed plaster, doors, windows."
+      },
+      "en": "imalat = finished work item",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f56",
+      "front": {
+        "tr": "İhrazat nedir?",
+        "en": "What is ihrazat (material stockpiling)?"
+      },
+      "back": {
+        "tr": "İnşaatta kullanılacak, idarece belirlenmiş malzemelerin temin edilerek üretildikleri yerde ya da şantiye depolarında istiflenmesi işlemidir.",
+        "en": "The process of procuring and stockpiling administration-designated construction materials at the production site or on-site depots."
+      },
+      "en": "ihrazat = material stockpiling",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f57",
+      "front": {
+        "tr": "İhrazat kesintisi nedir?",
+        "en": "What is ihrazat kesintisi (stockpile deduction)?"
+      },
+      "back": {
+        "tr": "İhrazatı yapılan malzemelerin bedelinin, malzeme imalata girdikçe toplam ödemeden kesilmesidir.",
+        "en": "The deduction of a stockpiled material's prepaid cost from the total payment, as the material is consumed in the work."
+      },
+      "en": "ihrazat kesintisi",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f58",
+      "front": {
+        "tr": "İhrazatı yapılan malzemeler kime aittir?",
+        "en": "Who owns materials that have been stockpiled (ihrazat)?"
+      },
+      "back": {
+        "tr": "İdareye (devlete) aittir; başka bir yere taşınması veya başka bir işte kullanılması yasaktır.",
+        "en": "The administration (state); relocating or using them elsewhere is prohibited."
+      },
+      "en": "ihrazat malzeme mülkiyeti",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f59",
+      "front": {
+        "tr": "İhrazatı yapılabilecek malzemelere örnekler nelerdir?",
+        "en": "What are examples of materials commonly stockpiled (ihrazat)?"
+      },
+      "back": {
+        "tr": "Demir, çimento, agrega, kereste, seramik gibi sürekli fiyat artışı gösteren malzemeler.",
+        "en": "Steel, cement, aggregate, timber, ceramics — materials with continually rising prices."
+      },
+      "en": "ihrazat malzemeleri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f60",
+      "front": {
+        "tr": "Metraj ve keşfin unsurları nelerdir?",
+        "en": "What are the elements of quantity/cost work (metraj ve keşif)?"
+      },
+      "back": {
+        "tr": "Birim fiyatlar, birim fiyat analizleri, metraj, özel metrajlar, keşif, hakediş.",
+        "en": "Unit prices, unit price analyses, quantity take-off, special take-offs, cost estimate, progress payment."
+      },
+      "en": "metraj-keşif unsurları",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f61",
+      "front": {
+        "tr": "Birim fiyat nedir?",
+        "en": "What is birim fiyat (unit price)?"
+      },
+      "back": {
+        "tr": "İmalatların bir biriminin (m, m², m³, kg, ton, adet) yapım bedelidir.",
+        "en": "The construction cost of one unit (m, m², m³, kg, ton, piece) of a work item."
+      },
+      "en": "birim fiyat = unit price",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f62",
+      "front": {
+        "tr": "İki tür birim fiyat nedir?",
+        "en": "What are the two types of unit price?"
+      },
+      "back": {
+        "tr": "Çevre ve Şehircilik Bakanlığı birim fiyatları ve piyasa birim fiyatları.",
+        "en": "Ministry of Environment and Urbanization unit prices, and market unit prices."
+      },
+      "en": "birim fiyat türleri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f63",
+      "front": {
+        "tr": "Çevre ve Şehircilik Bakanlığı birim fiyatları ne sıklıkla belirlenir?",
+        "en": "How often are Ministry of Environment and Urbanization unit prices set?"
+      },
+      "back": {
+        "tr": "Yılda bir kez belirlenir ve o yılın tamamı için geçerlidir.",
+        "en": "Once a year, valid for the whole year."
+      },
+      "en": "bakanlık birim fiyatı sıklığı",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f64",
+      "front": {
+        "tr": "Piyasa birim fiyatları ne zaman ve nerede kullanılır?",
+        "en": "When and where are market unit prices used?"
+      },
+      "back": {
+        "tr": "Genellikle özel inşaatların yapımında geçerlidir; güncel piyasa şartlarına göre hesaplanır, yüksek enflasyon dönemlerinde birkaç kez güncellenebilir.",
+        "en": "Mainly used on private construction; calculated from current market conditions; may be updated several times during high inflation."
+      },
+      "en": "piyasa birim fiyatı",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f65",
+      "front": {
+        "tr": "Hangi birim fiyatın geçerli olacağına kim karar verir?",
+        "en": "Who decides which unit price applies?"
+      },
+      "back": {
+        "tr": "Yapı sahibi (işveren).",
+        "en": "The building owner (employer)."
+      },
+      "en": "birim fiyat seçimi",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f66",
+      "front": {
+        "tr": "Birim fiyat tarifi nedir?",
+        "en": "What is birim fiyat tarifi (unit price specification)?"
+      },
+      "back": {
+        "tr": "Bir imalatın nasıl yapılacağını, hangi malzemeden ne kadar kullanılacağını, hangi işçi/makinenin ne kadar çalışacağını ve ölçüm şeklini detaylı tanımlayan Bakanlık tanımıdır.",
+        "en": "The Ministry's detailed definition of how a work item is executed, material/labor/machine quantities, and the measurement method."
+      },
+      "en": "birim fiyat tarifi",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f67",
+      "front": {
+        "tr": "Poz numarası nedir?",
+        "en": "What is a poz numarası (item code)?"
+      },
+      "back": {
+        "tr": "Her imalat birim fiyatına verilen, o imalatı her yerde aynı şekilde tanımlayan kimlik numarasıdır.",
+        "en": "The identification code assigned to each unit price item, ensuring it is referred to consistently everywhere."
+      },
+      "en": "poz numarası = item code",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f68",
+      "front": {
+        "tr": "Serbest kazı (makine ile yumuşak-sert toprak kazılması) birim fiyatının poz numarası nedir?",
+        "en": "What is the poz number for free excavation (machine excavation of soft/hard soil)?"
+      },
+      "back": {
+        "tr": "15.120 (örnekte alt kalem 15.120.1001).",
+        "en": "15.120 (sub-item 15.120.1001 in the example)."
+      },
+      "en": "poz no 15.120",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f69",
+      "front": {
+        "tr": "Serbest kazı birim fiyatına neler DAHİLDİR?",
+        "en": "What IS included in the free-excavation unit price?"
+      },
+      "back": {
+        "tr": "Kazının yapılması, taşıtlara yüklenmesi, 25 metreye kadar taşınması, boşaltılması, serilmesi, boşlukların doldurulması, tesviye, her türlü malzeme zayiatı, işçilik, araç-gereç giderleri, müteahhit genel gideri ve kârı.",
+        "en": "Excavation, loading onto vehicles, hauling up to 25 m, unloading, spreading, backfilling, leveling, material waste, labor, equipment costs, contractor overhead and profit."
+      },
+      "en": "kazı birim fiyatına dahil olanlar",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f70",
+      "front": {
+        "tr": "Serbest kazı birim fiyatına neler DAHİL DEĞİLDİR?",
+        "en": "What is NOT included in the free-excavation unit price?"
+      },
+      "back": {
+        "tr": "25 metre dışındaki taşıma, dolgunun sulama ve sıkıştırma bedelleri, derinlik zammı.",
+        "en": "Hauling beyond 25 m, watering and compaction of the fill, and depth surcharge."
+      },
+      "en": "kazı birim fiyatına dahil olmayanlar",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f71",
+      "front": {
+        "tr": "Kazı hacmi nasıl ölçülür/hesaplanır?",
+        "en": "How is excavation volume measured/calculated?"
+      },
+      "back": {
+        "tr": "Kazının hacmi kazı projesi üzerinden hesaplanır.",
+        "en": "Excavation volume is calculated from the excavation project (drawings)."
+      },
+      "en": "kazı hacmi ölçüm kuralı",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f72",
+      "front": {
+        "tr": "Birim fiyat analizi nedir?",
+        "en": "What is birim fiyat analizi (unit price analysis)?"
+      },
+      "back": {
+        "tr": "Bir imalatı oluşturan tüm unsurların (malzeme, işçilik, makine-saat) birim miktarlarının alt alta yazılıp toplanmasıyla yapılan hesaptır.",
+        "en": "The calculation that lists and sums every input (material, labor, machine-hours) making up one unit of a work item."
+      },
+      "en": "birim fiyat analizi = unit price analysis",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f73",
+      "front": {
+        "tr": "Birim fiyat analizinde ara toplama ne kadar müteahhit kârı/genel gider eklenir?",
+        "en": "What percentage of contractor profit/overhead is added in a unit price analysis?"
+      },
+      "back": {
+        "tr": "%25.",
+        "en": "25%."
+      },
+      "en": "müteahhit kârı %25",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f74",
+      "front": {
+        "tr": "Metraj cetveli kaça ayrılır?",
+        "en": "Into how many types is the metraj cetveli (quantity sheet) divided?"
+      },
+      "back": {
+        "tr": "İkiye: yapı metraj cetveli ve demir metraj cetveli.",
+        "en": "Two: building quantity sheet and rebar quantity sheet."
+      },
+      "en": "metraj cetveli türleri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f75",
+      "front": {
+        "tr": "Yapı metraj cetvelinde 'azı' ve 'çoğu' sütunları ne anlama gelir?",
+        "en": "What do the 'azı' and 'çoğu' columns mean on a building quantity sheet?"
+      },
+      "back": {
+        "tr": "'Azı' çarpım sonucu bulunan bürüt/kaba miktardır (artı: eklenecek, eksi/minha: boşluk gibi düşülecek); 'çoğu' bunların net sonucudur, yani asıl yapılacak miktardır.",
+        "en": "'Azı' is the gross figure from multiplying dimensions (plus: to add, minus/minha: openings to deduct); 'çoğu' is the net result — the actual quantity to be built."
+      },
+      "en": "azı / çoğu",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f76",
+      "front": {
+        "tr": "Demir metraj cetvelinde ince ve kalın demir ayrımı nasıl yapılır?",
+        "en": "How is the thin/thick rebar distinction made on the rebar quantity sheet?"
+      },
+      "back": {
+        "tr": "12 mm'ye kadar olanlar ince demir, 12 mm üstü olanlar kalın demir olarak ayrı toplanır.",
+        "en": "Bars up to 12 mm are 'thin', above 12 mm are 'thick', totaled separately."
+      },
+      "en": "ince/kalın demir sınırı = 12mm",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f77",
+      "front": {
+        "tr": "Metraj özeti nedir?",
+        "en": "What is metraj özeti (quantity summary)?"
+      },
+      "back": {
+        "tr": "Hazırlanan metrajdaki sonuç rakamlarının birkaç sayfada belirli kurallar dâhilinde toplanarak gösterilmesi için yapılan çalışmadır.",
+        "en": "The compilation of a quantity take-off's result figures onto a few summary pages under defined rules."
+      },
+      "en": "metraj özeti",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f78",
+      "front": {
+        "tr": "Özel metraj nedir?",
+        "en": "What is özel metraj (special take-off)?"
+      },
+      "back": {
+        "tr": "Karışımlı bir imalatta (örn. özel beton) her kalemin ayrı ayrı metrajlandırılmasıdır; rutin yapım metrajı dışında kalan ek metraj türüdür.",
+        "en": "The line-by-line take-off of a composite work item (e.g. special concrete), beyond routine take-off."
+      },
+      "en": "özel metraj",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f79",
+      "front": {
+        "tr": "Rölöve nedir?",
+        "en": "What is rölöve?"
+      },
+      "back": {
+        "tr": "Projesi olmayan üstyapı veya bitirilince üzeri kapatılacak altyapı imalatlarında, imalatın metrajını çıkarmak için gerekli ölçü/kroki/alt imalat bilgilerini gösteren ölçeksiz plan ve detay çizimleridir.",
+        "en": "Unscaled plan/detail drawings capturing the measurements, sketch, and sub-item info needed to take off quantities of superstructure work with no project, or substructure work that will be covered."
+      },
+      "en": "rölöve",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f80",
+      "front": {
+        "tr": "Rölöveye hangi tür inşaatlarda ihtiyaç duyulur?",
+        "en": "In which types of construction is rölöve most needed?"
+      },
+      "back": {
+        "tr": "İçme suyu, kanalizasyon, yağmur suyu, baraj, sulama, enerji nakil hatları, eski bina onarımları ve yeni bina ek imalatları.",
+        "en": "Water supply, sewage, storm drainage, dams, irrigation, power lines, building renovations, and additions."
+      },
+      "en": "rölöve kullanım alanları",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f81",
+      "front": {
+        "tr": "Ataşman nedir?",
+        "en": "What is ataşman?"
+      },
+      "back": {
+        "tr": "Üstyapıda idarenin istediği/zorunlu ilave imalatlar ile altyapıda toprak altında kalacak imalatların ödemeye esas metrajlarını belgelemek için düzenlenen, ölçeksiz kroki ve metraj hesabından oluşan belgedir.",
+        "en": "A document (unscaled sketch + quantity calculation) recording the payment-basis quantities of required extra superstructure work, or substructure work that will be buried."
+      },
+      "en": "ataşman",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f82",
+      "front": {
+        "tr": "Bir ataşmanın düzenlenebilmesi için hangi şartlar gerekir?",
+        "en": "What conditions must be met before an ataşman can be issued?"
+      },
+      "back": {
+        "tr": "İşin röleve alınmış, kurala uygun çizilmiş, tamamen bitirilmiş olması ve idarenin görevli teknik elemanınca kontrol edilmiş olması gerekir.",
+        "en": "The work must be surveyed (rölöve), correctly drawn, fully finished, and checked by the authority's technical staff."
+      },
+      "en": "ataşman şartları",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f83",
+      "front": {
+        "tr": "Ataşman hangi deftere işlenir?",
+        "en": "In what ledger is an ataşman recorded?"
+      },
+      "back": {
+        "tr": "Ataşman defterine.",
+        "en": "The ataşman defteri (ataşman ledger)."
+      },
+      "en": "ataşman defteri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f84",
+      "front": {
+        "tr": "Yeşil defter nedir?",
+        "en": "What is yeşil defter (green ledger)?"
+      },
+      "back": {
+        "tr": "Projede olmayan veya idarece değişiklik yapılan, henüz tam bitirilmemiş imalatların hakedişe alınabilmesi için metrajın işlendiği deftere denir.",
+        "en": "The ledger recording quantities of off-project or authority-changed, not-yet-fully-finished work items so they can be included in progress payments."
+      },
+      "en": "yeşil defter = green ledger",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f85",
+      "front": {
+        "tr": "Yeşil defter neden 'yeşil' olarak adlandırılıyor ve tamamlanınca ne olur?",
+        "en": "Why is it called 'green' ledger, and what happens once the work is finished?"
+      },
+      "back": {
+        "tr": "Eskiden bu kayıtların yapıldığı sayfaların rengi yeşil olduğundan bu adı almıştır; imalat tamamlanınca yeşil defter ataşmana dönüşür.",
+        "en": "Named after the (formerly) green color of its pages; once the work is completed, the green ledger converts into an ataşman."
+      },
+      "en": "yeşil defter → ataşman",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f86",
+      "front": {
+        "tr": "Keşif nedir?",
+        "en": "What is keşif (cost estimation)?"
+      },
+      "back": {
+        "tr": "İnşaata başlanmadan önce gerekli finansmanın temini için yapının ekonomik büyüklüğü ve maliyet bedelinin hesaplanmasına yönelik etüt ve hesaplama çalışmalarının tümüdür.",
+        "en": "The set of studies and calculations determining a structure's economic scale and cost, done before construction to secure financing."
+      },
+      "en": "keşif = cost estimate",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f87",
+      "front": {
+        "tr": "Keşif kaç aşamadan oluşur?",
+        "en": "How many stages does keşif consist of?"
+      },
+      "back": {
+        "tr": "İki aşamadan: birinci (ön) keşif ve son (kesin) keşif.",
+        "en": "Two stages: first (preliminary) estimate and final (definitive) estimate."
+      },
+      "en": "keşif aşamaları",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f88",
+      "front": {
+        "tr": "Keşfin hazırlanması için gerekli alt unsurlar nelerdir?",
+        "en": "What are the required inputs for preparing a keşif?"
+      },
+      "back": {
+        "tr": "Projeler, imalat detayları, birim fiyat araştırma ve tespitleri, gerekliyse röleveler, gerekliyse ataşmanlar.",
+        "en": "Project drawings, work-item details, unit-price research, and (if needed) rölöve and ataşman records."
+      },
+      "en": "keşif alt unsurları",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f89",
+      "front": {
+        "tr": "Birinci keşif (ön keşif) nedir?",
+        "en": "What is birinci keşif (preliminary estimate)?"
+      },
+      "back": {
+        "tr": "Büyük yaklaşıklıkla yapı maliyetinin hesaplanmasıdır.",
+        "en": "A rough calculation of building cost with large approximation."
+      },
+      "en": "birinci keşif = preliminary estimate",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f90",
+      "front": {
+        "tr": "Tahmini ön keşif nedir?",
+        "en": "What is tahmini ön keşif (rough preliminary estimate)?"
+      },
+      "back": {
+        "tr": "Henüz uygulama projeleri oluşmamışken, mühendislik önsezisi, piyasa tecrübesi ve geleneksel birim m² maliyetleriyle kabaca yapılan maliyet tahminidir.",
+        "en": "A rough cost estimate made before working drawings exist, based on engineering intuition, market experience, and traditional per-m² costs."
+      },
+      "en": "tahmini ön keşif",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f91",
+      "front": {
+        "tr": "Metraja dayalı ön keşif nedir?",
+        "en": "What is metraja dayalı ön keşif (quantity-based preliminary estimate)?"
+      },
+      "back": {
+        "tr": "Yapıya ait projeler oluştuktan sonra, yapı elemanlarının metrajı çıkarılıp birim fiyatla çarpılarak yapılan maliyet hesabıdır (tesisat ve diğer kalemler de dâhil).",
+        "en": "A cost calculation made once project drawings exist, by taking off quantities and multiplying by unit prices (including installations and other items)."
+      },
+      "en": "metraja dayalı ön keşif",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f92",
+      "front": {
+        "tr": "Son keşif (kesin keşif) nedir?",
+        "en": "What is son keşif (final/definitive estimate)?"
+      },
+      "back": {
+        "tr": "Yapının inşaatı tamamlandıktan sonra, tüm hakedişler ve değişiklik maliyetleri belgelerle birlikte tek dokümanda toplanarak yapının gerçek maliyetinin ortaya çıkarılmasıdır.",
+        "en": "The consolidation, after construction is complete, of all progress payments and change costs into a single document showing the structure's actual cost."
+      },
+      "en": "son keşif = final estimate",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f93",
+      "front": {
+        "tr": "Kesin hesap işlemleri nedir?",
+        "en": "What are kesin hesap işlemleri (final accounting operations)?"
+      },
+      "back": {
+        "tr": "Son keşfin ortaya çıkarılması için yapılan işlemlerin tümüdür; kesin hesap uzmanları tarafından yürütülür.",
+        "en": "The full set of operations carried out to produce the son keşif (final estimate); performed by kesin hesap uzmanı (final-accounts experts)."
+      },
+      "en": "kesin hesap işlemleri",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f94",
+      "front": {
+        "tr": "Keşif özeti nedir?",
+        "en": "What is keşif özeti (cost summary)?"
+      },
+      "back": {
+        "tr": "Miktar, birim fiyat, tutar ve toplam tutarın tek bir sayfada gösterildiği belgedir; kesin hesap işlemlerinin sonucu ortaya çıkar.",
+        "en": "A single-page document showing quantity, unit price, amount, and total amount; the output of final accounting."
+      },
+      "en": "keşif özeti = cost summary",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f95",
+      "front": {
+        "tr": "'Türkiye Cumhuriyeti sınırları içindeki bir taşınmazın kime ait olduğunu, nerede ve ne büyüklükte olduğunu gösteren mülkiyet belgesi' hangi belgedir?",
+        "en": "Which document is 'the ownership document showing who owns a parcel within Turkey, its location, and size'?"
+      },
+      "back": {
+        "tr": "Tapu.",
+        "en": "Tapu (title deed)."
+      },
+      "en": "tanımdan terime: tapu",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f96",
+      "front": {
+        "tr": "'Tapudaki bilgileri belli bir arsa üzerine yapılacak binanın büyüklük, yükseklik ve yaklaşım sınırlarını gösteren 1/1000 ölçekli belge' hangi belgedir?",
+        "en": "Which document is 'the 1:1000-scale document showing allowed building size, height, and setback limits on a titled parcel'?"
+      },
+      "back": {
+        "tr": "İmar çapı.",
+        "en": "İmar çapı (zoning plot plan)."
+      },
+      "en": "tanımdan terime: imar çapı",
+      "tag": "sektor-ozellikleri"
+    },
+    {
+      "id": "f97",
+      "front": {
+        "tr": "'Yapının plana, ruhsata ve projelere uygun inşasını kamu adına denetleyen meslek mensubu' kimdir?",
+        "en": "Who is 'the professional who supervises, on behalf of the public, that a structure is built per plan, permit, and projects'?"
+      },
+      "back": {
+        "tr": "Fenni mesul.",
+        "en": "Fenni mesul (site/technical supervisor)."
+      },
+      "en": "tanımdan terime: fenni mesul",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f98",
+      "front": {
+        "tr": "'İnşaatta kullanılacak, idarece belirlenmiş malzemelerin temin edilip şantiye deposunda istiflenmesi' hangi işlemdir?",
+        "en": "Which process is 'procuring and stockpiling administration-designated construction materials at the site depot'?"
+      },
+      "back": {
+        "tr": "İhrazat.",
+        "en": "İhrazat (material stockpiling)."
+      },
+      "en": "tanımdan terime: ihrazat",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f99",
+      "front": {
+        "tr": "'Yapılan işin yerinde ölçülüp ölçeksiz olarak çizilen mevcut durum çizimi' hangi belgedir?",
+        "en": "Which document is 'the unscaled as-built drawing produced by measuring finished work on site'?"
+      },
+      "back": {
+        "tr": "Rölöve.",
+        "en": "Rölöve."
+      },
+      "en": "tanımdan terime: rölöve",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f100",
+      "front": {
+        "tr": "'Projede olmayan veya idarece değiştirilen, henüz bitmemiş imalatların hakedişe alınabilmesi için tutulan defter' hangisidir?",
+        "en": "Which ledger is 'kept for off-project or authority-changed, not-yet-finished work so it can enter progress payments'?"
+      },
+      "back": {
+        "tr": "Yeşil defter.",
+        "en": "Yeşil defter (green ledger)."
+      },
+      "en": "tanımdan terime: yeşil defter",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f101",
+      "front": {
+        "tr": "'Yapının inşaatı tamamlandıktan sonra hazırlanan, gerçek maliyeti gösteren keşif türü' hangisidir?",
+        "en": "Which type of keşif is 'prepared after construction is complete and shows the actual cost'?"
+      },
+      "back": {
+        "tr": "Son keşif (kesin keşif).",
+        "en": "Son keşif (final/definitive cost estimate)."
+      },
+      "en": "tanımdan terime: son keşif",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f102",
+      "front": {
+        "tr": "'Projesi yapılacak tesisin arsasının mülkiyetine sahip gerçek veya tüzel kişi' kimdir?",
+        "en": "Who is 'the real or legal person owning the land the facility will be built on'?"
+      },
+      "back": {
+        "tr": "Proje sahibi.",
+        "en": "Proje sahibi (project owner)."
+      },
+      "en": "tanımdan terime: proje sahibi",
+      "tag": "katilimcilar"
+    },
+    {
+      "id": "f103",
+      "front": {
+        "tr": "'İmalatların bir biriminin yapım bedeli' hangi kavramdır?",
+        "en": "Which concept is 'the construction cost of one unit of a work item'?"
+      },
+      "back": {
+        "tr": "Birim fiyat.",
+        "en": "Birim fiyat (unit price)."
+      },
+      "en": "tanımdan terime: birim fiyat",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f104",
+      "front": {
+        "tr": "'Canlıların ihtiyaçlarının karşılanması amacıyla yer altında, yerüstünde ve suda yapılacak tesislerin çizim ve hesaplar dâhil kâğıda aktarılmış hâli' hangi kavramdır?",
+        "en": "Which concept is 'facilities built above/below ground or in water to meet human needs, put on paper with drawings and calculations'?"
+      },
+      "back": {
+        "tr": "Yapı projesi.",
+        "en": "Yapı projesi (building project)."
+      },
+      "en": "tanımdan terime: yapı projesi",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f105",
+      "front": {
+        "tr": "İmal(at) zinciri nedir?",
+        "en": "What is the imal(at) zinciri (production chain)?"
+      },
+      "back": {
+        "tr": "Bir yapıda hangi imalatın hangi sırayla yapılacağını gösteren iş ve işlem akış diyagramıdır (örn. kalıp imal edilmeden beton dökülemez).",
+        "en": "The workflow diagram showing which work item is built in which order in a structure (e.g. concrete cannot be poured before the formwork is made)."
+      },
+      "en": "imalat zinciri = production/work-item chain",
+      "tag": "yonetim-fonksiyonlari"
+    },
+    {
+      "id": "f106",
+      "front": {
+        "tr": "Avan projede 'program' nedir?",
+        "en": "What is the 'program' in a preliminary (avan) project?"
+      },
+      "back": {
+        "tr": "Yapının kullanım amacına göre yapıdan istenilenlerin listesidir; avan proje aşamasında projeyi hazırlayacak kişi/kuruluşun yararlanacağı en önemli veridir.",
+        "en": "The list of everything required of the building given its purpose; it is the most important input the designer uses at the preliminary-project stage."
+      },
+      "en": "program = building requirements brief",
+      "tag": "proje-yasami"
+    },
+    {
+      "id": "f107",
+      "front": {
+        "tr": "Metraj cetvelinde 'benzer' sütunu ne işe yarar?",
+        "en": "What is the 'benzer' (similar-count) column for in a quantity sheet?"
+      },
+      "back": {
+        "tr": "Aynı boyuttaki birden fazla eleman varsa her birini tek tek yazmak yerine 'benzer' sütununa adedi yazılır ve azı(+) o sayıyla çarpılır; tekrarlı imalatlarda zaman kazandırır.",
+        "en": "When several identical-size items exist, instead of listing each separately you write the count in the 'benzer' column and multiply azı(+) by it; it saves time on repeated items."
+      },
+      "en": "benzer = similar-item count",
+      "tag": "yonetim-fonksiyonlari"
+    }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi yapı gereksiniminin ortaya çıkma şekillerinden BİRİ DEĞİLDİR?",
+        "en": "Which of the following is NOT one of the ways a building need arises?"
+      },
+      "options": [
+        {
+          "tr": "İstekler",
+          "en": "Requests"
+        },
+        {
+          "tr": "Planlama sonucu",
+          "en": "As a result of planning"
+        },
+        {
+          "tr": "Başka bir yapının sonucu",
+          "en": "As a consequence of another structure"
+        },
+        {
+          "tr": "İhale sonucu",
+          "en": "As a result of a tender"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Gereksinimler istekler, planlama sonucu veya başka bir yapının sonucu olarak üç şekilde ortaya çıkar. İhale, gereksinim belirlendikten çok sonra, yükleniciyi seçmek için yapılan bir süreçtir; gereksinimin kaynağı değildir.",
+        "en": "Needs arise from requests, planning outcomes, or as a consequence of another structure. A tender happens much later, to select a contractor — it is not a source of the original need."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Fizibilite (yapılabilirlik) çalışması nedir ve neden sadece inşaat işlerine özgü değildir? Kısa bir örnekle açıklayınız.",
+        "en": "What is a feasibility study and why is it not specific to construction work? Explain with a short example."
+      },
+      "answer": {
+        "tr": "Fizibilite, bir işin ekonomik, sosyal ve çevresel boyutuyla öngörülen bölgede yapılabilirliğinin saptanmasına yönelik çalışmadır. Her türlü iş için yapılabilir; sadece inşaat işi için zorunlu değildir. Örnek: bir kebapçı dükkânı açarken sadece en ucuz kirayı değil, o bölgedeki müşteri potansiyelini (örneğin vejeteryanların yoğun olduğu bir mahalle) de değerlendirmek gerekir; aksi hâlde kâr elde edilemez, hatta iflas riski doğar.",
+        "en": "Feasibility is a study determining whether a work is viable — economically, socially, environmentally — in its intended location. It applies to any undertaking, not only construction. Example: when opening a kebab shop, one must evaluate not just the cheapest rent but also the customer potential in the area (e.g. a mostly-vegetarian neighborhood); otherwise no profit is made and the business may fail."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Günlük dilde 'proje' kelimesi genellikle kâğıda basılmış bir çizim olarak algılanır. Ders notlarına göre bu algı neden eksiktir?",
+        "en": "In everyday language 'proje' is usually perceived as a printed drawing. Why is this perception incomplete per the course notes?"
+      },
+      "options": [
+        {
+          "tr": "Çünkü proje, sürecin en son aşamasıdır; önce fizibilite ve ön etütler gibi birçok çalışma yapılmalıdır",
+          "en": "Because a project is the LAST stage of the process; feasibility and preliminary studies must come first"
+        },
+        {
+          "tr": "Çünkü proje kelimesi sadece bina projelerinde kullanılır",
+          "en": "Because 'proje' is only used for building projects"
+        },
+        {
+          "tr": "Çünkü proje kelimesi yalnızca kamu işlerinde geçerlidir",
+          "en": "Because 'proje' only applies to public works"
+        },
+        {
+          "tr": "Çünkü çizim olmadan proje tamamlanamaz",
+          "en": "Because a project cannot be completed without a drawing"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Doğru cevap: proje, konunun bir tasarı olarak ele alınmasıyla ortaya çıkar ve aslında sürecin en son aşamasıdır — önce gereksinim, fizibilite ve ön etütler tamamlanmalıdır. Diğer seçenekler kaynaklarda yer almayan iddialardır.",
+        "en": "Correct: a project emerges when the matter is treated as a design proposal, and it is actually the LAST stage — need, feasibility, and preliminary studies must come first. The other options are unsupported claims."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ön etütler aşamasında yapılan beş araştırmayı sayınız ve her birinin amacını kısaca açıklayınız.",
+        "en": "List the five research studies done in the preliminary-studies stage and briefly explain the purpose of each."
+      },
+      "answer": {
+        "tr": "1) **Olanakların araştırılması**: projeye kimin sahip olacağı ve hangi kaynak/hammaddelerin kullanılabileceği belirlenir. 2) **Yer araştırması**: yapı için en uygun konum incelenir (arsa, hammadde-taşıma imkânı, topografya vb.). 3) **Tip araştırması**: yapı tipi belirlenir (malzeme/sistem seçimi). 4) **Boyut araştırması**: ana ünitelerin boyutları, gereksinim miktarı ve mühendislik hesap sınırlamalarına göre belirlenir. 5) **İlk seçeneklerin değerlendirilmesi**: alternatiflerin kabaca maliyet ve güvenlik hesapları yapılıp en uygun alternatif seçilir.",
+        "en": "1) **Resource feasibility research**: determines who will own the project and what resources/raw materials are available. 2) **Site research**: examines the best location. 3) **Type research**: determines the structural type. 4) **Size research**: determines dimensions of main units based on demand and engineering constraints. 5) **Evaluation of initial alternatives**: rough cost/safety comparisons to select the best option."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ön etütlerin sonucu hangi raporda özetlenir?",
+        "en": "In which report are the results of preliminary studies summarized?"
+      },
+      "options": [
+        {
+          "tr": "Keşif özeti",
+          "en": "Cost summary"
+        },
+        {
+          "tr": "Ön etüt (istikşaf) raporu",
+          "en": "Preliminary study (istikşaf) report"
+        },
+        {
+          "tr": "Hakediş raporu",
+          "en": "Progress payment report"
+        },
+        {
+          "tr": "Fenni mesuliyet raporu",
+          "en": "Site-supervision report"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ön etüt raporu (istikşaf raporu), yapılan beş araştırmanın ana çizgilerini, alternatif çözümleri, seçilen alternatifi ve seçimin gerekçesini içerir. Keşif özeti maliyetle, hakediş ödemeyle, fenni mesuliyet denetimle ilgilidir — hiçbiri ön etüt sonucunu özetleyen rapor değildir.",
+        "en": "The preliminary study (istikşaf) report documents the outline of the five research areas, the alternatives, the one chosen, and its justification. The other options relate to cost, payment, and supervision, not preliminary-study summary."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı projesi tanımına göre aşağıdakilerden hangisi yapı projesi kapsamı DIŞINDA kalır?",
+        "en": "According to the definition of building project, which of the following falls OUTSIDE its scope?"
+      },
+      "options": [
+        {
+          "tr": "Yerüstünde yapılacak bir bina",
+          "en": "A building to be constructed above ground"
+        },
+        {
+          "tr": "Suda yapılacak bir liman tesisi",
+          "en": "A harbor facility to be built in water"
+        },
+        {
+          "tr": "Yeraltında yapılacak bir tünel",
+          "en": "A tunnel to be built underground"
+        },
+        {
+          "tr": "Yapı ile ilgisi olmayan bir ticari pazarlama planı",
+          "en": "A commercial marketing plan unrelated to construction"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Yapı projesi, canlıların ihtiyaçlarının karşılanması amacıyla yerüstü, yeraltı veya suda yapılacak TESİSLERİN dokümanlarıdır. Bir pazarlama planı inşaat/yapı tesisi değildir, dolayısıyla tanım dışıdır.",
+        "en": "A building project covers documents for FACILITIES built above/below ground or in water to meet human needs. A marketing plan is not a construction facility, so it falls outside the definition."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı projelerini genel projelerden ayıran dört özelliği sayınız.",
+        "en": "List the four features that distinguish building projects from general projects."
+      },
+      "answer": {
+        "tr": "1) Ekip çalışmasıyla oluşturulur (tek kişinin işi değildir). 2) Uluslararası, ulusal ve yöresel şartlara uygun olmalıdır. 3) Kanunlarla kendi alanında yetkilendirilmiş teknik elemanlarca yapılmalıdır. 4) Yetkili kurumların hazırladığı kanun ve yönetmeliklere uygun hazırlanmalıdır.",
+        "en": "1) Produced by teamwork, not a single person. 2) Must comply with international, national, and local requirements. 3) Must be prepared by technical staff legally authorized in their field. 4) Must follow the laws and regulations of the relevant authorities."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı projelerinin yapılmasının amaçları arasında AŞAĞIDAKİLERDEN HANGİSİ SAYILMAZ?",
+        "en": "Which of the following is NOT among the purposes of preparing building projects?"
+      },
+      "options": [
+        {
+          "tr": "Yapının amacına uygun olmasını sağlamak",
+          "en": "Ensuring the structure fits its purpose"
+        },
+        {
+          "tr": "Yapının zamanında tamamlanmasını sağlamak",
+          "en": "Ensuring timely completion"
+        },
+        {
+          "tr": "Yapının satış fiyatını maksimize etmek",
+          "en": "Maximizing the structure's sale price"
+        },
+        {
+          "tr": "Tasarlanacak yapıdaki eksikliklerin önceden görülmesini sağlamak",
+          "en": "Revealing design deficiencies in advance"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Ders notlarında sayılan 5 amaç: amaca uygunluk, zamanında tamamlanma, ekonomik inşa, geri dönüşü zor hataların önlenmesi, eksikliklerin önceden görülmesi. Satış fiyatını maksimize etmek bu amaçlar arasında yer almaz.",
+        "en": "The 5 listed purposes are: fitness for purpose, timely completion, economical construction, preventing hard-to-reverse mistakes, and revealing deficiencies in advance. Maximizing sale price is not among them."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Yapı projelerinin hazırlanmasında izlenecek dört aşamayı sırasıyla yazınız.",
+        "en": "List, in order, the four stages followed in preparing building projects."
+      },
+      "answer": {
+        "tr": "1) Tasarım aşaması, 2) Hesap aşaması, 3) Çizim aşaması, 4) İnceleme ve onay aşaması. Bu aşamalar birbirinden kopuk değil, entegre biçimde yürütülür.",
+        "en": "1) Design stage, 2) Calculation stage, 3) Drawing stage, 4) Review-and-approval stage. These stages are carried out in an integrated way, not as disconnected steps."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi bir yapı projesi türü ÖRNEĞİ değildir?",
+        "en": "Which of the following is NOT an example of a building-project type?"
+      },
+      "options": [
+        {
+          "tr": "Baraj projesi",
+          "en": "Dam project"
+        },
+        {
+          "tr": "Köprü projesi",
+          "en": "Bridge project"
+        },
+        {
+          "tr": "Peyzaj projesi",
+          "en": "Landscape project"
+        },
+        {
+          "tr": "Şirket bilanço raporu",
+          "en": "Company balance-sheet report"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Bina, sulama/içme suyu, baraj, yol, köprü ve peyzaj projeleri yapı projesi örnekleridir. Bir şirketin bilanço raporu mali bir belgedir, yapı projesi değildir.",
+        "en": "Building, irrigation/drinking-water, dam, road, bridge, and landscape projects are all building-project examples. A company balance sheet is a financial document, not a building project."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Tüm yapı projelerinde birlikte çalışması gereken dört taraf hangileridir?",
+        "en": "Which are the four parties required to work together in every building project?"
+      },
+      "options": [
+        {
+          "tr": "Proje sahibi, proje yapımcıları, yapı denetim şirketleri, idareler",
+          "en": "Project owner, project producers, construction-supervision companies, authorities"
+        },
+        {
+          "tr": "Mimar, mühendis, işçi, taşeron",
+          "en": "Architect, engineer, worker, subcontractor"
+        },
+        {
+          "tr": "Banka, sigorta şirketi, belediye, mahkeme",
+          "en": "Bank, insurance company, municipality, court"
+        },
+        {
+          "tr": "Yatırımcı, tedarikçi, nakliyeci, denetçi",
+          "en": "Investor, supplier, transporter, auditor"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Kaynaklara göre dört taraf: proje sahibi, proje yapımcıları (projeciler), yapı denetim şirketleri ve idareler (belediye, çevre-şehircilik müdürlüğü, meslek odaları). Diğer listeler bu dört resmi tarafı doğru yansıtmaz.",
+        "en": "Per the sources, the four parties are: project owner, project producers (designers), construction-supervision companies, and authorities (municipality, provincial directorate, professional chambers). The other lists do not correctly represent these four formal parties."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Proje sahibi kimdir ve hangi hakka sahiptir?",
+        "en": "Who is the project owner, and what right does he/she hold?"
+      },
+      "answer": {
+        "tr": "Proje sahibi, projesi yapılacak tesisin arsasının mülkiyetine sahip gerçek veya tüzel kişidir; hem projenin hem de yapılacak yapının hukuken sahibidir. Yaptıracağı projelerin projecilerini, gerekli nitelikleri taşıyan proje yapımcılarıyla görüşerek seçme hakkına sahiptir.",
+        "en": "The project owner is the real or legal person who owns the land the facility will be built on; the legal owner of both the project and the structure. The owner has the right to choose the project's designer(s) by consulting qualified producers."
+      }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bina projelerinde 'zemin projesi'ni hazırlamaya hangi meslek grubu yetkilidir?",
+        "en": "Which profession is authorized to prepare the 'soil project' in building projects?"
+      },
+      "options": [
+        {
+          "tr": "İnşaat mühendisleri",
+          "en": "Civil engineers"
+        },
+        {
+          "tr": "Makine mühendisleri",
+          "en": "Mechanical engineers"
+        },
+        {
+          "tr": "Jeoloji mühendisleri",
+          "en": "Geological engineers"
+        },
+        {
+          "tr": "Mimarlar",
+          "en": "Architects"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Doğru cevap jeoloji mühendisleridir. Bina projelerinde: mimari proje → mimar, statik/betonarme → inşaat mühendisi, mekanik tesisat → makine mühendisi, elektrik tesisat → elektrik mühendisi, zemin projesi → jeoloji mühendisi.",
+        "en": "The correct answer is geological engineers. In building projects: architectural → architect, structural/RC → civil engineer, mechanical → mechanical engineer, electrical → electrical engineer, soil → geological engineer."
+      }
+    },
+    {
+      "id": "q14",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Koordinatör projeci seçmenin arsa sahibi açısından temel avantajı nedir?",
+        "en": "What is the main advantage for the landowner in choosing a coordinating designer?"
+      },
+      "options": [
+        {
+          "tr": "Tüm meslek gruplarıyla ayrı ayrı anlaşmak zorunda kalmadan tek bir muhatapla, daha doğru/eksiksiz/hızlı proje elde etmek",
+          "en": "Not having to negotiate separately with every discipline — getting a more accurate, complete, faster project through a single point of contact"
+        },
+        {
+          "tr": "Ruhsat harcının tamamen kaldırılması",
+          "en": "Complete elimination of the permit fee"
+        },
+        {
+          "tr": "Yapı denetim şirketi zorunluluğunun kalkması",
+          "en": "Elimination of the construction-supervision requirement"
+        },
+        {
+          "tr": "Fenni mesuliyet yükümlülüğünün ortadan kalkması",
+          "en": "Elimination of the fenni mesul obligation"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Koordinatör projeci, arsa sahibinin tek bir kişiyle (inşaat mühendisi veya mimar) muhatap olup diğer meslek gruplarıyla irtibatı ona bırakmasını sağlar; bu, projenin daha doğru, eksiksiz ve çabuk tamamlanmasını sağlar. Diğer seçenekler kaynaklarda yer almayan yanlış iddialardır.",
+        "en": "A coordinating designer lets the owner deal with a single point of contact (a civil engineer or architect) who liaises with the other disciplines, ensuring a more accurate, complete, and faster project. The other options are false claims not found in the sources."
+      }
+    },
+    {
+      "id": "q15",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı denetim şirketlerinin görevi nedir ve Türkiye'de ne zaman yaygınlaşmıştır?",
+        "en": "What is the role of construction-supervision companies, and when did they become widespread in Turkey?"
+      },
+      "answer": {
+        "tr": "Yapı denetim şirketleri, projelerin ilgili idareye götürülmeden önce denetlenmesi için sunulduğu, daha sonra inşaatı da denetleyen kurumlardır. 1999 depreminden sonra hayatımıza girmiş, önce 19 ilde pilot olarak başlamış, sonra tüm Türkiye'ye yayılmıştır. Yapı denetim kanununda hangi yapıların bu denetime tabi olacağı belirtilir; bazı istisnalar da vardır.",
+        "en": "Construction-supervision companies review projects before they are submitted to the authority, and later supervise the construction itself. They entered use after the 1999 earthquake, starting as a pilot in 19 provinces before spreading nationwide. The construction-supervision law specifies which structures require this supervision, with some exceptions."
+      }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "İdareler grubuna aşağıdakilerden hangisi GİRMEZ?",
+        "en": "Which of the following does NOT belong to the 'idareler' (authorities) group?"
+      },
+      "options": [
+        {
+          "tr": "Belediyeler",
+          "en": "Municipalities"
+        },
+        {
+          "tr": "Çevre ve Şehircilik İl Müdürlükleri",
+          "en": "Provincial Directorates of Environment and Urbanization"
+        },
+        {
+          "tr": "Meslek odaları",
+          "en": "Professional chambers"
+        },
+        {
+          "tr": "Yapı yüklenicisi (müteahhit)",
+          "en": "The construction contractor"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "İdareler: belediyeler, Çevre ve Şehircilik İl Müdürlükleri ve meslek odalarıdır. Müteahhit, işi fiilen yürüten taraftır — bir idare değil, proje yapımcıları/yüklenici tarafındadır.",
+        "en": "Authorities are municipalities, Provincial Directorates of Environment and Urbanization, and professional chambers. The contractor is the party physically executing the work — not an authority."
+      }
+    },
+    {
+      "id": "q17",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "İnşaat ruhsatı alınabilmesi için gerekli beş temel belgeyi (tapu, imar çapı, plankote, ölçü krokisi, zemin raporu) tanımlarıyla birlikte yazınız.",
+        "en": "List the five basic documents required for a construction permit (tapu, imar çapı, plankote, ölçü krokisi, zemin raporu) with their definitions."
+      },
+      "answer": {
+        "tr": "**Tapu**: Türkiye Cumhuriyeti sınırları içindeki bir taşınmazın kime ait olduğunu, nerede ve ne büyüklükte olduğunu gösteren mülkiyet belgesi (Tapu ve Kadastro Müdürlüğü). **İmar çapı**: arsa üzerine yapılacak binanın büyüklük, yükseklik ve yaklaşım sınırlarını gösteren 1/1000 ölçekli belge (belediye veya çevre-şehircilik müdürlüğü). **Plankote**: arsanın yüzey şeklini, kotlarını ve ölçülerini gösteren belge (belediye/tapu müdürlüğü). **Ölçü krokisi**: arsanın köşe/kırık noktalarının koordinatlarını ve kenar uzunluklarını gösteren belge (tapu müdürlüğü). **Zemin raporu**: arsanın zemin yapısını ve zemin emniyet gerilmesini gösteren rapor (jeoloji mühendisi).",
+        "en": "**Tapu (title deed)**: ownership document showing who owns a parcel within Turkey, its location and size (Land Registry). **İmar çapı (zoning plot plan)**: 1:1000-scale document showing allowed building size, height, and setbacks (municipality or provincial directorate). **Plankote**: document showing the parcel's surface shape, elevations, and measurements (municipality/land registry). **Ölçü krokisi (survey sketch)**: document showing the parcel's corner coordinates and edge lengths (land registry). **Zemin raporu (soil report)**: report showing soil structure and safe bearing pressure (geological engineer)."
+      }
+    },
+    {
+      "id": "q18",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "İmar çapı hangi ölçekte düzenlenir?",
+        "en": "At what scale is the imar çapı issued?"
+      },
+      "options": [
+        {
+          "tr": "1/100",
+          "en": "1:100"
+        },
+        {
+          "tr": "1/500",
+          "en": "1:500"
+        },
+        {
+          "tr": "1/1000",
+          "en": "1:1000"
+        },
+        {
+          "tr": "1/5000",
+          "en": "1:5000"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "İmar çapı, belediye sınırları içinde belediyelerce, dışında çevre ve şehircilik müdürlüklerince düzenlenen 1/1000 ölçekli bir belgedir.",
+        "en": "The imar çapı is a 1:1000-scale document, issued by municipalities within municipal boundaries or by provincial directorates outside them."
+      }
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İnşaat ruhsatı alan bir kişi, ruhsat tarihinden itibaren en geç ne kadar süre içinde inşaata başlamalı ve ne kadar süre içinde bitirmelidir?",
+        "en": "After obtaining a construction permit, within what maximum time must construction start, and within what time must it finish?"
+      },
+      "options": [
+        {
+          "tr": "1 yıl başlama / 3 yıl bitirme",
+          "en": "1 year to start / 3 years to finish"
+        },
+        {
+          "tr": "2 yıl başlama / 5 yıl bitirme",
+          "en": "2 years to start / 5 years to finish"
+        },
+        {
+          "tr": "3 yıl başlama / 7 yıl bitirme",
+          "en": "3 years to start / 7 years to finish"
+        },
+        {
+          "tr": "6 ay başlama / 2 yıl bitirme",
+          "en": "6 months to start / 2 years to finish"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap: ruhsat tarihinden itibaren 2 yıl içinde inşaata başlanmalı, 5 yıl içinde bitirilmelidir. Bu sürelere uyulmazsa ruhsat iptal olur ve yeniden alınması gerekir.",
+        "en": "Correct: construction must begin within 2 years and finish within 5 years of the permit date. If these deadlines are missed, the permit is cancelled and must be renewed."
+      }
+    },
+    {
+      "id": "q20",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Ölçü krokisi ile plankote arasındaki farkı açıklayınız.",
+        "en": "Explain the difference between ölçü krokisi (survey sketch) and plankote (site survey plan)."
+      },
+      "answer": {
+        "tr": "Ölçü krokisi, arsanın köşe ve kırık noktalarının KOORDİNATLARINI ve kenar uzunluklarını gösterir (parselin sınırlarını tanımlar); tapu müdürlüklerince düzenlenir. Plankote ise arsanın YÜZEY ŞEKLİNİ, kotlarını (yükseklik farklarını) ve ölçülerini gösterir; belediye veya tapu müdürlüklerince düzenlenir. Yani ölçü krokisi sınır/konum bilgisi, plankote ise arazinin topografik/yükseklik bilgisidir.",
+        "en": "Ölçü krokisi shows the COORDINATES of the parcel's corner/break points and its edge lengths (defines the parcel boundary); issued by land registries. Plankote shows the parcel's SURFACE SHAPE, elevations (kot), and measurements; issued by municipalities or land registries. In short, ölçü krokisi is boundary/location data, while plankote is topographic/elevation data."
+      }
+    },
+    {
+      "id": "q21",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Fenni mesul kavramını tanımlayınız ve resmi inşaatlarda bu görevi kimin yürüttüğünü belirtiniz.",
+        "en": "Define fenni mesul and state who performs this role on official/public construction."
+      },
+      "answer": {
+        "tr": "Fenni mesul, yapının tüm malzeme ve tesisatıyla birlikte plana, ruhsata, ruhsat eki etüt ve projelere, standartlara, teknik şartnamelere uygun inşa edilmesinin kamu adına denetimini üstlenen, gerekli uzmanlığa sahip meslek mensubudur. Her teknik eleman, kendi alanına ait proje/uygulamanın fenni mesullüğünü otomatik olarak üstlenir; ayrıca her bina için inşaat mühendisi veya mimarlardan biri uygulama fenni mesulü görevini üstlenmelidir. Resmî inşaatlarda bu görevi şantiye şefleri yürütür.",
+        "en": "Fenni mesul is the qualified professional who, on behalf of the public, supervises that a structure — with all its materials and installations — is built per the plan, permit, attached surveys/projects, standards, and technical specifications. Every technical staff member automatically assumes fenni mesul responsibility within their own field; additionally, for each building a civil engineer or architect must take the application fenni mesul role. On official/public construction, site chiefs perform this role."
+      }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Meslek odalarının tanımı aşağıdakilerden hangisidir?",
+        "en": "Which of the following is the definition of professional chambers (meslek odaları)?"
+      },
+      "options": [
+        {
+          "tr": "Devlet adına vergi toplayan kurumlar",
+          "en": "Institutions that collect taxes on behalf of the state"
+        },
+        {
+          "tr": "Kamu yararına dernek statüsünde kurulan, üyelerinin meslekleriyle ilgili alanlarda devlet adına denetim/düzenleme yapan kurumlar",
+          "en": "Public-interest associations performing inspection/regulation on behalf of the state in members' professional fields"
+        },
+        {
+          "tr": "Sadece ticari şirketleri denetleyen özel kuruluşlar",
+          "en": "Private organizations that only audit commercial companies"
+        },
+        {
+          "tr": "Yalnızca inşaat malzemesi satan ticari birlikler",
+          "en": "Commercial unions that only sell construction materials"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Meslek odaları, ilgili kanun hükümleri çerçevesinde kamu yararına dernek statüsünde kurulan ve üyelerinin meslekleriyle ilgili alanlarda devlet adına denetim/düzenleme yapan kurumlardır (örn. mühendis odaları). Diğer seçenekler bu tanımı yansıtmaz.",
+        "en": "Professional chambers are public-interest associations established under law that perform state-delegated inspection/regulation duties within their members' professional fields (e.g. engineering chambers). The other options do not reflect this definition."
+      }
+    },
+    {
+      "id": "q23",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Oda vizesi (meslek odası projeleri inceleme/vize etme) ile ilgili aşağıdaki ifadelerden hangisi DOĞRUDUR?",
+        "en": "Which statement about chamber endorsement (oda vizesi) is CORRECT?"
+      },
+      "options": [
+        {
+          "tr": "2013 yılından önce kanuni bir zorunluluktu; 2013'ten sonra belediye-oda etik anlaşmasına bağlı hâle geldi",
+          "en": "Before 2013 it was a legal requirement; after 2013 it became dependent on a municipality-chamber ethics agreement"
+        },
+        {
+          "tr": "Oda vizesi hiçbir zaman zorunlu olmamıştır",
+          "en": "Chamber endorsement has never been mandatory"
+        },
+        {
+          "tr": "Oda vizesi 2013'te kanuni zorunluluk hâline getirilmiştir",
+          "en": "Chamber endorsement became a legal requirement in 2013"
+        },
+        {
+          "tr": "Oda vizesi yalnızca kamu binalarında uygulanır",
+          "en": "Chamber endorsement only applies to public buildings"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "2013 yılına kadar oda vizesi kanuni bir zorunluluktu; belediye isteseydi de istemeseydi de her projenin oda vizesinden geçmesi gerekiyordu. 2013'ten sonra bu, kanuni zorunluluk olmaktan çıktı ve belediye-odalar arası etik anlaşmanın sonucu hâline geldi (belediye isterse hâlâ isteyebilir).",
+        "en": "Until 2013, chamber endorsement was a legal requirement — every project needed it regardless of the municipality's wishes. After 2013 it stopped being a legal obligation and became dependent on an ethics agreement between municipalities and chambers (a municipality may still require it)."
+      }
+    },
+    {
+      "id": "q24",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İdeal bir yapı projesinin ortaya çıkabilmesi için gereken dört kriteri sayınız.",
+        "en": "List the four criteria required for an ideal building project to emerge."
+      },
+      "answer": {
+        "tr": "1) Mevcut arsaya imar planı, imar yönetmeliği ve kanunlar çerçevesinde yapılabilecek yapının büyüklüğü, niteliği ve şeklinin belirlenmesi. 2) Mal sahibi veya kullanıcının uygun özel istek ve dileklerinin belirlenmesi. 3) Yapıda kullanılacak malzemelerin teknik, estetik ve kalite özelliklerinin tespiti. 4) Yapıya hâkim olacak geometrik şekillerin belirlenmesi.",
+        "en": "1) Determining the size, nature, and form the building may take on the plot under the zoning plan, regulations, and laws. 2) Determining the owner's or user's specific wishes. 3) Determining the technical, aesthetic, and quality properties of materials to be used. 4) Determining the geometric forms that will dominate the structure."
+      }
+    },
+    {
+      "id": "q25",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Avan projenin bölümleri arasında AŞAĞIDAKİLERDEN HANGİSİ YER ALMAZ?",
+        "en": "Which of the following is NOT among the sections of the avan (preliminary) project?"
+      },
+      "options": [
+        {
+          "tr": "Genel durum (vaziyet) planı",
+          "en": "Site plan"
+        },
+        {
+          "tr": "Kat planları",
+          "en": "Floor plans"
+        },
+        {
+          "tr": "Demir metraj cetveli",
+          "en": "Rebar quantity sheet"
+        },
+        {
+          "tr": "Maket",
+          "en": "Model"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Avan proje; vaziyet planı, kat planları, görünüşler, kesitler ve maketten oluşur. Demir metraj cetveli, çok daha sonraki bir aşamada (metraj/keşif çalışmalarında) kullanılan bir belgedir, avan projenin bir bölümü değildir.",
+        "en": "The avan project consists of: site plan, floor plans, elevations, sections, and a model. The rebar quantity sheet is a document used much later (in quantity/cost work), not a section of the avan project."
+      }
+    },
+    {
+      "id": "q26",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Avan projede kat planları, görünüşler ve kesitler hangi ölçek aralığında çizilir?",
+        "en": "In what scale range are floor plans, elevations, and sections drawn in the avan project?"
+      },
+      "options": [
+        {
+          "tr": "1/5 – 1/20",
+          "en": "1:5–1:20"
+        },
+        {
+          "tr": "1/50 – 1/200",
+          "en": "1:50–1:200"
+        },
+        {
+          "tr": "1/100 – 1/500",
+          "en": "1:100–1:500"
+        },
+        {
+          "tr": "1/1000 – 1/5000",
+          "en": "1:1000–1:5000"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kat planları, görünüşler ve kesitler 1/50 – 1/200 ölçeğinde çizilir. Vaziyet planı 1/100–1/500, maket ise 1/5–1/200 ölçek aralığındadır — bunlarla karıştırılmamalıdır.",
+        "en": "Floor plans, elevations, and sections are drawn at 1:50–1:200. The site plan uses 1:100–1:500 and the model 1:5–1:200 — these should not be confused."
+      }
+    },
+    {
+      "id": "q27",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kesin projedeki 'yapılması zorunlu projeler' ile 'yapının niteliğine/ihtiyacına göre zorunlu projeler' arasındaki farkı örneklerle açıklayınız.",
+        "en": "Explain, with examples, the difference between 'mandatory projects' and 'projects mandatory depending on building nature/need' in the kesin (final) project."
+      },
+      "answer": {
+        "tr": "**Yapılması zorunlu projeler**, HER binada istisnasız gereklidir: mimari, statik-betonarme, sıhhi tesisat, elektrik tesisat, zemin etüt, yapı aplikasyon projesi. **Yapının niteliğine/ihtiyacına göre zorunlu projeler** ise, binanın taşıdığı özelliklere bağlı olarak gerekli hâle gelir: örneğin binada kalorifer olacaksa kalorifer tesisat projesi zorunludur, ama kalorifer yoksa gerekmez; aynı mantıkla asansör varsa asansör projesi, doğalgaz kullanılacaksa doğalgaz tesisat projesi zorunlu olur. Yani birinci grup evrensel zorunluluk, ikinci grup şarta bağlı zorunluluktur.",
+        "en": "**Mandatory projects** are required for EVERY building without exception: architectural, structural/RC, sanitary, electrical, soil survey, building-layout (aplikasyon) projects. **Projects mandatory depending on building nature/need** become required based on the building's specific features: e.g. if the building will have central heating, a heating-installation project is mandatory, but not if there is no heating; similarly for an elevator project (only if there's an elevator) or natural-gas project (only if gas is used). So the first group is a universal requirement, the second is conditional."
+      }
+    },
+    {
+      "id": "q28",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi 'isteğe bağlı (özelliğe bağlı) proje' örneği DEĞİLDİR?",
+        "en": "Which of the following is NOT an example of an 'optional (feature-based) project'?"
+      },
+      "options": [
+        {
+          "tr": "Kapı konuşma (diafon) tesisat projesi",
+          "en": "Intercom installation project"
+        },
+        {
+          "tr": "Mutfak tesisat projesi",
+          "en": "Kitchen installation project"
+        },
+        {
+          "tr": "Statik ve betonarme proje",
+          "en": "Structural and reinforced-concrete project"
+        },
+        {
+          "tr": "Çamaşırhane tesisat projesi",
+          "en": "Laundry installation project"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Statik ve betonarme proje, kesin projede HER binada yapılması ZORUNLU olan bir projedir; isteğe bağlı değildir. İsteğe bağlı projeler: uydu-internet, dâhili yayın, kapı konuşma, mutfak, çamaşırhane tesisat projeleridir.",
+        "en": "The structural/RC project is a MANDATORY project for every building in the kesin project, not optional. Optional projects are: satellite-internet, in-house broadcast, intercom, kitchen, and laundry installation projects."
+      }
+    },
+    {
+      "id": "q29",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Detay projeler ne için hazırlanır ve genelde hangi ölçek aralığında çizilir?",
+        "en": "Why are detail projects prepared, and in what scale range are they generally drawn?"
+      },
+      "options": [
+        {
+          "tr": "Binanın genel görünümünü küçük ölçekte özetlemek için; 1/500 – 1/1000",
+          "en": "To summarize the building's overall look at small scale; 1:500–1:1000"
+        },
+        {
+          "tr": "Plan/kesit/görünüşten çözülemeyen bölüm ve elemanları büyük ölçekte açıklamak için; 1/1 – 1/20",
+          "en": "To resolve parts/elements that plan/section/elevation cannot show, at large scale; 1:1–1:20"
+        },
+        {
+          "tr": "Şehir ölçeğinde altyapı planlamak için; 1/5000",
+          "en": "To plan infrastructure at city scale; 1:5000"
+        },
+        {
+          "tr": "Sadece maliyet hesaplamak için; ölçeksizdir",
+          "en": "Only for cost calculation; unscaled"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Detay projeler, binanın plan-kesit-görünüşle çözümlenemeyen bölüm ve elemanlarının (yalıtım, sistem, kapı, pencere, ıslak hacim, merdiven detayı gibi) büyük ölçekte (1/1 – 1/20) çizilmesidir; daha ayrıntılı gösterim gerektirir.",
+        "en": "Detail projects draw, at large scale (1:1–1:20), the parts/elements of the building (insulation, system, door, window, wet-area, staircase details) that cannot be resolved from the plan/section/elevation alone."
+      }
+    },
+    {
+      "id": "q30",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Teknik şartname ile yönetmelik arasındaki farkı açıklayınız.",
+        "en": "Explain the difference between a technical specification (şartname) and a regulation (yönetmelik)."
+      },
+      "answer": {
+        "tr": "Teknik şartname, işi yaptıran tarafından (kuruluş/idare) yapım, satın alma, satma, kiralama gibi işleri gerçekleştirebilmek için yazılıp uygulanan; yapan ve yaptıranın her ikisinin de uymayı üstlendiği maddelerin sıralı olduğu belgedir — belirli bir proje/işe özgüdür. Yönetmelik ise bir kuruluşun kendi çalışmalarında uymak üzere ortaya çıkardığı, uyulacak ilkeleri kapsayan basılı yayınlardır — daha genel ve kurumsal bir çerçeve sunar.",
+        "en": "A technical specification (şartname) is written and applied by the contracting party (organization/authority) to carry out works such as construction, purchase, sale, or lease — listing clauses both the executor and the contracting party commit to; it is specific to a given project/work. A regulation (yönetmelik) is a printed publication an organization issues to be followed in its own operations, containing the governing principles — a more general, institutional framework."
+      }
+    },
+    {
+      "id": "q31",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Keşif bedeli nasıl hesaplanır?",
+        "en": "How is the cost-estimate amount (keşif bedeli) calculated?"
+      },
+      "options": [
+        {
+          "tr": "Her imalatın metraj değeri ile o imalatın güncel birim fiyatının çarpılıp kümülatif toplanmasıyla",
+          "en": "By multiplying each work item's quantity by its current unit price and summing cumulatively"
+        },
+        {
+          "tr": "Sadece işçilik saatlerinin toplanmasıyla",
+          "en": "By simply summing labor-hours"
+        },
+        {
+          "tr": "Yalnızca malzeme ağırlığının kilogram fiyatıyla çarpılmasıyla",
+          "en": "By multiplying material weight by its per-kg price alone"
+        },
+        {
+          "tr": "Yüklenicinin serbestçe belirlediği bir tutarla",
+          "en": "By an amount freely set by the contractor"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Keşif bedeli, her yapı imalatı için çıkartılan metraj değerlerinin güncel birim fiyatlarla çarpılıp kümülatif olarak toplanmasıyla hesaplanır. Diğer seçenekler bu hesaplamanın eksik veya yanlış tarifleridir.",
+        "en": "The cost-estimate amount is calculated by multiplying each work item's quantity (metraj) by its current unit price, then summing cumulatively. The other options are incomplete or incorrect descriptions of this calculation."
+      }
+    },
+    {
+      "id": "q32",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "İmalat ile ihrazat kavramlarını tanımlayıp aralarındaki farkı bir örnekle açıklayınız.",
+        "en": "Define imalat and ihrazat, and explain the difference between them with an example."
+      },
+      "answer": {
+        "tr": "**İmalat**, projede belirlenmiş ya da projede olmamasına rağmen yapılması gerekli olan, malzeme ve işçiliklerin bir araya getirilmesiyle ortaya çıkan yeni üründür (örn. uygulanmış sıva, takılmış kapı/pencere). **İhrazat** ise inşaatta kullanılacak, idarece belirlenmiş malzemelerin (örn. demir, çimento) temin edilerek üretildikleri yerde veya şantiye deposunda istiflenmesidir — malzemenin kendisinin depolanmasıdır, henüz uygulanmamıştır. Fark: sıva harcının bileşenleri (kum, çimento, kireç) MALZEME'dir; bu malzemeler duvara uygulanınca ortaya çıkan bitmiş sıva İMALAT'tır. Depoya yığılmış hâldeki çimento torbaları ise İHRAZAT örneğidir.",
+        "en": "**İmalat (finished work item)** is a new product from combining materials and labor, whether specified in the project or not, but necessary (e.g. applied plaster, an installed door/window). **İhrazat (stockpiling)** is the procurement and storage of administration-designated materials (e.g. steel, cement) at the production site or site depot — storing the raw material itself, not yet applied. Example: plaster mortar's components (sand, cement, lime) are MATERIALS; once applied to the wall, the finished plaster is the IMALAT. Cement bags piled in the depot are an example of İHRAZAT."
+      }
+    },
+    {
+      "id": "q33",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "İhrazatı yapılan malzemelerle ilgili aşağıdaki ifadelerden hangisi YANLIŞTIR?",
+        "en": "Which of the following statements about stockpiled (ihrazat) materials is INCORRECT?"
+      },
+      "options": [
+        {
+          "tr": "Bedelleri idarece önceden ödenir ve imalata girdikçe ödemeden kesilir",
+          "en": "Their cost is paid in advance and deducted from payments as they are consumed"
+        },
+        {
+          "tr": "İhrazatı yapılan malzeme artık idarenin malı olur",
+          "en": "Stockpiled material becomes the property of the administration"
+        },
+        {
+          "tr": "Bu malzemeler başka bir yere taşınabilir veya başka işte serbestçe kullanılabilir",
+          "en": "These materials may be freely relocated or used on another job"
+        },
+        {
+          "tr": "Demir ve çimento gibi sürekli fiyat artışı gösteren malzemeler için önemlidir",
+          "en": "It matters for materials like steel and cement that continually rise in price"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Yanlış olan ifade budur: ihrazatı yapılan malzemeler idarenin malı olduğundan başka bir yere taşınması veya başka bir işte kullanılması YASAKTIR. Diğer üç ifade doğrudur.",
+        "en": "This statement is false: because stockpiled materials become the administration's property, relocating them or using them on another job is PROHIBITED. The other three statements are correct."
+      }
+    },
+    {
+      "id": "q34",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "2003 yılında yürürlüğe giren Kamu İhale Kanunu, kesin hesap uzmanlığının önemini neden artırmıştır?",
+        "en": "Why did the Public Procurement Law (effective 2003) increase the importance of the final-accounts (quantity surveying) profession?"
+      },
+      "options": [
+        {
+          "tr": "Çünkü kanun, ölçümleme ve gerçek maliyetle teklif verme esasını temel dayanak yapmıştır",
+          "en": "Because the law is founded on measurement and bidding at real cost"
+        },
+        {
+          "tr": "Çünkü kanun tüm ihaleleri yasaklamıştır",
+          "en": "Because the law banned all tenders"
+        },
+        {
+          "tr": "Çünkü kanun metraj işlerini tamamen ortadan kaldırmıştır",
+          "en": "Because the law completely eliminated quantity-surveying work"
+        },
+        {
+          "tr": "Çünkü kanun sadece özel sektör işlerini kapsamaktadır",
+          "en": "Because the law only covers private-sector work"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Kamu İhale Kanunu, ölçümleme (metraj) ve gerçek maliyetle teklif verme esasını temel dayanak yaptığından, doğru metraj ve keşif hesabı yapabilen kesin hesap uzmanlarına duyulan ihtiyaç artmıştır. Diğer seçenekler kaynaklarla çelişir.",
+        "en": "Because the Public Procurement Law is founded on measurement (metraj) and bidding at real cost, the need for final-accounts experts who can correctly compute quantities and estimates increased. The other options contradict the sources."
+      }
+    },
+    {
+      "id": "q35",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Birim fiyat ile birim fiyat tarifi arasındaki farkı açıklayınız.",
+        "en": "Explain the difference between unit price (birim fiyat) and unit price specification (birim fiyat tarifi)."
+      },
+      "answer": {
+        "tr": "**Birim fiyat**, bir imalatın bir biriminin (m, m², m³, kg, ton, adet) yapım bedelidir — yani parasal değerin kendisidir (örn. 1 m³ kazı = 500 TL). **Birim fiyat tarifi** ise bu bedele nelerin dâhil olduğunu, imalatın nasıl yapılacağını, hangi malzeme/işçilik/makinenin ne kadar kullanılacağını ve ölçüm şeklinin ne olduğunu detaylı olarak anlatan tanımdır. Kısacası birim fiyat 'ne kadar öderim' sorusuna, birim fiyat tarifi 'bu bedele tam olarak ne dahil' sorusuna cevap verir.",
+        "en": "**Birim fiyat (unit price)** is the construction cost of one unit (m, m², m³, kg, ton, piece) of a work item — i.e. the monetary value itself (e.g. 1 m³ excavation = 500 TL). **Birim fiyat tarifi (unit price specification)** is the detailed description of what that price includes: how the work is done, how much material/labor/machinery is used, and the measurement method. In short, unit price answers 'how much do I pay', while the specification answers 'what exactly is included in that price'."
+      }
+    },
+    {
+      "id": "q36",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Çevre ve Şehircilik Bakanlığı birim fiyatları ne sıklıkla belirlenir?",
+        "en": "How often are Ministry of Environment and Urbanization unit prices determined?"
+      },
+      "options": [
+        {
+          "tr": "Her ay",
+          "en": "Every month"
+        },
+        {
+          "tr": "Üç ayda bir",
+          "en": "Every three months"
+        },
+        {
+          "tr": "Yılda bir kez, o yılın tamamı için geçerli olacak şekilde",
+          "en": "Once a year, valid for the whole year"
+        },
+        {
+          "tr": "Her ihalede ayrı ayrı",
+          "en": "Separately for every tender"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Bakanlık birim fiyatları yılda bir kez belirlenir ve o yılın tamamı için geçerlidir. Piyasa birim fiyatları ise normalde yılda bir kez belirlense de, yüksek enflasyon dönemlerinde birkaç kez güncellenebilir — bu ayrım sınavda karıştırılmamalıdır.",
+        "en": "Ministry unit prices are set once a year and are valid for the entire year. Market unit prices are also normally set annually, but may be revised several times during high inflation — this distinction should not be confused on the exam."
+      }
+    },
+    {
+      "id": "q37",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "'Makine ile yumuşak ve sert toprak kazılması (serbest kazı, poz no 15.120)' birim fiyatına neyin dâhil olup neyin dâhil OLMADIĞINI açıklayınız.",
+        "en": "Explain what IS and is NOT included in the unit price for 'machine excavation of soft/hard soil (free excavation, poz no. 15.120)'."
+      },
+      "answer": {
+        "tr": "**Dâhil olanlar:** makine ile kazının yapılması, taşıtlara yüklenmesi, 25 metreye kadar taşınması, depo/imla/sedde yerinde boşaltılması, serilmesi, inşaat sonrası kazı yerindeki boşlukların doldurulması, kazı yeri/depo/dolgunun tesviyesi ve düzeltilmesi, her türlü malzeme zayiatı, işçilik, araç-gereç giderleri, müteahhit genel gideri ve kârı. **Dâhil olmayanlar:** 25 metre dışındaki taşıma bedeli, dolgunun sulama ve sıkıştırma bedelleri, derinlik zammı. Ölçü kuralı: kazının hacmi kazı projesi üzerinden hesaplanır.",
+        "en": "**Included:** machine excavation, loading onto vehicles, hauling up to 25 m, unloading at the depot/fill/embankment, spreading, backfilling voids after construction, leveling of the excavation site/depot/fill, all material waste, labor, equipment costs, and contractor overhead and profit. **Not included:** hauling beyond 25 m, watering and compaction of the fill, and depth surcharge. Measurement rule: excavation volume is calculated from the excavation project (drawings)."
+      }
+    },
+    {
+      "id": "q38",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Birim fiyat analizinde, malzeme ve işçilik ara toplamına eklenen müteahhit kârı ve genel gider oranı nedir?",
+        "en": "In a unit price analysis, what percentage of contractor profit and overhead is added to the material+labor subtotal?"
+      },
+      "options": [
+        {
+          "tr": "%10",
+          "en": "10%"
+        },
+        {
+          "tr": "%15",
+          "en": "15%"
+        },
+        {
+          "tr": "%20",
+          "en": "20%"
+        },
+        {
+          "tr": "%25",
+          "en": "25%"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Birim fiyat analizinde ara toplama %25 müteahhit kârı ve genel gider eklenerek nihai birim fiyat elde edilir (verilen örnekte 27,30 + genel gider/kâr ile toplam 38,23'e ulaşılmıştır).",
+        "en": "In a unit price analysis, 25% contractor profit and overhead is added to the subtotal to reach the final unit price (in the given example, the subtotal plus overhead/profit reaches 38.23)."
+      }
+    },
+    {
+      "id": "q39",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Poz numarasının işlevi nedir?",
+        "en": "What is the function of a poz (item) number?"
+      },
+      "options": [
+        {
+          "tr": "İmalatın hangi ilde yapıldığını gösterir",
+          "en": "It shows in which province the work was done"
+        },
+        {
+          "tr": "Her imalat birim fiyatına verilen, o imalatın her yerde aynı şekilde tanınmasını sağlayan kimlik numarasıdır",
+          "en": "It is the identification code assigned to each unit price item, ensuring it is recognized consistently everywhere"
+        },
+        {
+          "tr": "Sadece kamu ihalelerinde kullanılan sıra numarasıdır, birim fiyatla ilgisi yoktur",
+          "en": "It is merely a sequence number used only in public tenders, unrelated to unit price"
+        },
+        {
+          "tr": "Yüklenicinin sicil numarasıdır",
+          "en": "It is the contractor's registration number"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Poz numarası, her imalat birim fiyatına verilen ve o imalatı her yerde tutarlı biçimde tanımlayan bir kimlik numarasıdır (örn. 15.120 = makine ile yumuşak-sert toprak kazısı). Diğer seçenekler kaynaklarda yer almayan yanlış tanımlardır.",
+        "en": "The poz number is the ID assigned to each unit price item so it is consistently identified everywhere (e.g. 15.120 = machine excavation of soft/hard soil). The other options are incorrect definitions not found in the sources."
+      }
+    },
+    {
+      "id": "q40",
+      "type": "open",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Metrajın tanımını yapınız ve iki farklı yapılış şeklini belirtiniz.",
+        "en": "Define metraj (quantity take-off) and state its two methods of execution."
+      },
+      "answer": {
+        "tr": "Metraj, inşa edilecek veya inşası tamamlanmış bir yapıda gerçekleştirilmiş veya gerçekleştirilecek olan imalatların, belirli kurallar dâhilinde, bu iş için hazırlanmış çizelgeler kullanılarak miktarlarının hesaplanması işlemidir. İki şekilde yapılabilir: 1) proje üzerinden (çizim ölçülerinden hesaplama), 2) yerinde ölçerek (röleve yardımıyla).",
+        "en": "Metraj is the process of calculating, under defined rules and using purpose-built sheets, the quantities of work items in a structure to be built or already completed. It can be done in two ways: 1) from the project drawings, or 2) by measuring on site (with the help of a rölöve)."
+      }
+    },
+    {
+      "id": "q41",
+      "type": "mcq",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir yapı metraj cetvelinde bir duvar sıvası için boy=5,30 m, en=5,10 m olarak ölçülmüş ve bu alanda 0,20 m × 0,20 m'lik bir baca boşluğu düşülecektir. Net (çoğu) sıva alanı kaç m²'dir?",
+        "en": "On a building quantity sheet, a wall plaster item has length=5.30 m, width=5.10 m, with a 0.20 m × 0.20 m chimney opening to be deducted. What is the net (çoğu) plaster area, in m²?"
+      },
+      "options": [
+        {
+          "tr": "27,03 m²",
+          "en": "27.03 m²"
+        },
+        {
+          "tr": "26,99 m²",
+          "en": "26.99 m²"
+        },
+        {
+          "tr": "26,83 m²",
+          "en": "26.83 m²"
+        },
+        {
+          "tr": "27,07 m²",
+          "en": "27.07 m²"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Azı (+) = 5,30 × 5,10 = 27,03 m². Azı (−, minha) = 0,20 × 0,20 = 0,04 m². Çoğu (net) = 27,03 − 0,04 = 26,99 m². Bu, metraj cetvelinin standart azı(+)/azı(−)/çoğu mantığıdır.",
+        "en": "Azı (+) = 5.30 × 5.10 = 27.03 m². Azı (−, minha) = 0.20 × 0.20 = 0.04 m². Çoğu (net) = 27.03 − 0.04 = 26.99 m². This is the standard azı(+)/azı(−)/çoğu logic of a quantity sheet."
+      }
+    },
+    {
+      "id": "q42",
+      "type": "mcq",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Demir metraj cetvelinde 'ince demir' ve 'kalın demir' ayrımı hangi çapa göre yapılır?",
+        "en": "In the rebar quantity sheet, at what diameter is the 'thin bar' / 'thick bar' distinction made?"
+      },
+      "options": [
+        {
+          "tr": "8 mm",
+          "en": "8 mm"
+        },
+        {
+          "tr": "10 mm",
+          "en": "10 mm"
+        },
+        {
+          "tr": "12 mm",
+          "en": "12 mm"
+        },
+        {
+          "tr": "16 mm",
+          "en": "16 mm"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "12 mm'ye kadar olan çaplar ince demir, 12 mm üstündeki çaplar kalın demir olarak ayrı ayrı toplanır ve özetlenir.",
+        "en": "Diameters up to 12 mm are totaled as 'thin bar', diameters above 12 mm as 'thick bar', summed separately."
+      }
+    },
+    {
+      "id": "q43",
+      "type": "open",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Metraj özeti ile özel metraj arasındaki farkı açıklayınız.",
+        "en": "Explain the difference between metraj özeti (quantity summary) and özel metraj (special take-off)."
+      },
+      "answer": {
+        "tr": "**Metraj özeti**, hazırlanan (rutin) metrajlardaki sonuç rakamlarının birkaç sayfada belirli kurallar dâhilinde toplanarak gösterilmesidir; imalatın cinsi/numarası, alındığı metraj sayfası, o sayfadaki miktar ve toplam miktarı içerir. **Özel metraj** ise, karışımlı bir imalatta (örneğin özel bir beton karışımı) her kalemin ayrı ayrı metrajlandırılmasıdır — rutin yapım metrajının kapsamı dışında kalan ek/ayrıntılı bir metraj türüdür. Yani metraj özeti bir DERLEME işlemiyken, özel metraj bir DETAYLANDIRMA işlemidir.",
+        "en": "**Metraj özeti (quantity summary)** compiles the result figures from (routine) quantity sheets onto a few summary pages: item type/number, the quantity-sheet page it came from, the quantity on that page, and the total. **Özel metraj (special take-off)** breaks a composite work item (e.g. a special concrete mix) down item by item — an additional, more detailed type of take-off beyond routine work. So the summary is a COMPILATION step, while the special take-off is a BREAKDOWN step."
+      }
+    },
+    {
+      "id": "q44",
+      "type": "open",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Rölöve, ataşman ve yeşil defter kavramlarını sırasıyla tanımlayıp aralarındaki ilişkiyi açıklayınız.",
+        "en": "Define rölöve, ataşman, and yeşil defter in turn, and explain the relationship between them."
+      },
+      "answer": {
+        "tr": "**Rölöve**, projesi olmayan üstyapı inşaatlarında veya bitirildikten sonra üzeri kapatılacak altyapı inşaatlarında, imalatların metrajının çıkarılabilmesi için gerekli ölçü, kroki ve alt imalat bilgilerini gösteren ölçeksiz plan/detay çizimleridir. **Ataşman**, üstyapıda idarenin istediği/zorunlu ilave imalatlar ile altyapıda toprak altında kalacak imalatların ödemeye esas metrajlarını belgelemek için düzenlenen, ölçeksiz kroki ve metraj hesabından oluşan belgedir; bir ataşmanın düzenlenebilmesi için işin röleve alınmış, kurala uygun çizilmiş, tamamen bitirilmiş ve idarece kontrol edilmiş olması gerekir. **Yeşil defter**, projede olmayan/değiştirilen ve henüz tam bitmemiş imalatların hakedişe alınabilmesi için tutulan geçici kayıt defteridir; imalat tamamlanınca ataşmana dönüşür. İlişki: Rölöve (mevcut durumu ölç-çiz) → tamamen bitmiş imalatlar için Ataşman (kalıcı kayıt); henüz bitmemiş/proje-dışı kısımlar için önce Yeşil Defter tutulur, iş bitince bu da Ataşmana dönüşür.",
+        "en": "**Rölöve**: unscaled plan/detail drawings capturing the measurements, sketch, and sub-item info needed for taking off quantities of superstructure work with no project, or substructure work that will be covered once finished. **Ataşman**: a document (unscaled sketch + quantity calculation) recording the payment-basis quantities of required extra superstructure work or buried substructure work; requires the work to be surveyed, correctly drawn, fully finished, and checked by the authority. **Yeşil defter**: a temporary ledger for off-project/changed, not-yet-finished work so it can enter progress payments; converts into an ataşman once the work is completed. Relationship: Rölöve (survey/draw the as-built state) → Ataşman for fully finished work (permanent record); for unfinished/off-project parts, a Yeşil Defter is kept first, which becomes an Ataşman once finished."
+      }
+    },
+    {
+      "id": "q45",
+      "type": "mcq",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Rölöveye en çok hangi tür inşaatlarda ihtiyaç duyulur?",
+        "en": "In which type of construction is rölöve most commonly needed?"
+      },
+      "options": [
+        {
+          "tr": "İçme suyu, kanalizasyon, yağmur suyu, baraj, sulama, enerji nakil hatları, eski bina onarımları gibi altyapı/onarım işlerinde",
+          "en": "Infrastructure/renovation work such as water supply, sewage, storm drainage, dams, irrigation, power lines, building renovations"
+        },
+        {
+          "tr": "Sadece yeni gökdelen projelerinde",
+          "en": "Only in new skyscraper projects"
+        },
+        {
+          "tr": "Sadece kamu ihale ilanlarında",
+          "en": "Only in public tender announcements"
+        },
+        {
+          "tr": "Sadece peyzaj projelerinde",
+          "en": "Only in landscape projects"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Rölöveye en çok içme suyu, kanalizasyon, yağmur suyu, baraj, sulama, enerji nakil hatları, eski bina onarımları ve yeni bina ek imalatları inşaatlarında ihtiyaç duyulur — çünkü bunlar ya projesiz yapılır ya da bitince üzeri kapanır.",
+        "en": "Rölöve is most needed for water supply, sewage, storm drainage, dams, irrigation, power lines, building renovations, and additions — because these are either built without a project or get covered over once finished."
+      }
+    },
+    {
+      "id": "q46",
+      "type": "mcq",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir ataşmanın düzenlenebilmesi için gereken şartlardan biri DEĞİLDİR?",
+        "en": "Which of the following is NOT a condition required for an ataşman to be issued?"
+      },
+      "options": [
+        {
+          "tr": "İşin röleve alınmış olması",
+          "en": "The work has been surveyed (rölöve)"
+        },
+        {
+          "tr": "Kurala uygun çizilmiş olması",
+          "en": "It has been correctly drawn"
+        },
+        {
+          "tr": "İşin tamamen bitirilmiş olması",
+          "en": "The work is fully finished"
+        },
+        {
+          "tr": "Yüklenicinin işi kâr amacı gütmeden yapmış olması",
+          "en": "The contractor has done the work without profit motive"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Ataşman şartları: rölöve alınmış olması, kurala uygun çizilmiş olması, tamamen bitirilmiş olması, idarenin görevli teknik elemanınca kontrol edilmiş olması. Yüklenicinin kâr amacı gütmemesi diye bir şart yoktur — bu, kaynaklarda yer almayan mantık dışı bir seçenektir.",
+        "en": "Ataşman conditions: surveyed (rölöve), correctly drawn, fully finished, and checked by the authority's technical staff. There is no requirement that the contractor act without profit motive — this option is not in the sources and is illogical."
+      }
+    },
+    {
+      "id": "q47",
+      "type": "open",
+      "covers": [
+        "n11"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Yeşil defter neden altyapı inşaatlarının hakedişlerinde daha sık kullanılır?",
+        "en": "Why is the yeşil defter (green ledger) used more often in infrastructure-construction progress payments?"
+      },
+      "answer": {
+        "tr": "Altyapı işlerinde imalatlar (boru döşeme, kanal açma gibi) genellikle proje aşamasında tam olarak öngörülemeyen değişikliklere uğrar veya kısım kısım ilerler; iş tamamlanmadan önce üzeri kapatılacağı için ödemenin yapılan kısma göre alınabilmesi gerekir. Yeşil defter, henüz tam bitmemiş veya projede olmayan/idarece değiştirilen bu kısımların metrajını geçici olarak kaydederek hakedişe girmesini sağlar; iş tamamlanınca bu kayıt ataşmana dönüştürülür.",
+        "en": "Infrastructure work (pipe-laying, trenching, etc.) often undergoes changes not fully foreseen at the project stage, or proceeds in increments; since the work will be buried before full completion, payment needs to track partial progress. The yeşil defter temporarily records the quantities of these not-yet-finished or off-project/changed portions so they can enter progress payments; once the work is finished, this record converts into an ataşman."
+      }
+    },
+    {
+      "id": "q48",
+      "type": "open",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Birinci keşif (ön keşif) ile son keşif (kesin keşif) arasındaki temel farkı açıklayınız.",
+        "en": "Explain the fundamental difference between birinci keşif (preliminary estimate) and son keşif (final estimate)."
+      },
+      "answer": {
+        "tr": "**Birinci keşif (ön keşif)**, inşaata başlanmadan önce, büyük yaklaşıklıkla yapının maliyetinin hesaplanmasıdır; iki türü vardır — tahmini ön keşif (henüz proje yokken mühendislik önsezisi ve piyasa tecrübesiyle) ve metraja dayalı ön keşif (proje oluştuktan sonra metraj × birim fiyatla). **Son keşif (kesin keşif)** ise, yapının inşaatı TAMAMLANDIKTAN SONRA, inşaat süresince alınan tüm hakedişler ve değişikliklerden kaynaklanan ek maliyetler belgeleriyle birlikte tek dokümanda toplanarak yapının GERÇEK maliyetini ortaya çıkarır. Fark: ön keşif TAHMİNİ maliyeti, son keşif ise GERÇEKLEŞEN maliyeti gösterir.",
+        "en": "**Birinci keşif (preliminary estimate)** is a rough calculation of building cost made before construction starts; it has two forms — a rough guess-estimate (before any project exists, using engineering intuition and market experience) and a quantity-based estimate (once the project exists, quantity × unit price). **Son keşif (final estimate)** is prepared AFTER construction is COMPLETE, consolidating all progress payments and change-order costs with supporting documents into a single document, revealing the ACTUAL cost. The difference: the preliminary estimate shows the ESTIMATED cost, the final estimate shows the REALIZED cost."
+      }
+    },
+    {
+      "id": "q49",
+      "type": "mcq",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Metraja dayalı ön keşif ile tahmini ön keşif arasındaki fark nedir?",
+        "en": "What is the difference between the quantity-based preliminary estimate and the rough guess-estimate?"
+      },
+      "options": [
+        {
+          "tr": "Metraja dayalı ön keşif, uygulama projeleri oluştuktan sonra yapı elemanlarının metrajı çıkarılıp birim fiyatla çarpılarak yapılır; tahmini ön keşif ise henüz proje yokken mühendislik önsezisi ve geleneksel m² maliyetleriyle kabaca yapılır",
+          "en": "The quantity-based estimate is made after working drawings exist, by taking off element quantities and multiplying by unit price; the rough estimate is made before any project exists, using engineering intuition and traditional per-m² costs"
+        },
+        {
+          "tr": "İkisi de aynı yöntemi kullanır, sadece isimleri farklıdır",
+          "en": "Both use the same method; only the names differ"
+        },
+        {
+          "tr": "Tahmini ön keşif sadece kamu işlerinde, metraja dayalı ön keşif sadece özel işlerde kullanılır",
+          "en": "The rough estimate is used only in public works, the quantity-based one only in private works"
+        },
+        {
+          "tr": "Metraja dayalı ön keşif inşaat bittikten sonra yapılır",
+          "en": "The quantity-based estimate is made after construction is finished"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Doğru cevap birincisidir. Metraja dayalı ön keşif, proje ve metraj mevcutken birim fiyatla çarpılarak yapılır (daha kesine yakın); tahmini ön keşif ise proje henüz yokken deneyim ve geleneksel birim m² maliyetleriyle kabaca yapılır. Diğer seçenekler kaynaklarla çelişir; son seçenek ayrıca son keşifle karıştırılmıştır.",
+        "en": "The first option is correct. The quantity-based estimate uses actual quantities × unit price once the project exists (closer to accurate); the rough estimate uses experience and traditional per-m² costs before any project exists. The other options contradict the sources; the last option confuses it with the final estimate."
+      }
+    },
+    {
+      "id": "q50",
+      "type": "mcq",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Keşfin hazırlanması için gerekli alt unsurlar arasında AŞAĞIDAKİLERDEN HANGİSİ YER ALMAZ?",
+        "en": "Which of the following is NOT among the required inputs for preparing a keşif?"
+      },
+      "options": [
+        {
+          "tr": "Projeler",
+          "en": "Project drawings"
+        },
+        {
+          "tr": "İmalat metrajları/detayları",
+          "en": "Work-item quantities/details"
+        },
+        {
+          "tr": "Birim fiyat araştırma ve tespitleri",
+          "en": "Unit-price research and determinations"
+        },
+        {
+          "tr": "Yüklenicinin banka kredi notu",
+          "en": "The contractor's bank credit score"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Keşfin alt unsurları: projeler, imalat detayları/metrajları, birim fiyat araştırma ve tespitleri, gerekliyse röleveler, gerekliyse ataşmanlar. Yüklenicinin banka kredi notu bu unsurlar arasında yer almaz — bu ihale/finansman süreciyle ilgili farklı bir konudur.",
+        "en": "The keşif inputs are: project drawings, work-item details/quantities, unit-price research, and (if needed) rölöve and ataşman records. A contractor's bank credit score is not among these — that belongs to a different topic (tendering/financing)."
+      }
+    },
+    {
+      "id": "q51",
+      "type": "open",
+      "covers": [
+        "n12"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kesin hesap işlemleri ve keşif özeti kavramlarını tanımlayınız.",
+        "en": "Define kesin hesap işlemleri (final accounting) and keşif özeti (cost summary)."
+      },
+      "answer": {
+        "tr": "**Kesin hesap işlemleri**, son keşfin (kesin keşfin) ortaya çıkarılması için yapılan işlemlerin tümüdür; bu işlemler kesin hesap uzmanları tarafından yürütülür. **Keşif özeti**, bu kesin hesap işlemlerinin sonucunda ortaya çıkan; miktar, birim fiyat, tutar ve toplam tutarın tek bir sayfada gösterildiği özet belgedir (imalatın cinsi, poz no, birim, miktar, birim fiyat, tutar sütunlarını içerir).",
+        "en": "**Kesin hesap işlemleri (final accounting)** is the complete set of operations carried out to produce the son keşif (final estimate); performed by kesin hesap uzmanı (final-accounts experts). **Keşif özeti (cost summary)** is the resulting single-page document showing quantity, unit price, amount, and total amount for each item (columns: item type, poz no, unit, quantity, unit price, amount)."
+      }
+    },
+    {
+      "id": "q52",
+      "type": "mcq",
+      "covers": [
+        "n2",
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yapı sahibi ile proje yapımcısı (projeci) arasındaki temel fark nedir?",
+        "en": "What is the fundamental difference between the building owner and the project producer (designer)?"
+      },
+      "options": [
+        {
+          "tr": "Yapı sahibi arsanın mülkiyetine sahip kişidir; projeci ise projelendirmeye kanunla yetkili mühendis/mimardır — sahiplik ile yetkilendirilmiş uzmanlık ayrımıdır",
+          "en": "The owner holds title to the land; the designer is a legally authorized engineer/architect — the distinction is ownership vs. authorized expertise"
+        },
+        {
+          "tr": "İkisi aynı kişidir, sadece unvanları farklıdır",
+          "en": "They are the same person, only the titles differ"
+        },
+        {
+          "tr": "Projeci her zaman devlet memuru olmalıdır",
+          "en": "The designer must always be a civil servant"
+        },
+        {
+          "tr": "Yapı sahibi projeyi bizzat çizmek zorundadır",
+          "en": "The owner must personally draw the project"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Yapı sahibi arsanın mülkiyetine sahip gerçek/tüzel kişidir ve projeciyi seçme hakkına sahiptir; ama projeyi bizzat çizmesi gerekmez. Projeci ise mühendis/mimar olarak kanunla yetkilendirilmiş, projelendirmeyi fiilen yapan kişidir. İkisi ayrı rollerdir.",
+        "en": "The owner is the person/entity holding title to the land and has the right to choose the designer, but does not have to draw the project personally. The designer is the legally authorized engineer/architect who actually produces the design. They are distinct roles."
+      }
+    },
+    {
+      "id": "q53",
+      "type": "open",
+      "covers": [
+        "n6",
+        "n12"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Avan proje aşaması ile ön keşif (birinci keşif) aşaması arasındaki zamansal ilişkiyi açıklayınız — hangisi genelde önce gelir ve neden?",
+        "en": "Explain the temporal relationship between the avan project stage and the preliminary estimate (birinci keşif) stage — which usually comes first and why?"
+      },
+      "answer": {
+        "tr": "Tahmini ön keşif, avan projeden ÖNCE veya onunla eş zamanlı olarak, henüz uygulama projeleri oluşmamışken mühendislik önsezisi ve geleneksel birim m² maliyetleriyle kabaca yapılabilir — amaç, işin genel finansman büyüklüğünü erken görmektir. Ancak metraja dayalı ön keşif, ancak avan/kesin proje çizimleri ortaya çıktıktan SONRA yapılabilir; çünkü bu yöntem yapı elemanlarının metrajının projeden çıkarılmasına dayanır. Dolayısıyla sıralama genelde şöyledir: tahmini ön keşif → avan proje → kesin proje ile birlikte/sonrasında metraja dayalı (daha kesin) ön keşif → inşaat → son keşif.",
+        "en": "A rough (guesstimate) preliminary estimate can be made BEFORE or alongside the avan project, before working drawings exist, using engineering intuition and traditional per-m² costs — the goal is an early view of financing scale. But the quantity-based preliminary estimate can only be made AFTER avan/kesin project drawings exist, since it relies on taking off quantities from the project. So the usual order is: rough preliminary estimate → avan project → quantity-based (more precise) preliminary estimate alongside/after the kesin project → construction → final estimate."
+      }
+    },
+    {
+      "id": "q54",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Bir yapıda hangi imalatın hangi sırayla yapılacağını gösteren iş ve işlem akış diyagramı aşağıdakilerden hangisidir?",
+        "en": "Which of the following is the workflow diagram showing which work item is built in which order in a structure?"
+      },
+      "options": [
+        {
+          "tr": "İmal(at) zinciri",
+          "en": "Imal(at) zinciri (production chain)"
+        },
+        {
+          "tr": "Birim fiyat analizi",
+          "en": "Unit price analysis"
+        },
+        {
+          "tr": "Metraj özeti",
+          "en": "Quantity summary"
+        },
+        {
+          "tr": "Keşif özeti",
+          "en": "Cost summary"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "İmalatlar belirli bir sıra ve zaman dilimi gözetilerek yapılır; hangi imalatın hangi sırayla yapılacağını gösteren iş/işlem akış diyagramına imal(at) zinciri denir (örn. kalıp imal edilmeden beton dökülemez). Birim fiyat analizi bir imalatın maliyet girdilerini; metraj özeti metraj sayfalarının toplamını; keşif özeti miktar-birim fiyat-tutar tablosunu gösterir — hiçbiri sıralama diyagramı değildir.",
+        "en": "Work items are built in a set order and timing; the work/process flow diagram showing which item comes in which sequence is the imal(at) zinciri (e.g. concrete cannot be poured before formwork). A unit price analysis shows cost inputs of an item; a quantity summary totals quantity sheets; a cost summary shows the quantity-unit-price-amount table — none is an ordering diagram."
+      }
+    },
+    {
+      "id": "q55",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Avan (ön) proje aşamasında hazırlanan 'program' nedir ve neden önemlidir?",
+        "en": "What is the 'program' prepared at the avan (preliminary) project stage, and why is it important?"
+      },
+      "answer": {
+        "tr": "Program, yapının kullanım amacına göre yapıdan istenilenlerin (mekânlar, işlevler, kullanıcı beklentileri vb.) listesidir. Avan proje aşamasında projeyi hazırlayacak kişi ya da kuruluşun yararlanacağı en önemli veri kaynağıdır; çünkü tasarımın hangi ihtiyaçları karşılayacağını baştan tanımlar ve ileride çıkabilecek eksikliklerin erkenden görülmesini sağlar.",
+        "en": "The program is the list of everything required of the building given its intended use (spaces, functions, user expectations, etc.). It is the most important data source the designer relies on at the avan-project stage, because it defines up front which needs the design must meet and lets deficiencies be spotted early."
+      }
+    },
+    {
+      "id": "q56",
+      "type": "mcq",
+      "covers": [
+        "n10"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Bir yapı metraj cetvelinde aynı boyutta 4 adet özdeş tavan sıvası imalatı vardır. Bu durumda cetvel nasıl doldurulur?",
+        "en": "A building quantity sheet has 4 identical ceiling-plaster items of the same size. How is the sheet filled in this case?"
+      },
+      "options": [
+        {
+          "tr": "'Benzer' sütununa 4 yazılır ve azı(+) değeri bu sayıyla çarpılır",
+          "en": "Write 4 in the 'benzer' column and multiply the azı(+) value by it"
+        },
+        {
+          "tr": "Aynı imalat 4 kez alt alta tek tek yazılmak zorundadır",
+          "en": "The same item must be written out four times, one per row"
+        },
+        {
+          "tr": "Yalnızca en büyük olanı yazılır, diğerleri ihmal edilir",
+          "en": "Only the largest one is written; the others are ignored"
+        },
+        {
+          "tr": "'Azı eksi' sütununa 4 yazılır",
+          "en": "Write 4 in the 'azı eksi' column"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "'Benzer' sütunu, aynı boyuttaki tekrarlı imalatlar için vardır: her birini tek tek yazmak yerine adet 'benzer' sütununa yazılır ve azı(+) o sayıyla çarpılır — böylece tekrarlı imalatlarda zaman kazanılır. Tek tek yazmak (B) gereksizdir; en büyüğü yazıp diğerlerini ihmal etmek (C) miktarı eksiltir; 'azı eksi' (D) yalnızca düşülecek boşluklar (minha) içindir, benzer adedi için değil.",
+        "en": "The 'benzer' column exists for repeated items of the same size: instead of listing each, you write the count there and multiply azı(+) by it — saving time. Writing each row (B) is unnecessary; keeping only the largest (C) undercounts; 'azı eksi' (D) is only for deductions (minha), not the similar-item count."
+      }
+    }
+  ],
+  "questions": []
+}

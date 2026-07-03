@@ -67,13 +67,14 @@ const PLAN = {
   ],
 };
 
-export function HomeView({ units }: { units: Unit[] }) {
+export function HomeView({ subject, units }: { subject: string; units: Unit[] }) {
   const { lang, t, bi } = useLang();
   const { state } = useProgress();
 
-  const totalQ = units.reduce((n, u) => n + u.questions.length, 0);
+  const totalQ = units.reduce((n, u) => n + (u.questions?.length ?? 0), 0);
   const doneQ = units.reduce(
-    (n, u) => n + u.questions.filter((q) => state.q[q.id]?.done).length,
+    (n, u) =>
+      n + (u.questions ?? []).filter((q) => state.q[`${subject}/${q.id}`]?.done).length,
     0
   );
 
@@ -115,11 +116,12 @@ export function HomeView({ units }: { units: Unit[] }) {
         <h2 className="mb-4 font-display text-2xl font-semibold text-ink">{t("allUnits")}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {units.map((u) => {
-            const done = u.questions.filter((q) => state.q[q.id]?.done).length;
+            const questions = u.questions ?? [];
+            const done = questions.filter((q) => state.q[`${subject}/${q.id}`]?.done).length;
             return (
               <Link
                 key={u.slug}
-                href={`/unit/${u.slug}`}
+                href={`/s/${subject}/unit/${u.slug}`}
                 className="group rounded-2xl border border-line bg-card p-5 shadow-[0_1px_0_rgba(28,43,51,0.04)] transition-all hover:-translate-y-0.5 hover:border-deniz/40 hover:shadow-[0_8px_24px_rgba(14,90,109,0.10)]"
               >
                 <div className="mb-2 flex items-center justify-between">
@@ -127,7 +129,7 @@ export function HomeView({ units }: { units: Unit[] }) {
                     {String(u.unit).padStart(2, "0")}
                   </span>
                   <span className="text-xs text-ink-faint">
-                    {u.questions.length} {t("questions")}
+                    {questions.length} {t("questions")}
                   </span>
                 </div>
                 <h3 className="font-display text-lg font-semibold text-ink group-hover:text-deniz-deep">
@@ -135,7 +137,7 @@ export function HomeView({ units }: { units: Unit[] }) {
                 </h3>
                 <p className="mt-1 line-clamp-2 text-sm text-ink-soft">{bi(u.tagline)}</p>
                 <div className="mt-4">
-                  <WaterProgress value={u.questions.length ? done / u.questions.length : 0} />
+                  <WaterProgress value={questions.length ? done / questions.length : 0} />
                 </div>
               </Link>
             );

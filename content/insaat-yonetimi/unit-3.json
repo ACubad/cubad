@@ -1,0 +1,4051 @@
+{
+  "unit": 3,
+  "slug": "metraj",
+  "title": {
+    "tr": "Metraj",
+    "en": "Quantity Take-off"
+  },
+  "tagline": {
+    "tr": "Beton, demir, duvar, kalıp ve kaplamayı ölçüp saymak",
+    "en": "Measuring and counting concrete, rebar, walls, formwork, finishes"
+  },
+  "sources": {
+    "videos": [],
+    "pdfs": [
+      "Beton-Metraji (1).pdf",
+      "Demir-Donati-Metraji (1).pdf",
+      "Duvar-MEtraji (1).pdf",
+      "Kalip-Isleri.pdf",
+      "Kaplama ve Diğer işler (1).pdf"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": {
+        "tr": "Metraj Nedir? Temel Belgeler",
+        "en": "What Is Metraj? Foundational Documents"
+      },
+      "body": {
+        "tr": "**Metraj**, bir yapıda gerçekleştirilecek veya gerçekleştirilmiş imalatların miktarlarını proje ölçülerinden belirli kurallarla hesaplama işidir. Sonuç, **yapı metraj cetveli**ne yazılır: imalatın adı ve yeri, benzer eleman sayısı, boy-en-yükseklik gibi ölçüler, çarpımların yazıldığı brüt miktar (**azı**), boşluklar (minha) düşüldükten sonra kalan net miktar (**çoğu**), sonuç miktarı ve ölçü birimi.\n\nHer imalat kendi doğal biriminde hesaplanır:\n| Birim | Örnek imalat |\n|---|---|\n| m (uzunluk) | boru, küpeşte |\n| m² (alan) | duvar, kalıp, sıva, döşeme kaplaması |\n| m³ (hacim) | beton |\n| adet | kapı, pencere, donatı çubuğu sayısı |\n| kg / ton | demir donatı |\n\nMetraj; **metraj özetine**, **keşfe** (yaklaşık maliyet hesabı), **yaklaşık maliyete** ve **hakedişe** (yükleniciye yapılan ara ödemelere) veri sağlar — yani metraj hem projeyi fiyatlamanın hem de inşaat sırasında kimin ne kadar iş yaptığını belgelemenin temelidir.\n\nMetrajla iç içe geçen saha belgeleri de vardır:\n- **Rölöve**: projesi olmayan veya üzeri kapanacak (temel, altyapı gibi) bir imalatın yerinde ölçülerek mevcut durumunun çizilmesi.\n- **Ataşman**: idarenin istediği ilave imalatların veya toprak altında kalacak imalatların ödemeye esas miktarlarını belgeleyen, ölçeksiz kroki + metraj hesabından oluşan tutanak; imalat kapanmadan önce yerinde ölçülüp taraflarca imzalanır.\n- **Yeşil defter**: projede olmayan veya idarece değiştirilen imalatların metrajlarının hakedişe esas kaydedildiği defter.\n\nBu belgeler doğru tutulmazsa ileride hakediş ve kesin hesap anlaşmazlıkları çıkar — metrajın hem teknik hem hukuki bir iş olmasının sebebi budur.\n\n(Rölöve → ataşman → yeşil defter zinciri ve keşif/kesin hesap kavramları Ünite 1'de ayrıntılı işlenir.)",
+        "en": "**Metraj (quantity take-off)** is the work of calculating, from project drawings and fixed rules, the quantities of work (imalat) to be built or already built. The result is recorded in the **yapı metraj cetveli (building take-off schedule)**: name and location of the work item, count of similar elements, length-width-height type dimensions, the gross amount where the products are written (**azı** = brüt), the net amount left after voids (minha) are subtracted (**çoğu** = net), the final quantity, and its unit.\n\nEvery work item is measured in its natural unit: length (m) for pipes/handrails, area (m²) for walls/formwork/plaster/flooring, volume (m³) for concrete, count (adet) for doors/windows/rebar pieces, weight (kg/ton) for reinforcement.\n\nTake-off feeds the **metraj özeti (summary)**, the **keşif (cost estimate)**, the **approximate cost**, and **hakediş (progress payments)** — it is the foundation both for pricing a project and for documenting who built what during construction.\n\nRelated site documents: **rölöve** (as-built survey of work with no drawing, or work about to be covered), **ataşman** (a signed record with sketch + take-off proving quantities of extra or soon-to-be-buried work, measured before it is closed up), and **yeşil defter** (the ledger where quantities of undrawn or changed work are recorded for payment). Keeping these correctly prevents later disputes over progress payments and final accounts.\n\n(The rölöve → ataşman → yeşil defter chain and the keşif/final-account concepts are covered in detail in Unit 1.)"
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": {
+        "tr": "Metraj Kuralları ve Birim Fiyat Pozu Mantığı",
+        "en": "Take-off Rules and the Unit-Price Item (Poz) Logic"
+      },
+      "body": {
+        "tr": "Her imalat kalemi, Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın **Birim Fiyat Kitabı**'nda bir **poz numarası** ile tanımlanır (örn. 15.150.1008). Her pozun üç sabit bölümü vardır:\n\n1. **Tarif**: imalatın tam olarak neyi kapsadığı (malzeme, işçilik, yükleme-taşıma, yüklenici genel giderleri ve kârı — hepsi birim fiyata dahildir).\n2. **Ölçü**: metrajın **hangi kurala göre** çıkarılacağı (projedeki boyutlar mı, yerinde ölçüm mü, hangi boşluklar düşülür/düşülmez).\n3. **Notlar**: istisnalar (örn. pompa kullanılmazsa bedel düşülür, iskele ayrı ödenir).\n\nPoz numaralarının ilk basamakları imalat grubunu gösterir — bu unitede geçenler:\n| Poz grubu | İmalat |\n|---|---|\n| 15.150.xxxx | Hazır beton (dayanım sınıfına göre, C8/10...C50/60) |\n| 15.160.xxxx | Demir donatı (çap aralığına göre) |\n| 15.180.xxxx | Kalıp (malzeme/yüzey tipine göre) |\n| 15.210 / 220 / 225 / 230-240 | Duvar (taş / tuğla / gazbeton / diğer) |\n| 15.245-15.540 | Kaplama, sıva, şap, boya, asma tavan vb. |\n\n**Ölçü kuralı en kritik kısımdır**: aynı imalat, farklı pozlarda farklı ölçülebilir (örn. duvarda 0,10 m²'den küçük boşluklar düşülmez ama kalıpta boşluk hacmi çıkarılmayan delik çevre kalıpları ölçüye dahil edilmez — kural her poz için ayrı okunmalıdır). Bakanlık pozları her imalatı kapsamıyorsa, diğer kamu kurumlarının (DSİ, Karayolları, Milli Savunma Bakanlığı vb.) kendi birim fiyat analizleri kullanılabilir; hiçbiri yoksa **özel poz** oluşturulur.",
+        "en": "Every work item is defined by a **poz (unit-price item) number** in the Ministry of Environment, Urbanization and Climate Change's **Unit Price Book** (e.g. 15.150.1008). Each poz has three fixed parts: **Tarif** (definition — exactly what the item covers: material, labor, loading/hauling, contractor overhead and profit, all included in the unit price), **Ölçü** (measurement rule — take-off from drawings or field measurement, which voids are deducted or not), and **Notlar** (exceptions, e.g. deduct pump cost if unused, scaffolding paid separately).\n\nThe leading digits of a poz number identify the work group: 15.150.xxxx = ready-mix concrete (by strength class), 15.160.xxxx = rebar (by diameter range), 15.180.xxxx = formwork (by material/surface type), 15.210/220/225/230-240 = walls (stone/brick/gas-concrete/other), 15.245-15.540 = finishes (plaster, screed, paint, suspended ceiling, etc.).\n\nThe **measurement rule is the most critical part**: the same kind of work can be measured differently under different poz (e.g. walls don't deduct voids under 0.10 m², but formwork excludes the surrounding formwork of voids whose volume isn't deducted — each poz's rule must be read separately). If ministry poz don't cover an item, other public agencies' (DSİ, Karayolları, Milli Savunma Bakanlığı, etc.) own unit-price analyses can be used; if none exists, a **special poz (özel poz)** is created."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": {
+        "tr": "Beton Metrajı",
+        "en": "Concrete Take-off"
+      },
+      "body": {
+        "tr": "Beton; agrega (çakıl, kum) + bağlayıcı madde (genelde **portland çimentosu**) + su karışımıdır. Beton metrajında en önemli ilk ayrım:\n\n1. **Demirsiz beton (grobeton)**: içinde donatı yoktur. Temel altına dökülen beton, blokaj üstü beton bu gruptandır — zemin ile betonarme arasında düzgün, temiz bir yüzey sağlar.\n2. **Demirli beton (betonarme)**: taşıyıcı elemanlar — temel, kolon, kiriş, döşeme, lento. Bu elemanların hacmi ayrı ayrı hesaplanıp toplanır.\n\n**Hesap yöntemi**: her elemanın projedeki boyutları üzerinden **hacim = en × boy × yükseklik** (veya kesit alanı × uzunluk) hesaplanır, benzer elemanlar varsa adetle çarpılır.\n\nBirim fiyat, betonun **basınç dayanım sınıfına** göre değişir (C8/10'dan C50/60'a kadar poz 15.150.1001-1010). Beton kalitesi arttıkça (daha fazla çimento, daha sıkı kontrol) birim fiyat da artar.\n\n**Yaklaşık hesap kuralı** (ön fizibilite/keşif için, proje henüz yokken): **1 m² inşaat alanı için 0,200-0,250 m³ beton** öngörülür. Bu, kesin metraj değildir — sadece hızlı bir keşif tahminidir.\n\nPoz tarifine (örn. 15.150.1008 — C40/50) göre birim fiyata dahil olan işler: beton tesisinde üretim/kalite kontrol, transmiksere yükleme, işyerine nakil, pompa ile basma, yerleştirme, vibratörle sıkıştırma, sulama/bakım, numune alma-deney. **Ölçü**: projedeki boyutlar üzerinden hesaplanır. Notlar: satın alınan betonda fatura sureti ödeme belgesine eklenir; katkı malzemesi ayrıca ödenir; pompa kullanılmazsa analizden pompa bedeli düşülür.",
+        "en": "Concrete = aggregate (gravel, sand) + a binder (usually **portland cement**) + water. The first key split in concrete take-off:\n\n1. **Unreinforced concrete (grobeton, lean concrete)**: no rebar — e.g. blinding concrete under a footing, or concrete poured over blokaj (rubble fill); gives a clean, level surface between soil and the reinforced structure.\n2. **Reinforced concrete (betonarme)**: structural members — footing, column, beam, slab, lintel. Each member's volume is computed separately and summed.\n\n**Method**: for each member, **volume = width × length × height** (or cross-section area × length) from the drawing dimensions, multiplied by the count if there are repeated identical members.\n\nUnit price varies by the concrete's **compressive strength class** (C8/10 through C50/60, poz 15.150.1001-1010) — higher quality (more cement, tighter QC) costs more.\n\n**Rule-of-thumb estimate** (for early feasibility/rough cost estimate before a design exists): **0.200-0.250 m³ of concrete per 1 m² of building floor area**. This is NOT a precise take-off — just a quick estimating shortcut.\n\nPer the poz definition (e.g. 15.150.1008 — C40/50), the unit price includes: production/QC at the plant, loading into transit mixers, hauling to site, pumping, placing, vibrating, curing, sampling/testing. **Measurement**: computed from the drawing dimensions. Notes: purchased concrete requires an invoice copy attached to payment documents; admixtures are paid separately; if no pump is used, the pump cost is deducted from the price analysis."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": {
+        "tr": "Demir Donatı Metrajı — Kurallar ve Pratik Katsayılar",
+        "en": "Rebar Take-off — Rules and Rule-of-Thumb Ratios"
+      },
+      "body": {
+        "tr": "**Betonarme**, betonun içine demir donatı yerleştirilerek güçlendirilmesiyle elde edilir (temel, kolon, kiriş, perde, döşeme). Donatı metrajı **statik projeden** çıkarılır: temel planı, kalıp planı, kiriş-kolon-perde açılımları ve donatı detay projeleri kullanılarak her çubuğun **çapı, adedi ve boyu** belirlenir; toplam uzunluk, ilgili çapın **kg/m birim ağırlığı** ile çarpılarak **ağırlığa (kg veya ton)** çevrilir.\n\n**Ölçü kuralları** (poz 15.160.1003 örneği):\n1. Boy, **kroşeler (kancalar) dahil** betonarme detay resmine göre ölçülür.\n2. Ağırlıklar standart tablodan alınır (aşağıda).\n3. **Projede gösterilmeyen çubuklar ve ekler hesaba katılmaz.**\n4. Bağlama teli ve normal zayiat için **ayrıca ödeme yapılmaz** (analize dahil kabul edilir).\n\n**Çelik Çubukların Birim Boy Ağırlıkları (kg/m)** — kaynak tablosunun tamamı (Ø6–Ø30):\n| Çap | kg/m | Çap | kg/m |\n|---|---|---|---|\n| Ø6 | 0,222 | Ø18 | 1,998 |\n| Ø8 | 0,395 | Ø20 | 2,466 |\n| Ø10 | 0,617 | Ø22 | 2,984 |\n| Ø12 | 0,888 | Ø24 | 3,551 |\n| Ø14 | 1,208 | Ø26 | 4,168 |\n| Ø16 | 1,578 | Ø28 | 4,834 |\n|  |  | Ø30 | 5,549 |\n\n**Pratik (ön) hesap katsayıları** — proje yokken hızlı tahmin için:\n- **1 m³ betonda ortalama 100-130 kg demir**\n- **1 m² inşaat alanı için**: yığma binada 18-22 kg, betonarme karkas yapıda 35-40 kg demir\n- Toplam inşaat demirinin **%40'ı ince, %50'si kalın** demir kabul edilir (kalan kısım orta çaplar/hasır gibi diğer kategoriler)\n\nBirim fiyatlar donatı **çapına göre** değişir: 15.160.1001-1002 hasır çelik (kg/m²'ye göre iki alt sınıf), 15.160.1003 Ø8-Ø12, 15.160.1004 Ø14-Ø28, 15.160.1005 Ø28'den büyük — hepsi **ton** birimiyle ödenir.",
+        "en": "**Reinforced concrete (betonarme)** is concrete strengthened by embedding rebar (in footings, columns, beams, shear walls, slabs). Rebar take-off is derived from the **structural drawings**: foundation plan, formwork plan, beam-column-wall schedules and rebar detail drawings give each bar's **diameter, count, and length**; total length is multiplied by the diameter's **kg/m unit weight** to convert to **weight (kg or ton)**.\n\n**Measurement rules** (poz 15.160.1003 example): (1) length is measured per the reinforced-concrete detail drawing **including hooks (kroşe)**; (2) weights are taken from the standard table; (3) **bars and splices not shown on the drawing are not counted**; (4) tie wire and normal waste are **not paid separately** (assumed included in the price analysis).\n\n**Unit weights of steel bars (kg/m)** — the full source table (Ø6–Ø30): Ø6=0.222, Ø8=0.395, Ø10=0.617, Ø12=0.888, Ø14=1.208, Ø16=1.578, Ø18=1.998, Ø20=2.466, Ø22=2.984, Ø24=3.551, Ø26=4.168, Ø28=4.834, Ø30=5.549.\n\n**Rule-of-thumb estimating ratios** (for quick estimates before a design exists): **100-130 kg of rebar per 1 m³ of concrete**; **per 1 m² of floor area**: 18-22 kg in load-bearing masonry buildings, 35-40 kg in reinforced-concrete frame buildings; of total building rebar, **40% is assumed thin (ince) and 50% thick (kalın)** bar.\n\nUnit prices vary **by bar diameter**: 15.160.1001-1002 welded wire mesh (two sub-classes by kg/m²), 15.160.1003 Ø8-Ø12, 15.160.1004 Ø14-Ø28, 15.160.1005 over Ø28 — all paid **per ton**."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": {
+        "tr": "Döşeme Donatı Sayısının Bulunması",
+        "en": "Finding the Number of Slab Rebar Bars"
+      },
+      "body": {
+        "tr": "Betonarme projelerde donatı, örneğin **Ø10/25** şeklinde yazılır: çap = Ø10, **aralık = 25 cm**. Aralık, **düz donatıdan düz donatıya veya pilyeden pilyeye** olan mesafeyi gösterir — düz ile pilye arasındaki mesafe bu değerin **yarısıdır**.\n\n**Donatı sayısını bulma adımı**: düz donatı doğrultusuna **dik** olan mesnet açıklığı, donatı aralığına bölünür:\n$$\\text{Aralık sayısı} = \\frac{\\text{Mesnet açıklığı (cm)}}{\\text{Demir aralığı (cm)}}$$\n\nBölme sonucuna göre **3 durum** ortaya çıkar:\n\n**1) Bölümde kalan yoksa (tam bölünüyorsa)**: Düz donatı sayısı = aralık sayısı. Donatı düzle başlayıp düzle biter. **Pilye sayısı = düz sayısı − 1**.\n*Örnek: 360 cm / 30 cm = 12,0 → 12 aralık. Düz = 12 adet, Pilye = 11 adet.*\n\n**2) Kalan, aralığın yarısından KÜÇÜKSE**: Aralık sayısına **+1** eklenir → düz donatı sayısı. İlk düz donatının mesnetten içeri mesafesi = kalan/2. Donatı düzle başlayıp düzle biter. **Pilye = düz − 1**.\n*Örnek: 425/21 = 20,2 → 20 aralık. 425−420=5 kalan, 5 < 21/2=10,5 → küçük. İlk donatı 2,5 cm içeriden. Düz=20+1=21, Pilye=20.*\n\n**3) Kalan, aralığın yarısından BÜYÜKSE**: Kalan sayıdan aralığın yarısı çıkarılır, kalan ikiye bölünerek ilk donatının mesnetten mesafesi bulunur; aralık sayısına **+1** eklenir → düz donatı sayısı. Donatı **düzle başlayıp pilye ile biter**. Bu durumda **Pilye sayısı = Düz sayısı** (eşittir).\n*Örnek: 440/21 = 20,9 → 20 aralık. 440−420=20 kalan, 20 > 21/2=10,5 → büyük. İlk donatı (20−10,5)/2=4,75 cm içeriden. Düz=21, Pilye=21.*\n\n**Dağıtma ve ilave mesnet donatıları** benzer mantıkla bulunur: bölümde artan varsa bölüme **+1** eklenerek sayı bulunur; ilk dağıtma donatısının mesnetten uzaklığı, kalan sayının ikiye bölünmesiyle bulunur.\n*Örnek: 485/30 = 16,17 → 16 aralık → Dağıtma sayısı = 16+1 = 17 adet.*",
+        "en": "On reinforced-concrete drawings, rebar is labeled e.g. **Ø10/25**: diameter Ø10, **spacing 25 cm**. The spacing is measured **straight-bar to straight-bar, or bent-bar (pilye) to bent-bar** — the gap between a straight and a bent bar is **half** that value.\n\n**Finding the bar count**: divide the support span **perpendicular** to the bar direction by the bar spacing:\n$$\\text{Number of gaps} = \\frac{\\text{Support span (cm)}}{\\text{Bar spacing (cm)}}$$\n\nThree cases follow from the division:\n\n**1) No remainder (divides evenly)**: straight-bar count = number of gaps; layout starts and ends with a straight bar. **Bent-bar count = straight count − 1**. *Example: 360/30 = 12.0 → straight = 12, bent = 11.*\n\n**2) Remainder SMALLER than half the spacing**: add **+1** to the gap count → straight-bar count; the first bar sits (remainder/2) inside the support; layout starts and ends straight. **Bent = straight − 1**. *Example: 425/21 = 20.2 → 20 gaps; remainder 5 < 10.5 → first bar 2.5 cm in; straight=21, bent=20.*\n\n**3) Remainder LARGER than half the spacing**: subtract half the spacing from the remainder, halve that to get the first bar's offset; add **+1** to the gap count → straight-bar count; layout starts straight and **ends bent**. Here **bent count = straight count** (equal). *Example: 440/21 = 20.9 → 20 gaps; remainder 20 > 10.5 → first bar 4.75 cm in; straight=21, bent=21.*\n\n**Distribution (dağıtma) and extra support bars** follow the same logic: if there's a remainder, add +1 to the quotient for the count; the first bar's offset is the remainder halved. *Example: 485/30 = 16.17 → 16 gaps → distribution count = 16+1 = 17.*"
+      },
+      "story": {
+        "title": {
+          "tr": "Döşeme donatı sayısı — üç durum",
+          "en": "Slab bar count — three cases"
+        },
+        "xLabel": "Mesnet açıklığı (cm)",
+        "yLabel": "",
+        "xDomain": [
+          -0.5,
+          13
+        ],
+        "yDomain": [
+          -0.5,
+          4
+        ],
+        "square": false,
+        "showAxes": false,
+        "frames": [
+          {
+            "caption": {
+              "tr": "Durum 1: 360/30=12 tam bölünüyor. Düz donatı ile başla, düzle bitir: 12 düz, 11 pilye (aradaki boşluklara).",
+              "en": "Case 1: 360/30=12 divides evenly. Start and end with a straight bar: 12 straight, 11 bent (filling the gaps)."
+            },
+            "add": [
+              {
+                "type": "line",
+                "x1": 0,
+                "y1": 3,
+                "x2": 12,
+                "y2": 3,
+                "color": "faint",
+                "width": 1.5
+              },
+              {
+                "type": "point",
+                "x": 0,
+                "y": 3,
+                "label": "mesnet",
+                "color": "ink"
+              },
+              {
+                "type": "point",
+                "x": 12,
+                "y": 3,
+                "label": "mesnet",
+                "color": "ink"
+              },
+              {
+                "type": "text",
+                "x": 6,
+                "y": 3.5,
+                "text": {
+                  "tr": "12 aralık × 30 cm = 360 cm",
+                  "en": "12 gaps × 30 cm = 360 cm"
+                },
+                "color": "deniz"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Düz donatılar (clay) her tam sayı noktasına konur: 0,1,2,...,12 → 13 nokta ama uç noktalar mesnet ekseni, döşeme içindeki düz sayısı 12.",
+              "en": "Straight bars (clay) are placed at each integer point 0,1,2,...,12 → the endpoints are the support axis, giving 12 straight bars within the slab."
+            },
+            "add": [
+              {
+                "type": "point",
+                "x": 0,
+                "y": 3,
+                "color": "clay"
+              },
+              {
+                "type": "point",
+                "x": 1,
+                "y": 3,
+                "color": "clay"
+              },
+              {
+                "type": "point",
+                "x": 2,
+                "y": 3,
+                "color": "clay"
+              },
+              {
+                "type": "point",
+                "x": 3,
+                "y": 3,
+                "color": "clay"
+              },
+              {
+                "type": "point",
+                "x": 4,
+                "y": 3,
+                "color": "clay"
+              },
+              {
+                "type": "point",
+                "x": 12,
+                "y": 3,
+                "color": "clay"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Pilye donatılar (amber) aralıkların ortasına konur — düz sayısından bir eksik (11 adet) çünkü uç aralıklarda pilyeye gerek yoktur.",
+              "en": "Bent bars (amber) sit at the midpoints of the gaps — one fewer than the straight count (11) since the end gaps don't need a bent bar."
+            },
+            "add": [
+              {
+                "type": "point",
+                "x": 0.5,
+                "y": 2.2,
+                "color": "amber"
+              },
+              {
+                "type": "point",
+                "x": 1.5,
+                "y": 2.2,
+                "color": "amber"
+              },
+              {
+                "type": "point",
+                "x": 2.5,
+                "y": 2.2,
+                "color": "amber"
+              },
+              {
+                "type": "point",
+                "x": 3.5,
+                "y": 2.2,
+                "color": "amber"
+              },
+              {
+                "type": "text",
+                "x": 6,
+                "y": 1.4,
+                "text": {
+                  "tr": "Düz=12, Pilye=11",
+                  "en": "Straight=12, Bent=11"
+                },
+                "color": "moss"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n6",
+      "title": {
+        "tr": "Duvar Metrajı",
+        "en": "Wall Take-off"
+      },
+      "body": {
+        "tr": "**Duvar**: taş gibi doğal, veya tuğla/gazbeton/alçı levha gibi yapay malzemelerin örme-yığma-dizme-yapıştırma teknikleriyle bir araya getirilmesiyle oluşan yapı elemanı. **Görevleri**: yük taşımak, ayırmak, bölmek, yapıyı dış etkilerden korumak.\n\n**Sınıflandırma**: kâgir / kâgir olmayan, taşıyıcı / taşıyıcı olmayan.\n\n**Poz grupları** (Bakanlık Birim Fiyat Kitabı, malzemeye göre):\n| Poz grubu | Malzeme | Birim |\n|---|---|---|\n| 15.210'lu | Taş duvar (örn. ocak taşı ile kuru duvar) | m³ |\n| 15.220'li | Tuğla duvar (örn. 85mm/135mm yatay delikli tuğla) | m² |\n| 15.225'li | Gazbeton duvar (örn. 7,5 cm techizatsız blok) | m² |\n| 15.230/235/240'lı | Diğer (bims beton, sandviç hafif kargir, kireç-kumtaşı, alçı levha bölme) | m² |\n\n**Ölçü kuralı** (poz 15.220.1014 örneği — 135mm yatay delikli tuğla, 190×135×190mm): duvar alanı **projesindeki boyutlar üzerinden** hesaplanır (uzunluk × yükseklik); **0,10 m²'den küçük boşluklar düşülmez** (kapı/pencere kesme payı çok küçükse, ekstra kesim işçiliğini telafi etmek için düşülmez). 0,10 m²'den büyük her boşluk (kapı, pencere) **brüt alandan düşülür** — buna **\"boşluk düşme\"** denir.\n\n$$\\text{Net duvar alanı} = \\text{Brüt alan (uzunluk × yükseklik)} - \\sum \\text{(0,10 m²'den büyük boşluklar)}$$\n\nBirim fiyata dahil: harç (çimento-kireç karışımı), sulama, iş yerindeki yükleme/taşıma/boşaltma, malzeme ve zayiat, işçilik, araç-gereç, yüklenici genel gideri ve kârı.",
+        "en": "**Duvar (wall)**: a building element made by laying/stacking/binding natural (stone) or manufactured (brick, gas-concrete block, gypsum board) materials. **Functions**: carry loads, separate/partition spaces, protect the structure from external effects.\n\n**Classification**: masonry (kâgir) / non-masonry, load-bearing / non-load-bearing.\n\n**Poz groups** (by material, per the ministry price book): 15.210.x = stone wall (m³), 15.220.x = brick wall, e.g. 85mm/135mm perforated brick (m²), 15.225.x = gas-concrete block wall, e.g. 7.5cm unreinforced block (m²), 15.230/235/240.x = other (lightweight-aggregate block, sandwich panel, lime-sandstone, gypsum board partitions) (m²).\n\n**Measurement rule** (poz 15.220.1014 example — 135mm perforated brick, 190×135×190mm): wall area is computed **from the project's dimensions** (length × height); **voids smaller than 0.10 m² are NOT deducted** (too small to be worth deducting given the extra cutting labor). Any void larger than 0.10 m² (doors, windows) **IS deducted** from the gross area — this is called **\"boşluk düşme\" (void deduction)**.\n\n$$\\text{Net wall area} = \\text{Gross area (length × height)} - \\sum \\text{(voids larger than 0.10 m²)}$$\n\nThe unit price includes: mortar (cement-lime mix), wetting, on-site loading/hauling/unloading, materials and waste, labor, tools, contractor overhead and profit."
+      },
+      "story": {
+        "title": {
+          "tr": "Duvar metrajında boşluk düşme",
+          "en": "Void deduction in wall take-off"
+        },
+        "xLabel": "m",
+        "yLabel": "m",
+        "xDomain": [
+          -0.5,
+          6.5
+        ],
+        "yDomain": [
+          -0.5,
+          3.5
+        ],
+        "square": false,
+        "showAxes": true,
+        "frames": [
+          {
+            "caption": {
+              "tr": "Duvar cephesi: 6 m uzunluk × 3 m yükseklik → brüt alan 18 m².",
+              "en": "Wall elevation: 6 m long × 3 m high → gross area 18 m²."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    0
+                  ],
+                  [
+                    6,
+                    3
+                  ],
+                  [
+                    0,
+                    3
+                  ]
+                ],
+                "color": "ink",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 3,
+                "y": -0.3,
+                "text": {
+                  "tr": "6,0 m",
+                  "en": "6.0 m"
+                },
+                "color": "ink"
+              },
+              {
+                "type": "text",
+                "x": -0.35,
+                "y": 1.5,
+                "text": {
+                  "tr": "3,0 m",
+                  "en": "3.0 m"
+                },
+                "color": "ink"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Kapı boşluğu ekle: 1,0 m × 2,1 m = 2,10 m² (0,10 m²'den büyük → düşülecek).",
+              "en": "Add the door void: 1.0 m × 2.1 m = 2.10 m² (bigger than 0.10 m² → will be deducted)."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0.7,
+                    0
+                  ],
+                  [
+                    1.7,
+                    0
+                  ],
+                  [
+                    1.7,
+                    2.1
+                  ],
+                  [
+                    0.7,
+                    2.1
+                  ]
+                ],
+                "color": "clay",
+                "fill": true,
+                "width": 1.5
+              },
+              {
+                "type": "text",
+                "x": 1.2,
+                "y": 1.0,
+                "text": {
+                  "tr": "Kapı\n2,10 m²",
+                  "en": "Door\n2.10 m²"
+                },
+                "color": "clay"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Pencere boşluğu ekle: 1,5 m × 1,2 m = 1,80 m² (0,10 m²'den büyük → düşülecek).",
+              "en": "Add the window void: 1.5 m × 1.2 m = 1.80 m² (bigger than 0.10 m² → will be deducted)."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    3,
+                    1.3
+                  ],
+                  [
+                    4.5,
+                    1.3
+                  ],
+                  [
+                    4.5,
+                    2.5
+                  ],
+                  [
+                    3,
+                    2.5
+                  ]
+                ],
+                "color": "deniz",
+                "fill": true,
+                "width": 1.5
+              },
+              {
+                "type": "text",
+                "x": 3.75,
+                "y": 1.9,
+                "text": {
+                  "tr": "Pencere\n1,80 m²",
+                  "en": "Window\n1.80 m²"
+                },
+                "color": "deniz"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Küçük tesisat deliği (0,3×0,3=0,09 m²) DÜŞÜLMEZ çünkü 0,10 m²'den küçük — poz kuralı böyle.",
+              "en": "A small utility hole (0.3×0.3=0.09 m²) is NOT deducted since it's under 0.10 m² — that is the poz rule."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    5.2,
+                    2.2
+                  ],
+                  [
+                    5.5,
+                    2.2
+                  ],
+                  [
+                    5.5,
+                    2.5
+                  ],
+                  [
+                    5.2,
+                    2.5
+                  ]
+                ],
+                "color": "faint",
+                "width": 1.2
+              },
+              {
+                "type": "text",
+                "x": 5.35,
+                "y": 2.9,
+                "text": {
+                  "tr": "0,09 m² (düşülmez)",
+                  "en": "0.09 m² (not deducted)"
+                },
+                "color": "faint",
+                "size": 12
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Net duvar alanı = 18 − 2,10 − 1,80 = 14,10 m² (küçük delik hesaba katılmadı).",
+              "en": "Net wall area = 18 − 2.10 − 1.80 = 14.10 m² (the small hole is ignored)."
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 3,
+                "y": -0.35,
+                "text": {
+                  "tr": "Net = 14,10 m²",
+                  "en": "Net = 14.10 m²"
+                },
+                "color": "moss",
+                "size": 16
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n7",
+      "title": {
+        "tr": "Kalıp Metrajı",
+        "en": "Formwork Take-off"
+      },
+      "body": {
+        "tr": "**Kalıp**: taze betona şekil vermek için kullanılan, betonun yeterli dayanımı kazanmasıyla sökülen çelik, plywood veya ahşap malzemedir. **Kalıp ve kalıp iskelesinin doğru tasarımı hayati önem taşır**: statik hesap ve donatı doğru olsa bile, hatalı kalıp/iskele tasarımı yapının **yapım sırasında çökmesine** yol açabilir — yıkılma riski deprem gibi işletme yüklerinden değil, inşaat aşamasındaki geçici yüklerden gelir.\n\n**Kalıp metrajının altın kuralı**: kalıp gören **yüzey alanları** hesaplanır (projeden veya yerinde ölçülerek); **kalıp metrajı hesaplarında kalınlık ihmal edilir** — yani kalıp bir alan (m²) işidir, hacim değil.\n\n**Poz grupları (15.180'li)**:\n| Poz | İmalat | Birim |\n|---|---|---|\n| 15.180.1001 | Ahşaptan seri kalıp | m² |\n| 15.180.1002 | Ahşaptan düz yüzeyli kalıp | m² |\n| 15.180.1003 | Plywood ile düz yüzeyli kalıp | m² |\n| 15.180.1004 | Sac ile eğri yüzeyli kalıp | m² |\n| 15.180.1005 | Tünel kalıp sistemi | m² |\n\n**Ölçü kuralı** (poz 15.180.1002 örneği): kalıp gören yüzler projesinden veya yerinde ölçülerek hesaplanır. **Boşluk hacmi çıkarılmayan imalat deliklerinin çevre kalıpları ölçüye dahil edilmez**; deliğin kalıp tarafındaki yüzünden delik boşluğu çıkarılmaz (yani küçük bir boşluk için ayrıca kalıp metrajı yapılmaz, basitleştirme kolaylığı sağlanır).\n\n**Notlar**: **kalıp iskelesi ayrıca ödenir** (kalıbın kendisi değil, onu tutan iskele sistemi ayrı bir kalemdir); **kalıptan çıkan malzeme yükleniciye aittir** (söküm sonrası tahta/plywood yüklenicinin malı sayılır).\n\n**Pratik uygulama**: bir tekil temelin (kademeli/podyumlu) kalıp alanı, sadece **dışa bakan düşey yüzeylerdedir** — taban zemine oturur (kalıba gerek yok), üstten kolon devam eder (kalıba gerek yok). Her kademe için: **kalıp alanı = çevre × o kademenin yüksekliği**.",
+        "en": "**Kalıp (formwork)**: steel, plywood or timber material used to shape fresh concrete, removed once the concrete gains sufficient strength. **Correct formwork/scaffolding design is critical**: even with correct structural calculations and rebar, faulty formwork/scaffolding design can cause the structure to **collapse during construction** — this risk comes from temporary construction-stage loads, not from in-service loads like earthquakes.\n\n**Golden rule of formwork take-off**: the **surface areas** in contact with formwork are computed (from the drawing or field measurement); **thickness is ignored in formwork take-off** — formwork is an area (m²) quantity, not a volume.\n\n**Poz groups (15.180.x)**: 15.180.1001 timber series formwork, 15.180.1002 timber flat-surface formwork, 15.180.1003 plywood flat-surface formwork, 15.180.1004 sheet-metal curved-surface formwork, 15.180.1005 tunnel formwork system — all in m².\n\n**Measurement rule** (poz 15.180.1002 example): formwork-contacted surfaces are computed from the drawing or field measurement. **The surrounding formwork of openings whose void volume is not deducted is NOT included in the measurement**; the opening's void is not subtracted from the formwork-side face (i.e. small openings are not separately taken off — a simplification).\n\n**Notes**: **scaffolding (kalıp iskelesi) is paid separately** (the support system holding the formwork is a distinct line item from the formwork itself); **material recovered from stripped formwork belongs to the contractor**.\n\n**Practical application**: for a stepped isolated footing, formwork area exists only on the **exposed vertical faces** — the base sits on soil (no formwork needed there), the top continues into the column (no formwork needed there either). For each step: **formwork area = perimeter × that step's height**."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": {
+        "tr": "Kaplama ve Diğer İnşaat İmalatlarının Metrajı",
+        "en": "Take-off of Finishes and Other Construction Items"
+      },
+      "body": {
+        "tr": "Betonarme iskelet bittikten sonra sıra **kaplama işlerine** gelir. Kaplama imalat kalemleri:\nsu/ısı/ses yalıtımları, yalıtım şapı ve tesviye betonu, iç duvar sıvası, dış duvar sıvası, tavan sıvası, merdiven kaplaması, dilatasyon derzi imalatı, asma tavan, boya-badana, dış cephe kaplaması, zemin kaplaması, duvar kaplaması.\n\n**Ölçüm birimi**: bu iş kalemleri **ağırlıkla m²** olarak ölçülür; mimari uygulama ve detay projelerinden, ilgili pozun ölçü kriteri dikkate alınarak metraj çıkarılır. Bu imalatlar \"kolay\" görünse de **ciddi beceri ve özen** gerektirir — yapının iç/dış görünüşünü doğrudan belirler.\n\n**Örnek poz grupları**: 15.245 (jeotekstil keçe), 15.250 (tesviye-şap), 15.275 (iç-dış-tavan sıvası), 15.375-15.435 (zemin/duvar/merdiven kaplaması, örn. seramik), 15.440 (dilatasyon fugası), 15.500 (küpeşte), 15.535 (asma tavan), 15.540 (boya-badana), 15.335 (ısı yalıtımı/mantolama).\n\n**Diğer inşaat imalat kalemleri** (kaplama grubunun dışında ama yine metraja girer): **kalıp iskelesi metrajı**, **iş iskelesi metrajı**, **çatı metrajı**, **kapı-pencere doğramaları metrajı**, ayrıca Bakanlık'ın birim fiyat kitabında çeşitli **demir işleri** ve **ahşap dolap** imalat pozları bulunur.\n\nBakanlık pozlarının kapsamadığı durumlarda: **diğer kamu kurumlarının** (Milli Savunma Bakanlığı, Devlet Su İşleri/DSİ, Ulaştırma ve Alt Yapı Bakanlığı, Kültür Bakanlığı, Karayolları Genel Müdürlüğü, PTT Genel Müdürlüğü) kendi bina/bina dışı birim fiyat analizleri kullanılabilir; hiçbiri uymuyorsa **özel poz** oluşturulur (kamu pozlarında yer almayan iş kalemleri için üretilen birim fiyat).\n\n**Mekanik ve elektrik tesisatı metraj ve keşfi**: inşaat işlerine benzer mantıkla hazırlanır. Makine/elektrik mühendisleri miktarları **mahal bazında** (oda/hacim bazında) detaylandırır → **metraj ayrıntı sayfası** (mahal miktarları) → **metraj özeti** (toplam miktarlar) → malzeme+montaj birim fiyatları girilerek **keşif ayrıntı sayfaları** → iş gruplarına göre **keşif özeti**. Dikkat edilecek hususlar: ölçü/birimlere dikkat, kalem atlamamak, mükerrer (aynı kalemi iki kez) yazmamak, basit işlem hatalarından kaçınmak.",
+        "en": "Once the reinforced-concrete frame is finished, **finishing work (kaplama)** begins: waterproofing/thermal/acoustic insulation, insulation screed and leveling concrete, interior/exterior wall plastering, ceiling plastering, stair finishes, expansion-joint work, suspended ceilings, painting, exterior cladding, floor finishes, wall finishes.\n\n**Unit of measurement**: these items are predominantly measured **in m²**; take-off is derived from architectural application/detail drawings, following the relevant poz's own measurement criterion. Though these items look \"easy,\" they require **serious skill and care** — they directly determine the building's interior/exterior appearance.\n\n**Example poz groups**: 15.245 (geotextile felt), 15.250 (screed/leveling), 15.275 (interior/exterior/ceiling plaster), 15.375-15.435 (floor/wall/stair finishes, e.g. ceramic tile), 15.440 (expansion joint cover), 15.500 (handrail), 15.535 (suspended ceiling), 15.540 (paint/whitewash), 15.335 (thermal insulation/EIFS).\n\n**Other construction take-off items** (outside the finishes group but still part of take-off): **formwork scaffolding take-off**, **work scaffolding take-off**, **roof take-off**, **door/window frame (doğrama) take-off**; the ministry price book also has various **metalwork** and **built-in wood cabinetry** poz.\n\nWhere ministry poz don't apply: other public agencies' (Ministry of National Defense, State Hydraulic Works/DSİ, Ministry of Transport and Infrastructure, Ministry of Culture, General Directorate of Highways, PTT) own building/non-building unit price analyses may be used; if none fits, a **special poz (özel poz)** is created.\n\n**Mechanical and electrical installation take-off and estimate**: prepared with similar logic to construction works. M&E engineers break quantities down **by room/space (mahal)** → **metraj ayrıntı sayfası** (detail sheet, room quantities) → **metraj özeti** (summary, totals) → entering material+installation unit prices produces **keşif ayrıntı sayfaları** (cost detail sheets) → grouped into a final **keşif özeti** (cost summary) by work group. Watch out for: careful units/measurements, not skipping items, not double-counting (mükerrer) items, avoiding simple arithmetic errors."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": {
+        "tr": "Metraj nedir?",
+        "en": "What is metraj?"
+      },
+      "back": {
+        "tr": "Bir yapıdaki imalatların miktarlarını proje ölçülerinden belirli kurallarla hesaplama işi.",
+        "en": "The work of calculating a building's work-item quantities from project drawings using fixed rules."
+      },
+      "en": "Metraj = quantity take-off",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f2",
+      "front": {
+        "tr": "Yapı metraj cetveli neyi içerir?",
+        "en": "What does the building take-off schedule contain?"
+      },
+      "back": {
+        "tr": "İmalatın adı-yeri, benzer eleman sayısı, boy-en-yükseklik ölçüleri, azı (brüt/çarpımlar), çoğu (boşluk düşülmüş net miktar), sonuç miktarı ve ölçü birimi.",
+        "en": "The work item's name/location, count of similar elements, length-width-height dimensions, azı (gross/products), çoğu (net after voids deducted), final quantity, and unit."
+      },
+      "en": "Yapı metraj cetveli = building take-off schedule",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f3",
+      "front": {
+        "tr": "Poz nedir?",
+        "en": "What is a poz (unit-price item)?"
+      },
+      "back": {
+        "tr": "Birim Fiyat Kitabı'nda her imalat kalemini tanımlayan numaralı kayıt; tarif, ölçü ve notlardan oluşur.",
+        "en": "A numbered record in the Unit Price Book defining a work item, consisting of a definition (tarif), measurement rule (ölçü), and notes."
+      },
+      "en": "Poz = unit-price item code",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f4",
+      "front": {
+        "tr": "Bir pozun üç sabit bölümü nedir?",
+        "en": "What are a poz's three fixed parts?"
+      },
+      "back": {
+        "tr": "Tarif (ne kapsıyor), Ölçü (nasıl hesaplanır), Notlar (istisnalar).",
+        "en": "Tarif (definition/scope), Ölçü (measurement rule), Notlar (exceptions)."
+      },
+      "en": "Tarif / Ölçü / Notlar = definition / measurement / notes",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f5",
+      "front": {
+        "tr": "Rölöve nedir?",
+        "en": "What is a rölöve?"
+      },
+      "back": {
+        "tr": "Projesi olmayan veya üzeri kapanacak bir imalatın yerinde ölçülerek mevcut durumunun çizilmesi.",
+        "en": "An as-built survey drawing an existing work with no design drawing, or one about to be covered, made from field measurements."
+      },
+      "en": "Rölöve = as-built survey",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f6",
+      "front": {
+        "tr": "Ataşman nedir?",
+        "en": "What is an ataşman?"
+      },
+      "back": {
+        "tr": "İdarenin istediği ilave veya toprak altında kalacak imalatların ödemeye esas miktarlarını belgeleyen, ölçeksiz kroki + metraj hesabından oluşan, taraflarca imzalanan tutanak.",
+        "en": "A signed record (sketch + take-off) documenting the payment quantities of extra or soon-to-be-buried work, measured before it is closed up."
+      },
+      "en": "Ataşman = site measurement record for extra/buried work",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f7",
+      "front": {
+        "tr": "Yeşil defter nedir?",
+        "en": "What is a yeşil defter (green ledger)?"
+      },
+      "back": {
+        "tr": "Projede olmayan veya idarece değiştirilen imalatların metrajlarının hakedişe esas kaydedildiği defter.",
+        "en": "The ledger recording quantities of undrawn or changed work, used as the basis for progress payments."
+      },
+      "en": "Yeşil defter = green ledger for progress-payment quantities",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f8",
+      "front": {
+        "tr": "Metraj hangi dört çıktıya veri sağlar?",
+        "en": "What four outputs does metraj feed?"
+      },
+      "back": {
+        "tr": "Metraj özeti, keşif, yaklaşık maliyet, hakediş.",
+        "en": "Take-off summary, cost estimate (keşif), approximate cost, progress payments (hakediş)."
+      },
+      "en": "keşif = cost estimate; hakediş = progress payment",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f9",
+      "front": {
+        "tr": "Duvarda 0,10 m²'den küçük boşluklar ne olur?",
+        "en": "What happens to voids under 0.10 m² in wall take-off?"
+      },
+      "back": {
+        "tr": "Düşülmez (brüt alandan çıkarılmaz) — poz ölçü kuralı gereği.",
+        "en": "They are NOT deducted from the gross area — per the poz's measurement rule."
+      },
+      "en": "0.10 m² threshold for wall void deduction",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f10",
+      "front": {
+        "tr": "Kalıp metrajında kalınlık neden ihmal edilir?",
+        "en": "Why is thickness ignored in formwork take-off?"
+      },
+      "back": {
+        "tr": "Çünkü kalıp bir yüzey alanı (m²) işidir; sadece kalıp gören yüzeyler ölçülür, kalınlık ölçüye girmez.",
+        "en": "Because formwork is a surface-area (m²) quantity — only the formwork-contacted surfaces are measured, thickness plays no role."
+      },
+      "en": "formwork = area-based (m²) quantity, thickness ignored",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f11",
+      "front": {
+        "tr": "Özel poz nedir?",
+        "en": "What is an özel poz (special poz)?"
+      },
+      "back": {
+        "tr": "Kamu kurum ve kuruluşlarının birim fiyat tariflerinde yer almayan iş kalemleri için oluşturulan birim fiyat.",
+        "en": "A unit price created for a work item not covered by any public agency's existing price book."
+      },
+      "en": "Özel poz = custom/special unit-price item",
+      "tag": "kurallar"
+    },
+    {
+      "id": "f12",
+      "front": {
+        "tr": "Beton neyin karışımıdır?",
+        "en": "What is concrete a mixture of?"
+      },
+      "back": {
+        "tr": "Agrega (çakıl, kum) + bağlayıcı madde (genelde portland çimentosu) + su.",
+        "en": "Aggregate (gravel, sand) + a binder (usually portland cement) + water."
+      },
+      "en": "Concrete = aggregate + binder + water",
+      "tag": "beton"
+    },
+    {
+      "id": "f13",
+      "front": {
+        "tr": "Grobeton (demirsiz beton) nerede kullanılır?",
+        "en": "Where is grobeton (lean/unreinforced concrete) used?"
+      },
+      "back": {
+        "tr": "Temel altına dökülen beton, blokaj üstü beton gibi donatısız betonlarda.",
+        "en": "In blinding concrete under footings, or concrete over rubble fill (blokaj) — unreinforced applications."
+      },
+      "en": "Grobeton = lean/blinding concrete (no rebar)",
+      "tag": "beton"
+    },
+    {
+      "id": "f14",
+      "front": {
+        "tr": "Betonarme (demirli beton) hangi elemanlarda hesaplanır?",
+        "en": "In which elements is reinforced concrete volume calculated?"
+      },
+      "back": {
+        "tr": "Temel, kirişler, kolonlar, döşemeler, lentolar.",
+        "en": "Footings, beams, columns, slabs, lintels."
+      },
+      "en": "Betonarme = reinforced concrete structural members",
+      "tag": "beton"
+    },
+    {
+      "id": "f15",
+      "front": {
+        "tr": "Beton metrajında hacim nasıl hesaplanır?",
+        "en": "How is volume computed in concrete take-off?"
+      },
+      "back": {
+        "tr": "Projedeki boyutlar üzerinden: en × boy × yükseklik (veya kesit alanı × uzunluk).",
+        "en": "From the project dimensions: width × length × height (or cross-section area × length)."
+      },
+      "en": "Volume = width × length × height",
+      "tag": "beton"
+    },
+    {
+      "id": "f16",
+      "front": {
+        "tr": "Beton birim fiyatı neye göre değişir?",
+        "en": "What does the concrete unit price depend on?"
+      },
+      "back": {
+        "tr": "Betonun basınç dayanım sınıfına (C8/10'dan C50/60'a kadar).",
+        "en": "The concrete's compressive strength class (from C8/10 up to C50/60)."
+      },
+      "en": "Compressive strength class, e.g. C25/30",
+      "tag": "beton"
+    },
+    {
+      "id": "f17",
+      "front": {
+        "tr": "Yaklaşık beton hesabında 1 m² inşaat alanı için kaç m³ beton öngörülür?",
+        "en": "In a rough estimate, how much concrete is assumed per 1 m² of floor area?"
+      },
+      "back": {
+        "tr": "0,200 - 0,250 m³.",
+        "en": "0.200 - 0.250 m³."
+      },
+      "en": "0.200-0.250 m³ concrete per m² of floor area",
+      "tag": "beton"
+    },
+    {
+      "id": "f18",
+      "front": {
+        "tr": "Hazır beton pozlarının numara aralığı nedir?",
+        "en": "What poz number range covers ready-mix concrete?"
+      },
+      "back": {
+        "tr": "15.150.xxxx (C8/10=15.150.1001'den C50/60=15.150.1010'a kadar).",
+        "en": "15.150.xxxx (from C8/10 = 15.150.1001 to C50/60 = 15.150.1010)."
+      },
+      "en": "15.150.x = ready-mix concrete poz series",
+      "tag": "beton"
+    },
+    {
+      "id": "f19",
+      "front": {
+        "tr": "15.150.1008 pozu hangi beton sınıfını tarif eder?",
+        "en": "Which concrete class does poz 15.150.1008 define?"
+      },
+      "back": {
+        "tr": "C 40/50 basınç dayanım sınıfında beton.",
+        "en": "C 40/50 compressive strength class concrete."
+      },
+      "en": "Poz 15.150.1008 = C40/50 ready-mix concrete",
+      "tag": "beton"
+    },
+    {
+      "id": "f20",
+      "front": {
+        "tr": "Beton pozunda pompa kullanılmazsa ne olur?",
+        "en": "What happens if a pump is not used, per the concrete poz note?"
+      },
+      "back": {
+        "tr": "Analizden pompa bedeli düşülür.",
+        "en": "The pump cost is deducted from the price analysis."
+      },
+      "en": "No pump used → pump cost deducted",
+      "tag": "beton"
+    },
+    {
+      "id": "f21",
+      "front": {
+        "tr": "Satın alınan hazır betonda ödeme belgesine ne eklenmelidir?",
+        "en": "What must be attached to the payment document for purchased ready-mix concrete?"
+      },
+      "back": {
+        "tr": "İşin adı belirtilmiş faturanın bir sureti.",
+        "en": "A copy of the invoice showing the job name."
+      },
+      "en": "Invoice copy required for purchased concrete",
+      "tag": "beton"
+    },
+    {
+      "id": "f22",
+      "front": {
+        "tr": "Betonarme nedir?",
+        "en": "What is betonarme (reinforced concrete)?"
+      },
+      "back": {
+        "tr": "Betonun içerisine demir donatı konarak güçlendirilmesiyle elde edilen yapı malzemesi.",
+        "en": "A building material made by strengthening concrete with embedded steel reinforcement (rebar)."
+      },
+      "en": "Betonarme = reinforced concrete",
+      "tag": "donati"
+    },
+    {
+      "id": "f23",
+      "front": {
+        "tr": "Demir donatı metrajı hangi projeden çıkarılır?",
+        "en": "From which drawing is rebar take-off derived?"
+      },
+      "back": {
+        "tr": "Statik proje: temel planı, kalıp planı, kiriş-kolon-perde açılımları ve donatı detay projeleri.",
+        "en": "The structural drawings: foundation plan, formwork plan, beam-column-wall schedules, and rebar detail drawings."
+      },
+      "en": "Rebar take-off comes from the structural (static) design",
+      "tag": "donati"
+    },
+    {
+      "id": "f24",
+      "front": {
+        "tr": "Donatı boyu ölçülürken neler dahil edilir?",
+        "en": "What is included when measuring rebar length?"
+      },
+      "back": {
+        "tr": "Kroşeler (kancalar) dahil, betonarme detay resmine göre boy ölçülür.",
+        "en": "Length is measured per the detail drawing, including hooks (kroşe)."
+      },
+      "en": "Rebar length includes hooks (kroşe)",
+      "tag": "donati"
+    },
+    {
+      "id": "f25",
+      "front": {
+        "tr": "Projede gösterilmeyen çubuklar hesaba katılır mı?",
+        "en": "Are bars not shown on the drawing counted?"
+      },
+      "back": {
+        "tr": "Hayır, projede gösterilmeyen çubuklar ve ekler hesaba katılmaz.",
+        "en": "No — bars and splices not shown on the drawing are not counted."
+      },
+      "en": "Undrawn bars/splices are excluded from take-off",
+      "tag": "donati"
+    },
+    {
+      "id": "f26",
+      "front": {
+        "tr": "Bağlama teli ve normal zayiat için ayrıca ödeme yapılır mı?",
+        "en": "Is tie wire and normal waste paid separately?"
+      },
+      "back": {
+        "tr": "Hayır, ayrıca ödeme yapılmaz — analize dahil kabul edilir.",
+        "en": "No — not paid separately, assumed included in the price analysis."
+      },
+      "en": "Tie wire & normal waste not separately paid",
+      "tag": "donati"
+    },
+    {
+      "id": "f27",
+      "front": {
+        "tr": "Ø10 donatının birim boy ağırlığı kaç kg/m'dir?",
+        "en": "What is Ø10 rebar's unit weight in kg/m?"
+      },
+      "back": {
+        "tr": "0,617 kg/m.",
+        "en": "0.617 kg/m."
+      },
+      "en": "Ø10 rebar = 0.617 kg/m",
+      "tag": "donati"
+    },
+    {
+      "id": "f28",
+      "front": {
+        "tr": "Ø12 donatının birim boy ağırlığı kaç kg/m'dir?",
+        "en": "What is Ø12 rebar's unit weight in kg/m?"
+      },
+      "back": {
+        "tr": "0,888 kg/m.",
+        "en": "0.888 kg/m."
+      },
+      "en": "Ø12 rebar = 0.888 kg/m",
+      "tag": "donati"
+    },
+    {
+      "id": "f29",
+      "front": {
+        "tr": "Ø16 donatının birim boy ağırlığı kaç kg/m'dir?",
+        "en": "What is Ø16 rebar's unit weight in kg/m?"
+      },
+      "back": {
+        "tr": "1,578 kg/m.",
+        "en": "1.578 kg/m."
+      },
+      "en": "Ø16 rebar = 1.578 kg/m",
+      "tag": "donati"
+    },
+    {
+      "id": "f30",
+      "front": {
+        "tr": "Ø20 donatının birim boy ağırlığı kaç kg/m'dir?",
+        "en": "What is Ø20 rebar's unit weight in kg/m?"
+      },
+      "back": {
+        "tr": "2,466 kg/m.",
+        "en": "2.466 kg/m."
+      },
+      "en": "Ø20 rebar = 2.466 kg/m",
+      "tag": "donati"
+    },
+    {
+      "id": "f31",
+      "front": {
+        "tr": "1 m³ betonarme betonda pratik olarak kaç kg demir öngörülür?",
+        "en": "How much rebar per 1 m³ of reinforced concrete, rule of thumb?"
+      },
+      "back": {
+        "tr": "100-130 kg.",
+        "en": "100-130 kg."
+      },
+      "en": "~100-130 kg rebar per m³ of concrete",
+      "tag": "donati"
+    },
+    {
+      "id": "f32",
+      "front": {
+        "tr": "1 m² yığma bina inşaat alanı için kaç kg demir öngörülür?",
+        "en": "How much rebar per 1 m² in a load-bearing masonry building?"
+      },
+      "back": {
+        "tr": "18-22 kg.",
+        "en": "18-22 kg."
+      },
+      "en": "~18-22 kg rebar per m² (masonry building)",
+      "tag": "donati"
+    },
+    {
+      "id": "f33",
+      "front": {
+        "tr": "1 m² betonarme karkas yapı için kaç kg demir öngörülür?",
+        "en": "How much rebar per 1 m² in a reinforced-concrete frame building?"
+      },
+      "back": {
+        "tr": "35-40 kg.",
+        "en": "35-40 kg."
+      },
+      "en": "~35-40 kg rebar per m² (RC frame building)",
+      "tag": "donati"
+    },
+    {
+      "id": "f34",
+      "front": {
+        "tr": "Toplam inşaat demirinin yüzde kaçı ince, yüzde kaçı kalın kabul edilir?",
+        "en": "What percentage of total building rebar is assumed thin vs. thick?"
+      },
+      "back": {
+        "tr": "%40'ı ince, %50'si kalın demir kabul edilir.",
+        "en": "40% is assumed thin (ince), 50% thick (kalın)."
+      },
+      "en": "40% thin bar / 50% thick bar (rule of thumb split)",
+      "tag": "donati"
+    },
+    {
+      "id": "f35",
+      "front": {
+        "tr": "Demir donatı imalat pozları hangi birimle ödenir?",
+        "en": "In what unit are rebar poz paid?"
+      },
+      "back": {
+        "tr": "Ton.",
+        "en": "Ton."
+      },
+      "en": "Rebar poz are paid per ton",
+      "tag": "donati"
+    },
+    {
+      "id": "f36",
+      "front": {
+        "tr": "15.160.1003 pozu hangi çap aralığını kapsar?",
+        "en": "What diameter range does poz 15.160.1003 cover?"
+      },
+      "back": {
+        "tr": "Ø8 - Ø12 mm nervürlü beton çelik çubuğu.",
+        "en": "Ø8 - Ø12 mm ribbed reinforcing steel bar."
+      },
+      "en": "Poz 15.160.1003 = Ø8-Ø12 rebar",
+      "tag": "donati"
+    },
+    {
+      "id": "f37",
+      "front": {
+        "tr": "15.160.1004 pozu hangi çap aralığını kapsar?",
+        "en": "What diameter range does poz 15.160.1004 cover?"
+      },
+      "back": {
+        "tr": "Ø14 - Ø28 mm nervürlü beton çelik çubuğu.",
+        "en": "Ø14 - Ø28 mm ribbed reinforcing steel bar."
+      },
+      "en": "Poz 15.160.1004 = Ø14-Ø28 rebar",
+      "tag": "donati"
+    },
+    {
+      "id": "f38",
+      "front": {
+        "tr": "Donatı yazımında 'Ø10/25' ne anlama gelir?",
+        "en": "What does 'Ø10/25' mean in a rebar callout?"
+      },
+      "back": {
+        "tr": "Çap Ø10 mm, aralık 25 cm.",
+        "en": "Diameter Ø10 mm, spacing 25 cm."
+      },
+      "en": "Ø10/25 = 10mm diameter bar at 25cm spacing",
+      "tag": "donati"
+    },
+    {
+      "id": "f39",
+      "front": {
+        "tr": "Donatı aralığı hangi mesafeyi gösterir?",
+        "en": "What distance does the bar 'aralık' (spacing) represent?"
+      },
+      "back": {
+        "tr": "Düz donatıdan düz donatıya (veya pilyeden pilyeye) olan mesafeyi.",
+        "en": "The distance from straight bar to straight bar (or bent bar to bent bar)."
+      },
+      "en": "Spacing = straight-to-straight (or bent-to-bent) distance",
+      "tag": "donati"
+    },
+    {
+      "id": "f40",
+      "front": {
+        "tr": "Düz ve pilye donatı arasındaki mesafe ne kadardır?",
+        "en": "What is the distance between a straight and a bent bar?"
+      },
+      "back": {
+        "tr": "Yazılı aralık değerinin yarısı.",
+        "en": "Half the written spacing value."
+      },
+      "en": "Straight-to-bent gap = half the spacing",
+      "tag": "donati"
+    },
+    {
+      "id": "f41",
+      "front": {
+        "tr": "Aralık sayısı formülü nedir?",
+        "en": "What is the formula for the number of gaps?"
+      },
+      "back": {
+        "tr": "Aralık sayısı = Mesnet açıklığı (cm) / Demir aralığı (cm).",
+        "en": "Number of gaps = Support span (cm) / Bar spacing (cm)."
+      },
+      "en": "Gap count = span / spacing",
+      "tag": "donati"
+    },
+    {
+      "id": "f42",
+      "front": {
+        "tr": "Bölme tam sayı verirse (kalan yoksa) düz donatı sayısı nedir?",
+        "en": "If the division has no remainder, what is the straight-bar count?"
+      },
+      "back": {
+        "tr": "Düz donatı sayısı = aralık sayısına eşittir; donatı düzle başlar düzle biter.",
+        "en": "Straight-bar count = the gap count; the layout starts and ends with a straight bar."
+      },
+      "en": "No remainder → straight count = gap count",
+      "tag": "donati"
+    },
+    {
+      "id": "f43",
+      "front": {
+        "tr": "Kalan yoksa pilye donatı sayısı nedir?",
+        "en": "If there's no remainder, what is the bent-bar count?"
+      },
+      "back": {
+        "tr": "Düz donatı sayısının bir eksiği.",
+        "en": "One less than the straight-bar count."
+      },
+      "en": "No remainder → bent count = straight count − 1",
+      "tag": "donati"
+    },
+    {
+      "id": "f44",
+      "front": {
+        "tr": "Kalan, aralığın yarısından küçükse düz donatı sayısı nasıl bulunur?",
+        "en": "If the remainder is smaller than half the spacing, how is the straight count found?"
+      },
+      "back": {
+        "tr": "Aralık sayısına 1 eklenir; donatı yine düzle başlar düzle biter, pilye = düz−1.",
+        "en": "Add 1 to the gap count; the layout still starts/ends straight, bent = straight − 1."
+      },
+      "en": "Small remainder → straight = gaps+1, bent = straight−1",
+      "tag": "donati"
+    },
+    {
+      "id": "f45",
+      "front": {
+        "tr": "Kalan, aralığın yarısından büyükse donatı düzenlemesi nasıl olur?",
+        "en": "If the remainder is larger than half the spacing, how is the layout arranged?"
+      },
+      "back": {
+        "tr": "Donatı düzle başlar pilye ile biter; bu durumda pilye sayısı düz sayısına eşittir.",
+        "en": "The layout starts straight and ends bent; here the bent count equals the straight count."
+      },
+      "en": "Large remainder → layout starts straight, ends bent; bent = straight",
+      "tag": "donati"
+    },
+    {
+      "id": "f46",
+      "front": {
+        "tr": "Dağıtma donatısı sayısı nasıl bulunur?",
+        "en": "How is the distribution (dağıtma) bar count found?"
+      },
+      "back": {
+        "tr": "Bölümde artan varsa bölüme 1 eklenerek bulunur (pilye/düz hesabına benzer mantık).",
+        "en": "If there's a remainder, add 1 to the quotient (same logic as straight/bent bar counts)."
+      },
+      "en": "Distribution bar count follows the same +1 remainder logic",
+      "tag": "donati"
+    },
+    {
+      "id": "f47",
+      "front": {
+        "tr": "Duvar nedir?",
+        "en": "What is a duvar (wall)?"
+      },
+      "back": {
+        "tr": "Taş gibi doğal veya tuğla/gazbeton/alçı levha gibi yapay malzemelerin örme-yığma-dizme-yapıştırma teknikleriyle bir araya getirilmesiyle oluşan yapı elemanı.",
+        "en": "A building element made by joining natural (stone) or manufactured (brick, gas-concrete, gypsum board) materials via laying, stacking, or bonding."
+      },
+      "en": "Duvar = wall (masonry or partition)",
+      "tag": "duvar"
+    },
+    {
+      "id": "f48",
+      "front": {
+        "tr": "Duvarların üç temel görevi nedir?",
+        "en": "What are a wall's core functions?"
+      },
+      "back": {
+        "tr": "Yük taşımak, ayırmak/bölmek, yapıyı dış etkilere karşı korumak.",
+        "en": "Carrying loads, separating/partitioning, protecting the structure from external effects."
+      },
+      "en": "Wall functions: bear load, partition, protect",
+      "tag": "duvar"
+    },
+    {
+      "id": "f49",
+      "front": {
+        "tr": "Duvarlar nasıl sınıflandırılır?",
+        "en": "How are walls classified?"
+      },
+      "back": {
+        "tr": "Kâgir / kâgir olmayan, taşıyıcı / taşıyıcı olmayan.",
+        "en": "Masonry (kâgir) / non-masonry, load-bearing / non-load-bearing."
+      },
+      "en": "Wall classification: masonry vs non-masonry, load-bearing vs not",
+      "tag": "duvar"
+    },
+    {
+      "id": "f50",
+      "front": {
+        "tr": "Taş duvar işleri hangi poz grubundadır?",
+        "en": "Which poz group covers stone wall work?"
+      },
+      "back": {
+        "tr": "15.210'lu pozlar.",
+        "en": "The 15.210.x poz series."
+      },
+      "en": "Stone wall work = poz 15.210.x",
+      "tag": "duvar"
+    },
+    {
+      "id": "f51",
+      "front": {
+        "tr": "Tuğla duvar işleri hangi poz grubundadır?",
+        "en": "Which poz group covers brick wall work?"
+      },
+      "back": {
+        "tr": "15.220'li pozlar.",
+        "en": "The 15.220.x poz series."
+      },
+      "en": "Brick wall work = poz 15.220.x",
+      "tag": "duvar"
+    },
+    {
+      "id": "f52",
+      "front": {
+        "tr": "Gazbeton duvar işleri hangi poz grubundadır?",
+        "en": "Which poz group covers gas-concrete wall work?"
+      },
+      "back": {
+        "tr": "15.225'li pozlar.",
+        "en": "The 15.225.x poz series."
+      },
+      "en": "Gas-concrete wall work = poz 15.225.x",
+      "tag": "duvar"
+    },
+    {
+      "id": "f53",
+      "front": {
+        "tr": "15.220.1014 pozu neyi tarif eder?",
+        "en": "What does poz 15.220.1014 define?"
+      },
+      "back": {
+        "tr": "135 mm kalınlığında yatay delikli tuğla (190×135×190 mm) ile duvar yapılması.",
+        "en": "Building a wall with 135 mm thick horizontally-perforated brick (190×135×190 mm)."
+      },
+      "en": "Poz 15.220.1014 = 135mm perforated brick wall",
+      "tag": "duvar"
+    },
+    {
+      "id": "f54",
+      "front": {
+        "tr": "Duvar metrajında hangi büyüklükteki boşluklar düşülmez?",
+        "en": "What size of void is NOT deducted in wall take-off?"
+      },
+      "back": {
+        "tr": "0,10 m²'den küçük boşluklar.",
+        "en": "Voids smaller than 0.10 m²."
+      },
+      "en": "Voids under 0.10 m² are not deducted from wall area",
+      "tag": "duvar"
+    },
+    {
+      "id": "f55",
+      "front": {
+        "tr": "Duvar net alanı formülü nedir?",
+        "en": "What is the formula for net wall area?"
+      },
+      "back": {
+        "tr": "Net alan = brüt alan (uzunluk × yükseklik) − 0,10 m²'den büyük boşluklar toplamı.",
+        "en": "Net area = gross area (length × height) − sum of voids larger than 0.10 m²."
+      },
+      "en": "Net wall area = gross − large voids (boşluk düşme)",
+      "tag": "duvar"
+    },
+    {
+      "id": "f56",
+      "front": {
+        "tr": "Duvar işlerinin birim fiyatına neler dahildir?",
+        "en": "What is included in the wall work unit price?"
+      },
+      "back": {
+        "tr": "Harç, sulama, iş yerindeki yükleme-taşıma-boşaltma, malzeme ve zayiat, işçilik, araç-gereç, yüklenici genel gideri ve kârı.",
+        "en": "Mortar, wetting, on-site loading/hauling/unloading, materials and waste, labor, tools, contractor overhead and profit."
+      },
+      "en": "Wall poz price includes mortar, labor, overhead & profit",
+      "tag": "duvar"
+    },
+    {
+      "id": "f57",
+      "front": {
+        "tr": "Kalıp nedir?",
+        "en": "What is kalıp (formwork)?"
+      },
+      "back": {
+        "tr": "Taze betona şekil vermek için kullanılan, betonun dayanımı kazanmasıyla sökülen çelik, plywood veya ahşap malzeme.",
+        "en": "Steel, plywood, or timber material used to shape fresh concrete, removed once the concrete gains strength."
+      },
+      "en": "Kalıp = formwork",
+      "tag": "kalip"
+    },
+    {
+      "id": "f58",
+      "front": {
+        "tr": "Hatalı kalıp/iskele tasarımının en büyük riski nedir?",
+        "en": "What is the biggest risk of faulty formwork/scaffolding design?"
+      },
+      "back": {
+        "tr": "Yapının inşa sırasında (yapım aşamasında) çökme ihtimali.",
+        "en": "The risk of the structure collapsing during construction."
+      },
+      "en": "Faulty formwork design → collapse risk DURING construction",
+      "tag": "kalip"
+    },
+    {
+      "id": "f59",
+      "front": {
+        "tr": "Kalıp metrajında ne hesaplanır?",
+        "en": "What is calculated in formwork take-off?"
+      },
+      "back": {
+        "tr": "Kalıp gören yüzey alanları (projeden veya yerinde ölçülerek); kalınlık ihmal edilir.",
+        "en": "The formwork-contacted surface areas (from the drawing or field measurement); thickness is ignored."
+      },
+      "en": "Formwork take-off = contacted surface area, thickness ignored",
+      "tag": "kalip"
+    },
+    {
+      "id": "f60",
+      "front": {
+        "tr": "15.180.1002 pozu neyi tarif eder?",
+        "en": "What does poz 15.180.1002 define?"
+      },
+      "back": {
+        "tr": "Ahşaptan düz yüzeyli beton/betonarme kalıbı yapılması.",
+        "en": "Building flat-surface concrete/reinforced-concrete formwork from timber."
+      },
+      "en": "Poz 15.180.1002 = timber flat-surface formwork",
+      "tag": "kalip"
+    },
+    {
+      "id": "f61",
+      "front": {
+        "tr": "Boşluk hacmi çıkarılmayan imalat deliklerinin çevre kalıpları ölçüye dahil mi?",
+        "en": "Is the surrounding formwork of an undeducted void's opening included in the measurement?"
+      },
+      "back": {
+        "tr": "Hayır, dahil edilmez.",
+        "en": "No, it is not included."
+      },
+      "en": "Small-void surrounding formwork excluded from take-off",
+      "tag": "kalip"
+    },
+    {
+      "id": "f62",
+      "front": {
+        "tr": "Kalıp iskelesi ayrıca ödenir mi?",
+        "en": "Is formwork scaffolding paid separately?"
+      },
+      "back": {
+        "tr": "Evet, kalıp iskelesi ayrıca ödenir.",
+        "en": "Yes, formwork scaffolding is paid as a separate item."
+      },
+      "en": "Formwork scaffolding = separate pay item",
+      "tag": "kalip"
+    },
+    {
+      "id": "f63",
+      "front": {
+        "tr": "Kalıptan sökülen malzeme kime aittir?",
+        "en": "Who owns the material recovered from stripped formwork?"
+      },
+      "back": {
+        "tr": "Yükleniciye aittir.",
+        "en": "It belongs to the contractor."
+      },
+      "en": "Stripped formwork material belongs to the contractor",
+      "tag": "kalip"
+    },
+    {
+      "id": "f64",
+      "front": {
+        "tr": "Bir kademeli (podyumlu) temelde kalıp nerede gereklidir?",
+        "en": "Where is formwork needed on a stepped (podium) footing?"
+      },
+      "back": {
+        "tr": "Sadece dışa bakan düşey yüzeylerde; taban zemine oturduğundan ve üstten kolon devam ettiğinden o yüzeylerde kalıba gerek yoktur.",
+        "en": "Only on the exposed vertical faces; the base rests on soil and the top continues into the column, so no formwork is needed there."
+      },
+      "en": "Stepped footing: formwork only on exposed vertical faces",
+      "tag": "kalip"
+    },
+    {
+      "id": "f65",
+      "front": {
+        "tr": "Bir kademenin kalıp alanı nasıl hesaplanır?",
+        "en": "How is a step's formwork area computed?"
+      },
+      "back": {
+        "tr": "Kalıp alanı = o kademenin çevresi × o kademenin yüksekliği.",
+        "en": "Formwork area = that step's perimeter × that step's height."
+      },
+      "en": "Step formwork area = perimeter × height",
+      "tag": "kalip"
+    },
+    {
+      "id": "f66",
+      "front": {
+        "tr": "Kaplama işleri hangi aşamadan sonra başlar?",
+        "en": "After which stage does finishing work begin?"
+      },
+      "back": {
+        "tr": "Binanın betonarme inşaatı tamamlandıktan sonra.",
+        "en": "After the building's reinforced-concrete structure is complete."
+      },
+      "en": "Finishing work starts after the RC structure is done",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f67",
+      "front": {
+        "tr": "Kaplama iş kalemleri ağırlıkla hangi birimle ölçülür?",
+        "en": "In what unit are finishing work items predominantly measured?"
+      },
+      "back": {
+        "tr": "m² (metrekare).",
+        "en": "m² (square meters)."
+      },
+      "en": "Finishes measured predominantly in m²",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f68",
+      "front": {
+        "tr": "Kaplama metrajı hangi kaynaklardan çıkarılır?",
+        "en": "What sources feed finishing take-off?"
+      },
+      "back": {
+        "tr": "Mimari uygulama ve detay projelerinden, ilgili pozun ölçü kriteri dikkate alınarak.",
+        "en": "From architectural application and detail drawings, applying the relevant poz's measurement criterion."
+      },
+      "en": "Finishes take-off from architectural drawings + poz rules",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f69",
+      "front": {
+        "tr": "Kaplama işleri kolay görünmesine rağmen ne gerektirir?",
+        "en": "Despite looking easy, what do finishing works require?"
+      },
+      "back": {
+        "tr": "Ciddi beceri ve özen; yapının iç ve dış görünüşü açısından son derece önemlidir.",
+        "en": "Serious skill and care; they are critical to the building's interior and exterior appearance."
+      },
+      "en": "Finishing work requires high skill/care despite appearing simple",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f70",
+      "front": {
+        "tr": "Kaplama grubu dışındaki 'diğer imalat kalemleri' nelerdir?",
+        "en": "What are the 'other work items' outside the finishes group?"
+      },
+      "back": {
+        "tr": "Kalıp iskelesi metrajı, iş iskelesi metrajı, çatı metrajı, kapı-pencere doğramaları metrajı.",
+        "en": "Formwork scaffolding take-off, work scaffolding take-off, roof take-off, door/window frame (doğrama) take-off."
+      },
+      "en": "Other items: scaffolding, roof, door/window frame take-offs",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f71",
+      "front": {
+        "tr": "Bakanlık pozları bir imalatı kapsamıyorsa ne yapılır?",
+        "en": "What happens if ministry poz don't cover a work item?"
+      },
+      "back": {
+        "tr": "Diğer kamu kurumlarının (DSİ, Karayolları, Milli Savunma Bakanlığı vb.) kendi birim fiyat analizleri kullanılabilir; hiçbiri yoksa özel poz oluşturulur.",
+        "en": "Other public agencies' (DSİ, Karayolları, Ministry of National Defense, etc.) own price analyses can be used; if none fits, a special poz is created."
+      },
+      "en": "No matching poz → use other agency's price or create özel poz",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f72",
+      "front": {
+        "tr": "Mekanik-elektrik tesisat metrajı hangi bazda detaylandırılır?",
+        "en": "On what basis is M&E installation take-off broken down?"
+      },
+      "back": {
+        "tr": "Mahal bazında (oda/hacim bazında).",
+        "en": "By room/space (mahal)."
+      },
+      "en": "M&E take-off broken down by mahal (room/space)",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f73",
+      "front": {
+        "tr": "Metraj özetinden keşif ayrıntı sayfaları nasıl elde edilir?",
+        "en": "How are cost detail sheets derived from the take-off summary?"
+      },
+      "back": {
+        "tr": "Metraj özetlerine malzeme ve montaj birim fiyatlarının girilmesiyle.",
+        "en": "By entering material and installation unit prices into the take-off summaries."
+      },
+      "en": "Cost detail sheets = take-off summary + unit prices",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f74",
+      "front": {
+        "tr": "Tesisat metraj-keşfinde dikkat edilmesi gereken üç yaygın hata nedir?",
+        "en": "What three common mistakes must be avoided in installation take-off/estimate?"
+      },
+      "back": {
+        "tr": "Kalem atlamamak, mükerrer (aynı kalemi iki kez) yazmamak, basit işlem hatalarından kaçınmak.",
+        "en": "Not skipping items, not double-counting (mükerrer) items, avoiding simple arithmetic errors."
+      },
+      "en": "Avoid: skipped items, double-counting, arithmetic errors",
+      "tag": "kaplama"
+    },
+    {
+      "id": "f75",
+      "front": {
+        "tr": "Tek bir dikdörtgen tekil temelin yan yüz kalıp alanı nasıl bulunur?",
+        "en": "How is a single rectangular isolated footing's side-face formwork area found?"
+      },
+      "back": {
+        "tr": "Kalıp alanı = taban çevresi × yükseklik = 2×(en+boy) × h. Örn. 6,0×4,0 m tabanlı, 0,80 m yüksek F3 temeli: 2×(6+4)×0,80 = 16,00 m².",
+        "en": "Formwork area = base perimeter × height = 2×(width+length) × h. E.g. an F3 footing with a 6.0×4.0 m base, 0.80 m tall: 2×(6+4)×0.80 = 16.00 m²."
+      },
+      "en": "Footing side formwork = 2×(w+l) × height",
+      "tag": "kalip"
+    }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Metraj kavramını tanımlayınız ve yapı metraj cetvelinde hangi bilgilerin yer aldığını yazınız.",
+        "en": "Define metraj (quantity take-off) and list what information the building take-off schedule contains."
+      },
+      "answer": {
+        "tr": "**Metraj**, bir yapıda gerçekleştirilecek veya gerçekleştirilmiş imalatların miktarlarını proje ölçülerinden belirli kurallarla hesaplama işidir. **Yapı metraj cetveli**nde: imalatın adı ve yeri, benzer eleman sayısı, boy-en-yükseklik gibi ölçüler, çarpımların yazıldığı brüt miktar (azı), boşluklar düşüldükten sonra kalan net miktar (çoğu), sonuç miktarı ve ölçü birimi (m, m², m³, adet, kg/ton) yer alır. Metraj özetine, keşfe, yaklaşık maliyete ve hakedişe veri sağlar.",
+        "en": "**Metraj (quantity take-off)** is the work of computing, from project drawings using fixed rules, the quantities of work to be built or already built. The **building take-off schedule** contains: the work item's name and location, count of similar elements, length-width-height dimensions, the gross amount of the products (azı), the net amount after voids are deducted (çoğu), the final quantity, and its unit (m, m², m³, count, kg/ton). It feeds the take-off summary, the cost estimate, the approximate cost, and progress payments."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Projesi olmayan bir altyapı imalatının, üzeri kapatılmadan önce yerinde ölçülerek mevcut durumunun çizilmesine ne denir?",
+        "en": "What is it called when an underground work item with no design drawing is surveyed and drawn from field measurements before being covered?"
+      },
+      "options": [
+        {
+          "tr": "Ataşman",
+          "en": "Ataşman"
+        },
+        {
+          "tr": "Rölöve",
+          "en": "Rölöve"
+        },
+        {
+          "tr": "Yeşil defter",
+          "en": "Yeşil defter"
+        },
+        {
+          "tr": "Yapı metraj cetveli",
+          "en": "Yapı metraj cetveli"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru cevap Rölöve'dir: projesi bulunmayan veya yapımı bittikten sonra üzeri kapatılacak imalatların yerinde ölçülüp çizilmesidir. Ataşman ilave/toprak altı imalatın ödemeye esas miktarını belgeler (rölöveden farklı olarak asıl amaç metraj kaydıdır); yeşil defter hakedişe esas kayıt defteridir; yapı metraj cetveli genel metraj tablosudur.",
+        "en": "The correct answer is Rölöve: surveying and drawing the as-built condition of work with no design drawing, or work about to be covered, from field measurements. Ataşman documents the payment quantity of extra/buried work (its main purpose is the take-off record); yeşil defter is the payment ledger; yapı metraj cetveli is the general take-off table."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Ataşman ile rölöve arasındaki temel fark için aşağıdakilerden hangisi doğrudur?",
+        "en": "Which of the following correctly distinguishes ataşman from rölöve?"
+      },
+      "options": [
+        {
+          "tr": "İkisi de aynı belgedir, farklı isimlerle anılır.",
+          "en": "They are the same document under different names."
+        },
+        {
+          "tr": "Ataşman, idarenin istediği ilave veya toprak altında kalacak imalatların ödemeye esas miktarını belgeler ve taraflarca imzalanır; rölöve ise projesi olmayan bir imalatın mevcut durumunun ölçülüp çizilmesidir.",
+          "en": "Ataşman documents payment quantities of extra/buried work and is signed by both parties; rölöve is the as-built survey of undrawn work."
+        },
+        {
+          "tr": "Rölöve sadece elektrik tesisatı için kullanılır.",
+          "en": "Rölöve is only used for electrical installations."
+        },
+        {
+          "tr": "Ataşman, hakedişten sonra düzenlenen bir belgedir.",
+          "en": "Ataşman is prepared after the progress payment."
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ataşman, idarenin istediği ilave imalatlar veya toprak altında kalacak imalatların ödemeye esas miktarlarını belgelemek için düzenlenir; imalat kapanmadan önce ölçülüp taraflarca imzalanır. Rölöve ise, projesi bulunmayan veya üzeri kapatılacak imalatların yerinde ölçülerek mevcut durumunun çizilmesidir — ikisi de saha belgesi olsa da amaçları ve içerikleri farklıdır.",
+        "en": "Ataşman is prepared to document the payment quantities of extra work requested by the administration or work that will be buried; it is measured before closing and signed by both parties. Rölöve is the as-built survey of work with no drawing or about to be covered. Both are site documents but with different purposes and content."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yeşil defterin amacı nedir ve hangi belgelere dayanarak tutulur?",
+        "en": "What is the purpose of the yeşil defter (green ledger) and what documents is it based on?"
+      },
+      "answer": {
+        "tr": "Yeşil defter, projede bulunmayan veya projede olup idarece değiştirilen imalatların ve tamamlanmamış imalatların yapılan kısmına ait metrajların hakedişe alınmak üzere kaydedildiği defterdir. Kayıtlar proje, rölöve ve ataşman gibi dayanaklara göre tutulur; imalatın yeri, birimi ve miktarı belirtilir. Yüklenici ve kontrol teşkilatınca onaylanan bu kayıtlar ara hakedişlerin ve kesin hesabın temel belgelerindendir.",
+        "en": "The yeşil defter is the ledger where quantities of work not shown in the project, or shown but changed by the administration, and the completed portion of incomplete work, are recorded for progress payments. Entries are based on documents like the project, rölöve, and ataşman, specifying the work's location, unit, and quantity. Approved by the contractor and the supervision team, these records are among the foundational documents for interim progress payments and final accounts."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdaki ölçü birimi eşleştirmelerinden hangisi YANLIŞTIR?",
+        "en": "Which of the following unit-of-measure pairings is INCORRECT?"
+      },
+      "options": [
+        {
+          "tr": "Beton hacmi → m³",
+          "en": "Concrete volume → m³"
+        },
+        {
+          "tr": "Duvar alanı → m²",
+          "en": "Wall area → m²"
+        },
+        {
+          "tr": "Demir donatı → m²",
+          "en": "Rebar → m²"
+        },
+        {
+          "tr": "Küpeşte → m",
+          "en": "Handrail → m"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Demir donatı kg veya ton cinsinden ölçülür, m² değil. Beton hacimseldir (m³), duvar/kaplama/kalıp alanla ölçülür (m²), küpeşte gibi uzun elemanlar m ile ölçülür.",
+        "en": "Rebar is measured in kg or tons, not m². Concrete is volumetric (m³), walls/finishes/formwork are measured by area (m²), and linear elements like handrails are measured in m."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir pozun 'Ölçü' bölümü neyi belirtir?",
+        "en": "What does a poz's 'Ölçü' (measurement) section specify?"
+      },
+      "options": [
+        {
+          "tr": "İmalatın birim fiyatını",
+          "en": "The unit price of the work item"
+        },
+        {
+          "tr": "Metrajın hangi kurala göre çıkarılacağını (hangi boyutlar, hangi boşluklar düşülür/düşülmez)",
+          "en": "The rule by which the take-off is derived (which dimensions, which voids are/aren't deducted)"
+        },
+        {
+          "tr": "Yüklenicinin genel giderlerini",
+          "en": "The contractor's overhead"
+        },
+        {
+          "tr": "İmalatın hangi malzemeyle yapılacağını",
+          "en": "Which material the work will use"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ölçü bölümü, metrajın nasıl çıkarılacağını tarif eder (projedeki boyutlar mı yerinde ölçüm mü, hangi boşluklar düşülür/düşülmez gibi). Tarif bölümü kapsamı (malzeme, işçilik dahil), Notlar bölümü ise istisnaları anlatır.",
+        "en": "The Ölçü section specifies how the take-off is derived (drawing dimensions vs. field measurement, which voids are/aren't deducted). The Tarif section covers scope (material, labor included), and Notlar covers exceptions."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "15.180.xxxx poz grubu hangi imalatı kapsar?",
+        "en": "What work does the 15.180.xxxx poz group cover?"
+      },
+      "options": [
+        {
+          "tr": "Duvar",
+          "en": "Walls"
+        },
+        {
+          "tr": "Kalıp",
+          "en": "Formwork"
+        },
+        {
+          "tr": "Demir donatı",
+          "en": "Rebar"
+        },
+        {
+          "tr": "Hazır beton",
+          "en": "Ready-mix concrete"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "15.180.xxxx kalıp işlerini kapsar (malzeme/yüzey tipine göre alt pozlara ayrılır). 15.150.xxxx beton, 15.160.xxxx demir donatı, 15.210-240 duvar poz gruplarıdır.",
+        "en": "15.180.xxxx covers formwork (subdivided by material/surface type). 15.150.xxxx is concrete, 15.160.xxxx is rebar, 15.210-240 are wall poz groups."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir imalat için Bakanlık Birim Fiyat Kitabı'nda uygun poz bulunamazsa hangi yollar izlenir?",
+        "en": "If no matching poz exists in the ministry's unit price book for a work item, what options are followed?"
+      },
+      "answer": {
+        "tr": "Önce diğer kamu kurum ve kuruluşlarının (Milli Savunma Bakanlığı, Devlet Su İşleri/DSİ, Ulaştırma ve Alt Yapı Bakanlığı, Kültür Bakanlığı, Karayolları Genel Müdürlüğü, PTT Genel Müdürlüğü gibi) kendi bina/bina dışı inşaat işlerine yönelik hazırladıkları birim fiyat analizlerinden yararlanılabilir. Bunlardan da uygun bir poz bulunamazsa, **özel poz** oluşturulur — kamu kurum ve kuruluşlarının birim fiyat tariflerinde yer almayan iş kalemleri için üretilen birim fiyat anlamına gelir.",
+        "en": "First, other public agencies' (Ministry of National Defense, DSİ, Ministry of Transport and Infrastructure, Ministry of Culture, General Directorate of Highways, PTT, etc.) own unit-price analyses for building/non-building works can be used. If still no suitable poz is found, a **special poz (özel poz)** is created — a unit price generated for a work item not covered in any public agency's price book."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi bir pozun birim fiyatına GENELLİKLE dahil DEĞİLDİR (metraj derslerinde geçen örneklere göre)?",
+        "en": "Which of the following is TYPICALLY NOT included in a poz's unit price (per the examples covered)?"
+      },
+      "options": [
+        {
+          "tr": "İşçilik",
+          "en": "Labor"
+        },
+        {
+          "tr": "Malzeme ve zayiat",
+          "en": "Materials and waste"
+        },
+        {
+          "tr": "Kalıp iskelesi (kalıp pozunda)",
+          "en": "Formwork scaffolding (within the formwork poz)"
+        },
+        {
+          "tr": "Yüklenici genel giderleri ve kârı",
+          "en": "Contractor overhead and profit"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Kalıp iskelesi, kalıp pozunun notunda açıkça 'ayrıca ödenir' denilerek kalıbın kendi biriminden hariç tutulur. İşçilik, malzeme-zayiat ve yüklenici genel gideri-kârı ise standart olarak pozların tarifine dahildir.",
+        "en": "Formwork scaffolding is explicitly noted as 'paid separately' in the formwork poz, excluded from the formwork's own unit price. Labor, materials/waste, and contractor overhead/profit are standard inclusions in poz definitions."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Temel altına dökülen, donatısız beton aşağıdakilerden hangisiyle adlandırılır?",
+        "en": "What is the unreinforced concrete poured under a footing called?"
+      },
+      "options": [
+        {
+          "tr": "Betonarme",
+          "en": "Betonarme"
+        },
+        {
+          "tr": "Grobeton",
+          "en": "Grobeton"
+        },
+        {
+          "tr": "Şap",
+          "en": "Şap"
+        },
+        {
+          "tr": "Harç",
+          "en": "Harç"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Grobeton (demirsiz beton), temel altına veya blokaj üstüne dökülen, donatı içermeyen betondur; zemin ile betonarme arasında düzgün bir çalışma yüzeyi sağlar. Betonarme donatılı elemanları, şap kaplama altı tesviye tabakasını, harç ise duvar/sıva bağlayıcısını ifade eder.",
+        "en": "Grobeton (lean/unreinforced concrete) is poured under footings or over rubble fill, contains no rebar, and provides a clean working surface between soil and the reinforced structure. Betonarme refers to reinforced members, şap is a leveling layer under finishes, and harç is mortar for walls/plaster."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdaki elemanlardan hangisinde demirli (betonarme) beton hesaplanır?",
+        "en": "In which of these elements is reinforced concrete calculated?"
+      },
+      "options": [
+        {
+          "tr": "Blokaj üstü beton",
+          "en": "Concrete over rubble fill"
+        },
+        {
+          "tr": "Kolonlar",
+          "en": "Columns"
+        },
+        {
+          "tr": "Grobeton",
+          "en": "Grobeton"
+        },
+        {
+          "tr": "Sadece temel altı beton",
+          "en": "Only under-footing concrete"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kolonlar taşıyıcı, donatılı (betonarme) elemanlardır. Blokaj üstü beton ve temel altı beton genelde donatısız (grobeton) elemanlardır.",
+        "en": "Columns are load-bearing, reinforced (betonarme) elements. Concrete over rubble fill and under-footing concrete are typically unreinforced (grobeton)."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "6 adet aynı tekil temel için, her biri 1,20 m × 1,20 m taban ölçülü ve 0,30 m yüksekliğinde betonarme taban plağı içeriyor. Taban plaklarının toplam betonarme beton hacmini hesaplayınız.",
+        "en": "For 6 identical isolated footings, each with a 1.20 m × 1.20 m base measuring 0.30 m in height (reinforced concrete). Compute the total reinforced-concrete volume of the base slabs."
+      },
+      "answer": {
+        "tr": "Bir taban plağı hacmi = 1,20 × 1,20 × 0,30 = 0,432 m³. 6 adet için: 0,432 × 6 = **2,592 m³** betonarme beton.",
+        "en": "One base slab's volume = 1.20 × 1.20 × 0.30 = 0.432 m³. For 6: 0.432 × 6 = **2.592 m³** of reinforced concrete."
+      }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir tekil temelin taban plağı 1,20 m × 1,20 m × 0,30 m ölçülerindedir. Grobeton, taban plağının her yönden 0,10 m taşarak 0,10 m kalınlığında dökülecektir. Grobeton hacmi kaç m³'tür?",
+        "en": "An isolated footing's base slab is 1.20 m × 1.20 m × 0.30 m. Grobeton extends 0.10 m beyond the base on every side and is 0.10 m thick. What is the grobeton volume?"
+      },
+      "options": [
+        {
+          "tr": "0,144 m³",
+          "en": "0.144 m³"
+        },
+        {
+          "tr": "0,196 m³",
+          "en": "0.196 m³"
+        },
+        {
+          "tr": "0,432 m³",
+          "en": "0.432 m³"
+        },
+        {
+          "tr": "0,360 m³",
+          "en": "0.360 m³"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Grobeton taban ölçüleri: (1,20+2×0,10) × (1,20+2×0,10) = 1,40 × 1,40 m; hacim = 1,40 × 1,40 × 0,10 = 0,196 m³. 0,144 m³ payı hesaba katmadan bulunan yanlış bir sonuçtur; 0,432 m³ betonarme taban plağının hacmidir (grobeton değil); 0,360 payı yanlış uygulamaktan gelir.",
+        "en": "Grobeton base dimensions: (1.20+2×0.10) × (1.20+2×0.10) = 1.40 × 1.40 m; volume = 1.40 × 1.40 × 0.10 = 0.196 m³. 0.144 m³ ignores the 0.10 m overhang; 0.432 m³ is the reinforced base slab's own volume (not grobeton); 0.360 comes from misapplying the overhang."
+      }
+    },
+    {
+      "id": "q14",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Yaklaşık (ön) beton hesabında 1 m² inşaat alanı için kaç m³ beton öngörülür ve bu değer nerede kullanılır?",
+        "en": "In a rough concrete estimate, how much concrete per 1 m² of floor area is assumed, and where is this used?"
+      },
+      "answer": {
+        "tr": "0,200 - 0,250 m³ beton öngörülür. Bu değer, henüz kesin proje/statik hesap yokken hızlı bir keşif/fizibilite tahmini yapmak için kullanılır — kesin metrajın yerini tutmaz, sadece ön maliyet tahmini sağlar.",
+        "en": "0.200 - 0.250 m³ of concrete is assumed. This value is used for a quick rough cost estimate/feasibility calculation before a final design/structural calculation exists — it does not replace precise take-off, only gives an early cost approximation."
+      }
+    },
+    {
+      "id": "q15",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Hazır beton pozları hangi ana kritere göre sınıflandırılır?",
+        "en": "By what main criterion are ready-mix concrete poz classified?"
+      },
+      "options": [
+        {
+          "tr": "Betonun rengine",
+          "en": "The concrete's color"
+        },
+        {
+          "tr": "Basınç dayanım sınıfına (C8/10, C25/30 vb.)",
+          "en": "Compressive strength class (C8/10, C25/30, etc.)"
+        },
+        {
+          "tr": "Dökülme mevsimine",
+          "en": "The season it is poured in"
+        },
+        {
+          "tr": "Kullanılan pompanın markasına",
+          "en": "The brand of the pump used"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "15.150.1001-15.150.1010 pozları, betonun basınç dayanım sınıfına göre (C8/10'dan C50/60'a) sıralanır. Dayanım sınıfı arttıkça birim fiyat da değişir.",
+        "en": "Poz 15.150.1001-15.150.1010 are ordered by the concrete's compressive strength class (from C8/10 to C50/60). Unit price changes as the strength class rises."
+      }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "15.150.1008 pozunun (C40/50) tarifine göre aşağıdakilerden hangisi birim fiyata DAHİLDİR?",
+        "en": "Per poz 15.150.1008 (C40/50), which of the following IS included in the unit price?"
+      },
+      "options": [
+        {
+          "tr": "Katkı malzemesi bedeli",
+          "en": "The admixture cost"
+        },
+        {
+          "tr": "Beton kalite kontrolü, nakli, pompayla basılması, yerleştirilmesi ve bakımı",
+          "en": "Concrete QC, hauling, pumping, placing, and curing"
+        },
+        {
+          "tr": "Pompa kullanılmasa bile pompa bedeli",
+          "en": "The pump cost even when a pump isn't used"
+        },
+        {
+          "tr": "Betonun satın alma faturası vergisi",
+          "en": "Tax on the concrete purchase invoice"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Tarife göre kalite kontrolü, transmiksere yükleme, işyerine nakil, pompayla basma, yerleştirme, vibratörle sıkıştırma, sulama-bakım dahildir. Katkı malzemesi bedeli AYRICA ödenir; pompa kullanılmazsa analizden pompa bedeli DÜŞÜLÜR (dahil değil, tam tersi).",
+        "en": "Per the tarif: QC, loading into mixers, hauling, pumping, placing, vibrating, curing are all included. Admixture cost is paid SEPARATELY; if no pump is used, the pump cost is DEDUCTED (the opposite of being included)."
+      }
+    },
+    {
+      "id": "q17",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Demir donatı metrajı hangi projeye dayanarak hesaplanır?",
+        "en": "What drawing is rebar take-off based on?"
+      },
+      "options": [
+        {
+          "tr": "Mimari proje",
+          "en": "Architectural drawing"
+        },
+        {
+          "tr": "Statik proje (temel planı, kalıp planı, donatı detayları)",
+          "en": "Structural drawing (foundation plan, formwork plan, rebar details)"
+        },
+        {
+          "tr": "Peyzaj projesi",
+          "en": "Landscape drawing"
+        },
+        {
+          "tr": "Elektrik tesisat projesi",
+          "en": "Electrical installation drawing"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Demir donatının metrajı yapının statik projesi üzerinden hesaplanır: temel planı, kalıp planı, kiriş-kolon ve perde açılımları ve donatı detay projeleri kullanılır.",
+        "en": "Rebar take-off is derived from the structural (static) design: foundation plan, formwork plan, beam-column and shear-wall schedules, and rebar detail drawings."
+      }
+    },
+    {
+      "id": "q18",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir çubuğun toplam ağırlığı nasıl bulunur?",
+        "en": "How is a bar's total weight found?"
+      },
+      "options": [
+        {
+          "tr": "Boy × çap",
+          "en": "Length × diameter"
+        },
+        {
+          "tr": "Kroşeler dahil toplam boy × ilgili çapın kg/m birim ağırlığı",
+          "en": "Total length including hooks × the diameter's kg/m unit weight"
+        },
+        {
+          "tr": "Adet × çap²",
+          "en": "Count × diameter²"
+        },
+        {
+          "tr": "Sadece düz kısmın boyu × 1 kg/m",
+          "en": "Only the straight portion's length × 1 kg/m"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Betonarme detay resmine göre kroşeler dahil demirin boyu ölçülür, sonra ilgili çapın standart tablodan alınan kg/m birim ağırlığıyla çarpılarak ağırlığa çevrilir.",
+        "en": "The bar's length is measured per the detail drawing including hooks, then multiplied by that diameter's kg/m unit weight from the standard table to convert to weight."
+      }
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Projede gösterilmeyen çelik çubuklar ve ekler metraja nasıl yansır?",
+        "en": "How are steel bars and splices not shown on the drawing handled in take-off?"
+      },
+      "options": [
+        {
+          "tr": "Hesaba katılmaz",
+          "en": "Not counted"
+        },
+        {
+          "tr": "%10 fazlasıyla eklenir",
+          "en": "Added with a 10% surplus"
+        },
+        {
+          "tr": "Sadece etriyeler için sayılır",
+          "en": "Counted only for stirrups"
+        },
+        {
+          "tr": "Ayrı bir pozdan ödenir",
+          "en": "Paid under a separate poz"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Kural nettir: projede gösterilmeyen çelik çubuklar ve ekler hesaba katılmaz. Bu, metrajın SADECE projede tarif edileni ölçtüğünü gösteren temel bir ilkedir.",
+        "en": "The rule is explicit: bars and splices not shown on the drawing are not counted. This reflects the core principle that take-off measures ONLY what the drawing specifies."
+      }
+    },
+    {
+      "id": "q20",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Aşağıdaki çaplar için birim boy ağırlıklarını (kg/m) yazınız: Ø8, Ø10, Ø14, Ø20, Ø28.",
+        "en": "Write the unit weights (kg/m) for these diameters: Ø8, Ø10, Ø14, Ø20, Ø28."
+      },
+      "answer": {
+        "tr": "Ø8 = 0,395 kg/m; Ø10 = 0,617 kg/m; Ø14 = 1,208 kg/m; Ø20 = 2,466 kg/m; Ø28 = 4,834 kg/m.",
+        "en": "Ø8 = 0.395 kg/m; Ø10 = 0.617 kg/m; Ø14 = 1.208 kg/m; Ø20 = 2.466 kg/m; Ø28 = 4.834 kg/m."
+      }
+    },
+    {
+      "id": "q21",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bağlama teli ve normal zayiat için ödeme nasıl yapılır?",
+        "en": "How is tie wire and normal waste paid for?"
+      },
+      "options": [
+        {
+          "tr": "Her metre için ayrı bir kalemle ödenir",
+          "en": "Paid under a separate line item per meter"
+        },
+        {
+          "tr": "Ayrıca ödenmez, analize dahil kabul edilir",
+          "en": "Not paid separately, assumed included in the price analysis"
+        },
+        {
+          "tr": "Yalnızca kalın demirlerde ödenir",
+          "en": "Only paid for thick bars"
+        },
+        {
+          "tr": "İdare tarafından malzeme olarak temin edilir",
+          "en": "Supplied as material by the administration"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Poz notuna göre bağlama teli, çelik çubuk sıraları arasında kullanılacak çelikler ve zayiat analizde dikkate alındığından ayrıca ödeme yapılmaz.",
+        "en": "Per the poz note, tie wire, the steel used between bar layers, and waste are already accounted for in the price analysis, so they are not paid separately."
+      }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "1 m³ betonarme betonda pratik olarak öngörülen demir miktarı hangisidir?",
+        "en": "What is the rule-of-thumb rebar quantity per 1 m³ of reinforced concrete?"
+      },
+      "options": [
+        {
+          "tr": "50-70 kg",
+          "en": "50-70 kg"
+        },
+        {
+          "tr": "100-130 kg",
+          "en": "100-130 kg"
+        },
+        {
+          "tr": "200-250 kg",
+          "en": "200-250 kg"
+        },
+        {
+          "tr": "10-20 kg",
+          "en": "10-20 kg"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Pratik hesaplarda 1 m³ betonda 100-130 kg demir öngörülür.",
+        "en": "Rule-of-thumb estimates assume 100-130 kg of rebar per 1 m³ of concrete."
+      }
+    },
+    {
+      "id": "q23",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "1 m² betonarme karkas yapı inşaat alanı için pratik demir katsayısı nedir?",
+        "en": "What is the rule-of-thumb rebar ratio per 1 m² in an RC frame building?"
+      },
+      "options": [
+        {
+          "tr": "18-22 kg",
+          "en": "18-22 kg"
+        },
+        {
+          "tr": "35-40 kg",
+          "en": "35-40 kg"
+        },
+        {
+          "tr": "60-70 kg",
+          "en": "60-70 kg"
+        },
+        {
+          "tr": "5-10 kg",
+          "en": "5-10 kg"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Betonarme karkas yapıda 1 m² için 35-40 kg demir öngörülür; yığma binada bu değer daha düşüktür (18-22 kg).",
+        "en": "In an RC frame building, 35-40 kg per m² is assumed; in load-bearing masonry it's lower (18-22 kg)."
+      }
+    },
+    {
+      "id": "q24",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Betonarme bir döşemede mesnet açıklığı 360 cm, donatı aralığı 30 cm olarak verilmiştir (Ø10). a) Aralık sayısını bulunuz. b) Düz donatı sayısını bulunuz. c) Pilye donatı sayısını bulunuz.",
+        "en": "A reinforced-concrete slab has a support span of 360 cm and a bar spacing of 30 cm (Ø10). a) Find the gap count. b) Find the straight-bar count. c) Find the bent-bar count."
+      },
+      "answer": {
+        "tr": "a) Aralık sayısı = 360/30 = 12,0 → tam bölünüyor, kalan yok.\nb) Kalan olmadığından düz donatı sayısı = aralık sayısı = **12 adet**.\nc) Pilye donatı sayısı = düz sayısının bir eksiği = **11 adet**.",
+        "en": "a) Gap count = 360/30 = 12.0 → divides evenly, no remainder.\nb) With no remainder, straight-bar count = gap count = **12**.\nc) Bent-bar count = straight count − 1 = **11**."
+      }
+    },
+    {
+      "id": "q25",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Betonarme bir döşemede mesnet açıklığı 425 cm, donatı aralığı 21 cm'dir. a) Aralık sayısını ve kalanı bulunuz. b) Bu kalan, aralığın yarısından küçük mü büyük mü? c) Düz ve pilye donatı sayılarını bulunuz.",
+        "en": "A slab has a support span of 425 cm and bar spacing of 21 cm. a) Find the gap count and remainder. b) Is the remainder smaller or larger than half the spacing? c) Find the straight and bent bar counts."
+      },
+      "answer": {
+        "tr": "a) 425/21 = 20,2 → 20 adet aralık; kalan = 425 − (21×20) = 425−420 = 5 cm.\nb) Aralığın yarısı 21/2=10,5 cm; 5 < 10,5 olduğundan **kalan yarıdan küçük**.\nc) Bu durumda aralık sayısına 1 eklenir: düz donatı sayısı = 20+1 = **21 adet**; donatı düzle başlar düzle biter, pilye sayısı = düz−1 = **20 adet**. (İlk donatı mesnetten 5/2=2,5 cm içeriden başlar.)",
+        "en": "a) 425/21 = 20.2 → 20 gaps; remainder = 425 − (21×20) = 425−420 = 5 cm.\nb) Half the spacing is 21/2=10.5 cm; since 5 < 10.5, **the remainder is smaller**.\nc) Add 1 to the gap count: straight-bar count = 20+1 = **21**; the layout starts and ends straight, bent count = straight−1 = **20**. (The first bar starts 5/2=2.5 cm inside the support.)"
+      }
+    },
+    {
+      "id": "q26",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Betonarme bir döşemede mesnet açıklığı 440 cm, donatı aralığı 21 cm'dir. a) Aralık sayısını ve kalanı bulunuz. b) Bu kalan aralığın yarısından büyük mü? c) Düz ve pilye donatı sayılarını, ilk donatının mesnetten uzaklığıyla birlikte bulunuz.",
+        "en": "A slab has a support span of 440 cm and bar spacing of 21 cm. a) Find the gap count and remainder. b) Is the remainder larger than half the spacing? c) Find the straight and bent bar counts, along with the first bar's offset from the support."
+      },
+      "answer": {
+        "tr": "a) 440/21 = 20,9 → 20 adet aralık; kalan = 440 − (21×20) = 440−420 = 20 cm.\nb) Aralığın yarısı 21/2=10,5 cm; 20 > 10,5 olduğundan **kalan yarıdan büyük**.\nc) Kalandan aralığın yarısı çıkarılıp ikiye bölünür: (20−10,5)/2 = 4,75 cm — ilk donatı mesnetten 4,75 cm içeriden başlar. Aralık sayısına 1 eklenerek düz donatı sayısı = 20+1 = **21 adet** bulunur; donatı düzle başlar **pilye ile biter**, bu durumda pilye sayısı düz sayısına **eşittir**: pilye = **21 adet**.",
+        "en": "a) 440/21 = 20.9 → 20 gaps; remainder = 440 − (21×20) = 440−420 = 20 cm.\nb) Half the spacing is 21/2=10.5 cm; since 20 > 10.5, **the remainder is larger**.\nc) Subtract half the spacing from the remainder and halve: (20−10.5)/2 = 4.75 cm — the first bar starts 4.75 cm inside the support. Adding 1 to the gap count gives straight-bar count = 20+1 = **21**; the layout starts straight and **ends bent**, so here bent count **equals** straight count: bent = **21**."
+      }
+    },
+    {
+      "id": "q27",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Mesnet açıklığı 485 cm, demir aralığı 30 cm olan dağıtma donatısı için sayı kaçtır?",
+        "en": "For a distribution bar with a 485 cm support span and 30 cm spacing, what is the bar count?"
+      },
+      "options": [
+        {
+          "tr": "16 adet",
+          "en": "16"
+        },
+        {
+          "tr": "17 adet",
+          "en": "17"
+        },
+        {
+          "tr": "15 adet",
+          "en": "15"
+        },
+        {
+          "tr": "18 adet",
+          "en": "18"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Aralık sayısı = 485/30 = 16,17 → 16 adet aralık, kalan var. Dağıtma donatısı sayısı = aralık sayısı + 1 = 16+1 = 17 adet.",
+        "en": "Gap count = 485/30 = 16.17 → 16 gaps, with a remainder. Distribution bar count = gap count + 1 = 16+1 = 17."
+      }
+    },
+    {
+      "id": "q28",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "'Ø10/25' donatı yazımında '25' neyi ifade eder?",
+        "en": "In the rebar callout 'Ø10/25', what does '25' represent?"
+      },
+      "options": [
+        {
+          "tr": "Çubuk adedini",
+          "en": "The bar count"
+        },
+        {
+          "tr": "Donatı aralığını (cm)",
+          "en": "The bar spacing (cm)"
+        },
+        {
+          "tr": "Çubuğun boyunu (m)",
+          "en": "The bar's length (m)"
+        },
+        {
+          "tr": "Çapı (mm)",
+          "en": "The diameter (mm)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ø10/25 gösteriminde Ø10 çapı (10 mm), 25 ise aralığı (25 cm) ifade eder.",
+        "en": "In 'Ø10/25', Ø10 is the diameter (10 mm) and 25 is the spacing (25 cm)."
+      }
+    },
+    {
+      "id": "q29",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Duvarların taşıyıcılık açısından sınıflandırılması nasıldır?",
+        "en": "How are walls classified in terms of load-bearing function?"
+      },
+      "options": [
+        {
+          "tr": "Kâgir / kâgir olmayan",
+          "en": "Masonry / non-masonry"
+        },
+        {
+          "tr": "Taşıyıcı / taşıyıcı olmayan",
+          "en": "Load-bearing / non-load-bearing"
+        },
+        {
+          "tr": "İç / dış",
+          "en": "Interior / exterior"
+        },
+        {
+          "tr": "Yatay / düşey",
+          "en": "Horizontal / vertical"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Duvarlar hem kâgir/kâgir olmayan hem de taşıyıcı/taşıyıcı olmayan şeklinde iki ayrı eksende sınıflandırılır; soru taşıyıcılık açısından sorduğu için doğru cevap 'taşıyıcı / taşıyıcı olmayan'dır.",
+        "en": "Walls are classified along two axes: masonry/non-masonry AND load-bearing/non-load-bearing; since the question asks about the load-bearing axis, the answer is 'load-bearing / non-load-bearing'."
+      }
+    },
+    {
+      "id": "q30",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "85 mm kalınlığında yatay delikli tuğla ile duvar yapılması hangi poz grubuna girer?",
+        "en": "Which poz group covers building a wall with 85 mm thick horizontally-perforated brick?"
+      },
+      "options": [
+        {
+          "tr": "15.210'lu",
+          "en": "15.210.x"
+        },
+        {
+          "tr": "15.220'li",
+          "en": "15.220.x"
+        },
+        {
+          "tr": "15.225'li",
+          "en": "15.225.x"
+        },
+        {
+          "tr": "15.240'lı",
+          "en": "15.240.x"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Tuğla duvar işleri 15.220'li pozlardadır (85 mm ve 135 mm örnekleri dahil). 15.210 taş duvar, 15.225 gazbeton, 15.230/235/240 diğer duvar işleridir.",
+        "en": "Brick wall work falls under the 15.220.x poz series (including the 85mm and 135mm examples). 15.210 is stone, 15.225 is gas-concrete, 15.230/235/240 are other wall types."
+      }
+    },
+    {
+      "id": "q31",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Bir duvar 6,0 m uzunluğunda ve 3,0 m yüksekliğindedir. Duvarda 1,0 m × 2,1 m ölçülerinde bir kapı ve 1,5 m × 1,2 m ölçülerinde bir pencere boşluğu bulunmaktadır. Net duvar (tuğla) alanını hesaplayınız.",
+        "en": "A wall is 6.0 m long and 3.0 m high. It has one 1.0 m × 2.1 m door opening and one 1.5 m × 1.2 m window opening. Compute the net wall (brick) area."
+      },
+      "answer": {
+        "tr": "Brüt alan = 6,0 × 3,0 = 18,0 m².\nKapı boşluğu = 1,0 × 2,1 = 2,10 m² (0,10 m²'den büyük → düşülür).\nPencere boşluğu = 1,5 × 1,2 = 1,80 m² (0,10 m²'den büyük → düşülür).\nNet duvar alanı = 18,0 − 2,10 − 1,80 = **14,10 m²**.",
+        "en": "Gross area = 6.0 × 3.0 = 18.0 m².\nDoor opening = 1.0 × 2.1 = 2.10 m² (larger than 0.10 m² → deducted).\nWindow opening = 1.5 × 1.2 = 1.80 m² (larger than 0.10 m² → deducted).\nNet wall area = 18.0 − 2.10 − 1.80 = **14.10 m²**."
+      }
+    },
+    {
+      "id": "q32",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Yukarıdaki duvarda ayrıca 0,3 m × 0,3 m ölçülerinde küçük bir tesisat deliği varsa, net duvar alanı hesabı nasıl değişir?",
+        "en": "If the same wall also has a small 0.3 m × 0.3 m utility hole, how does the net wall area calculation change?"
+      },
+      "options": [
+        {
+          "tr": "0,09 m² daha düşülür, net alan 14,01 m² olur",
+          "en": "0.09 m² is additionally deducted, net area becomes 14.01 m²"
+        },
+        {
+          "tr": "Değişmez, çünkü 0,3×0,3=0,09 m² olup 0,10 m²'den küçüktür ve düşülmez",
+          "en": "Unchanged, because 0.3×0.3=0.09 m² is under 0.10 m² and is not deducted"
+        },
+        {
+          "tr": "0,3 m² düşülür",
+          "en": "0.3 m² is deducted"
+        },
+        {
+          "tr": "Delik büyüklüğü metrajı etkilemez, her zaman düşülür",
+          "en": "Hole size never matters, it's always deducted"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "0,3×0,3=0,09 m², poz kuralındaki 0,10 m² eşiğinin altında kaldığından düşülmez. Net alan 14,10 m² olarak kalır.",
+        "en": "0.3×0.3=0.09 m² falls below the poz rule's 0.10 m² threshold, so it is not deducted. The net area stays at 14.10 m²."
+      }
+    },
+    {
+      "id": "q33",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Duvar işleri poz tarifine göre birim fiyata neler dahildir?",
+        "en": "Per the wall poz definition, what is included in the unit price?"
+      },
+      "options": [
+        {
+          "tr": "Sadece tuğla malzemesi",
+          "en": "Only the brick material"
+        },
+        {
+          "tr": "Harç, sulama, yükleme-taşıma-boşaltma, malzeme-zayiat, işçilik, araç-gereç, yüklenici genel gideri ve kârı",
+          "en": "Mortar, wetting, loading/hauling/unloading, materials/waste, labor, tools, contractor overhead and profit"
+        },
+        {
+          "tr": "Sadece işçilik",
+          "en": "Only labor"
+        },
+        {
+          "tr": "Sadece nakliye",
+          "en": "Only transport"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "15.220.1014 tarifine göre çimento-kireç harcı, sulama, yükleme/taşıma/boşaltma, malzeme ve zayiat, işçilik, araç-gereç, yüklenici genel giderleri ve kârı birim fiyata dahildir.",
+        "en": "Per the 15.220.1014 definition: cement-lime mortar, wetting, loading/hauling/unloading, materials and waste, labor, tools, contractor overhead and profit are all included in the unit price."
+      }
+    },
+    {
+      "id": "q34",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kalıp metrajı hesaplarında aşağıdakilerden hangisi ihmal edilir?",
+        "en": "What is ignored in formwork take-off calculations?"
+      },
+      "options": [
+        {
+          "tr": "Yüzey alanı",
+          "en": "Surface area"
+        },
+        {
+          "tr": "Kalınlık",
+          "en": "Thickness"
+        },
+        {
+          "tr": "Yükseklik",
+          "en": "Height"
+        },
+        {
+          "tr": "Çevre uzunluğu",
+          "en": "Perimeter"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kalıp metrajı hesaplarında kalınlık ihmal edilir; kalıp bir yüzey alanı (m²) işidir, hacim işi değildir.",
+        "en": "Thickness is ignored in formwork take-off; formwork is a surface-area (m²) quantity, not a volume quantity."
+      }
+    },
+    {
+      "id": "q35",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Hatalı kalıp ve kalıp iskelesi tasarımı hangi riski doğurur ve bu risk neden deprem yükünden farklıdır?",
+        "en": "What risk does faulty formwork/scaffolding design create, and why does this risk differ from earthquake loading?"
+      },
+      "answer": {
+        "tr": "Hatalı kalıp ve kalıp iskelesi tasarımı, statik hesap ve donatı doğru yapılmış olsa bile yapının **yapım sırasında (inşa esnasında) çökmesine** yol açabilir. Bu risk, binanın kullanım ömrü boyunca karşılaşacağı deprem gibi işletme (servis) yüklerinden farklıdır çünkü **geçici, inşaat aşamasına özgü yüklerden** (taze betonun ağırlığı, kalıbın taşıdığı yükler) kaynaklanır — bina henüz tasarım yüklerini taşıyacak nihai haline gelmemişken oluşan bir risktir.",
+        "en": "Faulty formwork and scaffolding design can cause the structure to **collapse during construction**, even if the structural calculations and rebar are correct. This risk differs from service loads like earthquakes that the building faces over its lifetime, because it stems from **temporary, construction-stage loads** (the weight of fresh concrete, loads carried by the formwork) — a risk that exists before the building reaches its final state capable of carrying its design loads."
+      }
+    },
+    {
+      "id": "q36",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "15.180.1002 pozunun ölçü kuralına göre, boşluk hacmi çıkarılmayan imalat deliklerinin çevre kalıpları nasıl işlem görür?",
+        "en": "Per poz 15.180.1002's measurement rule, how is the surrounding formwork of openings whose void isn't deducted treated?"
+      },
+      "options": [
+        {
+          "tr": "Ölçüye dahil edilir",
+          "en": "Included in the measurement"
+        },
+        {
+          "tr": "Ölçüye dahil edilmez",
+          "en": "Not included in the measurement"
+        },
+        {
+          "tr": "İki katı olarak ölçülür",
+          "en": "Measured at double"
+        },
+        {
+          "tr": "Ayrı bir pozdan ödenir",
+          "en": "Paid under a separate poz"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kural: boşluk hacmi çıkarılmayan imalat deliklerinin çevre kalıpları ölçüye dahil edilmez; deliğin kalıp tarafındaki yüzünden delik boşluğu da çıkarılmaz. Bu basitleştirme küçük delikler için ayrı bir kalıp metrajı yapılmasını gereksiz kılar.",
+        "en": "Rule: the surrounding formwork of openings whose void volume isn't deducted is NOT included in the measurement, and the opening's void is not subtracted from that face either. This simplification avoids the need for separate formwork take-off on small openings."
+      }
+    },
+    {
+      "id": "q37",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kalıp söküldükten sonra elde edilen malzeme (tahta, plywood vb.) kime aittir?",
+        "en": "Once formwork is stripped, who owns the recovered material (timber, plywood, etc.)?"
+      },
+      "options": [
+        {
+          "tr": "İdareye",
+          "en": "The administration/owner"
+        },
+        {
+          "tr": "Yükleniciye",
+          "en": "The contractor"
+        },
+        {
+          "tr": "Kontrol teşkilatına",
+          "en": "The supervision team"
+        },
+        {
+          "tr": "Ortak mülkiyettir",
+          "en": "Joint ownership"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Poz notuna göre kalıptan çıkan malzeme yükleniciye aittir.",
+        "en": "Per the poz note, material recovered from stripped formwork belongs to the contractor."
+      }
+    },
+    {
+      "id": "q38",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Kademeli (podyumlu) bir tekil temelde: taban kademesi kare kesitli, kenar uzunluğu 1,20 m, yüksekliği 0,30 m; üst kademe (pedestal) kare kesitli, kenar uzunluğu 0,50 m, yüksekliği 0,40 m'dir. Bu tek temelin toplam kalıp alanını hesaplayınız (taban alt yüzeyi ve pedestal üst yüzeyi kalıba girmez).",
+        "en": "A stepped isolated footing has a square base step (side 1.20 m, height 0.30 m) and a square pedestal step on top (side 0.50 m, height 0.40 m). Compute this footing's total formwork area (the base's underside and the pedestal's top are not formed)."
+      },
+      "answer": {
+        "tr": "Taban çevresi = 4 × 1,20 = 4,8 m; taban kalıp alanı = 4,8 × 0,30 = **1,44 m²**.\nPedestal çevresi = 4 × 0,50 = 2,0 m; pedestal kalıp alanı = 2,0 × 0,40 = **0,80 m²**.\nToplam kalıp alanı (1 adet temel) = 1,44 + 0,80 = **2,24 m²**.",
+        "en": "Base perimeter = 4 × 1.20 = 4.8 m; base formwork area = 4.8 × 0.30 = **1.44 m²**.\nPedestal perimeter = 4 × 0.50 = 2.0 m; pedestal formwork area = 2.0 × 0.40 = **0.80 m²**.\nTotal formwork area (1 footing) = 1.44 + 0.80 = **2.24 m²**."
+      }
+    },
+    {
+      "id": "q39",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Önceki soruda hesaplanan tek temelin kalıp alanı 2,24 m²'dir. Binada bu tip 6 adet aynı temel varsa, toplam kalıp metrajı kaçtır?",
+        "en": "The previous question's single-footing formwork area is 2.24 m². If the building has 6 identical footings of this type, what is the total formwork take-off?"
+      },
+      "options": [
+        {
+          "tr": "6,72 m²",
+          "en": "6.72 m²"
+        },
+        {
+          "tr": "13,44 m²",
+          "en": "13.44 m²"
+        },
+        {
+          "tr": "2,24 m²",
+          "en": "2.24 m²"
+        },
+        {
+          "tr": "22,4 m²",
+          "en": "22.4 m²"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "2,24 m² × 6 adet = 13,44 m². Metrajda benzer elemanlar bulunduğunda birim hacim/alan × adet ile toplam metraj bulunur.",
+        "en": "2.24 m² × 6 = 13.44 m². When identical elements exist, total take-off is unit volume/area × count."
+      }
+    },
+    {
+      "id": "q40",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kalıp iskelesi hangi durumda ödenir?",
+        "en": "How is formwork scaffolding paid for?"
+      },
+      "options": [
+        {
+          "tr": "Kalıp pozuna dahildir, ayrıca ödenmez",
+          "en": "It's included in the formwork poz, not paid separately"
+        },
+        {
+          "tr": "Ayrıca, kendi pozundan ödenir",
+          "en": "Separately, under its own poz"
+        },
+        {
+          "tr": "Sadece eğri yüzeyli kalıplarda ödenir",
+          "en": "Only paid for curved-surface formwork"
+        },
+        {
+          "tr": "Yükleniciye hiç ödenmez",
+          "en": "Never paid to the contractor"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Poz notu açıkça belirtir: kalıp iskelesi ayrıca ödenir — kalıbın kendisinden ayrı bir kalemdir.",
+        "en": "The poz note explicitly states: scaffolding is paid separately — it is a distinct line item from the formwork itself."
+      }
+    },
+    {
+      "id": "q41",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kaplama iş kalemleri hangi ölçüm birimiyle ağırlıklı olarak ölçülür?",
+        "en": "What unit predominantly measures finishing work items?"
+      },
+      "options": [
+        {
+          "tr": "m³",
+          "en": "m³"
+        },
+        {
+          "tr": "m²",
+          "en": "m²"
+        },
+        {
+          "tr": "kg",
+          "en": "kg"
+        },
+        {
+          "tr": "adet",
+          "en": "adet"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Kaplama iş kalemleri (sıva, boya, zemin/duvar kaplaması vb.) ağırlıkla m² olarak ölçülür.",
+        "en": "Finishing work items (plaster, paint, floor/wall finishes, etc.) are predominantly measured in m²."
+      }
+    },
+    {
+      "id": "q42",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kaplama imalat kalemlerinden en az altısını sayınız.",
+        "en": "List at least six finishing work items."
+      },
+      "answer": {
+        "tr": "Örnekler: su/ısı/ses yalıtımları, yalıtım şapı ve tesviye betonu, iç duvarların sıvanması, dış duvarların sıvanması, tavanların sıvanması, merdivenlerin kaplanması, dilatasyon derzlerinin imalatı, asma tavan imalatı, boya ve badana yapılması, dış cephenin kaplanması, zemin kaplaması, duvar kaplaması. (Herhangi 6 tanesi yeterlidir.)",
+        "en": "Examples: water/thermal/acoustic insulation, insulation screed and leveling concrete, interior wall plastering, exterior wall plastering, ceiling plastering, stair finishes, expansion-joint work, suspended ceiling work, painting/whitewashing, exterior cladding, floor finishes, wall finishes. (Any 6 suffice.)"
+      }
+    },
+    {
+      "id": "q43",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kaplama grubu dışındaki 'diğer inşaat imalat kalemleri'nden hangisi bu unitede geçmemektedir?",
+        "en": "Which of these is NOT one of the 'other construction items' outside the finishes group covered in this unit?"
+      },
+      "options": [
+        {
+          "tr": "Kalıp iskelesi metrajı",
+          "en": "Formwork scaffolding take-off"
+        },
+        {
+          "tr": "Çatı metrajı",
+          "en": "Roof take-off"
+        },
+        {
+          "tr": "Kapı-pencere doğramaları metrajı",
+          "en": "Door/window frame take-off"
+        },
+        {
+          "tr": "Zemin etüt raporu hazırlanması",
+          "en": "Preparing a soil investigation report"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Zemin etüt raporu, arsanın zemin/yeraltı koşullarını belirleyen ayrı bir teknik rapordur (proje öncesi aşamaya ait) — bu unitenin 'diğer imalat kalemleri' listesinde yer almaz. Diğer üçü (kalıp iskelesi, çatı, kapı-pencere doğramaları metrajı) doğrudan kaynak metinde geçmektedir.",
+        "en": "A soil investigation report (zemin etüt raporu) is a separate technical report on the site's ground/groundwater conditions (a pre-design-stage document) — not part of this unit's 'other work items' list. The other three (formwork scaffolding, roof, door/window frame take-off) are directly named in the source text."
+      }
+    },
+    {
+      "id": "q44",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Mekanik ve elektrik tesisatı metraj ve keşif hazırlama sürecini sırasıyla açıklayınız.",
+        "en": "Explain, in order, the process of preparing M&E installation take-off and cost estimate."
+      },
+      "answer": {
+        "tr": "1) Makine ve elektrik mühendisleri tesisat miktarlarını **mahal bazında** (oda/hacim bazında) detaylandırır.\n2) Mahaller için tespit edilen miktarlar, birimleriyle birlikte **metraj ayrıntı sayfasına** girilir; her tesisat kalemi için toplam miktarlar elde edilir.\n3) Bu toplam miktarlarla **metraj özeti** hazırlanır.\n4) Metraj özetlerine malzeme ve montaj birim fiyatlarının girilmesiyle **keşif ayrıntı sayfaları** oluşturulur.\n5) Son aşamada, yapılan iş gruplarına göre **keşif özeti** hazırlanır.",
+        "en": "1) Mechanical and electrical engineers break down installation quantities **by room/space (mahal)**.\n2) Quantities determined per room, with their units, are entered into the **take-off detail sheet**; total quantities for each installation item are obtained.\n3) These totals are used to prepare the **take-off summary**.\n4) Entering material and installation unit prices into the take-off summaries produces the **cost detail sheets**.\n5) Finally, a **cost summary** is prepared grouped by work category."
+      }
+    },
+    {
+      "id": "q45",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Tesisat metraj-keşif hazırlarken kaçınılması gereken hatalardan biri değildir:",
+        "en": "Which is NOT one of the mistakes to avoid when preparing installation take-off/estimate?"
+      },
+      "options": [
+        {
+          "tr": "Tesisat kalemlerini atlamak",
+          "en": "Skipping installation items"
+        },
+        {
+          "tr": "Tesisat kalemlerini mükerrer (iki kez) yazmak",
+          "en": "Double-counting (mükerrer) installation items"
+        },
+        {
+          "tr": "Basit işlem hatası yapmak",
+          "en": "Making simple arithmetic errors"
+        },
+        {
+          "tr": "Mahal bazında detaylandırma yapmak",
+          "en": "Breaking quantities down by room (mahal)"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Mahal bazında detaylandırma, kaçınılması gereken bir HATA değil, doğru uygulamanın kendisidir (makine ve elektrik mühendislerinin standart yöntemi). Diğer üç seçenek (atlamak, mükerrer yazmak, işlem hatası) kaynak metinde açıkça 'dikkat edilecek hususlar' olarak sayılır.",
+        "en": "Breaking quantities down by room is NOT a mistake to avoid — it is the correct standard method used by M&E engineers. The other three (skipping items, double-counting, arithmetic errors) are explicitly listed in the source as things to watch out for."
+      }
+    },
+    {
+      "id": "q46",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Bakanlık birim fiyat kitabında yer almayan bir iş kalemi için oluşturulan birim fiyata ne denir?",
+        "en": "What is the unit price created for a work item not covered in the ministry's price book called?"
+      },
+      "options": [
+        {
+          "tr": "Yaklaşık maliyet",
+          "en": "Approximate cost"
+        },
+        {
+          "tr": "Özel poz",
+          "en": "Özel poz (special poz)"
+        },
+        {
+          "tr": "Keşif özeti",
+          "en": "Keşif özeti (cost summary)"
+        },
+        {
+          "tr": "Hakediş",
+          "en": "Hakediş (progress payment)"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Özel poz, kamu kurum ve kuruluşlarının birim fiyat tariflerinde yer almayan iş kalemleri için oluşturulan birim fiyat anlamına gelir.",
+        "en": "Özel poz (special poz) is the unit price created for work items not covered by any public agency's price book."
+      }
+    },
+    {
+      "id": "q47",
+      "type": "mcq",
+      "covers": [
+        "n3",
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Beton metrajı ile kalıp metrajı arasındaki temel fark nedir?",
+        "en": "What is the fundamental difference between concrete take-off and formwork take-off?"
+      },
+      "options": [
+        {
+          "tr": "İkisi de hacim (m³) cinsindendir",
+          "en": "Both are volumetric (m³)"
+        },
+        {
+          "tr": "Beton metrajı hacim (m³) esaslıdır; kalıp metrajı ise sadece kalıp gören yüzey alanı (m²) esaslıdır, kalınlık ihmal edilir",
+          "en": "Concrete take-off is volume-based (m³); formwork take-off is based only on the contacted surface area (m²), with thickness ignored"
+        },
+        {
+          "tr": "İkisi de alan (m²) cinsindendir",
+          "en": "Both are area-based (m²)"
+        },
+        {
+          "tr": "Kalıp metrajı ton cinsindendir",
+          "en": "Formwork take-off is in tons"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Beton, dökülen malzemenin doldurduğu hacim olduğundan m³ ile ölçülür. Kalıp ise betona şekil veren yüzeydir; kalıp metrajında sadece temas eden yüzey alanı (m²) hesaplanır, kalıp malzemesinin kalınlığı ölçüye girmez.",
+        "en": "Concrete is the volume filled by the poured material, so it's measured in m³. Formwork is the surface shaping the concrete; formwork take-off computes only the contacted surface area (m²) — the formwork material's thickness plays no role."
+      }
+    },
+    {
+      "id": "q48",
+      "type": "mcq",
+      "covers": [
+        "n4",
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Demir donatı metrajı ile duvar metrajı arasında ortak olan kural aşağıdakilerden hangisidir?",
+        "en": "Which rule is shared between rebar take-off and wall take-off?"
+      },
+      "options": [
+        {
+          "tr": "İkisinde de sadece projede gösterilen/belirtilen miktarlar esas alınır — donatıda gösterilmeyen çubuklar, duvarda ise küçük boşluklar dışındaki tüm boşluklar dikkate alınır",
+          "en": "Both are based only on what the drawing specifies — undrawn bars in rebar take-off, and (aside from small voids) all voids in wall take-off, are handled per drawing/rule"
+        },
+        {
+          "tr": "İkisi de ton cinsinden ölçülür",
+          "en": "Both are measured in tons"
+        },
+        {
+          "tr": "İkisinde de kalınlık ihmal edilir",
+          "en": "Both ignore thickness"
+        },
+        {
+          "tr": "İkisinde de sadece yerinde ölçüm geçerlidir, proje kullanılmaz",
+          "en": "Both rely only on field measurement, never the drawing"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Her iki metrajda da proje/poz kuralına sıkı bağlılık esastır: donatıda projede gösterilmeyen çubuk ve ekler hesaba katılmaz; duvarda 0,10 m²'den büyük boşluklar mutlaka düşülür (küçük olanlar hariç). İkisi de farklı birimlerde ölçülür (kg/ton vs m²), kalınlık sadece kalıpta ihmal edilir.",
+        "en": "Both take-offs are strictly governed by the drawing/poz rule: undrawn bars and splices are excluded in rebar take-off; voids larger than 0.10 m² must be deducted in wall take-off (except small ones). They use different units (kg/ton vs m²); thickness is ignored only in formwork."
+      }
+    },
+    {
+      "id": "q49",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 3,
+      "examStyle": true,
+      "q": {
+        "tr": "Kaynaktaki 'Örnek 3' temel yerleşiminde üç tip tekil temel vardır: **F1** taban 3,0 m × 2,0 m ve yükseklik 0,60 m; **F2** taban 3,0 m × 3,0 m ve yükseklik 0,60 m; **F3** taban 6,0 m × 4,0 m ve yükseklik 0,80 m. Temel yerleşim planına göre F1'den 4 adet, F2'den 4 adet, F3'ten 1 adet bulunmaktadır. Her temelin sadece dışa bakan dört düşey yan yüzü kalıp görür (taban altı zemine oturur, üst yüzden kolon devam eder). Toplam temel kalıp metrajını hesaplayınız.",
+        "en": "In the source's 'Örnek 3' footing layout there are three isolated-footing types: **F1** base 3.0 m × 2.0 m, height 0.60 m; **F2** base 3.0 m × 3.0 m, height 0.60 m; **F3** base 6.0 m × 4.0 m, height 0.80 m. Per the footing layout plan there are 4× F1, 4× F2, and 1× F3. Each footing is formed only on its four exposed vertical side faces (the underside rests on soil, the top continues into the column). Compute the total footing formwork take-off."
+      },
+      "answer": {
+        "tr": "Her tekil temelin kalıp alanı = taban çevresi × yükseklik (dört yan yüz).\n\n**F1** (3,0×2,0, h=0,60): çevre = 2×(3,0+2,0) = 10,0 m; alan = 10,0×0,60 = 6,00 m²; 4 adet → 4×6,00 = **24,00 m²**.\n**F2** (3,0×3,0, h=0,60): çevre = 2×(3,0+3,0) = 12,0 m; alan = 12,0×0,60 = 7,20 m²; 4 adet → 4×7,20 = **28,80 m²**.\n**F3** (6,0×4,0, h=0,80): çevre = 2×(6,0+4,0) = 20,0 m; alan = 20,0×0,80 = 16,00 m²; 1 adet → **16,00 m²**.\n\n**Toplam kalıp metrajı = 24,00 + 28,80 + 16,00 = 68,80 m².** (Taban altı ve üst yüzey kalıp görmediğinden hesaba katılmaz; kalıp iskelesi ayrıca ödenir.)",
+        "en": "Each footing's formwork area = base perimeter × height (four side faces).\n\n**F1** (3.0×2.0, h=0.60): perimeter = 2×(3.0+2.0) = 10.0 m; area = 10.0×0.60 = 6.00 m²; 4 units → 4×6.00 = **24.00 m²**.\n**F2** (3.0×3.0, h=0.60): perimeter = 2×(3.0+3.0) = 12.0 m; area = 12.0×0.60 = 7.20 m²; 4 units → 4×7.20 = **28.80 m²**.\n**F3** (6.0×4.0, h=0.80): perimeter = 2×(6.0+4.0) = 20.0 m; area = 20.0×0.80 = 16.00 m²; 1 unit → **16.00 m²**.\n\n**Total formwork take-off = 24.00 + 28.80 + 16.00 = 68.80 m².** (The underside and top face are not formed and excluded; scaffolding is paid separately.)"
+      }
+    },
+    {
+      "id": "q50",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Taban ölçüsü 6,0 m × 4,0 m ve yüksekliği 0,80 m olan tek bir tekil temelin (F3 tipi) yan yüz kalıp alanı kaç m²'dir?",
+        "en": "What is the side-face formwork area (m²) of a single isolated footing (type F3) with a 6.0 m × 4.0 m base and 0.80 m height?"
+      },
+      "options": [
+        {
+          "tr": "16,00 m²",
+          "en": "16.00 m²"
+        },
+        {
+          "tr": "19,20 m²",
+          "en": "19.20 m²"
+        },
+        {
+          "tr": "24,00 m²",
+          "en": "24.00 m²"
+        },
+        {
+          "tr": "48,00 m²",
+          "en": "48.00 m²"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Kalıp alanı = çevre × yükseklik = 2×(6,0+4,0) × 0,80 = 20,0 × 0,80 = 16,00 m². 19,20 m² taban alanını (6×4=24) yanlışlıkla farklı çarpmaktan; 24,00 m² taban alanının kendisinden (kalıba girmez); 48,00 m² çevreyi iki katına çıkarmaktan gelir. Taban alt/üst yüzeyi kalıp görmez, sadece dört düşey yan yüz ölçülür.",
+        "en": "Formwork area = perimeter × height = 2×(6.0+4.0) × 0.80 = 20.0 × 0.80 = 16.00 m². 19.20 comes from mis-multiplying; 24.00 m² is the base plan area itself (not formed); 48.00 doubles the perimeter. The base's under/top faces are not formed — only the four vertical sides are measured."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "3-1",
+      "code": "Uygulama 3.1",
+      "title": {
+        "tr": "Tekil temellerde grobeton ve betonarme beton hacmi",
+        "en": "Grobeton and reinforced-concrete volume for isolated footings"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir binada 6 adet aynı tekil temel bulunmaktadır. Her temel, 1,20 m × 1,20 m taban ölçülü ve 0,30 m yüksekliğinde betonarme (demirli) taban plağından, üzerinde 0,50 m × 0,50 m kesitli ve 0,40 m yüksekliğinde betonarme kolon pedestalinden oluşmaktadır. Taban plağının altına, her yönden 0,10 m taşacak şekilde 0,10 m kalınlığında demirsiz grobeton dökülecektir. Binadaki bu 6 temel için demirsiz (grobeton) ve demirli (betonarme) beton hacimlerini ayrı ayrı hesaplayınız.",
+        "en": "A building has 6 identical isolated footings. Each footing consists of a 1.20 m × 1.20 m, 0.30 m tall reinforced-concrete base slab, topped by a 0.50 m × 0.50 m, 0.40 m tall reinforced-concrete column pedestal. Under the base slab, unreinforced grobeton will be poured, extending 0.10 m beyond the base on every side, 0.10 m thick. Compute the unreinforced (grobeton) and reinforced (betonarme) concrete volumes separately for these 6 footings."
+      },
+      "given": [
+        {
+          "symbol": "taban",
+          "value": "1{,}20\\times1{,}20\\times0{,}30\\ \\text{m}",
+          "label": {
+            "tr": "Taban plağı ölçüleri (betonarme)",
+            "en": "Base slab dimensions (reinforced)"
+          }
+        },
+        {
+          "symbol": "pedestal",
+          "value": "0{,}50\\times0{,}50\\times0{,}40\\ \\text{m}",
+          "label": {
+            "tr": "Kolon pedestali ölçüleri (betonarme)",
+            "en": "Column pedestal dimensions (reinforced)"
+          }
+        },
+        {
+          "symbol": "pay",
+          "value": "0{,}10\\ \\text{m}",
+          "label": {
+            "tr": "Grobetonun her yönde taşma payı",
+            "en": "Grobeton's overhang on every side"
+          }
+        },
+        {
+          "symbol": "h_{grobeton}",
+          "value": "0{,}10\\ \\text{m}",
+          "label": {
+            "tr": "Grobeton kalınlığı",
+            "en": "Grobeton thickness"
+          }
+        },
+        {
+          "symbol": "n",
+          "value": "6\\ \\text{adet}",
+          "label": {
+            "tr": "Temel adedi",
+            "en": "Number of footings"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "6 temel için toplam demirsiz (grobeton) ve demirli (betonarme) beton hacimlerini bulmak.",
+        "en": "Find the total unreinforced (grobeton) and reinforced (betonarme) concrete volumes for the 6 footings."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Betonarme taban plağı hacmini bul",
+            "en": "Find the reinforced base slab volume"
+          },
+          "guiding": {
+            "tr": "Taban plağının hacmini nasıl hesaplarsın — hangi üç ölçüyü çarparsın?",
+            "en": "How do you compute the base slab's volume — which three dimensions do you multiply?"
+          },
+          "hint": {
+            "tr": "Hacim = en × boy × yükseklik. Verilen 1,20×1,20×0,30 değerlerini doğrudan çarp.",
+            "en": "Volume = width × length × height. Multiply the given 1.20×1.20×0.30 values directly."
+          },
+          "work": {
+            "tr": "$$V_{taban,1} = 1{,}20 \\times 1{,}20 \\times 0{,}30 = 0{,}432\\ \\text{m}^3$$\n\n6 adet temel için:\n$$V_{taban,toplam} = 0{,}432 \\times 6 = 2{,}592\\ \\text{m}^3$$",
+            "en": "$$V_{base,1} = 1.20 \\times 1.20 \\times 0.30 = 0.432\\ \\text{m}^3$$\n\nFor 6 footings:\n$$V_{base,total} = 0.432 \\times 6 = 2.592\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Beton metrajının temel adımı budur: her elemanın projedeki boyutları üzerinden hacmi ayrı ayrı hesaplanır, benzer elemanlar varsa adetle çarpılır. Taban plağı donatılı (betonarme) bir eleman olduğundan bu hacim 'demirli beton' kategorisine yazılır.",
+            "en": "This is the basic step of concrete take-off: each member's volume is computed separately from its drawing dimensions, then multiplied by the count if repeated. Since the base slab is reinforced, this volume belongs to the 'reinforced concrete' category."
+          },
+          "result": "V_{taban,toplam} = 2{,}592\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Betonarme pedestal hacmini bul",
+            "en": "Find the reinforced pedestal volume"
+          },
+          "guiding": {
+            "tr": "Pedestal de betonarme bir eleman. Aynı mantıkla hacmini ve 6 adet için toplamını nasıl bulursun?",
+            "en": "The pedestal is also a reinforced member. Using the same logic, how do you find its volume and the total for 6?"
+          },
+          "hint": {
+            "tr": "Hacim = 0,50 × 0,50 × 0,40. Sonucu 6 ile çarp.",
+            "en": "Volume = 0.50 × 0.50 × 0.40. Multiply the result by 6."
+          },
+          "work": {
+            "tr": "$$V_{ped,1} = 0{,}50 \\times 0{,}50 \\times 0{,}40 = 0{,}100\\ \\text{m}^3$$\n\n6 adet için:\n$$V_{ped,toplam} = 0{,}100 \\times 6 = 0{,}600\\ \\text{m}^3$$",
+            "en": "$$V_{ped,1} = 0.50 \\times 0.50 \\times 0.40 = 0.100\\ \\text{m}^3$$\n\nFor 6:\n$$V_{ped,total} = 0.100 \\times 6 = 0.600\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Pedestal de betonarme olduğundan (kolon başlangıcı, donatılı), bu hacim de taban plağıyla aynı 'demirli beton' toplamına eklenecektir — iki farklı elemanın hacmi kategori bazında toplanır, karıştırılmaz.",
+            "en": "The pedestal is also reinforced (the start of the column, with rebar), so this volume will be added to the same 'reinforced concrete' total as the base slab — volumes of different members are summed within their category, not mixed across categories."
+          },
+          "result": "V_{ped,toplam} = 0{,}600\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Demirli (betonarme) beton toplamını bul",
+            "en": "Find the total reinforced (betonarme) concrete"
+          },
+          "guiding": {
+            "tr": "Taban ve pedestal hacimlerini birleştirerek toplam betonarme beton miktarını nasıl bulursun?",
+            "en": "How do you combine the base and pedestal volumes to get the total reinforced concrete quantity?"
+          },
+          "hint": {
+            "tr": "İki toplamı topla: 2,592 + 0,600.",
+            "en": "Add the two totals: 2.592 + 0.600."
+          },
+          "work": {
+            "tr": "$$V_{betonarme} = V_{taban,toplam} + V_{ped,toplam} = 2{,}592 + 0{,}600 = 3{,}192\\ \\text{m}^3$$",
+            "en": "$$V_{reinforced} = V_{base,total} + V_{ped,total} = 2.592 + 0.600 = 3.192\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Demirli beton, taşıyıcı (donatılı) tüm elemanların toplamıdır — burada sadece iki eleman türü var ama gerçek bir binada kolon, kiriş, döşeme, lento da bu toplama eklenir.",
+            "en": "Reinforced concrete is the sum of all load-bearing (reinforced) members — here there are only two member types, but in a real building, columns, beams, slabs, and lintels would also be added to this total."
+          },
+          "result": "V_{betonarme} = 3{,}192\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Grobeton tabanının ölçülerini bul",
+            "en": "Find the grobeton base's dimensions"
+          },
+          "guiding": {
+            "tr": "Grobeton, taban plağının her yönünden 0,10 m taşıyor. Grobetonun en ve boy ölçüleri ne olur?",
+            "en": "Grobeton overhangs the base slab by 0.10 m on every side. What are grobeton's width and length dimensions?"
+          },
+          "hint": {
+            "tr": "Her yöne 0,10 m taştığından, her kenara 2×0,10 m eklenir (iki taraf).",
+            "en": "Since it overhangs 0.10 m on every side, add 2×0.10 m to each edge (both sides)."
+          },
+          "work": {
+            "tr": "$$en_{grobeton} = 1{,}20 + 2\\times0{,}10 = 1{,}40\\ \\text{m}$$\n$$boy_{grobeton} = 1{,}20 + 2\\times0{,}10 = 1{,}40\\ \\text{m}$$",
+            "en": "$$width_{grobeton} = 1.20 + 2\\times0.10 = 1.40\\ \\text{m}$$\n$$length_{grobeton} = 1.20 + 2\\times0.10 = 1.40\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Sınavda sık yapılan hata: taşma payını sadece BİR kenara eklemek. Pay 'her yönden' olduğundan simetrik olarak İKİ tarafa (2×0,10) eklenmelidir — bu yüzden grobeton tabanı, betonarme tabandan her boyutta 0,20 m daha büyük çıkar.",
+            "en": "A common exam mistake: adding the overhang to only ONE edge. Since the overhang is 'on every side,' it must be added symmetrically to BOTH sides (2×0.10) — so the grobeton base ends up 0.20 m larger than the reinforced base in every dimension."
+          },
+          "result": "en_{grobeton}=boy_{grobeton}=1{,}40\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Grobeton hacmini bul ve genel toplamı yaz",
+            "en": "Find the grobeton volume and write the overall total"
+          },
+          "guiding": {
+            "tr": "Grobeton hacmini nasıl hesaplarsın, ve 6 temel + betonarme toplamıyla genel beton miktarı nedir?",
+            "en": "How do you compute the grobeton volume, and with 6 footings plus the reinforced total, what is the overall concrete quantity?"
+          },
+          "hint": {
+            "tr": "Hacim = 1,40 × 1,40 × 0,10; sonra 6 ile çarp. Genel toplam = grobeton + betonarme.",
+            "en": "Volume = 1.40 × 1.40 × 0.10; then multiply by 6. Overall total = grobeton + reinforced."
+          },
+          "work": {
+            "tr": "$$V_{grobeton,1} = 1{,}40\\times1{,}40\\times0{,}10 = 0{,}196\\ \\text{m}^3$$\n$$V_{grobeton,toplam} = 0{,}196\\times6 = 1{,}176\\ \\text{m}^3$$\n\n**Genel toplam beton:**\n$$V_{genel} = 1{,}176 + 3{,}192 = 4{,}368\\ \\text{m}^3$$",
+            "en": "$$V_{grobeton,1} = 1.40\\times1.40\\times0.10 = 0.196\\ \\text{m}^3$$\n$$V_{grobeton,total} = 0.196\\times6 = 1.176\\ \\text{m}^3$$\n\n**Overall concrete total:**\n$$V_{overall} = 1.176 + 3.192 = 4.368\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Metraj cetvelinde bu iki kalem AYRI satırlarda tutulur çünkü farklı pozlarla (farklı birim fiyatlarla) ödenirler — grobeton daha düşük dayanımlı ve daha ucuz bir beton sınıfıyla (örn. C8/10), betonarme ise projede öngörülen dayanım sınıfıyla (örn. C25/30) fiyatlandırılır. İkisini tek kalemde toplamak keşifte hataya yol açar.",
+            "en": "In the take-off schedule these two items are kept in SEPARATE rows because they are paid under different poz (different unit prices) — grobeton is priced at a lower, cheaper strength class (e.g. C8/10), while the reinforced concrete uses the design strength class (e.g. C25/30). Merging them into one line item would cause an error in the cost estimate."
+          },
+          "result": "V_{grobeton}=1{,}176\\ \\text{m}^3,\\ V_{betonarme}=3{,}192\\ \\text{m}^3",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "6 temel için: **Demirsiz beton (grobeton) = 1,176 m³**, **Demirli beton (betonarme) = 3,192 m³** (taban 2,592 + pedestal 0,600). Genel toplam beton = 4,368 m³. İki kalem, farklı poz/birim fiyatla ayrı ayrı metraj cetveline yazılır.",
+        "en": "For 6 footings: **Unreinforced concrete (grobeton) = 1.176 m³**, **Reinforced concrete (betonarme) = 3.192 m³** (base 2.592 + pedestal 0.600). Overall concrete total = 4.368 m³. The two items are recorded as separate lines in the take-off schedule, under different poz/unit prices."
+      },
+      "traps": [
+        {
+          "tr": "Grobetonun taşma payını her yöne (2×) eklemek yerine tek kenara eklemek — en ve boy her ikisinde de 0,20 m fazla çıkması gerekir, 0,10 m değil.",
+          "en": "Adding the grobeton overhang to only one edge instead of both sides (2×) — both width and length should come out 0.20 m larger, not 0.10 m."
+        },
+        {
+          "tr": "Grobeton ve betonarme hacimlerini tek bir toplamda birleştirmek — bunlar farklı poz/dayanım sınıflarıyla ayrı ayrı ödenir, metraj cetvelinde ayrı satırlar gerektirir.",
+          "en": "Merging the grobeton and reinforced volumes into a single total — these are paid under different poz/strength classes and require separate lines in the take-off schedule."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya taban plağı kare değil 1,20 m × 1,50 m dikdörtgen olsaydı?",
+            "en": "What if the base slab were a 1.20 m × 1.50 m rectangle instead of square?"
+          },
+          "answer": {
+            "tr": "Hacim hesabı aynı mantıkla yapılır (1,20×1,50×0,30), sadece en ve boy farklı değerler alır. Grobeton payı yine her kenara ayrı ayrı eklenir: (1,20+0,20)×(1,50+0,20) = 1,40×1,70 m.",
+            "en": "The volume calculation follows the same logic (1.20×1.50×0.30), just with different width and length values. The grobeton overhang is still added separately to each edge: (1.20+0.20)×(1.50+0.20) = 1.40×1.70 m."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya binada F1, F2, F3 gibi üç farklı temel tipi olsaydı (her biri farklı adette)?",
+            "en": "What if the building had three different footing types (F1, F2, F3), each with a different count?"
+          },
+          "answer": {
+            "tr": "Her tip için hacim ayrı hesaplanır, kendi adediyle çarpılır, sonra üç tipin hacimleri (kategori bazında: grobeton kendi içinde, betonarme kendi içinde) toplanarak metraj cetveline yazılır — tıpkı kaynaktaki Örnek 3'te F1/F2/F3 için ayrı ayrı hesap yapılması gibi.",
+            "en": "Each type's volume is computed separately, multiplied by its own count, then the three types' volumes are summed within their category (grobeton together, reinforced together) for the take-off schedule — just like the source's Örnek 3, which computes F1/F2/F3 separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-2",
+      "code": "Uygulama 3.2",
+      "title": {
+        "tr": "Döşeme donatı sayısı ve ağırlığının bulunması",
+        "en": "Finding slab bar count and weight"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Betonarme bir döşemede, düz donatı doğrultusuna dik mesnet açıklığı 360 cm'dir. Donatı Ø10/30 olarak projelendirilmiştir (çap Ø10, aralık 30 cm). Döşemenin diğer doğrultudaki (donatı boyunu belirleyen) açıklığı 4,20 m olup, her çubuk mesnetlere 0,10'ar m gömülecektir. a) Düz ve pilye donatı sayılarını bulunuz. b) Bu donatının toplam ağırlığını (kg) hesaplayınız.",
+        "en": "In a reinforced-concrete slab, the support span perpendicular to the straight-bar direction is 360 cm. The bars are specified as Ø10/30 (diameter Ø10, spacing 30 cm). The slab's span in the other direction (which sets the bar length) is 4.20 m, with each bar embedded 0.10 m into each support. a) Find the straight and bent bar counts. b) Compute this reinforcement's total weight (kg)."
+      },
+      "given": [
+        {
+          "symbol": "L_{mesnet}",
+          "value": "360\\ \\text{cm}",
+          "label": {
+            "tr": "Donatıya dik mesnet açıklığı",
+            "en": "Support span perpendicular to the bars"
+          }
+        },
+        {
+          "symbol": "s",
+          "value": "30\\ \\text{cm}",
+          "label": {
+            "tr": "Donatı aralığı (Ø10/30)",
+            "en": "Bar spacing (Ø10/30)"
+          }
+        },
+        {
+          "symbol": "L_{acikl}",
+          "value": "4{,}20\\ \\text{m}",
+          "label": {
+            "tr": "Çubuk boyunu belirleyen döşeme açıklığı",
+            "en": "Slab span setting the bar length"
+          }
+        },
+        {
+          "symbol": "g",
+          "value": "0{,}10\\ \\text{m}",
+          "label": {
+            "tr": "Her mesnede gömme payı (her uçta)",
+            "en": "Embedment length into each support (each end)"
+          }
+        },
+        {
+          "symbol": "w_{\\emptyset10}",
+          "value": "0{,}617\\ \\text{kg/m}",
+          "label": {
+            "tr": "Ø10 birim boy ağırlığı",
+            "en": "Ø10 unit weight"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Düz/pilye donatı sayılarını ve toplam donatı ağırlığını bulmak.",
+        "en": "Find the straight/bent bar counts and the total reinforcement weight."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Aralık sayısını hesapla",
+            "en": "Compute the number of gaps"
+          },
+          "guiding": {
+            "tr": "Mesnet açıklığı donatı aralığına bölündüğünde ne çıkar, ve kalan var mı?",
+            "en": "What do you get when you divide the support span by the bar spacing, and is there a remainder?"
+          },
+          "hint": {
+            "tr": "Aralık sayısı = Mesnet açıklığı / Demir aralığı = 360/30.",
+            "en": "Number of gaps = Support span / Bar spacing = 360/30."
+          },
+          "work": {
+            "tr": "$$\\text{Aralık sayısı} = \\frac{360}{30} = 12{,}0$$\n\nBölme TAM SAYI veriyor — kalan yok.",
+            "en": "$$\\text{Number of gaps} = \\frac{360}{30} = 12.0$$\n\nThe division gives a WHOLE number — no remainder."
+          },
+          "why": {
+            "tr": "Kalan olup olmaması, hangi 3 durumdan hangisinin uygulanacağını belirler. Burada tam bölünme olduğu için en basit durum (Durum 1) geçerlidir: donatı sayısı doğrudan aralık sayısına eşittir.",
+            "en": "Whether there's a remainder determines which of the 3 cases applies. Here the division is exact, so the simplest case (Case 1) applies: the bar count equals the gap count directly."
+          },
+          "result": "\\text{Aralık sayısı} = 12",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Düz ve pilye donatı sayılarını bul",
+            "en": "Find the straight and bent bar counts"
+          },
+          "guiding": {
+            "tr": "Durum 1 kuralına göre (kalan yok) düz donatı sayısı nedir, ve pilye sayısı bundan nasıl türetilir?",
+            "en": "Per the Case 1 rule (no remainder), what is the straight-bar count, and how is the bent count derived from it?"
+          },
+          "hint": {
+            "tr": "Kalan yoksa: düz = aralık sayısı. Pilye = düz − 1.",
+            "en": "No remainder: straight = gap count. Bent = straight − 1."
+          },
+          "work": {
+            "tr": "$$\\text{Düz donatı sayısı} = 12\\ \\text{adet}$$\n$$\\text{Pilye donatı sayısı} = 12 - 1 = 11\\ \\text{adet}$$",
+            "en": "$$\\text{Straight bar count} = 12$$\n$$\\text{Bent bar count} = 12 - 1 = 11$$"
+          },
+          "why": {
+            "tr": "Bu, kaynak PDF'in kendi örneğiyle birebir örtüşür (360/30 örneği) — döşeme düz donatı ile başlayıp düz donatı ile biter, pilyeler aralardaki boşlukları doldurur, bu yüzden her zaman düzden bir eksik çıkar.",
+            "en": "This matches the source PDF's own worked example exactly (the 360/30 case) — the slab starts and ends with a straight bar, bent bars fill the gaps between them, so there is always one fewer bent bar than straight."
+          },
+          "result": "D\\ddot{u}z=12,\\ Pilye=11",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Bir çubuğun boyunu bul",
+            "en": "Find one bar's length"
+          },
+          "guiding": {
+            "tr": "Donatı boyu, döşemenin diğer doğrultudaki açıklığından nasıl türetilir — gömme paylarını unutma.",
+            "en": "How is the bar length derived from the slab's span in the other direction — don't forget the embedment lengths."
+          },
+          "hint": {
+            "tr": "Çubuk boyu = açıklık + 2 × gömme payı (her iki mesnede giren kısım).",
+            "en": "Bar length = span + 2 × embedment length (the portion entering each support)."
+          },
+          "work": {
+            "tr": "$$L_{çubuk} = 4{,}20 + 2\\times0{,}10 = 4{,}40\\ \\text{m}$$",
+            "en": "$$L_{bar} = 4.20 + 2\\times0.10 = 4.40\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Donatı, sadece döşeme açıklığı kadar değil, mesnetlerin İÇİNE de belirli bir payla girer (ankraj/gömme boyu) — bu pay projede/şartnamede belirtilir ve boy hesabına mutlaka eklenmelidir, yoksa ağırlık eksik çıkar.",
+            "en": "Rebar doesn't just span the slab opening — it also extends a certain length INTO the supports (anchorage/embedment) — this length is specified in the drawing/spec and must be added to the length calculation, or the weight will come out short."
+          },
+          "result": "L_{çubuk} = 4{,}40\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Düz ve pilye donatının toplam uzunluğunu bul",
+            "en": "Find the total length of straight and bent bars"
+          },
+          "guiding": {
+            "tr": "12 düz ve 11 pilye çubuğun her biri 4,40 m uzunluğunda olduğuna göre, toplam uzunluklar nedir? (Pilye için de aynı basitleştirilmiş boy kullanılıyor.)",
+            "en": "With 12 straight and 11 bent bars each 4.40 m long, what are the total lengths? (Using the same simplified length for bent bars.)"
+          },
+          "hint": {
+            "tr": "Toplam uzunluk = adet × çubuk boyu, her grup için ayrı ayrı.",
+            "en": "Total length = count × bar length, for each group separately."
+          },
+          "work": {
+            "tr": "$$L_{düz,toplam} = 12 \\times 4{,}40 = 52{,}80\\ \\text{m}$$\n$$L_{pilye,toplam} = 11 \\times 4{,}40 = 48{,}40\\ \\text{m}$$",
+            "en": "$$L_{straight,total} = 12 \\times 4.40 = 52.80\\ \\text{m}$$\n$$L_{bent,total} = 11 \\times 4.40 = 48.40\\ \\text{m}$$"
+          },
+          "why": {
+            "tr": "Gerçek uygulamada pilye donatının bükümü nedeniyle boyu düz donatıdan biraz farklı çıkabilir (kroşe/büküm payı), ama pratikte basitleştirilmiş hesap için aynı açıklık boyu kullanılır — kaynak metin de 'kroşeler dahil boy ölçülür' der, detaylı büküm geometrisine girmez.",
+            "en": "In real practice a bent bar's length may differ slightly from a straight bar's due to the bend geometry, but for a simplified calculation the same span length is used — the source text also just says 'length is measured including hooks,' without detailing the bend geometry."
+          },
+          "result": "L_{düz,toplam}=52{,}80\\ \\text{m},\\ L_{pilye,toplam}=48{,}40\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Ağırlığa çevir ve toplamı bul",
+            "en": "Convert to weight and find the total"
+          },
+          "guiding": {
+            "tr": "Uzunlukları Ø10'un birim boy ağırlığıyla çarparak ağırlığı nasıl bulursun?",
+            "en": "How do you find the weight by multiplying the lengths by Ø10's unit weight?"
+          },
+          "hint": {
+            "tr": "Ağırlık = uzunluk (m) × birim ağırlık (kg/m) = ... × 0,617.",
+            "en": "Weight = length (m) × unit weight (kg/m) = ... × 0.617."
+          },
+          "work": {
+            "tr": "$$W_{düz} = 52{,}80 \\times 0{,}617 = 32{,}58\\ \\text{kg}$$\n$$W_{pilye} = 48{,}40 \\times 0{,}617 = 29{,}86\\ \\text{kg}$$\n\n**Toplam donatı ağırlığı:**\n$$W_{toplam} = 32{,}58 + 29{,}86 = 62{,}44\\ \\text{kg}$$",
+            "en": "$$W_{straight} = 52.80 \\times 0.617 = 32.58\\ \\text{kg}$$\n$$W_{bent} = 48.40 \\times 0.617 = 29.86\\ \\text{kg}$$\n\n**Total reinforcement weight:**\n$$W_{total} = 32.58 + 29.86 = 62.44\\ \\text{kg}$$"
+          },
+          "why": {
+            "tr": "Bu son adım, demir donatı metrajının asıl amacına ulaşır: donatı POZ'ları TON cinsinden ödendiği için (15.160.1003 gibi), boy hesabından ağırlığa geçmek zorunludur — sayı ve boy başlı başına ödeme birimi değildir, sadece ağırlığa varmak için ara adımlardır.",
+            "en": "This final step reaches rebar take-off's actual purpose: since rebar poz are paid PER TON (like 15.160.1003), converting from length to weight is mandatory — the count and length are not payment units themselves, just intermediate steps toward the weight."
+          },
+          "result": "W_{toplam} = 62{,}44\\ \\text{kg}",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "**Düz donatı = 12 adet, Pilye donatı = 11 adet.** Toplam donatı ağırlığı (Ø10, 4,40 m boy ile): **62,44 kg** (düz 32,58 kg + pilye 29,86 kg). Bu değer ton cinsine çevrilerek (0,06244 ton) ilgili poza (15.160.1003, Ø8-Ø12) göre fiyatlandırılır.",
+        "en": "**Straight bars = 12, bent bars = 11.** Total reinforcement weight (Ø10, 4.40 m length): **62.44 kg** (straight 32.58 kg + bent 29.86 kg). This is converted to tons (0.06244 ton) and priced under the relevant poz (15.160.1003, Ø8-Ø12)."
+      },
+      "traps": [
+        {
+          "tr": "Aralık sayısını (12) doğrudan pilye sayısı sanmak — pilye sayısı düz sayısından BİR EKSİK olmalıdır (11), aralık sayısına değil.",
+          "en": "Mistaking the gap count (12) directly for the bent-bar count — the bent count must be ONE LESS than the straight count (11), not equal to the gap count."
+        },
+        {
+          "tr": "Çubuk boyuna mesnede gömme paylarını eklemeyi unutmak — sadece döşeme açıklığını (4,20 m) kullanmak ağırlığı eksik hesaplatır.",
+          "en": "Forgetting to add the embedment lengths to the bar length — using only the slab span (4.20 m) undercounts the weight."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya mesnet açıklığı 360 yerine 375 cm olsaydı (aynı 30 cm aralıkla)?",
+            "en": "What if the support span were 375 cm instead of 360 (same 30 cm spacing)?"
+          },
+          "answer": {
+            "tr": "375/30 = 12,5 → 12 aralık, kalan = 375−360=15 cm. Aralığın yarısı 30/2=15 cm; kalan tam yarıya eşit olduğunda sınırda kalan bir durumdur — pratikte 'yarısından büyük' kuralına (Durum 3) yakın kabul edilip düz=13, pilye=13 alınabilir, ya da dersin verdiği kurala göre eşitlik durumu ayrıca ele alınmalıdır.",
+            "en": "375/30 = 12.5 → 12 gaps, remainder = 375−360=15 cm. Half the spacing is 30/2=15 cm; when the remainder exactly equals half, it's a boundary case — in practice it's often treated per the 'larger than half' rule (Case 3), giving straight=13, bent=13, though the exact convention for the tie case should follow the course's stated rule."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya donatı çapı Ø10 yerine Ø12 olsaydı, ağırlık nasıl değişirdi?",
+            "en": "What if the bar diameter were Ø12 instead of Ø10 — how would the weight change?"
+          },
+          "answer": {
+            "tr": "Sadece birim ağırlık değişir (0,617 yerine 0,888 kg/m), uzunluklar aynı kalır: W_toplam = (52,80+48,40)×0,888 = 101,2×0,888 ≈ 89,87 kg — yaklaşık %44 daha ağır, çünkü ağırlık çapın karesiyle orantılı büyür.",
+            "en": "Only the unit weight changes (0.888 instead of 0.617 kg/m), lengths stay the same: W_total = (52.80+48.40)×0.888 = 101.2×0.888 ≈ 89.87 kg — about 44% heavier, since weight scales roughly with the square of the diameter."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-3",
+      "code": "Uygulama 3.3",
+      "title": {
+        "tr": "Duvar metrajında boşluk düşme (kapı, pencere, küçük delik)",
+        "en": "Void deduction in wall take-off (door, window, small hole)"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "135 mm kalınlığında yatay delikli tuğla ile örülecek bir duvar 6,0 m uzunluğunda ve 3,0 m yüksekliğindedir (poz 15.220.1014). Duvarda 1,0 m × 2,1 m ölçülerinde bir kapı boşluğu, 1,5 m × 1,2 m ölçülerinde bir pencere boşluğu ve 0,3 m × 0,3 m ölçülerinde küçük bir tesisat geçiş deliği bulunmaktadır. Bu duvarın net (ödemeye esas) tuğla duvar alanını hesaplayınız.",
+        "en": "A wall to be built with 135 mm perforated brick is 6.0 m long and 3.0 m high (poz 15.220.1014). It has a 1.0 m × 2.1 m door opening, a 1.5 m × 1.2 m window opening, and a small 0.3 m × 0.3 m utility pass-through hole. Compute the wall's net (payment) brick area."
+      },
+      "given": [
+        {
+          "symbol": "L",
+          "value": "6{,}0\\ \\text{m}",
+          "label": {
+            "tr": "Duvar uzunluğu",
+            "en": "Wall length"
+          }
+        },
+        {
+          "symbol": "H",
+          "value": "3{,}0\\ \\text{m}",
+          "label": {
+            "tr": "Duvar yüksekliği",
+            "en": "Wall height"
+          }
+        },
+        {
+          "symbol": "Kapı",
+          "value": "1{,}0\\times2{,}1\\ \\text{m}",
+          "label": {
+            "tr": "Kapı boşluğu ölçüleri",
+            "en": "Door opening dimensions"
+          }
+        },
+        {
+          "symbol": "Pencere",
+          "value": "1{,}5\\times1{,}2\\ \\text{m}",
+          "label": {
+            "tr": "Pencere boşluğu ölçüleri",
+            "en": "Window opening dimensions"
+          }
+        },
+        {
+          "symbol": "Delik",
+          "value": "0{,}3\\times0{,}3\\ \\text{m}",
+          "label": {
+            "tr": "Küçük tesisat deliği ölçüleri",
+            "en": "Small utility hole dimensions"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Net (ödemeye esas) tuğla duvar alanını bulmak.",
+        "en": "Find the net (payment) brick wall area."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Brüt duvar alanını hesapla",
+            "en": "Compute the gross wall area"
+          },
+          "guiding": {
+            "tr": "Duvarın hiç boşluk yokmuş gibi toplam (brüt) alanı nasıl bulunur?",
+            "en": "How do you find the wall's total (gross) area, as if it had no openings?"
+          },
+          "hint": {
+            "tr": "Brüt alan = uzunluk × yükseklik.",
+            "en": "Gross area = length × height."
+          },
+          "work": {
+            "tr": "$$A_{brüt} = 6{,}0 \\times 3{,}0 = 18{,}0\\ \\text{m}^2$$",
+            "en": "$$A_{gross} = 6.0 \\times 3.0 = 18.0\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Metrajın ilk adımı her zaman en basit haliyle brüt ölçüdür — projedeki dış hatlar üzerinden hesaplanır. Boşluklar bir sonraki adımda ele alınacak.",
+            "en": "The first step of take-off is always the simplest gross measurement — computed from the drawing's outer boundary. Openings are handled in the next step."
+          },
+          "result": "A_{brüt} = 18{,}0\\ \\text{m}^2",
+          "check": null,
+          "story": {
+            "title": {
+              "tr": "Duvar metrajında boşluk düşme",
+              "en": "Void deduction in wall take-off"
+            },
+            "xLabel": "m",
+            "yLabel": "m",
+            "xDomain": [
+              -0.5,
+              6.5
+            ],
+            "yDomain": [
+              -0.5,
+              3.5
+            ],
+            "square": false,
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Duvar cephesi: 6,0 m uzunluk × 3,0 m yükseklik → brüt alan 18,0 m².",
+                  "en": "Wall elevation: 6.0 m long × 3.0 m high → gross area 18.0 m²."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        6,
+                        0
+                      ],
+                      [
+                        6,
+                        3
+                      ],
+                      [
+                        0,
+                        3
+                      ]
+                    ],
+                    "color": "ink",
+                    "width": 2
+                  },
+                  {
+                    "type": "text",
+                    "x": 3,
+                    "y": -0.3,
+                    "text": {
+                      "tr": "6,0 m",
+                      "en": "6.0 m"
+                    },
+                    "color": "ink"
+                  },
+                  {
+                    "type": "text",
+                    "x": -0.35,
+                    "y": 1.5,
+                    "text": {
+                      "tr": "3,0 m",
+                      "en": "3.0 m"
+                    },
+                    "color": "ink"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Kapı boşluğunu ekle: 1,0 m × 2,1 m = 2,10 m² (>0,10 m² → düşülecek).",
+                  "en": "Add the door void: 1.0 m × 2.1 m = 2.10 m² (>0.10 m² → will be deducted)."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        0.7,
+                        0
+                      ],
+                      [
+                        1.7,
+                        0
+                      ],
+                      [
+                        1.7,
+                        2.1
+                      ],
+                      [
+                        0.7,
+                        2.1
+                      ]
+                    ],
+                    "color": "clay",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 1.2,
+                    "y": 1.0,
+                    "text": {
+                      "tr": "Kapı\n2,10 m²",
+                      "en": "Door\n2.10 m²"
+                    },
+                    "color": "clay"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Pencere boşluğunu ekle: 1,5 m × 1,2 m = 1,80 m² (>0,10 m² → düşülecek).",
+                  "en": "Add the window void: 1.5 m × 1.2 m = 1.80 m² (>0.10 m² → will be deducted)."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        3,
+                        1.3
+                      ],
+                      [
+                        4.5,
+                        1.3
+                      ],
+                      [
+                        4.5,
+                        2.5
+                      ],
+                      [
+                        3,
+                        2.5
+                      ]
+                    ],
+                    "color": "deniz",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 3.75,
+                    "y": 1.9,
+                    "text": {
+                      "tr": "Pencere\n1,80 m²",
+                      "en": "Window\n1.80 m²"
+                    },
+                    "color": "deniz"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Küçük tesisat deliği (0,3×0,3=0,09 m²) DÜŞÜLMEZ çünkü 0,10 m²'den küçük — poz kuralı böyle.",
+                  "en": "A small utility hole (0.3×0.3=0.09 m²) is NOT deducted since it's under 0.10 m² — that is the poz rule."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        5.2,
+                        2.2
+                      ],
+                      [
+                        5.5,
+                        2.2
+                      ],
+                      [
+                        5.5,
+                        2.5
+                      ],
+                      [
+                        5.2,
+                        2.5
+                      ]
+                    ],
+                    "color": "faint",
+                    "width": 1.2
+                  },
+                  {
+                    "type": "text",
+                    "x": 5.35,
+                    "y": 2.9,
+                    "text": {
+                      "tr": "0,09 m² (düşülmez)",
+                      "en": "0.09 m² (not deducted)"
+                    },
+                    "color": "faint",
+                    "size": 12
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Net duvar alanı = 18,0 − 2,10 − 1,80 = 14,10 m² (küçük delik hesaba katılmadı).",
+                  "en": "Net wall area = 18.0 − 2.10 − 1.80 = 14.10 m² (the small hole is ignored)."
+                },
+                "add": [
+                  {
+                    "type": "text",
+                    "x": 3,
+                    "y": -0.35,
+                    "text": {
+                      "tr": "Net = 14,10 m²",
+                      "en": "Net = 14.10 m²"
+                    },
+                    "color": "moss",
+                    "size": 16
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": {
+            "tr": "Kapı ve pencere boşluklarının alanlarını hesapla",
+            "en": "Compute the door and window opening areas"
+          },
+          "guiding": {
+            "tr": "Kapı ve pencerenin her birinin alanı nedir, ve 0,10 m² eşiğiyle karşılaştırınca ne görürsün?",
+            "en": "What is each opening's area, and how do they compare to the 0.10 m² threshold?"
+          },
+          "hint": {
+            "tr": "Alan = en × boy, her boşluk için ayrı ayrı.",
+            "en": "Area = width × height, for each opening separately."
+          },
+          "work": {
+            "tr": "$$A_{kapı} = 1{,}0 \\times 2{,}1 = 2{,}10\\ \\text{m}^2$$\n$$A_{pencere} = 1{,}5 \\times 1{,}2 = 1{,}80\\ \\text{m}^2$$\n\nİkisi de $0{,}10\\ \\text{m}^2$'den büyük.",
+            "en": "$$A_{door} = 1.0 \\times 2.1 = 2.10\\ \\text{m}^2$$\n$$A_{window} = 1.5 \\times 1.2 = 1.80\\ \\text{m}^2$$\n\nBoth exceed $0.10\\ \\text{m}^2$."
+          },
+          "why": {
+            "tr": "Poz kuralı gereği 0,10 m²'den büyük her boşluk brüt alandan düşülür — kapı ve pencere bu eşiği fazlasıyla aştığından ikisi de düşülecek boşluklar listesine girer.",
+            "en": "Per the poz rule, every opening larger than 0.10 m² is deducted from the gross area — the door and window both far exceed this threshold, so both go on the deduction list."
+          },
+          "result": "A_{kapı}=2{,}10\\ \\text{m}^2,\\ A_{pencere}=1{,}80\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Küçük deliğin düşülüp düşülmeyeceğine karar ver",
+            "en": "Decide whether the small hole is deducted"
+          },
+          "guiding": {
+            "tr": "0,3 m × 0,3 m'lik delik kaç m²'dir, ve 0,10 m² eşiğine göre düşülür mü?",
+            "en": "How many m² is the 0.3 m × 0.3 m hole, and per the 0.10 m² threshold, is it deducted?"
+          },
+          "hint": {
+            "tr": "Alan = 0,3 × 0,3. Bu değeri 0,10 m² ile karşılaştır.",
+            "en": "Area = 0.3 × 0.3. Compare this to 0.10 m²."
+          },
+          "work": {
+            "tr": "$$A_{delik} = 0{,}3 \\times 0{,}3 = 0{,}09\\ \\text{m}^2$$\n\n$0{,}09 < 0{,}10\\ \\text{m}^2$ olduğundan poz kuralına göre **düşülmez**.",
+            "en": "$$A_{hole} = 0.3 \\times 0.3 = 0.09\\ \\text{m}^2$$\n\nSince $0.09 < 0.10\\ \\text{m}^2$, per the poz rule it is **NOT deducted**."
+          },
+          "why": {
+            "tr": "Bu, duvar metrajının sınav tuzağı olan kuralıdır: '0,10 m²'den küçük boşluklar düşülmez' cümlesi, küçük deliklerin varlığını YOK saymak anlamına gelir — sanki hiç delik açılmamış gibi tam duvar alanı ödenir. Sınırda olan (tam 0,10 m²) değerler için kural metnini dikkatli okumak gerekir.",
+            "en": "This is wall take-off's classic exam trap: 'voids under 0.10 m² are not deducted' means small holes are treated as if they don't exist — the wall is paid as if fully solid there. Boundary values (exactly 0.10 m²) require careful reading of the rule text."
+          },
+          "result": "A_{delik}=0{,}09\\ \\text{m}^2\\ (d\\ddot{u}\\c{s}\\ddot{u}lmez)",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Net duvar alanını hesapla",
+            "en": "Compute the net wall area"
+          },
+          "guiding": {
+            "tr": "Brüt alandan hangi boşlukları çıkararak net (ödemeye esas) alanı bulursun?",
+            "en": "Which openings do you subtract from the gross area to get the net (payment) area?"
+          },
+          "hint": {
+            "tr": "Net = brüt − (kapı + pencere); küçük delik hesaba katılmaz.",
+            "en": "Net = gross − (door + window); the small hole is not included."
+          },
+          "work": {
+            "tr": "$$A_{net} = 18{,}0 - (2{,}10 + 1{,}80) = 18{,}0 - 3{,}90 = 14{,}10\\ \\text{m}^2$$",
+            "en": "$$A_{net} = 18.0 - (2.10 + 1.80) = 18.0 - 3.90 = 14.10\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Bu, 15.220.1014 pozunun 1 m² birim fiyatıyla çarpılarak duvarın maliyetini verecek olan **ödemeye esas** metraj değeridir. Küçük deliğin dahil edilmemesi net alanı hafifçe (0,09 m²) daha yüksek tutar — poz kuralının kasıtlı bir basitleştirmesidir.",
+            "en": "This is the **payment-basis** take-off value that, multiplied by poz 15.220.1014's unit price, gives the wall's cost. Not deducting the small hole keeps the net area slightly (0.09 m²) higher — a deliberate simplification built into the poz rule."
+          },
+          "result": "A_{net} = 14{,}10\\ \\text{m}^2",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "Net (ödemeye esas) tuğla duvar alanı: $\\boxed{A_{net} = 14{,}10\\ \\text{m}^2}$. Kapı (2,10 m²) ve pencere (1,80 m²) düşülür; 0,09 m²'lik küçük tesisat deliği 0,10 m² eşiğinin altında kaldığından düşülmez.",
+        "en": "Net (payment) brick wall area: $\\boxed{A_{net} = 14.10\\ \\text{m}^2}$. The door (2.10 m²) and window (1.80 m²) are deducted; the 0.09 m² small utility hole stays under the 0.10 m² threshold and is not deducted."
+      },
+      "traps": [
+        {
+          "tr": "Küçük deliği de brüt alandan düşürmek — poz kuralı 0,10 m²'den KÜÇÜK boşlukları düşürmemeyi açıkça belirtir.",
+          "en": "Also deducting the small hole from the gross area — the poz rule explicitly says voids SMALLER than 0.10 m² are not deducted."
+        },
+        {
+          "tr": "Kapı/pencere alanlarını yanlış çarpmak (en ile boyu karıştırmak) — 1,0×2,1 ile 2,1×1,0 aynı sonucu verir ama boyutları etiketlerken dikkatli olunmalı.",
+          "en": "Miscomputing the door/window areas (mixing up width and height) — 1.0×2.1 and 2.1×1.0 give the same result, but dimension labels must still be tracked carefully."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya küçük delik 0,35 m × 0,35 m olsaydı (0,1225 m²)?",
+            "en": "What if the small hole were 0.35 m × 0.35 m (0.1225 m²) instead?"
+          },
+          "answer": {
+            "tr": "0,1225 m² > 0,10 m² olduğundan artık düşülmesi gerekirdi: Net alan = 18,0 − 2,10 − 1,80 − 0,1225 = 13,9775 m². Bu, eşiğin hemen üzerindeki küçük bir boşluğun bile sonucu değiştirebileceğini gösterir.",
+            "en": "Since 0.1225 m² > 0.10 m², it would now need to be deducted: Net area = 18.0 − 2.10 − 1.80 − 0.1225 = 13.9775 m². This shows that even a small opening just over the threshold changes the result."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya duvarda 2 adet aynı boyutta kapı olsaydı?",
+            "en": "What if the wall had 2 doors of the same size?"
+          },
+          "answer": {
+            "tr": "Kapı boşluğu toplamı 2×2,10=4,20 m² olur, net alan = 18,0−4,20−1,80 = 12,0 m² olurdu — her tekrarlayan boşluk, adediyle çarpılarak toplam düşülecek alana eklenir.",
+            "en": "The total door void becomes 2×2.10=4.20 m², so net area = 18.0−4.20−1.80 = 12.0 m² — every repeated opening is multiplied by its count and added to the total deduction."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3-4",
+      "code": "Uygulama 3.4",
+      "title": {
+        "tr": "Kademeli tekil temelin kalıp metrajı",
+        "en": "Formwork take-off for a stepped isolated footing"
+      },
+      "difficulty": 3,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Bir binadaki kademeli (podyumlu) tekil temel iki bölümden oluşur: kare kesitli **taban kademesi** (kenar 1,20 m, yükseklik 0,30 m) ve üzerindeki kare kesitli **pedestal (kolon çıkıntısı)** (kenar 0,50 m, yükseklik 0,40 m). Taban altı zemine oturduğundan ve pedestal üstten kolonla devam ettiğinden bu yüzeylerde kalıp gerekmez — sadece dışa bakan düşey yüzeyler kalıplanır. Binada bu tipte 6 adet aynı temel bulunmaktadır. a) Tek bir temelin toplam kalıp alanını hesaplayınız. b) 6 temel için toplam kalıp metrajını bulunuz.",
+        "en": "A stepped (podium) isolated footing in a building has two parts: a square **base step** (side 1.20 m, height 0.30 m) and a square **pedestal (column stub)** on top (side 0.50 m, height 0.40 m). No formwork is needed on the base's underside (rests on soil) or the pedestal's top (continues into the column) — only the exposed vertical faces are formed. The building has 6 identical footings of this type. a) Compute one footing's total formwork area. b) Find the total formwork take-off for the 6 footings."
+      },
+      "given": [
+        {
+          "symbol": "a_{taban}",
+          "value": "1{,}20\\ \\text{m}",
+          "label": {
+            "tr": "Taban kademesi kenar uzunluğu (kare)",
+            "en": "Base step side length (square)"
+          }
+        },
+        {
+          "symbol": "h_{taban}",
+          "value": "0{,}30\\ \\text{m}",
+          "label": {
+            "tr": "Taban kademesi yüksekliği",
+            "en": "Base step height"
+          }
+        },
+        {
+          "symbol": "a_{ped}",
+          "value": "0{,}50\\ \\text{m}",
+          "label": {
+            "tr": "Pedestal kenar uzunluğu (kare)",
+            "en": "Pedestal side length (square)"
+          }
+        },
+        {
+          "symbol": "h_{ped}",
+          "value": "0{,}40\\ \\text{m}",
+          "label": {
+            "tr": "Pedestal yüksekliği",
+            "en": "Pedestal height"
+          }
+        },
+        {
+          "symbol": "n",
+          "value": "6\\ \\text{adet}",
+          "label": {
+            "tr": "Temel adedi",
+            "en": "Number of footings"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Bir temelin ve 6 temelin toplam kalıp (formwork) alanını bulmak.",
+        "en": "Find the formwork area for one footing and for all 6."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Hangi yüzeylerin kalıp gerektirdiğine karar ver",
+            "en": "Decide which surfaces need formwork"
+          },
+          "guiding": {
+            "tr": "Bu kademeli temelde taze betona hangi yüzeylerden şekil verilmesi gerekir — taban altı ve pedestal üstü dahil mi?",
+            "en": "For this stepped footing, which surfaces need to shape the fresh concrete — does that include the base's underside and the pedestal's top?"
+          },
+          "hint": {
+            "tr": "Kalıp metrajı kuralı: sadece kalıp GÖREN yüzeyler ölçülür. Zemine oturan ve kolonla devam eden yüzeyler kalıp görmez.",
+            "en": "Formwork take-off rule: only surfaces that ARE FORMED are measured. Surfaces resting on soil or continuing into the column are not formed."
+          },
+          "work": {
+            "tr": "Taban ALTI zemine (veya grobetona) oturur — kalıba gerek yoktur. Pedestal ÜSTÜ kolonla devam eder — orası da açık kalır, kalıp görmez. Kalıp SADECE her iki kademenin **dışa bakan düşey (yan) yüzeylerinde** gereklidir.",
+            "en": "The base's UNDERSIDE rests on soil (or grobeton) — no formwork needed. The pedestal's TOP continues into the column — that stays open too, unformed. Formwork is needed ONLY on the **exposed vertical (side) faces** of both steps."
+          },
+          "why": {
+            "tr": "Kalıp Metrajı notunun temel prensibi budur: 'kalıp gören yüzey alanları' hesaplanır, kalıba HİÇ değmeyen yüzeyler (temas etmeyenler) metraja girmez. Bu prensibi atlayıp tüm yüzeyleri (üst+alt+yan) toplamak, sınavda en sık yapılan hatadır.",
+            "en": "This is the core principle of the Kalıp Metrajı note: 'formwork-contacted surface areas' are computed; surfaces that NEVER touch formwork are excluded from take-off. Skipping this principle and summing all faces (top+bottom+sides) is the most common exam mistake."
+          },
+          "result": null,
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Taban kademesinin kalıp alanını hesapla",
+            "en": "Compute the base step's formwork area"
+          },
+          "guiding": {
+            "tr": "Taban kademesinin dört yan yüzünün toplam alanı nasıl bulunur?",
+            "en": "How do you find the total area of the base step's four side faces?"
+          },
+          "hint": {
+            "tr": "Kalıp alanı = çevre × yükseklik. Kare çevresi = 4 × kenar.",
+            "en": "Formwork area = perimeter × height. Square perimeter = 4 × side."
+          },
+          "work": {
+            "tr": "$$\\text{Çevre}_{taban} = 4 \\times 1{,}20 = 4{,}80\\ \\text{m}$$\n$$A_{kalıp,taban} = 4{,}80 \\times 0{,}30 = 1{,}44\\ \\text{m}^2$$",
+            "en": "$$\\text{Perimeter}_{base} = 4 \\times 1.20 = 4.80\\ \\text{m}$$\n$$A_{formwork,base} = 4.80 \\times 0.30 = 1.44\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Düşey bir yüzeyin kalıp alanı her zaman 'çevre × yükseklik' formülüyle bulunur — tıpkı bir kutunun yan yüzey alanını bulmak gibi. Taban ve pedestal farklı kademeler olduğundan bu hesap AYRI yapılmalıdır, tek bir ortalama çevre kullanılamaz.",
+            "en": "A vertical surface's formwork area always follows 'perimeter × height' — like finding a box's lateral surface area. Since the base and pedestal are different steps, this must be computed SEPARATELY — you cannot use one averaged perimeter."
+          },
+          "result": "A_{kalıp,taban} = 1{,}44\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Pedestalin kalıp alanını hesapla",
+            "en": "Compute the pedestal's formwork area"
+          },
+          "guiding": {
+            "tr": "Aynı mantıkla pedestalin dört yan yüzünün kalıp alanı nedir?",
+            "en": "Using the same logic, what is the pedestal's four-side formwork area?"
+          },
+          "hint": {
+            "tr": "Çevre = 4 × 0,50; alan = çevre × 0,40.",
+            "en": "Perimeter = 4 × 0.50; area = perimeter × 0.40."
+          },
+          "work": {
+            "tr": "$$\\text{Çevre}_{ped} = 4 \\times 0{,}50 = 2{,}00\\ \\text{m}$$\n$$A_{kalıp,ped} = 2{,}00 \\times 0{,}40 = 0{,}80\\ \\text{m}^2$$",
+            "en": "$$\\text{Perimeter}_{ped} = 4 \\times 0.50 = 2.00\\ \\text{m}$$\n$$A_{formwork,ped} = 2.00 \\times 0.40 = 0.80\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Pedestal daha küçük kesitli olduğundan çevresi de küçük çıkar (2,00 m < 4,80 m), ama bu kademe de kendi yüksekliği kadar (0,40 m) kalıplanmalıdır — küçük kesit, kalıba gerek olmadığı anlamına gelmez.",
+            "en": "Since the pedestal has a smaller cross-section, its perimeter is smaller too (2.00 m < 4.80 m), but this step still needs formwork for its own height (0.40 m) — a smaller cross-section doesn't mean formwork isn't needed."
+          },
+          "result": "A_{kalıp,ped} = 0{,}80\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Tek temelin toplam kalıp alanını bul",
+            "en": "Find one footing's total formwork area"
+          },
+          "guiding": {
+            "tr": "İki kademenin kalıp alanlarını birleştirerek tek bir temelin toplam kalıp alanını nasıl bulursun?",
+            "en": "How do you combine the two steps' formwork areas to get one footing's total?"
+          },
+          "hint": {
+            "tr": "İki alanı topla: 1,44 + 0,80.",
+            "en": "Add the two areas: 1.44 + 0.80."
+          },
+          "work": {
+            "tr": "$$A_{kalıp,1\\ temel} = 1{,}44 + 0{,}80 = 2{,}24\\ \\text{m}^2$$",
+            "en": "$$A_{formwork,1\\ footing} = 1.44 + 0.80 = 2.24\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Bu, poz 15.180.1002 (ahşap düz yüzeyli kalıp) veya benzer bir poza göre 1 temel için ödenecek kalıp miktarıdır — kalıp iskelesi ayrıca ödendiğinden, bu 2,24 m² sadece kalıp YÜZEYİ için geçerlidir, iskele metrajı ayrı hesaplanmalıdır.",
+            "en": "This is the formwork quantity payable for 1 footing under poz 15.180.1002 (timber flat-surface formwork) or similar — since scaffolding is paid separately, this 2.24 m² is only for the formwork SURFACE; scaffolding take-off must be computed separately."
+          },
+          "result": "A_{kalıp,1\\ temel} = 2{,}24\\ \\text{m}^2",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "6 temel için toplam kalıp metrajını bul",
+            "en": "Find the total formwork take-off for 6 footings"
+          },
+          "guiding": {
+            "tr": "Bina genelinde 6 adet aynı temel varsa, toplam kalıp metrajı nasıl bulunur?",
+            "en": "With 6 identical footings across the building, how is the total formwork take-off found?"
+          },
+          "hint": {
+            "tr": "Tek temel alanını 6 ile çarp.",
+            "en": "Multiply the single-footing area by 6."
+          },
+          "work": {
+            "tr": "$$A_{kalıp,toplam} = 2{,}24 \\times 6 = 13{,}44\\ \\text{m}^2$$",
+            "en": "$$A_{formwork,total} = 2.24 \\times 6 = 13.44\\ \\text{m}^2$$"
+          },
+          "why": {
+            "tr": "Metraj cetveline yazılacak nihai satır budur: '15.180.1002 — Temel kalıbı — 13,44 m²'. Bu değer, benzer eleman sayısı (6 adet) ile birim kalıp alanının (2,24 m²) çarpımından gelir — metraj cetvelinin 'benzer eleman sayısı' sütununun tam olarak bu amaçla var olduğunu gösterir.",
+            "en": "This is the final line to enter in the take-off schedule: '15.180.1002 — Footing formwork — 13.44 m²'. This comes from multiplying the count of similar elements (6) by the unit formwork area (2.24 m²) — showing exactly why the take-off schedule has a 'similar element count' column."
+          },
+          "result": "A_{kalıp,toplam} = 13{,}44\\ \\text{m}^2",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "Bir temelin kalıp alanı: $A_{kalıp,1} = 2{,}24\\ \\text{m}^2$ (taban 1,44 + pedestal 0,80). **6 temel için toplam kalıp metrajı: $\\boxed{13{,}44\\ \\text{m}^2}$**. Taban altı ve pedestal üstü kalıba girmez; kalıp iskelesi ayrı poz/kalemle ödenir.",
+        "en": "One footing's formwork area: $A_{formwork,1} = 2.24\\ \\text{m}^2$ (base 1.44 + pedestal 0.80). **Total formwork for 6 footings: $\\boxed{13.44\\ \\text{m}^2}$**. The base's underside and pedestal's top are not formed; scaffolding is paid under a separate poz/line item."
+      },
+      "traps": [
+        {
+          "tr": "Taban altını veya pedestal üstünü de kalıp alanına dahil etmek — bu yüzeyler sırasıyla zemine oturur ve kolonla devam eder, kalıp görmez.",
+          "en": "Including the base's underside or pedestal's top in the formwork area — these surfaces rest on soil or continue into the column and are never formed."
+        },
+        {
+          "tr": "Taban ve pedestalin çevrelerini karıştırıp tek bir ortalama çevre kullanmak — her kademenin kendi çevresi × kendi yüksekliği ayrı ayrı hesaplanmalıdır.",
+          "en": "Mixing up the base's and pedestal's perimeters and using one averaged perimeter — each step's own perimeter × its own height must be computed separately."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya taban dikdörtgen (1,20×1,50 m) olsaydı, kare değil?",
+            "en": "What if the base were rectangular (1.20×1.50 m) instead of square?"
+          },
+          "answer": {
+            "tr": "Çevre formülü değişir: çevre = 2×(1,20+1,50) = 5,40 m (kare çevresi formülü 4×kenar artık geçerli değil). Kalıp alanı = 5,40×0,30 = 1,62 m² olurdu.",
+            "en": "The perimeter formula changes: perimeter = 2×(1.20+1.50) = 5.40 m (the square formula 4×side no longer applies). Formwork area = 5.40×0.30 = 1.62 m²."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya temel taban altı zemine değil de başka bir betonarme elemana (örneğin radye temel) otursaydı ve orada da bir ayırıcı kalıp gerekseydi?",
+            "en": "What if the footing's underside sat on another reinforced-concrete element (e.g. a raft foundation) requiring a separating formwork layer there too?"
+          },
+          "answer": {
+            "tr": "O zaman taban alt yüzeyinin alanı da (1,20×1,20=1,44 m²) kalıp metrajına eklenirdi, çünkü artık o yüzey de gerçekten kalıp görüyor demektir — kural her zaman 'gerçekte kalıba temas eden yüzey neresi' sorusuna göre uygulanır, sabit bir şablon değildir.",
+            "en": "Then the base's underside area (1.20×1.20=1.44 m²) would also be added to the formwork take-off, since that surface would genuinely be in contact with formwork — the rule is always applied based on 'which surface actually touches formwork,' not a fixed template."
+          }
+        }
+      ]
+    }
+  ]
+}

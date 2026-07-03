@@ -1,0 +1,2834 @@
+{
+  "unit": 2,
+  "slug": "kazi-dolgu",
+  "title": {
+    "tr": "Kazı ve Dolgu İşleri",
+    "en": "Excavation and Fill Works"
+  },
+  "tagline": {
+    "tr": "Zemin sınıfları, hacim hesabı ve en kesit yöntemi",
+    "en": "Soil classes, volume calculation, and the cross-section method"
+  },
+  "sources": {
+    "videos": [
+      {
+        "id": "v03-kazi-isleri",
+        "title": "Kazı İşleri",
+        "length": "7:29"
+      }
+    ],
+    "pdfs": [
+      "_Öğrenci_Insaat-Yonetimi-1-Kazi-ve-Dolgu-Islemleri.pdf"
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "title": {
+        "tr": "Kazı Nedir ve Neden Yapılır?",
+        "en": "What Is Excavation and Why Is It Done?"
+      },
+      "body": {
+        "tr": "**Kazı (hafriyat)**, bir yapının temel zeminine oturtulması, çevre düzenlemesi ve/veya başka amaçlarla zemin malzemesinin yerinden alınmasıdır. Her inşaat projesinin — ister bir gökdelen ister basit bir duvar olsun — ilk ve en kritik adımı budur, çünkü nihai amaç yapının üzerine güvenle oturabileceği sağlam bir zemin hazırlamaktır.\n\nKazı işleri sadece bina temelleriyle sınırlı değildir; inşaat mühendisliğinde en yaygın olarak şu alanlarda karşımıza çıkar:\n\n- **Yol** yapımı\n- **Demiryolu** yapımı\n- **Kanal** yapımı\n- **Set** (baraj/dolgu seti) yapımı\n- **Bina temelleri**\n\nBu derste asıl odağımız bina temellerinde kazı ve dolgu olacak. Miktarları doğru hesaplayabilmek için toprak işi çizimlerini (plankote, kesitler) okuyabilmek ve az miktarda geometrik hayal gücüne sahip olmak gerekir — çünkü kazı hacmi hesabı temelde üç boyutlu bir şekli (arazi + bina oturumu) sayılara dökme işidir.",
+        "en": "**Excavation** is the removal of soil material to seat a structure on its foundation soil, for site grading, or for other purposes. It is the first and arguably most critical step of any construction project — from a skyscraper to a simple wall — because the ultimate goal is to prepare solid ground the structure can safely rest on.\n\nExcavation work is not limited to building foundations; in civil engineering it most commonly appears in:\n\n- **Road** construction\n- **Railway** construction\n- **Canal** construction\n- **Levee/dam** construction\n- **Building foundations**\n\nThis unit focuses on excavation and fill for building foundations. To calculate quantities correctly you need to be able to read earthwork drawings (site-elevation surveys, cross-sections) and have some geometric imagination — because excavation-volume calculation is essentially turning a 3D shape (terrain + building footprint) into numbers."
+      },
+      "story": null
+    },
+    {
+      "id": "n2",
+      "title": {
+        "tr": "Plankote ve Serbest Kazı Kotunun Belirlenmesi",
+        "en": "Site Survey (Plankote) and Determining the Free-Excavation Elevation"
+      },
+      "body": {
+        "tr": "**Plankote**, arazinin üç boyutlu bir haritasıdır: üzerindeki her noktanın deniz seviyesine göre yüksekliğini (kotunu) gösterir. Kazı miktarlarını belirlemek için arazi üzerinde kot ölçümleri yapılıp plan üzerinde gösterilir — buna **plankote hazırlanması** denir. Bu harita olmadan hiçbir hacim hesabı yapılamaz; projenin adeta yol haritasıdır.\n\nYüzey kazısı (serbest kazı) ile derin kazı arasındaki sınırı belirlemek için mühendisler üç adımlı bir yöntem izler:\n\n1. **Plankote ve vaziyet planı çakıştırılması** — binanın plankotesi ile vaziyet planı üst üste konur.\n2. **Çalışma paylarının eklenmesi** — kalıp kurmak ve rahat çalışmak için temel çıkmalarına pay eklenir: **temellerde 50 cm**, **perdelerde 100 cm**.\n3. **En düşük doğal arazi kotunun tespiti** — bu genişletilmiş sınırlar içindeki en alçak doğal arazi kotu bulunur. Bu kot, yaklaşık olarak **serbest kazı kotudur**.\n\nBu kotun üzerinde kalan tüm hafriyat **serbest kazı**, bu kottan temel taban kotuna kadar olan hafriyat ise **derin kazı** olarak adlandırılır.\n\nÖzel durumlar:\n\n- Arazi eğimli değilse, doğal arazi kotu doğrudan serbest kazı kotu kabul edilir — yani yapılacak hafriyatın **tamamı derin kazı** olur.\n- Birden fazla bina varsa, serbest kazı kotu **her bina için ayrı ayrı** belirlenir.\n- Birbirine çok yakın binalarda kazı işleri aynı anda yapılıyorsa, kazı şevleri iç içe düşeceğinden serbest kazı kotu **en düşük kottaki binanın kotuna göre** belirlenir.\n- Kazılar farklı zamanlarda yapılıyorsa, serbest kazı kotu yine **her bina için ayrı ayrı** belirlenir.",
+        "en": "A **plankote** (site-elevation survey) is a three-dimensional map of the terrain: it shows the elevation of every point relative to sea level. To determine excavation quantities, elevation measurements are taken on-site and plotted on a plan — this process is called **preparing the plankote**. No volume calculation is possible without this map; it is the project's roadmap.\n\nTo find the boundary between surface (free) excavation and deep excavation, engineers follow a three-step method:\n\n1. **Overlay the plankote and the site plan** — the building's plankote is superimposed on the site plan.\n2. **Add working margins** — margins are added to the foundation overhang for formwork and working room: **50 cm for footings**, **100 cm for shear walls (perde)**.\n3. **Find the lowest natural ground elevation** — the lowest natural ground elevation within these expanded boundaries is found. This elevation is approximately the **free-excavation elevation**.\n\nAll earthwork above this elevation is called **free excavation (serbest kazı)**; earthwork from this elevation down to the foundation base elevation is called **deep excavation (derin kazı)**.\n\nSpecial cases:\n\n- If the terrain is not sloped, the natural ground elevation is taken directly as the free-excavation elevation — meaning **all** of the earthwork is deep excavation.\n- If there are multiple buildings, the free-excavation elevation is determined **separately for each building**.\n- If buildings are very close together and excavated simultaneously, their excavation slopes overlap, so the free-excavation elevation is set **based on the building with the lowest elevation**.\n- If excavations happen at different times, the free-excavation elevation is again determined **separately for each building**."
+      },
+      "story": null
+    },
+    {
+      "id": "n3",
+      "title": {
+        "tr": "Kazı Araçlarına ve Şekline Göre Sınıflandırma",
+        "en": "Classification by Excavation Tools and by Shape"
+      },
+      "body": {
+        "tr": "Kazı işleri temelde iki ana başlıkta incelenir: **hangi aletlerin kullanıldığı** (nasıl kazıldığı) ve **kazı sonunda ortaya çıkan şekil** (ne kazıldığı).\n\n**1) Kullanılan kazı araçlarına göre kazılar:**\n\n| Tür | Ne zaman kullanılır |\n|---|---|\n| El aletleri ile yapılan kazılar | Küçük ölçekli veya hassas kazı gerektiren alanlarda |\n| Makineler ile yapılan kazılar | Büyük ölçekli projelerde, verimlilik ve hız için (ekskavatör, yükleyici) |\n| Patlayıcı maddeler ile yapılan kazılar | Sert kaya formasyonlarında veya geniş alanlarda |\n\n**2) Kazı alanının şekline göre kazılar:**\n\n- **Serbest Kazı (Tesviye Kazısı):** Bina inşaatlarında kazı veya temel uygulama projesi çevresinin doğal zeminle kesiştiği en alçak noktadan geçen **sıfır düzleminin üstünde** kalan düzleme kazısıdır. Yüzey düzeltme/tesviye amaçlıdır.\n- **Derin Kazı:** Serbest ve özel kazıların dışında, doğal zemin seviyesinin **altında** kalan toprağın kürek, çıkrık ve benzeri el araçları veya iş makineleri ile aşağıdan yukarı çıkarılması şeklinde yapılan kazılardır. İkiye ayrılır:\n  - **Dar Derin Kazı:** Taban genişliği **1.00 m'den az** olan derin kazılar.\n  - **Geniş Derin Kazı:** Taban genişliği **1.00 m ve daha fazla** olan derin kazılar.\n- **Özel Kazı:** Tünel kazısı, galeri kazısı, su altında hava basınçlı keson kazısı ve **8 metreden daha derin kuyuların** kazısı gibi özel teknik gerektiren kazılardır.\n\nBu iki sınıflandırma birbirinden bağımsızdır: örneğin bir kazı hem \"makine ile\" hem de \"geniş derin kazı\" olabilir — nitekim kazı pozlarının kodlanması da tam bu iki eksene göre yapılır (bkz. Kazı Pozları notu).",
+        "en": "Excavation works are studied under two main headings: **which tools are used** (how it is dug) and **the shape produced by the excavation** (what is dug).\n\n**1) Classification by excavation tool:**\n\n| Type | When used |\n|---|---|\n| Excavation by hand tools | Small-scale or precision work |\n| Excavation by machines | Large-scale projects, for efficiency and speed (excavators, loaders) |\n| Excavation using explosives | Hard rock formations or large areas |\n\n**2) Classification by the shape of the excavated area:**\n\n- **Free Excavation (Grading Excavation):** In building construction, the leveling excavation that remains **above** the zero plane passing through the lowest point where the excavation/foundation project perimeter meets natural ground. Used for surface leveling.\n- **Deep Excavation:** Outside free and special excavation, the excavation of soil **below** natural ground level, removed from bottom to top with shovels, hoists, and similar hand tools or machinery. It has two subtypes:\n  - **Narrow Deep Excavation:** Base width **less than 1.00 m**.\n  - **Wide Deep Excavation:** Base width **1.00 m or more**.\n- **Special Excavation:** Excavation requiring special technique, such as tunnel excavation, gallery excavation, underwater compressed-air caisson excavation, and excavation of **wells deeper than 8 meters**.\n\nThese two classifications are independent of each other: e.g. an excavation can be both \"by machine\" and \"wide deep excavation\" — in fact excavation unit-price codes (pozlar) are coded exactly along these two axes (see the Excavation Unit Prices note)."
+      },
+      "story": null
+    },
+    {
+      "id": "n4",
+      "title": {
+        "tr": "Zemin Cinsleri ve Kazı Güçlüğü Sınıflandırması",
+        "en": "Soil Types and the Excavation-Difficulty Classification"
+      },
+      "body": {
+        "tr": "Zemin hiçbir zaman tek bir malzemeden oluşmaz; kat kat bir pasta gibi farklı katmanlardan oluşur ve her katmanın kendine özgü zorlukları ve gerektirdiği kazı yöntemi vardır. Birim fiyat tariflerinde, kazılacak zeminin cinsleri, **teşekkül ve kazı güçlüğü** bakımından dört ana sınıfa ayrılır. Bu sınıflandırma hem maliyeti hem de kullanılacak tekniği doğrudan etkiler.\n\n| Ana sınıf | Alt sınıf | Tipik malzeme / araç | Yoğunluk (t/m³) |\n|---|---|---|---|\n| **Toprak** | Yumuşak toprak | Bel küreği/kürekle kazılır; bitkisel toprak, gevşek kum | **1,6** |\n| **Toprak** | Sert toprak | Kazmanın yassı/sivri ucu; kumlu kil, killi kum, çakıllı taşlı toprak | **1,8** |\n| **Küskülük** | Yumuşak küskülük | Kazmanın sivri ucu, ara sıra küskü/kama/tokmak; sert kil, yumuşak marn, 0,100 m³'e kadar blok taş | **2,0** |\n| **Küskülük** | Sert küskülük | Küskü, kama, tokmak, kırıcı tabanca; çürük/çatlak kaya, şist, 0,100–0,400 m³ blok taş | **2,2** |\n| **Kaya** | Yumuşak kaya | Küskü, kırıcı tabanca veya patlayıcı; tabakalı kalker, şist, tüf, 0,400 m³'ten büyük blok taş | **2,4** |\n| **Kaya** | Sert kaya | Patlayıcı + kırıcı tabanca; kesif kalker, andezit, mermer, bazalt tüfleri | **2,6** |\n| **Kaya** | Çok sert kaya | Fazla patlayıcı + kırıcı tabanca; granit, bazalt, porfir, kuvars | **2,8** |\n| **Batak ve Balçık** | — | Su muhtevası yüksek, yapışkan; özel teknik/ekipman gerektirir | (değişken) |\n\n**Batak ve balçık zeminler** ayrı bir özel kategoridir: yüksek su içeriği nedeniyle suyu kolay bırakmazlar. Burada mesele kazmaktan çok önce **suyu yönetmek** ve zemini **iyileştirmektir** — drenaj sistemleri ve zemin iyileştirme yöntemleri kullanılır.\n\nNot: Yoğunluk sınıf yükseldikçe artar — yumuşak topraktan çok sert kayaya doğru **1,6 → 2,8 t/m³** arası neredeyse ikiye katlanır, bu da kazı güçlüğünün ve gerekli enerjinin (kazma → kırıcı → patlayıcı) de aynı yönde arttığını gösterir.",
+        "en": "Soil is never a single material; it forms layers like a layer cake, each with its own difficulty and required excavation method. In unit-price specifications, the soil types to be excavated are divided into four main classes by **formation and excavation difficulty**. This classification directly affects both cost and the technique to be used.\n\n| Main class | Subclass | Typical material / tool | Density (t/m³) |\n|---|---|---|---|\n| **Earth** | Soft earth | Dug with a shovel; topsoil, loose sand | **1.6** |\n| **Earth** | Hard earth | Flat/pointed pick end; sandy clay, clayey sand, gravelly stony soil | **1.8** |\n| **Rippable rock (küskülük)** | Soft rippable | Pointed pick, occasional bar/wedge/mallet; hard clay, soft marl, blocks up to 0.100 m³ | **2.0** |\n| **Rippable rock (küskülük)** | Hard rippable | Bar, wedge, mallet, jackhammer; decayed/cracked rock, schist, blocks 0.100–0.400 m³ | **2.2** |\n| **Rock** | Soft rock | Bar, jackhammer, or explosives; layered limestone, schist, tuff, blocks over 0.400 m³ | **2.4** |\n| **Rock** | Hard rock | Explosives + jackhammer; dense limestone, andesite, marble, basalt tuff | **2.6** |\n| **Rock** | Very hard rock | Heavy explosives + jackhammer; granite, basalt, porphyry, quartz | **2.8** |\n| **Marsh and mud** | — | High water content, sticky; needs special technique/equipment | (variable) |\n\n**Marsh and mud soils** form a separate special category: due to high water content they do not release water easily. The issue here is **managing water** and **improving the ground** long before digging — drainage systems and ground-improvement methods are used.\n\nNote: density rises with class — from soft earth to very hard rock, **1.6 → 2.8 t/m³** nearly doubles, showing that excavation difficulty and required energy (pick → jackhammer → explosives) rise in the same direction."
+      },
+      "story": null
+    },
+    {
+      "id": "n5",
+      "title": {
+        "tr": "Doğal, Kabarmış ve Sıkışmış Hacim İlişkisi",
+        "en": "The Relationship Between Bank, Loose, and Compacted Volume"
+      },
+      "body": {
+        "tr": "Zemin yerinden kazıldığında **hacmi değişir** — çünkü yerindeki (doğal) sıkı yapısı bozulur ve taneler arasına hava girer. Bu yüzden bir kazı-dolgu projesinde üç farklı hacim durumunu ayırt etmek gerekir:\n\n- **Doğal (yerinde) hacim:** Zeminin kazılmadan önce, arazideki sıkı halidir. Kazı hacmi hesapları (en kesit yöntemi vb.) bu hacmi verir.\n- **Kabarmış (gevşek) hacim:** Zemin kazılıp taşındığında tanecikler arasına hava girdiği için hacim **artar**. Kamyonla taşınacak veya depoda yığılacak malzeme bu haldedir.\n- **Sıkışmış (kompakte) hacim:** Malzeme dolguda serilip sıkıştırıldığında gözenekler tekrar azalır; hacim doğal hacimden bile **küçük** olabilir.\n\nZemin cinslerine göre kazı hacimlerinin ödemeye esas tespitinde bu katsayılar önemlidir: ödemelerin zemin cinslerine göre yapılması durumunda, yapılan kazının sınıfları ve nispetleri ile **kabarma ve sıkışma katsayıları**, kazı sırasında her kesimde **idare ile yüklenicinin yerinde düzenlediği bir tutanakla** tespit edilir ve o kesimdeki kazı hacmine uygulanır.\n\nBasit ilişki:\n\n$$V_{kabarmış} = V_{doğal} \\times (1 + k)$$\n\nburada $k$ kabarma katsayısıdır (örn. yumuşak toprak için tipik olarak %20–30 civarında). Sıkıştırılmış dolgu hacmi ise genellikle doğal hacmin belirli bir oranı ($V_{sıkışmış} = V_{doğal} \\times oran$, oran çoğunlukla 1'den küçüktür) olarak ifade edilir.\n\n**Neden önemli?** Şantiyede \"500 m³ kazı yaptık\" demek, kaç kamyon gerekeceğini SÖYLEMEZ — kamyona yüklenen kabarmış hacimdir, dolguda kullanılacak miktar ise sıkışmış hacimdir. Bu üçünü karıştırmak hem nakliye maliyetini hem de dolgu malzeme ihtiyacını yanlış hesaplamaya yol açar.",
+        "en": "When soil is excavated, its **volume changes** — because its compact in-situ structure is disturbed and air enters between the grains. So on any excavation-fill project you must distinguish three different volume states:\n\n- **Bank (in-situ) volume:** The soil's compact state in the ground before excavation. Excavation-volume calculations (cross-section method, etc.) give this volume.\n- **Loose (swelled) volume:** When soil is excavated and hauled, air enters between the grains and volume **increases**. Material being hauled by truck or stockpiled is in this state.\n- **Compacted volume:** When material is spread and compacted in a fill, the voids shrink again; volume can end up even **smaller** than the bank volume.\n\nThese coefficients matter when excavation volumes are determined for payment by soil type: when payments are made by soil type, the classes and proportions of the excavation along with the **swell and compaction coefficients** are determined at each section, during excavation, by a **field record jointly prepared by the administration and the contractor**, and applied to the excavation volume of that section.\n\nSimple relation:\n\n$$V_{loose} = V_{bank} \\times (1 + k)$$\n\nwhere $k$ is the swell coefficient (e.g. typically around 20–30% for soft earth). Compacted fill volume is usually expressed as a certain ratio of the bank volume ($V_{compacted} = V_{bank} \\times ratio$, the ratio is mostly less than 1).\n\n**Why does it matter?** Saying \"we excavated 500 m³\" on site does NOT tell you how many trucks are needed — what's loaded onto trucks is the loose volume, and what's needed for the fill is the compacted volume. Confusing these three leads to wrong hauling-cost and fill-material estimates."
+      },
+      "story": {
+        "title": {
+          "tr": "Doğal → Kabarmış → Sıkışmış Hacim Dönüşümü",
+          "en": "Bank → Loose → Compacted Volume Conversion"
+        },
+        "xLabel": "",
+        "yLabel": "",
+        "xDomain": [
+          0,
+          12
+        ],
+        "yDomain": [
+          0,
+          6
+        ],
+        "square": false,
+        "showAxes": false,
+        "frames": [
+          {
+            "caption": {
+              "tr": "Başlangıç: zemin yerinde, doğal halinde. Bu hacme V_doğal diyelim — örneğin 500 m³'lük bir kazı projesi.",
+              "en": "Start: soil in its natural, undisturbed (bank) state. Call this volume V_bank — say a 500 m³ excavation project."
+            },
+            "add": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    3.4,
+                    1
+                  ],
+                  [
+                    3.4,
+                    3
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "color": "ink",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 2.2,
+                "y": 3.4,
+                "text": {
+                  "tr": "Doğal (yerinde)",
+                  "en": "Bank (in-situ)"
+                },
+                "color": "ink"
+              },
+              {
+                "type": "text",
+                "x": 2.2,
+                "y": 0.55,
+                "text": {
+                  "tr": "V_doğal = 500 m³",
+                  "en": "V_bank = 500 m³"
+                },
+                "color": "ink"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Kazı yapılıp malzeme taşınınca taneler arasına hava girer, hacim ŞİŞER (kabarır). Kamyona yüklenen hacim budur.",
+              "en": "Once excavated and hauled, air enters between the grains and the volume SWELLS (bulks up). This is the volume loaded onto trucks."
+            },
+            "add": [
+              {
+                "type": "arrow",
+                "x1": 3.6,
+                "y1": 2,
+                "x2": 4.6,
+                "y2": 2,
+                "color": "amber",
+                "width": 2
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    4.8,
+                    0.4
+                  ],
+                  [
+                    7.9,
+                    0.4
+                  ],
+                  [
+                    7.9,
+                    3.6
+                  ],
+                  [
+                    4.8,
+                    3.6
+                  ]
+                ],
+                "color": "deniz",
+                "width": 2
+              },
+              {
+                "type": "text",
+                "x": 6.35,
+                "y": 4.0,
+                "text": {
+                  "tr": "Kabarmış (gevşek)",
+                  "en": "Loose (swelled)"
+                },
+                "color": "deniz"
+              },
+              {
+                "type": "text",
+                "x": 6.35,
+                "y": -0.05,
+                "text": {
+                  "tr": "V_kabarmış = 500×1,25 = 625 m³",
+                  "en": "V_loose = 500×1.25 = 625 m³"
+                },
+                "color": "deniz"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Malzeme dolguda serilip sıkıştırılınca gözenekler azalır, hacim küçülür — hatta doğal hacimden bile küçük olabilir.",
+              "en": "Once the material is spread and compacted in the fill, voids shrink and the volume decreases — it can end up even smaller than the bank volume."
+            },
+            "add": [
+              {
+                "type": "arrow",
+                "x1": 8.1,
+                "y1": 2,
+                "x2": 8.9,
+                "y2": 2,
+                "color": "clay",
+                "width": 2
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    9.1,
+                    1.3
+                  ],
+                  [
+                    11.2,
+                    1.3
+                  ],
+                  [
+                    11.2,
+                    2.9
+                  ],
+                  [
+                    9.1,
+                    2.9
+                  ]
+                ],
+                "color": "clay",
+                "width": 2,
+                "fill": true
+              },
+              {
+                "type": "text",
+                "x": 10.15,
+                "y": 3.3,
+                "text": {
+                  "tr": "Sıkışmış (dolgu)",
+                  "en": "Compacted (fill)"
+                },
+                "color": "clay"
+              },
+              {
+                "type": "text",
+                "x": 10.15,
+                "y": 0.75,
+                "text": {
+                  "tr": "V_sıkışmış = 500×0,90 = 450 m³",
+                  "en": "V_compacted = 500×0.90 = 450 m³"
+                },
+                "color": "clay"
+              }
+            ]
+          },
+          {
+            "caption": {
+              "tr": "Üç hacim de aynı 500 m³ zeminden geliyor ama sayılar birbirinden çok farklı: nakliye planı kabarmış hacme (625 m³), dolgu ihtiyacı sıkışmış hacme (450 m³) göre yapılır — doğal hacimle (500 m³) karıştırmayın!",
+              "en": "All three volumes come from the same 500 m³ of soil, yet the numbers differ a lot: haulage planning uses the loose volume (625 m³), fill requirement uses the compacted volume (450 m³) — don't confuse either with the bank volume (500 m³)!"
+            },
+            "add": [
+              {
+                "type": "text",
+                "x": 6,
+                "y": 5.4,
+                "text": {
+                  "tr": "Aynı zemin, üç farklı hacim",
+                  "en": "Same soil, three different volumes"
+                },
+                "color": "moss",
+                "size": 16
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "n6",
+      "title": {
+        "tr": "Kazıdan Çıkan Malzemenin Dolguda Kullanılması",
+        "en": "Using Excavated Material in Fill"
+      },
+      "body": {
+        "tr": "Kazı biter bitmez ortaya çıkan toprak/kaya malzemesi ile ilgili üç ana konu vardır:\n\n1. **Şev ve iksa uygulaması:** Serbest ve derin her tür kazıda, emniyet ve teknik zaruret olmadığı müddetçe **şev ve iksa uygulanmaz**. Gerekli durumlarda ancak **idarenin yazılı emri** doğrultusunda uygulanır. (Şev: kazı yüzeyinin belirli bir eğimle bırakılması; iksa: kazı yüzeyinin duvar/payanda gibi bir sistemle desteklenmesi.)\n2. **Dolgu kullanımı:** Kazıdan çıkan malzemeler, projesine uygun olarak ve **idarenin göstereceği yerlerin dolgusunda** kullanılır — yani malzeme israf edilmez, öncelik sahadaki dolgu ihtiyacını karşılamaktır.\n3. **Fazla malzemenin dökümü:** Sahadaki ihtiyaçlar karşılandıktan sonra kalan kazı malzemesi, **sözleşmede belirlenen ve idarenin gösterdiği yere** dökülür — yükleniciye keyfi bir döküm alanı seçme yetkisi yoktur.\n\nBu üç madde, kazı-dolgu dengesinin (cut-fill balance) proje ekonomisi açısından neden önemli olduğunu gösterir: kazıdan çıkan malzeme mümkün olduğunca sahada dolgu olarak yeniden kullanılmalı, gereksiz nakliye ve depolama maliyetinden kaçınılmalıdır.",
+        "en": "As soon as excavation finishes, three main issues arise regarding the resulting soil/rock material:\n\n1. **Slope (şev) and shoring (iksa):** In every type of free and deep excavation, slopes and shoring are **not applied** unless required for safety or technical necessity. When required, they are applied only under the **administration's written order**. (Şev: leaving the excavation face at a given slope angle; iksa: supporting the excavation face with a wall/strut system.)\n2. **Fill usage:** Excavated material is used, in accordance with the project, for filling **locations designated by the administration** — i.e. material is not wasted; the priority is meeting the site's own fill needs.\n3. **Disposal of surplus material:** After on-site needs are met, the remaining excavated material is dumped at the **location specified in the contract and designated by the administration** — the contractor has no authority to pick an arbitrary dumping site.\n\nThese three points show why the cut-fill balance matters for project economics: material coming out of excavation should be reused as fill on-site as much as possible, avoiding unnecessary haulage and storage costs."
+      },
+      "story": null
+    },
+    {
+      "id": "n7",
+      "title": {
+        "tr": "Zemin Sınıfının Belirlenmesi ve Kazı Pozları",
+        "en": "Determining the Soil Class and Excavation Unit-Price Codes"
+      },
+      "body": {
+        "tr": "**Zemin sınıfının (klasının) belirlenmesi** üç adımda yapılır:\n\n1. **Heyet oluşturulması:** Kazı yapılan arazide zemin sınıfını tespit etmek üzere bir heyet oluşturulur.\n2. **Saha incelemesi:** Heyet, önceden verilmiş sınıflandırmalara (toprak/küskülük/kaya/batak-balçık) göre mesleki tecrübesini kullanarak sahada inceleme yapar.\n3. **Zemin sınıfı belirleme:** Serbest ve derin kazı için **ayrı ayrı** olacak şekilde, zemin sınıfı **yüzde olarak** belirlenir (örn. \"%30 toprak, %40 küskülük, %30 yumuşak kaya\" gibi).\n\nBu yüzdesel dağılım, ödemenin (hakedişin) doğru zemin sınıfı üzerinden hesaplanmasını sağlar — çünkü farklı zemin sınıflarının **farklı birim fiyatları** vardır. **Kazı bedeli** şöyle hesaplanır: toplam kazı hacmi, her zemin sınıfının yüzdesiyle çarpılarak o sınıfa düşen hacim bulunur; bu hacim o sınıfın birim fiyatıyla çarpılır; tüm sınıfların tutarları toplanarak toplam bedel elde edilir. Örneğin makine ile yapılacak bir serbest kazıda zemin sınıfı %30 toprak, %40 küskülük, %30 yumuşak kaya ve birim fiyatlar sırasıyla 100 ₺, 130 ₺, 170 ₺ ise, her m³ kazının ortalama bedeli $0{,}30\\times100+0{,}40\\times130+0{,}30\\times170=133$ ₺/m³ olur; bu değer toplam hacimle çarpılarak kazının toplam bedeline ulaşılır.\n\n**Kazı pozları:** Her kazı türü, resmi birim fiyat cetvellerinde bir **poz numarası** ile tanımlanır. Poz numarası hem kullanılan aracı hem zemin cinsini hem de kazı şeklini kodlar. Örnekler:\n\n| Poz No | Tanım | Birim |\n|---|---|---|\n| 15.115.1001 | El ile yumuşak toprak kazılması | m³ |\n| 15.115.1002 | El ile sert toprak kazılması | m³ |\n| 15.120.1001 | Makine ile yumuşak ve sert toprak kazılması | m³ |\n| 15.120.1002 | Makine ile yumuşak ve sert küskülük kazılması | m³ |\n| 15.120.1005 | Makine ile patlayıcı kullanmadan yumuşak kaya kazılması | m³ |\n| 15.120.1104 | Patlayıcı madde kullanılarak yumuşak kaya kazılması (geniş derin kazı) | m³ |\n\nBir poz tarifi, örneğin 15.115.1001 (yumuşak toprak kazılması), şunları içerir: kazının yapılması, taşıtlara yükleme/boşaltma veya 4 metreye kadar atılması, depo/imla/sedde yerinde serilmesi, imalat sonrası kazı yerinde kalan boşlukların doldurulması ve düzeltilmesi; her türlü malzeme ve zayiat, işçilik, araç-gereç giderleri, yüklenici genel giderleri ve karı **dahildir** — ama **taşımalar hariçtir**. Ölçü: kazının hacmi **kazı projesi üzerinden** hesaplanır.",
+        "en": "**Determining the soil class** is done in three steps:\n\n1. **Forming a committee:** A committee is formed to determine the soil class on the excavated site.\n2. **Site inspection:** Using their professional experience, the committee inspects the site against the predefined classifications (earth/rippable rock/rock/marsh-mud).\n3. **Determining the soil class:** The soil class is determined **as a percentage**, **separately** for free and deep excavation (e.g. \"30% earth, 40% rippable rock, 30% soft rock\").\n\nThis percentage breakdown ensures payment (hakediş) is calculated against the correct soil class — because different soil classes carry **different unit prices**. The **excavation cost (bedel)** is computed as follows: the total excavation volume is multiplied by each soil class's percentage to get that class's volume; that volume is multiplied by the class's unit price; and the amounts for all classes are summed to get the total cost. For example, in a machine free excavation where the soil class is 30% earth, 40% rippable rock, 30% soft rock with unit prices of 100 ₺, 130 ₺, 170 ₺ respectively, the average cost per m³ of excavation is $0.30\\times100+0.40\\times130+0.30\\times170=133$ ₺/m³; multiplying this by the total volume gives the excavation's total cost.\n\n**Excavation unit-price codes (pozlar):** Every excavation type is defined in official unit-price schedules by a **poz number**. The poz number encodes the tool used, the soil type, and the excavation shape. Examples:\n\n| Poz No | Description | Unit |\n|---|---|---|\n| 15.115.1001 | Hand excavation of soft earth | m³ |\n| 15.115.1002 | Hand excavation of hard earth | m³ |\n| 15.120.1001 | Machine excavation of soft and hard earth | m³ |\n| 15.120.1002 | Machine excavation of soft and hard rippable rock | m³ |\n| 15.120.1005 | Machine excavation of soft rock without explosives | m³ |\n| 15.120.1104 | Excavation of soft rock using explosives (wide deep excavation) | m³ |\n\nA poz description, e.g. 15.115.1001 (soft earth excavation), includes: performing the excavation, loading/unloading onto vehicles or throwing up to 4 meters, spreading at a depot/fill/levee site, backfilling and leveling of gaps left at the excavation site after construction; all material and waste, labor, equipment costs, contractor overhead and profit are **included** — but **hauling is excluded**. Measurement: the excavation volume is calculated **from the excavation project (drawings)**."
+      },
+      "story": null
+    },
+    {
+      "id": "n8",
+      "title": {
+        "tr": "En Kesit Yöntemi ile Kazı Hacim Hesabı",
+        "en": "Calculating Excavation Volume with the Cross-Section Method"
+      },
+      "body": {
+        "tr": "Projenin en önemli sorularından biri: **tam olarak ne kadar toprak hareket ettirmemiz gerekiyor?** Bu sorunun cevabı için mühendislerin kullandığı standart yöntem **en kesit yöntemi**dir.\n\n**Fikir:** Kazı yapılacak alanı, sanki dev bir somun ekmekmiş gibi belirli aralıklarla dilimlemek. Her dilimin (en kesitin) iki boyutlu alanı ayrı ayrı hesaplanır; sonra komşu dilimler arasındaki hacim, iki dilimin alan ortalaması ile aralarındaki mesafenin çarpımıyla bulunur. Bu işlem tüm dilimler için tekrarlanıp toplanır.\n\n**En kesit aralığı kuralı:**\n- Arazi eğimi fazlaysa: en kesit aralıkları **en fazla 2 metre**.\n- Arazi daha düzse: mesafe **10 metreye kadar** çıkarılabilir.\n\n**Alan hesabı (bir en kesit için, 6 nokta y₁...y₆ ve aralarındaki x₁...x₅ mesafeleriyle):**\n\n$$S = \\frac{1}{2}\\left[y_1x_1 + y_2(x_1+x_2) + y_3(x_2+x_3) + y_4(x_3+x_4) + y_5(x_4+x_5) + y_6x_5\\right]$$\n\n**Hacim hesabı (kesitler arası mesafeler L₁...L₅ ile):**\n\n$$V = \\frac{S_1+S_2}{2}L_1 + \\frac{S_2+S_3}{2}L_2 + \\frac{S_3+S_4}{2}L_3 + \\frac{S_4+S_5}{2}L_4 + \\frac{S_5+S_6}{2}L_5$$\n\nYani her komşu kesit çifti bir **trapez prizması** gibi ele alınır: alanların ortalaması × aradaki mesafe. Tüm bu prizmaların hacimleri toplanınca **toplam kazı hacmi** elde edilir. Bu yöntem, iki kesit arasındaki arazi yüzeyinin **düz (doğrusal) değiştiğini** varsayar; bu yüzden arazi eğimi fazlaysa yüzey kısa mesafede çok değişir ve geniş aralık gerçek hacmi yanlış verir — aralığı sıklaştırmak (≤2 m) bu hatayı azaltır. Düz arazide yüzey zaten az değiştiği için geniş aralık (≤10 m) yeterlidir.\n\nBu sayı projenin can damarıdır: kaç kamyon gerekeceğini, işin ne kadar süreceğini ve maliyetin ne olacağını doğrudan belirler. Zemin cinsine göre ödeme yapılan projelerde bu hacim, ilgili zemin sınıfının yüzdesiyle çarpılarak her sınıf için ayrı hakedişe dönüştürülür (bkz. Zemin Sınıfının Belirlenmesi notu).",
+        "en": "One of a project's most important questions: **exactly how much soil do we need to move?** The standard method engineers use to answer this is the **cross-section method**.\n\n**Idea:** Slice the area to be excavated at regular intervals, as if it were a giant loaf of bread. The two-dimensional area of each slice (cross-section) is computed separately; then the volume between two neighboring slices is found by multiplying the average of the two areas by the distance between them. This is repeated and summed for all slices.\n\n**Cross-section spacing rule:**\n- If the terrain slope is steep: cross-section spacing of **at most 2 meters**.\n- If the terrain is flatter: spacing can go **up to 10 meters**.\n\n**Area calculation (for one cross-section, with 6 points y₁...y₆ and the distances x₁...x₅ between them):**\n\n$$S = \\frac{1}{2}\\left[y_1x_1 + y_2(x_1+x_2) + y_3(x_2+x_3) + y_4(x_3+x_4) + y_5(x_4+x_5) + y_6x_5\\right]$$\n\n**Volume calculation (with distances between sections L₁...L₅):**\n\n$$V = \\frac{S_1+S_2}{2}L_1 + \\frac{S_2+S_3}{2}L_2 + \\frac{S_3+S_4}{2}L_3 + \\frac{S_4+S_5}{2}L_4 + \\frac{S_5+S_6}{2}L_5$$\n\nSo each pair of neighboring cross-sections is treated like a **trapezoidal prism**: average of the areas × the distance between them. Summing all these prism volumes gives the **total excavation volume**. This method assumes the terrain surface between two sections changes **linearly (flat)**; so when the slope is steep the surface changes a lot over a short distance and wide spacing misreports the true volume — tightening the spacing (≤2 m) reduces this error. On flat terrain the surface barely changes, so wide spacing (≤10 m) suffices.\n\nThis number is the project's lifeline: it directly determines how many trucks are needed, how long the work will take, and what the cost will be. On projects paid by soil type, this volume is multiplied by the relevant soil-class percentage to convert it into a separate payment quantity for each class (see the Determining the Soil Class note)."
+      },
+      "story": null
+    },
+    {
+      "id": "n9",
+      "title": {
+        "tr": "İş Makineleri ve Kazı Yöntemi Seçimi",
+        "en": "Choosing Machinery and the Excavation Method"
+      },
+      "body": {
+        "tr": "Hangi kazı yönteminin (el aleti / makine / patlayıcı) seçileceği, esas olarak **zemin cinsi**, **kazı ölçeği** ve **çalışma alanının genişliği/hassasiyeti** tarafından belirlenir:\n\n- **Küçük, dar veya çok hassas** çalışılması gereken alanlarda (örn. mevcut bir yapının hemen yanı, boru/kablo çevresi) kazı hâlâ **el aletleriyle** (kürek, kazma) yapılır — teknoloji burada işin ölçeğine göre \"en iyi çözüm\" hâlâ en basit araçtır.\n- İşin ölçeği büyüdüğünde **ekskavatörler ve yükleyiciler** gibi makineler devreye girer; amaç **hız ve verimliliktir**.\n- Zemin çok sertse (kaya sınıfı) işin içine **patlayıcılar** girer; kırıcı tabanca (\"Hilt\" tipi) yumuşak/sert küskülük ve yumuşak kaya için yeterli olabilirken, sert ve çok sert kaya kategorilerinde patlayıcı kullanmak neredeyse kaçınılmaz hâle gelir.\n\nBu seçim aynı zamanda **poz numarasını** da belirler (bkz. Zemin Sınıfının Belirlenmesi ve Kazı Pozları notu): aynı zemin cinsi için \"el ile\" ve \"makine ile\" ayrı pozlar ve dolayısıyla ayrı birim fiyatlar mevcuttur. Doğru makine/yöntem seçimi hem maliyeti hem de işin süresini doğrudan etkiler.",
+        "en": "Which excavation method (hand tool / machine / explosive) is chosen is determined mainly by the **soil type**, the **scale of excavation**, and the **width/precision required of the work area**:\n\n- In **small, narrow, or very precision-sensitive** areas (e.g. right next to an existing structure, around a pipe/cable), excavation is still done **by hand tools** (shovel, pick) — here the \"best technology for the scale\" is still the simplest tool.\n- As the scale of the work grows, machines like **excavators and loaders** take over; the goal is **speed and efficiency**.\n- If the ground is very hard (rock class), **explosives** come into play; a jackhammer (\"Hilt\"-type) may suffice for soft/hard rippable rock and soft rock, while for hard and very hard rock categories using explosives becomes nearly unavoidable.\n\nThis choice also determines the **poz number** (see the Determining the Soil Class and Excavation Unit-Price Codes note): for the same soil type, \"by hand\" and \"by machine\" have separate poz codes and thus separate unit prices. Choosing the right machine/method directly affects both cost and project duration."
+      },
+      "story": null
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": {
+        "tr": "Kazı (hafriyat) nedir?",
+        "en": "What is excavation (hafriyat)?"
+      },
+      "back": {
+        "tr": "Bir yapının temel zeminine oturtulması, çevre düzenlemesi ve/veya başka amaçlarla zemin malzemesinin alınmasıdır.",
+        "en": "The removal of soil material to seat a structure on its foundation soil, for site grading, or other purposes."
+      },
+      "en": "Excavation: removing soil to prepare ground for a structure.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f2",
+      "front": {
+        "tr": "Zeminler birim fiyat tariflerinde kaç ana sınıfa ayrılır?",
+        "en": "Into how many main classes are soils divided in unit-price specifications?"
+      },
+      "back": {
+        "tr": "Dört ana sınıfa: toprak zeminler, küskülük zeminler, kaya zeminler, batak ve balçık zeminler.",
+        "en": "Four main classes: earth, rippable rock (küskülük), rock, and marsh/mud soils."
+      },
+      "en": "Four soil classes by excavation difficulty.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f3",
+      "front": {
+        "tr": "Yumuşak toprağın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of soft earth?"
+      },
+      "back": {
+        "tr": "1,6 t/m³. Bel küreği ve kürekle kazılabilen gevşek toprak, bitkisel toprak, gevşek kum.",
+        "en": "1.6 t/m³ — loose soil diggable with a shovel: topsoil, loose sand."
+      },
+      "en": "Soft earth density: 1.6 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f4",
+      "front": {
+        "tr": "Sert toprağın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of hard earth?"
+      },
+      "back": {
+        "tr": "1,8 t/m³. Kazmanın yassı ve ara sıra sivri ucu ile kazılan kumlu kil, gevşek kil, killi kum, çakıllı taşlı toprak.",
+        "en": "1.8 t/m³ — dug with the flat/pointed pick end: sandy clay, clayey sand, gravelly stony soil."
+      },
+      "en": "Hard earth density: 1.8 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f5",
+      "front": {
+        "tr": "Yumuşak küskülüğün yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of soft rippable rock (küskülük)?"
+      },
+      "back": {
+        "tr": "2,0 t/m³. Kazmanın sivri ucu ve ara sıra küskü, kama, tokmak ile kazılan sert kil, yumuşak marn, 0,100 m³'e kadar blok taşlar.",
+        "en": "2.0 t/m³ — dug with pick point and occasional bar/wedge/mallet: hard clay, soft marl, blocks up to 0.100 m³."
+      },
+      "en": "Soft rippable rock (küskülük) density: 2.0 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f6",
+      "front": {
+        "tr": "Sert küskülüğün yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of hard rippable rock (küskülük)?"
+      },
+      "back": {
+        "tr": "2,2 t/m³. Küskü, kama, tokmak ve kırıcı tabanca ile kazılan çürük/çatlak kaya, şist, 0,100-0,400 m³ blok taşlar.",
+        "en": "2.2 t/m³ — dug with bar, wedge, mallet, and jackhammer: decayed/cracked rock, schist, blocks 0.100-0.400 m³."
+      },
+      "en": "Hard rippable rock (küskülük) density: 2.2 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f7",
+      "front": {
+        "tr": "Yumuşak kayanın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of soft rock?"
+      },
+      "back": {
+        "tr": "2,4 t/m³. Küskü, kırıcı tabanca veya patlayıcı madde kullanılarak kazılan tabakalaşmış kalker, şist, tüf, 0,400 m³'ten büyük blok taşlar.",
+        "en": "2.4 t/m³ — dug with bar, jackhammer, or explosives: layered limestone, schist, tuff, blocks over 0.400 m³."
+      },
+      "en": "Soft rock density: 2.4 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f8",
+      "front": {
+        "tr": "Sert kayanın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of hard rock?"
+      },
+      "back": {
+        "tr": "2,6 t/m³. Patlayıcı madde kullanılarak atılan, kırıcı tabanca ile parçalanan kesif kalker, andezit, trakit, mermer, bazalt tüfleri.",
+        "en": "2.6 t/m³ — blasted with explosives and broken with a jackhammer: dense limestone, andesite, marble, basalt tuff."
+      },
+      "en": "Hard rock density: 2.6 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f9",
+      "front": {
+        "tr": "Çok sert kayanın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of very hard rock?"
+      },
+      "back": {
+        "tr": "2,8 t/m³. Fazla miktarda patlayıcı madde kullanarak atılan granit, bazalt, porfir, kuvars.",
+        "en": "2.8 t/m³ — blasted with large amounts of explosives: granite, basalt, porphyry, quartz."
+      },
+      "en": "Very hard rock density: 2.8 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f10",
+      "front": {
+        "tr": "Zemin sınıfları yoğunluğa göre nasıl sıralanır (düşükten yükseğe)?",
+        "en": "How are soil classes ordered by density (low to high)?"
+      },
+      "back": {
+        "tr": "Yumuşak toprak (1,6) < sert toprak (1,8) < yumuşak küskülük (2,0) < sert küskülük (2,2) < yumuşak kaya (2,4) < sert kaya (2,6) < çok sert kaya (2,8) t/m³.",
+        "en": "Soft earth (1.6) < hard earth (1.8) < soft rippable (2.0) < hard rippable (2.2) < soft rock (2.4) < hard rock (2.6) < very hard rock (2.8) t/m³."
+      },
+      "en": "Soil density increases from soft earth to very hard rock: 1.6 to 2.8 t/m³.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f11",
+      "front": {
+        "tr": "Batak ve balçık zeminlerin en belirgin özelliği nedir?",
+        "en": "What is the most distinctive feature of marsh and mud soils?"
+      },
+      "back": {
+        "tr": "Su muhtevası yüksektir ve bu suyu kolay bırakmazlar; genellikle yapışkandırlar.",
+        "en": "High water content that is not easily released; generally sticky/cohesive."
+      },
+      "en": "Marsh/mud soils: high water content, sticky, hard to drain.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f12",
+      "front": {
+        "tr": "Batak ve balçık zeminlerde hangi önlemler kullanılır?",
+        "en": "What measures are used for marsh and mud soils?"
+      },
+      "back": {
+        "tr": "Drenaj sistemleri ve zemin iyileştirme yöntemleri kullanılabilir.",
+        "en": "Drainage systems and ground-improvement methods can be used."
+      },
+      "en": "Marsh/mud remedy: drainage + soil improvement.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f13",
+      "front": {
+        "tr": "Yumuşak küskülük ile sert küskülük arasındaki temel araç farkı nedir?",
+        "en": "What is the key tool difference between soft and hard rippable rock?"
+      },
+      "back": {
+        "tr": "Yumuşak küskülük kazmanın sivri ucu ve ara sıra küskü/kama/tokmakla kazılırken, sert küskülük için ayrıca kırıcı tabanca gerekir.",
+        "en": "Soft rippable is dug with pick point plus occasional bar/wedge/mallet; hard rippable additionally requires a jackhammer."
+      },
+      "en": "Hard rippable rock needs a jackhammer in addition to hand tools.",
+      "tag": "zemin-siniflari"
+    },
+    {
+      "id": "f14",
+      "front": {
+        "tr": "Doğal (yerinde) hacim nedir?",
+        "en": "What is bank (in-situ) volume?"
+      },
+      "back": {
+        "tr": "Zeminin kazılmadan önce, arazideki sıkı halindeki hacmidir. En kesit yöntemi bu hacmi verir.",
+        "en": "The soil's compact volume in the ground before excavation; the cross-section method computes this volume."
+      },
+      "en": "Bank volume = soil's volume in its undisturbed, in-situ state.",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f15",
+      "front": {
+        "tr": "Kabarmış (gevşek) hacim nedir?",
+        "en": "What is loose (swelled) volume?"
+      },
+      "back": {
+        "tr": "Zemin kazılıp taşındığında tanecikler arasına hava girdiği için doğal hacme göre ARTAN hacimdir. Kamyona yüklenen malzeme bu haldedir.",
+        "en": "Volume that INCREASES relative to bank volume because air enters between grains once excavated and hauled; the state of material loaded on trucks."
+      },
+      "en": "Loose volume: swelled volume after excavation, larger than bank volume.",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f16",
+      "front": {
+        "tr": "Sıkışmış (kompakte) hacim nedir?",
+        "en": "What is compacted volume?"
+      },
+      "back": {
+        "tr": "Malzeme dolguda serilip sıkıştırıldığında gözeneklerin azalmasıyla ortaya çıkan hacimdir; doğal hacimden bile küçük olabilir.",
+        "en": "The volume after material is spread and compacted in a fill, as voids shrink; can be even smaller than the bank volume."
+      },
+      "en": "Compacted volume: volume after fill compaction, can be smaller than bank volume.",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f17",
+      "front": {
+        "tr": "Kabarma katsayısı (k) formülü nedir?",
+        "en": "What is the swell coefficient (k) formula?"
+      },
+      "back": {
+        "tr": "$$V_{kabarmış} = V_{doğal} \\times (1+k)$$",
+        "en": "$$V_{loose} = V_{bank} \\times (1+k)$$"
+      },
+      "en": "Swell relation: loose volume = bank volume × (1 + swell coefficient).",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f18",
+      "front": {
+        "tr": "Zemin cinsine göre ödeme yapılan projelerde kabarma/sıkışma katsayıları nasıl tespit edilir?",
+        "en": "How are swell/compaction coefficients determined on projects paid by soil type?"
+      },
+      "back": {
+        "tr": "Kazı sırasında her kesimde idare ile yüklenicinin yerinde düzenlediği bir tutanakla tespit edilir ve o kesimdeki kazı hacmine uygulanır.",
+        "en": "By a field record jointly prepared on-site by the administration and the contractor at each section during excavation, then applied to that section's excavation volume."
+      },
+      "en": "Swell/compaction coefficients are fixed by a joint on-site record (tutanak).",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f19",
+      "front": {
+        "tr": "Neden \"500 m³ kazı yaptık\" demek kaç kamyon gerektiğini söylemez?",
+        "en": "Why doesn't \"we excavated 500 m³\" tell you how many trucks are needed?"
+      },
+      "back": {
+        "tr": "Çünkü kamyona yüklenen hacim kabarmış (gevşek) hacimdir, doğal hacim değildir; kamyon sayısı kabarmış hacme göre hesaplanmalıdır.",
+        "en": "Because the volume loaded on trucks is the loose (swelled) volume, not the bank volume; truck count must be based on loose volume."
+      },
+      "en": "Truck count is based on loose volume, not bank volume.",
+      "tag": "hacim-kabarma"
+    },
+    {
+      "id": "f20",
+      "front": {
+        "tr": "Plankote nedir?",
+        "en": "What is a plankote (site-elevation survey)?"
+      },
+      "back": {
+        "tr": "Arazinin üç boyutlu bir haritasıdır; üzerindeki her noktanın deniz seviyesine göre yüksekliğini (kotunu) gösterir.",
+        "en": "A three-dimensional map of the terrain showing the elevation of every point relative to sea level."
+      },
+      "en": "Plankote: a site survey map showing ground elevations.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f21",
+      "front": {
+        "tr": "Serbest kazı kotu belirleme yönteminin 3 adımı nedir?",
+        "en": "What are the 3 steps to determine the free-excavation elevation?"
+      },
+      "back": {
+        "tr": "1) Plankote ve vaziyet planının çakıştırılması, 2) çalışma paylarının eklenmesi, 3) en düşük doğal arazi kotunun tespiti.",
+        "en": "1) Overlay the plankote and site plan, 2) add working margins, 3) find the lowest natural ground elevation."
+      },
+      "en": "3-step method to find the free-excavation elevation.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f22",
+      "front": {
+        "tr": "Çalışma payı temellerde ve perdelerde kaç cm'dir?",
+        "en": "What is the working margin for footings and shear walls?"
+      },
+      "back": {
+        "tr": "Temellerde 50 cm, perdelerde 100 cm çalışma payı eklenir.",
+        "en": "50 cm for footings, 100 cm for shear walls (perde)."
+      },
+      "en": "Working margin: 50 cm footings, 100 cm shear walls.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f23",
+      "front": {
+        "tr": "Arazi eğimli değilse serbest kazı kotu nasıl belirlenir?",
+        "en": "How is the free-excavation elevation set when the terrain is not sloped?"
+      },
+      "back": {
+        "tr": "Doğal arazi kotu doğrudan serbest kazı kotu kabul edilir; yapılacak hafriyatın tamamı derin kazı olur.",
+        "en": "The natural ground elevation is taken directly as the free-excavation elevation; all the earthwork becomes deep excavation."
+      },
+      "en": "Flat terrain: entire excavation is deep excavation.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f24",
+      "front": {
+        "tr": "Birbirine çok yakın binalarda aynı anda kazı yapılırsa serbest kazı kotu nasıl belirlenir?",
+        "en": "How is the free-excavation elevation set for closely spaced buildings excavated simultaneously?"
+      },
+      "back": {
+        "tr": "Kazı şevleri iç içe düştüğünden serbest kazı kotu en düşük kottaki binanın kotuna göre belirlenir.",
+        "en": "Since excavation slopes overlap, the free-excavation elevation is set based on the building with the lowest elevation."
+      },
+      "en": "Adjacent simultaneous excavations: use the lowest building's elevation.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f25",
+      "front": {
+        "tr": "Serbest kazı (tesviye kazısı) tanımı nedir?",
+        "en": "What is the definition of free excavation (grading excavation)?"
+      },
+      "back": {
+        "tr": "Bina inşaatlarında kazı veya temel uygulama projesi çevresinin doğal zeminle kesiştiği en alçak noktadan geçen sıfır düzleminin üstünde kalan düzleme kazısıdır.",
+        "en": "The leveling excavation above the zero plane through the lowest point where the excavation/foundation project perimeter meets natural ground."
+      },
+      "en": "Free excavation: grading cut above the zero plane.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f26",
+      "front": {
+        "tr": "Derin kazı tanımı nedir?",
+        "en": "What is the definition of deep excavation?"
+      },
+      "back": {
+        "tr": "Serbest ve özel kazıların dışında, doğal zemin seviyesinin altında kalan toprağın kürek, çıkrık ve benzeri el araçları veya iş makineleri ile aşağıdan yukarı çıkarılmasıdır.",
+        "en": "Excavation of soil below natural ground level (outside free and special excavation), removed bottom-to-top with hand tools or machinery."
+      },
+      "en": "Deep excavation: cut below natural ground, removed bottom-up.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f27",
+      "front": {
+        "tr": "Dar derin kazı ile geniş derin kazı arasındaki sınır kaç metredir?",
+        "en": "What is the boundary between narrow and wide deep excavation?"
+      },
+      "back": {
+        "tr": "Taban genişliği 1,00 m: 1,00 m'den az ise dar derin kazı, 1,00 m ve daha fazla ise geniş derin kazı.",
+        "en": "Base width of 1.00 m: less than 1.00 m is narrow deep excavation, 1.00 m or more is wide deep excavation."
+      },
+      "en": "1.00 m base-width threshold separates narrow vs. wide deep excavation.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f28",
+      "front": {
+        "tr": "Özel kazı hangi kazı türlerini kapsar?",
+        "en": "What excavation types fall under special excavation?"
+      },
+      "back": {
+        "tr": "Tünel kazısı, galeri kazısı, su altında hava basınçlı keson kazısı ve 8 metreden daha derin kuyuların kazısı.",
+        "en": "Tunnel excavation, gallery excavation, underwater compressed-air caisson excavation, and wells deeper than 8 meters."
+      },
+      "en": "Special excavation: tunnels, galleries, caissons, wells over 8 m.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f29",
+      "front": {
+        "tr": "Özel kazı sayılan kuyular kaç metreden daha derin olmalıdır?",
+        "en": "Special-excavation wells must be deeper than how many meters?"
+      },
+      "back": {
+        "tr": "8 metreden daha derin kuyular özel kazı sayılır.",
+        "en": "Wells deeper than 8 meters are classified as special excavation."
+      },
+      "en": "8-meter threshold for special-excavation wells.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f30",
+      "front": {
+        "tr": "En kesit yöntemi nedir?",
+        "en": "What is the cross-section method?"
+      },
+      "back": {
+        "tr": "Kazı yapılacak alanın belli aralıklarla en kesitlere bölünüp, her kesitin alanı hesaplanarak kesitler arası mesafelerle kazı hacminin bulunduğu yöntemdir.",
+        "en": "A method that slices the excavation area into cross-sections at regular intervals, computes each section's area, then finds the volume using the distances between sections."
+      },
+      "en": "Cross-section method: slice, compute area per slice, integrate with spacing.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f31",
+      "front": {
+        "tr": "Arazi eğimi fazlaysa en kesit aralığı en fazla kaç metredir?",
+        "en": "What is the maximum cross-section spacing on steeply sloped terrain?"
+      },
+      "back": {
+        "tr": "En fazla 2 metre.",
+        "en": "At most 2 meters."
+      },
+      "en": "Steep terrain: max 2 m between cross-sections.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f32",
+      "front": {
+        "tr": "Düz arazide en kesit aralığı kaç metreye kadar çıkarılabilir?",
+        "en": "On flat terrain, up to how many meters can cross-section spacing be extended?"
+      },
+      "back": {
+        "tr": "10 metreye kadar çıkarılabilir.",
+        "en": "Up to 10 meters."
+      },
+      "en": "Flat terrain: spacing can extend up to 10 m.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f33",
+      "front": {
+        "tr": "En kesit yönteminde alan (S) formülü nedir?",
+        "en": "What is the area (S) formula in the cross-section method?"
+      },
+      "back": {
+        "tr": "$$S=\\tfrac{1}{2}\\left[y_1x_1+y_2(x_1+x_2)+y_3(x_2+x_3)+y_4(x_3+x_4)+y_5(x_4+x_5)+y_6x_5\\right]$$",
+        "en": "$$S=\\tfrac{1}{2}\\left[y_1x_1+y_2(x_1+x_2)+y_3(x_2+x_3)+y_4(x_3+x_4)+y_5(x_4+x_5)+y_6x_5\\right]$$"
+      },
+      "en": "Cross-section area formula, weighting each depth by adjacent spans.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f34",
+      "front": {
+        "tr": "En kesit yönteminde hacim (V) formülü nedir?",
+        "en": "What is the volume (V) formula in the cross-section method?"
+      },
+      "back": {
+        "tr": "$$V=\\tfrac{S_1+S_2}{2}L_1+\\tfrac{S_2+S_3}{2}L_2+\\tfrac{S_3+S_4}{2}L_3+\\tfrac{S_4+S_5}{2}L_4+\\tfrac{S_5+S_6}{2}L_5$$",
+        "en": "$$V=\\tfrac{S_1+S_2}{2}L_1+\\tfrac{S_2+S_3}{2}L_2+\\tfrac{S_3+S_4}{2}L_3+\\tfrac{S_4+S_5}{2}L_4+\\tfrac{S_5+S_6}{2}L_5$$"
+      },
+      "en": "Volume formula: sum of trapezoidal prisms between consecutive cross-sections.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f35",
+      "front": {
+        "tr": "En kesit yöntemi hacim hesabında her komşu kesit çifti nasıl ele alınır?",
+        "en": "How is each pair of neighboring cross-sections treated in the volume calculation?"
+      },
+      "back": {
+        "tr": "Bir trapez prizması gibi: iki kesitin alan ortalaması, aradaki mesafeyle çarpılır.",
+        "en": "Like a trapezoidal prism: the average of the two sections' areas is multiplied by the distance between them."
+      },
+      "en": "Each section pair is a trapezoidal prism: average area × spacing.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f36",
+      "front": {
+        "tr": "Zemin sınıfının belirlenmesi kaç adımda yapılır?",
+        "en": "In how many steps is the soil class determined?"
+      },
+      "back": {
+        "tr": "Üç adımda: heyet oluşturulması, saha incelemesi, zemin sınıfı belirleme (yüzde olarak).",
+        "en": "In three steps: forming a committee, site inspection, and determining the soil class (as a percentage)."
+      },
+      "en": "3-step soil class determination process.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f37",
+      "front": {
+        "tr": "Zemin sınıfı serbest ve derin kazı için nasıl belirlenir?",
+        "en": "How is the soil class determined for free vs. deep excavation?"
+      },
+      "back": {
+        "tr": "Serbest ve derin kazı için ayrı ayrı olacak şekilde, yüzde olarak belirlenir.",
+        "en": "Determined separately for free and deep excavation, expressed as a percentage."
+      },
+      "en": "Soil class percentages are set separately for free and deep excavation.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f38",
+      "front": {
+        "tr": "Kazıda şev ve iksa ne zaman uygulanır?",
+        "en": "When are slope (şev) and shoring (iksa) applied in excavation?"
+      },
+      "back": {
+        "tr": "Emniyet ve teknik zaruret olmadığı müddetçe uygulanmaz; gerekli durumlarda idarenin yazılı emri doğrultusunda uygulanır.",
+        "en": "Not applied unless required for safety or technical necessity; when needed, applied only under the administration's written order."
+      },
+      "en": "Slope/shoring: default no, applied only by written order when necessary.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f39",
+      "front": {
+        "tr": "Kazıdan çıkan fazla malzeme nereye dökülür?",
+        "en": "Where is surplus excavated material dumped?"
+      },
+      "back": {
+        "tr": "Sahadaki ihtiyaçlar karşılandıktan sonra kalan malzeme, sözleşmede belirlenen ve idarenin gösterdiği yere dökülür.",
+        "en": "After on-site needs are met, the remaining material is dumped at the location specified in the contract and designated by the administration."
+      },
+      "en": "Surplus material: dumped at the contract-specified, administration-designated site.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f40",
+      "front": {
+        "tr": "Poz 15.115.1001'in ölçü kuralı nedir?",
+        "en": "What is the measurement rule for poz 15.115.1001?"
+      },
+      "back": {
+        "tr": "Kazının hacmi kazı projesi üzerinden hesaplanır.",
+        "en": "The excavation volume is calculated from the excavation project (drawings)."
+      },
+      "en": "Excavation quantity is measured from the project drawings, not field bulking.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f41",
+      "front": {
+        "tr": "Poz 15.115.1001'in fiyatına neler dahildir?",
+        "en": "What is included in the price of poz 15.115.1001?"
+      },
+      "back": {
+        "tr": "Kazının yapılması, taşıtlara yükleme/boşaltma veya 4 metreye kadar atılması, serilmesi, boşlukların doldurulması, malzeme ve zayiat, işçilik, araç-gereç, yüklenici genel giderleri ve karı — taşımalar HARİÇ.",
+        "en": "Excavating, loading/unloading onto vehicles or throwing up to 4 meters, spreading, backfilling of gaps, material and waste, labor, equipment, contractor overhead and profit — hauling is EXCLUDED."
+      },
+      "en": "Poz price covers dig/load/spread/backfill + overhead/profit, but excludes hauling.",
+      "tag": "kazi-hesabi"
+    },
+    {
+      "id": "f42",
+      "front": {
+        "tr": "Küçük ölçekli veya hassas kazılarda hangi araç tercih edilir?",
+        "en": "Which tool is preferred for small-scale or precision excavation?"
+      },
+      "back": {
+        "tr": "El aletleri (kürek, kazma gibi).",
+        "en": "Hand tools (shovel, pick, etc.)."
+      },
+      "en": "Hand tools for small/precision excavation work.",
+      "tag": "makineler"
+    },
+    {
+      "id": "f43",
+      "front": {
+        "tr": "Büyük ölçekli projelerde hız ve verimlilik için hangi araçlar tercih edilir?",
+        "en": "Which tools are preferred for speed and efficiency on large-scale projects?"
+      },
+      "back": {
+        "tr": "Makineler — ekskavatörler ve yükleyiciler.",
+        "en": "Machines — excavators and loaders."
+      },
+      "en": "Excavators and loaders for large-scale, high-speed excavation.",
+      "tag": "makineler"
+    },
+    {
+      "id": "f44",
+      "front": {
+        "tr": "Sert kaya formasyonlarında hangi yöntem kullanılır?",
+        "en": "Which method is used in hard rock formations?"
+      },
+      "back": {
+        "tr": "Patlayıcı maddeler kullanılarak yapılan kazı.",
+        "en": "Excavation using explosives."
+      },
+      "en": "Explosives for hard rock excavation.",
+      "tag": "makineler"
+    },
+    {
+      "id": "f45",
+      "front": {
+        "tr": "Kazı işleri, kullanılan araca göre kaç gruba ayrılır ve bunlar nelerdir?",
+        "en": "Into how many groups is excavation divided by tool used, and what are they?"
+      },
+      "back": {
+        "tr": "Üç gruba: el aletleri ile yapılan kazılar, makineler ile yapılan kazılar, patlayıcı maddeler kullanılarak yapılan kazılar.",
+        "en": "Three groups: excavation by hand tools, excavation by machines, excavation using explosives."
+      },
+      "en": "3 tool-based excavation groups: hand, machine, explosives.",
+      "tag": "makineler"
+    },
+    {
+      "id": "f46",
+      "front": {
+        "tr": "Kazı işleri temelde kaç ana başlıkta incelenir?",
+        "en": "Under how many main headings are excavation works studied?"
+      },
+      "back": {
+        "tr": "İki ana başlıkta: kullanılan kazı araçlarına göre ve kazı alanının şekline göre.",
+        "en": "Two main headings: by the excavation tool used, and by the shape of the excavation area."
+      },
+      "en": "Two classification axes: by tool and by resulting shape.",
+      "tag": "makineler"
+    },
+    {
+      "id": "f47",
+      "front": {
+        "tr": "Kazı bedeli, zemin sınıfı yüzdelerinden nasıl hesaplanır?",
+        "en": "How is excavation cost computed from the soil-class percentages?"
+      },
+      "back": {
+        "tr": "Toplam hacim her sınıfın yüzdesiyle çarpılıp o sınıfın hacmi bulunur, bu hacim sınıfın birim fiyatıyla çarpılır ve tüm sınıfların tutarları toplanır. Örn. %30/%40/%30 ve 100/130/170 ₺ → ortalama 133 ₺/m³.",
+        "en": "Multiply total volume by each class's percentage to get that class's volume, multiply by the class's unit price, and sum all classes. E.g. 30%/40%/30% and 100/130/170 ₺ → average 133 ₺/m³."
+      },
+      "en": "Excavation cost = Σ (volume × class% × class unit price).",
+      "tag": "kazi-hesabi"
+    }
+  ],
+  "practice": [
+    {
+      "id": "q1",
+      "type": "open",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kazı (hafriyat) kavramını tanımlayınız ve inşaat mühendisliğinde en yaygın kullanıldığı beş alanı sayınız.",
+        "en": "Define the concept of excavation (hafriyat) and list the five most common areas it is used in civil engineering."
+      },
+      "answer": {
+        "tr": "**Tanım:** Kazı, bir yapının temel zeminine oturtulması, çevre düzenlemesi ve/veya başka amaçlarla zemin malzemesinin alınmasıdır.\n\n**Beş alan:** 1) Yol yapımı, 2) Demiryolu yapımı, 3) Kanal yapımı, 4) Set (baraj/dolgu) yapımı, 5) Bina temelleri.",
+        "en": "**Definition:** Excavation is the removal of soil material to seat a structure on its foundation soil, for site grading, and/or other purposes.\n\n**Five areas:** 1) Roads, 2) Railways, 3) Canals, 4) Levees/dams, 5) Building foundations."
+      }
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "covers": [
+        "n1"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdakilerden hangisi kazı işlerinin en yaygın kullanıldığı alanlardan biri DEĞİLDİR?",
+        "en": "Which of the following is NOT one of the areas where excavation work is most commonly used?"
+      },
+      "options": [
+        {
+          "tr": "Demiryolu yapımı",
+          "en": "Railway construction"
+        },
+        {
+          "tr": "Kanal yapımı",
+          "en": "Canal construction"
+        },
+        {
+          "tr": "Bina temelleri",
+          "en": "Building foundations"
+        },
+        {
+          "tr": "Elektrik tesisatı döşemesi",
+          "en": "Electrical wiring installation"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Kazı işlerinin yaygın alanları yol, demiryolu, kanal, set yapımı ve bina temelleridir. Elektrik tesisatı döşemesi kazı-dolgu dersinin kapsamındaki bir alan olarak sayılmaz.",
+        "en": "Common excavation areas are roads, railways, canals, levee construction, and building foundations. Electrical wiring installation is not listed as an excavation-scope area."
+      }
+    },
+    {
+      "id": "q3",
+      "type": "open",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Plankote nedir ve neden kazı hesaplarının başlangıç noktasıdır?",
+        "en": "What is a plankote and why is it the starting point of excavation calculations?"
+      },
+      "answer": {
+        "tr": "Plankote, arazinin üç boyutlu bir haritasıdır; üzerindeki her noktanın deniz seviyesine göre yüksekliğini (kotunu) gösterir. Kazı miktarlarını belirlemek için arazi üzerinde kot ölçümleri yapılıp plan üzerinde gösterilir. Bu harita olmadan hiçbir hacim hesabı yapılamaz çünkü en kesit yöntemi gibi tüm hesaplama yöntemleri arazinin gerçek yüksekliklerine dayanır.",
+        "en": "A plankote is a three-dimensional map of the terrain, showing the elevation of every point relative to sea level. Elevation measurements are taken on-site and plotted on a plan to determine excavation quantities. No volume calculation is possible without this map because all calculation methods, such as the cross-section method, rely on the terrain's real elevations."
+      }
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Serbest kazı kotunu belirlemenin ilk adımı aşağıdakilerden hangisidir?",
+        "en": "Which of the following is the first step in determining the free-excavation elevation?"
+      },
+      "options": [
+        {
+          "tr": "En düşük doğal arazi kotunun tespiti",
+          "en": "Finding the lowest natural ground elevation"
+        },
+        {
+          "tr": "Plankote ve vaziyet planının çakıştırılması",
+          "en": "Overlaying the plankote and the site plan"
+        },
+        {
+          "tr": "Çalışma paylarının eklenmesi",
+          "en": "Adding working margins"
+        },
+        {
+          "tr": "Zemin sınıfının belirlenmesi",
+          "en": "Determining the soil class"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Doğru sıra: önce plankote ve vaziyet planı çakıştırılır, sonra çalışma payları eklenir, en son bu sınırlar içindeki en düşük doğal arazi kotu tespit edilir. Zemin sınıfı belirleme ise tamamen ayrı, sonraki bir süreçtir.",
+        "en": "Correct order: first overlay the plankote and site plan, then add working margins, and finally find the lowest natural ground elevation within these boundaries. Soil-class determination is a separate, later process."
+      }
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Temel çıkmalarına eklenen çalışma payı temellerde ve perdelerde sırasıyla kaç cm'dir?",
+        "en": "What are the working margins added to the foundation overhang for footings and shear walls, respectively?"
+      },
+      "options": [
+        {
+          "tr": "30 cm ve 60 cm",
+          "en": "30 cm and 60 cm"
+        },
+        {
+          "tr": "50 cm ve 100 cm",
+          "en": "50 cm and 100 cm"
+        },
+        {
+          "tr": "100 cm ve 150 cm",
+          "en": "100 cm and 150 cm"
+        },
+        {
+          "tr": "50 cm ve 50 cm",
+          "en": "50 cm and 50 cm"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ders notuna göre temellerde 50 cm, perdelerde 100 cm çalışma payı eklenir — perdeler daha fazla çalışma alanı gerektirdiğinden pay daha büyüktür.",
+        "en": "Per the course notes, 50 cm is added for footings and 100 cm for shear walls (perde) — shear walls need more working room, hence the larger margin."
+      }
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Arazi eğimli değilse serbest kazı kotu nasıl belirlenir ve sonucu ne olur?",
+        "en": "How is the free-excavation elevation determined when the terrain is not sloped, and what is the result?"
+      },
+      "options": [
+        {
+          "tr": "Doğal arazi kotu kabul edilir; hafriyatın tamamı derin kazı olur",
+          "en": "The natural ground elevation is taken as-is; all earthwork becomes deep excavation"
+        },
+        {
+          "tr": "En yüksek nokta esas alınır; hafriyatın tamamı serbest kazı olur",
+          "en": "The highest point is taken as the basis; all earthwork becomes free excavation"
+        },
+        {
+          "tr": "Kot hesaplanamaz, proje iptal edilir",
+          "en": "The elevation cannot be calculated; the project is canceled"
+        },
+        {
+          "tr": "Ortalama kot alınır; kazı yarı yarıya bölünür",
+          "en": "The average elevation is taken; excavation is split evenly"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Eğimsiz arazide doğal arazi kotu doğrudan serbest kazı kotu kabul edilir; bu durumda serbest kazı için ayrılacak hacim sıfırdır ve yapılacak hafriyatın tamamı derin kazı sayılır.",
+        "en": "On unsloped terrain, the natural ground elevation is taken directly as the free-excavation elevation; the volume allocated to free excavation is zero, and all earthwork is classified as deep excavation."
+      }
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "covers": [
+        "n2"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Birbirine çok yakın iki bina aynı anda kazılacaksa serbest kazı kotu nasıl belirlenir?",
+        "en": "If two closely spaced buildings are excavated at the same time, how is the free-excavation elevation determined?"
+      },
+      "options": [
+        {
+          "tr": "Her bina için ayrı ayrı, birbirinden bağımsız belirlenir",
+          "en": "Determined separately and independently for each building"
+        },
+        {
+          "tr": "İki binanın ortalama kotuna göre belirlenir",
+          "en": "Determined based on the average elevation of the two buildings"
+        },
+        {
+          "tr": "Kazı şevleri iç içe düştüğünden en düşük kottaki binanın kotuna göre belirlenir",
+          "en": "Since the excavation slopes overlap, it is set based on the building with the lowest elevation"
+        },
+        {
+          "tr": "En yüksek kottaki binanın kotuna göre belirlenir",
+          "en": "It is set based on the building with the highest elevation"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Yakın binalarda aynı anda kazı yapılırsa şevler iç içe düşer, bu yüzden ortak bir serbest kazı kotu gerekir ve bu kot en düşük kottaki binaya göre belirlenir. Ayrı ayrı belirleme kuralı sadece binalar birbirinden uzaksa veya farklı zamanlarda kazılıyorsa geçerlidir.",
+        "en": "When nearby buildings are excavated simultaneously, their slopes overlap, so a common free-excavation elevation is needed, set based on the lowest-elevation building. The separate-determination rule applies only when buildings are far apart or excavated at different times."
+      }
+    },
+    {
+      "id": "q8",
+      "type": "open",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": true,
+      "q": {
+        "tr": "Kazı işleri hangi iki ana başlıkta sınıflandırılır? Her başlığın alt türlerini sayınız.",
+        "en": "Under which two main headings are excavation works classified? List the subtypes of each heading."
+      },
+      "answer": {
+        "tr": "**1) Kullanılan kazı araçlarına göre:** el aletleri ile yapılan kazılar, makineler ile yapılan kazılar, patlayıcı maddeler kullanılarak yapılan kazılar.\n\n**2) Kazı alanının şekline göre:** serbest kazı (tesviye kazısı), derin kazı (dar derin kazı ve geniş derin kazı olarak ikiye ayrılır), özel kazı (tünel, galeri, keson, 8m'den derin kuyu kazıları).",
+        "en": "**1) By excavation tool used:** excavation by hand tools, by machines, and using explosives.\n\n**2) By the shape of the excavation area:** free excavation (grading excavation), deep excavation (split into narrow and wide deep excavation), special excavation (tunnel, gallery, caisson, wells deeper than 8m)."
+      }
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Taban genişliği 1,20 m olan bir derin kazı hangi alt sınıfa girer?",
+        "en": "A deep excavation with a base width of 1.20 m falls under which subclass?"
+      },
+      "options": [
+        {
+          "tr": "Dar derin kazı",
+          "en": "Narrow deep excavation"
+        },
+        {
+          "tr": "Geniş derin kazı",
+          "en": "Wide deep excavation"
+        },
+        {
+          "tr": "Serbest kazı",
+          "en": "Free excavation"
+        },
+        {
+          "tr": "Özel kazı",
+          "en": "Special excavation"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Taban genişliği 1,00 m ve daha fazla olan derin kazılar geniş derin kazı sınıfına girer; 1,20 m > 1,00 m olduğundan bu geniş derin kazıdır.",
+        "en": "Deep excavations with a base width of 1.00 m or more fall under wide deep excavation; since 1.20 m > 1.00 m, this is wide deep excavation."
+      }
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Taban genişliği 0,80 m olan bir derin kazı hangi alt sınıfa girer?",
+        "en": "A deep excavation with a base width of 0.80 m falls under which subclass?"
+      },
+      "options": [
+        {
+          "tr": "Dar derin kazı",
+          "en": "Narrow deep excavation"
+        },
+        {
+          "tr": "Geniş derin kazı",
+          "en": "Wide deep excavation"
+        },
+        {
+          "tr": "Serbest kazı",
+          "en": "Free excavation"
+        },
+        {
+          "tr": "Özel kazı",
+          "en": "Special excavation"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "tr": "Taban genişliği 1,00 m'den az olan derin kazılar dar derin kazı sınıfına girer; 0,80 m < 1,00 m olduğundan bu dar derin kazıdır.",
+        "en": "Deep excavations with a base width less than 1.00 m fall under narrow deep excavation; since 0.80 m < 1.00 m, this is narrow deep excavation."
+      }
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "9 metre derinliğindeki bir kuyu kazısı hangi kazı türü olarak sınıflandırılır?",
+        "en": "A well excavation 9 meters deep is classified as which excavation type?"
+      },
+      "options": [
+        {
+          "tr": "Geniş derin kazı",
+          "en": "Wide deep excavation"
+        },
+        {
+          "tr": "Dar derin kazı",
+          "en": "Narrow deep excavation"
+        },
+        {
+          "tr": "Özel kazı",
+          "en": "Special excavation"
+        },
+        {
+          "tr": "Serbest kazı",
+          "en": "Free excavation"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "8 metreden daha derin kuyuların kazısı özel kazı olarak sınıflandırılır; 9 m > 8 m olduğundan bu kuyu özel kazı kapsamındadır (tünel, galeri, keson kazılarıyla aynı kategoride).",
+        "en": "Excavation of wells deeper than 8 meters is classified as special excavation; since 9 m > 8 m, this well falls under special excavation (same category as tunnel, gallery, caisson excavation)."
+      }
+    },
+    {
+      "id": "q12",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Serbest kazının (tesviye kazısının) tanımı aşağıdakilerden hangisidir?",
+        "en": "Which of the following is the definition of free excavation (grading excavation)?"
+      },
+      "options": [
+        {
+          "tr": "Doğal zemin seviyesinin altında kalan toprağın çıkarılmasıdır",
+          "en": "Removal of soil below natural ground level"
+        },
+        {
+          "tr": "Sıfır düzleminin üstünde kalan düzleme kazısıdır",
+          "en": "The leveling excavation above the zero plane"
+        },
+        {
+          "tr": "Tünel içindeki kazıdır",
+          "en": "Excavation inside a tunnel"
+        },
+        {
+          "tr": "Su altında yapılan kazıdır",
+          "en": "Excavation performed underwater"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Serbest kazı, kazı/temel projesi çevresinin doğal zeminle kesiştiği en alçak noktadan geçen sıfır düzleminin ÜSTÜNDE kalan düzleme kazısıdır. Doğal zemin seviyesinin altında kalan kısım derin kazıdır.",
+        "en": "Free excavation is the leveling excavation ABOVE the zero plane through the lowest point where the excavation/foundation project meets natural ground. The portion below natural ground level is deep excavation."
+      }
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "covers": [
+        "n3"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Hangi kazı yöntemi \"sert kaya formasyonlarında veya geniş alanlarda\" tercih edilir?",
+        "en": "Which excavation method is preferred \"in hard rock formations or large areas\"?"
+      },
+      "options": [
+        {
+          "tr": "El aletleri ile yapılan kazı",
+          "en": "Excavation by hand tools"
+        },
+        {
+          "tr": "Makineler ile yapılan kazı",
+          "en": "Excavation by machines"
+        },
+        {
+          "tr": "Patlayıcı maddeler kullanılarak yapılan kazı",
+          "en": "Excavation using explosives"
+        },
+        {
+          "tr": "Su jetiyle yapılan kazı",
+          "en": "Excavation with a water jet"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Ders notunda \"Patlayıcı Maddeler Kullanılarak Yapılan Kazılar: Sert kaya formasyonlarında veya geniş alanlarda uygulanır\" ifadesi geçer.",
+        "en": "The course note states: \"Excavation using explosives is applied in hard rock formations or large areas.\""
+      }
+    },
+    {
+      "id": "q14",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Yumuşak toprağın yoğunluğu kaç t/m³'tür?",
+        "en": "What is the density of soft earth?"
+      },
+      "options": [
+        {
+          "tr": "1,4 t/m³",
+          "en": "1.4 t/m³"
+        },
+        {
+          "tr": "1,6 t/m³",
+          "en": "1.6 t/m³"
+        },
+        {
+          "tr": "1,8 t/m³",
+          "en": "1.8 t/m³"
+        },
+        {
+          "tr": "2,0 t/m³",
+          "en": "2.0 t/m³"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Yumuşak toprağın (bel küreği/kürekle kazılabilen gevşek toprak, bitkisel toprak, gevşek kum) yoğunluğu 1,6 t/m³'tür.",
+        "en": "Soft earth (loose soil diggable with a shovel: topsoil, loose sand) has a density of 1.6 t/m³."
+      }
+    },
+    {
+      "id": "q15",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Aşağıdaki zemin sınıflarından hangisinin yoğunluğu en yüksektir?",
+        "en": "Which of the following soil classes has the highest density?"
+      },
+      "options": [
+        {
+          "tr": "Sert toprak",
+          "en": "Hard earth"
+        },
+        {
+          "tr": "Yumuşak küskülük",
+          "en": "Soft rippable rock"
+        },
+        {
+          "tr": "Sert kaya",
+          "en": "Hard rock"
+        },
+        {
+          "tr": "Yumuşak kaya",
+          "en": "Soft rock"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Yoğunluk sıralaması: sert toprak 1,8 < yumuşak küskülük 2,0 < yumuşak kaya 2,4 < sert kaya 2,6 t/m³. Verilen seçenekler arasında en yüksek yoğunluk sert kayaya (2,6 t/m³) aittir.",
+        "en": "Density order: hard earth 1.8 < soft rippable 2.0 < soft rock 2.4 < hard rock 2.6 t/m³. Among the given options, hard rock (2.6 t/m³) has the highest density."
+      }
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "0,100-0,400 m³ büyüklükte blok taşlar içeren, küskü/kama/tokmak/kırıcı tabanca ile kazılan zemin hangi sınıftır?",
+        "en": "Which soil class contains blocks 0.100-0.400 m³ in size and is dug with bar/wedge/mallet/jackhammer?"
+      },
+      "options": [
+        {
+          "tr": "Yumuşak küskülük",
+          "en": "Soft rippable rock"
+        },
+        {
+          "tr": "Sert küskülük",
+          "en": "Hard rippable rock"
+        },
+        {
+          "tr": "Yumuşak kaya",
+          "en": "Soft rock"
+        },
+        {
+          "tr": "Sert kaya",
+          "en": "Hard rock"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Sert küskülük tarifi tam olarak bu özellikleri taşır: küskü, kama, tokmak ve kırıcı tabanca ile kazılan çürük/çatlak kaya, şist ve 0,100-0,400 m³ büyüklükte blok taşlar. Yoğunluğu 2,2 t/m³'tür.",
+        "en": "Hard rippable rock's description matches exactly: dug with bar, wedge, mallet, and jackhammer — decayed/cracked rock, schist, and blocks 0.100-0.400 m³ in size. Its density is 2.2 t/m³."
+      }
+    },
+    {
+      "id": "q17",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Granit, bazalt, porfir ve kuvars gibi malzemeler hangi zemin sınıfına girer?",
+        "en": "Materials such as granite, basalt, porphyry, and quartz fall under which soil class?"
+      },
+      "options": [
+        {
+          "tr": "Sert kaya",
+          "en": "Hard rock"
+        },
+        {
+          "tr": "Çok sert kaya",
+          "en": "Very hard rock"
+        },
+        {
+          "tr": "Yumuşak kaya",
+          "en": "Soft rock"
+        },
+        {
+          "tr": "Sert küskülük",
+          "en": "Hard rippable rock"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Çok sert kaya sınıfı granit, bazalt, porfir, kuvars ve benzerlerini kapsar; fazla miktarda patlayıcı madde ve kırıcı tabanca ile kazılır. Yoğunluğu 2,8 t/m³'tür.",
+        "en": "The very hard rock class covers granite, basalt, porphyry, quartz, and similar materials; excavated with large amounts of explosives and a jackhammer. Its density is 2.8 t/m³."
+      }
+    },
+    {
+      "id": "q18",
+      "type": "open",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Zemin cinslerinin dört ana sınıfını, her sınıfın alt türlerini ve yoğunluk değerlerini (varsa) tablo hâlinde özetleyiniz.",
+        "en": "Summarize the four main soil classes, their subtypes, and density values (where applicable) in a table."
+      },
+      "answer": {
+        "tr": "| Ana sınıf | Alt sınıf | Yoğunluk (t/m³) |\n|---|---|---|\n| Toprak | Yumuşak toprak | 1,6 |\n| Toprak | Sert toprak | 1,8 |\n| Küskülük | Yumuşak küskülük | 2,0 |\n| Küskülük | Sert küskülük | 2,2 |\n| Kaya | Yumuşak kaya | 2,4 |\n| Kaya | Sert kaya | 2,6 |\n| Kaya | Çok sert kaya | 2,8 |\n| Batak ve Balçık | — | Değişken (su muhtevası yüksek) |",
+        "en": "| Main class | Subclass | Density (t/m³) |\n|---|---|---|\n| Earth | Soft earth | 1.6 |\n| Earth | Hard earth | 1.8 |\n| Rippable rock | Soft rippable | 2.0 |\n| Rippable rock | Hard rippable | 2.2 |\n| Rock | Soft rock | 2.4 |\n| Rock | Hard rock | 2.6 |\n| Rock | Very hard rock | 2.8 |\n| Marsh and mud | — | Variable (high water content) |"
+      }
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "covers": [
+        "n4"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Batak ve balçık zeminlerde asıl mesele nedir?",
+        "en": "What is the main issue with marsh and mud soils?"
+      },
+      "options": [
+        {
+          "tr": "Yoğunluklarının çok yüksek olması",
+          "en": "Their density being very high"
+        },
+        {
+          "tr": "Kazmaktan çok önce suyu yönetmek ve zemini iyileştirmek",
+          "en": "Managing water and improving the ground long before digging"
+        },
+        {
+          "tr": "Patlayıcı madde gerektirmeleri",
+          "en": "Requiring explosives"
+        },
+        {
+          "tr": "Kazı derinliğinin 8 metreyi geçmesi",
+          "en": "The excavation depth exceeding 8 meters"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Batak ve balçık zeminler yüksek su içeriği nedeniyle tamamen farklı bir yaklaşım gerektirir; burada mesele kazmaktan çok önce suyu yönetmek ve zemini bir şekilde iyileştirmektir (drenaj sistemleri, zemin iyileştirme).",
+        "en": "Marsh and mud soils require an entirely different approach due to high water content; the issue is managing water and improving the ground before digging even begins (drainage systems, ground improvement)."
+      }
+    },
+    {
+      "id": "q20",
+      "type": "open",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Doğal, kabarmış ve sıkışmış hacim kavramlarını tanımlayınız ve bunların neden karıştırılmaması gerektiğini açıklayınız.",
+        "en": "Define bank, loose, and compacted volume, and explain why they must not be confused."
+      },
+      "answer": {
+        "tr": "**Doğal (yerinde) hacim:** Zeminin kazılmadan önceki, arazideki sıkı halindeki hacmi.\n\n**Kabarmış (gevşek) hacim:** Kazılıp taşınan zeminde tanecikler arasına hava girdiği için doğal hacme göre artan hacim; kamyona yüklenen malzeme bu haldedir.\n\n**Sıkışmış (kompakte) hacim:** Malzeme dolguda serilip sıkıştırıldığında gözeneklerin azalmasıyla ortaya çıkan, doğal hacimden bile küçük olabilen hacim.\n\n**Neden karıştırılmamalı:** Nakliye planlaması (kaç kamyon gerektiği) kabarmış hacme, dolgu malzeme ihtiyacı ise sıkışmış hacme göre yapılır. Bunları doğal hacimle karıştırmak nakliye maliyetini ve dolgu malzeme miktarını yanlış hesaplamaya yol açar.",
+        "en": "**Bank (in-situ) volume:** The soil's compact volume in the ground before excavation.\n\n**Loose (swelled) volume:** Volume that increases relative to bank volume because air enters between grains once excavated and hauled; material loaded on trucks is in this state.\n\n**Compacted volume:** The volume after material is spread and compacted in a fill, as voids shrink; can be even smaller than the bank volume.\n\n**Why they must not be confused:** Haulage planning (how many trucks are needed) is based on loose volume, while fill material requirement is based on compacted volume. Confusing either with bank volume leads to wrong haulage-cost and fill-quantity estimates."
+      }
+    },
+    {
+      "id": "q21",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "500 m³ doğal hacimdeki bir kazı için kabarma katsayısı %25 ise kabarmış hacim kaç m³ olur?",
+        "en": "For a 500 m³ bank-volume excavation with a 25% swell coefficient, what is the loose volume?"
+      },
+      "options": [
+        {
+          "tr": "375 m³",
+          "en": "375 m³"
+        },
+        {
+          "tr": "500 m³",
+          "en": "500 m³"
+        },
+        {
+          "tr": "625 m³",
+          "en": "625 m³"
+        },
+        {
+          "tr": "750 m³",
+          "en": "750 m³"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "V_kabarmış = V_doğal × (1+k) = 500 × 1,25 = 625 m³. Kabarma her zaman doğal hacme göre bir ARTIŞ olduğundan sonuç 500'den büyük olmalıdır; bu da 375 ve 500'ü eler.",
+        "en": "V_loose = V_bank × (1+k) = 500 × 1.25 = 625 m³. Swelling is always an INCREASE relative to bank volume, so the result must exceed 500, eliminating 375 and 500 as options."
+      }
+    },
+    {
+      "id": "q22",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Kabarma ve sıkışma katsayıları, zemin cinsine göre ödeme yapılan projelerde nasıl tespit edilir?",
+        "en": "How are swell and compaction coefficients determined on projects paid by soil type?"
+      },
+      "options": [
+        {
+          "tr": "Sadece yüklenici tarafından, saha defterine yazılarak",
+          "en": "Solely by the contractor, recorded in a field log"
+        },
+        {
+          "tr": "Kazı sırasında her kesimde idare ile yüklenicinin birlikte düzenlediği bir tutanakla",
+          "en": "By a field record jointly prepared by the administration and the contractor at each section during excavation"
+        },
+        {
+          "tr": "Proje başlangıcında bir kereye mahsus, tüm saha için ortalama bir katsayıyla",
+          "en": "Once at project start, using a single average coefficient for the whole site"
+        },
+        {
+          "tr": "Zemin etüt raporundaki sabit tablo değerleriyle",
+          "en": "Using fixed table values from the geotechnical report"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Ders notuna göre bu katsayılar, kazı sırasında HER KESİMDE idare ile yüklenicinin yerinde düzenlediği bir tutanakla tespit edilir ve o kesimdeki kazı hacmine uygulanır — tek seferlik veya tek taraflı bir belirleme değildir.",
+        "en": "Per the course notes, these coefficients are determined at EACH SECTION during excavation by a field record jointly prepared on-site by the administration and the contractor, then applied to that section's volume — not a one-time or unilateral determination."
+      }
+    },
+    {
+      "id": "q23",
+      "type": "mcq",
+      "covers": [
+        "n5"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Kamyona yüklenen kazı malzemesi hangi hacim durumundadır?",
+        "en": "Which volume state is excavated material in once loaded onto a truck?"
+      },
+      "options": [
+        {
+          "tr": "Doğal hacim",
+          "en": "Bank volume"
+        },
+        {
+          "tr": "Kabarmış hacim",
+          "en": "Loose volume"
+        },
+        {
+          "tr": "Sıkışmış hacim",
+          "en": "Compacted volume"
+        },
+        {
+          "tr": "Hiçbiri, ayrı bir kategoridir",
+          "en": "None, it is a separate category"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Zemin kazılıp taşındığında tanecikler arasına hava girdiği için hacmi artar (kabarır); kamyona yüklenen malzeme kabarmış (gevşek) haldedir, doğal hacim değildir.",
+        "en": "When soil is excavated and hauled, air enters between its grains and its volume increases (swells); material loaded on a truck is in the loose (swelled) state, not the bank volume."
+      }
+    },
+    {
+      "id": "q24",
+      "type": "open",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Kazıdan çıkan malzemenin dolguda kullanılmasına ilişkin üç ana kuralı açıklayınız.",
+        "en": "Explain the three main rules regarding the use of excavated material in fill."
+      },
+      "answer": {
+        "tr": "1) **Şev ve iksa uygulaması:** Serbest ve derin her tür kazıda emniyet ve teknik zaruret olmadığı müddetçe şev ve iksa uygulanmaz; gerekli durumlarda idarenin yazılı emri doğrultusunda uygulanır.\n\n2) **Dolgu kullanımı:** Kazıdan çıkan malzemeler projesine uygun olarak ve idarenin göstereceği yerlerin dolgusunda kullanılır.\n\n3) **Fazla malzemenin dökümü:** Sahadaki ihtiyaçların karşılanmasının ardından kalan kazı malzemesi, sözleşmede belirlenen ve idarenin gösterdiği yere dökülür.",
+        "en": "1) **Slope and shoring application:** In every type of free and deep excavation, slopes and shoring are not applied unless required for safety or technical necessity; when needed, they are applied only under the administration's written order.\n\n2) **Fill usage:** Excavated material is used, in accordance with the project, for filling locations designated by the administration.\n\n3) **Disposal of surplus material:** After on-site needs are met, remaining excavated material is dumped at the location specified in the contract and designated by the administration."
+      }
+    },
+    {
+      "id": "q25",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Kazı yükleniciye, kazıdan çıkan fazla malzemeyi istediği bir alana dökme yetkisi verir mi?",
+        "en": "Does the contractor have the authority to dump surplus excavated material wherever they choose?"
+      },
+      "options": [
+        {
+          "tr": "Evet, yüklenicinin serbest tercihidir",
+          "en": "Yes, it is the contractor's free choice"
+        },
+        {
+          "tr": "Hayır, sözleşmede belirlenen ve idarenin gösterdiği yere dökülür",
+          "en": "No, it is dumped at the location specified in the contract and designated by the administration"
+        },
+        {
+          "tr": "Sadece belediyeden izin alınırsa evet",
+          "en": "Only yes if permission is obtained from the municipality"
+        },
+        {
+          "tr": "Hayır, kesinlikle sahada tutulmalıdır",
+          "en": "No, it must strictly be kept on-site"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Sahadaki ihtiyaçlar karşılandıktan sonra kalan kazı malzemesi, sözleşmede belirlenen ve idarenin gösterdiği yere dökülür — yüklenicinin keyfi bir seçim hakkı yoktur.",
+        "en": "After on-site needs are met, the remaining excavation material is dumped at the location specified in the contract and designated by the administration — the contractor has no arbitrary choice."
+      }
+    },
+    {
+      "id": "q26",
+      "type": "mcq",
+      "covers": [
+        "n6"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Serbest ve derin kazıda şev ve iksa varsayılan olarak ne zaman uygulanır?",
+        "en": "By default, when are slope and shoring applied in free and deep excavation?"
+      },
+      "options": [
+        {
+          "tr": "Her zaman zorunludur",
+          "en": "It is always mandatory"
+        },
+        {
+          "tr": "Hiçbir zaman uygulanmaz",
+          "en": "It is never applied"
+        },
+        {
+          "tr": "Emniyet ve teknik zaruret olmadığı müddetçe uygulanmaz, gerekirse idarenin yazılı emriyle uygulanır",
+          "en": "Not applied unless required for safety or technical necessity; if needed, applied by the administration's written order"
+        },
+        {
+          "tr": "Sadece yüklenici talep ederse uygulanır",
+          "en": "Only applied if the contractor requests it"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "tr": "Kural, emniyet ve teknik zaruret olmadığı müddetçe şev ve iksa uygulanmamasıdır; gerekli durumlarda idarenin yazılı emri doğrultusunda uygulanır. Yani varsayılan \"hayır\", istisna ise resmi bir emirle mümkündür.",
+        "en": "The rule is that slope and shoring are NOT applied unless safety or technical necessity requires it; when necessary, they are applied only under the administration's written order. So the default is \"no\", and the exception requires a formal order."
+      }
+    },
+    {
+      "id": "q27",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Zemin sınıfının (klasının) belirlenmesi sürecini üç adımda açıklayınız.",
+        "en": "Explain the process of determining the soil class in three steps."
+      },
+      "answer": {
+        "tr": "1) **Heyet oluşturulması:** Kazı yapılan arazide zemin sınıfını tespit etmek üzere bir heyet oluşturulur.\n\n2) **Saha incelemesi:** Heyet, verilen sınıflandırmalara (toprak/küskülük/kaya/batak-balçık) göre mesleki tecrübelerini kullanarak sahada inceleme yapar.\n\n3) **Zemin sınıfı belirleme:** Serbest ve derin kazı için ayrı ayrı olacak şekilde yüzde olarak zemin sınıfı belirlenir.",
+        "en": "1) **Forming a committee:** A committee is formed to determine the soil class on the excavated site.\n\n2) **Site inspection:** The committee inspects the site using their professional experience, against the predefined classifications (earth/rippable rock/rock/marsh-mud).\n\n3) **Determining the soil class:** The soil class is determined as a percentage, separately for free and deep excavation."
+      }
+    },
+    {
+      "id": "q28",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Poz No 15.115.1001 (yumuşak toprak kazılması) fiyatına aşağıdakilerden hangisi DAHİL DEĞİLDİR?",
+        "en": "Which of the following is NOT included in the price of poz 15.115.1001 (soft earth excavation)?"
+      },
+      "options": [
+        {
+          "tr": "Kazının yapılması",
+          "en": "Performing the excavation"
+        },
+        {
+          "tr": "Taşıtlara yükleme/boşaltma",
+          "en": "Loading/unloading onto vehicles"
+        },
+        {
+          "tr": "Yüklenici genel giderleri ve karı",
+          "en": "Contractor overhead and profit"
+        },
+        {
+          "tr": "Taşımalar",
+          "en": "Hauling"
+        }
+      ],
+      "correct": 3,
+      "explain": {
+        "tr": "Poz tarifine göre kazının yapılması, yükleme/boşaltma, serme, boşlukların doldurulması, malzeme-zayiat, işçilik, araç-gereç, genel gider ve kâr fiyata DAHİLDİR; ama TAŞIMALAR HARİÇTİR — bu ayrı bir kalemdir.",
+        "en": "Per the poz description, excavating, loading/unloading, spreading, backfilling, material/waste, labor, equipment, overhead, and profit are INCLUDED in the price; but HAULING IS EXCLUDED — it is a separate line item."
+      }
+    },
+    {
+      "id": "q29",
+      "type": "mcq",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Poz numaraları, kazı işlerinin hangi iki temel özelliğini kodlar?",
+        "en": "Which two fundamental characteristics of excavation work do poz numbers encode?"
+      },
+      "options": [
+        {
+          "tr": "Zemin cinsi ve derinlik",
+          "en": "Soil type and depth"
+        },
+        {
+          "tr": "Kullanılan araç/yöntem ve zemin cinsi/kazı şekli",
+          "en": "The tool/method used and the soil type/excavation shape"
+        },
+        {
+          "tr": "Proje adı ve tarih",
+          "en": "Project name and date"
+        },
+        {
+          "tr": "Yüklenici adı ve sözleşme türü",
+          "en": "Contractor name and contract type"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Poz numarası hem kullanılan aracı (el/makine/patlayıcı) hem zemin cinsini hem de kazı şeklini (serbest/derin/dar/geniş) kodlar — bu ikili eksen sayesinde her kombinasyon için ayrı bir birim fiyat tanımlanabilir.",
+        "en": "The poz number encodes both the tool used (hand/machine/explosive) and the soil type and excavation shape (free/deep/narrow/wide) — this dual axis allows a separate unit price to be defined for every combination."
+      }
+    },
+    {
+      "id": "q30",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Zemin sınıfı \"%30 toprak, %40 küskülük, %30 yumuşak kaya\" olarak belirlenen 100 m³'lük bir serbest kazının, her zemin sınıfına düşen hacmini hesaplayınız.",
+        "en": "For a 100 m³ free excavation whose soil class is determined as \"30% earth, 40% rippable rock, 30% soft rock\", calculate the volume falling under each soil class."
+      },
+      "answer": {
+        "tr": "Toprak: $100 \\times 0{,}30 = 30$ m³\n\nKüskülük: $100 \\times 0{,}40 = 40$ m³\n\nYumuşak kaya: $100 \\times 0{,}30 = 30$ m³\n\nToplam: $30+40+30=100$ m³ ✓ (kontrol: yüzdeler toplamı %100'e eşit olmalı)",
+        "en": "Earth: $100 \\times 0.30 = 30$ m³\n\nRippable rock: $100 \\times 0.40 = 40$ m³\n\nSoft rock: $100 \\times 0.30 = 30$ m³\n\nTotal: $30+40+30=100$ m³ ✓ (check: percentages must sum to 100%)"
+      }
+    },
+    {
+      "id": "q38",
+      "type": "open",
+      "covers": [
+        "n7"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "Makine ile yapılacak 200 m³'lük bir serbest kazıda zemin sınıfı %30 toprak, %40 küskülük, %30 yumuşak kaya olarak belirlenmiştir. Bu üç sınıfın birim fiyatları sırasıyla 100 ₺/m³, 130 ₺/m³ ve 170 ₺/m³ olduğuna göre, kazının toplam bedelini hesaplayınız (PDF'teki Örnek 2 mantığı — verilen hacimle).",
+        "en": "For a 200 m³ machine free excavation, the soil class is determined as 30% earth, 40% rippable rock, 30% soft rock. Given that the unit prices of these three classes are 100 ₺/m³, 130 ₺/m³, and 170 ₺/m³ respectively, compute the total cost of the excavation (the Örnek 2 logic from the PDF — with the given volume)."
+      },
+      "answer": {
+        "tr": "Önce her zemin sınıfına düşen hacim bulunur:\n\nToprak: $200 \\times 0{,}30 = 60$ m³\n\nKüskülük: $200 \\times 0{,}40 = 80$ m³\n\nYumuşak kaya: $200 \\times 0{,}30 = 60$ m³\n\nHer hacim kendi birim fiyatıyla çarpılır ve toplanır:\n\nToprak bedeli: $60 \\times 100 = 6.000$ ₺\n\nKüskülük bedeli: $80 \\times 130 = 10.400$ ₺\n\nYumuşak kaya bedeli: $60 \\times 170 = 10.200$ ₺\n\n**Toplam bedel** $=6.000+10.400+10.200 = 26.600$ ₺.\n\nKontrol: ortalama birim fiyat $=0{,}30\\times100+0{,}40\\times130+0{,}30\\times170 = 133$ ₺/m³; $133 \\times 200 = 26.600$ ₺ ✓",
+        "en": "First find the volume falling under each soil class:\n\nEarth: $200 \\times 0.30 = 60$ m³\n\nRippable rock: $200 \\times 0.40 = 80$ m³\n\nSoft rock: $200 \\times 0.30 = 60$ m³\n\nMultiply each volume by its own unit price and sum:\n\nEarth cost: $60 \\times 100 = 6{,}000$ ₺\n\nRippable-rock cost: $80 \\times 130 = 10{,}400$ ₺\n\nSoft-rock cost: $60 \\times 170 = 10{,}200$ ₺\n\n**Total cost** $=6{,}000+10{,}400+10{,}200 = 26{,}600$ ₺.\n\nCheck: average unit price $=0.30\\times100+0.40\\times130+0.30\\times170 = 133$ ₺/m³; $133 \\times 200 = 26{,}600$ ₺ ✓"
+      }
+    },
+    {
+      "id": "q31",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "En kesit yöntemi ile kazı hacmi hesabında, arazi eğimi fazla olduğunda en kesit aralığı en fazla kaç metre alınır?",
+        "en": "In cross-section volume calculation, what is the maximum cross-section spacing when the terrain slope is steep?"
+      },
+      "options": [
+        {
+          "tr": "1 metre",
+          "en": "1 meter"
+        },
+        {
+          "tr": "2 metre",
+          "en": "2 meters"
+        },
+        {
+          "tr": "5 metre",
+          "en": "5 meters"
+        },
+        {
+          "tr": "10 metre",
+          "en": "10 meters"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Arazi eğiminin fazla olduğu durumlarda en kesit aralıkları en fazla 2 metre alınır; daha düz arazilerde bu mesafe 10 metreye kadar çıkarılabilir.",
+        "en": "When the terrain slope is steep, cross-section spacing is at most 2 meters; on flatter terrain this distance can be extended up to 10 meters."
+      }
+    },
+    {
+      "id": "q32",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Bir en kesitte $y_1=2$, $y_2=3$, $x_1=4$ m ise ve kesit sadece bu iki noktadan oluşuyorsa (basitleştirilmiş üçgen/yamuk), $S=\\tfrac12[y_1x_1+y_2x_1]$ formülüne göre alan kaç m²'dir?",
+        "en": "For a cross-section with $y_1=2$, $y_2=3$, $x_1=4$ m (a simplified two-point trapezoid), using $S=\\tfrac12[y_1x_1+y_2x_1]$, what is the area in m²?"
+      },
+      "options": [
+        {
+          "tr": "5 m²",
+          "en": "5 m²"
+        },
+        {
+          "tr": "10 m²",
+          "en": "10 m²"
+        },
+        {
+          "tr": "20 m²",
+          "en": "20 m²"
+        },
+        {
+          "tr": "14 m²",
+          "en": "14 m²"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$S = \\tfrac12[2\\times4 + 3\\times4] = \\tfrac12[8+12] = \\tfrac12(20) = 10$ m². Bu, tam en kesit formülünün $y_1x_1+y_2(x_1+x_2)+...$ yapısının iki noktalık en basit hâlidir.",
+        "en": "$S = \\tfrac12[2\\times4 + 3\\times4] = \\tfrac12[8+12] = \\tfrac12(20) = 10$ m². This is the simplest two-point case of the full cross-section formula's $y_1x_1+y_2(x_1+x_2)+...$ structure."
+      }
+    },
+    {
+      "id": "q33",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "İki komşu en kesitin alanları $S_1=10$ m² ve $S_2=14$ m², aralarındaki mesafe $L=5$ m ise bu iki kesit arasındaki kazı hacmi kaç m³'tür?",
+        "en": "If two neighboring cross-sections have areas $S_1=10$ m² and $S_2=14$ m², and the distance between them is $L=5$ m, what is the excavation volume between them?"
+      },
+      "options": [
+        {
+          "tr": "48 m³",
+          "en": "48 m³"
+        },
+        {
+          "tr": "60 m³",
+          "en": "60 m³"
+        },
+        {
+          "tr": "70 m³",
+          "en": "70 m³"
+        },
+        {
+          "tr": "120 m³",
+          "en": "120 m³"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "$V = \\tfrac{S_1+S_2}{2}\\times L = \\tfrac{10+14}{2}\\times5 = 12\\times5 = 60$ m³. Trapez prizması mantığı: alanların ortalamasını mesafeyle çarp.",
+        "en": "$V = \\tfrac{S_1+S_2}{2}\\times L = \\tfrac{10+14}{2}\\times5 = 12\\times5 = 60$ m³. The trapezoidal-prism logic: multiply the average of the areas by the distance."
+      }
+    },
+    {
+      "id": "q34",
+      "type": "open",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 2,
+      "examStyle": true,
+      "q": {
+        "tr": "En kesit yönteminin temel fikrini (dilimleme mantığını) açıklayınız ve alan (S) ile hacim (V) formüllerini yazınız.",
+        "en": "Explain the basic idea of the cross-section method (the slicing logic) and write the area (S) and volume (V) formulas."
+      },
+      "answer": {
+        "tr": "**Fikir:** Kazı yapılacak alan belirli aralıklarla dilimlere (en kesitlere) bölünür; her dilimin iki boyutlu alanı hesaplanır. Komşu dilimler arasındaki hacim, iki dilimin alan ortalaması ile aralarındaki mesafenin çarpımıyla bulunur; bu tüm dilimler için tekrarlanıp toplanır.\n\n**Alan formülü:**\n$$S = \\tfrac{1}{2}\\left[y_1x_1+y_2(x_1+x_2)+y_3(x_2+x_3)+y_4(x_3+x_4)+y_5(x_4+x_5)+y_6x_5\\right]$$\n\n**Hacim formülü:**\n$$V = \\tfrac{S_1+S_2}{2}L_1+\\tfrac{S_2+S_3}{2}L_2+\\tfrac{S_3+S_4}{2}L_3+\\tfrac{S_4+S_5}{2}L_4+\\tfrac{S_5+S_6}{2}L_5$$",
+        "en": "**Idea:** The area to be excavated is sliced into cross-sections at regular intervals; the 2D area of each slice is computed. The volume between neighboring slices is found by multiplying the average of the two slices' areas by the distance between them; this is repeated and summed for all slices.\n\n**Area formula:**\n$$S = \\tfrac{1}{2}\\left[y_1x_1+y_2(x_1+x_2)+y_3(x_2+x_3)+y_4(x_3+x_4)+y_5(x_4+x_5)+y_6x_5\\right]$$\n\n**Volume formula:**\n$$V = \\tfrac{S_1+S_2}{2}L_1+\\tfrac{S_2+S_3}{2}L_2+\\tfrac{S_3+S_4}{2}L_3+\\tfrac{S_4+S_5}{2}L_4+\\tfrac{S_5+S_6}{2}L_5$$"
+      }
+    },
+    {
+      "id": "q35",
+      "type": "mcq",
+      "covers": [
+        "n8"
+      ],
+      "difficulty": 3,
+      "examStyle": false,
+      "q": {
+        "tr": "Düz bir arazide en kesit aralığı 10 metreye kadar çıkarılabilirken, eğimli arazide neden en fazla 2 metre ile sınırlandırılır?",
+        "en": "Why is cross-section spacing limited to at most 2 meters on sloped terrain, while it can extend to 10 meters on flat terrain?"
+      },
+      "options": [
+        {
+          "tr": "Eğimli arazide ölçüm cihazları daha yavaş çalışır",
+          "en": "Measurement devices work slower on sloped terrain"
+        },
+        {
+          "tr": "Eğim arttıkça arazi yüzeyi kesitler arasında daha hızlı değiştiğinden, geniş aralıklar gerçek şekli temsil etmekte yetersiz kalır",
+          "en": "As slope increases, the terrain surface changes faster between sections, so wide spacing fails to represent the true shape"
+        },
+        {
+          "tr": "Yasal bir zorunluluktur, teknik bir nedeni yoktur",
+          "en": "It is purely a legal requirement with no technical reason"
+        },
+        {
+          "tr": "Eğimli arazide daha az en kesit çıkarmak daha ucuzdur",
+          "en": "Taking fewer cross-sections on sloped terrain is cheaper"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "En kesit yöntemi iki kesit arasındaki yüzeyi düz (doğrusal) kabul eder. Eğim fazlaysa arazi yüzeyi kısa mesafede çok değişir, bu yüzden geniş aralık gerçek hacmi yanlış tahmin ettirir; sık aralık (≤2m) hatayı azaltır. Düz arazide yüzey zaten az değiştiğinden geniş aralık (≤10m) yeterlidir.",
+        "en": "The cross-section method assumes the surface between two sections is flat (linear). If the slope is steep, the terrain changes a lot over a short distance, so wide spacing misestimates the true volume; tight spacing (≤2m) reduces this error. On flat terrain the surface barely changes, so wide spacing (≤10m) suffices."
+      }
+    },
+    {
+      "id": "q36",
+      "type": "mcq",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 1,
+      "examStyle": false,
+      "q": {
+        "tr": "Küçük, dar veya çok hassas çalışılması gereken alanlarda hangi kazı yöntemi tercih edilir?",
+        "en": "Which excavation method is preferred in small, narrow, or highly precision-sensitive areas?"
+      },
+      "options": [
+        {
+          "tr": "Patlayıcı madde",
+          "en": "Explosives"
+        },
+        {
+          "tr": "El aletleri",
+          "en": "Hand tools"
+        },
+        {
+          "tr": "Büyük ekskavatörler",
+          "en": "Large excavators"
+        },
+        {
+          "tr": "Yükleyiciler",
+          "en": "Loaders"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "tr": "Küçük ölçekli, dar veya hassas çalışılması gereken alanlarda (örn. mevcut yapı yakını) kazı hâlâ el aletleriyle (kürek, kazma) yapılır çünkü makineler bu ölçekte hem yetersiz kalır hem de riskli olabilir.",
+        "en": "In small-scale, narrow, or precision-sensitive areas (e.g. near an existing structure), excavation is still done with hand tools (shovel, pick) because machines are impractical and potentially risky at this scale."
+      }
+    },
+    {
+      "id": "q37",
+      "type": "open",
+      "covers": [
+        "n9"
+      ],
+      "difficulty": 2,
+      "examStyle": false,
+      "q": {
+        "tr": "Zemin sertliği arttıkça (toprak → küskülük → kaya) kullanılan araç/yöntem nasıl değişir? Bir örnek sıralama yapınız.",
+        "en": "As soil hardness increases (earth → rippable rock → rock), how does the tool/method used change? Give an example progression."
+      },
+      "answer": {
+        "tr": "Zemin sertleştikçe daha güçlü araçlar gerekir: yumuşak toprakta kürek yeterliyken, sert toprakta kazmanın ucu kullanılır; küskülükte küskü/kama/tokmak ve gerekirse kırıcı tabanca devreye girer; kaya sınıflarında (özellikle sert ve çok sert kaya) kırıcı tabanca yetersiz kalır ve patlayıcı madde neredeyse kaçınılmaz hâle gelir. Yani araç zinciri kabaca: kürek → kazma → küskü/kama/tokmak → kırıcı tabanca → patlayıcı madde şeklinde ilerler.",
+        "en": "As soil hardness increases, stronger tools are required: a shovel suffices for soft earth, the pick end is used for hard earth, bar/wedge/mallet and (if needed) a jackhammer come into play for rippable rock, and for rock classes (especially hard and very hard rock) a jackhammer alone is insufficient and explosives become nearly unavoidable. So the tool chain roughly progresses: shovel → pick → bar/wedge/mallet → jackhammer → explosives."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "2-1",
+      "code": "Uygulama 2.1",
+      "title": {
+        "tr": "En kesit yöntemi ile serbest kazı hacmi",
+        "en": "Free-excavation volume with the cross-section method"
+      },
+      "difficulty": 2,
+      "examLikelihood": "high",
+      "statement": {
+        "tr": "Aşağıda, bir binanın 1-5 aksları boyunca A, B, C sıralarında ölçülen doğal arazi kotları (m) ve akslar arası mesafeler (cm) verilmiştir (PDF'teki Örnek 1'in aynı verileri). Bu bina için en düşük doğal arazi kotu 210,00 m olarak tespit edilmiş ve serbest kazı kotu kabul edilmiştir. Bina oturumunun A-C sıraları arası genişliği (kısa kenar) 8 m'dir. Her aks hattındaki (1'den 5'e) ortalama kazı derinliğini, o akstaki A/B/C kotlarının serbest kazı kotuna göre ortalama farkı olarak hesaplayıp, en kesit yöntemi ile toplam serbest kazı hacmini bulunuz.",
+        "en": "Below are the natural-ground elevations (m) measured at rows A, B, C along axes 1-5 of a building, and the distances between axes (cm) (same data as Örnek 1 in the source PDF). The lowest natural ground elevation for this building has been found to be 210.00 m and adopted as the free-excavation elevation. The width of the building footprint between rows A-C (short side) is 8 m. Compute the average excavation depth at each axis line (1 to 5) as the average difference between that axis's A/B/C elevations and the free-excavation elevation, then find the total free-excavation volume using the cross-section method."
+      },
+      "given": [
+        {
+          "symbol": "Kot_A",
+          "value": "211{,}00,\\ 211{,}00,\\ 211{,}50,\\ 211{,}70,\\ 212{,}00\\ \\text{m}",
+          "label": {
+            "tr": "A sırası kotları (aks 1-5)",
+            "en": "Row A elevations (axes 1-5)"
+          }
+        },
+        {
+          "symbol": "Kot_B",
+          "value": "210{,}40,\\ 210{,}40,\\ 210{,}90,\\ 211{,}20,\\ 211{,}50\\ \\text{m}",
+          "label": {
+            "tr": "B sırası kotları (aks 1-5)",
+            "en": "Row B elevations (axes 1-5)"
+          }
+        },
+        {
+          "symbol": "Kot_C",
+          "value": "210{,}00,\\ 210{,}30,\\ 210{,}50,\\ 210{,}80,\\ 211{,}00\\ \\text{m}",
+          "label": {
+            "tr": "C sırası kotları (aks 1-5)",
+            "en": "Row C elevations (axes 1-5)"
+          }
+        },
+        {
+          "symbol": "x_i",
+          "value": "3{,}00,\\ 4{,}00,\\ 4{,}00,\\ 4{,}00\\ \\text{m}",
+          "label": {
+            "tr": "Akslar arası mesafeler (1-2, 2-3, 3-4, 4-5)",
+            "en": "Distances between axes (1-2, 2-3, 3-4, 4-5)"
+          }
+        },
+        {
+          "symbol": "b",
+          "value": "8\\ \\text{m}",
+          "label": {
+            "tr": "A-C sıraları arası genişlik",
+            "en": "Width between rows A-C"
+          }
+        },
+        {
+          "symbol": "Kot_{serbest}",
+          "value": "210{,}00\\ \\text{m}",
+          "label": {
+            "tr": "Serbest kazı kotu (en düşük kot)",
+            "en": "Free-excavation elevation (lowest elevation)"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Toplam serbest kazı hacmini en kesit yöntemiyle bulmak.",
+        "en": "Find the total free-excavation volume using the cross-section method."
+      },
+      "tables": [
+        {
+          "title": {
+            "tr": "Aks bazında ortalama kot ve kazı derinliği",
+            "en": "Average elevation and excavation depth per axis"
+          },
+          "headers": [
+            "Aks",
+            "Kot_A",
+            "Kot_B",
+            "Kot_C",
+            "Ortalama kot",
+            "Derinlik y_i"
+          ],
+          "rows": [
+            [
+              "1",
+              "211,00",
+              "210,40",
+              "210,00",
+              "210,4667",
+              "0,4667"
+            ],
+            [
+              "2",
+              "211,00",
+              "210,40",
+              "210,30",
+              "210,5667",
+              "0,5667"
+            ],
+            [
+              "3",
+              "211,50",
+              "210,90",
+              "210,50",
+              "210,9667",
+              "0,9667"
+            ],
+            [
+              "4",
+              "211,70",
+              "211,20",
+              "210,80",
+              "211,2333",
+              "1,2333"
+            ],
+            [
+              "5",
+              "212,00",
+              "211,50",
+              "211,00",
+              "211,5000",
+              "1,5000"
+            ]
+          ]
+        }
+      ],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Her aksın ortalama kazı derinliğini bul",
+            "en": "Find the average excavation depth at each axis"
+          },
+          "guiding": {
+            "tr": "Her aks hattında A, B, C sıralarının kotları farklı. Bu üç kotu tek bir 'kesit derinliği' (y_i) değerine nasıl indirgersin?",
+            "en": "At each axis line the A, B, C row elevations differ. How do you reduce these three elevations to a single 'section depth' (y_i) value?"
+          },
+          "hint": {
+            "tr": "Önce üç kotun ortalamasını al (bu, o aks boyunca arazinin 'ortalama yüksekliği'dir), sonra bu ortalamadan serbest kazı kotunu çıkar.",
+            "en": "First average the three elevations (this is the terrain's 'average height' along that axis), then subtract the free-excavation elevation from that average."
+          },
+          "work": {
+            "tr": "Aks 1: ortalama kot $=(211{,}00+210{,}40+210{,}00)/3=210{,}4667$ m → $y_1=210{,}4667-210{,}00=0{,}4667$ m\n\nAks 2: ortalama kot $=(211{,}00+210{,}40+210{,}30)/3=210{,}5667$ m → $y_2=0{,}5667$ m\n\nAks 3: ortalama kot $=(211{,}50+210{,}90+210{,}50)/3=210{,}9667$ m → $y_3=0{,}9667$ m\n\nAks 4: ortalama kot $=(211{,}70+211{,}20+210{,}80)/3=211{,}2333$ m → $y_4=1{,}2333$ m\n\nAks 5: ortalama kot $=(212{,}00+211{,}50+211{,}00)/3=211{,}5000$ m → $y_5=1{,}5000$ m",
+            "en": "Axis 1: average elevation $=(211.00+210.40+210.00)/3=210.4667$ m → $y_1=210.4667-210.00=0.4667$ m\n\nAxis 2: average elevation $=(211.00+210.40+210.30)/3=210.5667$ m → $y_2=0.5667$ m\n\nAxis 3: average elevation $=(211.50+210.90+210.50)/3=210.9667$ m → $y_3=0.9667$ m\n\nAxis 4: average elevation $=(211.70+211.20+210.80)/3=211.2333$ m → $y_4=1.2333$ m\n\nAxis 5: average elevation $=(212.00+211.50+211.00)/3=211.5000$ m → $y_5=1.5000$ m"
+          },
+          "why": {
+            "tr": "Derinlik (y) her zaman kot değil — SERBEST KAZI KOTUNA GÖRE FARKTIR. Kotlar 1'den 5'e doğru yükseldiği için (arazi eğimli), kazı derinliği de aynı yönde artıyor: en sığ nokta aks 1 (0,4667 m), en derin nokta aks 5 (1,5 m). Bu, arazinin aks 5 tarafına doğru yükseldiğini gösterir.",
+            "en": "Depth (y) is never the raw elevation — it is the DIFFERENCE relative to the free-excavation elevation. Since elevations rise from axis 1 to axis 5 (the terrain is sloped), the excavation depth also increases in the same direction: the shallowest point is axis 1 (0.4667 m), the deepest is axis 5 (1.5 m). This shows the terrain rises toward the axis-5 side."
+          },
+          "result": "y_1..y_5 = 0{,}4667,\\ 0{,}5667,\\ 0{,}9667,\\ 1{,}2333,\\ 1{,}5000\\ \\text{m}",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Her aksın en kesit alanını (S) hesapla",
+            "en": "Compute the cross-section area (S) at each axis"
+          },
+          "guiding": {
+            "tr": "Bina genişliği (A-C arası, 8 m) her aks boyunca sabit. Bu durumda o aksın en kesit alanı nasıl bulunur?",
+            "en": "The building width (between A-C, 8 m) is constant along every axis. Given this, how is that axis's cross-section area found?"
+          },
+          "hint": {
+            "tr": "Genişlik sabit olduğundan en kesit dikdörtgen kabul edilebilir: $S_i = y_i \\times b$.",
+            "en": "Since the width is constant, the cross-section can be treated as a rectangle: $S_i = y_i \\times b$."
+          },
+          "work": {
+            "tr": "$S_1 = 0{,}4667 \\times 8 = 3{,}7336$ m²\n\n$S_2 = 0{,}5667 \\times 8 = 4{,}5336$ m²\n\n$S_3 = 0{,}9667 \\times 8 = 7{,}7336$ m²\n\n$S_4 = 1{,}2333 \\times 8 = 9{,}8664$ m²\n\n$S_5 = 1{,}5000 \\times 8 = 12{,}0000$ m²",
+            "en": "$S_1 = 0.4667 \\times 8 = 3.7336$ m²\n\n$S_2 = 0.5667 \\times 8 = 4.5336$ m²\n\n$S_3 = 0.9667 \\times 8 = 7.7336$ m²\n\n$S_4 = 1.2333 \\times 8 = 9.8664$ m²\n\n$S_5 = 1.5000 \\times 8 = 12.0000$ m²"
+          },
+          "why": {
+            "tr": "Burada genişliğin SABİT olması işi kolaylaştırıyor: normalde S için sayfadaki tam formül ($S=\\tfrac12[y_1x_1+...]$) düzensiz bir en kesit şeklini (yamuk dizisi) tarif eder; ama bina genişliği boyunca zemin düz kabul edildiğinde her aks kesiti basit bir dikdörtgene indirgenir. Sınavda 'genişlik sabit' ipucu görürsen bu kısayolu kullan.",
+            "en": "The width being CONSTANT simplifies things here: normally the full S formula ($S=\\tfrac12[y_1x_1+...]$) describes an irregular cross-section shape (a chain of trapezoids); but when the ground across the building width is treated as flat, each axis section reduces to a simple rectangle. If you see a 'constant width' cue on the exam, use this shortcut."
+          },
+          "result": "S_1..S_5 = 3{,}7336,\\ 4{,}5336,\\ 7{,}7336,\\ 9{,}8664,\\ 12{,}0000\\ \\text{m}^2",
+          "check": {
+            "q": {
+              "tr": "Aks 1'den aks 5'e doğru S değerleri sürekli artıyor. Bu beklenen bir sonuç mu?",
+              "en": "S values keep increasing from axis 1 to axis 5. Is this an expected result?"
+            },
+            "options": [
+              {
+                "tr": "Evet, çünkü arazi kotları da aks 1'den 5'e doğru sürekli yükseliyor, dolayısıyla derinlik de artıyor",
+                "en": "Yes, because the terrain elevations also keep rising from axis 1 to 5, so the depth increases too"
+              },
+              {
+                "tr": "Hayır, S değerleri rastgele olmalıydı",
+                "en": "No, S values should have been random"
+              }
+            ],
+            "correct": 0,
+            "explain": {
+              "tr": "Tablodaki kotlar aks 1'den 5'e doğru monoton artıyor (211,00→212,00 A sırasında, benzer şekilde B ve C'de), bu yüzden derinlik ve alan da aynı yönde monoton artmalıdır — sonuçların tutarlılığını kontrol etmenin hızlı bir yolu budur.",
+              "en": "The elevations in the table increase monotonically from axis 1 to 5 (211.00→212.00 in row A, similarly in B and C), so depth and area must also increase monotonically in the same direction — this is a quick way to sanity-check your results."
+            }
+          },
+          "story": {
+            "title": {
+              "tr": "En kesit yöntemi — aks 1'den 5'e kazı derinliğinin artışı",
+              "en": "Cross-section method — increasing excavation depth from axis 1 to 5"
+            },
+            "xLabel": "aks mesafesi (m)",
+            "yLabel": "derinlik (m)",
+            "xDomain": [
+              -1,
+              16
+            ],
+            "yDomain": [
+              -2,
+              2
+            ],
+            "square": false,
+            "showAxes": true,
+            "frames": [
+              {
+                "caption": {
+                  "tr": "Serbest kazı kotunu (210,00 m) sıfır çizgisi kabul edip, her aksın ortalama derinliğini (y_i) bu çizginin altına işaretleyelim. Akslar arası mesafeler: 3, 4, 4, 4 m.",
+                  "en": "Take the free-excavation elevation (210.00 m) as the zero line, and mark each axis's average depth (y_i) below this line. Axis spacings: 3, 4, 4, 4 m."
+                },
+                "add": [
+                  {
+                    "type": "line",
+                    "x1": -1,
+                    "y1": 0,
+                    "x2": 16,
+                    "y2": 0,
+                    "color": "ink",
+                    "width": 1.5
+                  },
+                  {
+                    "type": "text",
+                    "x": 15,
+                    "y": 0.35,
+                    "text": {
+                      "tr": "Serbest kazı kotu = 210,00 m",
+                      "en": "Free-excavation elevation = 210.00 m"
+                    },
+                    "color": "ink"
+                  },
+                  {
+                    "type": "point",
+                    "x": 0,
+                    "y": -0.4667,
+                    "label": "1 (0,47m)",
+                    "color": "deniz"
+                  },
+                  {
+                    "type": "point",
+                    "x": 3,
+                    "y": -0.5667,
+                    "label": "2 (0,57m)",
+                    "color": "deniz"
+                  },
+                  {
+                    "type": "point",
+                    "x": 7,
+                    "y": -0.9667,
+                    "label": "3 (0,97m)",
+                    "color": "deniz"
+                  },
+                  {
+                    "type": "point",
+                    "x": 11,
+                    "y": -1.2333,
+                    "label": "4 (1,23m)",
+                    "color": "deniz"
+                  },
+                  {
+                    "type": "point",
+                    "x": 15,
+                    "y": -1.5,
+                    "label": "5 (1,50m)",
+                    "color": "deniz"
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Noktaları birleştirince aks boyunca kazı yüzeyinin profilini (kesit hattını) görürüz: arazi aks 5'e doğru sürekli derinleşiyor.",
+                  "en": "Joining the points shows the excavation-surface profile along the axis line: the terrain keeps getting deeper toward axis 5."
+                },
+                "add": [
+                  {
+                    "type": "polyline",
+                    "points": [
+                      [
+                        0,
+                        -0.4667
+                      ],
+                      [
+                        3,
+                        -0.5667
+                      ],
+                      [
+                        7,
+                        -0.9667
+                      ],
+                      [
+                        11,
+                        -1.2333
+                      ],
+                      [
+                        15,
+                        -1.5
+                      ]
+                    ],
+                    "color": "clay",
+                    "width": 2.5
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Her komşu nokta çifti arasındaki alan bir yamuk (trapez) oluşturur. Bu beş bölgenin hacmi, ilgili S değerlerinin ortalaması × aradaki mesafe ile hesaplanır.",
+                  "en": "The area between each pair of neighboring points forms a trapezoid. The volume of each region is the average of the relevant S values × the spacing between them."
+                },
+                "add": [
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        3,
+                        0
+                      ],
+                      [
+                        3,
+                        -0.5667
+                      ],
+                      [
+                        0,
+                        -0.4667
+                      ]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        3,
+                        0
+                      ],
+                      [
+                        7,
+                        0
+                      ],
+                      [
+                        7,
+                        -0.9667
+                      ],
+                      [
+                        3,
+                        -0.5667
+                      ]
+                    ],
+                    "color": "moss",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        7,
+                        0
+                      ],
+                      [
+                        11,
+                        0
+                      ],
+                      [
+                        11,
+                        -1.2333
+                      ],
+                      [
+                        7,
+                        -0.9667
+                      ]
+                    ],
+                    "color": "amber",
+                    "fill": true,
+                    "width": 1.5
+                  },
+                  {
+                    "type": "polygon",
+                    "points": [
+                      [
+                        11,
+                        0
+                      ],
+                      [
+                        15,
+                        0
+                      ],
+                      [
+                        15,
+                        -1.5
+                      ],
+                      [
+                        11,
+                        -1.2333
+                      ]
+                    ],
+                    "color": "moss",
+                    "fill": true,
+                    "width": 1.5
+                  }
+                ]
+              },
+              {
+                "caption": {
+                  "tr": "Dört trapez bölgesinin hacmi toplanır: 12,40 + 24,53 + 35,20 + 43,73 ≈ 115,87 m³ — bu, binanın 8 m genişliğindeki serbest kazı hacminin toplamıdır. (Toplam, yuvarlanmamış segment değerlerinden 115,868 → 115,87 m³ olarak hesaplanır.)",
+                  "en": "The volumes of the four trapezoidal regions are summed: 12.40 + 24.53 + 35.20 + 43.73 ≈ 115.87 m³ — this is the total free-excavation volume across the building's 8 m width. (The total is 115.868 → 115.87 m³ from the unrounded segment values.)"
+                },
+                "add": [
+                  {
+                    "type": "text",
+                    "x": 7,
+                    "y": 1.4,
+                    "text": {
+                      "tr": "V_toplam = 115,87 m³",
+                      "en": "V_total = 115.87 m³"
+                    },
+                    "color": "moss",
+                    "size": 16
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": {
+            "tr": "Trapez hacimlerini hesapla ve topla",
+            "en": "Compute and sum the trapezoidal volumes"
+          },
+          "guiding": {
+            "tr": "Beş S değerin ve dört aks aralığın (L) var. V formülünü nasıl uygularsın?",
+            "en": "You have five S values and four axis spacings (L). How do you apply the V formula?"
+          },
+          "hint": {
+            "tr": "$V = \\sum \\tfrac{S_i+S_{i+1}}{2}L_i$: her komşu S çifti için ortalama alıp aradaki L ile çarp, dört segmenti topla.",
+            "en": "$V = \\sum \\tfrac{S_i+S_{i+1}}{2}L_i$: for each neighboring S pair, average them and multiply by the L between them, then sum the four segments."
+          },
+          "work": {
+            "tr": "Segment 1-2: $\\tfrac{3{,}7336+4{,}5336}{2}\\times3{,}00 = 4{,}1336\\times3 = 12{,}401$ m³\n\nSegment 2-3: $\\tfrac{4{,}5336+7{,}7336}{2}\\times4{,}00 = 6{,}1336\\times4 = 24{,}534$ m³\n\nSegment 3-4: $\\tfrac{7{,}7336+9{,}8664}{2}\\times4{,}00 = 8{,}8000\\times4 = 35{,}200$ m³\n\nSegment 4-5: $\\tfrac{9{,}8664+12{,}0000}{2}\\times4{,}00 = 10{,}9332\\times4 = 43{,}733$ m³\n\n$$V = 12{,}401+24{,}534+35{,}200+43{,}733 = 115{,}87\\ \\text{m}^3$$",
+            "en": "Segment 1-2: $\\tfrac{3.7336+4.5336}{2}\\times3.00 = 4.1336\\times3 = 12.401$ m³\n\nSegment 2-3: $\\tfrac{4.5336+7.7336}{2}\\times4.00 = 6.1336\\times4 = 24.534$ m³\n\nSegment 3-4: $\\tfrac{7.7336+9.8664}{2}\\times4.00 = 8.8000\\times4 = 35.200$ m³\n\nSegment 4-5: $\\tfrac{9.8664+12.0000}{2}\\times4.00 = 10.9332\\times4 = 43.733$ m³\n\n$$V = 12.401+24.534+35.200+43.733 = 115.87\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Her segment ayrı bir 'trapez prizması' gibi hesaplanıyor çünkü akslar arası mesafe (3,4,4,4 m) sabit değil — ilk aralık (aks 1-2) diğerlerinden kısa (3 m). Bu yüzden formülün her terimini AYRI mesafeyle çarpmak gerekir, ortak bir mesafe ile tek seferde çarpmak yanlış olur.",
+            "en": "Each segment is computed as a separate 'trapezoidal prism' because the axis spacing (3,4,4,4 m) is not uniform — the first interval (axis 1-2) is shorter than the others (3 m). So each term of the formula must be multiplied by its OWN spacing; multiplying everything by one common spacing would be wrong."
+          },
+          "result": "V = 115{,}87\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sonucu basit bir kontrolle doğrula",
+            "en": "Verify the result with a simple check"
+          },
+          "guiding": {
+            "tr": "Trapez yöntemi yerine, tüm bina tabanının 'ortalama derinlik × alan' ile kabaca hacmini hesaplarsan sonuç ne kadar yakın çıkar?",
+            "en": "If instead of the trapezoidal method you roughly compute the whole building base's volume as 'average depth × area', how close does the result come out?"
+          },
+          "hint": {
+            "tr": "Ortalama derinlik = 5 aksın y değerlerinin ortalaması; toplam alan = 15 m × 8 m.",
+            "en": "Average depth = the mean of the 5 axes' y values; total area = 15 m × 8 m."
+          },
+          "work": {
+            "tr": "Ortalama derinlik $=(0{,}4667+0{,}5667+0{,}9667+1{,}2333+1{,}5000)/5 = 0{,}9467$ m\n\nToplam plan alanı $=15\\times8=120$ m²\n\nKaba tahmin: $V \\approx 0{,}9467 \\times 120 = 113{,}6$ m³\n\nBu, trapez yöntemiyle bulunan 115,87 m³'e çok yakın (fark yaklaşık %2) — çünkü akslar arası mesafeler birbirine yakın (3,4,4,4 m) ve derinlik değişimi düzenli (monoton artan), bu yüzden basit ortalama da makul bir yaklaşık sonuç verir. Ancak KESİN sonuç olarak her zaman trapez (en kesit) yöntemi kullanılmalıdır.",
+            "en": "Average depth $=(0.4667+0.5667+0.9667+1.2333+1.5000)/5 = 0.9467$ m\n\nTotal plan area $=15\\times8=120$ m²\n\nRough estimate: $V \\approx 0.9467 \\times 120 = 113.6$ m³\n\nThis is very close to the trapezoidal-method result of 115.87 m³ (about 2% difference) — because the axis spacings are close to each other (3,4,4,4 m) and the depth change is regular (monotonically increasing), so the simple average also gives a reasonable approximation. However, the trapezoidal (cross-section) method should always be used for the EXACT result."
+          },
+          "why": {
+            "tr": "Bu kontrol adımı, en kesit yönteminin neden 'ortalama derinlik × alan' kısayolundan daha doğru olduğunu gösterir: kısayol sadece mesafeler eşit ve değişim düzenli olduğunda yakın sonuç verir. Mesafeler çok farklı olsaydı (örn. 1 m ve 10 m karışık), iki yöntem arasındaki fark çok büyürdü.",
+            "en": "This check step shows why the cross-section method is more accurate than the 'average depth × area' shortcut: the shortcut only gives a close result when the spacings are equal and the change is regular. If the spacings were very different (e.g. a mix of 1 m and 10 m), the gap between the two methods would grow much larger."
+          },
+          "result": "V_{kaba} \\approx 113{,}6\\ \\text{m}^3\\ (\\text{trapez sonucuna yakın})",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "En kesit yöntemiyle toplam serbest kazı hacmi: $\\boxed{V = 115{,}87\\ \\text{m}^3}$ (aks 1-5 boyunca dört trapez segmentinin toplamı; basit ortalama-derinlik kontrolü 113,6 m³ ile tutarlıdır).",
+        "en": "Total free-excavation volume by the cross-section method: $\\boxed{V = 115.87\\ \\text{m}^3}$ (sum of four trapezoidal segments along axes 1-5; consistent with the simple average-depth check of 113.6 m³)."
+      },
+      "traps": [
+        {
+          "tr": "Kotları doğrudan y değeri sanmak — y HER ZAMAN serbest kazı kotuna göre farktır, ham kot değeri değildir.",
+          "en": "Mistaking raw elevations for y values — y is ALWAYS the difference relative to the free-excavation elevation, not the raw elevation."
+        },
+        {
+          "tr": "Akslar arası mesafelerin (3,4,4,4 m) hepsinin eşit olduğunu varsayıp tek bir ortak L kullanmak — ilk aralık (aks 1-2) 3 m, diğerleri 4 m'dir; her segment kendi L'siyle çarpılmalıdır.",
+          "en": "Assuming all axis spacings (3,4,4,4 m) are equal and using one common L — the first interval (axis 1-2) is 3 m, the others are 4 m; each segment must be multiplied by its own L."
+        },
+        {
+          "tr": "Kot birimini (cm) mesafe birimiyle (cm) karıştırıp metreye çevirmeyi unutmak — akslar arası mesafeler cm cinsindendi, m'ye çevrilmesi gerekiyordu (300 cm = 3 m).",
+          "en": "Forgetting to convert the distance unit (cm) to meters — axis spacings were given in cm and needed conversion to m (300 cm = 3 m)."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya bina genişliği (A-C arası) sabit 8 m değil de her akста değişseydi?",
+            "en": "What if the building width (between A-C) were not a constant 8 m but varied at each axis?"
+          },
+          "answer": {
+            "tr": "O zaman her aksın en kesit alanı basit dikdörtgen ($S=y \\times b$) formülüyle bulunamaz; PDF'teki tam S formülü ($S=\\tfrac12[y_1x_1+y_2(x_1+x_2)+...]$) kullanılarak her aksın kendi genişlik profili üzerinden alanı hesaplanması gerekirdi — A, B, C sıralarındaki kotlar birer y noktası olarak alınıp satır aralıkları (4+4=8 m) x değerleri olarak kullanılırdı.",
+            "en": "Then each axis's cross-section area could not be found with the simple rectangle formula ($S=y \\times b$); the full S formula from the PDF ($S=\\tfrac12[y_1x_1+y_2(x_1+x_2)+...]$) would need to be applied using that axis's own width profile — the row A, B, C elevations would be taken as y points and the row spacings (4+4=8 m) as the x values."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya arazi düz olsaydı (tüm kotlar eşit)?",
+            "en": "What if the terrain were flat (all elevations equal)?"
+          },
+          "answer": {
+            "tr": "Tüm y_i değerleri eşit çıkardı, dolayısıyla tüm S_i değerleri de eşit olurdu ve trapez formülü basit bir dikdörtgen prizmaya indirgenirdi: $V = S \\times L_{toplam}$ (ortalama alma işlemi gereksiz kalırdı çünkü ortalanan iki sayı zaten eşit). Ayrıca not defterindeki kurala göre arazi eğimsizse doğal arazi kotu doğrudan serbest kazı kotu kabul edilir ve serbest kazı hacmi sıfıra iner — bu senaryoda soru anlamsızlaşırdı.",
+            "en": "All y_i values would come out equal, so all S_i values would also be equal, and the trapezoidal formula would reduce to a simple rectangular prism: $V = S \\times L_{total}$ (averaging becomes redundant since the two averaged numbers are already equal). Also, per the course rule, if the terrain is unsloped the natural ground elevation is taken directly as the free-excavation elevation and the free-excavation volume drops to zero — in that scenario the question would become moot."
+          }
+        }
+      ]
+    },
+    {
+      "id": "2-2",
+      "code": "Uygulama 2.2",
+      "title": {
+        "tr": "Doğal, kabarmış ve sıkışmış hacim dönüşümü",
+        "en": "Bank, loose, and compacted volume conversion"
+      },
+      "difficulty": 2,
+      "examLikelihood": "medium",
+      "statement": {
+        "tr": "En kesit yöntemiyle hesaplanan doğal (yerinde) kazı hacmi 500 m³'tür. Bu zemin için kabarma katsayısı %25 (yumuşak toprak için tipik bir değer) ve dolguda sıkışma oranı %90'dır (yani sıkıştırılmış dolgu hacmi doğal hacmin %90'ı). Kamyonların her biri 10 m³ gevşek malzeme taşıyabildiğine göre: (a) kamyona yüklenecek kabarmış hacmi, (b) dolguda elde edilecek sıkışmış hacmi, (c) tüm malzemeyi taşımak için gereken kamyon sayısını bulunuz.",
+        "en": "The bank (in-situ) excavation volume computed by the cross-section method is 500 m³. For this soil, the swell coefficient is 25% (a typical value for soft earth) and the fill compaction ratio is 90% (i.e. the compacted fill volume is 90% of the bank volume). Given that each truck can carry 10 m³ of loose material, find: (a) the loose volume to be loaded onto trucks, (b) the compacted volume obtained in the fill, and (c) the number of trucks needed to haul all the material."
+      },
+      "given": [
+        {
+          "symbol": "V_{doğal}",
+          "value": "500\\ \\text{m}^3",
+          "label": {
+            "tr": "En kesit yöntemiyle bulunan doğal hacim",
+            "en": "Bank volume from the cross-section method"
+          }
+        },
+        {
+          "symbol": "k",
+          "value": "0{,}25\\ (\\%25)",
+          "label": {
+            "tr": "Kabarma katsayısı",
+            "en": "Swell coefficient"
+          }
+        },
+        {
+          "symbol": "oran_{sıkışma}",
+          "value": "0{,}90\\ (\\%90)",
+          "label": {
+            "tr": "Dolguda sıkışma oranı",
+            "en": "Fill compaction ratio"
+          }
+        },
+        {
+          "symbol": "kapasite",
+          "value": "10\\ \\text{m}^3/\\text{kamyon}",
+          "label": {
+            "tr": "Kamyon başına taşıma kapasitesi",
+            "en": "Truck haulage capacity"
+          }
+        }
+      ],
+      "goal": {
+        "tr": "Kabarmış hacmi, sıkışmış hacmi ve gereken kamyon sayısını bulmak.",
+        "en": "Find the loose volume, the compacted volume, and the number of trucks needed."
+      },
+      "tables": [],
+      "chart": null,
+      "steps": [
+        {
+          "title": {
+            "tr": "Kabarmış hacmi hesapla",
+            "en": "Compute the loose volume"
+          },
+          "guiding": {
+            "tr": "Kazılan zemin taşınmak üzere kamyona yüklendiğinde hacmi büyür mü küçülür mü, ve hangi formülle?",
+            "en": "When excavated soil is loaded onto a truck for haulage, does its volume grow or shrink, and by which formula?"
+          },
+          "hint": {
+            "tr": "$V_{kabarmış}=V_{doğal}\\times(1+k)$ — kabarma her zaman bir ARTIŞTIR.",
+            "en": "$V_{loose}=V_{bank}\\times(1+k)$ — swelling is always an INCREASE."
+          },
+          "work": {
+            "tr": "$$V_{kabarmış} = 500 \\times (1+0{,}25) = 500\\times1{,}25 = 625\\ \\text{m}^3$$",
+            "en": "$$V_{loose} = 500 \\times (1+0.25) = 500\\times1.25 = 625\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Kabarma, kazı sırasında zemin tanecikleri arasına hava girmesinden kaynaklanır; bu yüzden kabarmış hacim doğal hacimden HER ZAMAN büyüktür. %25'lik katsayı, 500 m³'lük doğal hacmin kamyonda 625 m³'e çıktığını gösterir — aradaki 125 m³ fark sadece HAVA boşluğudur, ek malzeme değildir.",
+            "en": "Swelling occurs because air enters between soil grains during excavation; so the loose volume is ALWAYS larger than the bank volume. The 25% coefficient shows that the 500 m³ bank volume becomes 625 m³ once loaded on a truck — the 125 m³ difference is purely AIR gap, not extra material."
+          },
+          "result": "V_{kabarmış} = 625\\ \\text{m}^3",
+          "check": null
+        },
+        {
+          "title": {
+            "tr": "Sıkışmış hacmi hesapla",
+            "en": "Compute the compacted volume"
+          },
+          "guiding": {
+            "tr": "Aynı 500 m³'lük doğal hacim, dolguda sıkıştırıldığında ne olur — kabarmadan farklı bir yönde mi değişir?",
+            "en": "What happens to the same 500 m³ bank volume once it is compacted in the fill — does it change in a different direction than swelling?"
+          },
+          "hint": {
+            "tr": "Sıkışma oranı 1'den küçük bir çarpandır: $V_{sıkışmış}=V_{doğal}\\times oran_{sıkışma}$.",
+            "en": "The compaction ratio is a multiplier less than 1: $V_{compacted}=V_{bank}\\times ratio_{compaction}$."
+          },
+          "work": {
+            "tr": "$$V_{sıkışmış} = 500 \\times 0{,}90 = 450\\ \\text{m}^3$$",
+            "en": "$$V_{compacted} = 500 \\times 0.90 = 450\\ \\text{m}^3$$"
+          },
+          "why": {
+            "tr": "Sıkıştırma, gevşek malzemedeki hava boşluklarını azaltıp taneleri birbirine daha sıkı yerleştirir; sonuç doğal hacimden bile küçük çıkabilir (burada 500 m³ → 450 m³). Bu, kabarmanın tam TERSİ yönde bir değişimdir — aynı zeminin iki farklı işlem sonrasında iki zıt yönde hacim değiştirdiğini görmek bu sorunun ana fikridir.",
+            "en": "Compaction reduces the air voids in loose material and packs the grains together more tightly; the result can end up even smaller than the bank volume (here, 500 m³ → 450 m³). This is the exact OPPOSITE direction of change from swelling — seeing the same soil change volume in two opposite directions after two different processes is the core idea of this problem."
+          },
+          "result": "V_{sıkışmış} = 450\\ \\text{m}^3",
+          "check": {
+            "q": {
+              "tr": "Sıkışmış hacim (450 m³), doğal hacimden (500 m³) mi yoksa kabarmış hacimden (625 m³) mi daha küçüktür?",
+              "en": "Is the compacted volume (450 m³) smaller than the bank volume (500 m³), the loose volume (625 m³), or both?"
+            },
+            "options": [
+              {
+                "tr": "Sadece kabarmış hacimden küçüktür, doğal hacimden büyüktür",
+                "en": "Only smaller than the loose volume, larger than the bank volume"
+              },
+              {
+                "tr": "Hem doğal (500) hem kabarmış (625) hacimden küçüktür — üç hacim arasında en küçüğü sıkışmış hacimdir",
+                "en": "Smaller than BOTH the bank (500) and loose (625) volumes — the compacted volume is the smallest of the three"
+              }
+            ],
+            "correct": 1,
+            "explain": {
+              "tr": "Sıkışmış hacim (450 m³) üç değerin en küçüğüdür: doğal hacimden (500) bile küçüktür çünkü sıkıştırma zeminin doğal halinden daha da fazla gözenek boşluğunu ortadan kaldırabilir. Sıralama: kabarmış (625) > doğal (500) > sıkışmış (450).",
+              "en": "The compacted volume (450 m³) is the smallest of the three: it is even smaller than the bank volume (500) because compaction can remove more void space than the soil's natural state had. Order: loose (625) > bank (500) > compacted (450)."
+            }
+          },
+          "story": null
+        },
+        {
+          "title": {
+            "tr": "Gereken kamyon sayısını hesapla",
+            "en": "Compute the number of trucks needed"
+          },
+          "guiding": {
+            "tr": "Kamyon kapasitesi hangi hacim türüne göre değerlendirilmeli — doğal, kabarmış, yoksa sıkışmış hacme göre mi?",
+            "en": "Which volume type should the truck capacity be evaluated against — bank, loose, or compacted volume?"
+          },
+          "hint": {
+            "tr": "Kamyona yüklenen malzeme her zaman KABARMIŞ haldedir; kapasiteyi kabarmış hacme (625 m³) böl.",
+            "en": "Material loaded on a truck is always in the LOOSE state; divide the truck capacity into the loose volume (625 m³)."
+          },
+          "work": {
+            "tr": "$$n_{kamyon} = \\frac{V_{kabarmış}}{kapasite} = \\frac{625}{10} = 62{,}5 \\rightarrow 63\\ \\text{kamyon (yukarı yuvarlanır)}$$",
+            "en": "$$n_{trucks} = \\frac{V_{loose}}{capacity} = \\frac{625}{10} = 62.5 \\rightarrow 63\\ \\text{trucks (rounded up)}$$"
+          },
+          "why": {
+            "tr": "Kamyon sayısını DOĞAL hacme (500/10=50 kamyon) göre hesaplamak yaygın bir hatadır ve %20 eksik kamyon planlamasına yol açar (50 yerine gerçekte 63 gerekiyor). Sonuç küsuratlı çıktığında (62,5) her zaman YUKARI yuvarlanır çünkü yarım kamyon diye bir şey yoktur — 62 kamyon 620 m³ taşır, geriye kalan 5 m³ için 63. kamyon gerekir.",
+            "en": "Computing the truck count from the BANK volume (500/10=50 trucks) is a common mistake and leads to a 20% under-planning of trucks (63 are actually needed, not 50). When the result has a fraction (62.5) it is always rounded UP, because there is no such thing as half a truck — 62 trucks carry 620 m³, leaving 5 m³ that still requires a 63rd truck."
+          },
+          "result": "n_{kamyon} = 63",
+          "check": null
+        }
+      ],
+      "finalAnswer": {
+        "tr": "(a) Kabarmış hacim: $\\boxed{625\\ \\text{m}^3}$. (b) Sıkışmış hacim: $\\boxed{450\\ \\text{m}^3}$. (c) Gereken kamyon sayısı (kabarmış hacme göre): $\\boxed{63\\ \\text{kamyon}}$.",
+        "en": "(a) Loose volume: $\\boxed{625\\ \\text{m}^3}$. (b) Compacted volume: $\\boxed{450\\ \\text{m}^3}$. (c) Trucks needed (based on loose volume): $\\boxed{63\\ \\text{trucks}}$."
+      },
+      "traps": [
+        {
+          "tr": "Kamyon sayısını doğal hacme (500 m³) göre hesaplamak — kamyona yüklenen HER ZAMAN kabarmış hacimdir (625 m³), bu hata %20 eksik kamyon planlamasına yol açar.",
+          "en": "Computing truck count from the bank volume (500 m³) — material loaded on a truck is ALWAYS the loose volume (625 m³); this mistake leads to 20% under-planning of trucks."
+        },
+        {
+          "tr": "Kamyon sayısını küsuratlı bırakmak (62,5 kamyon) — gerçek dünyada kamyon sayısı her zaman tam sayıya ve YUKARI yuvarlanır.",
+          "en": "Leaving the truck count as a fraction (62.5 trucks) — in the real world, truck count is always a whole number, rounded UP."
+        },
+        {
+          "tr": "Sıkışma oranını kabarma katsayısıyla aynı yönde (çarpı 1+k) uygulamak — sıkışma oranı doğrudan çarpılır (×0,90), 1'e eklenmez, çünkü sıkışma bir AZALMADIR.",
+          "en": "Applying the compaction ratio in the same direction as the swell coefficient (multiplying by 1+k) — the compaction ratio is applied directly (×0.90), not added to 1, because compaction is a DECREASE."
+        }
+      ],
+      "whatIfs": [
+        {
+          "scenario": {
+            "tr": "Ya zemin sınıfı yumuşak toprak değil de sert kaya olsaydı — kabarma katsayısı nasıl değişirdi?",
+            "en": "What if the soil class were hard rock instead of soft earth — how would the swell coefficient change?"
+          },
+          "answer": {
+            "tr": "Kaya zeminler parçalandığında tanecikler arasında toprağa göre çok daha büyük ve düzensiz boşluklar oluşur, bu yüzden kaya için kabarma katsayısı genellikle topraktan daha YÜKSEK olur (bazı kaynaklarda %50-60'a kadar çıkabilir). Bu, aynı 500 m³'lük doğal hacmin kaya zemininde 625 m³'ten çok daha fazla kabarmış hacme dönüşebileceği, dolayısıyla daha fazla kamyon gerekebileceği anlamına gelir.",
+            "en": "When rock is broken up, much larger and more irregular voids form between the fragments compared to soil, so the swell coefficient for rock is generally HIGHER than for earth (some sources cite up to 50-60%). This means the same 500 m³ bank volume could swell to considerably more than 625 m³ in rock, requiring more trucks."
+          }
+        },
+        {
+          "scenario": {
+            "tr": "Ya kamyon kapasitesi 10 m³ değil de 8 m³ olsaydı?",
+            "en": "What if the truck capacity were 8 m³ instead of 10 m³?"
+          },
+          "answer": {
+            "tr": "Kabarmış hacim (625 m³) değişmez, sadece kamyon sayısı yeniden hesaplanır: $625/8 = 78{,}125 \\rightarrow 79$ kamyon. Daha küçük kapasiteli kamyonlar aynı hacmi taşımak için daha fazla sefer/araç gerektirir — bu da nakliye maliyetini ve trafik yükünü artırır.",
+            "en": "The loose volume (625 m³) doesn't change; only the truck count is recalculated: $625/8 = 78.125 \\rightarrow 79$ trucks. Smaller-capacity trucks need more trips/vehicles to carry the same volume — increasing haulage cost and site traffic."
+          }
+        }
+      ]
+    }
+  ]
+}

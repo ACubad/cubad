@@ -7,42 +7,43 @@ import { useProgress } from "@/lib/progress";
 import type { Unit } from "@/lib/types";
 import { Mcq, WaterProgress } from "./ui";
 
-export function QuizRunner({ unit }: { unit: Unit }) {
+export function QuizRunner({ subject, unit }: { subject: string; unit: Unit }) {
   const { t, bi } = useLang();
   const { setQuizScore } = useProgress();
   const [current, setCurrent] = useState(0);
+  const quiz = unit.quiz ?? [];
   const [answers, setAnswers] = useState<(number | null)[]>(
-    () => unit.quiz.map(() => null)
+    () => quiz.map(() => null)
   );
 
-  const total = unit.quiz.length;
+  const total = quiz.length;
   const answered = answers.filter((a) => a !== null).length;
-  const score = answers.filter((a, i) => a === unit.quiz[i].correct).length;
+  const score = answers.filter((a, i) => a === quiz[i].correct).length;
   const doneAll = answered === total;
 
   const choose = (i: number) => {
     setAnswers((prev) => {
       const next = [...prev];
       next[current] = i;
-      const newScore = next.filter((a, j) => a === unit.quiz[j].correct).length;
+      const newScore = next.filter((a, j) => a === quiz[j].correct).length;
       const newAnswered = next.filter((a) => a !== null).length;
-      if (newAnswered === total) setQuizScore(unit.slug, newScore, total);
+      if (newAnswered === total) setQuizScore(subject, unit.slug, newScore, total);
       return next;
     });
   };
 
   const restart = () => {
-    setAnswers(unit.quiz.map(() => null));
+    setAnswers(quiz.map(() => null));
     setCurrent(0);
   };
 
-  const item = unit.quiz[current];
+  const item = quiz[current];
 
   return (
     <div className="mx-auto max-w-2xl space-y-5">
       <div>
         <Link
-          href={`/unit/${unit.slug}`}
+          href={`/s/${subject}/unit/${unit.slug}`}
           className="text-sm font-medium text-deniz hover:text-deniz-deep"
         >
           ← {bi(unit.title)}
@@ -85,7 +86,7 @@ export function QuizRunner({ unit }: { unit: Unit }) {
           ←
         </button>
         <div className="flex gap-1.5">
-          {unit.quiz.map((_, i) => (
+          {quiz.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
@@ -95,7 +96,7 @@ export function QuizRunner({ unit }: { unit: Unit }) {
                   ? "bg-deniz"
                   : answers[i] === null
                     ? "bg-line"
-                    : answers[i] === unit.quiz[i].correct
+                    : answers[i] === quiz[i].correct
                       ? "bg-moss"
                       : "bg-clay"
               }`}
@@ -124,7 +125,7 @@ export function QuizRunner({ unit }: { unit: Unit }) {
               {t("quizRestart")}
             </button>
             <Link
-              href={`/unit/${unit.slug}`}
+              href={`/s/${subject}/unit/${unit.slug}`}
               className="rounded-full bg-deniz px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
             >
               {t("backToUnit")}
