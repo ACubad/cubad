@@ -144,6 +144,11 @@ const STRINGS = {
     en: "Something went wrong generating the podcast.",
     tr: "Podcast oluşturulurken bir şeyler ters gitti.",
   },
+  podcastAskLang: {
+    en: "Which language would you like the podcast in?",
+    tr: "Podcast'i hangi dilde dinlemek istersin?",
+  },
+  podcastCreateSuffix: { en: "podcast", tr: "podcast oluştur" },
   podcastNeedsKey: {
     en: "The podcast needs a (free) Google Gemini API key. Create one at aistudio.google.com/apikey and paste it here — it is stored only in your browser.",
     tr: "Podcast için (ücretsiz) bir Google Gemini API anahtarı gerekli. aistudio.google.com/apikey adresinden oluşturup buraya yapıştır — sadece tarayıcında saklanır.",

@@ -1,3 +1,4 @@
+import { head, put } from "@vercel/blob";
 import { getUnit } from "@/lib/content";
 import type { NoteSection } from "@/lib/types";
 
@@ -13,10 +14,52 @@ interface PodcastBody {
   unitSlug: string;
   lang: "tr" | "en";
   userKey?: string;
+  force?: boolean;
 }
 
-export async function GET() {
-  return Response.json({ gemini: Boolean(process.env.GEMINI_API_KEY) });
+const hasBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+
+const audioPath = (subject: string, unitSlug: string, lang: string) =>
+  `podcasts/${subject}/${unitSlug}/${lang}.wav`;
+const scriptPath = (subject: string, unitSlug: string, lang: string) =>
+  `podcasts/${subject}/${unitSlug}/${lang}.json`;
+
+async function blobUrl(pathname: string): Promise<string | null> {
+  try {
+    const meta = await head(pathname);
+    return meta.url;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * GET without params: capability report.
+ * GET ?subject=...&unit=...: capability + per-language stored podcast URLs, so every
+ * device sees the same library.
+ */
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const subject = searchParams.get("subject");
+  const unitSlug = searchParams.get("unit");
+  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), blob: hasBlob() };
+
+  if (!subject || !unitSlug || !hasBlob()) {
+    return Response.json({ ...base, tr: null, en: null });
+  }
+
+  const [trAudio, enAudio, trScript, enScript] = await Promise.all([
+    blobUrl(audioPath(subject, unitSlug, "tr")),
+    blobUrl(audioPath(subject, unitSlug, "en")),
+    blobUrl(scriptPath(subject, unitSlug, "tr")),
+    blobUrl(scriptPath(subject, unitSlug, "en")),
+  ]);
+
+  return Response.json({
+    ...base,
+    tr: trAudio ? { audio: trAudio, script: trScript } : null,
+    en: enAudio ? { audio: enAudio, script: enScript } : null,
+  });
 }
 
 /** Strip the most common markdown syntax down to plain readable text. */
@@ -190,9 +233,18 @@ export async function POST(request: Request) {
     return Response.json({ error: "invalid request" }, { status: 400 });
   }
 
-  const { subject, unitSlug, lang, userKey } = body;
+  const { subject, unitSlug, lang, userKey, force } = body;
   if (!subject || !unitSlug || (lang !== "tr" && lang !== "en")) {
     return Response.json({ error: "invalid request" }, { status: 400 });
+  }
+
+  // Already stored in the cloud? Every device gets the same file.
+  if (hasBlob() && !force) {
+    const existing = await blobUrl(audioPath(subject, unitSlug, lang));
+    if (existing) {
+      const script = await blobUrl(scriptPath(subject, unitSlug, lang));
+      return Response.json({ url: existing, scriptUrl: script });
+    }
   }
 
   const key = process.env.GEMINI_API_KEY || userKey;
@@ -212,6 +264,29 @@ export async function POST(request: Request) {
     const wav = await generateAudio(key, lines);
     if (!wav) {
       return Response.json({ scriptOnly: true, lines });
+    }
+
+    // Persist to the cloud so phones/other browsers stream the same file.
+    if (hasBlob()) {
+      try {
+        const [audioBlob, scriptBlob] = await Promise.all([
+          put(audioPath(subject, unitSlug, lang), wav, {
+            access: "public",
+            contentType: "audio/wav",
+            addRandomSuffix: false,
+            allowOverwrite: true,
+          }),
+          put(scriptPath(subject, unitSlug, lang), JSON.stringify(lines), {
+            access: "public",
+            contentType: "application/json",
+            addRandomSuffix: false,
+            allowOverwrite: true,
+          }),
+        ]);
+        return Response.json({ url: audioBlob.url, scriptUrl: scriptBlob.url, lines });
+      } catch (e) {
+        console.error("blob upload failed, falling back to inline audio", e);
+      }
     }
 
     const scriptB64 = Buffer.from(JSON.stringify(lines)).toString("base64");
