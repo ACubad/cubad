@@ -8,6 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { notifyStateChanged, SYNC_APPLIED_EVENT } from "./sync";
 
 interface QuestionProgress {
   /** number of steps the student has revealed */
@@ -83,6 +84,10 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setState(loadMigrated());
+    // when cross-device sync merges remote progress into localStorage, reload it
+    const onSyncApplied = () => setState(loadMigrated());
+    window.addEventListener(SYNC_APPLIED_EVENT, onSyncApplied);
+    return () => window.removeEventListener(SYNC_APPLIED_EVENT, onSyncApplied);
   }, []);
 
   const setStep = useCallback(
@@ -97,6 +102,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         };
         try {
           window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+          notifyStateChanged();
         } catch {}
         return next;
       });
@@ -112,6 +118,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const next = { ...prev, q: { ...prev.q, [key]: { ...cur, done } } };
         try {
           window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+          notifyStateChanged();
         } catch {}
         return next;
       });
@@ -129,6 +136,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         };
         try {
           window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+          notifyStateChanged();
         } catch {}
         return next;
       });
@@ -146,6 +154,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         };
         try {
           window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+          notifyStateChanged();
         } catch {}
         return next;
       });

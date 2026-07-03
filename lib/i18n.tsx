@@ -144,6 +144,20 @@ const STRINGS = {
     en: "Something went wrong generating the podcast.",
     tr: "Podcast oluşturulurken bir şeyler ters gitti.",
   },
+  syncTitle: { en: "Cross-device sync", tr: "Cihazlar arası eşitleme" },
+  syncIntro: {
+    en: "Pick any passcode (4+ characters) and enter the same one on your phone — your progress, flashcard boxes and scores stay in sync everywhere.",
+    tr: "Bir parola seç (en az 4 karakter) ve aynısını telefonunda gir — ilerlemen, kart kutuların ve puanların her yerde eşit kalır.",
+  },
+  syncPlaceholder: { en: "your passcode...", tr: "parolan..." },
+  syncEnable: { en: "Enable sync", tr: "Eşitlemeyi aç" },
+  syncActive: { en: "Sync on", tr: "Eşitleme açık" },
+  syncNow: { en: "Sync now", tr: "Şimdi eşitle" },
+  syncDisable: { en: "Turn off", tr: "Kapat" },
+  syncError: {
+    en: "Sync failed — check your connection and try again.",
+    tr: "Eşitleme başarısız — bağlantını kontrol edip tekrar dene.",
+  },
   podcastAskLang: {
     en: "Which language would you like the podcast in?",
     tr: "Podcast'i hangi dilde dinlemek istersin?",

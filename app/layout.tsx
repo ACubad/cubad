@@ -6,6 +6,7 @@ import { LangProvider } from "@/lib/i18n";
 import { ProgressProvider } from "@/lib/progress";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SyncManager } from "@/components/SyncManager";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <LangProvider>
           <ProgressProvider>
+            <SyncManager />
             <Header />
             <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
               {children}

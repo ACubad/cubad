@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
 import type { SubjectMeta, Unit } from "@/lib/types";
+import { SyncCard } from "./SyncCard";
 import { WaterProgress } from "./ui";
 
 export function SubjectPicker({
@@ -87,6 +88,8 @@ export function SubjectPicker({
           })}
         </div>
       </section>
+
+      <SyncCard />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLang } from "@/lib/i18n";
+import { notifyStateChanged } from "@/lib/sync";
 import type { Flashcard, Unit } from "@/lib/types";
 import { Md } from "./Md";
 
@@ -33,6 +34,7 @@ function loadLeitner(subject: string, unitSlug: string): LeitnerState {
 function saveLeitner(subject: string, unitSlug: string, state: LeitnerState) {
   try {
     window.localStorage.setItem(storageKey(subject, unitSlug), JSON.stringify(state));
+    notifyStateChanged();
   } catch {
     /* ignore */
   }
