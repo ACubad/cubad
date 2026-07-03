@@ -3046,8 +3046,8 @@
       ],
       "correct": 3,
       "explain": {
-        "tr": "Birim fiyat analizinde ara toplama %25 müteahhit kârı ve genel gider eklenerek nihai birim fiyat elde edilir (verilen örnekte 27,30 + genel gider/kâr ile toplam 38,23'e ulaşılmıştır).",
-        "en": "In a unit price analysis, 25% contractor profit and overhead is added to the subtotal to reach the final unit price (in the given example, the subtotal plus overhead/profit reaches 38.23)."
+        "tr": "Birim fiyat analizinde ara toplama %25 müteahhit kârı ve genel gider eklenerek nihai birim fiyat elde edilir (verilen örnekte malzeme+işçilik ara toplamı 30,58; buna %25 = 7,65 eklenince 1 m³ fiyatı 38,23 olur).",
+        "en": "In a unit price analysis, 25% contractor profit and overhead is added to the subtotal to reach the final unit price (in the given example, the material+labor subtotal is 30.58; adding 25% = 7.65 gives a final 1 m³ price of 38.23)."
       }
     },
     {

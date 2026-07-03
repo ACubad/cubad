@@ -1211,8 +1211,8 @@
     {
       "id": "f72",
       "front": {
-        "tr": "Kalıp işinde düz işçi 1499 saat, dülger ustası (kritik kaynak) 761 saat gerektiriyor. Ekipte kaç düz işçi olmalı?",
-        "en": "Formwork needs 1499 laborer-hours; the carpenter (critical resource) needs 761 hours. How many laborers in the crew?"
+        "tr": "Düz işçi 1499 saat, kritik kaynak (dülger ustası) 761 saat: ekipte kaç düz işçi?",
+        "en": "Laborer 1499 h, critical resource (carpenter) 761 h: how many laborers in the crew?"
       },
       "back": {
         "tr": "1499/761 = 1,97 → küsurat (0,97) > 0,25 → 2 düz işçi.",
@@ -1224,8 +1224,8 @@
     {
       "id": "f73",
       "front": {
-        "tr": "Kalıp işinde dülger çırağı sadece 4 saat, sıcak demirci 6 saat gerektiriyor (kritik kaynak 761 saat). Ekipte kaçar adet olmalı?",
-        "en": "Formwork needs only 4 apprentice-hours and 6 blacksmith-hours (critical resource 761 hours). How many of each in the crew?"
+        "tr": "Çırak 4 saat, sıcak demirci 6 saat (kritik kaynak 761 saat): ekipte kaçar adet?",
+        "en": "Apprentice 4 h, blacksmith 6 h, critical resource 761 h: how many of each?"
       },
       "back": {
         "tr": "İkisi de 761'e bölününce 1'den küçük çıkar → ekipte 1'er adet alınır (ama süreleri kısa olduğundan muhtemelen parttime çalıştırılırlar).",
@@ -1237,8 +1237,8 @@
     {
       "id": "f74",
       "front": {
-        "tr": "Bir kaynağın ekipteki payı 1'den küçük çıktığında (örn. 0,03) sürekli mi parttime mi istihdam edileceğine nasıl karar verilir?",
-        "en": "When a resource's crew share is below 1 (e.g. 0.03), how is continuous vs. part-time employment decided?"
+        "tr": "Ekip payı 1'den küçük bir kaynak sürekli mi parttime mi istihdam edilir, neye göre?",
+        "en": "A resource with crew share below 1: continuous or part-time, and based on what?"
       },
       "back": {
         "tr": "Şantiyenin yerleşim yerine uzaklığına ve işin imalat süresince sürekli ihtiyaç duyulup duyulmadığına göre karar verilir.",
@@ -1250,8 +1250,8 @@
     {
       "id": "f75",
       "front": {
-        "tr": "Şantiye yerleşim yerinden uzaksa, kısa süreli ama sık tekrarlanan bir iş için hangi istihdam tercih edilir?",
-        "en": "If the site is far from settlements, which employment is chosen for a short but frequently recurring task?"
+        "tr": "Uzak şantiyede kısa ama sık tekrarlanan iş için hangi istihdam tercih edilir?",
+        "en": "Remote site, short but frequently recurring task: which employment is chosen?"
       },
       "back": {
         "tr": "Teknik zorunluluk nedeniyle sürekli istihdam tercih edilebilir (ekonomik olmasa bile).",
@@ -1315,8 +1315,8 @@
     {
       "id": "f80",
       "front": {
-        "tr": "1 işçi bir işi 2 günde, günlüğü 100 TL'den yapıyor. 2 işçi kullanılırsa iş kaç günde biter ve toplam maliyet nedir?",
-        "en": "1 worker does a job in 2 days at 100 TL/day. With 2 workers, how many days and what total cost?"
+        "tr": "1 işçi 2 günde, 100 TL/gün. 2 işçiyle süre ve toplam maliyet ne olur?",
+        "en": "1 worker, 2 days, 100 TL/day. With 2 workers, what duration and total cost?"
       },
       "back": {
         "tr": "1 günde biter; toplam maliyet yine 2×100 = 200 TL (değişmez).",
@@ -1575,8 +1575,8 @@
     {
       "id": "f100",
       "front": {
-        "tr": "100 m'lik bir kanalizasyon 4 eşit etaba bölünüp her etaptan yeterli ekip sağlanırsa toplam süre teorik olarak neye eşit olur?",
-        "en": "If a 100 m sewer is split into 4 equal stages with enough crews for each, what does total duration theoretically equal?"
+        "tr": "100 m kanalizasyon 4 etaba bölünüp yeterli ekip verilirse toplam süre teorik olarak neye eşittir?",
+        "en": "100 m sewer split into 4 fully-crewed stages: total duration theoretically equals what?"
       },
       "back": {
         "tr": "25 m'lik bir kanalizasyonun (yani tek bir etabın) gerçekleştirme süresine.",
@@ -1705,8 +1705,8 @@
     {
       "id": "f110",
       "front": {
-        "tr": "Kanalizasyon senaryosunda blokaj işinin salt üretim süresi kaç gündü, tesviye + iki ekip sonrası kaç güne çıktı/indi?",
-        "en": "What was blokaj's pure production time, and what after leveling + two crews?"
+        "tr": "Kanalizasyonda blokajın salt üretim süresi kaç gün; tesviye + iki ekip sonrası kaç gün?",
+        "en": "Sewer: blokaj's pure production time; and after leveling + two crews?"
       },
       "back": {
         "tr": "Salt üretim 16 gündü; tesviye eklenince (1 ekip) 24 güne çıkardı, ama iki blokaj ekibi kullanılınca yine 16 güne indi.",
@@ -1718,8 +1718,8 @@
     {
       "id": "f111",
       "front": {
-        "tr": "Kanalizasyon senaryosunda blokaj işi için 8 etap × kaç gün = kaç gün şantiyede kalma süresi hesaplanmıştır?",
-        "en": "In the sewer scenario, blokaj's site-time is 8 stages × how many days = how many total days?"
+        "tr": "Kanalizasyonda blokaj: 8 etap × kaç gün = kaç gün şantiyede kalma süresi?",
+        "en": "Sewer blokaj: 8 stages × how many days = how many total site days?"
       },
       "back": {
         "tr": "8 etap × 2 gün = 16 gün.",
@@ -1744,8 +1744,8 @@
     {
       "id": "f113",
       "front": {
-        "tr": "Kanalizasyon senaryosunda her etap için kalıp süresi (3 ekiple, donatı gecikmesi dahil) kaç gündür?",
-        "en": "In the sewer scenario, what is the formwork duration per stage (3 crews, including rebar delay)?"
+        "tr": "Kanalizasyonda etap başına kalıp süresi (3 ekiple, donatı gecikmesi dahil) kaç gündür?",
+        "en": "Sewer: formwork duration per stage (3 crews, incl. rebar delay)?"
       },
       "back": {
         "tr": "95/3=32 gün toplam → 32/8=4 gün/etap; donatı yerleştirme nedeniyle +3 gün → 7 gün/etap.",
@@ -1757,8 +1757,8 @@
     {
       "id": "f114",
       "front": {
-        "tr": "Kanalizasyon senaryosunda kalıpçı ekibinin toplam şantiyede kalma süresi kaç gündür ve nasıl hesaplanır?",
-        "en": "What is the formwork crew's total site duration in the sewer scenario, and how is it computed?"
+        "tr": "Kanalizasyonda kalıpçı ekibinin toplam şantiyede kalma süresi kaç gün, nasıl hesaplanır?",
+        "en": "Sewer: formwork crew's total site duration, and how computed?"
       },
       "back": {
         "tr": "77 gün: ilk etap 7 gün + diğer 7 etap × 10 gün (6 gün kür + 4 gün yeni etap kalıbı) = 7+70=77.",
@@ -1822,8 +1822,8 @@
     {
       "id": "f119",
       "front": {
-        "tr": "Kanalizasyon senaryosunda dolgu işinin tek ekip/elle salt üretim süresi kaç gündü, ekip artırma sonrası kaça indirilmiştir?",
-        "en": "What was fill's pure single-crew/manual duration, and what after adding crews?"
+        "tr": "Kanalizasyonda dolgunun elle/tek ekip süresi kaç gün, ekip artırınca kaça iner?",
+        "en": "Sewer: fill's manual/single-crew duration, and after adding crews?"
       },
       "back": {
         "tr": "Salt üretim 175 gündü; ekip sayısı artırma ve kazı planlamasıyla 83 güne indirilmiştir.",
@@ -1835,8 +1835,8 @@
     {
       "id": "f120",
       "front": {
-        "tr": "Kanalizasyon senaryosunda dolgu işi için 2 ekip mi yoksa son etapta kaç ekip kullanılmıştır?",
-        "en": "In the sewer scenario, how many fill crews are used normally, and how many on the last stage?"
+        "tr": "Kanalizasyonda dolgu için normalde kaç ekip, son etapta kaç ekip kullanılır?",
+        "en": "Sewer fill: how many crews normally, and how many on the last stage?"
       },
       "back": {
         "tr": "İlk 7 etapta 2 ekip; son (8.) etapta işi hızlandırmak için 8 ekip kullanılmıştır.",
