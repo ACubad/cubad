@@ -5,6 +5,7 @@ import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
 import type { Unit } from "@/lib/types";
 import { Md, Tex } from "./Md";
+import { TutorPanel } from "./TutorPanel";
 import { Callout, DifficultyDots, LikelihoodBadge, WaterProgress } from "./ui";
 
 export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
@@ -143,6 +144,24 @@ export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
           })}
         </div>
       </section>
+
+      <TutorPanel
+        subject={subject}
+        topicTitle={unit.title}
+        context={JSON.stringify({
+          type: "unit-primer",
+          unit: unit.title,
+          overview: concept?.overview,
+          keyFormulas: (concept?.keyFormulas ?? []).map((f) => ({
+            name: f.name,
+            latex: f.latex,
+            meaning: f.meaning,
+            whenToUse: f.whenToUse,
+          })),
+          traps: concept?.traps ?? [],
+          questions: questions.map((q) => ({ id: q.id, code: q.code, title: q.title })),
+        }).slice(0, 60000)}
+      />
     </div>
   );
 }
