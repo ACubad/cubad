@@ -148,11 +148,16 @@ export function Walkthrough({
   const { t, bi } = useLang();
   const { state, setStep, markDone } = useProgress();
   const [revealed, setRevealed] = useState(0);
+  const [showAll, setShowAll] = useState(false);
   const [statementOpen, setStatementOpen] = useState(true);
   const restored = useRef(false);
 
   const total = question.steps.length;
-  const finished = revealed >= total;
+  // "show all" is a display-only review overlay: it neither persists progress
+  // nor marks the question as completed, and it can be toggled back off
+  const effectiveRevealed = showAll ? total : revealed;
+  const finished = effectiveRevealed >= total;
+  const actuallyDone = revealed >= total;
 
   // restore saved progress once it loads from localStorage
   useEffect(() => {
@@ -171,11 +176,7 @@ export function Walkthrough({
     if (next >= total) markDone(subject, question.id);
   };
 
-  const revealAll = () => {
-    setRevealed(total);
-    setStep(subject, question.id, total);
-    markDone(subject, question.id);
-  };
+  const toggleShowAll = () => setShowAll((s) => !s);
 
   return (
     <div className="mx-auto max-w-3xl space-y-5">
@@ -196,10 +197,14 @@ export function Walkthrough({
           <DifficultyDots level={question.difficulty} />
           <LikelihoodBadge level={question.examLikelihood} />
           <button
-            onClick={revealAll}
-            className="no-print rounded-full border border-line px-3 py-1 font-medium text-ink-soft transition-colors hover:border-deniz/40 hover:text-deniz"
+            onClick={toggleShowAll}
+            className={`no-print rounded-full border px-3 py-1 font-medium transition-colors ${
+              showAll
+                ? "border-deniz/50 bg-deniz-soft text-deniz-deep"
+                : "border-line text-ink-soft hover:border-deniz/40 hover:text-deniz"
+            }`}
           >
-            {t("revealAll")}
+            {showAll ? `▣ ${t("hideAll")}` : `▢ ${t("revealAll")}`}
           </button>
         </div>
       </div>
@@ -208,11 +213,11 @@ export function Walkthrough({
       <div className="sticky top-[57px] z-30 -mx-1 rounded-full bg-paper/95 px-1 py-2 backdrop-blur">
         <div className="mb-1 flex justify-between px-1 text-[11px] font-semibold text-ink-soft">
           <span>
-            {t("step")} {Math.min(revealed + 1, total)} {t("of")} {total}
+            {t("step")} {Math.min(effectiveRevealed + 1, total)} {t("of")} {total}
           </span>
-          {finished && <span className="text-moss">✓ {t("done")}</span>}
+          {actuallyDone && <span className="text-moss">✓ {t("done")}</span>}
         </div>
-        <WaterProgress value={revealed / total} className="h-1.5" />
+        <WaterProgress value={effectiveRevealed / total} className="h-1.5" />
       </div>
 
       {/* statement */}
@@ -268,8 +273,8 @@ export function Walkthrough({
             key={i}
             step={s}
             index={i}
-            revealed={i < revealed}
-            isCurrent={i === revealed}
+            revealed={i < effectiveRevealed}
+            isCurrent={i === effectiveRevealed}
             onReveal={() => reveal(i)}
           />
         ))}
@@ -376,7 +381,19 @@ export function Walkthrough({
         </div>
       )}
 
-      <TutorPanel question={question} />
+      <TutorPanel
+        subject={subject}
+        topicTitle={question.title}
+        context={JSON.stringify({
+          type: "question",
+          id: question.id,
+          code: question.code,
+          title: question.title,
+          statement: question.statement,
+          goal: question.goal,
+          finalAnswer: question.finalAnswer,
+        })}
+      />
     </div>
   );
 }

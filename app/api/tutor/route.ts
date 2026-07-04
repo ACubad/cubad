@@ -1,5 +1,5 @@
 const DEFAULT_MODELS = {
-  gemini: "gemini-2.5-flash",
+  gemini: "gemini-3.5-flash",
   openai: "gpt-5-mini",
 } as const;
 
@@ -21,31 +21,42 @@ interface TutorMessage {
 interface TutorBody {
   messages: TutorMessage[];
   context?: string;
+  subject?: string;
   lang?: string;
   provider?: Provider;
   model?: string;
   userKey?: string;
 }
 
-function systemPrompt(lang: string | undefined, context: string | undefined) {
+const SUBJECT_NAMES: Record<string, string> = {
+  hidroloji: "Hydrology (Hidroloji)",
+  "insaat-yonetimi": "Construction Management (İnşaat Yönetimi)",
+};
+
+function systemPrompt(
+  lang: string | undefined,
+  context: string | undefined,
+  subject: string | undefined
+) {
   const langName = lang === "tr" ? "Turkish" : "English";
-  return `You are a warm, patient hydrology tutor inside the exam-prep app "cubad" (Bursa Uludağ University civil engineering hydrology course). The student's exam is in about 2 days.
+  const course = SUBJECT_NAMES[subject ?? ""] ?? "a civil engineering course";
+  return `You are a warm, patient tutor inside the exam-prep app "cubad" (Bursa Uludağ University civil engineering). The student is preparing for an exam in ${course}.
 
 Rules:
 - Answer in ${langName} unless the student writes in the other language.
-- Be SIMPLE and CONCRETE. Short sentences. Define every symbol you use.
-- Prefer guiding over giving away: if the student asks "how do I solve this", outline the reasoning path first, then the math.
+- Be SIMPLE and CONCRETE. Short sentences. Define every symbol and term you use.
+- Prefer guiding over giving away: if the student asks "how do I solve this", outline the reasoning path first, then the details.
 - Use LaTeX for math, wrapped in $...$ or $$...$$.
-- Use the metric conventions of the course (mm, cm, m³/sn, tekerrür süresi T, Gumbel KT, Horton f = fc + (f0-fc)e^(-kt), etc.).
-- If the question is unrelated to hydrology or study prep, gently steer back.
+- Use the terminology and metric conventions of the course materials; Turkish technical terms (as used in the context below) are the exam language — give them alongside English explanations.
+- If the question is unrelated to the course or study prep, gently steer back.
 
-Current question context (JSON):
+Context for the current page (JSON):
 ${context ?? "none"}`;
 }
 
 async function callGemini(key: string, model: string, body: TutorBody) {
   const payload = {
-    systemInstruction: { parts: [{ text: systemPrompt(body.lang, body.context) }] },
+    systemInstruction: { parts: [{ text: systemPrompt(body.lang, body.context, body.subject) }] },
     contents: body.messages.map((m) => ({
       role: m.role,
       parts: [{ text: m.text }],
@@ -77,7 +88,7 @@ async function callOpenAI(key: string, model: string, body: TutorBody) {
   const payload = {
     model,
     messages: [
-      { role: "system", content: systemPrompt(body.lang, body.context) },
+      { role: "system", content: systemPrompt(body.lang, body.context, body.subject) },
       ...body.messages.map((m) => ({
         role: m.role === "model" ? "assistant" : "user",
         content: m.text,

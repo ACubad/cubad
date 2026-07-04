@@ -2,7 +2,7 @@
 
 import { useLang } from "@/lib/i18n";
 import type { Unit } from "@/lib/types";
-import { Tex } from "./Md";
+import { Md, Tex } from "./Md";
 
 export function FormulasView({ units }: { units: Unit[] }) {
   const { t, bi } = useLang();
@@ -45,11 +45,11 @@ export function FormulasView({ units }: { units: Unit[] }) {
                 <div className="overflow-x-auto py-1">
                   <Tex tex={f.latex} />
                 </div>
-                <p className="mt-1 text-[13px] text-ink-soft">{bi(f.meaning)}</p>
-                <p className="mt-2 text-[13px]">
+                <Md className="mt-1 !text-[13px] text-ink-soft [&_p]:leading-relaxed">{bi(f.meaning)}</Md>
+                <div className="mt-2 text-[13px]">
                   <span className="font-semibold text-deniz">{t("whenToUse")}: </span>
-                  <span className="text-ink-soft">{bi(f.whenToUse)}</span>
-                </p>
+                  <Md className="!text-[13px] inline text-ink-soft [&_p]:inline">{bi(f.whenToUse)}</Md>
+                </div>
               </div>
             ))}
           </div>

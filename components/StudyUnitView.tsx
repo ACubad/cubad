@@ -8,6 +8,7 @@ import { Md } from "./Md";
 import { GraphStory } from "./GraphStory";
 import { WaterProgress, DifficultyDots, LikelihoodBadge } from "./ui";
 import { PodcastCard } from "./PodcastCard";
+import { TutorPanel } from "./TutorPanel";
 
 export function StudyUnitView({ subject, unit }: { subject: string; unit: Unit }) {
   const { t, bi } = useLang();
@@ -228,6 +229,22 @@ export function StudyUnitView({ subject, unit }: { subject: string; unit: Unit }
           </ul>
         </footer>
       )}
+
+      <TutorPanel
+        subject={subject}
+        topicTitle={unit.title}
+        context={JSON.stringify({
+          type: "lesson-notes",
+          unit: unit.title,
+          notes: notes.map((n) => ({
+            title: n.title,
+            body: {
+              tr: n.body.tr.slice(0, 1500),
+              en: n.body.en.slice(0, 1500),
+            },
+          })),
+        }).slice(0, 60000)}
+      />
     </div>
   );
 }

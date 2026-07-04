@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
-import type { Question } from "@/lib/types";
+import type { Bi } from "@/lib/types";
 import { Md } from "./Md";
 
 interface Msg {
@@ -18,16 +18,26 @@ const KEY_STORAGE: Record<Provider, string> = {
 };
 
 const MODELS: Record<Provider, string[]> = {
-  gemini: ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.0-flash"],
+  gemini: ["gemini-3.5-flash", "gemini-3.1-pro-preview", "gemini-3-flash-preview", "gemini-2.5-flash"],
   openai: ["gpt-5-mini", "gpt-5", "gpt-4.1-mini", "gpt-4o-mini"],
 };
+/** old defaults that should silently upgrade to the current default */
+const STALE_DEFAULTS = new Set(["gemini-2.5-flash"]);
 
 const KEY_URLS: Record<Provider, string> = {
   gemini: "https://aistudio.google.com/apikey",
   openai: "https://platform.openai.com/api-keys",
 };
 
-export function TutorPanel({ question }: { question: Question }) {
+export function TutorPanel({
+  subject,
+  topicTitle,
+  context,
+}: {
+  subject?: string;
+  topicTitle: Bi;
+  context: string;
+}) {
   const { lang, t, bi } = useLang();
   const [open, setOpen] = useState(false);
   const [serverKeys, setServerKeys] = useState<{ gemini: boolean; openai: boolean } | null>(null);
@@ -46,8 +56,13 @@ export function TutorPanel({ question }: { question: Question }) {
   // restore saved settings + keys
   useEffect(() => {
     const p = window.localStorage.getItem("cubad:tutor:provider") as Provider | null;
-    const m = window.localStorage.getItem("cubad:tutor:model");
+    let m = window.localStorage.getItem("cubad:tutor:model");
     if (p === "gemini" || p === "openai") setProvider(p);
+    if (m && STALE_DEFAULTS.has(m)) {
+      // an old saved default — upgrade to the current one
+      m = MODELS[p === "openai" ? "openai" : "gemini"][0];
+      window.localStorage.setItem("cubad:tutor:model", m);
+    }
     if (m) {
       setModel(m);
       if (!MODELS[p === "openai" ? "openai" : "gemini"].includes(m)) setCustomModel(m);
@@ -114,20 +129,13 @@ export function TutorPanel({ question }: { question: Question }) {
     setMessages(next);
     setBusy(true);
     try {
-      const context = JSON.stringify({
-        id: question.id,
-        code: question.code,
-        title: question.title,
-        statement: question.statement,
-        goal: question.goal,
-        finalAnswer: question.finalAnswer,
-      });
       const res = await fetch("/api/tutor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: next,
           context,
+          subject,
           lang,
           provider,
           model,
@@ -270,8 +278,8 @@ export function TutorPanel({ question }: { question: Question }) {
               {messages.length === 0 && !needsKey && (
                 <div className="rounded-xl bg-wash px-4 py-3 text-sm text-ink-soft">
                   {lang === "tr"
-                    ? `"${bi(question.title)}" hakkında istediğini sor: bir adımı anlamadıysan, farklı bir değerle ne olurdu merak ediyorsan, ya da benzer bir soru istiyorsan.`
-                    : `Ask anything about "${bi(question.title)}": a step you didn't get, what happens with different values, or ask for a similar practice question.`}
+                    ? `"${bi(topicTitle)}" hakkında istediğini sor: anlamadığın bir nokta, farklı bir değerle ne olurdu, ya da benzer bir alıştırma sorusu.`
+                    : `Ask anything about "${bi(topicTitle)}": a point you didn't get, what happens with different values, or ask for a similar practice question.`}
                   <span className="mt-2 block font-mono text-[11px] text-ink-faint">
                     {providerLabel} · {model}
                   </span>
