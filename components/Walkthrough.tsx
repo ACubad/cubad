@@ -383,6 +383,7 @@ export function Walkthrough({
 
       <TutorPanel
         subject={subject}
+        topicId={`${subject}/q/${question.id}`}
         topicTitle={question.title}
         context={JSON.stringify({
           type: "question",

@@ -29,12 +29,69 @@ const KEY_URLS: Record<Provider, string> = {
   openai: "https://platform.openai.com/api-keys",
 };
 
+/* ---------- per-topic conversation persistence (localStorage) ---------- */
+
+interface Convo {
+  id: string;
+  createdAt: number;
+  messages: Msg[];
+}
+
+interface ChatStore {
+  convos: Convo[];
+  activeId: string | null;
+}
+
+const MAX_CONVOS = 10;
+const MAX_MSGS = 60;
+
+const chatKey = (topicId: string) => `cubad:chats:${topicId}`;
+
+function loadChats(topicId: string): ChatStore {
+  try {
+    const raw = window.localStorage.getItem(chatKey(topicId));
+    if (raw) return JSON.parse(raw) as ChatStore;
+  } catch {
+    /* corrupted — start fresh */
+  }
+  return { convos: [], activeId: null };
+}
+
+function saveChats(topicId: string, store: ChatStore) {
+  try {
+    const trimmed: ChatStore = {
+      activeId: store.activeId,
+      convos: store.convos
+        .slice(-MAX_CONVOS)
+        .map((c) => ({ ...c, messages: c.messages.slice(-MAX_MSGS) })),
+    };
+    window.localStorage.setItem(chatKey(topicId), JSON.stringify(trimmed));
+  } catch {
+    /* storage full — chat just won't persist */
+  }
+}
+
+function convoLabel(c: Convo, fallback: string, locale: string): string {
+  const firstUser = c.messages.find((m) => m.role === "user")?.text?.trim();
+  const title = firstUser ? firstUser.slice(0, 36) + (firstUser.length > 36 ? "…" : "") : fallback;
+  const date = new Date(c.createdAt).toLocaleDateString(locale, {
+    day: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `${title} · ${date}`;
+}
+
 export function TutorPanel({
   subject,
+  topicId,
   topicTitle,
   context,
 }: {
   subject?: string;
+  /** stable id for this page's chat history, e.g. "hidroloji/q/2-5" */
+  topicId: string;
   topicTitle: Bi;
   context: string;
 }) {
@@ -51,7 +108,65 @@ export function TutorPanel({
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [convos, setConvos] = useState<Convo[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // restore this topic's conversations
+  useEffect(() => {
+    const store = loadChats(topicId);
+    setConvos(store.convos);
+    const active =
+      store.convos.find((c) => c.id === store.activeId) ??
+      store.convos[store.convos.length - 1];
+    setActiveId(active?.id ?? null);
+    setMessages(active?.messages ?? []);
+  }, [topicId]);
+
+  /** update messages of the active conversation (creating one if needed) and persist */
+  const persistMessages = (next: Msg[]) => {
+    setMessages(next);
+    setConvos((prev) => {
+      let id = activeId;
+      let list = prev;
+      if (!id || !list.some((c) => c.id === id)) {
+        id = crypto.randomUUID();
+        list = [...list, { id, createdAt: Date.now(), messages: [] }];
+        setActiveId(id);
+      }
+      const updated = list.map((c) => (c.id === id ? { ...c, messages: next } : c));
+      saveChats(topicId, { convos: updated, activeId: id });
+      return updated;
+    });
+  };
+
+  const switchConvo = (id: string) => {
+    setActiveId(id);
+    const c = convos.find((x) => x.id === id);
+    setMessages(c?.messages ?? []);
+    saveChats(topicId, { convos, activeId: id });
+  };
+
+  const newChat = () => {
+    // reuse the current conversation if it's still empty
+    const active = convos.find((c) => c.id === activeId);
+    if (active && active.messages.length === 0) return;
+    const c: Convo = { id: crypto.randomUUID(), createdAt: Date.now(), messages: [] };
+    const updated = [...convos, c];
+    setConvos(updated);
+    setActiveId(c.id);
+    setMessages([]);
+    saveChats(topicId, { convos: updated, activeId: c.id });
+  };
+
+  const deleteChat = () => {
+    const updated = convos.filter((c) => c.id !== activeId);
+    const nextActive = updated[updated.length - 1] ?? null;
+    setConvos(updated);
+    setActiveId(nextActive?.id ?? null);
+    setMessages(nextActive?.messages ?? []);
+    saveChats(topicId, { convos: updated, activeId: nextActive?.id ?? null });
+  };
 
   // restore saved settings + keys
   useEffect(() => {
@@ -126,7 +241,7 @@ export function TutorPanel({
     setInput("");
     setError(null);
     const next: Msg[] = [...messages, { role: "user", text }];
-    setMessages(next);
+    persistMessages(next);
     setBusy(true);
     try {
       const res = await fetch("/api/tutor", {
@@ -158,13 +273,13 @@ export function TutorPanel({
               : "Something went wrong; please try again."
           );
         }
-        setMessages(messages);
+        persistMessages(messages);
       } else {
-        setMessages([...next, { role: "model", text: data.text }]);
+        persistMessages([...next, { role: "model", text: data.text }]);
       }
     } catch {
       setError(lang === "tr" ? "Bağlantı hatası." : "Network error.");
-      setMessages(messages);
+      persistMessages(messages);
     } finally {
       setBusy(false);
     }
@@ -213,6 +328,38 @@ export function TutorPanel({
                 </button>
               </div>
             </div>
+
+            {/* conversation switcher — history is scoped to THIS topic only */}
+            {convos.length > 0 && (
+              <div className="flex items-center gap-2 border-b border-line bg-card px-4 py-2">
+                <select
+                  value={activeId ?? ""}
+                  onChange={(e) => switchConvo(e.target.value)}
+                  className="min-w-0 flex-1 rounded-lg border border-line bg-paper px-2 py-1.5 text-xs"
+                  aria-label={t("pastChats")}
+                >
+                  {[...convos].reverse().map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {convoLabel(c, t("emptyChatTitle"), lang === "tr" ? "tr-TR" : "en-GB")}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={newChat}
+                  className="shrink-0 rounded-full border border-deniz/40 px-2.5 py-1 text-xs font-semibold text-deniz transition-colors hover:bg-deniz-soft"
+                >
+                  ＋ {t("newChat")}
+                </button>
+                <button
+                  onClick={deleteChat}
+                  aria-label="delete conversation"
+                  title={t("deleteChat")}
+                  className="shrink-0 rounded-full px-2 py-1 text-xs text-ink-faint transition-colors hover:bg-clay-soft hover:text-clay"
+                >
+                  🗑
+                </button>
+              </div>
+            )}
 
             {/* model / provider settings */}
             {showSettings && (

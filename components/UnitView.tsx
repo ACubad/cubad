@@ -147,6 +147,7 @@ export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
 
       <TutorPanel
         subject={subject}
+        topicId={`${subject}/unit/${unit.slug}`}
         topicTitle={unit.title}
         context={JSON.stringify({
           type: "unit-primer",
