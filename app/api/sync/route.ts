@@ -44,9 +44,9 @@ export async function POST(request: Request) {
 
   try {
     if (body.state !== undefined) {
-      // basic size guard: study state should stay well under 1 MB
+      // size guard: progress + decks + capped chat histories
       const payload = JSON.stringify(body.state);
-      if (payload.length > 1_000_000) {
+      if (payload.length > 3_000_000) {
         return Response.json({ error: "too-large" }, { status: 413 });
       }
       const res = await fetch(`${SB_URL}/rest/v1/${TABLE}`, {

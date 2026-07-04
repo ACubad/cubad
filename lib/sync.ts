@@ -17,6 +17,7 @@ export const SYNC_APPLIED_EVENT = "cubad:sync-applied";
 
 const PROGRESS_KEY = "cubad:progress:v2";
 const DECK_PREFIX = "cubad:cards:";
+const CHAT_PREFIX = "cubad:chats:";
 
 interface QuestionProgress {
   step: number;
@@ -41,10 +42,30 @@ interface LeitnerEntry {
 }
 type Decks = Record<string, Record<string, LeitnerEntry>>;
 
+interface ChatMsg {
+  role: "user" | "model";
+  text: string;
+}
+interface ChatConvo {
+  id: string;
+  createdAt: number;
+  updatedAt?: number;
+  messages: ChatMsg[];
+}
+interface ChatStore {
+  convos: ChatConvo[];
+  activeId: string | null;
+}
+type Chats = Record<string, ChatStore>;
+
 export interface SyncState {
   progress: ProgressState;
   decks: Decks;
+  chats?: Chats;
 }
+
+const SYNC_CONVOS_PER_TOPIC = 8;
+const SYNC_MSGS_PER_CONVO = 40;
 
 const EMPTY_PROGRESS: ProgressState = { q: {}, quiz: {}, practice: {} };
 
@@ -56,9 +77,22 @@ export function getSyncCode(): string {
   }
 }
 
+function trimChats(store: ChatStore): ChatStore {
+  const byRecency = [...store.convos].sort(
+    (a, b) => (a.updatedAt ?? a.createdAt) - (b.updatedAt ?? b.createdAt)
+  );
+  return {
+    activeId: store.activeId,
+    convos: byRecency
+      .slice(-SYNC_CONVOS_PER_TOPIC)
+      .map((c) => ({ ...c, messages: c.messages.slice(-SYNC_MSGS_PER_CONVO) })),
+  };
+}
+
 export function gatherState(): SyncState {
   let progress = EMPTY_PROGRESS;
   const decks: Decks = {};
+  const chats: Chats = {};
   try {
     const raw = window.localStorage.getItem(PROGRESS_KEY);
     if (raw) progress = JSON.parse(raw) as ProgressState;
@@ -72,12 +106,20 @@ export function gatherState(): SyncState {
         } catch {
           /* skip corrupted deck */
         }
+      } else if (k?.startsWith(CHAT_PREFIX)) {
+        try {
+          chats[k.slice(CHAT_PREFIX.length)] = trimChats(
+            JSON.parse(window.localStorage.getItem(k) ?? "") as ChatStore
+          );
+        } catch {
+          /* skip corrupted chat store */
+        }
       }
     }
   } catch {
     /* SSR or blocked storage */
   }
-  return { progress, decks };
+  return { progress, decks, chats };
 }
 
 /** Union-merge: never lose progress from either side. */
@@ -115,6 +157,42 @@ export function mergeStates(local: SyncState, remote: SyncState): SyncState {
     };
   }
 
+  // chats: union conversations by id; a diverged conversation keeps its longer thread
+  const mergedChats: Chats = {};
+  for (const topic of new Set([
+    ...Object.keys(local.chats ?? {}),
+    ...Object.keys(remote.chats ?? {}),
+  ])) {
+    const a = local.chats?.[topic];
+    const b = remote.chats?.[topic];
+    if (!a || !b) {
+      mergedChats[topic] = trimChats((a ?? b) as ChatStore);
+      continue;
+    }
+    const byId = new Map<string, ChatConvo>();
+    for (const c of [...b.convos, ...a.convos]) {
+      const prev = byId.get(c.id);
+      if (!prev) {
+        byId.set(c.id, c);
+      } else {
+        const pick =
+          c.messages.length !== prev.messages.length
+            ? c.messages.length > prev.messages.length
+              ? c
+              : prev
+            : (c.updatedAt ?? c.createdAt) >= (prev.updatedAt ?? prev.createdAt)
+              ? c
+              : prev;
+        byId.set(c.id, pick);
+      }
+    }
+    mergedChats[topic] = trimChats({
+      convos: [...byId.values()].sort((x, y) => x.createdAt - y.createdAt),
+      activeId: a.activeId ?? b.activeId,
+    });
+  }
+  merged.chats = mergedChats;
+
   for (const deck of new Set([
     ...Object.keys(local.decks ?? {}),
     ...Object.keys(remote.decks ?? {}),
@@ -149,6 +227,9 @@ export function applyState(state: SyncState): void {
     window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(state.progress));
     for (const [deck, cards] of Object.entries(state.decks)) {
       window.localStorage.setItem(DECK_PREFIX + deck, JSON.stringify(cards));
+    }
+    for (const [topic, store] of Object.entries(state.chats ?? {})) {
+      window.localStorage.setItem(CHAT_PREFIX + topic, JSON.stringify(store));
     }
   } catch {
     /* storage blocked */

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
+import { notifyStateChanged, SYNC_APPLIED_EVENT } from "@/lib/sync";
 import type { Bi } from "@/lib/types";
 import { Md } from "./Md";
 
@@ -34,6 +35,7 @@ const KEY_URLS: Record<Provider, string> = {
 interface Convo {
   id: string;
   createdAt: number;
+  updatedAt?: number;
   messages: Msg[];
 }
 
@@ -66,6 +68,7 @@ function saveChats(topicId: string, store: ChatStore) {
         .map((c) => ({ ...c, messages: c.messages.slice(-MAX_MSGS) })),
     };
     window.localStorage.setItem(chatKey(topicId), JSON.stringify(trimmed));
+    notifyStateChanged(); // include chats in the next cross-device sync push
   } catch {
     /* storage full — chat just won't persist */
   }
@@ -111,16 +114,25 @@ export function TutorPanel({
   const [convos, setConvos] = useState<Convo[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const busyRef = useRef(false);
 
-  // restore this topic's conversations
+  // restore this topic's conversations (and refresh when a sync pulls new ones)
   useEffect(() => {
-    const store = loadChats(topicId);
-    setConvos(store.convos);
-    const active =
-      store.convos.find((c) => c.id === store.activeId) ??
-      store.convos[store.convos.length - 1];
-    setActiveId(active?.id ?? null);
-    setMessages(active?.messages ?? []);
+    const restore = () => {
+      const store = loadChats(topicId);
+      setConvos(store.convos);
+      const active =
+        store.convos.find((c) => c.id === store.activeId) ??
+        store.convos[store.convos.length - 1];
+      setActiveId(active?.id ?? null);
+      setMessages(active?.messages ?? []);
+    };
+    restore();
+    const onSync = () => {
+      if (!busyRef.current) restore();
+    };
+    window.addEventListener(SYNC_APPLIED_EVENT, onSync);
+    return () => window.removeEventListener(SYNC_APPLIED_EVENT, onSync);
   }, [topicId]);
 
   /** update messages of the active conversation (creating one if needed) and persist */
@@ -134,7 +146,9 @@ export function TutorPanel({
         list = [...list, { id, createdAt: Date.now(), messages: [] }];
         setActiveId(id);
       }
-      const updated = list.map((c) => (c.id === id ? { ...c, messages: next } : c));
+      const updated = list.map((c) =>
+        c.id === id ? { ...c, messages: next, updatedAt: Date.now() } : c
+      );
       saveChats(topicId, { convos: updated, activeId: id });
       return updated;
     });
@@ -243,6 +257,7 @@ export function TutorPanel({
     const next: Msg[] = [...messages, { role: "user", text }];
     persistMessages(next);
     setBusy(true);
+    busyRef.current = true;
     try {
       const res = await fetch("/api/tutor", {
         method: "POST",
@@ -282,6 +297,7 @@ export function TutorPanel({
       persistMessages(messages);
     } finally {
       setBusy(false);
+      busyRef.current = false;
     }
   };
 
