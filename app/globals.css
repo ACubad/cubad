@@ -80,6 +80,12 @@ h1, h2, h3, .font-display {
 .prose-cubad .katex {
   font-size: 1.04em;
 }
+/* long inline formulas scroll instead of stretching the page on phones */
+.prose-cubad p:has(.katex),
+.prose-cubad li:has(.katex) {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 
 /* ---------- water progress ---------- */
 .water-track {

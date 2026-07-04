@@ -39,7 +39,7 @@ export function FormulasView({ units }: { units: Unit[] }) {
             {(u.concept?.keyFormulas ?? []).map((f, i) => (
               <div
                 key={i}
-                className="break-inside-avoid rounded-xl border border-line bg-card p-4"
+                className="min-w-0 break-inside-avoid rounded-xl border border-line bg-card p-4"
               >
                 <p className="mb-1 text-sm font-semibold text-deniz-deep">{bi(f.name)}</p>
                 <div className="overflow-x-auto py-1">

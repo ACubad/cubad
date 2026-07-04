@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
 import type { SubjectMeta, Unit } from "@/lib/types";
+import { ResetCard } from "./ResetCard";
 import { SyncCard } from "./SyncCard";
 import { WaterProgress } from "./ui";
 
@@ -89,7 +90,10 @@ export function SubjectPicker({
         </div>
       </section>
 
-      <SyncCard />
+      <div className="grid gap-4 md:grid-cols-2">
+        <SyncCard />
+        <ResetCard subjects={subjects} />
+      </div>
     </div>
   );
 }

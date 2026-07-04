@@ -194,3 +194,67 @@ export function notifyStateChanged(): void {
     /* SSR */
   }
 }
+
+/**
+ * Reset study progress locally AND on the sync server (plain push, no merge —
+ * otherwise the union-merge would resurrect the old state on the next sync).
+ * @param subject a subject slug to reset only that subject, or undefined for everything
+ */
+export async function resetProgress(subject?: string): Promise<boolean> {
+  try {
+    const raw = window.localStorage.getItem(PROGRESS_KEY);
+    if (raw) {
+      if (!subject) {
+        window.localStorage.removeItem(PROGRESS_KEY);
+      } else {
+        const p = JSON.parse(raw) as ProgressState;
+        const strip = <T,>(obj: Record<string, T> | undefined): Record<string, T> =>
+          Object.fromEntries(
+            Object.entries(obj ?? {}).filter(([k]) => !k.startsWith(`${subject}/`))
+          );
+        const next: ProgressState = {
+          q: strip(p.q),
+          quiz: strip(p.quiz),
+          practice: strip(p.practice),
+        };
+        window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(next));
+      }
+    }
+    const toRemove: string[] = [];
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const k = window.localStorage.key(i);
+      if (
+        k?.startsWith(DECK_PREFIX) &&
+        (!subject || k.startsWith(`${DECK_PREFIX}${subject}:`))
+      ) {
+        toRemove.push(k);
+      }
+    }
+    toRemove.forEach((k) => window.localStorage.removeItem(k));
+  } catch {
+    return false;
+  }
+
+  // make every open view reload the (now reset) state
+  window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+
+  // overwrite the server copy so other devices reset too
+  const code = getSyncCode();
+  if (code) {
+    try {
+      const res = await fetch("/api/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, state: gatherState() }),
+      });
+      if (res.ok) {
+        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+  return true;
+}

@@ -144,6 +144,14 @@ const STRINGS = {
     en: "Something went wrong generating the podcast.",
     tr: "Podcast oluşturulurken bir şeyler ters gitti.",
   },
+  resetTitle: { en: "Reset progress", tr: "İlerlemeyi sıfırla" },
+  resetIntro: {
+    en: "Wipes completed-question marks, quiz scores and flashcard boxes (also on your other synced devices). Content is untouched.",
+    tr: "Tamamlanma işaretlerini, sınav puanlarını ve kart kutularını siler (eşitlenmiş diğer cihazlarında da). İçerik olduğu gibi kalır.",
+  },
+  resetAll: { en: "Everything", tr: "Hepsi" },
+  resetConfirm: { en: "Sure? Tap again", tr: "Emin misin? Tekrar dokun" },
+  resetDone: { en: "Progress reset.", tr: "İlerleme sıfırlandı." },
   syncTitle: { en: "Cross-device sync", tr: "Cihazlar arası eşitleme" },
   syncIntro: {
     en: "Pick any passcode (4+ characters) and enter the same one on your phone — your progress, flashcard boxes and scores stay in sync everywhere.",

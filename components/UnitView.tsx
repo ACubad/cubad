@@ -53,7 +53,7 @@ export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
               </h3>
               <div className="grid gap-3 md:grid-cols-2">
                 {concept.keyFormulas.map((f, i) => (
-                  <div key={i} className="rounded-xl border border-line-soft bg-paper p-4">
+                  <div key={i} className="min-w-0 rounded-xl border border-line-soft bg-paper p-4">
                     <p className="mb-1 text-sm font-semibold text-deniz-deep">{bi(f.name)}</p>
                     <div className="overflow-x-auto py-1">
                       <Tex tex={f.latex} />
@@ -107,7 +107,7 @@ export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
               <Link
                 key={q.id}
                 href={`/s/${subject}/q/${q.id}`}
-                className="group flex items-center gap-4 rounded-xl border border-line bg-card px-4 py-3 transition-all hover:border-deniz/40 hover:shadow-[0_4px_16px_rgba(14,90,109,0.08)]"
+                className="group flex min-w-0 items-center gap-3 rounded-xl border border-line bg-card px-4 py-3 transition-all hover:border-deniz/40 hover:shadow-[0_4px_16px_rgba(14,90,109,0.08)] sm:gap-4"
               >
                 <span
                   className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-mono text-xs font-semibold ${
@@ -133,7 +133,9 @@ export function UnitView({ subject, unit }: { subject: string; unit: Unit }) {
                   </span>
                 </span>
                 <span className="shrink-0 text-sm font-semibold text-deniz">
-                  {p?.done ? t("review") : started ? t("continueWalkthrough") : t("startWalkthrough")}
+                  <span className="hidden sm:inline">
+                    {p?.done ? t("review") : started ? t("continueWalkthrough") : t("startWalkthrough")}
+                  </span>
                   <span aria-hidden> →</span>
                 </span>
               </Link>
