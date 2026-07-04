@@ -111,6 +111,7 @@ export function TutorPanel({
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [truncated, setTruncated] = useState(false);
   const [convos, setConvos] = useState<Convo[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -249,11 +250,12 @@ export function TutorPanel({
     setUserKeys((prev) => ({ ...prev, [provider]: "" }));
   };
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (forcedText?: string) => {
+    const text = (forcedText ?? input).trim();
     if (!text || busy) return;
-    setInput("");
+    if (!forcedText) setInput("");
     setError(null);
+    setTruncated(false);
     const next: Msg[] = [...messages, { role: "user", text }];
     persistMessages(next);
     setBusy(true);
@@ -272,7 +274,7 @@ export function TutorPanel({
           userKey: userKeys[provider] || undefined,
         }),
       });
-      const data = (await res.json()) as { text?: string; error?: string };
+      const data = (await res.json()) as { text?: string; truncated?: boolean; error?: string };
       if (!res.ok || !data.text) {
         if (data.error === "bad-key" || data.error === "no-key") {
           forgetKey();
@@ -291,6 +293,7 @@ export function TutorPanel({
         persistMessages(messages);
       } else {
         persistMessages([...next, { role: "model", text: data.text }]);
+        setTruncated(Boolean(data.truncated));
       }
     } catch {
       setError(lang === "tr" ? "Bağlantı hatası." : "Network error.");
@@ -495,6 +498,15 @@ export function TutorPanel({
                 </div>
               ))}
 
+              {truncated && !busy && (
+                <button
+                  onClick={() => send(lang === "tr" ? "devam et" : "continue")}
+                  className="rise-in flex items-center gap-1.5 rounded-full border border-deniz/40 bg-deniz-soft px-3.5 py-1.5 text-xs font-semibold text-deniz-deep transition-colors hover:bg-deniz hover:text-white"
+                >
+                  ▸ {t("continueReply")}
+                </button>
+              )}
+
               {busy && (
                 <div className="pulse-soft rounded-2xl border border-line bg-card px-4 py-2.5 text-sm text-ink-faint">
                   {t("thinking")}
@@ -525,7 +537,7 @@ export function TutorPanel({
                   className="min-w-0 flex-1 resize-none rounded-xl border border-line bg-paper px-3 py-2 text-sm outline-none focus:border-deniz/50 disabled:opacity-50"
                 />
                 <button
-                  onClick={send}
+                  onClick={() => send()}
                   disabled={busy || needsKey || !input.trim()}
                   className="shrink-0 self-end rounded-xl bg-deniz px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep disabled:opacity-40"
                 >

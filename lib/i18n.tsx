@@ -68,6 +68,7 @@ const STRINGS = {
   },
   saveKey: { en: "Save key", tr: "Anahtarı kaydet" },
   newChat: { en: "New", tr: "Yeni" },
+  continueReply: { en: "Continue the answer", tr: "Cevaba devam et" },
   pastChats: { en: "Past chats", tr: "Geçmiş sohbetler" },
   deleteChat: { en: "Delete this chat", tr: "Bu sohbeti sil" },
   emptyChatTitle: { en: "New conversation", tr: "Yeni sohbet" },

@@ -63,7 +63,9 @@ async function callGemini(key: string, model: string, body: TutorBody) {
       role: m.role,
       parts: [{ text: m.text }],
     })),
-    generationConfig: { temperature: 0.4, maxOutputTokens: 1400 },
+    // generous cap: on Gemini 2.5+/3.x the model's internal thinking also counts
+    // against maxOutputTokens, so small caps silently truncate visible answers
+    generationConfig: { temperature: 0.4, maxOutputTokens: 8192 },
   };
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`,
@@ -79,11 +81,12 @@ async function callGemini(key: string, model: string, body: TutorBody) {
     return { error: res.status === 400 || res.status === 403 ? "bad-key" : "upstream" };
   }
   const data = (await res.json()) as {
-    candidates?: { content?: { parts?: { text?: string }[] } }[];
+    candidates?: { content?: { parts?: { text?: string }[] }; finishReason?: string }[];
   };
-  const text =
-    data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("").trim() ?? "";
-  return text ? { text } : { error: "empty-response" };
+  const cand = data.candidates?.[0];
+  const text = cand?.content?.parts?.map((p) => p.text ?? "").join("").trim() ?? "";
+  if (!text) return { error: "empty-response" };
+  return { text, truncated: cand?.finishReason === "MAX_TOKENS" };
 }
 
 async function callOpenAI(key: string, model: string, body: TutorBody) {
@@ -96,7 +99,7 @@ async function callOpenAI(key: string, model: string, body: TutorBody) {
         content: m.text,
       })),
     ],
-    max_completion_tokens: 1400,
+    max_completion_tokens: 4096,
   };
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -112,10 +115,12 @@ async function callOpenAI(key: string, model: string, body: TutorBody) {
     return { error: res.status === 401 || res.status === 403 ? "bad-key" : "upstream" };
   }
   const data = (await res.json()) as {
-    choices?: { message?: { content?: string } }[];
+    choices?: { message?: { content?: string }; finish_reason?: string }[];
   };
-  const text = data.choices?.[0]?.message?.content?.trim() ?? "";
-  return text ? { text } : { error: "empty-response" };
+  const choice = data.choices?.[0];
+  const text = choice?.message?.content?.trim() ?? "";
+  if (!text) return { error: "empty-response" };
+  return { text, truncated: choice?.finish_reason === "length" };
 }
 
 export async function POST(request: Request) {
@@ -145,7 +150,12 @@ export async function POST(request: Request) {
       const status = result.error === "bad-key" ? 401 : 502;
       return Response.json({ error: result.error }, { status });
     }
-    return Response.json({ text: result.text, model, provider });
+    return Response.json({
+      text: result.text,
+      truncated: Boolean(result.truncated),
+      model,
+      provider,
+    });
   } catch (e) {
     console.error("tutor route error", e);
     return Response.json({ error: "network" }, { status: 502 });
