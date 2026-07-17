@@ -1343,6 +1343,11 @@ therefore cheap at every level:
 
 ## Changelog / deviations
 
+- **2026-07-17 — project naming:** the executor created the dedicated paid Supabase project as
+  `cubad` (rather than the plan's `cubad-app`) because the user explicitly required `cubad`
+  as the shared GitHub, Supabase, and Vercel project name. The locked region remains
+  `eu-central-1`; all code and environment-variable contracts are unchanged.
+
 - **2026-07-16 — post-audit fixes** (spec + adversarial + cross-doc seam audit; bound by
   master §14 "Post-audit contract registry", dated 2026-07-12):
   1. Corrected the baseline policy count from 6 to 7 (3 profiles, 3 user_state,
@@ -1367,4 +1372,3 @@ therefore cheap at every level:
   7. Added the SQL comment under `protect_profile_role()` that Phase 2 extends THAT function
      via `create or replace` (same function/trigger names) and no second parallel role-guard
      trigger may ever be installed (master §14).
-
