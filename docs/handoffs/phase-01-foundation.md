@@ -28,8 +28,9 @@
 | `node scripts/validate-content.mjs` | passing |
 | `npm run lint` | passing with 10 pre-existing React 19 advisory warnings |
 | `npm run build` | passing |
+| GitHub Actions CI run #4 | passing on commit `0396289` |
 | Production deployment | Vercel Ready; `https://cubad.vercel.app` returned HTTP 200 |
-| Phase preview deployment | Vercel Ready; protected by Vercel SSO |
+| Phase preview deployment | Vercel Ready for commit `0396289`; protected by Vercel SSO |
 
 ## Security and operational invariants
 
@@ -42,7 +43,7 @@
 
 1. Run `npx supabase db reset` twice from the repo root. Docker Desktop is healthy, but another local Supabase stack (`Perfect_Cloth_Match`) currently owns the default ports, so it must be stopped or its port allocation changed first.
 2. The ten pre-existing React 19 lint findings are intentionally warnings, not CI-blocking errors. They remain visible for a future component-refactor task; the Phase 1 configuration change is documented in `eslint.config.mjs`.
-3. Confirm GitHub Actions on PR #1 is green, review, then merge the PR.
+3. Review and merge PR #1.
 
 The local worktree also contains four unrelated, uncommitted user edits:
 `app/api/tutor/route.ts`, `app/globals.css`, `components/Md.tsx`, and `components/TutorPanel.tsx`. They were not staged or included in Phase 1 commits.
