@@ -1,8 +1,8 @@
 # Phase 1 handoff — Foundation
 
-**Status:** Fully validated; awaiting final PR merge
+**Status:** Closed and merged
 
-**Branch / PR:** `feat/phase-1-foundation` · [PR #1](https://github.com/ACubad/cubad/pull/1) (draft)
+**Branch / PR:** `feat/phase-1-foundation` · [PR #1](https://github.com/ACubad/cubad/pull/1) (merged as `9cb14c3`)
 
 **Date:** 2026-07-17
 
@@ -22,18 +22,18 @@
 
 | Check | Result |
 | --- | --- |
-| Remote migration history | Local and remote both contain `20260717170920` |
+| Remote migration history | Local and remote both contain `20260717170920` and `20260717210404` |
 | Remote seed run twice | Both runs: 2 subjects, 19 units |
 | Remote counts | tracks=1, subjects=2, units=19, track_subjects=2, non-free units=0 |
 | `npm test` | 1 file / 3 tests passing |
 | `node scripts/validate-content.mjs` | passing |
 | `npm run lint` | passing with 10 pre-existing React 19 advisory warnings |
 | `npm run build` | passing |
-| GitHub Actions CI run #6 | passing on grant-migration commit `377261d` |
+| GitHub Actions CI run #7 | passing on final Phase 1 commit `98b639d` |
 | Local reset | two clean `npx supabase db reset` cycles passed with both migrations |
 | Local idempotent seed | two runs: 1 track, 2 subjects, 19 units, 2 track-subject links |
 | Local schema assertions | 14 public tables, RLS enabled on all 14, exactly 7 policies |
-| Production deployment | Vercel Ready; `https://cubad.vercel.app` returned HTTP 200 |
+| Production deployment | Vercel Ready for merge commit `9cb14c3`; `https://cubad.vercel.app` returned HTTP 200 |
 | Phase preview deployment | Vercel Ready for commit `377261d`; protected by Vercel SSO |
 
 ## Security and operational invariants
@@ -44,10 +44,10 @@
 - Phase 1 did not change a user-facing route or cut production over to the new database.
 - The Supabase database password and API keys exist only in ignored local secrets files; no secret was committed.
 
-## Outstanding acceptance work
+## Accepted exceptions
 
-1. The ten pre-existing React 19 lint findings are intentionally warnings, not CI-blocking errors. They remain visible for a future component-refactor task; the Phase 1 configuration change is documented in `eslint.config.mjs`.
-2. Confirm the final CI and Vercel preview for the grant-migration commit, then merge PR #1.
+- The ten pre-existing React 19 lint findings are intentionally warnings, not CI-blocking errors. They remain visible for a future component-refactor task; the Phase 1 configuration change is documented in `eslint.config.mjs`.
+- PR #1 merged on 2026-07-17 after green CI and a Ready production deployment.
 
 The local worktree also contains four unrelated, uncommitted user edits:
 `app/api/tutor/route.ts`, `app/globals.css`, `components/Md.tsx`, and `components/TutorPanel.tsx`. They were not staged or included in Phase 1 commits.
@@ -69,10 +69,9 @@ For remote data counts, use the service-role client locally or the Supabase SQL 
 
 ## Rollback
 
-- Before merge: close PR #1; production is unchanged.
-- After merge: revert the Phase 1 PR. The new Supabase project is not yet on the live request path.
+- Revert PR #1's squash merge commit `9cb14c3` (and this closeout record if desired). The new Supabase project is not yet on the live request path.
 - Database: pause/delete the dedicated `cubad` project only if the product is abandoned; it contains the Phase 1 seeded content.
 
 ## Next phase start point
 
-Phase 2 starts only after this PR is accepted and merged. Create `feat/phase-2-auth-profiles` from updated `main`, then follow `docs/plans/productization/02-auth-profiles.md` Task 2.0. Do not branch Phase 2 from this draft PR.
+Phase 1 is closed. Create `feat/phase-2-auth-profiles` from updated `main`, then follow `docs/plans/productization/02-auth-profiles.md` Task 2.0.
