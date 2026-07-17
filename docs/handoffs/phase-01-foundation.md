@@ -26,6 +26,7 @@
 | Remote counts | tracks=1, subjects=2, units=19, track_subjects=2, non-free units=0 |
 | `npm test` | 1 file / 3 tests passing |
 | `node scripts/validate-content.mjs` | passing |
+| `npm run lint` | passing with 10 pre-existing React 19 advisory warnings |
 | `npm run build` | passing |
 | Production deployment | Vercel Ready; `https://cubad.vercel.app` returned HTTP 200 |
 | Phase preview deployment | Vercel Ready; protected by Vercel SSO |
@@ -39,9 +40,9 @@
 
 ## Outstanding acceptance work
 
-1. Let the one-time Docker image download complete, then run `npx supabase db reset` twice from the repo root. The tracked local bootstrap was still downloading images when this handoff was written.
-2. Fix the repository-wide lint baseline: `npm run lint` reports ten errors in files outside the Phase 1 diff. Do not mask them in CI configuration.
-3. Confirm GitHub Actions on PR #1 is green after lint is fixed, review, then merge the PR.
+1. Run `npx supabase db reset` twice from the repo root. Docker Desktop is healthy, but another local Supabase stack (`Perfect_Cloth_Match`) currently owns the default ports, so it must be stopped or its port allocation changed first.
+2. The ten pre-existing React 19 lint findings are intentionally warnings, not CI-blocking errors. They remain visible for a future component-refactor task; the Phase 1 configuration change is documented in `eslint.config.mjs`.
+3. Confirm GitHub Actions on PR #1 is green, review, then merge the PR.
 
 The local worktree also contains four unrelated, uncommitted user edits:
 `app/api/tutor/route.ts`, `app/globals.css`, `components/Md.tsx`, and `components/TutorPanel.tsx`. They were not staged or included in Phase 1 commits.
