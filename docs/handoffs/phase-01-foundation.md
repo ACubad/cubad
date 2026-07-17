@@ -29,12 +29,12 @@
 | `node scripts/validate-content.mjs` | passing |
 | `npm run lint` | passing with 10 pre-existing React 19 advisory warnings |
 | `npm run build` | passing |
-| GitHub Actions CI run #4 | passing on commit `0396289` |
+| GitHub Actions CI run #6 | passing on grant-migration commit `377261d` |
 | Local reset | two clean `npx supabase db reset` cycles passed with both migrations |
 | Local idempotent seed | two runs: 1 track, 2 subjects, 19 units, 2 track-subject links |
 | Local schema assertions | 14 public tables, RLS enabled on all 14, exactly 7 policies |
 | Production deployment | Vercel Ready; `https://cubad.vercel.app` returned HTTP 200 |
-| Phase preview deployment | Vercel Ready for commit `0396289`; protected by Vercel SSO |
+| Phase preview deployment | Vercel Ready for commit `377261d`; protected by Vercel SSO |
 
 ## Security and operational invariants
 
