@@ -142,6 +142,27 @@ LESSON NOTES:
 ${digest}`;
 }
 
+/**
+ * Preserve only a small, non-sensitive provider diagnostic in function logs.
+ * Gemini's raw error body can contain request details, so it must never be logged.
+ */
+async function logGeminiFailure(stage: "script" | "audio", response: Response): Promise<void> {
+  let providerStatus = "unknown";
+  try {
+    const body = (await response.clone().json()) as { error?: { status?: unknown } };
+    if (typeof body.error?.status === "string" && /^[A-Z_]{1,64}$/.test(body.error.status)) {
+      providerStatus = body.error.status;
+    }
+  } catch {
+    // The HTTP status remains useful when the provider returned a non-JSON error.
+  }
+  console.error("gemini podcast call failed", {
+    stage,
+    httpStatus: response.status,
+    providerStatus,
+  });
+}
+
 async function generateScript(
   key: string,
   lang: "tr" | "en",
@@ -159,14 +180,17 @@ async function generateScript(
 
   const tryOnce = async (): Promise<PodcastLine[] | null> => {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(key)}`,
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
         body: JSON.stringify(payload),
       }
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      await logGeminiFailure("script", res);
+      return null;
+    }
     const data = (await res.json()) as {
       candidates?: { content?: { parts?: { text?: string }[] } }[];
     };
@@ -182,7 +206,9 @@ async function generateScript(
         return parsed.lines;
       }
     } catch {
-      /* fall through to retry */
+      // The provider accepted the request but did not return the promised structured result.
+      // Do not log its text: it contains lesson content and may be large.
+      console.error("gemini podcast call returned an invalid script response", { stage: "script" });
     }
     return null;
   };
@@ -234,14 +260,17 @@ async function generateAudio(key: string, lines: PodcastLine[]): Promise<Buffer 
     },
   };
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${encodeURIComponent(key)}`,
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent",
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
       body: JSON.stringify(payload),
     }
   );
-  if (!res.ok) return null;
+  if (!res.ok) {
+    await logGeminiFailure("audio", res);
+    return null;
+  }
   const data = (await res.json()) as {
     candidates?: { content?: { parts?: { inlineData?: { data?: string } }[] } }[];
   };
