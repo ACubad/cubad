@@ -86,6 +86,7 @@ const STRINGS = {
     en: "Concept checks and trap questions — the kind that separate an AA from a CC.",
     tr: "Kavram ve tuzak soruları — AA ile CC'yi ayıran türden.",
   },
+  quizSaved: { en: "Saved result", tr: "Kaydedilen sonuç" },
   quizFinish: { en: "Quiz complete!", tr: "Sınav bitti!" },
   quizRestart: { en: "Restart quiz", tr: "Sınavı yeniden başlat" },
   source: {

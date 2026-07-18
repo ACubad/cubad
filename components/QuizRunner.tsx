@@ -9,7 +9,7 @@ import { Mcq, WaterProgress } from "./ui";
 
 export function QuizRunner({ subject, unit }: { subject: string; unit: Unit }) {
   const { t, bi } = useLang();
-  const { setQuizScore } = useProgress();
+  const { state, setQuizScore } = useProgress();
   const [current, setCurrent] = useState(0);
   const quiz = unit.quiz ?? [];
   const [answers, setAnswers] = useState<(number | null)[]>(
@@ -20,6 +20,7 @@ export function QuizRunner({ subject, unit }: { subject: string; unit: Unit }) {
   const answered = answers.filter((a) => a !== null).length;
   const score = answers.filter((a, i) => a === quiz[i].correct).length;
   const doneAll = answered === total;
+  const savedScore = state.quiz[`${subject}/${unit.slug}`];
 
   const choose = (i: number) => {
     setAnswers((prev) => {
@@ -64,6 +65,11 @@ export function QuizRunner({ subject, unit }: { subject: string; unit: Unit }) {
           </span>
         </div>
         <WaterProgress value={answered / total} className="h-1.5" />
+        {answered === 0 && savedScore && (
+          <p className="mt-2 text-xs font-medium text-moss" role="status">
+            {t("quizSaved")}: {savedScore.score}/{savedScore.total}
+          </p>
+        )}
       </div>
 
       <div className="rise-in" key={current}>
