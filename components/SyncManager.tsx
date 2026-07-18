@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
-import { STATE_CHANGED_EVENT, syncNow } from "@/lib/sync";
+import { clearSignedOutStudyState, STATE_CHANGED_EVENT, syncNow } from "@/lib/sync";
 
 const RETIRED_PASSCODE_KEY = "cubad:sync:code";
 
@@ -16,12 +16,21 @@ export function SyncManager() {
   const pathname = usePathname();
   const changeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const busy = useRef(false);
+  const pending = useRef(false);
 
   const runSync = useCallback(async () => {
-    if (busy.current) return;
+    if (busy.current) {
+      // A progress edit can land while a pull/push is in flight. Run once more
+      // after it settles so the edit is not stranded on this device.
+      pending.current = true;
+      return;
+    }
     busy.current = true;
     try {
-      await syncNow();
+      do {
+        pending.current = false;
+        await syncNow();
+      } while (pending.current);
     } finally {
       busy.current = false;
     }
@@ -48,6 +57,10 @@ export function SyncManager() {
       if (event === "SIGNED_IN") {
         // Let the new session cookie settle before requesting /api/state.
         window.setTimeout(() => void runSync(), 150);
+      } else if (event === "SIGNED_OUT") {
+        // Do not leave the prior account's local projection visible to an
+        // anonymous visitor or the next person using this browser.
+        void clearSignedOutStudyState();
       }
     });
     return () => subscription.unsubscribe();

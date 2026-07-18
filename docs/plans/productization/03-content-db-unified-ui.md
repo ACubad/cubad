@@ -3132,3 +3132,21 @@ the env vars would leave the new code with nothing to read.
       study-state changes. This supersedes the plan's Task 7 and Task 12 passcode round-trip
       checks; it does not alter the Phase 2 capability-scoped Sprout RLS repair or the 60-day
       credential rollback window.
+  13. A post-cutover authenticated-sync audit found that the hosted project had inherited SQL
+      table grants which a fresh local Supabase stack does not. Two additive migrations now make
+      the intended RLS behavior explicit: catalogue tables grant `SELECT` to `anon` and
+      `authenticated` (with RLS still filtering rows), and `user_state` grants only
+      `SELECT`/`INSERT`/`UPDATE` to `authenticated` (with the existing own-row RLS policies still
+      enforcing `user_id = auth.uid()`). Both were applied to the existing Cubad project and
+      verified with a clean `supabase db reset`, seed, and transactional local/remote probes.
+  14. The same audit hardened account sync without restoring the retired passcode path: a browser
+      account marker clears the prior account's local projection on account switch and sign-out;
+      sync/reset operations are serialized and bind to the captured authenticated identity; and
+      normal `/api/state` writes use `updated_at` compare-and-swap with a bounded 409
+      merge/retry loop. A reset is the sole explicit forced overwrite for its already-captured
+      owner. No Sprout credential, Vercel value, revalidation secret, or user production state was
+      accessed or changed for this audit.
+  15. The fresh local storage negative-path check was denied by RLS. This Storage API version
+      wraps the internal `403` authorization decision in HTTP `400`; the response's own status was
+      `403` and no object was created. The policy outcome, rather than that transport wrapper, is
+      the security gate. The accepted nine-warning React lint waiver remains unchanged.
