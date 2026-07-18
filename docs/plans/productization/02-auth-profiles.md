@@ -267,11 +267,11 @@ OAuth/phone later), with **no race** between confirm and first page load, and **
 client-facing INSERT policy on `profiles` (smaller attack surface). A `SECURITY DEFINER`
 trigger owned by the DB is the only race-free way.
 
-- [ ] Create the migration file:
+- [x] Create the migration file:
   ```bash
   npx supabase migration new profile_on_signup_trigger
   ```
-- [ ] Put this **complete** SQL in the generated file
+- [x] Put this **complete** SQL in the generated file
   (`supabase/migrations/<ts>_profile_on_signup_trigger.sql`):
   ```sql
   -- Create a public.profiles row whenever an auth user is created.
@@ -302,12 +302,12 @@ trigger owned by the DB is the only race-free way.
   select id from auth.users
   on conflict (user_id) do nothing;
   ```
-- [ ] Apply and verify locally:
+- [x] Apply and verify locally:
   ```bash
   npx supabase db reset
   ```
   Expected: migration applies clean; `db reset` succeeds from scratch.
-- [ ] Apply to the live project (via CLI push or MCP `apply_migration` — master D1 allows both):
+- [x] Apply to the live project (via CLI push or MCP `apply_migration` — master D1 allows both):
   ```bash
   npx supabase db push
   ```
@@ -332,11 +332,11 @@ extend it via `create or replace` of THAT function, never a second parallel trig
 This task replaces the function body with a more robust version: service-role detection via
 JWT claims plus freezing `user_id`/`created_at` against owner updates.
 
-- [ ] Create the migration:
+- [x] Create the migration:
   ```bash
   npx supabase migration new extend_protect_profile_role
   ```
-- [ ] Complete SQL:
+- [x] Complete SQL:
   ```sql
   -- Extend Phase 1's role guard (same function + trigger names — master §14).
   -- End users may never change their own role, reparent their row, or rewrite created_at.
@@ -373,11 +373,11 @@ JWT claims plus freezing `user_id`/`created_at` against owner updates.
   > **Note:** onboarding (Task 2.15) updates `full_name`, `country_code`, `phone`,
   > `preferred_lang`, `track_id`, `onboarded_at` — all allowed; only `role`/`user_id`/`created_at`
   > are frozen for end users.
-- [ ] Apply & verify:
+- [x] Apply & verify:
   ```bash
   npx supabase db reset && npx supabase db push
   ```
-- [ ] Verify exactly ONE role-guard trigger exists on `profiles` (SQL editor / MCP `execute_sql`):
+- [x] Verify exactly ONE role-guard trigger exists on `profiles` (SQL editor / MCP `execute_sql`):
   ```sql
   select tgname from pg_trigger
   where tgrelid = 'public.profiles'::regclass and not tgisinternal;
@@ -409,7 +409,7 @@ Per master §14, the canonical (and ONLY) service-key touchpoint is
 **`createServiceRoleClient()` exported from `lib/supabase/server.ts`** (Phase 1 owns it).
 Do **NOT** create `lib/supabase/admin.ts` or any `createAdminClient`/`createServiceClient`.
 
-- [ ] Verify the export exists:
+- [x] Verify the export exists:
   ```bash
   grep -n "createServiceRoleClient" lib/supabase/server.ts
   ```
