@@ -1,3 +1,8 @@
+// DEPRECATED FOR RUNTIME USE. Kept only as (a) the fixture data source for tests and
+// (b) the historical input to scripts/seed-content.mjs (Phase 1). Every page/route must
+// import from lib/content-db.ts instead — see
+// docs/plans/productization/03-content-db-unified-ui.md task 3. Do not add new callers of
+// this module.
 import fs from "node:fs";
 import path from "node:path";
 import type { Question, SubjectMeta, Unit } from "./types";
@@ -11,7 +16,11 @@ const unitsCache = new Map<string, Unit[]>();
 export function getSubjects(): SubjectMeta[] {
   if (subjectsCache) return subjectsCache;
   if (!fs.existsSync(SUBJECTS_FILE)) return [];
-  subjectsCache = JSON.parse(fs.readFileSync(SUBJECTS_FILE, "utf-8")) as SubjectMeta[];
+  const raw = JSON.parse(fs.readFileSync(SUBJECTS_FILE, "utf-8")) as Omit<
+    SubjectMeta,
+    "section_order"
+  >[];
+  subjectsCache = raw.map((s) => ({ ...s, section_order: s.kind }));
   return subjectsCache;
 }
 
