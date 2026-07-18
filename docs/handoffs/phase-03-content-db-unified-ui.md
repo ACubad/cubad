@@ -117,6 +117,7 @@ revalidation request remain account/credential-holder-only checks. Do not begin 
 | Corrective production-smoke fix | [PR #5](https://github.com/ACubad/cubad/pull/5) merged after CI, Vercel Preview, and CodeRabbit passed. Merge commit: `74c9a3e747955c7f91e1b6425885d051a99a072f`. GitHub Actions CI run `29652023402` passed. |
 | Preview verification | The #5 Vercel Preview deployment `dpl_9TMBePTLcKvifnVfsKKQ6frprsQX` (`https://cubad-120q2adjr-acubads-projects.vercel.app`) was Ready. A completed quiz displayed `Saved result: 8/8` after a hard refresh. |
 | Authenticated-sync follow-up | [PR #9](https://github.com/ACubad/cubad/pull/9) merged as `ce6ba9988da367782bcd914c6916fb782324e3b7`. GitHub Actions CI run `29659643707` passed all lint, content-validation, test, and build steps. CodeRabbit passed after the PR was marked ready. |
+| Account-sync audit | [PR #11](https://github.com/ACubad/cubad/pull/11) merged as `664fbabaddbcfc9f469adf771b6f00fb1177d5f1`. The final GitHub Actions CI run `29661024385` passed lint, content validation, tests, and build. An automated P1 review finding on the earlier head was corrected by `6c4e31c` and covered by a queue-specific regression test before the final CI run. |
 
 ### Cutover decision and environment record
 
@@ -139,8 +140,10 @@ revalidation request remain account/credential-holder-only checks. Do not begin 
 
 ### Migration confirmation
 
-- The existing Cubad project has both Phase 3 migrations applied. The RLS/RPC probe passed and
-  the free Hydrology `giris` unit remained readable after its transactional negative-path check.
+- The existing Cubad project has all Phase 3 migrations plus
+  `20260718235000_content_read_privileges` and `20260718235500_user_state_client_privileges`
+  applied. Local and remote transactional content and account-state RLS probes passed; the free
+  Hydrology `giris` unit remained readable after its negative-path check.
 - The local-only Sprout migration transferred the three source `cubad_sync` records and all 34
   podcast object paths. Its idempotency rerun copied zero objects, skipped 34, upserted the three
   sync rows, and reported no failures. Exact JSON byte/hash samples and the source/target path
@@ -216,7 +219,7 @@ the promotion was needed because the rollback had left the public alias on the e
   resolves concurrent-device writes with `updated_at` compare-and-swap plus a bounded 409
   merge/retry. The legacy passcode/API path remains retired; no Sprout data, credentials, or Phase
   2 capability-scoped RLS repair was changed.
-- Automated audit gates passed: 30 Vitest tests, TypeScript, content validation (2 subjects, 19
+- Automated audit gates passed: 31 Vitest tests, TypeScript, content validation (2 subjects, 19
   files, 56 walkthrough questions), a production Next build against temporary process-only local
   Supabase values, local and remote RLS probes, and the anonymous storage-upload negative path.
   Lint had zero errors and the existing accepted 9 React warnings only. The local Storage API
@@ -226,6 +229,21 @@ the promotion was needed because the rollback had left the public alias on the e
   secret, production user state, or Sprout project access was needed for this audit. The Supabase
   CLI emitted its known post-apply certificate-cache warning after each successful migration; the
   remote ledger confirmed both migrations.
+
+### Audit deployment closeout (2026-07-18)
+
+- The existing Vercel project `cubad` deployed merged `main` as
+  `dpl_EvDaWow4Y5BGpFfy9UATpSZo1ujt`
+  (`https://cubad-87dqdfyvk-acubads-projects.vercel.app`), Ready. Its aliases include
+  `https://cubad.vercel.app`; no replacement project or production environment value was created.
+- Production smoke passed: home, both subject homes, both `giris` unit pages, and the migrated
+  Cubad podcast object returned HTTP 200. Unauthenticated GET and POST requests to `/api/state`
+  returned HTTP 401; retired `/api/sync` returned HTTP 404. No signed-in account was used, so no
+  production study state was created or altered.
+- The final PR Preview compiled and type-checked but failed while prerendering `/` because this
+  new branch had no `NEXT_PUBLIC_SUPABASE_URL` Preview value. This was the previously documented
+  branch-scoped Vercel configuration limitation, not a code failure; GitHub CI and the production
+  deployment both passed. The merge used the existing documented administrative override.
 
 The production code/data cutover is therefore live and verified. Keep Sprout available and do not
 remove its rollback variables until the two remaining owner-only checks above are recorded and the
