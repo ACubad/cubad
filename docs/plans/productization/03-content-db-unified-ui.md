@@ -3108,3 +3108,19 @@ the env vars would leave the new code with nothing to read.
   7. A one-time Vercel CLI link operation downloaded a development `.env.local`; it was not
      opened, printed, staged, or committed and was immediately removed. Future Vercel work uses
      the existing `cubad` project only.
+  8. GitHub Actions required the Cubad build values as masked repository secrets for the existing
+     CI workflow. A PowerShell stdin submission added a BOM, producing a `ByteString` CI failure;
+     the values were replaced via the installed `gh` executable's direct secret-body path after
+     removing that BOM. No secret was printed or committed.
+  9. Preview variables are branch-scoped in the existing Vercel project. The initial Preview
+     deployment raced its branch configuration, so the three Cubad build values were explicitly
+     added to both Phase 3 Preview branches and each Preview was redeployed. The global sensitive
+     `REVALIDATE_SECRET` was not read or modified.
+  10. The first post-merge production smoke test found that a persisted quiz score was not visible
+      after a fresh reload. The deployment was immediately rolled back, then the smallest compliant
+      corrective change (`4f98a49`) exposed the saved result. It passed Preview refresh testing,
+      merged as PR #5, and passed the production refresh test before final promotion.
+  11. The rollback left `cubad.vercel.app` attached to the earlier deployment even after the fixed
+      production build was Ready. The fixed, existing-project deployment was explicitly promoted;
+      inspection then resolved the public domain to the `74c9a3e` deployment. No project or alias
+      replacement was created.
