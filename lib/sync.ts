@@ -1,13 +1,12 @@
 "use client";
 
 /**
- * Cross-device sync of study state (progress + flashcard boxes) through the
- * /api/sync route (backed by the user's Supabase project).
+ * Authenticated cross-device study-state sync (progress, flashcard boxes, and
+ * tutor histories) through /api/state.
  *
- * Strategy: the sync code lives in localStorage. On load and after every local
- * change (debounced), we PULL the server state, MERGE it with local state
- * (element-wise, never losing progress from either side), APPLY the merge
- * locally, and PUSH it back.
+ * On sign-in, page load, and after local study-state changes, we pull the
+ * account state, union-merge it with the device state, apply it locally, then
+ * write the merged result back for the user's other signed-in devices.
  */
 
 import {
@@ -24,7 +23,6 @@ import { createClient } from "@/lib/supabase/browser";
 export type { SyncState } from "./merge";
 export { mergeStates } from "./merge";
 
-export const SYNC_CODE_KEY = "cubad:sync:code";
 export const SYNC_LAST_KEY = "cubad:sync:last";
 export const STATE_CHANGED_EVENT = "cubad:state-changed";
 export const SYNC_APPLIED_EVENT = "cubad:sync-applied";
@@ -32,14 +30,6 @@ export const SYNC_APPLIED_EVENT = "cubad:sync-applied";
 const PROGRESS_KEY = "cubad:progress:v2";
 const DECK_PREFIX = "cubad:cards:";
 const CHAT_PREFIX = "cubad:chats:";
-
-export function getSyncCode(): string {
-  try {
-    return window.localStorage.getItem(SYNC_CODE_KEY) ?? "";
-  } catch {
-    return "";
-  }
-}
 
 /** The signed-in Supabase user id, or null. Cheap: reads the local session. */
 async function getAccountUserId(): Promise<string | null> {
@@ -52,12 +42,6 @@ async function getAccountUserId(): Promise<string | null> {
   } catch {
     return null;
   }
-}
-
-/** True when either an account session OR a passcode is available to sync with. */
-export async function syncEnabled(): Promise<boolean> {
-  if (getSyncCode()) return true;
-  return (await getAccountUserId()) !== null;
 }
 
 export function gatherState(): SyncState {
@@ -109,8 +93,8 @@ export function applyState(state: SyncState): void {
 
 /** Pull remote, merge with local, apply locally, push merged. */
 export async function syncNow(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
-  const uid = await getAccountUserId();
-  return uid ? syncNowAccount() : syncNowPasscode();
+  if (!(await getAccountUserId())) return { ok: false, mergedFromRemote: false };
+  return syncNowAccount();
 }
 
 async function syncNowAccount(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
@@ -126,36 +110,6 @@ async function syncNowAccount(): Promise<{ ok: boolean; mergedFromRemote: boolea
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ state: merged }),
-  });
-  if (push.ok) {
-    try {
-      window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
-    } catch {}
-    window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
-  }
-  return { ok: push.ok, mergedFromRemote: Boolean(remote.state) };
-}
-
-async function syncNowPasscode(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
-  const code = getSyncCode();
-  if (!code) return { ok: false, mergedFromRemote: false };
-
-  const pull = await fetch("/api/sync", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code }),
-  });
-  if (!pull.ok) return { ok: false, mergedFromRemote: false };
-  const remote = (await pull.json()) as { state: SyncState | null };
-
-  const local = gatherState();
-  const merged = remote.state ? mergeStates(local, remote.state) : local;
-  applyState(merged);
-
-  const push = await fetch("/api/sync", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code, state: merged }),
   });
   if (push.ok) {
     try {
@@ -218,41 +172,21 @@ export async function resetProgress(subject?: string): Promise<boolean> {
   // make every open view reload the (now reset) state
   window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
 
-  // overwrite the server copy (plain push) so other devices reset too
-  const uid = await getAccountUserId();
-  if (uid) {
-    try {
-      const res = await fetch("/api/state", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ state: gatherState() }),
-      });
-      if (res.ok) {
-        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
+  // Overwrite the authenticated account copy (plain push, no merge), so reset
+  // is reflected on every signed-in device instead of resurrecting old state.
+  if (!(await getAccountUserId())) return true;
+  try {
+    const res = await fetch("/api/state", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ state: gatherState() }),
+    });
+    if (res.ok) {
+      window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+      return true;
     }
+    return false;
+  } catch {
+    return false;
   }
-
-  const code = getSyncCode();
-  if (code) {
-    try {
-      const res = await fetch("/api/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code, state: gatherState() }),
-      });
-      if (res.ok) {
-        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
-    }
-  }
-  return true;
 }

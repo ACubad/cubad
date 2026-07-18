@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { createServiceRoleClient } from "@/lib/supabase/server";
 import { getSessionUser, getProfile } from "@/lib/auth/dal";
 import { OnboardingWizard, type TrackOption } from "@/components/OnboardingWizard";
-import { ImportPasscodeForm } from "@/components/ImportPasscodeForm";
 
 export default async function OnboardingPage() {
   const user = await getSessionUser();
@@ -25,7 +24,6 @@ export default async function OnboardingPage() {
       <section className="rounded-2xl border border-line bg-card p-6">
         <OnboardingWizard tracks={(tracks as TrackOption[]) ?? []} />
       </section>
-      <ImportPasscodeForm />
     </div>
   );
 }
