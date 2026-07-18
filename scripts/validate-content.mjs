@@ -2,13 +2,20 @@
 // Usage: node scripts/validate-content.mjs
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const SUBJECTS_FILE = path.join(CONTENT_DIR, "subjects.json");
-const errors = [];
-const warn = [];
+export const errors = [];
+export const warn = [];
 
-function isBi(v) {
+/** Clears accumulated diagnostics before validating an imported unit. */
+export function resetDiagnostics() {
+  errors.length = 0;
+  warn.length = 0;
+}
+
+export function isBi(v) {
   return (
     v &&
     typeof v === "object" &&
@@ -19,11 +26,11 @@ function isBi(v) {
   );
 }
 
-function checkBi(v, where) {
+export function checkBi(v, where) {
   if (!isBi(v)) errors.push(`${where}: missing/empty tr+en pair`);
 }
 
-function checkMcq(m, where) {
+export function checkMcq(m, where) {
   checkBi(m.q, `${where}.q`);
   if (!Array.isArray(m.options) || m.options.length < 2)
     errors.push(`${where}.options: need >=2`);
@@ -39,7 +46,7 @@ function checkMcq(m, where) {
 
 // LaTeX sequences that JSON-decoded into control characters ("\t", "\n", "\f", "\b", "\r"
 // inside math like \frac -> \f + "rac") are the classic authoring bug.
-function checkControlChars(s, where) {
+export function checkControlChars(s, where) {
   if (typeof s !== "string") return;
   if (/[\t\f\b\r]|\n(?=[a-z]+\b)/.test(s.replace(/\n\n/g, ""))) {
     const m = s.match(/.{0,12}[\t\f\b].{0,12}/);
@@ -47,14 +54,14 @@ function checkControlChars(s, where) {
   }
 }
 
-function walkStrings(obj, where, fn) {
+export function walkStrings(obj, where, fn) {
   if (typeof obj === "string") fn(obj, where);
   else if (Array.isArray(obj)) obj.forEach((v, i) => walkStrings(v, `${where}[${i}]`, fn));
   else if (obj && typeof obj === "object")
     Object.entries(obj).forEach(([k, v]) => walkStrings(v, `${where}.${k}`, fn));
 }
 
-function checkChart(c, where) {
+export function checkChart(c, where) {
   if (!["bar", "line"].includes(c.type)) errors.push(`${where}.type`);
   if (!isBi(c.title)) errors.push(`${where}.title`);
   (c.series ?? []).forEach((s, si) => {
@@ -65,7 +72,7 @@ function checkChart(c, where) {
   if (c.whatItShows && !isBi(c.whatItShows)) errors.push(`${where}.whatItShows`);
 }
 
-function checkStory(s, where) {
+export function checkStory(s, where) {
   if (!isBi(s.title)) errors.push(`${where}.title`);
   if (!Array.isArray(s.xDomain) || s.xDomain.length !== 2 || !Array.isArray(s.yDomain) || s.yDomain.length !== 2)
     errors.push(`${where}: xDomain/yDomain must be [min,max]`);
@@ -87,7 +94,7 @@ function checkStory(s, where) {
 }
 
 /** Existing hydrology-style walkthrough Question rules (shared by both kinds' optional `questions`). */
-function checkWalkthroughQuestions(u, W, ids) {
+export function checkWalkthroughQuestions(u, W, ids) {
   (u.questions ?? []).forEach((q, qi) => {
     const QW = `${W}.q[${q.id ?? qi}]`;
     if (typeof q.id !== "string" || !/^\d+-\d+[a-z]?$/.test(q.id))
@@ -140,7 +147,7 @@ function checkWalkthroughQuestions(u, W, ids) {
   });
 }
 
-function checkWalkthroughUnit(u, W, totalQRef) {
+export function checkWalkthroughUnit(u, W, totalQRef) {
   if (!Array.isArray(u.questions) || u.questions.length === 0)
     errors.push(`${W}: no questions`);
 
@@ -163,7 +170,7 @@ function checkWalkthroughUnit(u, W, totalQRef) {
   (u.quiz ?? []).forEach((m, i) => checkMcq(m, `${W}.quiz[${i}]`));
 }
 
-function checkStudyUnit(u, W) {
+export function checkStudyUnit(u, W) {
   // sources
   if (!u.sources || typeof u.sources !== "object") {
     errors.push(`${W}.sources: missing`);
@@ -264,6 +271,28 @@ function checkStudyUnit(u, W) {
   }
 }
 
+/** Validates one parsed unit object against its subject schema. */
+export function checkUnit(u, sectionOrder, where) {
+  if (!Number.isInteger(u.unit)) errors.push(`${where}: unit must be int`);
+  if (typeof u.slug !== "string" || !/^[a-z0-9-]+$/.test(u.slug))
+    errors.push(`${where}: bad slug`);
+  checkBi(u.title, `${where}.title`);
+  checkBi(u.tagline, `${where}.tagline`);
+  if (sectionOrder === "walkthrough") {
+    checkWalkthroughUnit(u, where, { n: 0 });
+  } else if (sectionOrder === "study") {
+    checkStudyUnit(u, where);
+  } else {
+    errors.push(`${where}: unknown section_order "${sectionOrder}"`);
+  }
+  walkStrings(u, where, checkControlChars);
+}
+
+const isMain =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isMain) {
 const subjects = fs.existsSync(SUBJECTS_FILE)
   ? JSON.parse(fs.readFileSync(SUBJECTS_FILE, "utf-8"))
   : [];
@@ -302,21 +331,8 @@ for (const subject of subjects) {
       continue;
     }
     const W = `${subject.slug}/${f.replace(".json", "")}`;
-    if (!Number.isInteger(u.unit)) errors.push(`${W}: unit must be int`);
-    if (typeof u.slug !== "string" || !/^[a-z0-9-]+$/.test(u.slug))
-      errors.push(`${W}: bad slug`);
-    checkBi(u.title, `${W}.title`);
-    checkBi(u.tagline, `${W}.tagline`);
-
-    if (subject.kind === "walkthrough") {
-      checkWalkthroughUnit(u, W, totalQRef);
-    } else if (subject.kind === "study") {
-      checkStudyUnit(u, W);
-    } else {
-      errors.push(`${W}: unknown subject kind "${subject.kind}"`);
-    }
-
-    walkStrings(u, W, checkControlChars);
+    checkUnit(u, subject.kind, W);
+    if (subject.kind === "walkthrough") totalQRef.n += (u.questions ?? []).length;
   }
 }
 
@@ -331,3 +347,4 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("content OK");
+}
