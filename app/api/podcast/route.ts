@@ -20,6 +20,10 @@ interface PodcastBody {
 /* ---------- cloud storage: new Cubad Supabase project's public podcasts bucket ---------- */
 
 const BUCKET = "podcasts";
+// Gemini 2.5 Flash is no longer available to this production key. Keep the script
+// generator on the current stable Flash model; the dedicated 2.5 Preview TTS model
+// remains the supported audio-generation endpoint.
+const SCRIPT_MODEL = "gemini-3.5-flash";
 const hasStorage = () =>
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
 
@@ -173,14 +177,12 @@ async function generateScript(
     generationConfig: {
       temperature: 0.6,
       responseMimeType: "application/json",
-      // no chain-of-thought needed for a podcast script — big latency win
-      thinkingConfig: { thinkingBudget: 0 },
     },
   };
 
   const tryOnce = async (): Promise<PodcastLine[] | null> => {
     const res = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      `https://generativelanguage.googleapis.com/v1beta/models/${SCRIPT_MODEL}:generateContent`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-goog-api-key": key },
