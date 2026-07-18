@@ -18,6 +18,7 @@ import {
   type ProgressState,
   type LeitnerEntry,
 } from "./merge";
+import { createClient } from "@/lib/supabase/browser";
 
 // Re-export so existing importers of `SyncState` from "./sync" keep working.
 export type { SyncState } from "./merge";
@@ -38,6 +39,25 @@ export function getSyncCode(): string {
   } catch {
     return "";
   }
+}
+
+/** The signed-in Supabase user id, or null. Cheap: reads the local session. */
+async function getAccountUserId(): Promise<string | null> {
+  try {
+    const supabase = createClient();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    return session?.user?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** True when either an account session OR a passcode is available to sync with. */
+export async function syncEnabled(): Promise<boolean> {
+  if (getSyncCode()) return true;
+  return (await getAccountUserId()) !== null;
 }
 
 export function gatherState(): SyncState {
@@ -89,6 +109,34 @@ export function applyState(state: SyncState): void {
 
 /** Pull remote, merge with local, apply locally, push merged. */
 export async function syncNow(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
+  const uid = await getAccountUserId();
+  return uid ? syncNowAccount() : syncNowPasscode();
+}
+
+async function syncNowAccount(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
+  const pull = await fetch("/api/state", { method: "GET" });
+  if (!pull.ok) return { ok: false, mergedFromRemote: false };
+  const remote = (await pull.json()) as { state: SyncState | null };
+
+  const local = gatherState();
+  const merged = remote.state ? mergeStates(local, remote.state) : local;
+  applyState(merged);
+
+  const push = await fetch("/api/state", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ state: merged }),
+  });
+  if (push.ok) {
+    try {
+      window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+    } catch {}
+    window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+  }
+  return { ok: push.ok, mergedFromRemote: Boolean(remote.state) };
+}
+
+async function syncNowPasscode(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
   const code = getSyncCode();
   if (!code) return { ok: false, mergedFromRemote: false };
 
@@ -170,7 +218,25 @@ export async function resetProgress(subject?: string): Promise<boolean> {
   // make every open view reload the (now reset) state
   window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
 
-  // overwrite the server copy so other devices reset too
+  // overwrite the server copy (plain push) so other devices reset too
+  const uid = await getAccountUserId();
+  if (uid) {
+    try {
+      const res = await fetch("/api/state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ state: gatherState() }),
+      });
+      if (res.ok) {
+        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
   const code = getSyncCode();
   if (code) {
     try {

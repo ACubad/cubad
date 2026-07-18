@@ -1,30 +1,37 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { getSyncCode, STATE_CHANGED_EVENT, syncNow } from "@/lib/sync";
+import { STATE_CHANGED_EVENT, syncEnabled, syncNow } from "@/lib/sync";
 
 /**
  * Invisible component mounted once in the root layout. Pull-merge-pushes on
- * page load and (debounced) after every local study-state change.
+ * page load and (debounced) after every local study-state change — for either
+ * an account session or a passcode.
  */
 export function SyncManager() {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const busy = useRef(false);
 
   useEffect(() => {
-    if (getSyncCode()) {
-      // initial sync shortly after load so the page renders first
-      const t = setTimeout(() => void syncNow(), 800);
-      return () => clearTimeout(t);
-    }
+    let cancelled = false;
+    let started: ReturnType<typeof setTimeout> | null = null;
+    void (async () => {
+      if ((await syncEnabled()) && !cancelled) {
+        started = setTimeout(() => void syncNow(), 800);
+      }
+    })();
+    return () => {
+      cancelled = true;
+      if (started) clearTimeout(started);
+    };
   }, []);
 
   useEffect(() => {
     const onChange = () => {
-      if (!getSyncCode()) return;
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(async () => {
         if (busy.current) return;
+        if (!(await syncEnabled())) return;
         busy.current = true;
         try {
           await syncNow();
