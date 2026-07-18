@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
 import type { Bi } from "@/lib/types";
 import { createClient } from "@/lib/supabase/browser";
 import { signOut } from "@/app/auth/actions";
 
 interface AccountInfo { email: string; fullName: string; trackTitle: Bi | null; }
+interface AccountState { info: AccountInfo | null; path: string | null; }
 
 export function AccountMenu() {
   const { t, bi } = useLang();
-  const [info, setInfo] = useState<AccountInfo | null>(null);
-  const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
+  const [account, setAccount] = useState<AccountState>({ info: null, path: null });
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -24,20 +26,19 @@ export function AccountMenu() {
         // tracks read would return 0 rows until Phase 3/4 adds its policy).
         const res = await fetch("/api/me");
         const body = (await res.json()) as { me: AccountInfo | null };
-        if (active) setInfo(body.me);
+        if (active) setAccount({ info: body.me, path: pathname });
       } catch {
-        if (active) setInfo(null);
-      } finally {
-        if (active) setLoading(false);
+        if (active) setAccount({ info: null, path: pathname });
       }
     };
     void load();
     // re-fetch whenever the auth state changes (sign-in/out in this tab)
     const { data: sub } = supabase.auth.onAuthStateChange(() => void load());
     return () => { active = false; sub.subscription.unsubscribe(); };
-  }, []);
+  }, [pathname]);
 
-  if (loading) return null; // avoid an auth flash on first paint
+  if (account.path !== pathname) return null; // avoid stale auth UI during a route transition
+  const { info } = account;
   if (!info) {
     return (
       <Link

@@ -207,7 +207,7 @@ Supabase's built-in SMTP sends ~2–3 emails/hour — unusable. Route auth email
   admin_email = "onboarding@resend.dev"
   sender_name = "cubad"
   ```
-- [ ] **Send a test** from the dashboard SMTP panel to `ahmedallycubad@gmail.com` and confirm
+- [x] **Send a test** from the dashboard SMTP panel to `ahmedallycubad@gmail.com` and confirm
   delivery.
 
 > **⚠ Free-tier limit (do not skip this note in the runbook):** with the default
@@ -416,7 +416,7 @@ Do **NOT** create `lib/supabase/admin.ts` or any `createAdminClient`/`createServ
   Expected: at least one `export function createServiceRoleClient` (or equivalent export) match.
   If missing, STOP — that's a Phase 1 gap; record it under `## Changelog / deviations` and
   surface it (do not re-implement it here).
-- [ ] Usage rules for this phase (enforced by review, not code): call it only inside Server
+- [x] Usage rules for this phase (enforced by review, not code): call it only inside Server
   Actions / Route Handlers / server components; never pass its results to the client wholesale
   (select only the columns you render); never import it into a `"use client"` file —
   `lib/supabase/server.ts` is server-only, so the build fails loudly if you try (that's the
@@ -811,13 +811,13 @@ guide §DAL). React `cache` de-dupes the `getUser` network call within one rende
 > Read `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md` now.
 > Proxy defaults to the Node.js runtime in Next 16 — good for `@supabase/ssr`.
 
-- [ ] **Delete any `middleware.ts` at the repo root** if Phase 1 created one (the root convention
+- [x] **Delete any `middleware.ts` at the repo root** if Phase 1 created one (the root convention
   file — NOT `lib/supabase/middleware.ts`, which is a helper module and stays):
   ```bash
   git rm --cached middleware.ts 2>/dev/null; rm -f middleware.ts
   ```
   (Skip silently if it doesn't exist.)
-- [ ] Create `proxy.ts` at the repo root (same level as `app/`). It refreshes the Supabase auth
+- [x] Create `proxy.ts` at the repo root (same level as `app/`). It refreshes the Supabase auth
   cookie on every matched request (mandatory for SSR) and does the two cheap redirects.
   ```ts
   import { createServerClient } from "@supabase/ssr";
@@ -891,7 +891,7 @@ guide §DAL). React `cache` de-dupes the `getUser` network call within one rende
   > clients (Task 2.17). Why keep everything else: page routes and **Server Actions** (which
   > POST to their page) need the session cookie refreshed — the proxy doc warns that excluding a
   > path also skips Server Function calls on it.
-- [ ] Typecheck by building (the authority — master §8.2):
+- [x] Typecheck by building (the authority — master §8.2):
   ```bash
   npm run lint && npm run build
   ```
@@ -910,7 +910,7 @@ All new user-facing strings need `tr` **and** `en` (master §12.5). Insert this 
 `lib/i18n.tsx` inside the `STRINGS` object, immediately **before** the closing
 `} as const;` line (keep existing keys intact).
 
-- [ ] Add to `STRINGS`:
+- [x] Add to `STRINGS`:
   ```ts
     /* ---------- auth & account (Phase 2) ---------- */
     signIn: { en: "Sign in", tr: "Giriş yap" },
@@ -1009,7 +1009,7 @@ All new user-facing strings need `tr` **and** `en` (master §12.5). Insert this 
       tr: "Bir şeyler ters gitti. Tekrar dene.",
     },
   ```
-- [ ] Lint to confirm no trailing-comma / type error:
+- [x] Lint to confirm no trailing-comma / type error:
   ```bash
   npm run lint
   ```
@@ -1028,7 +1028,7 @@ the raw code; keep the two lists in sync.
 Read `node_modules/next/dist/docs/01-app/02-guides/server-actions.md` first. Every action
 re-authenticates server-side and returns a small serializable state (never raw records).
 
-- [ ] Create `app/auth/actions.ts`:
+- [x] Create `app/auth/actions.ts`:
   ```ts
   "use server";
 
@@ -1157,7 +1157,7 @@ Visual language: reuse the field/button classes seen in `components/SyncCard.tsx
 inputs on `bg-paper`, `bg-deniz` pill buttons, `text-clay` errors) and the `bg-card`/`border-line`
 card. Bilingual via `useLang().t`.
 
-- [ ] Create `app/auth/layout.tsx` (visual shell only — no auth redirect here; recovery pages
+- [x] Create `app/auth/layout.tsx` (visual shell only — no auth redirect here; recovery pages
   need to render even when a session exists):
   ```tsx
   import type { ReactNode } from "react";
@@ -1170,7 +1170,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/AuthField.tsx` (tiny shared input, keeps forms terse):
+- [x] Create `components/auth/AuthField.tsx` (tiny shared input, keeps forms terse):
   ```tsx
   "use client";
   export function AuthField({
@@ -1195,7 +1195,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/SubmitButton.tsx`:
+- [x] Create `components/auth/SubmitButton.tsx`:
   ```tsx
   "use client";
   import { useFormStatus } from "react-dom";
@@ -1212,7 +1212,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/SignUpForm.tsx`:
+- [x] Create `components/auth/SignUpForm.tsx`:
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1257,7 +1257,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/SignInForm.tsx`:
+- [x] Create `components/auth/SignInForm.tsx`:
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1292,7 +1292,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/ForgotPasswordForm.tsx`:
+- [x] Create `components/auth/ForgotPasswordForm.tsx`:
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1325,7 +1325,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create `components/auth/ResetPasswordForm.tsx`:
+- [x] Create `components/auth/ResetPasswordForm.tsx`:
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1350,7 +1350,7 @@ card. Bilingual via `useLang().t`.
     );
   }
   ```
-- [ ] Create the pages (each a thin server component). **`app/auth/sign-up/page.tsx`:**
+- [x] Create the pages (each a thin server component). **`app/auth/sign-up/page.tsx`:**
   ```tsx
   import { getSessionUser } from "@/lib/auth/dal";
   import { redirect } from "next/navigation";
@@ -1361,7 +1361,7 @@ card. Bilingual via `useLang().t`.
     return <SignUpForm />;
   }
   ```
-- [ ] **`app/auth/sign-in/page.tsx`** (reads `next` from search params — note `searchParams` is a
+- [x] **`app/auth/sign-in/page.tsx`** (reads `next` from search params — note `searchParams` is a
   Promise in Next 16):
   ```tsx
   import { getSessionUser } from "@/lib/auth/dal";
@@ -1379,14 +1379,14 @@ card. Bilingual via `useLang().t`.
     return <SignInForm next={safeNext} />;
   }
   ```
-- [ ] **`app/auth/forgot-password/page.tsx`:**
+- [x] **`app/auth/forgot-password/page.tsx`:**
   ```tsx
   import { ForgotPasswordForm } from "@/components/auth/ForgotPasswordForm";
   export default function ForgotPasswordPage() {
     return <ForgotPasswordForm />;
   }
   ```
-- [ ] **`app/auth/reset-password/page.tsx`** (recovery session must exist — set by `/auth/confirm`):
+- [x] **`app/auth/reset-password/page.tsx`** (recovery session must exist — set by `/auth/confirm`):
   ```tsx
   import { getSessionUser } from "@/lib/auth/dal";
   import { redirect } from "next/navigation";
@@ -1408,7 +1408,7 @@ error. Reading `searchParams`/`params` synchronously → Next 16 runtime error (
 Read `node_modules/next/dist/docs/01-app/01-getting-started/15-route-handlers.md`. This handler
 turns the email `token_hash` into a real session cookie, then redirects to `next`.
 
-- [ ] Create `app/auth/confirm/route.ts`:
+- [x] Create `app/auth/confirm/route.ts`:
   ```ts
   import { type EmailOtpType } from "@supabase/supabase-js";
   import { type NextRequest, NextResponse } from "next/server";
@@ -1439,7 +1439,7 @@ turns the email `token_hash` into a real session cookie, then redirects to `next
     return NextResponse.redirect(errUrl);
   }
   ```
-- [ ] Create `app/auth/error/page.tsx` (friendly dead-end for expired/invalid links; the
+- [x] Create `app/auth/error/page.tsx` (friendly dead-end for expired/invalid links; the
   content lives in a client child so it can use i18n):
   ```tsx
   import { AuthErrorNotice } from "@/components/auth/AuthErrorNotice";
@@ -1447,7 +1447,7 @@ turns the email `token_hash` into a real session cookie, then redirects to `next
     return <AuthErrorNotice />;
   }
   ```
-- [ ] Create `components/auth/AuthErrorNotice.tsx`:
+- [x] Create `components/auth/AuthErrorNotice.tsx`:
   ```tsx
   "use client";
   import Link from "next/link";
@@ -1476,7 +1476,7 @@ the error page is the correct UX. `type` mismatch vs the template (Task 2.3) →
 
 ## Task 2.15 — Onboarding + legacy-import Server Actions & country list
 
-- [ ] Create `lib/countries.ts` (static seed — master requires at least TZ/TR/KE/UG + "other"):
+- [x] Create `lib/countries.ts` (static seed — master requires at least TZ/TR/KE/UG + "other"):
   ```ts
   import type { Bi } from "./types";
   export const COUNTRIES: { code: string; name: Bi }[] = [
@@ -1488,7 +1488,7 @@ the error page is the correct UX. `type` mismatch vs the template (Task 2.3) →
   ];
   export const COUNTRY_CODES = COUNTRIES.map((c) => c.code);
   ```
-- [ ] Create `app/onboarding/actions.ts`:
+- [x] Create `app/onboarding/actions.ts`:
   ```ts
   "use server";
 
@@ -1616,7 +1616,7 @@ owner RLS — use the **user** client for the upsert so RLS is exercised (defens
 
 ## Task 2.16 — Onboarding page + wizard + reusable import form
 
-- [ ] Create `components/ImportPasscodeForm.tsx` (used in onboarding **and** account):
+- [x] Create `components/ImportPasscodeForm.tsx` (used in onboarding **and** account):
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1655,7 +1655,7 @@ owner RLS — use the **user** client for the upsert so RLS is exercised (defens
     );
   }
   ```
-- [ ] Create `components/OnboardingWizard.tsx`:
+- [x] Create `components/OnboardingWizard.tsx`:
   ```tsx
   "use client";
   import { useActionState } from "react";
@@ -1739,7 +1739,7 @@ owner RLS — use the **user** client for the upsert so RLS is exercised (defens
     );
   }
   ```
-- [ ] Create `app/onboarding/page.tsx` (server component — auth-gate + fetch published tracks;
+- [x] Create `app/onboarding/page.tsx` (server component — auth-gate + fetch published tracks;
   bounce if already onboarded):
   ```tsx
   import { redirect } from "next/navigation";
@@ -1774,7 +1774,7 @@ owner RLS — use the **user** client for the upsert so RLS is exercised (defens
     );
   }
   ```
-- [ ] **Ensure at least one published track exists** so the wizard has a choice. Phase 1 seeds a
+- [x] **Ensure at least one published track exists** so the wizard has a choice. Phase 1 seeds a
   `TR / University / Undergraduate` track (master §5); make sure it's **published**. Run once
   against the live DB (dashboard SQL editor, `psql "$DB_URL" -f <file>`, or MCP `execute_sql` —
   per master §14 the Supabase CLI has **no** `db execute` subcommand), idempotent:
@@ -1806,7 +1806,7 @@ but that signals Task 2.4 didn't apply; verify the trigger.
 Authenticated replacement for the passcode transport, against `user_state` (owner RLS). Read the
 route-handlers guide first.
 
-- [ ] Create `app/api/state/route.ts`:
+- [x] Create `app/api/state/route.ts`:
   ```ts
   import { createClient } from "@/lib/supabase/server";
 
@@ -1877,12 +1877,12 @@ theory; keep it dynamic.
 Supabase session exists. Reuse `mergeStates`/`gatherState`/`applyState`. **Reset stays a plain
 push (no merge)** — the master "union-merge resurrection" trap.
 
-- [ ] At the top of `lib/sync.ts` (after the `"use client";` and doc comment, alongside the
+- [x] At the top of `lib/sync.ts` (after the `"use client";` and doc comment, alongside the
   `merge` imports added in Task 2.7), add the browser client import:
   ```ts
   import { createClient } from "@/lib/supabase/browser";
   ```
-- [ ] Add these helpers (place after `getSyncCode`):
+- [x] Add these helpers (place after `getSyncCode`):
   ```ts
   /** The signed-in Supabase user id, or null. Cheap: reads the local session. */
   async function getAccountUserId(): Promise<string | null> {
@@ -1903,7 +1903,7 @@ push (no merge)** — the master "union-merge resurrection" trap.
     return (await getAccountUserId()) !== null;
   }
   ```
-- [ ] Replace the **whole** existing `syncNow` function with this account-aware version
+- [x] Replace the **whole** existing `syncNow` function with this account-aware version
   (the passcode branch is byte-identical to today's logic, just factored out):
   ```ts
   /** Pull remote, merge with local, apply locally, push merged. */
@@ -1965,7 +1965,7 @@ push (no merge)** — the master "union-merge resurrection" trap.
     return { ok: push.ok, mergedFromRemote: Boolean(remote.state) };
   }
   ```
-- [ ] Replace the **whole** existing `resetProgress` function. The local-wipe block is unchanged;
+- [x] Replace the **whole** existing `resetProgress` function. The local-wipe block is unchanged;
   only the server push becomes account-aware (**plain push of the wiped state, no merge**):
   ```ts
   /**
@@ -2047,7 +2047,7 @@ push (no merge)** — the master "union-merge resurrection" trap.
     return true;
   }
   ```
-- [ ] Update `components/SyncManager.tsx` so account users (with no passcode) also auto-sync.
+- [x] Update `components/SyncManager.tsx` so account users (with no passcode) also auto-sync.
   Replace its body with:
   ```tsx
   "use client";
@@ -2105,7 +2105,7 @@ push (no merge)** — the master "union-merge resurrection" trap.
   > **`SyncCard` (passcode UI) is left unchanged** — it still works for anonymous users. A polished
   > "you're signed in, sync is automatic" state for `SyncCard` is a Phase 3 UI-cleanup nicety, not
   > required here. Record it as deferred.
-- [ ] Build to confirm the client bundle is happy importing the browser supabase client:
+- [x] Build to confirm the client bundle is happy importing the browser supabase client:
   ```bash
   npm run build
   ```
@@ -2118,7 +2118,7 @@ only one path runs. Reset accidentally merging → keep it a plain `gatherState(
 
 ## Task 2.19 — Account page (profile summary + settings + import + sign out)
 
-- [ ] Create `components/EditProfileForm.tsx` (client — edits the mutable profile fields via the
+- [x] Create `components/EditProfileForm.tsx` (client — edits the mutable profile fields via the
   onboarding action, which already permits them):
   ```tsx
   "use client";
@@ -2175,7 +2175,7 @@ only one path runs. Reset accidentally merging → keep it a plain `gatherState(
   ```
   > `completeOnboarding` re-sets `onboarded_at` (idempotent) and redirects to `/account` on
   > success, which doubles as the "saved" confirmation. Reusing it avoids a second action.
-- [ ] Create `components/AccountHeadingClient.tsx` (client — shows the account email + track
+- [x] Create `components/AccountHeadingClient.tsx` (client — shows the account email + track
   title via i18n; the track title is resolved on the server and passed in as a `Bi`):
   ```tsx
   "use client";
@@ -2197,7 +2197,7 @@ only one path runs. Reset accidentally merging → keep it a plain `gatherState(
     );
   }
   ```
-- [ ] Create `app/account/page.tsx` (server — `requireOnboarded()` gates it; it resolves the
+- [x] Create `app/account/page.tsx` (server — `requireOnboarded()` gates it; it resolves the
   current track's `Bi` title from the fetched `tracks` list and passes it down):
   ```tsx
   import { requireOnboarded } from "@/lib/auth/dal";
@@ -2234,7 +2234,7 @@ only one path runs. Reset accidentally merging → keep it a plain `gatherState(
     );
   }
   ```
-- [ ] Create `components/auth/SignOutButton.tsx`:
+- [x] Create `components/auth/SignOutButton.tsx`:
   ```tsx
   "use client";
   import { useLang } from "@/lib/i18n";
@@ -2269,7 +2269,7 @@ query — `tracks` gets its public read policy only in Phase 3/4, so at Phase 2 
 `tracks` read (direct or via a `profiles → tracks` embed) returns **0 rows**; the route resolves
 the track title server-side with `createServiceRoleClient()`.
 
-- [ ] Create `app/api/me/route.ts`:
+- [x] Create `app/api/me/route.ts`:
   ```ts
   import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
 
@@ -2308,7 +2308,7 @@ the track title server-side with `createServiceRoleClient()`.
     });
   }
   ```
-- [ ] Create `components/AccountMenu.tsx`:
+- [x] Create `components/AccountMenu.tsx`:
   ```tsx
   "use client";
   import { useEffect, useState } from "react";
@@ -2412,7 +2412,7 @@ the track title server-side with `createServiceRoleClient()`.
   > The browser Supabase client is used ONLY for `onAuthStateChange` reactivity here — all data
   > comes from `/api/me`. Do not add a browser-side `tracks` query or a `profiles → tracks`
   > embed: `tracks` has no client-readable policy until Phase 3/4.
-- [ ] Modify `components/Header.tsx` to render `<AccountMenu />` after the language toggle. Add the
+- [x] Modify `components/Header.tsx` to render `<AccountMenu />` after the language toggle. Add the
   import and drop the component into the `<nav>`:
   ```tsx
   // add near the other imports:
@@ -2424,7 +2424,7 @@ the track title server-side with `createServiceRoleClient()`.
           <AccountMenu />
   ```
   No other Header changes; the language toggle and nav links stay exactly as they are.
-- [ ] Build:
+- [x] Build:
   ```bash
   npm run build
   ```
@@ -2439,7 +2439,7 @@ button handles outside-clicks.
 
 ## Task 2.21 — Wire it together, then run the full gate
 
-- [ ] Confirm the root layout still mounts `SyncManager` (unchanged) and the header. No layout
+- [x] Confirm the root layout still mounts `SyncManager` (unchanged) and the header. No layout
   edit is required (the account menu lives inside `Header`, which the layout already renders).
 - [ ] Run the full done-gate (master §8), **one build at a time**:
   ```bash
@@ -2450,7 +2450,7 @@ button handles outside-clicks.
   ```
   Expected: vitest all-pass (merge + passcode suites), lint clean, build succeeds, content
   validator passes (content untouched this phase, but run it — master §8.3).
-- [ ] Confirm migrations still reset from scratch:
+- [x] Confirm migrations still reset from scratch:
   ```bash
   npx supabase db reset
   ```
@@ -2467,27 +2467,27 @@ Every money/access/auth task needs at least one negative path (master §12.6). D
 
 ### A. Manual auth flow checklist (against `npm run dev`, using the owner email only)
 
-- [ ] **Sign up → confirm → onboard:** `/auth/sign-up` with `ahmedallycubad@gmail.com` → "check
+- [x] **Sign up → confirm → onboard:** `/auth/sign-up` with `ahmedallycubad@gmail.com` → "check
   your email" → click the emailed link → lands on `/onboarding` (session set) → fill the wizard →
   redirected to `/account` showing the track name.
-- [ ] **Wrong password:** `/auth/sign-in` with a bad password → inline "Wrong email or password."
-- [ ] **Unconfirmed email:** create a second account (use a `+alias`), do **not** confirm, try to
+- [x] **Wrong password:** `/auth/sign-in` with a bad password → inline "Wrong email or password."
+- [x] **Unconfirmed email:** create a second account (use a `+alias`), do **not** confirm, try to
   sign in → "Confirm your email first…".
-- [ ] **Rate limit:** trigger several rapid resets from `/auth/forgot-password` → eventually "Too
+- [x] **Rate limit:** trigger several rapid resets from `/auth/forgot-password` → eventually "Too
   many attempts."
-- [ ] **Expired/invalid link:** open `/auth/confirm?token_hash=bad&type=email` → redirected to
+- [x] **Expired/invalid link:** open `/auth/confirm?token_hash=bad&type=email` → redirected to
   `/auth/error` with the expired-or-invalid message.
-- [ ] **Password reset round-trip:** forgot-password → email link → `/auth/reset-password` → set a
+- [x] **Password reset round-trip:** forgot-password → email link → `/auth/reset-password` → set a
   new password → redirected to `/account`, and the new password works on next sign-in.
-- [ ] **Sign out:** account menu → Sign out → header shows the **Sign in** button again.
-- [ ] **Unauthenticated `/onboarding` redirects:** in a fresh incognito window, visit
+- [x] **Sign out:** account menu → Sign out → header shows the **Sign in** button again.
+- [x] **Unauthenticated `/onboarding` redirects:** in a fresh incognito window, visit
   `http://localhost:3000/onboarding` → redirected to `/auth/sign-in?next=/onboarding` (this is the
   `proxy.ts` optimistic gate). Same for `/account`.
-- [ ] **Server progress round-trip:** signed in, answer a question / grade a flashcard → within a
+- [x] **Server progress round-trip:** signed in, answer a question / grade a flashcard → within a
   few seconds `SyncManager` POSTs to `/api/state`; reload in another browser signed into the same
   account → progress is present. **Reset progress** → other device resets too (plain push, no
   resurrection).
-- [ ] **Legacy import:** enter a known legacy passcode in `/account` → "Progress imported."; enter
+- [x] **Legacy import:** enter a known legacy passcode in `/account` → "Progress imported."; enter
   a nonsense passcode → "No saved progress found for that passcode."
 
 ### B. RLS probes (SQL editor or `curl` against the REST API)
@@ -2495,14 +2495,14 @@ Every money/access/auth task needs at least one negative path (master §12.6). D
 Get two real user ids (User A, User B) and their access tokens (sign in as each in dev; copy the
 `access_token` from the `sb-*-auth-token` cookie or via the browser client's `getSession()`).
 
-- [ ] **User A cannot READ User B's `user_state`.** As User A's token:
+- [x] **User A cannot READ User B's `user_state`.** As User A's token:
   ```bash
   curl -s "$NEXT_PUBLIC_SUPABASE_URL/rest/v1/user_state?user_id=eq.<USER_B_ID>&select=state" \
     -H "apikey: $NEXT_PUBLIC_SUPABASE_ANON_KEY" \
     -H "Authorization: Bearer <USER_A_ACCESS_TOKEN>"
   ```
   **Expected:** `[]` (empty — RLS filters B's row out; **never** B's state).
-- [ ] **User A cannot WRITE User B's `user_state`.** As User A's token:
+- [x] **User A cannot WRITE User B's `user_state`.** As User A's token:
   ```bash
   curl -s -X POST "$NEXT_PUBLIC_SUPABASE_URL/rest/v1/user_state" \
     -H "apikey: $NEXT_PUBLIC_SUPABASE_ANON_KEY" \
@@ -2512,7 +2512,7 @@ Get two real user ids (User A, User B) and their access tokens (sign in as each 
   ```
   **Expected:** an RLS error (HTTP 401/403, `code` `42501` / "new row violates row-level security
   policy"). **Not** a 200. Confirm B's row is unchanged.
-- [ ] **Owner cannot escalate `role`.** In the SQL editor, impersonate User A
+- [x] **Owner cannot escalate `role`.** In the SQL editor, impersonate User A
   (`set local role authenticated; set local request.jwt.claims to '{"sub":"<USER_A_ID>","role":"authenticated"}';`)
   then:
   ```sql
@@ -2520,19 +2520,19 @@ Get two real user ids (User A, User B) and their access tokens (sign in as each 
   ```
   **Expected:** `ERROR: profiles.role can only be changed by an administrator` (Task 2.5 trigger).
   Reset role: `reset role;`.
-- [ ] **`legacy_sync` has no client access.** As any user token:
+- [x] **`legacy_sync` has no client access.** As any user token:
   ```bash
   curl -s "$NEXT_PUBLIC_SUPABASE_URL/rest/v1/legacy_sync?select=id&limit=1" \
     -H "apikey: $NEXT_PUBLIC_SUPABASE_ANON_KEY" \
     -H "Authorization: Bearer <ANY_USER_ACCESS_TOKEN>"
   ```
   **Expected:** `[]` (RLS blocks it; the import action reaches it only via the service role).
-- [ ] **`/api/state` rejects the unauthenticated caller.** With no cookie:
+- [x] **`/api/state` rejects the unauthenticated caller.** With no cookie:
   ```bash
   curl -s -o /dev/null -w "%{http_code}\n" "http://localhost:3000/api/state"
   ```
   **Expected:** `401`.
-- [ ] Run the **Supabase advisors** (security lints) and confirm no new errors from this phase:
+- [x] Run the **Supabase advisors** (security lints) and confirm no new errors from this phase:
   ```
   (MCP) supabase.get_advisors(type: "security")
   ```
@@ -2550,15 +2550,15 @@ path → add `set search_path = ''` and re-migrate.
 Commit in logical groups on `feat/phase-2-auth-profiles` (never push to `main` mid-phase). Use
 these messages:
 
-- [ ] After Tasks 2.1–2.3: config only (config.toml) — `chore(auth): supabase email auth, Resend SMTP, token_hash templates`
-- [ ] After Tasks 2.4–2.6: `feat(db): profile-creation trigger, extend role guard, verify service-role client`
-- [ ] After Tasks 2.7–2.9: `refactor(sync): extract pure merge; add passcode hash + auth DAL (with tests)`
-- [ ] After Task 2.10: `feat(auth): root proxy.ts session refresh + optimistic route guards`
-- [ ] After Tasks 2.11–2.14: `feat(auth): sign-up/in/out, reset, confirm route + bilingual UI`
-- [ ] After Tasks 2.15–2.16: `feat(onboarding): wizard, country list, legacy passcode import`
-- [ ] After Tasks 2.17–2.18: `feat(progress): /api/state transport; account-aware sync + reset`
-- [ ] After Tasks 2.19–2.20: `feat(account): account page + header account menu`
-- [ ] After Tasks 2.21–2.22: `test(auth): full gate + RLS negative-path verification`
+- [x] After Tasks 2.1–2.3: config only (config.toml) — `chore(auth): supabase email auth, Resend SMTP, token_hash templates`
+- [x] After Tasks 2.4–2.6: `feat(db): profile-creation trigger, extend role guard, verify service-role client`
+- [x] After Tasks 2.7–2.9: `refactor(sync): extract pure merge; add passcode hash + auth DAL (with tests)`
+- [x] After Task 2.10: `feat(auth): root proxy.ts session refresh + optimistic route guards`
+- [x] After Tasks 2.11–2.14: `feat(auth): sign-up/in/out, reset, confirm route + bilingual UI`
+- [x] After Tasks 2.15–2.16: `feat(onboarding): wizard, country list, legacy passcode import`
+- [x] After Tasks 2.17–2.18: `feat(progress): /api/state transport; account-aware sync + reset`
+- [x] After Tasks 2.19–2.20: `feat(account): account page + header account menu`
+- [x] After Tasks 2.21–2.22: `test(auth): full gate + RLS negative-path verification`
 
 Each commit message body may note any deviation. Open the phase PR only after Task 2.22 passes.
 
@@ -2567,13 +2567,13 @@ Each commit message body may note any deviation. Open the phase PR only after Ta
 ## Phase acceptance checklist (runnable)
 
 - [ ] `npx vitest run` — all pass (incl. `lib/merge.test.ts`, `lib/passcode.test.ts`).
-- [ ] `npm run lint` — clean.
-- [ ] `npm run build` (run alone) — succeeds; build log shows a Proxy entry.
-- [ ] `node scripts/validate-content.mjs` — passes.
-- [ ] `npx supabase db reset` — all migrations apply from scratch.
-- [ ] `supabase.get_advisors(type:"security")` — no new errors from this phase.
-- [ ] Manual auth flow checklist (Task 2.22.A) — every item verified.
-- [ ] RLS probes (Task 2.22.B) — every probe returns the **expected denial**.
+- [x] `npm run lint` — clean (accepted Phase 1 10-warning waiver only).
+- [x] `npm run build` (run alone) — succeeds; build log shows a Proxy entry.
+- [x] `node scripts/validate-content.mjs` — passes.
+- [x] `npx supabase db reset` — all migrations apply from scratch.
+- [x] `supabase.get_advisors(type:"security")` — no new errors from this phase.
+- [x] Manual auth flow checklist (Task 2.22.A) — every item verified.
+- [x] RLS probes (Task 2.22.B) — every probe returns the **expected denial**.
 - [ ] Passcode sync for **anonymous** users still round-trips (regression — the passcode path is
   unchanged).
 - [ ] App still deploys and all pre-Phase-2 surfaces work (units, walkthroughs, tutor, podcasts).
@@ -2645,3 +2645,27 @@ _(executing agents record further deviations below per master §11)_
 - **2026-07-18 — Task 2.3:** Confirm-signup, reset-password, and change-email templates were
   configured in the existing Supabase dashboard with the required `token_hash` routes. End-to-end
   delivery and token exchange remain part of the Task 2.22 auth-flow gate.
+- **2026-07-18 — Task 2.16:** Applied the plan's idempotent catalog seed touch-up in the existing
+  `cubad` project and verified one published `TR / University / Undergraduate` track. This is
+  data-only (not a schema change). The passcode-oriented `SyncCard` is intentionally unchanged;
+  a signed-in automatic-sync status is deferred to Phase 3 UI cleanup as planned.
+- **2026-07-18 — Tasks 2.2/2.22:** Supabase's SMTP screen did not expose the plan's Send-test
+  control. A protocol-level SMTP test to the permitted owner address was accepted and marked
+  delivered by Resend; a real Supabase sign-up confirmation was also marked delivered. The
+  rendered email contains the required token-hash `/auth/confirm` link (without recording its
+  ephemeral token). Resend's unverified `onboarding@resend.dev` sender rejected Gmail `+alias`
+  recipients with SMTP 550 in this account despite the plan's alias note, so email delivery was
+  tested only with the exact owner address. Temporary owner-address auth users created solely
+  for those checks were deleted afterwards.
+- **2026-07-18 — Task 2.22:** The recovery-token confirmation route, password update, and
+  subsequent sign-in were exercised with an admin-generated recovery token after the managed
+  reset endpoint reported its longer-lived rate limit. The UI's rate-limit message was verified;
+  a separate new-user flow verified the actual Supabase SMTP/template delivery.
+- **2026-07-18 — Task 2.21:** `npx vitest run` remains blocked by the inherited
+  `tests/seed-content.test.ts` import of the BOM/shebang-bearing Phase 1
+  `scripts/seed-content.mjs` artifact. Neither file differs from `origin/main`; the isolated
+  Phase 2 merge and passcode suites pass, so that unrelated artifact was not rewritten here.
+- **2026-07-18 — Task 2.22:** Anonymous legacy `/api/sync` regression cannot pass in the
+  current pre-Phase-2 baseline: its unchanged sprout-backed `cubad_sync` POST returns 502 because
+  the legacy anon key receives PostgREST 42501 (RLS write denial). Phase 3 owns that transport's
+  retargeting, so no Phase 3 change was made in this branch.

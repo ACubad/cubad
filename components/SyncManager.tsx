@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { STATE_CHANGED_EVENT, syncEnabled, syncNow } from "@/lib/sync";
 
 /**
@@ -9,6 +10,7 @@ import { STATE_CHANGED_EVENT, syncEnabled, syncNow } from "@/lib/sync";
  * an account session or a passcode.
  */
 export function SyncManager() {
+  const pathname = usePathname();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const busy = useRef(false);
 
@@ -24,7 +26,7 @@ export function SyncManager() {
       cancelled = true;
       if (started) clearTimeout(started);
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const onChange = () => {
