@@ -24,12 +24,75 @@ export type { SyncState } from "./merge";
 export { mergeStates } from "./merge";
 
 export const SYNC_LAST_KEY = "cubad:sync:last";
+export const SYNC_ACCOUNT_KEY = "cubad:sync:account-id";
 export const STATE_CHANGED_EVENT = "cubad:state-changed";
 export const SYNC_APPLIED_EVENT = "cubad:sync-applied";
 
 const PROGRESS_KEY = "cubad:progress:v2";
+const LEGACY_PROGRESS_KEY = "cubad:progress:v1";
 const DECK_PREFIX = "cubad:cards:";
 const CHAT_PREFIX = "cubad:chats:";
+let stateOperation: Promise<void> = Promise.resolve();
+
+function queueStateOperation<T>(operation: () => Promise<T>): Promise<T> {
+  const next = stateOperation.then(operation, operation);
+  stateOperation = next.then(
+    () => undefined,
+    () => undefined
+  );
+  return next;
+}
+
+function clearStoredStudyState(): void {
+  const keys: string[] = [];
+  try {
+    window.localStorage.removeItem(PROGRESS_KEY);
+    window.localStorage.removeItem(LEGACY_PROGRESS_KEY);
+    window.localStorage.removeItem(SYNC_LAST_KEY);
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const key = window.localStorage.key(i);
+      if (key?.startsWith(DECK_PREFIX) || key?.startsWith(CHAT_PREFIX)) keys.push(key);
+    }
+    keys.forEach((key) => window.localStorage.removeItem(key));
+  } catch {
+    /* storage blocked */
+  }
+}
+
+/**
+ * Keep one browser profile from carrying account A's local state into account B.
+ * Anonymous study state is intentionally claimed by the first account that signs
+ * in; a different later account starts from its own remote state instead.
+ */
+function bindStoredStateToAccount(userId: string): void {
+  try {
+    const previousUserId = window.localStorage.getItem(SYNC_ACCOUNT_KEY);
+    if (previousUserId && previousUserId !== userId) {
+      clearStoredStudyState();
+      window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+    }
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, userId);
+  } catch {
+    /* storage blocked */
+  }
+}
+
+/**
+ * Remove the previous account's local projection immediately after sign-out.
+ * A later anonymous visitor starts empty; a later sign-in pulls only that
+ * account's state. The queue keeps this ordered after any in-flight sync.
+ */
+export function clearSignedOutStudyState(): Promise<void> {
+  return queueStateOperation(async () => {
+    clearStoredStudyState();
+    try {
+      window.localStorage.removeItem(SYNC_ACCOUNT_KEY);
+    } catch {
+      /* storage blocked */
+    }
+    window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+  });
+}
 
 /** The signed-in Supabase user id, or null. Cheap: reads the local session. */
 async function getAccountUserId(): Promise<string | null> {
@@ -93,31 +156,70 @@ export function applyState(state: SyncState): void {
 
 /** Pull remote, merge with local, apply locally, push merged. */
 export async function syncNow(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
-  if (!(await getAccountUserId())) return { ok: false, mergedFromRemote: false };
-  return syncNowAccount();
+  return queueStateOperation(async () => {
+    const userId = await getAccountUserId();
+    if (!userId) return { ok: false, mergedFromRemote: false };
+    return syncNowAccount(userId);
+  });
 }
 
-async function syncNowAccount(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
+async function syncNowAccount(userId: string): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
+  bindStoredStateToAccount(userId);
   const pull = await fetch("/api/state", { method: "GET" });
   if (!pull.ok) return { ok: false, mergedFromRemote: false };
-  const remote = (await pull.json()) as { state: SyncState | null };
+  const remote = (await pull.json()) as {
+    state: SyncState | null;
+    updated_at: string | null;
+  };
+
+  // A sign-out/account switch while the request was in flight must never merge
+  // the first account's local state into the account now represented by cookies.
+  if ((await getAccountUserId()) !== userId) return { ok: false, mergedFromRemote: false };
 
   const local = gatherState();
-  const merged = remote.state ? mergeStates(local, remote.state) : local;
+  let merged = remote.state ? mergeStates(local, remote.state) : local;
+  let baseUpdatedAt = remote.updated_at;
+  let mergedFromRemote = Boolean(remote.state);
   applyState(merged);
 
-  const push = await fetch("/api/state", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ state: merged }),
-  });
-  if (push.ok) {
+  // A simultaneous write from another device returns its newer snapshot with a
+  // 409. Union it into ours and retry against that version rather than letting
+  // a last writer silently discard progress.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if ((await getAccountUserId()) !== userId) {
+      return { ok: false, mergedFromRemote: false };
+    }
+
+    const push = await fetch("/api/state", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ state: merged, base_updated_at: baseUpdatedAt }),
+    });
+    if (push.ok) {
+      try {
+        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+      } catch {}
+      window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+      return { ok: true, mergedFromRemote };
+    }
+    if (push.status !== 409) return { ok: false, mergedFromRemote };
+
+    let latest: { state: SyncState | null; updated_at: string | null };
     try {
-      window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
-    } catch {}
-    window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+      latest = (await push.json()) as {
+        state: SyncState | null;
+        updated_at: string | null;
+      };
+    } catch {
+      return { ok: false, mergedFromRemote };
+    }
+    if (!latest.updated_at) return { ok: false, mergedFromRemote };
+    merged = latest.state ? mergeStates(merged, latest.state) : merged;
+    baseUpdatedAt = latest.updated_at;
+    mergedFromRemote = mergedFromRemote || Boolean(latest.state);
+    applyState(merged);
   }
-  return { ok: push.ok, mergedFromRemote: Boolean(remote.state) };
+  return { ok: false, mergedFromRemote };
 }
 
 /** Notify the sync manager that local study state changed. */
@@ -135,58 +237,65 @@ export function notifyStateChanged(): void {
  * @param subject a subject slug to reset only that subject, or undefined for everything
  */
 export async function resetProgress(subject?: string): Promise<boolean> {
-  try {
-    const raw = window.localStorage.getItem(PROGRESS_KEY);
-    if (raw) {
-      if (!subject) {
-        window.localStorage.removeItem(PROGRESS_KEY);
-      } else {
-        const p = JSON.parse(raw) as ProgressState;
-        const strip = <T,>(obj: Record<string, T> | undefined): Record<string, T> =>
-          Object.fromEntries(
-            Object.entries(obj ?? {}).filter(([k]) => !k.startsWith(`${subject}/`))
-          );
-        const next: ProgressState = {
-          q: strip(p.q),
-          quiz: strip(p.quiz),
-          practice: strip(p.practice),
-        };
-        window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(next));
+  return queueStateOperation(async () => {
+    // Capture the owner before changing local state. A sign-out/account switch
+    // while this reset is queued must not turn into a forced reset for whoever
+    // happens to be authenticated a moment later.
+    const resetUserId = await getAccountUserId();
+    try {
+      const raw = window.localStorage.getItem(PROGRESS_KEY);
+      if (raw) {
+        if (!subject) {
+          window.localStorage.removeItem(PROGRESS_KEY);
+        } else {
+          const p = JSON.parse(raw) as ProgressState;
+          const strip = <T,>(obj: Record<string, T> | undefined): Record<string, T> =>
+            Object.fromEntries(
+              Object.entries(obj ?? {}).filter(([k]) => !k.startsWith(`${subject}/`))
+            );
+          const next: ProgressState = {
+            q: strip(p.q),
+            quiz: strip(p.quiz),
+            practice: strip(p.practice),
+          };
+          window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(next));
+        }
       }
-    }
-    const toRemove: string[] = [];
-    for (let i = 0; i < window.localStorage.length; i++) {
-      const k = window.localStorage.key(i);
-      if (
-        k?.startsWith(DECK_PREFIX) &&
-        (!subject || k.startsWith(`${DECK_PREFIX}${subject}:`))
-      ) {
-        toRemove.push(k);
+      const toRemove: string[] = [];
+      for (let i = 0; i < window.localStorage.length; i++) {
+        const key = window.localStorage.key(i);
+        if (
+          key?.startsWith(DECK_PREFIX) &&
+          (!subject || key.startsWith(`${DECK_PREFIX}${subject}:`))
+        ) {
+          toRemove.push(key);
+        }
       }
+      toRemove.forEach((key) => window.localStorage.removeItem(key));
+    } catch {
+      return false;
     }
-    toRemove.forEach((k) => window.localStorage.removeItem(k));
-  } catch {
-    return false;
-  }
 
-  // make every open view reload the (now reset) state
-  window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
+    // Make every open view reload the (now reset) state.
+    window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
 
-  // Overwrite the authenticated account copy (plain push, no merge), so reset
-  // is reflected on every signed-in device instead of resurrecting old state.
-  if (!(await getAccountUserId())) return true;
-  try {
-    const res = await fetch("/api/state", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ state: gatherState() }),
-    });
-    if (res.ok) {
-      window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
-      return true;
+    // Overwrite the authenticated account copy (plain push, no merge), so reset
+    // is reflected on every signed-in device instead of resurrecting old state.
+    if (!resetUserId) return true;
+    if ((await getAccountUserId()) !== resetUserId) return false;
+    try {
+      const res = await fetch("/api/state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ state: gatherState(), force: true }),
+      });
+      if (res.ok) {
+        window.localStorage.setItem(SYNC_LAST_KEY, String(Date.now()));
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
     }
-    return false;
-  } catch {
-    return false;
-  }
+  });
 }
