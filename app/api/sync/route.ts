@@ -14,10 +14,16 @@ function rowId(code: string): string {
   return createHash("sha256").update(`cubad:${code.trim()}`).digest("hex");
 }
 
-const sbHeaders = () => ({
+/**
+ * The legacy sprout table treats the row hash as a passcode-derived capability.
+ * Its RLS policies require this exact header to match the row id, preventing an
+ * anonymous caller from listing or writing unrelated passcode rows.
+ */
+const sbHeaders = (id: string) => ({
   apikey: SB_KEY as string,
   Authorization: `Bearer ${SB_KEY}`,
   "Content-Type": "application/json",
+  "x-cubad-sync-id": id,
 });
 
 export async function GET() {
@@ -52,7 +58,7 @@ export async function POST(request: Request) {
       const res = await fetch(`${SB_URL}/rest/v1/${TABLE}`, {
         method: "POST",
         headers: {
-          ...sbHeaders(),
+          ...sbHeaders(id),
           Prefer: "resolution=merge-duplicates,return=representation",
         },
         body: JSON.stringify({ id, state: body.state, updated_at: new Date().toISOString() }),
@@ -67,7 +73,7 @@ export async function POST(request: Request) {
 
     const res = await fetch(
       `${SB_URL}/rest/v1/${TABLE}?id=eq.${id}&select=state,updated_at`,
-      { headers: sbHeaders() }
+      { headers: sbHeaders(id) }
     );
     if (!res.ok) {
       console.error("sync read failed", res.status);

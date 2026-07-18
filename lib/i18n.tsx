@@ -181,6 +181,103 @@ const STRINGS = {
     en: "The podcast needs a (free) Google Gemini API key. Create one at aistudio.google.com/apikey and paste it here — it is stored only in your browser.",
     tr: "Podcast için (ücretsiz) bir Google Gemini API anahtarı gerekli. aistudio.google.com/apikey adresinden oluşturup buraya yapıştır — sadece tarayıcında saklanır.",
   },
+
+  /* ---------- auth & account (Phase 2) ---------- */
+  signIn: { en: "Sign in", tr: "Giriş yap" },
+  signUp: { en: "Create account", tr: "Hesap oluştur" },
+  signOut: { en: "Sign out", tr: "Çıkış yap" },
+  account: { en: "Account", tr: "Hesap" },
+  settings: { en: "Settings", tr: "Ayarlar" },
+  email: { en: "Email", tr: "E-posta" },
+  password: { en: "Password", tr: "Parola" },
+  confirmPassword: { en: "Confirm password", tr: "Parolayı doğrula" },
+  newPassword: { en: "New password", tr: "Yeni parola" },
+  fullName: { en: "Full name", tr: "Ad soyad" },
+  country: { en: "Country", tr: "Ülke" },
+  phone: { en: "Phone (optional)", tr: "Telefon (isteğe bağlı)" },
+  preferredLanguage: { en: "Preferred language", tr: "Tercih edilen dil" },
+  track: { en: "Study track", tr: "Çalışma programı" },
+  chooseTrack: { en: "Choose your track", tr: "Programını seç" },
+  chooseCountry: { en: "Choose your country", tr: "Ülkeni seç" },
+  haveAccount: { en: "Already have an account?", tr: "Zaten hesabın var mı?" },
+  noAccount: { en: "No account yet?", tr: "Henüz hesabın yok mu?" },
+  forgotPassword: { en: "Forgot password?", tr: "Parolanı mı unuttun?" },
+  forgotPasswordTitle: { en: "Reset your password", tr: "Parolanı sıfırla" },
+  forgotPasswordIntro: {
+    en: "Enter your email and we'll send you a reset link.",
+    tr: "E-postanı gir, sana bir sıfırlama bağlantısı gönderelim.",
+  },
+  sendResetLink: { en: "Send reset link", tr: "Sıfırlama bağlantısı gönder" },
+  resetPasswordTitle: { en: "Choose a new password", tr: "Yeni bir parola seç" },
+  updatePassword: { en: "Update password", tr: "Parolayı güncelle" },
+  signInTitle: { en: "Sign in to cubad", tr: "cubad'a giriş yap" },
+  signUpTitle: { en: "Create your cubad account", tr: "cubad hesabını oluştur" },
+  checkEmailTitle: { en: "Check your email", tr: "E-postanı kontrol et" },
+  checkEmailBody: {
+    en: "We sent you a confirmation link. Click it to activate your account, then sign in.",
+    tr: "Sana bir onay bağlantısı gönderdik. Hesabını etkinleştirmek için tıkla, sonra giriş yap.",
+  },
+  resetSentBody: {
+    en: "If that email is registered, a reset link is on its way.",
+    tr: "Bu e-posta kayıtlıysa, sıfırlama bağlantısı yolda.",
+  },
+  /* onboarding */
+  onboardingTitle: { en: "Welcome — let's set you up", tr: "Hoş geldin — hadi seni ayarlayalım" },
+  onboardingIntro: {
+    en: "Tell us a bit about you so we can show the right exams and save your progress.",
+    tr: "Sana doğru sınavları gösterip ilerlemeni kaydedebilmemiz için kendinden bahset.",
+  },
+  finishOnboarding: { en: "Finish setup", tr: "Kurulumu bitir" },
+  /* import passcode */
+  importPasscodeTitle: { en: "Import progress from a passcode", tr: "Paroladan ilerleme aktar" },
+  importPasscodeIntro: {
+    en: "Used cubad before with a sync passcode? Enter it once to merge that progress into your account.",
+    tr: "Daha önce cubad'ı eşitleme parolasıyla mı kullandın? İlerlemeni hesabına aktarmak için parolayı bir kez gir.",
+  },
+  importPasscodeBtn: { en: "Import", tr: "Aktar" },
+  importPasscodeDone: { en: "Progress imported.", tr: "İlerleme aktarıldı." },
+  importPasscodeNotFound: {
+    en: "No saved progress found for that passcode.",
+    tr: "Bu parola için kayıtlı ilerleme bulunamadı.",
+  },
+  importPasscodeSkip: { en: "Skip for now", tr: "Şimdilik atla" },
+  /* account page */
+  accountTitle: { en: "Your account", tr: "Hesabın" },
+  yourTrack: { en: "Your track", tr: "Programın" },
+  editProfile: { en: "Edit profile", tr: "Profili düzenle" },
+  saveChanges: { en: "Save changes", tr: "Değişiklikleri kaydet" },
+  profileSaved: { en: "Saved.", tr: "Kaydedildi." },
+  /* auth error codes -> messages */
+  authErr_invalid_credentials: {
+    en: "Wrong email or password.",
+    tr: "E-posta veya parola hatalı.",
+  },
+  authErr_email_not_confirmed: {
+    en: "Confirm your email first — check your inbox for the link.",
+    tr: "Önce e-postanı onayla — gelen kutundaki bağlantıya bak.",
+  },
+  authErr_rate_limited: {
+    en: "Too many attempts. Wait a minute and try again.",
+    tr: "Çok fazla deneme. Bir dakika bekleyip tekrar dene.",
+  },
+  authErr_weak_password: {
+    en: "Password must be at least 8 characters.",
+    tr: "Parola en az 8 karakter olmalı.",
+  },
+  authErr_email_exists: {
+    en: "An account with that email already exists. Try signing in.",
+    tr: "Bu e-postayla bir hesap zaten var. Giriş yapmayı dene.",
+  },
+  authErr_expired_or_invalid: {
+    en: "That link has expired or is invalid. Request a new one.",
+    tr: "Bağlantının süresi dolmuş veya geçersiz. Yenisini iste.",
+  },
+  authErr_invalid_email: { en: "Enter a valid email.", tr: "Geçerli bir e-posta gir." },
+  authErr_passwords_mismatch: { en: "Passwords don't match.", tr: "Parolalar eşleşmiyor." },
+  authErr_unknown: {
+    en: "Something went wrong. Try again.",
+    tr: "Bir şeyler ters gitti. Tekrar dene.",
+  },
 } as const;
 
 export type StringKey = keyof typeof STRINGS;

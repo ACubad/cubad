@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
+import { AccountMenu } from "./AccountMenu";
 
 export function Header() {
   const { lang, setLang, t } = useLang();
@@ -53,6 +54,7 @@ export function Header() {
               </button>
             ))}
           </div>
+          <AccountMenu />
         </nav>
       </div>
     </header>
