@@ -237,11 +237,13 @@ export function notifyStateChanged(): void {
  * @param subject a subject slug to reset only that subject, or undefined for everything
  */
 export async function resetProgress(subject?: string): Promise<boolean> {
+  // Capture the initiating account before joining any existing sync/reset work.
+  // Otherwise a reset queued behind account A's operation could capture account
+  // B after a sign-in switch and force-reset B's remote state instead.
+  const resetUserId = await getAccountUserId();
+
   return queueStateOperation(async () => {
-    // Capture the owner before changing local state. A sign-out/account switch
-    // while this reset is queued must not turn into a forced reset for whoever
-    // happens to be authenticated a moment later.
-    const resetUserId = await getAccountUserId();
+    if ((await getAccountUserId()) !== resetUserId) return false;
     try {
       const raw = window.localStorage.getItem(PROGRESS_KEY);
       if (raw) {

@@ -237,4 +237,36 @@ describe("syncNow", () => {
 
     expect(fetch).not.toHaveBeenCalled();
   });
+
+  it("captures the reset owner before waiting behind an in-flight sync", async () => {
+    let resolvePull: ((value: Response) => void) | undefined;
+    const pull = new Promise<Response>((resolve) => {
+      resolvePull = resolve;
+    });
+    getSession
+      .mockResolvedValueOnce({ data: { session: { user: { id: "user-a" } } } })
+      .mockResolvedValueOnce({ data: { session: { user: { id: "user-a" } } } })
+      .mockResolvedValueOnce({ data: { session: { user: { id: "user-b" } } } })
+      .mockResolvedValueOnce({ data: { session: { user: { id: "user-b" } } } });
+    vi.mocked(fetch).mockReturnValueOnce(pull);
+
+    const pendingSync = syncNow();
+    await Promise.resolve();
+    await Promise.resolve();
+    window.localStorage.setItem(
+      "cubad:progress:v2",
+      JSON.stringify({ q: { "hidroloji/b-only": { step: 2, done: true } }, quiz: {}, practice: {} })
+    );
+    const pendingReset = resetProgress();
+    await Promise.resolve();
+    resolvePull?.({ ok: true, json: async () => ({ state: null }) } as Response);
+
+    await expect(Promise.all([pendingSync, pendingReset])).resolves.toEqual([
+      { ok: false, mergedFromRemote: false },
+      false,
+    ]);
+    expect(JSON.parse(window.localStorage.getItem("cubad:progress:v2") ?? "{}"))
+      .toEqual({ q: { "hidroloji/b-only": { step: 2, done: true } }, quiz: {}, practice: {} });
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
 });
