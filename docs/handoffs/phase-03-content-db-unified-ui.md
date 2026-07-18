@@ -1,9 +1,9 @@
 # Phase 3 handoff — Content in the Database, Unified UI & Sprout Cutover
 
-**Status:** Production cutover is complete and verified for all automated and browser-available
+**Status:** Production cutover is complete and verified for all automated and public browser
 gates. The obsolete passcode sync flow has been retired in favor of authenticated account sync.
-Creator-authorized podcast upload and a valid authenticated revalidation request remain
-credential-holder-only checks. Do not begin Phase 4.
+Creator-authorized podcast upload, a signed-in two-device account merge, and a valid authenticated
+revalidation request remain account/credential-holder-only checks. Do not begin Phase 4.
 
 **Implementation branch:** `feat/phase-3-content-db-unified-ui` (based on updated `origin/main` `d78e352`)
 
@@ -113,6 +113,7 @@ credential-holder-only checks. Do not begin Phase 4.
 | Phase 3 implementation | [PR #4](https://github.com/ACubad/cubad/pull/4) merged after CI run `29651539795`, Vercel Preview, and CodeRabbit passed. Merge commit: `d6bb0d081e9ea7527a9421a8b48a1507ef0db8ec`. |
 | Corrective production-smoke fix | [PR #5](https://github.com/ACubad/cubad/pull/5) merged after CI, Vercel Preview, and CodeRabbit passed. Merge commit: `74c9a3e747955c7f91e1b6425885d051a99a072f`. GitHub Actions CI run `29652023402` passed. |
 | Preview verification | The #5 Vercel Preview deployment `dpl_9TMBePTLcKvifnVfsKKQ6frprsQX` (`https://cubad-120q2adjr-acubads-projects.vercel.app`) was Ready. A completed quiz displayed `Saved result: 8/8` after a hard refresh. |
+| Authenticated-sync follow-up | [PR #9](https://github.com/ACubad/cubad/pull/9) merged as `ce6ba9988da367782bcd914c6916fb782324e3b7`. GitHub Actions CI run `29659643707` passed all lint, content-validation, test, and build steps. CodeRabbit passed after the PR was marked ready. |
 
 ### Cutover decision and environment record
 
@@ -182,6 +183,19 @@ the promotion was needed because the rollback had left the public alias on the e
   passcode UI). A clean `npm run build` compiled and type-checked; prerendering could not continue
   in this secret-free worktree because no local Supabase build variables are present. No secret was
   generated, displayed, downloaded, or committed for that check.
+- The existing-project Preview for the new branch failed only while pre-rendering `/` because that
+  branch has no `NEXT_PUBLIC_SUPABASE_URL` configured. Its log still showed successful compile and
+  type-check. No Vercel environment value was read, printed, created, or changed; the PR merged
+  after CI passed using the documented administrative override for this known branch-scoped Preview
+  limitation.
+- The existing Vercel project deployed merged `main` commit `ce6ba99` as
+  `dpl_555msjYLh7wRBMig2YabQAW8oJmR`
+  (`https://cubad-67et9um96-acubads-projects.vercel.app`), Ready. The production alias
+  `https://cubad.vercel.app` resolves to that deployment.
+- Production public smoke passed: `/`, both subject homes, and both `giris` unit pages returned
+  HTTP 200. The unauthenticated `/api/state` boundary returned HTTP 401, and retired `/api/sync`
+  returned HTTP 404. A visible production browser tab was anonymous (it showed “Sign in”), so no
+  login was attempted and no user data was changed to force the signed-in merge check.
 
 The production code/data cutover is therefore live and verified. Keep Sprout available and do not
 remove its rollback variables until the two remaining owner-only checks above are recorded and the
