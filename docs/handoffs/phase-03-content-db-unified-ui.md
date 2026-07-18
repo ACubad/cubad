@@ -1,10 +1,11 @@
 # Phase 3 handoff — Content in the Database, Unified UI & Sprout Cutover
 
-**Status:** Pre-merge handoff. Implementation and every pre-merge gate are complete. Do not
-mark Phase 3 complete until the PR is merged, the existing production deployment is verified,
-and the post-merge evidence below is appended.
+**Status:** Production cutover is complete and verified for all automated and browser-available
+gates. Three credential/account-holder-only checks remain: creator-authorized podcast upload,
+two-browser legacy-passcode sync, and a valid authenticated revalidation request. Do not begin
+Phase 4.
 
-**Branch:** `feat/phase-3-content-db-unified-ui` (based on updated `origin/main` `d78e352`)
+**Implementation branch:** `feat/phase-3-content-db-unified-ui` (based on updated `origin/main` `d78e352`)
 
 **Date:** 2026-07-18
 
@@ -37,6 +38,10 @@ and the post-merge evidence below is appended.
 | `0838801` | Add local Sprout migration script |
 | `0a072cb` | Add interim publish and revalidation flow |
 | `7c82948` | Add content DB tests and RLS/RPC gate |
+| `15ededf` | Add Phase 3 pre-merge handoff evidence |
+| `5762ffa` | Document the installed Windows GitHub CLI PATH fallback |
+| `3c62c8f` | Supply masked Cubad build environment to CI |
+| `4f98a49` | Show a persisted quiz result after a browser refresh |
 
 ## Pre-merge validation evidence
 
@@ -97,3 +102,70 @@ and the post-merge evidence below is appended.
 
 **Do not begin Phase 4.**
 
+## Post-merge, deployment, and production evidence
+
+### Pull requests and CI
+
+| Change | Evidence |
+| --- | --- |
+| Phase 3 implementation | [PR #4](https://github.com/ACubad/cubad/pull/4) merged after CI run `29651539795`, Vercel Preview, and CodeRabbit passed. Merge commit: `d6bb0d081e9ea7527a9421a8b48a1507ef0db8ec`. |
+| Corrective production-smoke fix | [PR #5](https://github.com/ACubad/cubad/pull/5) merged after CI, Vercel Preview, and CodeRabbit passed. Merge commit: `74c9a3e747955c7f91e1b6425885d051a99a072f`. GitHub Actions CI run `29652023402` passed. |
+| Preview verification | The #5 Vercel Preview deployment `dpl_9TMBePTLcKvifnVfsKKQ6frprsQX` (`https://cubad-120q2adjr-acubads-projects.vercel.app`) was Ready. A completed quiz displayed `Saved result: 8/8` after a hard refresh. |
+
+### Cutover decision and environment record
+
+- The existing Vercel project `cubad` was retained. Production now uses Cubad's public URL,
+  anon key, and sensitive service-role key, plus `NEXT_PUBLIC_APP_URL=https://cubad.vercel.app`.
+  The existing Gemini value, sensitive `REVALIDATE_SECRET`, and legacy Sprout rollback variables
+  were retained; no value was printed, committed, or added to a document.
+- The same three Cubad build variables were configured for the two Phase 3 Preview branches and
+  each affected Preview was explicitly redeployed after configuration. This avoids preview builds
+  silently compiling against the legacy project while leaving the global sensitive revalidation
+  value untouched.
+- GitHub Actions received the corresponding Cubad build variables as repository secrets. The
+  first Windows PowerShell stdin submission included a byte-order mark and caused a CI
+  `ByteString` failure. It was replaced through the installed GitHub CLI's direct secret-body
+  path after trimming the BOM; values were never displayed.
+- The old Sprout variables and its Phase 2 capability-scoped RLS repair remain untouched for the
+  60-day rollback window. `/api/sync` is deliberately retargeted to Cubad `legacy_sync`; the
+  legacy SHA-256 `cubad:<passcode>` compatibility behavior remains enabled until the completed
+  migration is independently confirmed in the two-browser owner test.
+
+### Migration confirmation
+
+- The existing Cubad project has both Phase 3 migrations applied. The RLS/RPC probe passed and
+  the free Hydrology `giris` unit remained readable after its transactional negative-path check.
+- The local-only Sprout migration transferred the three source `cubad_sync` records and all 34
+  podcast object paths. Its idempotency rerun copied zero objects, skipped 34, upserted the three
+  sync rows, and reported no failures. Exact JSON byte/hash samples and the source/target path
+  manifest are recorded above; the target's separate pre-existing `legacy_sync` row was preserved.
+
+### Production deployment and smoke tests
+
+The initial Phase 3 production deployment from `d6bb0d0` exposed a user-visible quiz-refresh
+gap: the saved score persisted but a fresh quiz did not show it. Per the plan's rollback rule,
+that deployment was rolled back immediately to `dpl_yPpjFAJXhPLy6EPPae2L5YCxwV48`. PR #5 added
+the saved-result status, passed Preview refresh verification, and was then merged.
+
+The final production deployment is `dpl_An5MP4UjAyHksE7WNKz2KnoVzCh3`
+(`https://cubad-ncwpvzuk7-acubads-projects.vercel.app`), built from `main` commit `74c9a3e` and
+Ready. It was explicitly promoted so `https://cubad.vercel.app` resolves to that exact deployment;
+the promotion was needed because the rollback had left the public alias on the earlier build.
+
+| Production gate | Result |
+| --- | --- |
+| Home and subject homes | Passed. The public site rendered both Hydrology and Construction; their homes showed 9 and 10 unit links respectively. |
+| Unit pages | Passed. Hydrology `giris` rendered its introduction, formulas, and questions; Construction `giris` rendered its content, notes, and podcast controls. |
+| Quiz persistence | Passed. A completed 8/8 Hydrology quiz showed `Saved result: 8/8` after a production hard refresh. |
+| Flashcard persistence | Passed. A `Good (2)` rating advanced the deck from 1/107 to 2/107 and changed box 2 from 2 to 3; the box-2 count remained 3 after reopening the route. |
+| Practice persistence | Passed. Correctly answering the first Construction question showed `1/56` and `Score: 1/33`; both values remained after reopening the route. |
+| Podcast playback readiness | Passed for migrated content. The English audio control loaded the Cubad Storage public object `podcasts/insaat-yonetimi/giris/en.wav` with `readyState: 4`. |
+| Tutor | Passed. The production tutor dialog reported its configured Gemini server key, accepted a course question, and returned a streamed answer. |
+| Client error sweep | No Cubad application error or failed response was observed. Chrome reported only its known extension listener-channel closure message on prior route navigations; it has no Cubad stack/location and was treated as browser-extension noise. |
+| Creator-authorized upload | Pending owner-only test; no creator/admin credential was invented or used. The RLS policy and secure upload path were exercised by the migration/RLS gates. |
+| Two-browser legacy-passcode sync | Pending owner-only test using a real passcode selected by the owner; no passcode was requested or recorded. |
+| Valid `/api/revalidate` | Pending owner-only test using the existing sensitive secret without exposing it in a URL capture, logs, shell history, or this document. The invalid-secret 401 gate passed locally. |
+
+The production code/data cutover is therefore live and verified. Keep Sprout available and do not
+remove its rollback variables until the three owner-only checks above are recorded and the 60-day
+rollback window has elapsed.
