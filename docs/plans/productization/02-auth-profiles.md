@@ -436,7 +436,7 @@ algorithm is copied verbatim from `lib/sync.ts` — behavior must not change** (
 
 **Write the test first.**
 
-- [ ] Create `lib/merge.test.ts`:
+- [x] Create `lib/merge.test.ts`:
   ```ts
   import { describe, it, expect } from "vitest";
   import { mergeStates, type SyncState } from "./merge";
@@ -478,7 +478,7 @@ algorithm is copied verbatim from `lib/sync.ts` — behavior must not change** (
     });
   });
   ```
-- [ ] Create `lib/merge.ts` with the pure logic **moved from `lib/sync.ts`** (no `"use client"`):
+- [x] Create `lib/merge.ts` with the pure logic **moved from `lib/sync.ts`** (no `"use client"`):
   ```ts
   /**
    * Pure, environment-agnostic study-state model + union-merge.
@@ -625,7 +625,7 @@ algorithm is copied verbatim from `lib/sync.ts` — behavior must not change** (
     return merged;
   }
   ```
-- [ ] **Now** update `lib/sync.ts` to consume `merge.ts` instead of defining the model inline.
+- [x] **Now** update `lib/sync.ts` to consume `merge.ts` instead of defining the model inline.
   Replace lines 18–223 of the current file (the interfaces block, `SYNC_CONVOS_PER_TOPIC`,
   `SYNC_MSGS_PER_CONVO`, `EMPTY_PROGRESS`, `trimChats`, `mergeStates`) with imports/re-exports.
   Concretely, at the top of `lib/sync.ts` **after** the `"use client";` line and the file-doc
@@ -653,7 +653,7 @@ algorithm is copied verbatim from `lib/sync.ts` — behavior must not change** (
   `SYNC_APPLIED_EVENT` / `PROGRESS_KEY` / `DECK_PREFIX` / `CHAT_PREFIX` constants.
   `gatherState` still calls `trimChats(...)` (now imported); `syncNow`/`resetProgress` still call
   `mergeStates`/`gatherState`/`applyState`. (Task 2.18 rewrites `syncNow`/`resetProgress` bodies.)
-- [ ] Run the test (it should pass now, still exercising identical behavior):
+- [x] Run the test (it should pass now, still exercising identical behavior):
   ```bash
   npx vitest run lib/merge.test.ts
   ```
@@ -674,7 +674,7 @@ byte and no legacy row is ever found.
 **Write the test first** — the vector below is the **real** `sha256("cubad:test1234")` hex,
 computed with Node during planning:
 
-- [ ] Create `lib/passcode.test.ts`:
+- [x] Create `lib/passcode.test.ts`:
   ```ts
   import { describe, it, expect } from "vitest";
   import { legacyRowId } from "./passcode";
@@ -696,7 +696,7 @@ computed with Node during planning:
     });
   });
   ```
-- [ ] Create `lib/passcode.ts`:
+- [x] Create `lib/passcode.ts`:
   ```ts
   import { createHash } from "node:crypto";
 
@@ -709,7 +709,7 @@ computed with Node during planning:
     return createHash("sha256").update(`cubad:${code.trim()}`).digest("hex");
   }
   ```
-- [ ] Run:
+- [x] Run:
   ```bash
   npx vitest run lib/passcode.test.ts
   ```
@@ -726,7 +726,7 @@ matches the existing route byte-for-byte and runs in Server Actions.
 Centralize "who is this request" so every server page/action checks the same way (Next auth
 guide §DAL). React `cache` de-dupes the `getUser` network call within one render.
 
-- [ ] Create `lib/auth/dal.ts`:
+- [x] Create `lib/auth/dal.ts`:
   ```ts
   import "server-only";
   import { cache } from "react";
