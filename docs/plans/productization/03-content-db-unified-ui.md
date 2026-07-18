@@ -3082,3 +3082,29 @@ the env vars would leave the new code with nothing to read.
   4. Verified all service-role client usages are the canonical `createServiceRoleClient()`
      from `@/lib/supabase/server` (master §14); Prerequisites paragraph updated to cite §14
      as binding instead of treating the export name as an open Phase 1 assumption.
+
+- **2026-07-18 — execution record / required deviations:**
+  1. Applied the Task 4 and Task 5 migrations to the existing Cubad project
+     `qjcaangaxpkihxxzexpq` with the authenticated Supabase CLI; no project was created or
+     replaced. The deployment finished successfully despite a non-fatal CLI certificate-cache
+     warning after the migration command completed.
+  2. The RLS probe uses the real seeded slugs `giris` and `yagis`, not the illustrative
+     `unit-1`/`unit-2` names in the plan. Its `RAISE NOTICE` statements are wrapped in a
+     `DO` block, and the script ends with an explicit result row because the management-query
+     response does not surface notices.
+  3. Added the missing `@/*` Vitest alias needed to import the new server-only content layer.
+     The content validator adds an explicit `process.argv[1]` guard so it remains safely
+     importable under Node ESM evaluation.
+  4. The local Supabase runtime lacked its normal `storage` schema baseline. For local reset
+     testing only, the bundled storage baseline was applied to the local Docker database with
+     role installation disabled; `supabase db reset` then completed and all six project
+     migrations were recorded. No remote migration was changed or re-applied.
+  5. The remaining `kind === \"bar\"` checks belong to the independent chart-series schema in
+     `components/Chart.tsx`; the deprecated `SubjectMeta.kind` UI forks are removed. Renaming
+     chart content is outside this phase and would alter unrelated content semantics.
+  6. Task 13 automated gates were run before the Task 12 PR/merge closeout because the plan
+     requires Tasks 1–11 to be merged before cutover but also requires those gates for the PR.
+     Post-merge production verification remains a required closeout step.
+  7. A one-time Vercel CLI link operation downloaded a development `.env.local`; it was not
+     opened, printed, staged, or committed and was immediately removed. Future Vercel work uses
+     the existing `cubad` project only.
