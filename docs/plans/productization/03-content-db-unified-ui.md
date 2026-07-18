@@ -3150,3 +3150,9 @@ the env vars would leave the new code with nothing to read.
       wraps the internal `403` authorization decision in HTTP `400`; the response's own status was
       `403` and no object was created. The policy outcome, rather than that transport wrapper, is
       the security gate. The accepted nine-warning React lint waiver remains unchanged.
+  16. The audit shipped in PR #11 after GitHub CI passed its final run. An automated review caught
+      one additional queued-reset account-capture edge; it was fixed and regression-tested before
+      merge. The existing Vercel project deployed the merged `main` commit successfully, and the
+      production public/API boundary/podcast smoke checks passed. The new Preview branch repeated
+      the known missing-Preview-Supabase-value prerender failure; no environment value was read or
+      changed, and the documented administrative merge override was used.
