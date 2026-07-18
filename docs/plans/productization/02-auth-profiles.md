@@ -2441,7 +2441,7 @@ button handles outside-clicks.
 
 - [x] Confirm the root layout still mounts `SyncManager` (unchanged) and the header. No layout
   edit is required (the account menu lives inside `Header`, which the layout already renders).
-- [ ] Run the full done-gate (master §8), **one build at a time**:
+- [x] Run the full done-gate (master §8), **one build at a time**:
   ```bash
   npx vitest run
   npm run lint
@@ -2560,13 +2560,15 @@ these messages:
 - [x] After Tasks 2.19–2.20: `feat(account): account page + header account menu`
 - [x] After Tasks 2.21–2.22: `test(auth): full gate + RLS negative-path verification`
 
+- [x] Blocker resolution: `fix(gate): restore content test and anonymous passcode sync`
+
 Each commit message body may note any deviation. Open the phase PR only after Task 2.22 passes.
 
 ---
 
 ## Phase acceptance checklist (runnable)
 
-- [ ] `npx vitest run` — all pass (incl. `lib/merge.test.ts`, `lib/passcode.test.ts`).
+- [x] `npx vitest run` — all pass (incl. `lib/merge.test.ts`, `lib/passcode.test.ts`).
 - [x] `npm run lint` — clean (accepted Phase 1 10-warning waiver only).
 - [x] `npm run build` (run alone) — succeeds; build log shows a Proxy entry.
 - [x] `node scripts/validate-content.mjs` — passes.
@@ -2574,7 +2576,7 @@ Each commit message body may note any deviation. Open the phase PR only after Ta
 - [x] `supabase.get_advisors(type:"security")` — no new errors from this phase.
 - [x] Manual auth flow checklist (Task 2.22.A) — every item verified.
 - [x] RLS probes (Task 2.22.B) — every probe returns the **expected denial**.
-- [ ] Passcode sync for **anonymous** users still round-trips (regression — the passcode path is
+- [x] Passcode sync for **anonymous** users still round-trips (regression — the passcode path is
   unchanged).
 - [ ] App still deploys and all pre-Phase-2 surfaces work (units, walkthroughs, tutor, podcasts).
 
@@ -2669,3 +2671,15 @@ _(executing agents record further deviations below per master §11)_
   current pre-Phase-2 baseline: its unchanged sprout-backed `cubad_sync` POST returns 502 because
   the legacy anon key receives PostgREST 42501 (RLS write denial). Phase 3 owns that transport's
   retargeting, so no Phase 3 change was made in this branch.
+- **2026-07-18 — Gate resolution:** The preceding two entries record the initial findings and are
+  superseded by this resolution. Vite could not import `scripts/seed-content.mjs` because its
+  leading shebang is invalid when parsed as an ESM module. The script is run through `node` and is
+  not executable in Git, so only that inert line was removed; `npx vitest run` now passes all 3
+  files / 11 tests.
+- **2026-07-18 — Legacy sync resolution:** The Sprout `cubad_sync` anon policies had been fixed
+  to one stale row hash. `scripts/repair-legacy-sync-rls.sql` was applied through the existing
+  Sprout SQL editor (not as a Cubad Phase 2 migration), and `/api/sync` now supplies the derived
+  id in `x-cubad-sync-id`. The capability policy admits only the exact supplied row: an arbitrary
+  passcode POST/pull round trip, a different-passcode isolation probe, and a headerless table-list
+  probe all passed. This deliberately retains the existing low-assurance legacy passcode
+  compatibility path; authenticated account progress remains on `/api/state`.

@@ -1,6 +1,6 @@
 # Phase 2 handoff — Auth, Profiles & Server-side Progress
 
-**Status:** Implementation complete; PR/merge/deployment pending the recorded inherited gate blockers.
+**Status:** Implementation and all local gates complete; publishing/merge/deployment pending GitHub CLI installation and authentication on this workstation.
 
 **Branch:** `feat/phase-2-auth-profiles` (created from updated `main`)
 
@@ -29,6 +29,7 @@
 - `a5bc91c` `feat(progress): /api/state transport; account-aware sync + reset`
 - `0b8b54c` `feat(account): account page + header account menu`
 - Current final validation commit: `test(auth): full gate + RLS negative-path verification`
+- Blocker-resolution commit: `fix(gate): restore content test and anonymous passcode sync`
 
 ## Validation evidence
 
@@ -39,21 +40,31 @@
 | Recovery flow | Recovery token exchange, password update, and subsequent sign-in passed. Invalid-token, wrong-password, unconfirmed-email, and rate-limit UI paths passed. |
 | Profile/RLS | Signup trigger defaults, cross-user read/write denials, role-escalation denial, legacy-sync denial, and unauthenticated `/api/state` 401 passed. |
 | Progress/import | Authenticated `/api/state` POST/GET/reset round trip passed; known and unknown passcode import feedback and server merge passed. |
+| Legacy passcode regression | Arbitrary passcode POST/pull and cleanup passed; a different passcode returned no state. A prior direct REST probe confirmed a headerless table query returns no rows. |
+| `npx vitest run` | Passed: 3 test files / 11 tests. |
 | `npm run lint` | Passed with only the accepted ten Phase 1 React warnings. |
 | `npm run build` | Passed; output includes `ƒ Proxy (Middleware)`, `/api/me`, `/api/state`, and all Phase 2 routes. |
 | Content validation | Passed: 2 subjects, 19 files, 56 walkthrough questions. |
 | `npx supabase db reset` | Passed from scratch with both Phase 2 migrations. |
 | Security advisors | No new Phase 2 errors; no mutable-search-path warning for the Phase 2 functions. |
 
-## Pending blockers — do not open the Phase 2 PR yet
+## Resolved gate findings
 
-1. `npx vitest run` executes all eight new Phase 2 tests successfully, but the inherited
-   `tests/seed-content.test.ts` suite cannot import the unchanged BOM/shebang-bearing
-   `scripts/seed-content.mjs`. Both files are identical to `origin/main`; this branch does not
-   rewrite the unrelated Phase 1 artifact.
-2. The unchanged anonymous legacy `/api/sync` route cannot write to the old sprout
-   `cubad_sync` table: it returns 502 because the legacy anon key receives PostgREST 42501 (RLS
-   write denial). Its replacement is explicitly Phase 3 scope, so no retargeting was done here.
+1. Vite could not import `scripts/seed-content.mjs` during `tests/seed-content.test.ts` because
+   its leading shebang is not valid when Vite parses the file as an ESM module. The script is
+   already invoked through `node` and is not executable in Git, so only that inert shebang was
+   removed. `npx vitest run` now passes all 3 files / 11 tests.
+2. The old Sprout `cubad_sync` policies were pinned to one stale row hash, producing a PostgREST
+   42501 denial for every other passcode. The documented repair script was applied only to the
+   existing Sprout project. `/api/sync` sends the derived row id in `x-cubad-sync-id`; each anon
+   policy now permits only a row whose id exactly equals that request header. Verification proved
+   an arbitrary passcode round trip, cross-passcode isolation, and zero rows from a headerless
+   table query.
+
+The legacy passcode remains a deliberately low-assurance compatibility capability (four or more
+characters), not account authentication. It is retained solely for the pre-Phase-2 migration path;
+authenticated progress uses `/api/state`. The exact-row policy prevents table listing and unrelated
+row access but cannot make a user-selected passcode high entropy.
 
 The complete task log and dashboard-only limitation notes are in
 `docs/plans/productization/02-auth-profiles.md` under **Changelog / deviations**.
@@ -68,8 +79,14 @@ The complete task log and dashboard-only limitation notes are in
   independently exercised with a generated token.
 - Temporary exact-owner users created exclusively to test email delivery were deleted. Controlled
   alias test users for RLS/auth verification remain harmless in the existing project.
+- The legacy RLS repair was applied through the existing Sprout dashboard SQL editor because no
+  project-policy API was available in the configured tools. Its reproducible SQL is
+  `scripts/repair-legacy-sync-rls.sql`; it is intentionally not a migration for the Phase 2
+  `cubad` project.
 
 ## Merge/deployment evidence
 
-Pending. Add PR, merge commit, CI, and existing-Vercel deployment evidence here only after the
-two blockers above are resolved and Phase 2 closes. Do not begin Phase 3 as part of that work.
+Local validation is complete. The branch has not been pushed and no Phase 2 PR, merge, CI run, or
+Vercel deployment exists yet because GitHub CLI is unavailable on this workstation. After it is
+installed and authenticated, record the PR, merge commit, CI, and existing-Vercel deployment
+evidence here. Do not begin Phase 3 as part of that work.
