@@ -14,7 +14,8 @@ revalidation request remain account/credential-holder-only checks. Do not begin 
 - Added the server-only `lib/content-db.ts` read layer with Next 16 `unstable_cache`, per-content
   tags, `revalidateTag(tag, "max")`, DB catalogue fetchers, and subject/unit convenience helpers.
 - Added remote Cubad migrations for catalogue read RLS, the `can_access_*` content RPCs, and the
-  private `podcasts` storage bucket with creator-owner upload policy.
+  public-read `podcasts` storage bucket with no client write policy; uploads use the server-only
+  service-role path.
 - Retargeted `/api/podcast` to Cubad service-role storage. The passcode-based `/api/sync` path
   was subsequently retired after migration integrity was verified; account-authenticated
   `/api/state` is the only active cross-device progress path.
@@ -44,6 +45,7 @@ revalidation request remain account/credential-holder-only checks. Do not begin 
 | `3c62c8f` | Supply masked Cubad build environment to CI |
 | `4f98a49` | Show a persisted quiz result after a browser refresh |
 | `d47f0e5` | Retire passcode sync in favor of authenticated account sync |
+| `84a4797` | Harden account sync and make clean-stack RLS grants explicit |
 
 ## Pre-merge validation evidence
 
@@ -196,6 +198,33 @@ the promotion was needed because the rollback had left the public alias on the e
   HTTP 200. The unauthenticated `/api/state` boundary returned HTTP 401, and retired `/api/sync`
   returned HTTP 404. A visible production browser tab was anonymous (it showed “Sign in”), so no
   login was attempted and no user data was changed to force the signed-in merge check.
+
+### Account-sync and clean-stack audit (2026-07-18)
+
+- Two additive Cubad migrations were applied to the existing project: explicit `SELECT` grants for
+  the Phase 3 catalogue tables, and `SELECT`/`INSERT`/`UPDATE` grants for authenticated
+  `user_state` access. They do not add anonymous writes, user-state deletion, or any policy that
+  weakens the existing RLS predicates. The remote migration ledger and both content and
+  owner-vs-other-user transactional probes passed after application.
+- A fresh local `supabase db reset` replayed all eight migrations. The content seed restored 2
+  subjects / 19 units; local PostgreSQL probes passed for catalogue negative paths and for an
+  automatically rolled-back, temporary auth-user `user_state` fixture. The revised user-state
+  probe is self-contained and leaves no real account or study data behind.
+- The authenticated sync now isolates browser-local progress by account, clears that projection on
+  sign-out, serializes sync/reset operations, prevents a reset from crossing an auth switch, and
+  resolves concurrent-device writes with `updated_at` compare-and-swap plus a bounded 409
+  merge/retry. The legacy passcode/API path remains retired; no Sprout data, credentials, or Phase
+  2 capability-scoped RLS repair was changed.
+- Automated audit gates passed: 30 Vitest tests, TypeScript, content validation (2 subjects, 19
+  files, 56 walkthrough questions), a production Next build against temporary process-only local
+  Supabase values, local and remote RLS probes, and the anonymous storage-upload negative path.
+  Lint had zero errors and the existing accepted 9 React warnings only. The local Storage API
+  returned an HTTP 400 wrapper containing its internal 403 RLS denial; no podcast object was
+  created.
+- No human dashboard action, Vercel environment operation, sensitive credential, revalidation
+  secret, production user state, or Sprout project access was needed for this audit. The Supabase
+  CLI emitted its known post-apply certificate-cache warning after each successful migration; the
+  remote ledger confirmed both migrations.
 
 The production code/data cutover is therefore live and verified. Keep Sprout available and do not
 remove its rollback variables until the two remaining owner-only checks above are recorded and the
