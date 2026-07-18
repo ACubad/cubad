@@ -3124,3 +3124,11 @@ the env vars would leave the new code with nothing to read.
       production build was Ready. The fixed, existing-project deployment was explicitly promoted;
       inspection then resolved the public domain to the `74c9a3e` deployment. No project or alias
       replacement was created.
+  12. After the Sprout migration's row/object integrity and idempotency checks completed, the
+      product decision changed from passcode-based sync to authenticated-account sync. The manual
+      `SyncCard`, passcode import form, SHA-256 helper, and unauthenticated `/api/sync` route are
+      retired; `legacy_sync` rows remain intact as historical migrated data. `SyncManager` now
+      merges account state through authenticated `/api/state` on sign-in, route load, and local
+      study-state changes. This supersedes the plan's Task 7 and Task 12 passcode round-trip
+      checks; it does not alter the Phase 2 capability-scoped Sprout RLS repair or the 60-day
+      credential rollback window.

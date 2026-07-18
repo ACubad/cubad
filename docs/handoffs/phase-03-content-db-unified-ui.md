@@ -1,9 +1,9 @@
 # Phase 3 handoff — Content in the Database, Unified UI & Sprout Cutover
 
 **Status:** Production cutover is complete and verified for all automated and browser-available
-gates. Three credential/account-holder-only checks remain: creator-authorized podcast upload,
-two-browser legacy-passcode sync, and a valid authenticated revalidation request. Do not begin
-Phase 4.
+gates. The obsolete passcode sync flow has been retired in favor of authenticated account sync.
+Creator-authorized podcast upload and a valid authenticated revalidation request remain
+credential-holder-only checks. Do not begin Phase 4.
 
 **Implementation branch:** `feat/phase-3-content-db-unified-ui` (based on updated `origin/main` `d78e352`)
 
@@ -15,8 +15,9 @@ Phase 4.
   tags, `revalidateTag(tag, "max")`, DB catalogue fetchers, and subject/unit convenience helpers.
 - Added remote Cubad migrations for catalogue read RLS, the `can_access_*` content RPCs, and the
   private `podcasts` storage bucket with creator-owner upload policy.
-- Retargeted `/api/podcast` and legacy `/api/sync` to Cubad service-role storage. The Phase 2
-  SHA-256 `cubad:<passcode>` compatibility behaviour and its 12-character minimum remain intact.
+- Retargeted `/api/podcast` to Cubad service-role storage. The passcode-based `/api/sync` path
+  was subsequently retired after migration integrity was verified; account-authenticated
+  `/api/state` is the only active cross-device progress path.
 - Replaced subject-type UI forks with shared `SubjectHome` and `UnitPage` components and rewired
   all Phase 3 routes to DB-backed content without changing their subject-specific visible content.
 - Added local-only `scripts/migrate-from-sprout.mjs`, interim `scripts/upsert-unit.mjs`, the
@@ -42,6 +43,7 @@ Phase 4.
 | `5762ffa` | Document the installed Windows GitHub CLI PATH fallback |
 | `3c62c8f` | Supply masked Cubad build environment to CI |
 | `4f98a49` | Show a persisted quiz result after a browser refresh |
+| `d47f0e5` | Retire passcode sync in favor of authenticated account sync |
 
 ## Pre-merge validation evidence
 
@@ -74,8 +76,8 @@ Phase 4.
   equality plus JSON byte/hash samples are the recorded integrity evidence.
 - The old Sprout URL/anon variables stay in the environment template for rollback compatibility
   for at least 60 days. The Phase 2 Sprout RLS repair remains untouched because it was
-  capability-scoped. `/api/sync` now targets Cubad `legacy_sync`; this is the recorded retargeting
-  decision.
+  capability-scoped. The migrated `legacy_sync` rows are preserved, but no runtime route or UI
+  reads or writes them: authenticated `/api/state` is now the sole cross-device progress path.
 - A fresh `REVALIDATE_SECRET` was configured as sensitive in the existing Vercel project by the
   project owner and a deployment was triggered. Its value was never requested, displayed, or
   placed in the repository. The deployment was from `main` before this branch is merged and is
@@ -93,9 +95,9 @@ Phase 4.
    retained legacy Sprout rollback variables, and the sensitive `REVALIDATE_SECRET`.
 3. Confirm the deployment built from the merged `main` commit, then run production smoke tests:
    subject/unit routes for both subjects, quiz/practice/card persistence, tutor, podcast upload and
-   playback, two-browser legacy-passcode sync, browser console, and an owner-performed valid
-   `/api/revalidate` request. Do not expose the secret in a URL capture, logs, terminal output, or
-   this document.
+   playback, account-based progress merge after signing in on a second device/browser, browser
+   console, and an owner-performed valid `/api/revalidate` request. Do not expose the secret in a
+   URL capture, logs, terminal output, or this document.
 4. Append PR URL, CI result, merge SHA, migration confirmation, deployment URL/SHA, and each
    production smoke-test result to this handoff. Keep the old Sprout credentials until the 60-day
    rollback window ends.
@@ -127,9 +129,9 @@ Phase 4.
   `ByteString` failure. It was replaced through the installed GitHub CLI's direct secret-body
   path after trimming the BOM; values were never displayed.
 - The old Sprout variables and its Phase 2 capability-scoped RLS repair remain untouched for the
-  60-day rollback window. `/api/sync` is deliberately retargeted to Cubad `legacy_sync`; the
-  legacy SHA-256 `cubad:<passcode>` compatibility behavior remains enabled until the completed
-  migration is independently confirmed in the two-browser owner test.
+  60-day rollback window. The migrated `legacy_sync` data remains intact, but the passcode route,
+  UI, and one-time import action are retired. After the verified migration integrity rerun, the
+  account-authenticated `/api/state` merge became the only progress-sync mechanism.
 
 ### Migration confirmation
 
@@ -163,9 +165,24 @@ the promotion was needed because the rollback had left the public alias on the e
 | Tutor | Passed. The production tutor dialog reported its configured Gemini server key, accepted a course question, and returned a streamed answer. |
 | Client error sweep | No Cubad application error or failed response was observed. Chrome reported only its known extension listener-channel closure message on prior route navigations; it has no Cubad stack/location and was treated as browser-extension noise. |
 | Creator-authorized upload | Pending owner-only test; no creator/admin credential was invented or used. The RLS policy and secure upload path were exercised by the migration/RLS gates. |
-| Two-browser legacy-passcode sync | Pending owner-only test using a real passcode selected by the owner; no passcode was requested or recorded. |
+| Legacy-passcode sync | Retired by the account-authenticated sync follow-up. No passcode is collected, stored, or sent by runtime code. |
 | Valid `/api/revalidate` | Pending owner-only test using the existing sensitive secret without exposing it in a URL capture, logs, shell history, or this document. The invalid-secret 401 gate passed locally. |
 
+### Authenticated-sync follow-up (2026-07-18)
+
+- The user requested that identity be the sole cross-device mechanism now that accounts exist.
+  The passcode `SyncCard`, import form, `/api/sync` endpoint, and hash helper were removed.
+  Existing migrated `legacy_sync` rows were deliberately not deleted.
+- `SyncManager` now pulls, union-merges, applies, and writes account state through `/api/state`
+  after a `SIGNED_IN` event, on route load, and after a debounced local state change. Obsolete
+  locally stored passcodes are cleared without being read or transmitted.
+- Regression coverage confirms unauthenticated sessions issue no sync request and authenticated
+  sessions call only `/api/state`. `npm test` passed 4 files / 18 tests; content validation passed.
+  `npm run lint` had zero errors and only the accepted legacy React warnings (9 after removing the
+  passcode UI). A clean `npm run build` compiled and type-checked; prerendering could not continue
+  in this secret-free worktree because no local Supabase build variables are present. No secret was
+  generated, displayed, downloaded, or committed for that check.
+
 The production code/data cutover is therefore live and verified. Keep Sprout available and do not
-remove its rollback variables until the three owner-only checks above are recorded and the 60-day
-rollback window has elapsed.
+remove its rollback variables until the two remaining owner-only checks above are recorded and the
+60-day rollback window has elapsed.
