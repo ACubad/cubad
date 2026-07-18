@@ -48,7 +48,7 @@ export function SubjectPicker({
             const units = unitsBySubject[s.slug] ?? [];
             let done = 0;
             let total = 0;
-            if (s.kind === "walkthrough") {
+            if (s.section_order === "walkthrough") {
               total = units.reduce((n, u) => n + (u.questions?.length ?? 0), 0);
               done = units.reduce(
                 (n, u) =>

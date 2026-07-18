@@ -1,24 +1,10 @@
+import { SubjectHome } from "@/components/SubjectHome";
+import { getSubject, getUnits } from "@/lib/content-db";
 import { notFound } from "next/navigation";
-import { getSubject, getSubjects, getUnits } from "@/lib/content";
-import { HomeView } from "@/components/HomeView";
-import { StudyHomeView } from "@/components/StudyHomeView";
 
-export function generateStaticParams() {
-  return getSubjects().map((s) => ({ subject: s.slug }));
-}
-
-export default async function SubjectHomePage({
-  params,
-}: {
-  params: Promise<{ subject: string }>;
-}) {
+export default async function SubjectHomePage({ params }: { params: Promise<{ subject: string }> }) {
   const { subject: subjectSlug } = await params;
-  const subject = getSubject(subjectSlug);
+  const subject = await getSubject(subjectSlug);
   if (!subject) notFound();
-  const units = getUnits(subjectSlug);
-
-  if (subject.kind === "walkthrough") {
-    return <HomeView subject={subjectSlug} units={units} />;
-  }
-  return <StudyHomeView subject={subject} units={units} />;
+  return <SubjectHome subject={subject} units={await getUnits(subjectSlug)} />;
 }
