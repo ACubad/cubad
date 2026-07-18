@@ -1,26 +1,11 @@
+import { UnitPage } from "@/components/UnitPage";
+import { getSubject, getUnit } from "@/lib/content-db";
 import { notFound } from "next/navigation";
-import { getSubject, getSubjects, getUnit, getUnits } from "@/lib/content";
-import { UnitView } from "@/components/UnitView";
-import { StudyUnitView } from "@/components/StudyUnitView";
 
-export function generateStaticParams() {
-  return getSubjects().flatMap((s) =>
-    getUnits(s.slug).map((u) => ({ subject: s.slug, slug: u.slug }))
-  );
-}
-
-export default async function UnitPage({
-  params,
-}: {
-  params: Promise<{ subject: string; slug: string }>;
-}) {
+export default async function UnitRoutePage({ params }: { params: Promise<{ subject: string; slug: string }> }) {
   const { subject: subjectSlug, slug } = await params;
-  const subject = getSubject(subjectSlug);
-  const unit = getUnit(subjectSlug, slug);
+  const subject = await getSubject(subjectSlug);
+  const unit = subject ? await getUnit(subjectSlug, slug) : undefined;
   if (!subject || !unit) notFound();
-
-  if (subject.kind === "walkthrough") {
-    return <UnitView subject={subjectSlug} unit={unit} />;
-  }
-  return <StudyUnitView subject={subjectSlug} unit={unit} />;
+  return <UnitPage subject={subject} unit={unit} />;
 }

@@ -1,4 +1,5 @@
-import { getUnit } from "@/lib/content";
+import { getUnit } from "@/lib/content-db";
+import { createServiceRoleClient } from "@/lib/supabase/server";
 import type { NoteSection } from "@/lib/types";
 
 export const maxDuration = 300;
@@ -16,31 +17,26 @@ interface PodcastBody {
   force?: boolean;
 }
 
-/* ---------- cloud storage: Supabase Storage (public "podcasts" bucket) ---------- */
+/* ---------- cloud storage: new Cubad Supabase project's public podcasts bucket ---------- */
 
-const SB_URL = process.env.SUPABASE_URL;
-const SB_KEY = process.env.SUPABASE_ANON_KEY;
 const BUCKET = "podcasts";
-
-const hasStorage = () => Boolean(SB_URL && SB_KEY);
+const hasStorage = () =>
+  Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
 
 const audioPath = (subject: string, unitSlug: string, lang: string) =>
   `${subject}/${unitSlug}/${lang}.wav`;
 const scriptPath = (subject: string, unitSlug: string, lang: string) =>
   `${subject}/${unitSlug}/${lang}.json`;
 
-const publicUrl = (path: string) =>
-  `${SB_URL}/storage/v1/object/public/${BUCKET}/${path}`;
-
 /** Returns the public URL if the object exists, else null. */
 async function storedUrl(path: string): Promise<string | null> {
   if (!hasStorage()) return null;
-  try {
-    const res = await fetch(publicUrl(path), { method: "HEAD" });
-    return res.ok ? publicUrl(path) : null;
-  } catch {
-    return null;
-  }
+  const supabase = createServiceRoleClient();
+  const dir = path.split("/").slice(0, -1).join("/");
+  const filename = path.split("/").pop()!;
+  const { data, error } = await supabase.storage.from(BUCKET).list(dir, { search: filename });
+  if (error || !data?.some((file) => file.name === filename)) return null;
+  return supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
 }
 
 async function storeObject(
@@ -49,26 +45,16 @@ async function storeObject(
   contentType: string
 ): Promise<string | null> {
   if (!hasStorage()) return null;
-  try {
-    const res = await fetch(`${SB_URL}/storage/v1/object/${BUCKET}/${path}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${SB_KEY}`,
-        apikey: SB_KEY as string,
-        "Content-Type": contentType,
-        "x-upsert": "true",
-      },
-      body: typeof body === "string" ? body : new Uint8Array(body),
-    });
-    if (!res.ok) {
-      console.error("supabase upload failed", res.status, (await res.text()).slice(0, 300));
-      return null;
-    }
-    return publicUrl(path);
-  } catch (e) {
-    console.error("supabase upload error", e);
+  const supabase = createServiceRoleClient();
+  const payload = typeof body === "string" ? body : new Uint8Array(body);
+  const { error } = await supabase.storage
+    .from(BUCKET)
+    .upload(path, payload, { contentType, upsert: true });
+  if (error) {
+    console.error("supabase upload failed", error.message);
     return null;
   }
+  return supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
 }
 
 /**
@@ -80,7 +66,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const subject = searchParams.get("subject");
   const unitSlug = searchParams.get("unit");
-  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), blob: hasStorage() };
+  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), storage: hasStorage() };
 
   if (!subject || !unitSlug || !hasStorage()) {
     return Response.json({ ...base, tr: null, en: null });
@@ -290,7 +276,7 @@ export async function POST(request: Request) {
   const key = process.env.GEMINI_API_KEY || userKey;
   if (!key) return Response.json({ error: "no-key" }, { status: 401 });
 
-  const unit = getUnit(subject, unitSlug);
+  const unit = await getUnit(subject, unitSlug);
   if (!unit || !unit.notes?.length) {
     return Response.json({ error: "not-found" }, { status: 404 });
   }

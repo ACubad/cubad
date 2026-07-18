@@ -154,7 +154,15 @@ export interface Question {
 
 export interface SubjectMeta {
   slug: string;
+  /**
+   * @deprecated use `section_order` instead. Kept only so `lib/content.ts`'s fixture
+   * mapping (content/subjects.json still has a `kind` key) type-checks without a data
+   * rewrite. Never branch UI on this field — see
+   * docs/plans/productization/03-content-db-unified-ui.md D5.
+   */
   kind: "walkthrough" | "study";
+  /** 'walkthrough' = questions-first section order; 'study' = podcast/notes-first. */
+  section_order: "walkthrough" | "study";
   title: Bi;
   tagline: Bi;
 }

@@ -1,8 +1,7 @@
 import { createHash } from "node:crypto";
+import { createServiceRoleClient } from "@/lib/supabase/server";
 
-const SB_URL = process.env.SUPABASE_URL;
-const SB_KEY = process.env.SUPABASE_ANON_KEY;
-const TABLE = "cubad_sync";
+const TABLE = "legacy_sync";
 
 interface SyncBody {
   code: string;
@@ -14,24 +13,14 @@ function rowId(code: string): string {
   return createHash("sha256").update(`cubad:${code.trim()}`).digest("hex");
 }
 
-/**
- * The legacy sprout table treats the row hash as a passcode-derived capability.
- * Its RLS policies require this exact header to match the row id, preventing an
- * anonymous caller from listing or writing unrelated passcode rows.
- */
-const sbHeaders = (id: string) => ({
-  apikey: SB_KEY as string,
-  Authorization: `Bearer ${SB_KEY}`,
-  "Content-Type": "application/json",
-  "x-cubad-sync-id": id,
-});
-
 export async function GET() {
-  return Response.json({ enabled: Boolean(SB_URL && SB_KEY) });
+  return Response.json({
+    enabled: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
+  });
 }
 
 export async function POST(request: Request) {
-  if (!SB_URL || !SB_KEY) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return Response.json({ error: "sync-unavailable" }, { status: 503 });
   }
 
@@ -47,6 +36,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "bad-code" }, { status: 400 });
   }
   const id = rowId(code);
+  const supabase = createServiceRoleClient();
 
   try {
     if (body.state !== undefined) {
@@ -55,34 +45,33 @@ export async function POST(request: Request) {
       if (payload.length > 3_000_000) {
         return Response.json({ error: "too-large" }, { status: 413 });
       }
-      const res = await fetch(`${SB_URL}/rest/v1/${TABLE}`, {
-        method: "POST",
-        headers: {
-          ...sbHeaders(id),
-          Prefer: "resolution=merge-duplicates,return=representation",
-        },
-        body: JSON.stringify({ id, state: body.state, updated_at: new Date().toISOString() }),
-      });
-      if (!res.ok) {
-        console.error("sync upsert failed", res.status, (await res.text()).slice(0, 200));
+      const { data, error } = await supabase
+        .from(TABLE)
+        .upsert(
+          { id, state: body.state, updated_at: new Date().toISOString() },
+          { onConflict: "id" }
+        )
+        .select("updated_at")
+        .single();
+      if (error) {
+        console.error("sync upsert failed", error.message);
         return Response.json({ error: "upstream" }, { status: 502 });
       }
-      const rows = (await res.json()) as { updated_at: string }[];
-      return Response.json({ ok: true, updated_at: rows[0]?.updated_at ?? null });
+      return Response.json({ ok: true, updated_at: data?.updated_at ?? null });
     }
 
-    const res = await fetch(
-      `${SB_URL}/rest/v1/${TABLE}?id=eq.${id}&select=state,updated_at`,
-      { headers: sbHeaders(id) }
-    );
-    if (!res.ok) {
-      console.error("sync read failed", res.status);
+    const { data, error } = await supabase
+      .from(TABLE)
+      .select("state, updated_at")
+      .eq("id", id)
+      .maybeSingle();
+    if (error) {
+      console.error("sync read failed", error.message);
       return Response.json({ error: "upstream" }, { status: 502 });
     }
-    const rows = (await res.json()) as { state: unknown; updated_at: string }[];
     return Response.json(
-      rows.length > 0
-        ? { state: rows[0].state, updated_at: rows[0].updated_at }
+      data
+        ? { state: data.state, updated_at: data.updated_at }
         : { state: null, updated_at: null }
     );
   } catch (e) {
