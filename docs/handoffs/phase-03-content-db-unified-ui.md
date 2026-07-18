@@ -46,6 +46,7 @@ revalidation request remain account/credential-holder-only checks. Do not begin 
 | `4f98a49` | Show a persisted quiz result after a browser refresh |
 | `d47f0e5` | Retire passcode sync in favor of authenticated account sync |
 | `84a4797` | Harden account sync and make clean-stack RLS grants explicit |
+| `6c4e31c` | Bind queued resets to their initiating account |
 
 ## Pre-merge validation evidence
 
