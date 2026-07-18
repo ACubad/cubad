@@ -101,7 +101,7 @@ mid-phase (master §8.7). Create it in Task 2.0.
 
 ## Task 2.0 — Preflight & branch
 
-- [ ] From `cubad/`, confirm Phase 1 landed and packages exist:
+- [x] From `cubad/`, confirm Phase 1 landed and packages exist:
   ```bash
   cd cubad
   git checkout main && git pull
@@ -114,11 +114,11 @@ mid-phase (master §8.7). Create it in Task 2.0.
   ```bash
   npm install @supabase/ssr @supabase/supabase-js
   ```
-- [ ] Create the phase branch:
+- [x] Create the phase branch:
   ```bash
   git checkout -b feat/phase-2-auth-profiles
   ```
-- [ ] Confirm the local DB resets cleanly before you add migrations (baseline sanity):
+- [x] Confirm the local DB resets cleanly before you add migrations (baseline sanity):
   ```bash
   npx supabase db reset
   ```
@@ -135,16 +135,16 @@ record it and surface, do not patch Phase 1 migrations from here.
 Two places must agree: the **Supabase dashboard** (live project) and **`supabase/config.toml`**
 (so `supabase db reset` / branches reproduce it).
 
-- [ ] **Dashboard** → Authentication → Sign In / Providers → **Email**: enable **Email**,
+- [x] **Dashboard** → Authentication → Sign In / Providers → **Email**: enable **Email**,
   enable **Confirm email** (email confirmation ON), keep "Secure email change" ON. Password
   policy: leave Supabase defaults (min length 8) — master says defaults are fine.
-- [ ] **Dashboard** → Authentication → URL Configuration:
+- [x] **Dashboard** → Authentication → URL Configuration:
   - **Site URL:** `https://cubad.vercel.app`
   - **Redirect URLs (allow list)** — add all of:
     - `http://localhost:3000/**`
     - `https://cubad.vercel.app/**`
     (The `/**` wildcard covers `/auth/confirm`, `/auth/reset-password`, `/onboarding`.)
-- [ ] **`supabase/config.toml`** — ensure the `[auth]` block matches (edit or add; keep Phase 1
+- [x] **`supabase/config.toml`** — ensure the `[auth]` block matches (edit or add; keep Phase 1
   keys intact):
   ```toml
   [auth]
@@ -167,7 +167,7 @@ Two places must agree: the **Supabase dashboard** (live project) and **`supabase
   > **Why both:** the dashboard is the live prod setting; `config.toml` keeps local dev and
   > future preview branches identical. `site_url` differs by env (localhost locally, the Vercel
   > URL in the dashboard) — that is expected.
-- [ ] Verify locally:
+- [x] Verify locally:
   ```bash
   npx supabase db reset
   ```
@@ -184,11 +184,11 @@ Two places must agree: the **Supabase dashboard** (live project) and **`supabase
 Supabase's built-in SMTP sends ~2–3 emails/hour — unusable. Route auth emails through Resend
 (D2/D10). **No npm package is needed** — Supabase's SMTP client sends; Resend is just the relay.
 
-- [ ] Get a Resend API key: resend.com → API Keys → Create (Sending access). Store it:
+- [x] Get a Resend API key: resend.com → API Keys → Create (Sending access). Store it:
   - Add `RESEND_API_KEY=re_...` to `cubad/.env.local` (gitignored — for reference/future app
     use; auth emails don't read it from the app).
   - **Never commit it.** Ask the human for the key if you don't have it (master §11).
-- [ ] **Dashboard** → Authentication → Emails → **SMTP Settings** → enable **Custom SMTP**:
+- [x] **Dashboard** → Authentication → Emails → **SMTP Settings** → enable **Custom SMTP**:
   - **Sender email:** `onboarding@resend.dev`
   - **Sender name:** `cubad`
   - **Host:** `smtp.resend.com`
@@ -196,7 +196,7 @@ Supabase's built-in SMTP sends ~2–3 emails/hour — unusable. Route auth email
   - **Username:** `resend`
   - **Password:** the `RESEND_API_KEY` value
   - **Minimum interval between emails:** `60` seconds (default is fine).
-- [ ] **`supabase/config.toml`** — record the SMTP block (password comes from env, never inline):
+- [x] **`supabase/config.toml`** — record the SMTP block (password comes from env, never inline):
   ```toml
   [auth.email.smtp]
   enabled = true
@@ -230,7 +230,7 @@ non-owner address on the free sender → looks broken but is the tier limit; use
 `{{ .ConfirmationURL }}` (client-side hash flow) — we must replace them. **Verified against
 current Supabase Next.js server-side-auth docs.**
 
-- [ ] **Dashboard** → Authentication → Emails → Templates → **Confirm signup** → set the link to:
+- [x] **Dashboard** → Authentication → Emails → Templates → **Confirm signup** → set the link to:
   ```html
   <h2>Confirm your cubad account</h2>
   <p>Follow this link to confirm your email and start studying:</p>
@@ -238,7 +238,7 @@ current Supabase Next.js server-side-auth docs.**
   ```
   > `type=email` is correct for signup confirmation (an `EmailOtpType`). `next=/onboarding`
   > sends confirmed users straight into onboarding.
-- [ ] **Reset password** template → set the link to:
+- [x] **Reset password** template → set the link to:
   ```html
   <h2>Reset your cubad password</h2>
   <p>Follow this link to choose a new password:</p>
@@ -246,7 +246,7 @@ current Supabase Next.js server-side-auth docs.**
   ```
   > `type=recovery` establishes a temporary session; the confirm route then lands the user on
   > `/auth/reset-password` where they set a new password (Task 2.13).
-- [ ] (Optional but recommended) **Change email address** template → same pattern with
+- [x] (Optional but recommended) **Change email address** template → same pattern with
   `type=email_change&next=/account`.
 
 **Manual check:** these are dashboard-only; there is no build to run. Templates are validated
@@ -2632,3 +2632,16 @@ This phase adds files/migrations and lightly edits `lib/sync.ts`, `lib/i18n.tsx`
      `**/*.test.ts` files.
 
 _(executing agents record further deviations below per master §11)_
+
+- **2026-07-18 — Task 2.1:** The linked existing project `qjcaangaxpkihxxzexpq` was updated
+  through authenticated `supabase config push` rather than the dashboard UI. The remote Site URL
+  is `https://cubad.vercel.app`; the committed local config intentionally remains
+  `http://localhost:3000`. Pre-existing remote MFA and OTP settings were preserved after the
+  initial config-sync drift check.
+- **2026-07-18 — Task 2.2:** A real Resend key was supplied in the ignored `.env.local` and
+  custom SMTP was configured for the existing `cubad` project. The current Supabase SMTP page has
+  no dashboard "Send test" control, so delivery will be verified by the required real sign-up
+  flow in Task 2.22 rather than by a nonexistent dashboard action.
+- **2026-07-18 — Task 2.3:** Confirm-signup, reset-password, and change-email templates were
+  configured in the existing Supabase dashboard with the required `token_hash` routes. End-to-end
+  delivery and token exchange remain part of the Task 2.22 auth-flow gate.
