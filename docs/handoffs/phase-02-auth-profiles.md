@@ -1,6 +1,6 @@
 # Phase 2 handoff — Auth, Profiles & Server-side Progress
 
-**Status:** Implementation and all local gates complete; publishing/merge/deployment pending GitHub CLI installation and authentication on this workstation.
+**Status:** Closed — merged to `main` and deployed to the existing Vercel production project.
 
 **Branch:** `feat/phase-2-auth-profiles` (created from updated `main`)
 
@@ -28,8 +28,8 @@
 - `51fa84a` `feat(onboarding): wizard, country list, legacy passcode import`
 - `a5bc91c` `feat(progress): /api/state transport; account-aware sync + reset`
 - `0b8b54c` `feat(account): account page + header account menu`
-- Current final validation commit: `test(auth): full gate + RLS negative-path verification`
-- Blocker-resolution commit: `fix(gate): restore content test and anonymous passcode sync`
+- `7d9a800` `test(auth): full gate + RLS negative-path verification`
+- `5b195b4` `fix(gate): restore content test and anonymous passcode sync`
 
 ## Validation evidence
 
@@ -86,7 +86,14 @@ The complete task log and dashboard-only limitation notes are in
 
 ## Merge/deployment evidence
 
-Local validation is complete. The branch has not been pushed and no Phase 2 PR, merge, CI run, or
-Vercel deployment exists yet because GitHub CLI is unavailable on this workstation. After it is
-installed and authenticated, record the PR, merge commit, CI, and existing-Vercel deployment
-evidence here. Do not begin Phase 3 as part of that work.
+- Ready PR: [#2](https://github.com/ACubad/cubad/pull/2), with the full validation and security
+  rationale in its description. The required GitHub Actions CI run passed:
+  [build-and-test](https://github.com/ACubad/cubad/actions/runs/29646851600).
+- Merge: PR #2 merged into `main` on 2026-07-18 at `de72384073af9bae9b641db6fafb2d9bee2360da`.
+- Deployment: the existing Vercel project's production deployment for that merge succeeded:
+  [Vercel deployment](https://vercel.com/acubads-projects/cubad/7bncq62fZBRzLq5q3CHcT6ZrEnwg).
+- Live production verification against `https://cubad.vercel.app` passed: root, subjects, unit,
+  walkthrough, and valid card/practice/quiz routes returned 200; tutor and podcast endpoints
+  returned 200; anonymous `/api/state` returned 401; and `/account` returned 307 to sign-in.
+
+No Phase 3 work was started.
