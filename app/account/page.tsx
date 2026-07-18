@@ -1,7 +1,6 @@
 import { requireOnboarded } from "@/lib/auth/dal";
 import { createServiceRoleClient } from "@/lib/supabase/server";
 import { EditProfileForm } from "@/components/EditProfileForm";
-import { ImportPasscodeForm } from "@/components/ImportPasscodeForm";
 import { SignOutButton } from "@/components/auth/SignOutButton";
 import { AccountHeadingClient } from "@/components/AccountHeadingClient";
 import type { TrackOption } from "@/components/OnboardingWizard";
@@ -26,7 +25,6 @@ export default async function AccountPage() {
       <section className="rounded-2xl border border-line bg-card p-6">
         <EditProfileForm profile={profile} tracks={trackList} />
       </section>
-      <ImportPasscodeForm />
       <SignOutButton />
     </div>
   );
