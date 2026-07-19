@@ -1,11 +1,19 @@
 import { QuizRunner } from "@/components/QuizRunner";
-import { getSubject, getUnit } from "@/lib/content-db";
-import { notFound } from "next/navigation";
+import { getAccess } from "@/lib/access/access";
+import { getSubjectCatalog, getUnitContent } from "@/lib/content-db";
+import { notFound, redirect } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export default async function QuizPage({ params }: { params: Promise<{ subject: string; slug: string }> }) {
   const { subject: subjectSlug, slug } = await params;
-  const subject = await getSubject(subjectSlug);
-  const unit = subject ? await getUnit(subjectSlug, slug) : undefined;
-  if (!subject || !unit || (unit.quiz?.length ?? 0) === 0) notFound();
+  const catalog = await getSubjectCatalog(subjectSlug);
+  const meta = catalog?.units.find((entry) => entry.slug === slug);
+  if (!catalog || !meta) notFound();
+  if (!(await getAccess(catalog.subject.id, meta.id)).canStudy) {
+    redirect(`/s/${subjectSlug}/unit/${slug}`);
+  }
+  const unit = await getUnitContent(subjectSlug, slug);
+  if (!unit || (unit.quiz?.length ?? 0) === 0) notFound();
   return <QuizRunner subject={subjectSlug} unit={unit} />;
 }
