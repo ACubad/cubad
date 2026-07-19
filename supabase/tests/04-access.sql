@@ -342,7 +342,10 @@ begin
   begin
     update public.profiles set role = 'admin' where user_id = auth.uid();
     raise exception 'FAIL student changed protected profile role';
-  exception when others then
+  exception
+  when insufficient_privilege then
+    null;
+  when others then
     if sqlerrm <> 'profiles.role can only be changed by an administrator' then
       raise;
     end if;

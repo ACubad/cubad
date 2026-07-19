@@ -4281,6 +4281,49 @@ safely:
 
 ## Changelog / deviations
 
+- **2026-07-19 — review hardening (execution):** the implementation review identified two
+  missing boundaries. Subject publish/archive now invalidates both the subject cache and the
+  shared published-subject list, preventing a stale home/catalog list after status changes.
+  Migration `20260719191243_protect_profile_email_updates.sql` also replaces the authenticated
+  role's table-wide profile UPDATE grant with column-level grants for the existing onboarding
+  fields. The auth-trigger-maintained `profiles.email` projection is therefore not client-
+  writable, while normal owner onboarding updates still pass RLS. Clean-stack SQL and disposable
+  local/remote PostgREST probes cover the hardened behavior. The same review cycle also hardened
+  every validator collection iteration against non-array uploads, checks every parallel user-
+  detail query result, and corrected the SQL audit-atomicity assertion to match the logged
+  `subject.create` action and slug detail.
+
+- **2026-07-19 — Phase 4 preview-model reconciliation (execution):** Phase 4's merged
+  first-chosen-preview architecture supersedes Task 6's stale static `is_free` control. Phase 5
+  therefore does **not** create `admin_set_unit_free`, does not accept `p_is_free` in the unit
+  upsert RPC, and does not render a per-unit Free/Locked toggle. New unit rows retain the
+  schema-compatible `is_free = false` default; updates preserve any historical metadata value.
+  No policy, RPC, Server Action, or page added by this phase treats `units.is_free` as an access
+  bypass. A published unit is a preview *candidate* until a browser/account chooses its one
+  immutable Phase 4 selection; `get_unit_content`, `get_current_preview_unit`, and
+  `has_subject_access` remain the authoritative gate. Task 6 acceptance is correspondingly
+  adapted to prove upload/draft/publish behavior plus `is_free` non-authority instead of toggling
+  a globally fixed free lesson.
+
+- **2026-07-19 — installed `tsx` API reconciliation (execution):** the plan's
+  `node:module register("tsx/esm", ...)` loader path is rejected by the installed `tsx` on
+  Node 22 because it maps to the deprecated loader hook. The wrapper uses the installed
+  package's supported programmatic `tsImport()` API from `tsx/esm/api`, preserving the locked
+  `node scripts/validate-content.mjs` invocation and identical CLI output.
+
+- **2026-07-19 — published-revision preservation (execution):** browser acceptance exposed a
+  contradiction in the original single-row draft workflow: replacing a published unit's
+  `content` and setting `status = 'draft'` made the student route disappear, while Task 14
+  explicitly requires the old live tagline to remain visible until Publish. Migration
+  `20260719155117_preserve_published_unit_during_draft.sql` adds a nullable
+  `units.published_content` snapshot. Admin upload preserves the prior live JSON there while the
+  new `content` stays draft-only; `get_unit_content` returns the snapshot to an entitled/selected
+  student and the draft to an admin; raw-table RLS continues to hide the row; the public catalog
+  uses snapshot metadata; preview claiming treats the retained snapshot as a published candidate;
+  and Publish promotes `content` then clears the snapshot. A never-published draft has no snapshot
+  and stays invisible. SQL and two-session Playwright acceptance now prove old-live-while-draft,
+  admin draft preview, and immediate no-redeploy promotion.
+
 - **2026-07-16 — post-audit fixes (plan-authoring stage, before any execution):**
   1. Task 11: fixed a confirmed TS defect — `downloadCsv`'s parameter was typed with a
      non-distributing conditional (`GenerateCodesState extends { status: "ok"; codes: infer C }
