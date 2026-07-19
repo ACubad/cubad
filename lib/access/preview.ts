@@ -1,12 +1,18 @@
 import "server-only";
 
 import { getPreviewCapabilityHash } from "@/lib/access/preview-cookie";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
 
 /** Preserve an anonymous selection for the signed-in user, or bind a requested first choice. */
 export async function claimPreviewForCurrentRequest(unitId: string | null): Promise<string | null> {
-  const supabase = await createClient();
-  const { data, error } = await supabase.rpc("claim_unit_preview", {
+  const userClient = await createClient();
+  const {
+    data: { user },
+  } = await userClient.auth.getUser();
+  // Anonymous callers cannot execute the claim RPC directly. Only this trusted server path uses
+  // the service role; authenticated callers retain auth.uid() so their durable row is immutable.
+  const rpcClient = user ? userClient : createServiceRoleClient();
+  const { data, error } = await rpcClient.rpc("claim_unit_preview", {
     p_unit_id: unitId,
     p_preview_hash: await getPreviewCapabilityHash(),
   });

@@ -2132,7 +2132,7 @@ holds against a real student token.
   ```
   Expected: lint clean; all vitest green; validator OK; build succeeds; reset succeeds; probes
   print `ALL PHASE-4 REDEEM PROBES PASSED`.
-- [ ] Open the PR from `feat/phase-4-catalog-tiers-access` → `main`. In the description, paste:
+- [x] Open the PR from `feat/phase-4-catalog-tiers-access` → `main`. In the description, paste:
   the four negative-path results (Task 15), the probe output (Task 13), and the Task 14 table.
   ```bash
   git push -u origin feat/phase-4-catalog-tiers-access
@@ -2202,6 +2202,15 @@ This phase is additive (new functions, new policies, new files, one seed). To re
 
 ## Changelog / deviations
 
+- **2026-07-19 — review security hardening:** PR review identified that the public Supabase anon
+  role could call `claim_unit_preview(uuid,text)` with attacker-chosen hashes. A new additive
+  migration revokes anon execution; anonymous choices now use the trusted Next.js service-role
+  path, while authenticated execution retains `auth.uid()` binding. The same migration restores
+  admin draft parity in raw `units` RLS and schedules a daily indexed purge of expired anonymous
+  capability rows. Review follow-ups also centralize same-site redirect validation (including
+  backslash rejection), bind paywall profile reads by `user_id`, stabilize the date badge, and
+  add an admin-only draft catalog loader. Applied migration history was not edited to retrofit
+  `NOT VALID` constraint syntax after the fact.
 - **2026-07-19 — approved first-chosen-preview extension (recorded before gate implementation):**
   The product owner explicitly superseded the original D6/D7 account-only, static-`is_free`
   assumption. A visitor or unentitled student may study exactly one full unit of their choice.

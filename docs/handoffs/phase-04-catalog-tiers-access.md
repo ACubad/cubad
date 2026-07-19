@@ -54,10 +54,11 @@ All migrations reset cleanly locally and are applied to the Cubad ledger:
 | `20260719124315_phase4_monetization_rls.sql` | Least-privilege grants and monetization RLS policies |
 | `20260719130025_phase4_seed_term_all_tier.sql` | Canonical published 120-day all-access tier |
 | `20260719130920_phase4_profile_client_privileges.sql` | Restore owner profile SELECT/UPDATE on a clean stack |
+| `20260719135536_phase4_review_security_hardening.sql` | Trusted anonymous claims, admin RLS parity, and scheduled expiry purge |
 
-`supabase db push --linked --dry-run` listed only these eight migrations. The project reference
-was asserted as `qjcaangaxpkihxxzexpq` before push. The subsequent ledger shows matching local and
-remote versions for all eight. The CLI reported a post-apply pg-delta cache-catalog certificate
+The initial `supabase db push --linked --dry-run` listed only the first eight migrations. The
+project reference was asserted as `qjcaangaxpkihxxzexpq` before push. The subsequent ledger shows
+matching local and remote versions. The CLI reported a post-apply pg-delta cache-catalog certificate
 warning, but did not roll back; the ledger and live PostgREST probes below confirm the applied
 state.
 
@@ -66,6 +67,8 @@ state.
 `supabase/tests/04-access.sql` runs transaction-scoped synthetic fixtures and reports:
 
 - hash parity between application normalization and SQL;
+- anonymous claim execute denied at the public API, with authenticated/service execution retained;
+- an indexed daily purge job for expired anonymous capability rows;
 - immutable one-unit anonymous selection and durable promotion;
 - unentitled and second-unit denial;
 - invalid, revoked, expired, exhausted, valid, and duplicate code branches;
@@ -82,7 +85,7 @@ Result: `ALL PHASE-4 ACCESS PROBES PASSED`.
 redemption slot. Result: exactly one success, one exhausted response, and matching 1:1 redeemed
 and ledger counts.
 
-After the remote migration, `scripts/verify-phase4-postgrest.mjs` created an ephemeral confirmed
+After the remote migrations, `scripts/verify-phase4-postgrest.mjs` created an ephemeral confirmed
 student and exercised raw PostgREST with its real JWT. It passed anonymous one-unit isolation,
 profile ownership/role protection, raw `units` filtering, empty student `access_codes`, rejected
 student entitlement insertion, atomic code redemption, owner entitlement visibility, and catalog
@@ -114,7 +117,7 @@ is first-chosen rather than globally fixed:
 | `supabase db reset` plus content seed | Pass: 2 subjects, 19 units |
 | Phase 4 SQL probes | Pass |
 | Two-session concurrency race | Pass |
-| Vitest | 7 files, 41 tests passed |
+| Vitest | 8 files, 54 tests passed |
 | TypeScript | `npx tsc --noEmit` passed |
 | ESLint | 0 errors, unchanged baseline of 8 warnings |
 | Content validation | 2 subjects, 19 files, 56 walkthrough questions; content OK |
@@ -122,7 +125,22 @@ is first-chosen rather than globally fixed:
 
 ## Pull request, CI, Preview, merge, and Production
 
-_To be completed after the implementation branch is pushed._
+- PR: [#15 - Phase 4: catalog tiers entitlements and access codes](https://github.com/ACubad/cubad/pull/15)
+- GitHub `build-and-test`: passed in 50 seconds.
+- Vercel Preview `dpl_H4MUbSg75jJbQUggMCeqBoLPsFBd`: Ready. Protected smoke through the
+  authenticated Vercel bypass confirmed home rendering, preview chooser/no full content for an
+  unchosen unit, and the `/redeem` sign-in boundary.
+- CodeRabbit completed with six inline threads. All were fixed and revalidated: raw anonymous
+  claim escalation, backslash redirect normalization, admin draft metadata, date hydration,
+  explicit profile ownership filtering, and shared redirect validation. Two useful review nits
+  were also included: admin raw-table parity and scheduled expired-preview cleanup.
+- The suggestion to change CHECK additions to `NOT VALID` was not applied because that migration
+  was already ledger-applied before review; editing applied migration history is forbidden. The
+  constraints were validated successfully on both environments when applied.
+- A Vercel CLI protected-smoke attempt auto-created an empty `cubad-phase4` project before it was
+  linked to the intended project. It had no deployment and was immediately deleted; Vercel then
+  verified it no longer existed and that the existing `cubad` project remained.
+- Merge and Production evidence is appended after the final review cycle.
 
 ## Credential dependencies and human-only actions
 

@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { postAuthDestination } from "@/lib/auth/dal";
 import { claimPreviewForCurrentRequest } from "@/lib/access/preview";
+import { safeNextPath } from "@/lib/navigation";
 
 export type AuthErrorCode =
   | "invalid_credentials"
@@ -71,10 +72,8 @@ export async function signIn(_prev: AuthState, formData: FormData): Promise<Auth
   // Preserve this browser's anonymous first choice only if the account has no durable choice.
   await claimPreviewForCurrentRequest(null);
 
-  const next = String(formData.get("next") ?? "").trim();
-  const dest = next && next.startsWith("/") && !next.startsWith("//")
-    ? next
-    : await postAuthDestination();
+  const next = String(formData.get("next") ?? "");
+  const dest = safeNextPath(next, "") || await postAuthDestination();
   revalidatePath("/", "layout");
   redirect(dest);
 }

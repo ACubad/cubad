@@ -78,26 +78,29 @@ export async function getSubject(slug: string): Promise<SubjectMeta | undefined>
   return subjects.find((subject) => subject.slug === slug);
 }
 
-/** Public-safe catalog metadata. Full unit JSON is mapped on the server and never serialized. */
-export async function getSubjectCatalog(slug: string): Promise<SubjectCatalog | null> {
+/** Catalog metadata loader. The draft-inclusive branch is called only after an admin check. */
+async function getSubjectCatalogByVisibility(
+  slug: string,
+  includeUnpublished: boolean
+): Promise<SubjectCatalog | null> {
   const run = unstable_cache(
     async (): Promise<SubjectCatalog | null> => {
       const supabase = createServiceRoleClient();
-      const { data: subjectRow, error: subjectError } = await supabase
+      let subjectQuery = supabase
         .from("subjects")
         .select("id,slug,title,tagline,section_order")
-        .eq("slug", slug)
-        .eq("status", "published")
-        .maybeSingle();
+        .eq("slug", slug);
+      if (!includeUnpublished) subjectQuery = subjectQuery.eq("status", "published");
+      const { data: subjectRow, error: subjectError } = await subjectQuery.maybeSingle();
       if (subjectError) throw new Error(`getSubjectCatalog(${slug}): ${subjectError.message}`);
       if (!subjectRow) return null;
 
-      const { data, error } = await supabase
+      let unitsQuery = supabase
         .from("units")
         .select("id,subject_id,unit_number,slug,is_free,content")
-        .eq("subject_id", subjectRow.id)
-        .eq("status", "published")
-        .order("unit_number", { ascending: true });
+        .eq("subject_id", subjectRow.id);
+      if (!includeUnpublished) unitsQuery = unitsQuery.eq("status", "published");
+      const { data, error } = await unitsQuery.order("unit_number", { ascending: true });
       if (error) throw new Error(`getSubjectCatalog(${slug}): ${error.message}`);
 
       const subject = {
@@ -122,10 +125,20 @@ export async function getSubjectCatalog(slug: string): Promise<SubjectCatalog | 
       });
       return { subject, units };
     },
-    ["content-db:subject-catalog:v1", slug],
+    ["content-db:subject-catalog:v2", slug, includeUnpublished ? "all" : "published"],
     { tags: [subjectTag(slug), LIST_TAG], revalidate: false }
   );
   return run();
+}
+
+/** Public-safe published catalog metadata. Full unit JSON is never serialized to the client. */
+export async function getSubjectCatalog(slug: string): Promise<SubjectCatalog | null> {
+  return getSubjectCatalogByVisibility(slug, false);
+}
+
+/** Draft-inclusive metadata for a route that has already established the caller is an admin. */
+export async function getAdminSubjectCatalog(slug: string): Promise<SubjectCatalog | null> {
+  return getSubjectCatalogByVisibility(slug, true);
 }
 
 export async function getUnitMeta(subject: string, slug: string): Promise<UnitMeta | null> {

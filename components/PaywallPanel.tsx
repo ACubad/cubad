@@ -42,7 +42,7 @@ export async function PaywallPanel({
   if (user) {
     const supabase = await createClient();
     const [{ data: profile }, { data: tierRows }] = await Promise.all([
-      supabase.from("profiles").select("country_code").maybeSingle(),
+      supabase.from("profiles").select("country_code").eq("user_id", user.id).maybeSingle(),
       supabase
         .from("tiers")
         .select("id,slug,title,description,duration_days,prices")

@@ -99,6 +99,37 @@ values
    '55555555-5555-5555-5555-555555555555', 'subject', '33333333-3333-3333-3333-333333333333',
    30, 5, 0, null, null);
 
+insert into public.anonymous_preview_selections (browser_hash, unit_id, selected_at, expires_at)
+values (
+  repeat('e', 64),
+  '44444444-4444-4444-4444-444444444441',
+  now() - interval '2 days',
+  now() - interval '1 day'
+);
+
+do $$
+declare v_deleted bigint;
+begin
+  if has_function_privilege('anon', 'public.claim_unit_preview(uuid,text)', 'execute') then
+    raise exception 'FAIL anon can directly execute claim_unit_preview';
+  end if;
+  if not has_function_privilege('authenticated', 'public.claim_unit_preview(uuid,text)', 'execute') then
+    raise exception 'FAIL authenticated claim_unit_preview privilege missing';
+  end if;
+  if not exists (
+    select 1 from cron.job where jobname = 'cubad-purge-expired-anonymous-previews'
+  ) then
+    raise exception 'FAIL anonymous preview purge schedule missing';
+  end if;
+  v_deleted := public.purge_expired_anonymous_preview_selections();
+  if v_deleted <> 1 or exists (
+    select 1 from public.anonymous_preview_selections where browser_hash = repeat('e', 64)
+  ) then
+    raise exception 'FAIL expired anonymous preview purge: %', v_deleted;
+  end if;
+  raise notice 'PASS trusted preview claim privileges and scheduled expiry purge';
+end $$;
+
 do $$
 declare
   v_result jsonb;
@@ -275,6 +306,21 @@ begin
   end if;
   raise notice 'PASS admin content access';
 end $$;
+
+set local role authenticated;
+select set_config(
+  'request.jwt.claims',
+  '{"sub":"99999999-9999-9999-9999-999999999999","role":"authenticated"}',
+  true
+);
+do $$
+declare v_count int;
+begin
+  select count(*) into v_count from public.units where slug = 'admin-draft';
+  if v_count <> 1 then raise exception 'FAIL admin raw-table draft access: %', v_count; end if;
+  raise notice 'PASS admin raw-table draft access';
+end $$;
+reset role;
 
 -- Student table access is filtered/denied by RLS and privileges.
 set local role authenticated;

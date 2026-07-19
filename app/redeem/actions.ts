@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import { safeNextPath } from "@/lib/navigation";
 
 export type RedeemState =
   | { status: "idle" }
@@ -15,10 +16,6 @@ const KNOWN_ERRORS = new Set([
   "already-redeemed",
   "rate-limited",
 ]);
-
-function safeNext(value: string): string {
-  return value.startsWith("/") && !value.startsWith("//") ? value : "/";
-}
 
 export async function redeemAction(
   _previous: RedeemState,
@@ -48,7 +45,7 @@ export async function redeemAction(
     return {
       status: "success",
       expiresAt: result.entitlement.expires_at ?? null,
-      next: safeNext(String(formData.get("next") ?? "/")),
+      next: safeNextPath(String(formData.get("next") ?? "/")),
     };
   }
 

@@ -3,8 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { ensurePreviewCapabilityHash } from "@/lib/access/preview-cookie";
+import { claimPreviewForCurrentRequest } from "@/lib/access/preview";
 import { getUnitMeta } from "@/lib/content-db";
-import { createClient } from "@/lib/supabase/server";
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -17,13 +17,8 @@ export async function choosePreviewAction(formData: FormData): Promise<void> {
   const meta = await getUnitMeta(subjectSlug, unitSlug);
   if (!meta) redirect(`/s/${subjectSlug}`);
 
-  const previewHash = await ensurePreviewCapabilityHash();
-  const supabase = await createClient();
-  const { error } = await supabase.rpc("claim_unit_preview", {
-    p_unit_id: meta.id,
-    p_preview_hash: previewHash,
-  });
-  if (error) console.error("claim_unit_preview failed", error.message);
+  await ensurePreviewCapabilityHash();
+  await claimPreviewForCurrentRequest(meta.id);
 
   revalidatePath("/", "layout");
   redirect(`/s/${subjectSlug}/unit/${unitSlug}`);

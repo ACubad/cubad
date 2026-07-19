@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { UpgradeCopy } from "@/components/UpgradeCopy";
 import { getSessionUser } from "@/lib/auth/dal";
+import { safeNextPath } from "@/lib/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -9,8 +10,7 @@ export default async function UpgradePage({
 }: {
   searchParams: Promise<{ next?: string }>;
 }) {
-  const rawNext = (await searchParams).next;
-  const next = rawNext?.startsWith("/") && !rawNext.startsWith("//") ? rawNext : "/";
+  const next = safeNextPath((await searchParams).next);
   if (!(await getSessionUser())) {
     const destination = `/upgrade?next=${encodeURIComponent(next)}`;
     redirect(`/auth/sign-in?next=${encodeURIComponent(destination)}`);

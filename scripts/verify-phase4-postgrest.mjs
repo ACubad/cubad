@@ -53,12 +53,22 @@ try {
   assert(Array.isArray(catalog.value) && catalog.value.length === 2, "two published Hydrology units are required");
   const [unitA, unitB] = catalog.value;
 
+  const publicClaim = await request("/rest/v1/rpc/claim_unit_preview", {
+    method: "POST",
+    body: { p_unit_id: unitA.id, p_preview_hash: browserHash },
+    headers: { "x-cubad-preview-hash": browserHash },
+    allowError: true,
+  });
+  assert(!publicClaim.ok, "anonymous caller minted a preview capability directly");
+
   const anonFirst = await request("/rest/v1/rpc/claim_unit_preview", {
+    token: serviceKey,
     method: "POST",
     body: { p_unit_id: unitA.id, p_preview_hash: browserHash },
     headers: { "x-cubad-preview-hash": browserHash },
   });
   const anonSecond = await request("/rest/v1/rpc/claim_unit_preview", {
+    token: serviceKey,
     method: "POST",
     body: { p_unit_id: unitB.id, p_preview_hash: browserHash },
     headers: { "x-cubad-preview-hash": browserHash },
@@ -75,7 +85,7 @@ try {
     headers: { "x-cubad-preview-hash": browserHash },
   });
   assert(anonAllowed.value && anonDenied.value === null, "anonymous content gate failed");
-  console.log("PASS anonymous one-unit preview over raw PostgREST");
+  console.log("PASS trusted anonymous claim and one-unit preview over raw PostgREST");
 
   const created = await request("/auth/v1/admin/users", {
     token: serviceKey,
