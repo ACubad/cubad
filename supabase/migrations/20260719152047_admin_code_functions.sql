@@ -57,7 +57,7 @@ begin
       hash, p_tier_id, p_scope_type, p_scope_id, p_duration_days, 1,
       p_valid_until, p_batch_id, nullif(btrim(p_note), ''), auth.uid()
     from unnest(p_code_hashes) as hashes(hash)
-    on conflict (code_hash) do nothing
+    on conflict on constraint access_codes_code_hash_key do nothing
     returning access_codes.code_hash;
   get diagnostics v_inserted = row_count;
 
