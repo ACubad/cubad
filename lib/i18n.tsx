@@ -195,8 +195,8 @@ const STRINGS = {
   },
   choosePlan: { en: "Available access plan", tr: "Mevcut erişim planı" },
   paymentComingSoon: {
-    en: "Online payment is not available yet. Use an access code supplied by Cubad.",
-    tr: "Çevrimiçi ödeme henüz kullanılamıyor. Cubad tarafından verilen erişim kodunu kullan.",
+    en: "Pay externally, then send us your receipt for manual verification.",
+    tr: "Harici ödeme yap, ardından elle doğrulama için dekontunu bize gönder.",
   },
   upgradeTitle: { en: "Unlock more lessons", tr: "Daha fazla dersin kilidini aç" },
   upgradeIntro: {
@@ -205,6 +205,7 @@ const STRINGS = {
   },
   daysLabel: { en: "days", tr: "gün" },
   iHaveCode: { en: "I have a code", tr: "Kodum var" },
+  upgradeCta: { en: "Upgrade", tr: "Yükselt" },
   redeemTitle: { en: "Enter your access code", tr: "Erişim kodunu gir" },
   redeemIntro: {
     en: "Type the code exactly as you received it. Codes are single-use per account.",

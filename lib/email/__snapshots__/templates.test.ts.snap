@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-html-en 1`] = `"<div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1c2b33;background:#f6f3eb;padding:24px"><div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e0d4;border-radius:12px;padding:24px"><h1 style="font-size:18px;margin:0 0 12px">Payment approved</h1><p style="font-size:14px;line-height:1.5"><strong>Term — All access</strong> access is now active.</p><p style="font-size:13px;color:#7b8a90;margin:16px 0 4px">Your access code (keep as your receipt):</p><p style="font-family:ui-monospace,monospace;font-size:24px;font-weight:700;letter-spacing:2px;background:#e6f0f2;color:#0e5a6d;padding:12px 16px;border-radius:10px;text-align:center;margin:0 0 16px">CBD-7K3M-9PXQ</p><p style="font-size:13px;line-height:1.5;background:#eef6ee;border-radius:8px;padding:10px 12px">Your access is already active — you do not need to redeem this code. Keep it for your records.</p><p style="font-size:14px;margin-top:12px">Access valid until: <strong>9 November 2026 (UTC)</strong></p><p style="margin-top:16px"><a href="https://cubad.vercel.app" style="background:#0e5a6d;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block">Start studying</a></p><p style="font-size:12px;color:#7b8a90;margin-top:24px">cubad · Pass by understanding.</p></div></div>"`;
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-html-tr 1`] = `"<div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1c2b33;background:#f6f3eb;padding:24px"><div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e0d4;border-radius:12px;padding:24px"><h1 style="font-size:18px;margin:0 0 12px">Ödemeniz onaylandı</h1><p style="font-size:14px;line-height:1.5"><strong>Term — All access</strong> erişiminiz etkinleştirildi.</p><p style="font-size:13px;color:#7b8a90;margin:16px 0 4px">Erişim kodunuz (makbuz olarak saklayın):</p><p style="font-family:ui-monospace,monospace;font-size:24px;font-weight:700;letter-spacing:2px;background:#e6f0f2;color:#0e5a6d;padding:12px 16px;border-radius:10px;text-align:center;margin:0 0 16px">CBD-7K3M-9PXQ</p><p style="font-size:13px;line-height:1.5;background:#eef6ee;border-radius:8px;padding:10px 12px">Erişiminiz zaten açık — bu kodu tekrar girmenize gerek yok. Kaydınız için saklayın.</p><p style="font-size:14px;margin-top:12px">Erişim bitiş tarihi: <strong>9 Kasım 2026 (UTC)</strong></p><p style="margin-top:16px"><a href="https://cubad.vercel.app" style="background:#0e5a6d;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block">Çalışmaya başla</a></p><p style="font-size:12px;color:#7b8a90;margin-top:24px">cubad · Pass by understanding.</p></div></div>"`;
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-subject-en 1`] = `"Payment approved — your access code"`;
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-subject-tr 1`] = `"Ödemeniz onaylandı — erişim kodunuz"`;
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-text-en 1`] = `
+"Payment approved
+
+Term — All access access is now active.
+
+Your access code (keep as your receipt):
+CBD-7K3M-9PXQ
+
+Your access is already active — you do not need to redeem this code. Keep it for your records.
+
+Access valid until: 9 November 2026 (UTC)
+
+https://cubad.vercel.app"
+`;
+
+exports[`payment email templates > renders bilingual approval snapshots with code and no-redeem note > approved-text-tr 1`] = `
+"Ödemeniz onaylandı
+
+Term — All access erişiminiz etkinleştirildi.
+
+Erişim kodunuz (makbuz olarak saklayın):
+CBD-7K3M-9PXQ
+
+Erişiminiz zaten açık — bu kodu tekrar girmenize gerek yok. Kaydınız için saklayın.
+
+Erişim bitiş tarihi: 9 Kasım 2026 (UTC)
+
+https://cubad.vercel.app"
+`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-html-en 1`] = `"<div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1c2b33;background:#f6f3eb;padding:24px"><div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e0d4;border-radius:12px;padding:24px"><h1 style="font-size:18px;margin:0 0 12px">Your payment claim was not approved</h1><p style="font-size:14px;line-height:1.5">We could not verify your payment claim. Reason:</p><p style="font-size:14px;line-height:1.5;background:#f7eaea;border-left:3px solid #b4462f;padding:10px 12px;border-radius:6px">No matching transaction. &lt;reviewed&gt;</p><p style="margin-top:16px"><a href="https://cubad.vercel.app/upgrade" style="background:#0e5a6d;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block">Resubmit</a></p><p style="font-size:12px;color:#7b8a90;margin-top:24px">cubad · Pass by understanding.</p></div></div>"`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-html-tr 1`] = `"<div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1c2b33;background:#f6f3eb;padding:24px"><div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e0d4;border-radius:12px;padding:24px"><h1 style="font-size:18px;margin:0 0 12px">Ödeme bildiriminiz onaylanmadı</h1><p style="font-size:14px;line-height:1.5">Ödeme bildiriminizi doğrulayamadık. Neden:</p><p style="font-size:14px;line-height:1.5;background:#f7eaea;border-left:3px solid #b4462f;padding:10px 12px;border-radius:6px">No matching transaction. &lt;reviewed&gt;</p><p style="margin-top:16px"><a href="https://cubad.vercel.app/upgrade" style="background:#0e5a6d;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block">Yeniden gönder</a></p><p style="font-size:12px;color:#7b8a90;margin-top:24px">cubad · Pass by understanding.</p></div></div>"`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-subject-en 1`] = `"Your payment claim was not approved"`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-subject-tr 1`] = `"Ödeme bildiriminiz onaylanmadı"`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-text-en 1`] = `
+"Your payment claim was not approved
+
+We could not verify your payment claim. Reason:
+No matching transaction. <reviewed>
+
+Resubmit: https://cubad.vercel.app/upgrade"
+`;
+
+exports[`payment email templates > renders bilingual rejection snapshots with an escaped reason > rejected-text-tr 1`] = `
+"Ödeme bildiriminiz onaylanmadı
+
+Ödeme bildiriminizi doğrulayamadık. Neden:
+No matching transaction. <reviewed>
+
+Yeniden gönder: https://cubad.vercel.app/upgrade"
+`;
+
+exports[`payment email templates > renders the admin notification snapshot 1`] = `"New payment claim — Amina H. (Term — All access)"`;
+
+exports[`payment email templates > renders the admin notification snapshot 2`] = `"<div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1c2b33;background:#f6f3eb;padding:24px"><div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e0d4;border-radius:12px;padding:24px"><h1 style="font-size:18px;margin:0 0 12px">New payment claim</h1><table style="width:100%;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 8px 4px 0;color:#7b8a90;vertical-align:top">Student</td><td style="padding:4px 0">Amina H. &lt;amina@example.com&gt;</td></tr><tr><td style="padding:4px 8px 4px 0;color:#7b8a90;vertical-align:top">Tier</td><td style="padding:4px 0">Term — All access</td></tr><tr><td style="padding:4px 8px 4px 0;color:#7b8a90;vertical-align:top">Amount</td><td style="padding:4px 0">15000 TZS</td></tr><tr><td style="padding:4px 8px 4px 0;color:#7b8a90;vertical-align:top">Method</td><td style="padding:4px 0">mpesa</td></tr><tr><td style="padding:4px 8px 4px 0;color:#7b8a90;vertical-align:top">Payer ref</td><td style="padding:4px 0">SFC8KL29XY</td></tr></table><p style="margin-top:16px"><a href="https://cubad.vercel.app/admin/payments/abc" style="background:#0e5a6d;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block">Review claim</a></p><p style="font-size:13px;color:#7b8a90;margin-top:12px">Before approving, check the bank or mobile-money statement for this payer reference and amount.</p><p style="font-size:12px;color:#7b8a90;margin-top:24px">cubad · Pass by understanding.</p></div></div>"`;
+
+exports[`payment email templates > renders the admin notification snapshot 3`] = `
+"New payment claim
+Student: Amina H. <amina@example.com>
+Tier: Term — All access
+Amount: 15000 TZS
+Method: mpesa
+Payer ref: SFC8KL29XY
+
+Review: https://cubad.vercel.app/admin/payments/abc
+
+Before approving, verify the statement."
+`;
