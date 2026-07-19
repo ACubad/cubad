@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { postAuthDestination } from "@/lib/auth/dal";
+import { claimPreviewForCurrentRequest } from "@/lib/access/preview";
 
 export type AuthErrorCode =
   | "invalid_credentials"
@@ -43,7 +44,7 @@ export async function signUp(_prev: AuthState, formData: FormData): Promise<Auth
   if (password !== confirm) return { errorCode: "passwords_mismatch" };
 
   const supabase = await createClient();
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -51,6 +52,9 @@ export async function signUp(_prev: AuthState, formData: FormData): Promise<Auth
     },
   });
   if (error) return { errorCode: mapAuthError(error) };
+  // Local/self-hosted configurations may return a session immediately. Production email
+  // confirmation promotes the preview in /auth/confirm instead.
+  if (data.session) await claimPreviewForCurrentRequest(null);
   return { done: true }; // "check your email"
 }
 
@@ -64,8 +68,13 @@ export async function signIn(_prev: AuthState, formData: FormData): Promise<Auth
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) return { errorCode: mapAuthError(error) };
 
+  // Preserve this browser's anonymous first choice only if the account has no durable choice.
+  await claimPreviewForCurrentRequest(null);
+
   const next = String(formData.get("next") ?? "").trim();
-  const dest = next && next.startsWith("/") ? next : await postAuthDestination();
+  const dest = next && next.startsWith("/") && !next.startsWith("//")
+    ? next
+    : await postAuthDestination();
   revalidatePath("/", "layout");
   redirect(dest);
 }
