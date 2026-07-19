@@ -4281,6 +4281,13 @@ safely:
 
 ## Changelog / deviations
 
+- **2026-07-19 — Production-smoke Payments seam correction (execution):** the intentionally
+  unimplemented Phase 6 Payments item was initially rendered as a live Next link, which prefetched
+  the absent `/admin/payments` route and logged a 404 on every Production admin page. Follow-up
+  PR #18 keeps the visible Payments / Phase 6 badge but renders it as an accessible disabled,
+  non-navigable item. The final Production admin smoke confirmed no payments link and zero browser
+  console errors or warnings; no Phase 6 payment behavior was added.
+
 - **2026-07-19 — review hardening (execution):** the implementation review identified two
   missing boundaries. Subject publish/archive now invalidates both the subject cache and the
   shared published-subject list, preventing a stale home/catalog list after status changes.
