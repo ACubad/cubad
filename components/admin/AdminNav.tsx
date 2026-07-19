@@ -10,11 +10,11 @@ const ITEMS = [
   { href: "/admin/tiers", label: "Tiers" },
   { href: "/admin/users", label: "Users" },
   { href: "/admin/codes", label: "Codes" },
-  { href: "/admin/payments", label: "Payments", phase6: true },
+  { href: "/admin/payments", label: "Payments" },
   { href: "/admin/audit", label: "Audit log" },
 ] as const;
 
-export function AdminNav() {
+export function AdminNav({ pendingClaims }: { pendingClaims: number }) {
   const pathname = usePathname() ?? "";
 
   return (
@@ -32,26 +32,13 @@ export function AdminNav() {
         const label = (
           <>
             <span>{item.label}</span>
-            {"phase6" in item && (
-              <span className="rounded-full border border-current/25 px-1.5 py-0.5 text-[9px] uppercase tracking-wide opacity-70">
-                Phase 6
+            {item.href === "/admin/payments" && pendingClaims > 0 && (
+              <span className="min-w-5 rounded-full bg-clay px-1.5 py-0.5 text-center text-[10px] font-semibold text-white">
+                {pendingClaims > 99 ? "99+" : pendingClaims}
               </span>
             )}
           </>
         );
-
-        if ("phase6" in item) {
-          return (
-            <span
-              key={item.href}
-              aria-disabled="true"
-              title="Available in Phase 6"
-              className={`${className} cursor-not-allowed opacity-70 hover:bg-transparent hover:text-ink-soft`}
-            >
-              {label}
-            </span>
-          );
-        }
 
         return (
           <Link
