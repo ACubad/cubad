@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
+import { canPersistStudyState } from "@/lib/sync";
 import type { SubjectMeta, Unit } from "@/lib/types";
 import { GraphStory } from "./GraphStory";
 import { Md, Tex } from "./Md";
@@ -27,7 +28,7 @@ export function UnitPage({ subject, unit }: { subject: SubjectMeta; unit: Unit }
   ).length;
 
   let dueCount = flashcards.length;
-  if (typeof window !== "undefined" && flashcards.length) {
+  if (typeof window !== "undefined" && canPersistStudyState() && flashcards.length) {
     try {
       const raw = window.localStorage.getItem(`cubad:cards:${subject.slug}:${unit.slug}`);
       if (raw) {

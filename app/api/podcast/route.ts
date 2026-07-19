@@ -1,5 +1,5 @@
 import { getUnit } from "@/lib/content-db";
-import { createServiceRoleClient } from "@/lib/supabase/server";
+import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
 import type { NoteSection } from "@/lib/types";
 
 export const maxDuration = 300;
@@ -13,7 +13,6 @@ interface PodcastBody {
   subject: string;
   unitSlug: string;
   lang: "tr" | "en";
-  userKey?: string;
   force?: boolean;
 }
 
@@ -31,6 +30,28 @@ const audioPath = (subject: string, unitSlug: string, lang: string) =>
   `${subject}/${unitSlug}/${lang}.wav`;
 const scriptPath = (subject: string, unitSlug: string, lang: string) =>
   `${subject}/${unitSlug}/${lang}.json`;
+
+/** The published library is public, but only an administrator may create it. */
+async function requirePodcastAdmin(): Promise<Response | null> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return Response.json({ error: "unauthenticated" }, { status: 401 });
+
+  const { data: profile, error } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (error) return Response.json({ error: "upstream" }, { status: 502 });
+  if (profile?.role !== "admin") return Response.json({ error: "forbidden" }, { status: 403 });
+  return null;
+}
+
+async function canGeneratePodcast(): Promise<boolean> {
+  return (await requirePodcastAdmin()) === null;
+}
 
 /** Returns the public URL if the object exists, else null. */
 async function storedUrl(path: string): Promise<string | null> {
@@ -70,7 +91,11 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const subject = searchParams.get("subject");
   const unitSlug = searchParams.get("unit");
-  const base = { gemini: Boolean(process.env.GEMINI_API_KEY), storage: hasStorage() };
+  const base = {
+    gemini: Boolean(process.env.GEMINI_API_KEY),
+    storage: hasStorage(),
+    canGenerate: await canGeneratePodcast(),
+  };
 
   if (!subject || !unitSlug || !hasStorage()) {
     return Response.json({ ...base, tr: null, en: null });
@@ -283,6 +308,9 @@ async function generateAudio(key: string, lines: PodcastLine[]): Promise<Buffer 
 }
 
 export async function POST(request: Request) {
+  const authorizationError = await requirePodcastAdmin();
+  if (authorizationError) return authorizationError;
+
   let body: PodcastBody;
   try {
     body = (await request.json()) as PodcastBody;
@@ -290,7 +318,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "invalid request" }, { status: 400 });
   }
 
-  const { subject, unitSlug, lang, userKey, force } = body;
+  const { subject, unitSlug, lang, force } = body;
   if (!subject || !unitSlug || (lang !== "tr" && lang !== "en")) {
     return Response.json({ error: "invalid request" }, { status: 400 });
   }
@@ -304,8 +332,8 @@ export async function POST(request: Request) {
     }
   }
 
-  const key = process.env.GEMINI_API_KEY || userKey;
-  if (!key) return Response.json({ error: "no-key" }, { status: 401 });
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) return Response.json({ error: "not-configured" }, { status: 503 });
 
   const unit = await getUnit(subject, unitSlug);
   if (!unit || !unit.notes?.length) {

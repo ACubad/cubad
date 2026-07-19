@@ -248,3 +248,36 @@ the promotion was needed because the rollback had left the public alias on the e
 The production code/data cutover is therefore live and verified. Keep Sprout available and do not
 remove its rollback variables until the two remaining owner-only checks above are recorded and the
 60-day rollback window has elapsed.
+
+### Preview environment repair and account/content-control follow-up (2026-07-19; deployment pending)
+
+- The project owner added the existing Cubad URL, anon key, and service-role key to the global
+  **Preview** environment in the existing `cubad` Vercel project, without branch restrictions.
+  Production values were retained. The sensitive values were never displayed, copied into the
+  repository, or requested in chat. A newly redeployed Preview build reported **Ready**, resolving
+  the historical branch-scoped `supabaseUrl is required` build failures.
+- A real account test confirmed remote state reaches a second signed-in browser. It also exposed
+  that the prior server-only sign-out left the browser's auth client and local projection active.
+  The follow-up branch `fix/phase-3-account-isolation-admin-podcasts` fixes that by signing out
+  through the browser client, clearing all local study state and locally stored user API keys, then
+  replacing the route with `/auth/sign-in`. Guests can study during the current page session, but
+  their progress, flashcard boxes, practice drafts, and tutor history are no longer durable.
+- Podcast playback remains public. Podcast creation and regeneration are now server-authorized for
+  `profiles.role = 'admin'` only; anonymous callers receive 401 and signed-in students receive
+  403 before content, Gemini, or Storage are touched. The public generation buttons and browser
+  Gemini-key path were removed. An administrator uses the server-only configured Gemini key and
+  retains the quality-control responsibility for published audio.
+- The Phase 4 product decision is now explicit: signing up grants identity and cross-device
+  progress only, never content access. Phase 4 will use its existing entitlement/paywall design to
+  leave exactly one owner-selected **full unit** as the free preview and lock all other units for
+  both anonymous and ordinary signed-in students. Anonymous visitors see a sign-in/create-account
+  prompt; signed-in students without an entitlement see the redeem/upgrade paywall. Payments are
+  still Phase 6. If the owner instead wants only part of a unit (a single topic/question) free,
+  that is a deliberate Phase 4 plan extension and must be specified before gating work starts.
+- Automated follow-up evidence: 35 Vitest tests passed, including anonymous and student podcast
+  generation negative paths; TypeScript, content validation (2 subjects / 19 files / 56 questions),
+  and the production build passed. Lint had zero errors and the accepted existing React warnings.
+- No profile was granted `admin` in this follow-up. The owner must explicitly identify the intended
+  master-admin profile before that privileged database change is made. Deploy this branch and
+  repeat the signed-in sign-out, account-switch, student-403, administrator-generation, and
+  playback checks before closing Phase 3 or beginning Phase 4.

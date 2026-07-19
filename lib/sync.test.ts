@@ -49,6 +49,17 @@ describe("syncNow", () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
+  it("clears a stale local projection when the browser has no account session", async () => {
+    getSession.mockResolvedValue({ data: { session: null } });
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, "signed-out-user");
+    window.localStorage.setItem("cubad:progress:v2", JSON.stringify({ q: { old: {} } }));
+
+    await expect(syncNow()).resolves.toEqual({ ok: false, mergedFromRemote: false });
+
+    expect(window.localStorage.getItem(SYNC_ACCOUNT_KEY)).toBeNull();
+    expect(window.localStorage.getItem("cubad:progress:v2")).toBeNull();
+  });
+
   it("removes an account projection, including legacy progress, on sign-out", async () => {
     window.localStorage.setItem(SYNC_ACCOUNT_KEY, "user-a");
     window.localStorage.setItem("cubad:progress:v2", JSON.stringify({ q: { a: {} } }));
@@ -68,6 +79,7 @@ describe("syncNow", () => {
 
   it("pulls and pushes only the authenticated account state endpoint", async () => {
     getSession.mockResolvedValue({ data: { session: { user: { id: "user-1" } } } });
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, "user-1");
     window.localStorage.setItem(
       "cubad:progress:v2",
       JSON.stringify({ q: { "hidroloji/q1": { step: 3, done: false } }, quiz: {}, practice: {} })
@@ -152,6 +164,7 @@ describe("syncNow", () => {
 
   it("merges a concurrent device conflict and retries against its newer version", async () => {
     getSession.mockResolvedValue({ data: { session: { user: { id: "user-1" } } } });
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, "user-1");
     window.localStorage.setItem(
       "cubad:progress:v2",
       JSON.stringify({ q: { "hidroloji/local": { step: 3, done: false } }, quiz: {}, practice: {} })
@@ -201,6 +214,7 @@ describe("syncNow", () => {
 
   it("serializes a reset after an automatic sync so old state cannot be re-written last", async () => {
     getSession.mockResolvedValue({ data: { session: { user: { id: "user-1" } } } });
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, "user-1");
     window.localStorage.setItem(
       "cubad:progress:v2",
       JSON.stringify({ q: { "hidroloji/q1": { step: 3, done: true } }, quiz: {}, practice: {} })
@@ -249,6 +263,7 @@ describe("syncNow", () => {
       .mockResolvedValueOnce({ data: { session: { user: { id: "user-b" } } } })
       .mockResolvedValueOnce({ data: { session: { user: { id: "user-b" } } } });
     vi.mocked(fetch).mockReturnValueOnce(pull);
+    window.localStorage.setItem(SYNC_ACCOUNT_KEY, "user-a");
 
     const pendingSync = syncNow();
     await Promise.resolve();

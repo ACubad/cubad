@@ -70,13 +70,6 @@ export async function signIn(_prev: AuthState, formData: FormData): Promise<Auth
   redirect(dest);
 }
 
-export async function signOut() {
-  const supabase = await createClient();
-  await supabase.auth.signOut();
-  revalidatePath("/", "layout");
-  redirect("/");
-}
-
 export async function requestPasswordReset(_prev: AuthState, formData: FormData): Promise<AuthState> {
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   if (!EMAIL_RE.test(email)) return { errorCode: "invalid_email" };

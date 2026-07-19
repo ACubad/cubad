@@ -32,6 +32,8 @@ const PROGRESS_KEY = "cubad:progress:v2";
 const LEGACY_PROGRESS_KEY = "cubad:progress:v1";
 const DECK_PREFIX = "cubad:cards:";
 const CHAT_PREFIX = "cubad:chats:";
+const PRACTICE_ANSWER_PREFIX = "cubad:practice-answer:";
+const PRIVATE_CLIENT_KEYS = new Set(["cubad:gemini-key", "cubad:openai-key"]);
 let stateOperation: Promise<void> = Promise.resolve();
 
 function queueStateOperation<T>(operation: () => Promise<T>): Promise<T> {
@@ -51,7 +53,15 @@ function clearStoredStudyState(): void {
     window.localStorage.removeItem(SYNC_LAST_KEY);
     for (let i = 0; i < window.localStorage.length; i++) {
       const key = window.localStorage.key(i);
-      if (key?.startsWith(DECK_PREFIX) || key?.startsWith(CHAT_PREFIX)) keys.push(key);
+      if (
+        key &&
+        (key.startsWith(DECK_PREFIX) ||
+          key.startsWith(CHAT_PREFIX) ||
+          key.startsWith(PRACTICE_ANSWER_PREFIX) ||
+          PRIVATE_CLIENT_KEYS.has(key))
+      ) {
+        keys.push(key);
+      }
     }
     keys.forEach((key) => window.localStorage.removeItem(key));
   } catch {
@@ -61,19 +71,33 @@ function clearStoredStudyState(): void {
 
 /**
  * Keep one browser profile from carrying account A's local state into account B.
- * Anonymous study state is intentionally claimed by the first account that signs
- * in; a different later account starts from its own remote state instead.
+ * Study state is never shared between anonymous visitors and an account. A new
+ * sign-in starts from that account's remote state; only a browser already bound
+ * to the same account may reuse its local projection.
  */
 function bindStoredStateToAccount(userId: string): void {
   try {
     const previousUserId = window.localStorage.getItem(SYNC_ACCOUNT_KEY);
-    if (previousUserId && previousUserId !== userId) {
+    if (previousUserId !== userId) {
       clearStoredStudyState();
       window.dispatchEvent(new CustomEvent(SYNC_APPLIED_EVENT));
     }
     window.localStorage.setItem(SYNC_ACCOUNT_KEY, userId);
   } catch {
     /* storage blocked */
+  }
+}
+
+/**
+ * Study progress is durable only while this browser has been bound to a signed-
+ * in account. Guests may study during the current page session, but refreshing
+ * or leaving the app does not retain their answers or study history.
+ */
+export function canPersistStudyState(): boolean {
+  try {
+    return Boolean(window.localStorage.getItem(SYNC_ACCOUNT_KEY));
+  } catch {
+    return false;
   }
 }
 
@@ -156,9 +180,14 @@ export function applyState(state: SyncState): void {
 
 /** Pull remote, merge with local, apply locally, push merged. */
 export async function syncNow(): Promise<{ ok: boolean; mergedFromRemote: boolean }> {
+  const userId = await getAccountUserId();
+  if (!userId) {
+    // This also handles a page opened after a server-side session expired: do
+    // not let an old account marker make local progress look anonymous.
+    await clearSignedOutStudyState();
+    return { ok: false, mergedFromRemote: false };
+  }
   return queueStateOperation(async () => {
-    const userId = await getAccountUserId();
-    if (!userId) return { ok: false, mergedFromRemote: false };
     return syncNowAccount(userId);
   });
 }

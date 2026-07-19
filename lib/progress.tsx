@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { notifyStateChanged, SYNC_APPLIED_EVENT } from "./sync";
+import { canPersistStudyState, notifyStateChanged, SYNC_APPLIED_EVENT } from "./sync";
 
 interface QuestionProgress {
   /** number of steps the student has revealed */
@@ -53,6 +53,7 @@ const Ctx = createContext<ProgressCtx>({
 });
 
 function loadMigrated(): ProgressState {
+  if (!canPersistStudyState()) return EMPTY;
   try {
     const rawV2 = window.localStorage.getItem(KEY_V2);
     if (rawV2) return JSON.parse(rawV2) as ProgressState;
@@ -83,11 +84,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<ProgressState>(EMPTY);
 
   useEffect(() => {
-    setState(loadMigrated());
+    const restore = () => setState(loadMigrated());
+    restore();
     // when cross-device sync merges remote progress into localStorage, reload it
-    const onSyncApplied = () => setState(loadMigrated());
-    window.addEventListener(SYNC_APPLIED_EVENT, onSyncApplied);
-    return () => window.removeEventListener(SYNC_APPLIED_EVENT, onSyncApplied);
+    window.addEventListener(SYNC_APPLIED_EVENT, restore);
+    return () => window.removeEventListener(SYNC_APPLIED_EVENT, restore);
   }, []);
 
   const setStep = useCallback(
@@ -100,10 +101,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           ...prev,
           q: { ...prev.q, [key]: { ...cur, step } },
         };
-        try {
-          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
-          notifyStateChanged();
-        } catch {}
+        if (canPersistStudyState()) {
+          try {
+            window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+            notifyStateChanged();
+          } catch {}
+        }
         return next;
       });
     },
@@ -116,10 +119,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setState((prev) => {
         const cur = prev.q[key] ?? { step: 0, done: false };
         const next = { ...prev, q: { ...prev.q, [key]: { ...cur, done } } };
-        try {
-          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
-          notifyStateChanged();
-        } catch {}
+        if (canPersistStudyState()) {
+          try {
+            window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+            notifyStateChanged();
+          } catch {}
+        }
         return next;
       });
     },
@@ -134,10 +139,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           ...prev,
           quiz: { ...prev.quiz, [key]: { score, total } },
         };
-        try {
-          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
-          notifyStateChanged();
-        } catch {}
+        if (canPersistStudyState()) {
+          try {
+            window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+            notifyStateChanged();
+          } catch {}
+        }
         return next;
       });
     },
@@ -152,10 +159,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           ...prev,
           practice: { ...prev.practice, [key]: progress },
         };
-        try {
-          window.localStorage.setItem(KEY_V2, JSON.stringify(next));
-          notifyStateChanged();
-        } catch {}
+        if (canPersistStudyState()) {
+          try {
+            window.localStorage.setItem(KEY_V2, JSON.stringify(next));
+            notifyStateChanged();
+          } catch {}
+        }
         return next;
       });
     },

@@ -54,5 +54,5 @@ export async function completeOnboarding(
   if (error) return { errorKey: "unknown" };
 
   revalidatePath("/", "layout");
-  redirect("/account");
+  redirect("/");
 }

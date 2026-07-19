@@ -146,6 +146,10 @@ const STRINGS = {
     en: "Generating your podcast — this can take 1-2 minutes...",
     tr: "Podcast oluşturuluyor — bu 1-2 dakika sürebilir...",
   },
+  podcastPreparedByTeam: {
+    en: "Podcasts are prepared and published by the Cubad team.",
+    tr: "Podcastler Cubad ekibi tarafından hazırlanır ve yayınlanır.",
+  },
   podcastTranscript: { en: "Transcript", tr: "Metin" },
   podcastError: {
     en: "Something went wrong generating the podcast.",

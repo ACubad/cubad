@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
 import type { Bi } from "@/lib/types";
 import { createClient } from "@/lib/supabase/browser";
-import { signOut } from "@/app/auth/actions";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 
 interface AccountInfo { email: string; fullName: string; trackTitle: Bi | null; }
 interface AccountState { info: AccountInfo | null; path: string | null; }
@@ -83,15 +83,7 @@ export function AccountMenu() {
             >
               {t("account")}
             </Link>
-            <form action={signOut}>
-              <button
-                type="submit"
-                role="menuitem"
-                className="w-full rounded-lg px-2 py-1.5 text-left text-sm text-clay hover:bg-clay-soft"
-              >
-                {t("signOut")}
-              </button>
-            </form>
+            <SignOutButton className="w-full rounded-lg px-2 py-1.5 text-left text-sm text-clay hover:bg-clay-soft" />
           </div>
         </>
       )}
