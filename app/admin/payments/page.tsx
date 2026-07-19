@@ -83,7 +83,7 @@ export default async function AdminPaymentsPage({
   if (tiersError) throw new Error(`payment tier lookup failed: ${tiersError.message}`);
   if (profilesError) throw new Error(`payment student lookup failed: ${profilesError.message}`);
   const tierMap = new Map(
-    (tiers ?? []).map((tier) => [tier.id as string, tier.title as { en?: string }])
+    (tiers ?? []).map((tier) => [tier.id as string, tier.title as { en?: string; tr?: string }])
   );
   const studentMap = new Map(
     (profiles ?? []).map((profile) => [profile.user_id as string, profile.full_name as string])
@@ -154,7 +154,11 @@ export default async function AdminPaymentsPage({
                     {(row.created_at as string).slice(0, 16).replace("T", " ")}
                   </td>
                   <td className="px-3 py-2">{studentMap.get(row.user_id as string) || "—"}</td>
-                  <td className="px-3 py-2">{tierMap.get(row.tier_id as string)?.en || "—"}</td>
+                  <td className="px-3 py-2">
+                    {tierMap.get(row.tier_id as string)?.en ||
+                      tierMap.get(row.tier_id as string)?.tr ||
+                      "—"}
+                  </td>
                   <td className="px-3 py-2 font-mono">
                     {row.amount === null ? "—" : `${Number(row.amount).toLocaleString("en-GB")} ${row.currency || ""}`}
                   </td>

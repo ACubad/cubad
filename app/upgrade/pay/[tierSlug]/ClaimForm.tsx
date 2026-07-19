@@ -63,6 +63,10 @@ const ERRORS: Record<string, Bi> = {
   "insert-failed": { tr: "Bildirim kaydedilemedi.", en: "Could not save the claim." },
   "upload-failed": { tr: "Dekont yüklenemedi.", en: "Could not upload the proof." },
   "finalize-failed": { tr: "Bildirim tamamlanamadı.", en: "Could not finalize the claim." },
+  "cleanup-failed": {
+    tr: "Bildirim temizlenemedi. Lütfen bekleyen bildirimlerini kontrol et.",
+    en: "Cleanup could not finish. Please check your pending claims before retrying.",
+  },
 };
 
 export function ClaimForm({

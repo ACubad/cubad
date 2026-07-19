@@ -61,12 +61,17 @@ begin
   raise notice 'PASS bucket configuration, policies, and minimal function grants';
 end $$;
 
+insert into public.app_settings (key, value)
+values ('phase6_private_probe', '{"must_not_leak":true}');
+
 set local role anon;
 do $$
 declare v_count int;
 begin
   select count(*) into v_count from public.app_settings where key = 'payment_instructions';
   if v_count <> 1 then raise exception 'anon cannot read public payment instructions'; end if;
+  select count(*) into v_count from public.app_settings where key = 'phase6_private_probe';
+  if v_count <> 0 then raise exception 'anon can read a non-public app setting'; end if;
   raise notice 'PASS anonymous payment-instruction read';
 end $$;
 reset role;

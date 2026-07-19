@@ -5,7 +5,11 @@ import { randomBytes, randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 
 function localEnvironment() {
-  const output = execFileSync(process.env.ComSpec ?? "cmd.exe", ["/d", "/s", "/c", "npx supabase status -o env"], {
+  const executable = process.platform === "win32" ? process.env.ComSpec ?? "cmd.exe" : "npx";
+  const args = process.platform === "win32"
+    ? ["/d", "/s", "/c", "npx supabase status -o env"]
+    : ["supabase", "status", "-o", "env"];
+  const output = execFileSync(executable, args, {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -251,27 +255,53 @@ async function main() {
   console.log("\nALL PHASE-6 GENUINE-STUDENT RLS/STORAGE PROBES PASSED");
 }
 
-main()
-  .catch((error) => {
-    console.error(error instanceof Error ? error.message : String(error));
-    process.exitCode = 1;
-  })
-  .finally(async () => {
-    if (storagePaths.length) await service.storage.from("payment-proofs").remove(storagePaths);
-    await studentA.auth.signOut();
-    await studentB.auth.signOut();
-    for (const userId of createdUserIds.reverse()) {
-      const { error } = await service.auth.admin.deleteUser(userId);
-      if (error) {
-        console.error(`Disposable fixture cleanup failed: ${error.message}`);
-        process.exitCode = 1;
-      }
+async function cleanup() {
+  try {
+    if (storagePaths.length) {
+      const { error } = await service.storage.from("payment-proofs").remove(storagePaths);
+      if (error) throw error;
     }
+  } catch (error) {
+    console.error(`Storage cleanup failed: ${error instanceof Error ? error.message : String(error)}`);
+    process.exitCode = 1;
+  }
+
+  for (const client of [studentA, studentB]) {
+    try {
+      const { error } = await client.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      console.error(`Sign-out cleanup failed: ${error instanceof Error ? error.message : String(error)}`);
+      process.exitCode = 1;
+    }
+  }
+
+  for (const userId of createdUserIds.reverse()) {
+    try {
+      const { error } = await service.auth.admin.deleteUser(userId);
+      if (error) throw error;
+    } catch (error) {
+      console.error(`Disposable user cleanup failed: ${error instanceof Error ? error.message : String(error)}`);
+      process.exitCode = 1;
+    }
+  }
+
+  try {
     if (createdTierIds.length) {
       const { error } = await service.from("tiers").delete().in("id", createdTierIds);
-      if (error) {
-        console.error(`Disposable tier cleanup failed: ${error.message}`);
-        process.exitCode = 1;
-      }
+      if (error) throw error;
     }
-  });
+  } catch (error) {
+    console.error(`Disposable tier cleanup failed: ${error instanceof Error ? error.message : String(error)}`);
+    process.exitCode = 1;
+  }
+}
+
+try {
+  await main();
+} catch (error) {
+  console.error(error instanceof Error ? error.message : String(error));
+  process.exitCode = 1;
+} finally {
+  await cleanup();
+}

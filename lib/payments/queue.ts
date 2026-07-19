@@ -9,6 +9,10 @@ export async function getPendingClaimCount(): Promise<number> {
     .from("payment_claims")
     .select("*", { count: "exact", head: true })
     .eq("status", "pending");
-  if (error) throw new Error(`pending payment count failed: ${error.message}`);
+  if (error) {
+    // The count decorates shared admin navigation; it must not take unrelated admin pages down.
+    console.error("pending payment count failed", error.message);
+    return 0;
+  }
   return count ?? 0;
 }

@@ -61,13 +61,28 @@ export async function approveClaim(
     p_reviewer: user.id,
   });
   if (rpcError) {
-    if (rpcError.message.includes("not-pending")) return { error: "not-pending" };
-    if (rpcError.message.includes("proof-required")) return { error: "proof-required" };
+    // Proof presence was pre-checked. A check violation here is the row-lock loser after a
+    // competing terminal transition, regardless of future exception wording.
+    if (rpcError.code === "23514") return { error: "not-pending" };
+    if (rpcError.code === "P0002") return { error: "not-found" };
     return { error: "approve-failed" };
   }
 
   const expiresIso = (result as { expires_at?: string } | null)?.expires_at;
-  if (!expiresIso) return { error: "approve-result-invalid" };
+  if (!expiresIso) {
+    // The RPC already committed the hash-only code. Never discard its sole plaintext copy.
+    revalidatePath("/admin/payments");
+    revalidatePath(`/admin/payments/${claimId}`);
+    revalidatePath("/upgrade/claims");
+    revalidatePath("/", "layout");
+    return {
+      ok: true,
+      error: "approve-result-invalid",
+      code: plaintext,
+      emailOk: false,
+      emailError: "approval committed; expiry unavailable",
+    };
+  }
 
   const { data: profile } = await supabase
     .from("profiles")
@@ -114,8 +129,9 @@ export async function rejectClaim(
     p_note: note,
   });
   if (error) {
-    if (error.message.includes("not-pending")) return { error: "not-pending" };
-    if (error.message.includes("note-required")) return { error: "note-required" };
+    // The action validates the note before the RPC, so a check violation is the row-lock loser.
+    if (error.code === "23514") return { error: "not-pending" };
+    if (error.code === "P0002") return { error: "not-found" };
     return { error: "reject-failed" };
   }
 

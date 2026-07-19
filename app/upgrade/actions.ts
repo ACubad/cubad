@@ -94,13 +94,14 @@ export async function submitClaim(
     .from("payment-proofs")
     .upload(path, bytes, { contentType: file.type, upsert: false });
   if (uploadError) {
-    await service
+    const { error: cleanupError } = await service
       .from("payment_claims")
       .delete()
       .eq("id", claim.id)
       .eq("user_id", user.id)
       .eq("status", "pending")
       .is("reviewed_at", null);
+    if (cleanupError) return { error: "cleanup-failed" };
     return { error: "upload-failed" };
   }
 
@@ -113,14 +114,17 @@ export async function submitClaim(
     .select("id")
     .maybeSingle();
   if (finalizeError || !finalized) {
-    await service.storage.from("payment-proofs").remove([path]);
-    await service
+    const { error: objectCleanupError } = await service.storage
+      .from("payment-proofs")
+      .remove([path]);
+    const { error: claimCleanupError } = await service
       .from("payment_claims")
       .delete()
       .eq("id", claim.id)
       .eq("user_id", user.id)
       .eq("status", "pending")
       .is("reviewed_at", null);
+    if (objectCleanupError || claimCleanupError) return { error: "cleanup-failed" };
     return { error: "finalize-failed" };
   }
 

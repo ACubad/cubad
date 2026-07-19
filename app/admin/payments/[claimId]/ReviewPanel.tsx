@@ -67,7 +67,7 @@ export function ReviewPanel({
             {approveState.error === "not-pending" ? "Already handled by another admin." : `Error: ${approveState.error}`}
           </p>
         )}
-        <button type="submit" disabled={approving || !hasProof} className="rounded-lg bg-moss px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
+        <button type="submit" disabled={approving || rejecting || !hasProof} className="rounded-lg bg-moss px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
           {approving ? "Approving…" : "Approve & issue code"}
         </button>
       </form>
@@ -88,7 +88,7 @@ export function ReviewPanel({
                 : `Error: ${rejectState.error}`}
           </p>
         )}
-        <button type="submit" disabled={rejecting} className="rounded-lg bg-clay px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
+        <button type="submit" disabled={rejecting || approving} className="rounded-lg bg-clay px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
           {rejecting ? "Rejecting…" : "Reject claim"}
         </button>
       </form>
