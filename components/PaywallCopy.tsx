@@ -75,16 +75,16 @@ export function PaywallCopy({
             <p className="mt-3 text-sm text-ink-faint">{t("paymentComingSoon")}</p>
             <div className="mt-6 flex flex-wrap gap-3 border-t border-line pt-5">
               <Link
-                href={redeemHref}
+                href={upgradeHref}
                 className="inline-flex rounded-xl bg-deniz px-4 py-2.5 font-semibold text-white transition-colors hover:bg-deniz-deep"
               >
-                {t("iHaveCode")}
+                {t("upgradeCta")}
               </Link>
               <Link
-                href={upgradeHref}
+                href={redeemHref}
                 className="inline-flex rounded-xl border border-deniz/30 px-4 py-2.5 font-semibold text-deniz-deep transition-colors hover:bg-deniz-soft"
               >
-                {t("choosePlan")}
+                {t("iHaveCode")}
               </Link>
             </div>
           </>
