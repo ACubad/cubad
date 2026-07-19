@@ -18,6 +18,7 @@ interface SubjectRow {
 
 interface UnitRow {
   content: Unit;
+  published_content?: Unit | null;
 }
 
 export interface UnitMeta {
@@ -51,7 +52,7 @@ export function toSubjectMeta(row: SubjectRow): SubjectMeta {
 
 /** `units.content` is the full Unit shape; preserve it without a lossy mapping. */
 export function toUnit(row: UnitRow): Unit {
-  return row.content;
+  return row.published_content ?? row.content;
 }
 
 const fetchSubjects = unstable_cache(
@@ -97,9 +98,11 @@ async function getSubjectCatalogByVisibility(
 
       let unitsQuery = supabase
         .from("units")
-        .select("id,subject_id,unit_number,slug,is_free,content")
+        .select("id,subject_id,unit_number,slug,is_free,status,content,published_content")
         .eq("subject_id", subjectRow.id);
-      if (!includeUnpublished) unitsQuery = unitsQuery.eq("status", "published");
+      if (!includeUnpublished) {
+        unitsQuery = unitsQuery.or("status.eq.published,published_content.not.is.null");
+      }
       const { data, error } = await unitsQuery.order("unit_number", { ascending: true });
       if (error) throw new Error(`getSubjectCatalog(${slug}): ${error.message}`);
 
@@ -108,7 +111,9 @@ async function getSubjectCatalogByVisibility(
         ...toSubjectMeta(subjectRow as SubjectRow),
       };
       const units = (data ?? []).map((row) => {
-        const content = row.content as unknown as Unit;
+        const content = (
+          !includeUnpublished && row.published_content ? row.published_content : row.content
+        ) as unknown as Unit;
         return {
           id: row.id as string,
           subjectId: row.subject_id as string,
@@ -179,9 +184,9 @@ export async function getUnits(subject: string): Promise<Unit[]> {
 
       const { data, error } = await supabase
         .from("units")
-        .select("content")
+        .select("status,content,published_content")
         .eq("subject_id", subjectRow.id)
-        .eq("status", "published")
+        .or("status.eq.published,published_content.not.is.null")
         .order("unit_number", { ascending: true });
       if (error) throw new Error(`getUnits(${subject}): ${error.message}`);
       return (data ?? []).map(toUnit);

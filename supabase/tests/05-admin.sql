@@ -119,6 +119,7 @@ declare
   v_track uuid;
   v_subject uuid;
   v_unit uuid;
+  v_new_draft uuid;
   v_unit_version int;
   v_tier uuid;
   v_entitlement_1 uuid;
@@ -213,6 +214,33 @@ begin
   perform public.admin_set_status('units', v_unit, 'published');
   perform public.admin_set_status('tracks', v_track, 'published');
   perform public.admin_set_status('tiers', v_tier, 'published');
+
+  select id into v_unit
+  from public.admin_upsert_unit(
+    v_subject,
+    'phase5-probe-unit',
+    1,
+    '{"unit":1,"slug":"phase5-probe-unit","title":{"tr":"Birim","en":"Unit"},"tagline":{"tr":"Yeni taslak","en":"Next draft"}}'
+  );
+  if not exists (
+    select 1 from public.units
+    where id = v_unit and status = 'draft'
+      and published_content->'tagline'->>'en' = 'Draft'
+      and content->'tagline'->>'en' = 'Next draft'
+  ) then
+    raise exception 'FAIL published revision was not preserved during draft editing';
+  end if;
+
+  select id into v_new_draft
+  from public.admin_upsert_unit(
+    v_subject,
+    'phase5-new-draft',
+    2,
+    '{"unit":2,"slug":"phase5-new-draft","title":{"tr":"Yeni","en":"New"},"tagline":{"tr":"Yeni","en":"New"}}'
+  );
+  if exists (select 1 from public.units where id = v_new_draft and published_content is not null) then
+    raise exception 'FAIL never-published draft acquired a public snapshot';
+  end if;
   if public.admin_revoke('entitlements', array[v_entitlement_1]) <> 1 then
     raise exception 'FAIL entitlement revoke count';
   end if;
@@ -241,8 +269,8 @@ begin
   raise notice 'PASS audited admin CRUD, validation rollback, code hashing, stacking/revoke, and overview aggregates';
 end $$;
 
--- A student cannot read the draft raw row or via the gated content function; an admin can.
-update public.units set status = 'draft' where slug = 'phase5-probe-unit';
+-- Raw draft rows remain hidden. Students receive the last published snapshot through the RPC,
+-- while admins preview the current draft. A never-published draft remains fully hidden.
 set local role authenticated;
 select set_config(
   'request.jwt.claims',
@@ -254,10 +282,13 @@ begin
   if exists (select 1 from public.units where slug = 'phase5-probe-unit') then
     raise exception 'FAIL draft raw row leaked to student';
   end if;
-  if public.get_unit_content('phase5-probe-subject', 'phase5-probe-unit') is not null then
-    raise exception 'FAIL draft gated content leaked to student';
+  if public.get_unit_content('phase5-probe-subject', 'phase5-probe-unit')->'tagline'->>'en' <> 'Draft' then
+    raise exception 'FAIL student did not receive the prior published revision';
   end if;
-  raise notice 'PASS draft hidden from student';
+  if public.get_unit_content('phase5-probe-subject', 'phase5-new-draft') is not null then
+    raise exception 'FAIL never-published draft leaked to student';
+  end if;
+  raise notice 'PASS raw draft hidden and prior published revision retained for student';
 end $$;
 
 select set_config(
@@ -270,10 +301,28 @@ begin
   if not exists (select 1 from public.units where slug = 'phase5-probe-unit') then
     raise exception 'FAIL admin raw draft preview';
   end if;
-  if public.get_unit_content('phase5-probe-subject', 'phase5-probe-unit') is null then
+  if public.get_unit_content('phase5-probe-subject', 'phase5-probe-unit')->'tagline'->>'en' <> 'Next draft' then
     raise exception 'FAIL admin gated draft preview';
   end if;
   raise notice 'PASS admin draft preview';
+end $$;
+
+select public.admin_set_status(
+  'units',
+  (select id from public.units where slug = 'phase5-probe-unit'),
+  'published'
+);
+select set_config(
+  'request.jwt.claims',
+  '{"sub":"a1111111-1111-1111-1111-111111111111","role":"authenticated"}',
+  true
+);
+do $$
+begin
+  if public.get_unit_content('phase5-probe-subject', 'phase5-probe-unit')->'tagline'->>'en' <> 'Next draft' then
+    raise exception 'FAIL newly published revision was not immediately visible to student';
+  end if;
+  raise notice 'PASS publish promotes draft immediately without redeploy';
 end $$;
 reset role;
 
