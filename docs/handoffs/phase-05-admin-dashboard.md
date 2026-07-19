@@ -1,10 +1,10 @@
 # Phase 5 handoff — Admin Dashboard
 
-**Status:** In progress on `feat/phase-5-admin-dashboard`. Do not treat this document as a
-completion claim until the PR, merge, Production deployment, and Production smoke sections are
-filled with final evidence.
+**Status:** Complete. Implementation PR #17 and the Production-smoke seam fix PR #18 are merged;
+the final `main` deployment and complete Production smoke gate passed.
 
 **Date started:** 2026-07-19
+**Date completed:** 2026-07-19
 
 ## Scope and infrastructure lock
 
@@ -150,29 +150,66 @@ audit row in the same PostgreSQL function invocation.
   no-mutation errors, draft preview, old-live-while-draft behavior, publish without redeploy,
   and filtered audit display with the admin email plus `unit.publish`.
 
-## Verification still required
+## Completion gates
 
-- Finish implementation PR #17 review; record final CI, CodeRabbit findings, unresolved-thread
-  audit, and the Vercel Preview smoke. Initial build/test and Vercel Preview checks passed; five
-  review findings were fixed across the cache/profile hardening and correctness follow-ups.
-- Merge only after all checks pass, then record merge SHA, Production deployment id/URL, and the
-  complete Production smoke result. Use a docs-only closeout PR for post-merge evidence.
+- Implementation PR #17 passed GitHub CI, CodeRabbit, Vercel, Vercel Preview Comments, and a
+  thread-aware audit of five resolved / zero unresolved review threads before merge.
+- Production smoke found and corrected the disabled Phase 6 Payments seam through PR #18. Its
+  GitHub CI, CodeRabbit, Vercel, Vercel Preview Comments, and zero-thread audit passed before merge.
+- The final Production deployment is Ready and its complete public, signed-out, student-preview,
+  and disposable-admin smoke gate passed with zero browser console errors.
 
 ## Credentials and human-only actions
 
 - Existing owner role is already verified without recording identity ids.
 - Non-admin checks used automatically created disposable local/remote fixtures. No fixture
   password, token, or user id is retained in Git or this handoff.
+- Production admin smoke used a short-lived service-role-created admin because Chrome contained no
+  existing Cubad session. It performed read-only route checks and was deleted in guaranteed cleanup;
+  no credential was printed, retained, or written to disk.
 - A production admin podcast-generation smoke remains owner-only and intentionally excluded unless
-  explicitly approved.
+  explicitly approved. It is not a Phase 5 completion blocker because the scope expressly forbids
+  generating a real Production podcast without that approval.
 
 ## PR, CI, review, Preview, merge, and Production
 
-Pending. Populate every field before Phase 5 is declared complete.
+- Implementation PR: `https://github.com/ACubad/cubad/pull/17`.
+  - Final head: `fcc0e985b87c8021b4647ae9fc76be49b93b773e`.
+  - CI: `build-and-test` passed in 55 seconds; Vercel and Vercel Preview Comments passed.
+  - Review: two Codex findings and three CodeRabbit actionable findings were fixed, replied to,
+    and resolved. Final thread audit: 5 total, 0 unresolved. CodeRabbit's main review completed;
+    its post-fix incremental run hit the plan review limit but returned a successful status after
+    the fixes, while CI and the thread-aware audit independently passed.
+  - Final Preview: `dpl_25GGAKBhP3ZsAaeKiozhNk17SR4H`, Ready at
+    `https://cubad-imthgyg71-acubads-projects.vercel.app` with the branch alias protected by
+    Vercel Authentication. Full browser acceptance therefore ran locally against linked Cubad;
+    deployment inspection and GitHub's Vercel checks proved the protected Preview Ready.
+  - Merge commit: `b1090e5aa0c3b28be1b2f520225ba1477b7f3ece` at 2026-07-19 16:32:01 UTC.
+- Production-smoke fix PR: `https://github.com/ACubad/cubad/pull/18`.
+  - Finding: the Phase 6 Payments badge was a live link to the intentionally absent route, causing
+    a Next prefetch 404 on every admin page. It is now a visible, accessible, non-navigable seam.
+  - CI passed in 55 seconds; CodeRabbit, Vercel, Vercel Preview Comments, and the zero-thread audit
+    passed. Preview `dpl_3EXEWEnc56jE3EqKCZg7VohH8Vpt` was Ready.
+  - Merge commit: `942ec083702ca1a651e072bf855d52860351b769` at 2026-07-19 16:46:29 UTC.
+- Final Production: `dpl_3nd83KeJP1Wg3yarDRQXGLRAjGWB`, Ready at
+  `https://cubad-e5b2a78rn-acubads-projects.vercel.app`; aliases include
+  `https://cubad.vercel.app`, `https://cubad-acubads-projects.vercel.app`, and
+  `https://cubad-git-main-acubads-projects.vercel.app`.
+- Final Production browser smoke on `https://cubad.vercel.app`:
+  - home rendered both subjects and the expected unit counts;
+  - signed-out `/admin` redirected to `/auth/sign-in?next=/admin`;
+  - `/s/hidroloji` rendered, the anonymous first lesson selection opened the complete `giris`
+    lesson, and the second `yagis` lesson remained locked;
+  - a short-lived genuine admin rendered Overview, Content, Catalog, Tiers, Users, Codes, and Audit;
+  - the Payments Phase 6 item was `aria-disabled` with no `/admin/payments` link; browser console
+    totals were 0 errors / 0 warnings;
+  - the disposable admin was deleted, the Cubad migration ledger remained 29/29 through
+    `20260719191243`, and no podcast was generated.
 
 ## Changelog / deviations
 
-- See the four 2026-07-19 execution entries in
+- See the five 2026-07-19 execution entries in
   `docs/plans/productization/05-admin-dashboard.md`: Phase 4 preview reconciliation and installed
   `tsx` programmatic-loader reconciliation, preservation of the live unit revision while an
-  editor works on a draft, and review hardening for cache invalidation/profile email ownership.
+  editor works on a draft, review hardening for cache invalidation/profile email ownership, and
+  the Production-smoke correction of the disabled Phase 6 Payments seam.
