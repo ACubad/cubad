@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdminAction } from "@/lib/admin/guard";
 import { revalidateContent } from "@/lib/content-db";
+import { validateUnit } from "@/lib/content/validate";
 import type { Bi } from "@/lib/types";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -67,4 +68,93 @@ export async function createSubjectAction(formData: FormData) {
   revalidateContent();
   revalidatePath("/admin/content");
   redirect("/admin/content");
+}
+
+export type UpsertUnitState =
+  | { status: "idle" }
+  | { status: "error"; errors: string[] }
+  | {
+      status: "ok";
+      version: number;
+      warnings: string[];
+      subjectSlug: string;
+      unitSlug: string;
+    };
+
+export async function upsertUnitAction(
+  _previous: UpsertUnitState,
+  formData: FormData
+): Promise<UpsertUnitState> {
+  const { supabase } = await requireAdminAction();
+  const subjectId = String(formData.get("subject_id") ?? "");
+  const jsonText = String(formData.get("json_text") ?? "");
+  if (!UUID.test(subjectId)) return { status: "error", errors: ["invalid subject id"] };
+
+  const { data: subject, error: subjectError } = await supabase
+    .from("subjects")
+    .select("slug, section_order")
+    .eq("id", subjectId)
+    .single();
+  if (subjectError || !subject) return { status: "error", errors: ["subject not found"] };
+
+  let unit: unknown;
+  try {
+    unit = JSON.parse(jsonText);
+  } catch (error) {
+    return { status: "error", errors: [`invalid JSON: ${(error as Error).message}`] };
+  }
+
+  const { errors, warnings } = validateUnit(subject.section_order, unit);
+  if (errors.length > 0) return { status: "error", errors };
+
+  const typedUnit = unit as { slug: string; unit: number };
+  const { data, error } = await supabase.rpc("admin_upsert_unit", {
+    p_subject_id: subjectId,
+    p_slug: typedUnit.slug,
+    p_unit_number: typedUnit.unit,
+    p_content: unit,
+  });
+  if (error) return { status: "error", errors: [error.message] };
+
+  const row = (data as { id: string; version: number }[] | null)?.[0];
+  revalidatePath(`/admin/content/${subjectId}`);
+  return {
+    status: "ok",
+    version: row?.version ?? 1,
+    warnings,
+    subjectSlug: subject.slug,
+    unitSlug: typedUnit.slug,
+  };
+}
+
+export async function setUnitStatusAction(
+  unitId: string,
+  status: "draft" | "published"
+) {
+  const { supabase } = await requireAdminAction();
+  if (!UUID.test(unitId)) throw new Error("invalid unit id");
+  if (!["draft", "published"].includes(status)) throw new Error("invalid status");
+
+  const { data: unit, error: unitError } = await supabase
+    .from("units")
+    .select("subject_id")
+    .eq("id", unitId)
+    .single();
+  if (unitError || !unit) throw new Error("unit not found");
+  const { data: subject, error: subjectError } = await supabase
+    .from("subjects")
+    .select("slug")
+    .eq("id", unit.subject_id)
+    .single();
+  if (subjectError || !subject) throw new Error("subject not found");
+
+  const { error } = await supabase.rpc("admin_set_status", {
+    p_table: "units",
+    p_id: unitId,
+    p_status: status,
+  });
+  if (error) throw new Error(error.message);
+
+  revalidateContent(subject.slug);
+  revalidatePath(`/admin/content/${unit.subject_id}`);
 }

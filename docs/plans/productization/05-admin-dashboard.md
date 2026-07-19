@@ -4281,6 +4281,24 @@ safely:
 
 ## Changelog / deviations
 
+- **2026-07-19 — Phase 4 preview-model reconciliation (execution):** Phase 4's merged
+  first-chosen-preview architecture supersedes Task 6's stale static `is_free` control. Phase 5
+  therefore does **not** create `admin_set_unit_free`, does not accept `p_is_free` in the unit
+  upsert RPC, and does not render a per-unit Free/Locked toggle. New unit rows retain the
+  schema-compatible `is_free = false` default; updates preserve any historical metadata value.
+  No policy, RPC, Server Action, or page added by this phase treats `units.is_free` as an access
+  bypass. A published unit is a preview *candidate* until a browser/account chooses its one
+  immutable Phase 4 selection; `get_unit_content`, `get_current_preview_unit`, and
+  `has_subject_access` remain the authoritative gate. Task 6 acceptance is correspondingly
+  adapted to prove upload/draft/publish behavior plus `is_free` non-authority instead of toggling
+  a globally fixed free lesson.
+
+- **2026-07-19 — installed `tsx` API reconciliation (execution):** the plan's
+  `node:module register("tsx/esm", ...)` loader path is rejected by the installed `tsx` on
+  Node 22 because it maps to the deprecated loader hook. The wrapper uses the installed
+  package's supported programmatic `tsImport()` API from `tsx/esm/api`, preserving the locked
+  `node scripts/validate-content.mjs` invocation and identical CLI output.
+
 - **2026-07-16 — post-audit fixes (plan-authoring stage, before any execution):**
   1. Task 11: fixed a confirmed TS defect — `downloadCsv`'s parameter was typed with a
      non-distributing conditional (`GenerateCodesState extends { status: "ok"; codes: infer C }
