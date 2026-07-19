@@ -24,22 +24,42 @@ export function AdminNav() {
     >
       {ITEMS.map((item) => {
         const active = "exact" in item ? pathname === item.href : pathname.startsWith(item.href);
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`flex items-center justify-between gap-2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-              active
-                ? "bg-deniz text-white"
-                : "text-ink-soft hover:bg-wash hover:text-deniz-deep"
-            }`}
-          >
+        const className = `flex items-center justify-between gap-2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+          active
+            ? "bg-deniz text-white"
+            : "text-ink-soft hover:bg-wash hover:text-deniz-deep"
+        }`;
+        const label = (
+          <>
             <span>{item.label}</span>
             {"phase6" in item && (
               <span className="rounded-full border border-current/25 px-1.5 py-0.5 text-[9px] uppercase tracking-wide opacity-70">
                 Phase 6
               </span>
             )}
+          </>
+        );
+
+        if ("phase6" in item) {
+          return (
+            <span
+              key={item.href}
+              aria-disabled="true"
+              title="Available in Phase 6"
+              className={`${className} cursor-not-allowed opacity-70 hover:bg-transparent hover:text-ink-soft`}
+            >
+              {label}
+            </span>
+          );
+        }
+
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={className}
+          >
+            {label}
           </Link>
         );
       })}
