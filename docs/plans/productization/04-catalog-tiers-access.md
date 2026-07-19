@@ -4,7 +4,7 @@
 > Read `00-MASTER-PLAN.md` FULLY before this document — §3 (locked decisions, esp. D6/D7/D8),
 > §4 (schema — column names are LAW), §5 (canonical examples), §6 (the access decision),
 > §9 (security invariants) and §12 (authoring rules) govern everything below. Execute tasks
-> **in order**, top to bottom. Tick each `- [ ]` box as you finish its step. Every code block
+> **in order**, top to bottom. Tick each `- [x]` box as you finish its step. Every code block
 > is complete and copy-paste ready — there is no "TBD", no "similar to above". If you are a
 > Claude Code session, use `superpowers:subagent-driven-development` and route migration / RLS
 > / redemption tasks to **opus** subagents, audits to **opus two-pass** (spec compliance, then
@@ -91,12 +91,12 @@ Task 0), merged to `main` via PR only at the end (Task 16). Pushing `main` auto-
 
 ## Task 0 — Branch, verify prerequisites, ensure pgcrypto
 
-- [ ] From `cubad/`, create the phase branch:
+- [x] From `cubad/`, create the phase branch:
   ```bash
   git checkout main && git pull
   git checkout -b feat/phase-4-catalog-tiers-access
   ```
-- [ ] Confirm the prerequisite DB objects exist (run against the `cubad-app` dev/branch DB via
+- [x] Confirm the prerequisite DB objects exist (run against the `cubad-app` dev/branch DB via
   `psql`, the dashboard SQL editor, or MCP `execute_sql` — the Supabase CLI has NO `db execute`
   subcommand, master §14). Expected: each row returns `t`.
   ```sql
@@ -113,7 +113,7 @@ Task 0), merged to `main` via PR only at the end (Task 16). Pushing `main` auto-
   If any is `f`, **stop** — a prerequisite phase is incomplete. Record it under
   `## Changelog / deviations` and surface to the human (master §11). Do not create the missing
   objects yourself; they belong to an earlier phase.
-- [ ] Confirm RLS is enabled on the tables this phase policies (they should already be, from
+- [x] Confirm RLS is enabled on the tables this phase policies (they should already be, from
   Phase 1). Expected: all `t`.
   ```sql
   select relname, relrowsecurity
@@ -122,7 +122,7 @@ Task 0), merged to `main` via PR only at the end (Task 16). Pushing `main` auto-
     and relname in ('tiers','entitlements','access_codes','code_redemptions','redemption_attempts')
   order by relname;
   ```
-- [ ] Create the migration that guarantees `pgcrypto` (needed for `digest()` in `redeem_code`).
+- [x] Create the migration that guarantees `pgcrypto` (needed for `digest()` in `redeem_code`).
   Supabase ships `pgcrypto` in the `extensions` schema; this is idempotent and safe to re-run.
   ```bash
   supabase migration new phase4_pgcrypto
@@ -133,7 +133,7 @@ Task 0), merged to `main` via PR only at the end (Task 16). Pushing `main` auto-
   -- On Supabase, extensions live in the dedicated `extensions` schema.
   create extension if not exists pgcrypto with schema extensions;
   ```
-- [ ] Apply and verify:
+- [x] Apply and verify:
   ```bash
   supabase db reset      # full rebuild from scratch must succeed (master §8.5)
   ```
@@ -143,7 +143,7 @@ Task 0), merged to `main` via PR only at the end (Task 16). Pushing `main` auto-
   select encode(extensions.digest('CBD7K3M9PXQ','sha256'),'hex') as sql_hash;
   -- expected: 0469f76c67a68e98cf8c9baea7aebef3e4f96d68eb7fb77cde202c5ca813c449
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add supabase/migrations
   git commit -m "phase4: ensure pgcrypto extension for code hashing"
@@ -170,7 +170,7 @@ inside `[starts_at, expires_at]`, and its scope is `all`, or `subject` matching 
 `track` whose `track_subjects` contains this subject. It is `SECURITY DEFINER` so it can read
 `entitlements` regardless of the caller's RLS, and `STABLE` because it only reads.
 
-- [ ] Create the migration:
+- [x] Create the migration:
   ```bash
   supabase migration new phase4_has_subject_access
   ```
@@ -214,7 +214,7 @@ inside `[starts_at, expires_at]`, and its scope is `all`, or `subject` matching 
   revoke all on function public.has_subject_access(uuid) from public;
   grant execute on function public.has_subject_access(uuid) to authenticated, service_role;
   ```
-- [ ] Covering-index sanity — do NOT create a new index; confirm Phase 1's partial index is
+- [x] Covering-index sanity — do NOT create a new index; confirm Phase 1's partial index is
   present and used. The query filters `user_id` + `revoked_at is null` and range-scans on the
   timestamps; `entitlements_user_active (user_id, expires_at) where revoked_at is null` covers
   the hot path. `track_subjects` lookups use its composite PK `(track_id, subject_id)`.
@@ -223,7 +223,7 @@ inside `[starts_at, expires_at]`, and its scope is `all`, or `subject` matching 
   select indexdef from pg_indexes
   where schemaname='public' and indexname='entitlements_user_active';
   ```
-- [ ] Apply and smoke-test with a fabricated JWT claim (postgres role; no login needed):
+- [x] Apply and smoke-test with a fabricated JWT claim (postgres role; no login needed):
   ```sql
   begin;
     -- pretend to be a user with no entitlements:
@@ -231,7 +231,7 @@ inside `[starts_at, expires_at]`, and its scope is `all`, or `subject` matching 
     select public.has_subject_access(gen_random_uuid()) as should_be_false;  -- expected: f
   rollback;
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   supabase db reset
   git add supabase/migrations
@@ -258,12 +258,12 @@ Phase 3's `get_unit_content` gates on `is_free OR is_admin()`. Phase 4 adds
 `OR has_subject_access(subject_id)` so entitled students receive gated content. **Never edit an
 applied migration** (master D1) — this is a new `create or replace` migration.
 
-- [ ] First read Phase 3's current definition and copy its body verbatim as your starting point,
+- [x] First read Phase 3's current definition and copy its body verbatim as your starting point,
   changing ONLY the access predicate. Find it:
   ```bash
   grep -rn "function public.get_unit_content" cubad/supabase/migrations
   ```
-- [ ] Create the migration:
+- [x] Create the migration:
   ```bash
   supabase migration new phase4_get_unit_content_entitlement_gate
   ```
@@ -332,7 +332,7 @@ applied migration** (master D1) — this is a new `create or replace` migration.
   > `grant execute … to authenticated` stays in force — do not re-grant. Anonymous study is
   > walled at the page layer (Task 10) and by Phase 3 not granting `anon` execute; do not add an
   > `anon` grant here.
-- [ ] Apply and verify the gate with fabricated claims. Seed a locked unit locally first (or use
+- [x] Apply and verify the gate with fabricated claims. Seed a locked unit locally first (or use
   the Task 14 setup). Quick inline check against a known published, non-free unit:
   ```sql
   begin;
@@ -343,7 +343,7 @@ applied migration** (master D1) — this is a new `create or replace` migration.
   ```
   (With the default seeds — all `is_free=true` — this returns `f` because free content is
   returned; that is the correct free-preview behaviour. Task 14 flips a unit to prove the lock.)
-- [ ] Commit:
+- [x] Commit:
   ```bash
   supabase db reset
   git add supabase/migrations
@@ -394,7 +394,7 @@ over covering rows, so overlapping rows are harmless — the furthest-out expiry
 (3) no lost-update race on an in-place `UPDATE`. `scope_id` is compared with `is not distinct
 from` so the `all` scope (null `scope_id`) matches correctly.
 
-- [ ] Create the migration:
+- [x] Create the migration:
   ```bash
   supabase migration new phase4_redeem_code
   ```
@@ -586,11 +586,11 @@ from` so the `all` scope (null `scope_id`) matches correctly.
   > committed row. So if A took the last slot (`redeemed_count` goes `1 → 2` with
   > `max_redemptions = 2`), B reads `redeemed_count = 2 ≥ 2` and returns `exhausted`. This is
   > exercised concretely in Task 13.
-- [ ] Apply:
+- [x] Apply:
   ```bash
   supabase db reset
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add supabase/migrations
   git commit -m "phase4: grant_entitlement() + redeem_code() — atomic rate-limited stacking redemption (master D8/§4/§9)"
@@ -638,7 +638,7 @@ Access codes and redemption attempts stay invisible to clients (writes only via 
 DEFINER functions, which run as owner and bypass RLS). Multiple permissive `SELECT` policies are
 OR-ed by Postgres.
 
-- [ ] Create the migration:
+- [x] Create the migration:
   ```bash
   supabase migration new phase4_monetization_rls
   ```
@@ -689,11 +689,11 @@ OR-ed by Postgres.
   -- ---- redemption_attempts: NO client access at all. RLS enabled + zero policies = deny all.
   -- Inserts happen inside redeem_code (definer). Intentionally no policy here.
   ```
-- [ ] Apply:
+- [x] Apply:
   ```bash
   supabase db reset
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add supabase/migrations
   git commit -m "phase4: RLS policies for tiers/entitlements/access_codes/code_redemptions/redemption_attempts"
@@ -728,7 +728,7 @@ OR-ed by Postgres.
 Server-side code generation/normalization/hashing, used by the admin phase (batch generation)
 and payments phase (auto-mint). Pure Node `crypto`; no Supabase. TDD: write the test first.
 
-- [ ] Create the test `lib/access/codes.test.ts`:
+- [x] Create the test `lib/access/codes.test.ts`:
   ```ts
   import { describe, it, expect } from "vitest";
   import { generateCode, normalizeCode, hashCode } from "./codes";
@@ -779,7 +779,7 @@ and payments phase (auto-mint). Pure Node `crypto`; no Supabase. TDD: write the 
     });
   });
   ```
-- [ ] Create `lib/access/codes.ts`:
+- [x] Create `lib/access/codes.ts`:
   ```ts
   import { randomBytes, createHash } from "node:crypto";
 
@@ -821,12 +821,12 @@ and payments phase (auto-mint). Pure Node `crypto`; no Supabase. TDD: write the 
     return createHash("sha256").update(normalized, "utf8").digest("hex");
   }
   ```
-- [ ] Run the tests (from `cubad/`):
+- [x] Run the tests (from `cubad/`):
   ```bash
   npx vitest run lib/access/codes.test.ts
   ```
   Expected: all tests pass (the two hash assertions confirm SQL↔JS parity).
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add lib/access/codes.ts lib/access/codes.test.ts
   git commit -m "phase4: lib/access/codes.ts (generate/normalize/hash) + vitest with SQL-parity vector"
@@ -860,7 +860,7 @@ bug. Content JSON is safely shared-cached by tag (identical for everyone); the *
 must not be. Gated pages must also be dynamic (Task 10 sets `force-dynamic`) so nothing about a
 specific user is baked into a static page.
 
-- [ ] Create `lib/access/access.ts`:
+- [x] Create `lib/access/access.ts`:
   ```ts
   import "server-only";
   import { cache } from "react";
@@ -926,11 +926,11 @@ specific user is baked into a static page.
     return data.expires_at as string;
   });
   ```
-- [ ] Sanity-typecheck the module compiles in the build (deferred to the phase build in Task 16;
+- [x] Sanity-typecheck the module compiles in the build (deferred to the phase build in Task 16;
   no isolated command needed). Confirm the import path `@/lib/supabase/server` resolves to
   Phase 1's server client and that it exports `createClient`. If Phase 1 named the async server
   client differently, adjust the import here only.
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add lib/access/access.ts
   git commit -m "phase4: lib/access/access.ts — request-scoped, fail-closed access helper via RPC"
@@ -956,7 +956,7 @@ specific user is baked into a static page.
 All new user-facing copy, `tr` + `en` (master §12.5, D13). Add to the `STRINGS` object in
 `lib/i18n.tsx`. These keys are referenced by Tasks 8–12.
 
-- [ ] In `lib/i18n.tsx`, insert this block inside the `STRINGS = { … }` object (e.g. just before
+- [x] In `lib/i18n.tsx`, insert this block inside the `STRINGS = { … }` object (e.g. just before
   the closing `} as const;`). Do not remove existing keys.
   ```ts
     /* ---------- access / paywall / redeem (Phase 4) ---------- */
@@ -1014,7 +1014,7 @@ All new user-facing copy, `tr` + `en` (master §12.5, D13). Add to the `STRINGS`
       tr: "Bir şeyler ters gitti. Lütfen tekrar dene.",
     },
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add lib/i18n.tsx
   git commit -m "phase4: bilingual strings for paywall/redeem/lock/expiry"
@@ -1035,7 +1035,7 @@ All new user-facing copy, `tr` + `en` (master §12.5, D13). Add to the `STRINGS`
 A small, reusable badge for locked/free unit affordances, matching the existing pill styling in
 `components/ui.tsx` (e.g. `LikelihoodBadge`).
 
-- [ ] Add to `components/ui.tsx` (it is already a client module using `useLang`):
+- [x] Add to `components/ui.tsx` (it is already a client module using `useLang`):
   ```tsx
   /* ---------------- lock / free badges (Phase 4) ---------------- */
 
@@ -1061,7 +1061,7 @@ A small, reusable badge for locked/free unit affordances, matching the existing 
     );
   }
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add components/ui.tsx
   git commit -m "phase4: LockBadge / FreeBadge UI primitives"
@@ -1082,7 +1082,7 @@ Wire access into the Phase 3 **unified subject-home** component (the one that ma
 renders unit cards — the successor of `components/HomeView.tsx`). A unit is locked iff
 `!unit.is_free && !subjectAccess`. Compute `subjectAccess` **once** on the server and pass it down.
 
-- [ ] In the subject-home **page** (server component, `app/s/[subject]/page.tsx` after Phase 3),
+- [x] In the subject-home **page** (server component, `app/s/[subject]/page.tsx` after Phase 3),
   resolve subject-level access once and hand it to the list. Reference implementation — merge
   into Phase 3's page, keeping its data fetching:
   ```tsx
@@ -1116,7 +1116,7 @@ renders unit cards — the successor of `components/HomeView.tsx`). A unit is lo
   > `force-dynamic` export above is required — a per-user lock cannot be prerendered). Catalog
   > metadata for the *cards* is fine to fetch dynamically; the heavy unit `content` is not read
   > here at all.
-- [ ] In the unified `SubjectHome` (client) component, accept `subjectAccess` and render a badge
+- [x] In the unified `SubjectHome` (client) component, accept `subjectAccess` and render a badge
   per card. Add, inside the `units.map(...)` card (adapting the Phase 3 markup — this mirrors the
   `HomeView.tsx` card):
   ```tsx
@@ -1130,7 +1130,7 @@ renders unit cards — the successor of `components/HomeView.tsx`). A unit is lo
   ```
   A locked card stays clickable (it links to the unit page, which shows the paywall). Do not
   disable the link — the paywall is the conversion surface.
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add app/s/[subject]/page.tsx components/SubjectHome.tsx
   git commit -m "phase4: lock/free badges on subject-home unit list"
@@ -1154,7 +1154,7 @@ renders unit cards — the successor of `components/HomeView.tsx`). A unit is lo
 The unit page is where the wall stands. Flow (master D6/§6): anonymous → sign-up wall; signed-in
 but locked → paywall; free/entitled/admin → content.
 
-- [ ] Create `components/PaywallPanel.tsx` (server component — fetches tiers + the user's country
+- [x] Create `components/PaywallPanel.tsx` (server component — fetches tiers + the user's country
   for price selection). It renders published tiers with the right price and a link to `/redeem`.
   ```tsx
   import "server-only";
@@ -1213,7 +1213,7 @@ but locked → paywall; free/entitled/admin → content.
     );
   }
   ```
-- [ ] Create `components/PaywallCopy.tsx` (client — renders the panel with bilingual strings and
+- [x] Create `components/PaywallCopy.tsx` (client — renders the panel with bilingual strings and
   the design language: warm `card`, `deniz` accent, rounded-2xl):
   ```tsx
   "use client";
@@ -1296,7 +1296,7 @@ but locked → paywall; free/entitled/admin → content.
     );
   }
   ```
-- [ ] Gate the unit **page** (server component `app/s/[subject]/unit/[slug]/page.tsx` after
+- [x] Gate the unit **page** (server component `app/s/[subject]/unit/[slug]/page.tsx` after
   Phase 3). Reference implementation — merge into Phase 3's page:
   ```tsx
   import { notFound, redirect } from "next/navigation";
@@ -1342,7 +1342,7 @@ but locked → paywall; free/entitled/admin → content.
   > access via `getAccess` → only then read `content`. Defense in depth: even if the page logic
   > were bypassed, `get_unit_content` (Task 2) and the `units` RLS still return null for a locked
   > unit (master D7).
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add components/PaywallPanel.tsx components/PaywallCopy.tsx app/s/[subject]/unit/[slug]/page.tsx
   git commit -m "phase4: unit-page gate + PaywallPanel (anon wall / locked paywall / entitled content)"
@@ -1369,7 +1369,7 @@ The redemption surface. A Server Action calls `redeem_code`; the client form sho
 state and maps the RPC error enum to bilingual copy; success shows a simple state and refreshes
 access. (No confetti — a calm success panel, per the design language.)
 
-- [ ] Create the Server Action `app/redeem/actions.ts`:
+- [x] Create the Server Action `app/redeem/actions.ts`:
   ```ts
   "use server";
 
@@ -1428,7 +1428,7 @@ access. (No confetti — a calm success panel, per the design language.)
     return { status: "error", error: code };
   }
   ```
-- [ ] Create the client form `components/RedeemForm.tsx`:
+- [x] Create the client form `components/RedeemForm.tsx`:
   ```tsx
   "use client";
 
@@ -1497,7 +1497,7 @@ access. (No confetti — a calm success panel, per the design language.)
     );
   }
   ```
-- [ ] Create the page `app/redeem/page.tsx` (server component — auth wall, then the form):
+- [x] Create the page `app/redeem/page.tsx` (server component — auth wall, then the form):
   ```tsx
   import { redirect } from "next/navigation";
   import { createClient } from "@/lib/supabase/server";
@@ -1527,7 +1527,7 @@ access. (No confetti — a calm success panel, per the design language.)
     );
   }
   ```
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add app/redeem/actions.ts app/redeem/page.tsx components/RedeemForm.tsx
   git commit -m "phase4: /redeem page + server action + bilingual RedeemForm"
@@ -1564,7 +1564,7 @@ URL (`/s/<slug>`) and is governed solely by free/entitlement at the unit level. 
 track-membership check to the subject or unit pages; catalog visibility and access are
 independent axes.
 
-- [ ] Create the expiry badge. Server wrapper `components/AccessBadgeServer.tsx`:
+- [x] Create the expiry badge. Server wrapper `components/AccessBadgeServer.tsx`:
   ```tsx
   import "server-only";
   import { getActiveEntitlementExpiry } from "@/lib/access/access";
@@ -1609,7 +1609,7 @@ independent axes.
   > It formats "Access until 12 Nov 2026" (`en-GB`) / "Erişim bitişi 12 Kas 2026" (`tr-TR`).
   > Placement is flexible; the component is self-contained. Prefer the settings/account area if
   > the header layout is tight.
-- [ ] Wire the track catalog on the home. In the authenticated home (`app/page.tsx` or the
+- [x] Wire the track catalog on the home. In the authenticated home (`app/page.tsx` or the
   Phase 2/3 dashboard), list the student's track subjects. Reference server component +
   helper. Add to `lib/access/access.ts`:
   ```ts
@@ -1702,7 +1702,7 @@ independent axes.
   ```
   Render `<TrackCatalog />` in the authenticated home. Subjects outside the track are not listed
   here but remain reachable at `/s/<slug>` — the wall is entitlement, not catalog membership.
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add lib/access/access.ts components/AccessBadge.tsx components/AccessBadgeServer.tsx \
           components/TrackCatalog.tsx components/TrackCatalogHeading.tsx components/SubjectTitle.tsx \
@@ -1737,7 +1737,7 @@ hashes inline with the same `digest` the function uses (guaranteeing parity).
 > `insert into auth.users` needs a few columns; the insert below covers the common set — if it
 > errors, create the user via the Auth Admin API and set `:test_uid` to its id.
 
-- [ ] Create `supabase/tests/04-access.sql`:
+- [x] Create `supabase/tests/04-access.sql`:
   ```sql
   -- Phase 4 redeem_code branch coverage. Run against a dev/branch DB with psql:
   --   psql "$DB_URL" -f supabase/tests/04-access.sql
@@ -1912,7 +1912,7 @@ hashes inline with the same `digest` the function uses (guaranteeing parity).
 
   \echo 'ALL PHASE-4 REDEEM PROBES PASSED'
   ```
-- [ ] **Concurrent last-slot test (two psql sessions — cannot be scripted in one transaction).**
+- [x] **Concurrent last-slot test (two psql sessions — cannot be scripted in one transaction).**
   Document and run manually:
   1. Seed a code with `max_redemptions = 1, redeemed_count = 0` (plaintext `CBDLASTSLOT`).
   2. In **session A**: `begin;` then `set local request.jwt.claims='{"sub":"111…1"}';` then
@@ -1925,7 +1925,7 @@ hashes inline with the same `digest` the function uses (guaranteeing parity).
      `{"ok":false,"error":"exhausted"}`. `commit;` B.
   Expected: exactly one success, one `exhausted`; `redeemed_count = 1`; one `code_redemptions`
   row. This proves the row lock prevents over-redemption of the last slot.
-- [ ] Run the automated script with **psql** (the file uses psql meta-commands like
+- [x] Run the automated script with **psql** (the file uses psql meta-commands like
   `\set ON_ERROR_STOP` and `\echo`, which only psql interprets; the Supabase CLI has NO
   `db execute` subcommand — master §14). Get `DB_URL` from the Supabase dashboard → Connect →
   connection string (or `supabase status` for a local stack); never commit it.
@@ -1933,7 +1933,7 @@ hashes inline with the same `digest` the function uses (guaranteeing parity).
   psql "$DB_URL" -f supabase/tests/04-access.sql
   ```
   Expected: a `PASS …` line for each branch and a final `ALL PHASE-4 REDEEM PROBES PASSED`.
-- [ ] Commit:
+- [x] Commit:
   ```bash
   git add supabase/tests/04-access.sql
   git commit -m "phase4: SQL probe script covering every redeem_code branch + concurrency runbook"
@@ -1958,10 +1958,10 @@ hashes inline with the same `digest` the function uses (guaranteeing parity).
 With default seeds every unit is `is_free=true`, so nothing locks. This task proves the wall works
 by flipping one unit, then walking the full student flow. Run on a dev/branch DB you can mutate.
 
-- [ ] **Baseline (nothing locks).** Log in as a normal student with no entitlement. Open any
+- [x] **Baseline (nothing locks).** Log in as a normal student with no entitlement. Open any
   subject home → every unit card shows "Free preview"; open any unit → content renders. Confirm
   no lock appears.
-- [ ] **Flip one unit to non-free** (pick `hidroloji` unit-1; adjust slug to a real seeded unit):
+- [x] **Flip one unit to non-free** (pick `hidroloji` unit-1; adjust slug to a real seeded unit):
   ```sql
   update public.units u
   set is_free = false
@@ -1972,11 +1972,11 @@ by flipping one unit, then walking the full student flow. Run on a dev/branch DB
   from public.units u join public.subjects s on s.id=u.subject_id
   where s.slug='hidroloji' and u.slug='unit-1';   -- expect is_free = f
   ```
-- [ ] **Lock shows.** Reload the subject home as the unentitled student → the `unit-1` card now
+- [x] **Lock shows.** Reload the subject home as the unentitled student → the `unit-1` card now
   shows 🔒 Locked (other cards still "Free preview"). Open `unit-1` → the **PaywallPanel** renders
   with the published tier (Task 15 seeds it) and the "I have a code" button. Confirm the heavy
   content is NOT in the page source (view-source / network: `get_unit_content` returned null).
-- [ ] **Mint a code and redeem.** As an admin (or directly in SQL for the test), create a code
+- [x] **Mint a code and redeem.** As an admin (or directly in SQL for the test), create a code
   for the subject scope and note the plaintext. Because codes are stored hashed, insert the hash
   of a known plaintext:
   ```sql
@@ -1990,9 +1990,9 @@ by flipping one unit, then walking the full student flow. Run on a dev/branch DB
   ```
   In the app: click "I have a code" → `/redeem` → type `CBD-TEST-0001` (with or without dashes —
   normalization handles it) → submit.
-- [ ] **Unlocked.** Expect the green success panel. Navigate back to `hidroloji/unit-1` → content
+- [x] **Unlocked.** Expect the green success panel. Navigate back to `hidroloji/unit-1` → content
   now renders (reason `entitled`). The Header/settings shows "Access until <~30 days out>".
-- [ ] **Reset for a clean state** (optional): flip the unit back and clear the test grant:
+- [x] **Reset for a clean state** (optional): flip the unit back and clear the test grant:
   ```sql
   update public.units u set is_free = true
   from public.subjects s
@@ -2024,7 +2024,7 @@ First seed a published tier so the paywall has something to show (master §5 can
 then run the security battery via raw PostgREST (master §12.6). These curls prove RLS actually
 holds against a real student token.
 
-- [ ] Seed the canonical `term-all` tier (published). Create the migration:
+- [x] Seed the canonical `term-all` tier (published). Create the migration:
   ```bash
   supabase migration new phase4_seed_term_all_tier
   ```
@@ -2051,7 +2051,7 @@ holds against a real student token.
   git add supabase/migrations
   git commit -m "phase4: seed canonical term-all tier (published) for paywall"
   ```
-- [ ] Gather test values (do NOT commit secrets): `NEXT_PUBLIC_SUPABASE_URL`, the anon key, and a
+- [x] Gather test values (do NOT commit secrets): `NEXT_PUBLIC_SUPABASE_URL`, the anon key, and a
   **student** access token. Get a student token via the password grant (use a confirmed test
   student, not an admin):
   ```bash
@@ -2062,7 +2062,7 @@ holds against a real student token.
     -d '{"email":"student@example.com","password":"<password>"}' | jq -r .access_token)
   echo "${STUDENT_JWT:0:12}…"   # sanity: non-empty
   ```
-- [ ] **(a) Read `access_codes` as a student.** RLS is admin-only, so the student sees zero rows.
+- [x] **(a) Read `access_codes` as a student.** RLS is admin-only, so the student sees zero rows.
   Under Supabase defaults the `authenticated` role has table SELECT privilege and RLS filters the
   rows, so the SECURE, EXPECTED result is an **empty array** (no code hashes leak) — not an error.
   ```bash
@@ -2072,7 +2072,7 @@ holds against a real student token.
   ```
   Pass condition: `[]` (zero rows). A non-empty result is a security failure — stop and fix the
   `access_codes` policy.
-- [ ] **(b) Insert an entitlement as a student.** No client INSERT policy exists → RLS rejects.
+- [x] **(b) Insert an entitlement as a student.** No client INSERT policy exists → RLS rejects.
   ```bash
   curl -s -o /dev/null -w "%{http_code}\n" -X POST "$SB_URL/rest/v1/entitlements" \
     -H "apikey: $ANON" -H "Authorization: Bearer $STUDENT_JWT" \
@@ -2081,7 +2081,7 @@ holds against a real student token.
   # expected HTTP: 403  — body: {"code":"42501","message":"new row violates row-level security policy for table \"entitlements\"", ...}
   ```
   Pass condition: HTTP `403` with code `42501`. Any `2xx` means a write policy leaked in — stop.
-- [ ] **(c) Redeem the same code twice.** First mint `CBD-NEG1-0001` for the student to redeem
+- [x] **(c) Redeem the same code twice.** First mint `CBD-NEG1-0001` for the student to redeem
   (admin/SQL — insert `encode(digest('CBDNEG10001','sha256'),'hex')`). Then:
   ```bash
   # first redemption:
@@ -2096,14 +2096,14 @@ holds against a real student token.
     -H "Content-Type: application/json" -d '{"p_code":"CBD-NEG1-0001"}'
   # expected: {"ok":false,"error":"already-redeemed"}
   ```
-- [ ] **(d) Redeem a revoked code.** Mint `CBD-NEG2-0002` with `revoked_at = now()`, then:
+- [x] **(d) Redeem a revoked code.** Mint `CBD-NEG2-0002` with `revoked_at = now()`, then:
   ```bash
   curl -s -X POST "$SB_URL/rest/v1/rpc/redeem_code" \
     -H "apikey: $ANON" -H "Authorization: Bearer $STUDENT_JWT" \
     -H "Content-Type: application/json" -d '{"p_code":"CBD-NEG2-0002"}'
   # expected: {"ok":false,"error":"invalid-code"}   (revoked is indistinguishable from unknown — no leak)
   ```
-- [ ] Record the four results in the PR description. All four must match the expected outputs.
+- [x] Record the four results in the PR description. All four must match the expected outputs.
 
 **Manual verification checklist**
 - (a) `[]` · (b) `403 / 42501` · (c) `ok:true` then `already-redeemed` · (d) `invalid-code`.
@@ -2121,7 +2121,7 @@ holds against a real student token.
 
 ## Task 16 — Full gate, PR, and phase acceptance
 
-- [ ] From `cubad/`, run the full gate (master §8). Never run two builds at once.
+- [x] From `cubad/`, run the full gate (master §8). Never run two builds at once.
   ```bash
   npm run lint
   npx vitest run
@@ -2148,22 +2148,22 @@ holds against a real student token.
 
 Run from `cubad/` against a fresh dev/branch DB. Every line must pass.
 
-- [ ] `supabase db reset` — all Phase 1–4 migrations apply cleanly from scratch.
-- [ ] `select to_regprocedure('public.has_subject_access(uuid)') is not null;` → `t`.
-- [ ] `select to_regprocedure('public.redeem_code(text)') is not null;` → `t`.
-- [ ] `select to_regprocedure('public.grant_entitlement(uuid,text,uuid,uuid,int,text,uuid)') is not null;` → `t`.
-- [ ] `get_unit_content` returns `null` for a published non-free unit with no entitlement, and
+- [x] `supabase db reset` — all Phase 1–4 migrations apply cleanly from scratch.
+- [x] `select to_regprocedure('public.has_subject_access(uuid)') is not null;` → `t`.
+- [x] `select to_regprocedure('public.redeem_code(text)') is not null;` → `t`.
+- [x] `select to_regprocedure('public.grant_entitlement(uuid,text,uuid,uuid,int,text,uuid)') is not null;` → `t`.
+- [x] `get_unit_content` returns `null` for a published non-free unit with no entitlement, and
       content once an entitlement is granted (Task 14).
-- [ ] `psql "$DB_URL" -f supabase/tests/04-access.sql` → `ALL PHASE-4 REDEEM PROBES PASSED`.
-- [ ] Two-session concurrent last-slot test → one `ok:true`, one `exhausted` (Task 13).
-- [ ] `npx vitest run lib/access/codes.test.ts` → green; hash vector equals the SQL hash.
-- [ ] `npm run lint` and `npm run build` pass.
-- [ ] Negative-path battery (Task 15) → (a) `[]`, (b) `403/42501`, (c) `already-redeemed`,
+- [x] `psql "$DB_URL" -f supabase/tests/04-access.sql` → `ALL PHASE-4 REDEEM PROBES PASSED`.
+- [x] Two-session concurrent last-slot test → one `ok:true`, one `exhausted` (Task 13).
+- [x] `npx vitest run lib/access/codes.test.ts` → green; hash vector equals the SQL hash.
+- [x] `npm run lint` and `npm run build` pass.
+- [x] Negative-path battery (Task 15) → (a) `[]`, (b) `403/42501`, (c) `already-redeemed`,
       (d) `invalid-code`.
-- [ ] UI: locked unit shows lock + paywall; `/redeem` unlocks; "Access until <date>" appears;
+- [x] UI: locked unit shows lock + paywall; `/redeem` unlocks; "Access until <date>" appears;
       home lists only track subjects while a non-track subject stays reachable by URL.
-- [ ] RLS: student cannot read `access_codes` (empty) nor insert `entitlements` (403).
-- [ ] Defense in depth confirmed: even bypassing the page, `get_unit_content` and `units` RLS
+- [x] RLS: student cannot read `access_codes` (empty) nor insert `entitlements` (403).
+- [x] Defense in depth confirmed: even bypassing the page, `get_unit_content` and `units` RLS
       return null for a locked unit.
 
 ---
@@ -2201,6 +2201,28 @@ This phase is additive (new functions, new policies, new files, one seed). To re
 ---
 
 ## Changelog / deviations
+
+- **2026-07-19 — approved first-chosen-preview extension (recorded before gate implementation):**
+  The product owner explicitly superseded the original D6/D7 account-only, static-`is_free`
+  assumption. A visitor or unentitled student may study exactly one full unit of their choice.
+  `has_subject_access(uuid)` remains entitlement-only; `is_free` is retained for schema/catalog
+  compatibility but is not sufficient by itself to release content. The chosen unit is instead
+  bound to a strict-RLS, one-row-per-user durable selection for authenticated users, and to a
+  random browser capability for anonymous visitors. Only the capability's SHA-256 digest is
+  stored, with no fingerprint, IP address, identity, or progress data. An anonymous choice is
+  promoted on signup/sign-in when the account has no prior selection, and never overwrites an
+  existing durable account choice. Clearing browser data creates a new unlinkable capability, so
+  anonymous abuse cannot be made impossible without requiring authentication; this limitation is
+  explicit. `get_unit_content(text,text)`, the server helper, unit page, and every child study
+  route must agree on selected-unit OR covering-entitlement OR admin access. This requires
+  additive preview-selection tables/functions and a new replacement migration for the existing
+  RPC; no applied migration is edited. Payments remain Phase 6.
+- **2026-07-19 — clean-stack profile privilege repair:** Local browser onboarding exposed that
+  the earlier profile owner policies existed but `authenticated` had no explicit table-level
+  `SELECT`/`UPDATE` grants under the repository's `auto_expose_new_tables = false` baseline. An
+  additive migration grants only those two privileges. Existing owner-only RLS and the single
+  `profiles_protect_role` trigger remain the authorization boundary; no insert/delete or role
+  escalation path is added.
 
 - **2026-07-16 — post-audit fixes (coordinator audit, applied before execution):**
   1. **Task 13 probe script no longer trips its own rate limiter.** The first DO block's five
