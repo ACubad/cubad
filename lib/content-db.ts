@@ -3,7 +3,7 @@
 // The service-role client deliberately bypasses RLS; Phase 4 adds user-aware gating in pages.
 import "server-only";
 import { revalidateTag, unstable_cache } from "next/cache";
-import { createServiceRoleClient } from "@/lib/supabase/server";
+import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
 import type { Question, SubjectMeta, Unit } from "./types";
 
 const LIST_TAG = "content:list";
@@ -18,6 +18,25 @@ interface SubjectRow {
 
 interface UnitRow {
   content: Unit;
+}
+
+export interface UnitMeta {
+  id: string;
+  subjectId: string;
+  unit: number;
+  slug: string;
+  isFree: boolean;
+  title: Unit["title"];
+  tagline: Unit["tagline"];
+  questionIds: string[];
+  practiceIds: string[];
+  notesCount: number;
+  flashcardsCount: number;
+}
+
+export interface SubjectCatalog {
+  subject: SubjectMeta & { id: string };
+  units: UnitMeta[];
 }
 
 export function toSubjectMeta(row: SubjectRow): SubjectMeta {
@@ -57,6 +76,75 @@ export async function getSubjects(): Promise<SubjectMeta[]> {
 export async function getSubject(slug: string): Promise<SubjectMeta | undefined> {
   const subjects = await getSubjects();
   return subjects.find((subject) => subject.slug === slug);
+}
+
+/** Public-safe catalog metadata. Full unit JSON is mapped on the server and never serialized. */
+export async function getSubjectCatalog(slug: string): Promise<SubjectCatalog | null> {
+  const run = unstable_cache(
+    async (): Promise<SubjectCatalog | null> => {
+      const supabase = createServiceRoleClient();
+      const { data: subjectRow, error: subjectError } = await supabase
+        .from("subjects")
+        .select("id,slug,title,tagline,section_order")
+        .eq("slug", slug)
+        .eq("status", "published")
+        .maybeSingle();
+      if (subjectError) throw new Error(`getSubjectCatalog(${slug}): ${subjectError.message}`);
+      if (!subjectRow) return null;
+
+      const { data, error } = await supabase
+        .from("units")
+        .select("id,subject_id,unit_number,slug,is_free,content")
+        .eq("subject_id", subjectRow.id)
+        .eq("status", "published")
+        .order("unit_number", { ascending: true });
+      if (error) throw new Error(`getSubjectCatalog(${slug}): ${error.message}`);
+
+      const subject = {
+        id: subjectRow.id as string,
+        ...toSubjectMeta(subjectRow as SubjectRow),
+      };
+      const units = (data ?? []).map((row) => {
+        const content = row.content as unknown as Unit;
+        return {
+          id: row.id as string,
+          subjectId: row.subject_id as string,
+          unit: row.unit_number as number,
+          slug: row.slug as string,
+          isFree: row.is_free as boolean,
+          title: content.title,
+          tagline: content.tagline,
+          questionIds: (content.questions ?? []).map((question) => question.id),
+          practiceIds: (content.practice ?? []).map((practice) => practice.id),
+          notesCount: content.notes?.length ?? 0,
+          flashcardsCount: content.flashcards?.length ?? 0,
+        } satisfies UnitMeta;
+      });
+      return { subject, units };
+    },
+    ["content-db:subject-catalog:v1", slug],
+    { tags: [subjectTag(slug), LIST_TAG], revalidate: false }
+  );
+  return run();
+}
+
+export async function getUnitMeta(subject: string, slug: string): Promise<UnitMeta | null> {
+  const catalog = await getSubjectCatalog(subject);
+  return catalog?.units.find((unit) => unit.slug === slug) ?? null;
+}
+
+/** User-scoped content read through the database gate. Never cache this across requests. */
+export async function getUnitContent(subject: string, slug: string): Promise<Unit | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_unit_content", {
+    p_subject_slug: subject,
+    p_unit_slug: slug,
+  });
+  if (error) {
+    console.error("get_unit_content failed", error.message);
+    return null;
+  }
+  return data ? (data as Unit) : null;
 }
 
 /**
