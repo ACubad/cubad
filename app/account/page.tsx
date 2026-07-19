@@ -4,6 +4,7 @@ import { EditProfileForm } from "@/components/EditProfileForm";
 import { SignOutButton } from "@/components/auth/SignOutButton";
 import { AccountHeadingClient } from "@/components/AccountHeadingClient";
 import type { TrackOption } from "@/components/OnboardingWizard";
+import { AccessBadgeServer } from "@/components/AccessBadgeServer";
 
 export default async function AccountPage() {
   const { user, profile } = await requireOnboarded();
@@ -22,6 +23,7 @@ export default async function AccountPage() {
   return (
     <div className="mx-auto grid w-full max-w-md gap-6 py-6">
       <AccountHeadingClient email={user.email ?? ""} trackTitle={current?.title ?? null} />
+      <div><AccessBadgeServer /></div>
       <section className="rounded-2xl border border-line bg-card p-6">
         <EditProfileForm profile={profile} tracks={trackList} />
       </section>

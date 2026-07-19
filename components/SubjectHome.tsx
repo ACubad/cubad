@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { choosePreviewAction } from "@/app/preview/actions";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
-import type { SubjectMeta, Unit } from "@/lib/types";
-import { WaterProgress } from "./ui";
+import type { UnitMeta } from "@/lib/content-db";
+import type { SubjectMeta } from "@/lib/types";
+import { FreeBadge, LockBadge, WaterProgress } from "./ui";
 
 // This is intentionally specific to the existing hydrology course. It preserves the current
 // landing copy verbatim; a future subject-level landing-copy model is not part of Phase 3.
@@ -69,28 +71,38 @@ const HIDROLOJI_PLAN = {
   ],
 };
 
-export function SubjectHome({ subject, units }: { subject: SubjectMeta; units: Unit[] }) {
+export function SubjectHome({
+  subject,
+  units,
+  subjectAccess,
+  previewUnitId,
+}: {
+  subject: SubjectMeta;
+  units: UnitMeta[];
+  subjectAccess: boolean;
+  previewUnitId: string | null;
+}) {
   const { lang, t, bi } = useLang();
   const { state } = useProgress();
   const isWalkthrough = subject.section_order === "walkthrough";
   const isHidroloji = subject.slug === "hidroloji";
 
   const totalQ = isWalkthrough
-    ? units.reduce((n, unit) => n + (unit.questions?.length ?? 0), 0)
-    : units.reduce((n, unit) => n + (unit.practice?.length ?? 0), 0);
+    ? units.reduce((n, unit) => n + unit.questionIds.length, 0)
+    : units.reduce((n, unit) => n + unit.practiceIds.length, 0);
   const doneQ = isWalkthrough
     ? units.reduce(
         (n, unit) =>
           n +
-          (unit.questions ?? []).filter((question) => state.q[`${subject.slug}/${question.id}`]?.done)
+          unit.questionIds.filter((id) => state.q[`${subject.slug}/${id}`]?.done)
             .length,
         0
       )
     : units.reduce(
         (n, unit) =>
           n +
-          (unit.practice ?? []).filter(
-            (practice) => state.practice[`${subject.slug}/${unit.slug}/${practice.id}`]?.answered
+          unit.practiceIds.filter(
+            (id) => state.practice[`${subject.slug}/${unit.slug}/${id}`]?.answered
           ).length,
         0
       );
@@ -131,25 +143,26 @@ export function SubjectHome({ subject, units }: { subject: SubjectMeta; units: U
         <h2 className="mb-4 font-display text-2xl font-semibold text-ink">{t("allUnits")}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {units.map((unit) => {
-            const notesN = unit.notes?.length ?? 0;
-            const cardsN = unit.flashcards?.length ?? 0;
-            const practiceN = unit.practice?.length ?? 0;
-            const questionsN = unit.questions?.length ?? 0;
+            const notesN = unit.notesCount;
+            const cardsN = unit.flashcardsCount;
+            const practiceN = unit.practiceIds.length;
+            const questionsN = unit.questionIds.length;
             const done = isWalkthrough
-              ? (unit.questions ?? []).filter((question) => state.q[`${subject.slug}/${question.id}`]?.done).length
-              : (unit.practice ?? []).filter(
-                  (practice) => state.practice[`${subject.slug}/${unit.slug}/${practice.id}`]?.answered
+              ? unit.questionIds.filter((id) => state.q[`${subject.slug}/${id}`]?.done).length
+              : unit.practiceIds.filter(
+                  (id) => state.practice[`${subject.slug}/${unit.slug}/${id}`]?.answered
                 ).length;
             const total = isWalkthrough ? questionsN : practiceN;
-            return (
-              <Link
-                key={unit.slug}
-                href={`/s/${subject.slug}/unit/${unit.slug}`}
-                className="group rounded-2xl border border-line bg-card p-5 shadow-[0_1px_0_rgba(28,43,51,0.04)] transition-all hover:-translate-y-0.5 hover:border-deniz/40 hover:shadow-[0_8px_24px_rgba(14,90,109,0.10)]"
-              >
+            const selectedPreview = previewUnitId === unit.id;
+            const locked = !subjectAccess && previewUnitId !== null && !selectedPreview;
+            const card = (
+              <>
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-mono text-xs font-semibold text-deniz">{String(unit.unit).padStart(2, "0")}</span>
-                  {isWalkthrough && <span className="text-xs text-ink-faint">{questionsN} {t("questions")}</span>}
+                  <span className="flex items-center gap-2">
+                    {!subjectAccess && (locked ? <LockBadge /> : <FreeBadge selected={selectedPreview} />)}
+                    {isWalkthrough && <span className="text-xs text-ink-faint">{questionsN} {t("questions")}</span>}
+                  </span>
                 </div>
                 <h3 className="font-display text-lg font-semibold text-ink group-hover:text-deniz-deep">{bi(unit.title)}</h3>
                 <p className="mt-1 line-clamp-2 text-sm text-ink-soft">{bi(unit.tagline)}</p>
@@ -162,7 +175,19 @@ export function SubjectHome({ subject, units }: { subject: SubjectMeta; units: U
                     <span>{practiceN} {t("questions")}</span>
                   </div>
                 )}
+              </>
+            );
+            const cardClass = "group block w-full rounded-2xl border border-line bg-card p-5 text-left shadow-[0_1px_0_rgba(28,43,51,0.04)] transition-all hover:-translate-y-0.5 hover:border-deniz/40 hover:shadow-[0_8px_24px_rgba(14,90,109,0.10)]";
+            return subjectAccess || selectedPreview ? (
+              <Link key={unit.slug} href={`/s/${subject.slug}/unit/${unit.slug}`} className={cardClass}>
+                {card}
               </Link>
+            ) : (
+              <form key={unit.slug} action={choosePreviewAction}>
+                <input type="hidden" name="subject" value={subject.slug} />
+                <input type="hidden" name="unit" value={unit.slug} />
+                <button type="submit" className={cardClass}>{card}</button>
+              </form>
             );
           })}
         </div>

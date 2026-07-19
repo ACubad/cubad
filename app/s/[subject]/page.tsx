@@ -1,10 +1,24 @@
 import { SubjectHome } from "@/components/SubjectHome";
-import { getSubject, getUnits } from "@/lib/content-db";
+import { getCurrentPreviewUnitId, getSubjectPageAccess } from "@/lib/access/access";
+import { getSubjectCatalog } from "@/lib/content-db";
 import { notFound } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export default async function SubjectHomePage({ params }: { params: Promise<{ subject: string }> }) {
   const { subject: subjectSlug } = await params;
-  const subject = await getSubject(subjectSlug);
-  if (!subject) notFound();
-  return <SubjectHome subject={subject} units={await getUnits(subjectSlug)} />;
+  const catalog = await getSubjectCatalog(subjectSlug);
+  if (!catalog) notFound();
+  const [subjectAccess, previewUnitId] = await Promise.all([
+    getSubjectPageAccess(catalog.subject.id),
+    getCurrentPreviewUnitId(),
+  ]);
+  return (
+    <SubjectHome
+      subject={catalog.subject}
+      units={catalog.units}
+      subjectAccess={subjectAccess}
+      previewUnitId={previewUnitId}
+    />
+  );
 }

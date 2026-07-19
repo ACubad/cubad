@@ -1,18 +1,20 @@
 import { type EmailOtpType } from "@supabase/supabase-js";
 import { type NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { claimPreviewForCurrentRequest } from "@/lib/access/preview";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const token_hash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
   const rawNext = searchParams.get("next") ?? "/";
-  const next = rawNext.startsWith("/") ? rawNext : "/"; // open-redirect guard
+  const next = rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : "/";
 
   if (token_hash && type) {
     const supabase = await createClient();
     const { error } = await supabase.auth.verifyOtp({ type, token_hash });
     if (!error) {
+      await claimPreviewForCurrentRequest(null);
       // Strip the secret token from the URL before redirecting.
       const url = request.nextUrl.clone();
       url.pathname = next;

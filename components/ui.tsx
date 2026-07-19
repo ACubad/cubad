@@ -129,6 +129,30 @@ export function LikelihoodBadge({ level }: { level: "high" | "medium" | "low" })
   );
 }
 
+/* ---------------- access badges (Phase 4) ---------------- */
+
+export function LockBadge() {
+  const { t } = useLang();
+  return (
+    <span
+      className="inline-flex items-center gap-1 rounded-full bg-wash px-2 py-0.5 text-[11px] font-semibold text-ink-soft"
+      title={t("locked")}
+    >
+      <span aria-hidden>🔒</span>
+      {t("locked")}
+    </span>
+  );
+}
+
+export function FreeBadge({ selected = false }: { selected?: boolean }) {
+  const { t } = useLang();
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-moss-soft px-2 py-0.5 text-[11px] font-semibold text-moss">
+      {t(selected ? "selectedPreview" : "freePreview")}
+    </span>
+  );
+}
+
 /* ---------------- MCQ (shared by step checks & quizzes) ---------------- */
 
 export function Mcq({
