@@ -268,16 +268,19 @@ remove its rollback variables until the two remaining owner-only checks above ar
   Gemini-key path were removed. An administrator uses the server-only configured Gemini key and
   retains the quality-control responsibility for published audio.
 - The Phase 4 product decision is now explicit: signing up grants identity and cross-device
-  progress only, never content access. Phase 4 will use its existing entitlement/paywall design to
-  leave exactly one owner-selected **full unit** as the free preview and lock all other units for
-  both anonymous and ordinary signed-in students. Anonymous visitors see a sign-in/create-account
-  prompt; signed-in students without an entitlement see the redeem/upgrade paywall. Payments are
-  still Phase 6. If the owner instead wants only part of a unit (a single topic/question) free,
-  that is a deliberate Phase 4 plan extension and must be specified before gating work starts.
+  progress only, never content access. The provisional preview rule is one **full lesson/unit**:
+  the visitor's first lesson choice becomes their free preview, and all other units are locked for
+  both anonymous and ordinary signed-in students. Phase 4 must define how that first choice is
+  persisted across anonymous and authenticated devices and protected from resets before coding the
+  gate. Anonymous visitors see a sign-in/create-account prompt; signed-in students without an
+  entitlement see the redeem/upgrade paywall. Payments are still Phase 6. This is a working product
+  direction to sharpen in Phase 4, not a Phase 3 gating implementation.
 - Automated follow-up evidence: 35 Vitest tests passed, including anonymous and student podcast
   generation negative paths; TypeScript, content validation (2 subjects / 19 files / 56 questions),
   and the production build passed. Lint had zero errors and the accepted existing React warnings.
-- No profile was granted `admin` in this follow-up. The owner must explicitly identify the intended
-  master-admin profile before that privileged database change is made. Deploy this branch and
-  repeat the signed-in sign-out, account-switch, student-403, administrator-generation, and
-  playback checks before closing Phase 3 or beginning Phase 4.
+- With explicit owner authorization, the newly created owner profile was granted `admin` in the
+  existing Cubad Supabase project through the capability-scoped service-role path. Verification
+  returned exactly one matching authentication account, one profile, and one admin role. No account
+  identifier or credential is recorded here. Deploy this branch and repeat the signed-in sign-out,
+  account-switch, student-403, administrator-generation, and playback checks before closing Phase 3
+  or beginning Phase 4.
