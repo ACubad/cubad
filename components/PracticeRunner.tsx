@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
+import { canPersistStudyState } from "@/lib/sync";
 import type { PracticeItem, Unit } from "@/lib/types";
 import { Md } from "./Md";
 import { Mcq, DifficultyDots, WaterProgress } from "./ui";
@@ -52,11 +53,13 @@ export function PracticeRunner({ subject, unit }: { subject: string; unit: Unit 
     const it = filtered[current];
     if (!it || it.type !== "open") return;
     if (ownAttempt[it.id] !== undefined) return;
-    try {
-      const saved = window.localStorage.getItem(answerStorageKey(subject, unit.slug, it.id));
-      if (saved !== null) setOwnAttempt((prev) => ({ ...prev, [it.id]: saved }));
-    } catch {
-      /* ignore */
+    if (canPersistStudyState()) {
+      try {
+        const saved = window.localStorage.getItem(answerStorageKey(subject, unit.slug, it.id));
+        if (saved !== null) setOwnAttempt((prev) => ({ ...prev, [it.id]: saved }));
+      } catch {
+        /* ignore */
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtered, current, subject, unit.slug]);
@@ -103,10 +106,12 @@ export function PracticeRunner({ subject, unit }: { subject: string; unit: Unit 
   const updateOwnAttempt = (text: string) => {
     if (!item) return;
     setOwnAttempt((prev) => ({ ...prev, [item.id]: text }));
-    try {
-      window.localStorage.setItem(answerStorageKey(subject, unit.slug, item.id), text);
-    } catch {
-      /* ignore */
+    if (canPersistStudyState()) {
+      try {
+        window.localStorage.setItem(answerStorageKey(subject, unit.slug, item.id), text);
+      } catch {
+        /* ignore */
+      }
     }
   };
 

@@ -7,7 +7,7 @@ export default async function OnboardingPage() {
   const user = await getSessionUser();
   if (!user) redirect("/auth/sign-in?next=/onboarding");
   const profile = await getProfile();
-  if (profile?.onboarded_at) redirect("/account");
+  if (profile?.onboarded_at) redirect("/");
 
   // WHY service-role: tracks gets a public read policy in Phase 3/4; until then
   // the cookie/anon client sees 0 rows, so service-role read is required. We only

@@ -53,8 +53,8 @@ export async function requireOnboarded() {
   return { user, profile };
 }
 
-/** Where to send a user right after auth: onboarding if not done, else account. */
+/** Where to send a user right after auth: onboarding if not done, else home. */
 export async function postAuthDestination(): Promise<string> {
   const profile = await getProfile();
-  return profile?.onboarded_at ? "/account" : "/onboarding";
+  return profile?.onboarded_at ? "/" : "/onboarding";
 }

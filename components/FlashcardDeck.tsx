@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLang } from "@/lib/i18n";
-import { notifyStateChanged } from "@/lib/sync";
+import { canPersistStudyState, notifyStateChanged } from "@/lib/sync";
 import type { Flashcard, Unit } from "@/lib/types";
 import { Md } from "./Md";
 
@@ -23,6 +23,7 @@ function storageKey(subject: string, unitSlug: string) {
 }
 
 function loadLeitner(subject: string, unitSlug: string): LeitnerState {
+  if (!canPersistStudyState()) return {};
   try {
     const raw = window.localStorage.getItem(storageKey(subject, unitSlug));
     return raw ? (JSON.parse(raw) as LeitnerState) : {};
@@ -32,6 +33,7 @@ function loadLeitner(subject: string, unitSlug: string): LeitnerState {
 }
 
 function saveLeitner(subject: string, unitSlug: string, state: LeitnerState) {
+  if (!canPersistStudyState()) return;
   try {
     window.localStorage.setItem(storageKey(subject, unitSlug), JSON.stringify(state));
     notifyStateChanged();

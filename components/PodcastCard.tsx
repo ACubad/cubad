@@ -19,10 +19,14 @@ interface LangState {
   lines: PodcastLine[];
 }
 
+interface PodcastCapability {
+  tr: { audio: string; script: string | null } | null;
+  en: { audio: string; script: string | null } | null;
+  canGenerate?: boolean;
+}
+
 const DB_NAME = "cubad-podcasts";
 const STORE = "audio";
-const KEY_STORAGE = "cubad:gemini-key";
-
 const FRESH: LangState = { status: "loading", audioUrl: null, scriptUrl: null, lines: [] };
 
 function cacheKey(subject: string, unitSlug: string, lang: string) {
@@ -85,48 +89,48 @@ async function putCached(key: string, value: CachedPodcast): Promise<void> {
 export function PodcastCard({ subject, unit }: { subject: string; unit: Unit }) {
   const { lang: uiLang, t } = useLang();
   const notes = unit.notes ?? [];
-  // which language's podcast is being viewed; null = not chosen yet (ask the user)
   const [podLang, setPodLang] = useState<PodLang | null>(null);
-  const [langState, setLangState] = useState<Record<PodLang, LangState>>({
-    tr: FRESH,
-    en: FRESH,
-  });
+  const [langState, setLangState] = useState<Record<PodLang, LangState>>({ tr: FRESH, en: FRESH });
   const [transcriptOpen, setTranscriptOpen] = useState(false);
-  const [needsKey, setNeedsKey] = useState(false);
-  const [keyInput, setKeyInput] = useState("");
+  const [canGenerate, setCanGenerate] = useState(false);
   const objectUrlsRef = useRef<string[]>([]);
 
-  const patch = useCallback((l: PodLang, s: Partial<LangState>) => {
-    setLangState((prev) => ({ ...prev, [l]: { ...prev[l], ...s } }));
+  const patch = useCallback((lang: PodLang, state: Partial<LangState>) => {
+    setLangState((previous) => ({ ...previous, [lang]: { ...previous[lang], ...state } }));
   }, []);
 
-  // discover what already exists: cloud library first, then local device cache
   useEffect(() => {
     if (!notes.length) return;
     let cancelled = false;
 
-    const discover = async (l: PodLang, cloud: { audio: string; script: string | null } | null) => {
+    const discover = async (
+      lang: PodLang,
+      cloud: { audio: string; script: string | null } | null
+    ) => {
       if (cloud) {
-        patch(l, { status: "ready", audioUrl: cloud.audio, scriptUrl: cloud.script });
+        patch(lang, { status: "ready", audioUrl: cloud.audio, scriptUrl: cloud.script });
         return true;
       }
-      const cached = await getCached(cacheKey(subject, unit.slug, l));
+      const cached = await getCached(cacheKey(subject, unit.slug, lang));
       if (cached && !cancelled) {
         const url = URL.createObjectURL(cached.blob);
         objectUrlsRef.current.push(url);
-        patch(l, { status: "ready", audioUrl: url, lines: cached.lines });
+        patch(lang, { status: "ready", audioUrl: url, lines: cached.lines });
         return true;
       }
-      patch(l, { status: "idle" });
+      patch(lang, { status: "idle" });
       return false;
     };
 
     fetch(`/api/podcast?subject=${encodeURIComponent(subject)}&unit=${encodeURIComponent(unit.slug)}`)
-      .then((r) => r.json())
-      .then(async (d: { tr: { audio: string; script: string | null } | null; en: { audio: string; script: string | null } | null }) => {
+      .then((response) => response.json() as Promise<PodcastCapability>)
+      .then(async (data) => {
         if (cancelled) return;
-        const [hasTr, hasEn] = await Promise.all([discover("tr", d.tr), discover("en", d.en)]);
-        // auto-select: an existing podcast in the UI language, else any existing one
+        setCanGenerate(Boolean(data.canGenerate));
+        const [hasTr, hasEn] = await Promise.all([
+          discover("tr", data.tr),
+          discover("en", data.en),
+        ]);
         if (hasTr || hasEn) {
           setPodLang(uiLang === "tr" ? (hasTr ? "tr" : "en") : hasEn ? "en" : "tr");
         }
@@ -147,130 +151,105 @@ export function PodcastCard({ subject, unit }: { subject: string; unit: Unit }) 
 
   if (!notes.length) return null;
 
-  const generate = async (l: PodLang, force = false) => {
-    setPodLang(l);
-    patch(l, { status: "generating" });
-    setNeedsKey(false);
+  const generate = async (lang: PodLang, force = false) => {
+    if (!canGenerate) return;
+    setPodLang(lang);
+    patch(lang, { status: "generating" });
 
-    const userKey = window.localStorage.getItem(KEY_STORAGE) ?? "";
     try {
-      const res = await fetch("/api/podcast", {
+      const response = await fetch("/api/podcast", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          subject,
-          unitSlug: unit.slug,
-          lang: l,
-          userKey: userKey || undefined,
-          force,
-        }),
+        body: JSON.stringify({ subject, unitSlug: unit.slug, lang, force }),
       });
 
-      if (res.status === 401) {
-        setNeedsKey(true);
-        patch(l, { status: "idle" });
+      if (response.status === 401 || response.status === 403) {
+        setCanGenerate(false);
+        patch(lang, { status: "idle" });
         return;
       }
 
-      const contentType = res.headers.get("Content-Type") ?? "";
+      const contentType = response.headers.get("Content-Type") ?? "";
       if (contentType.includes("audio/wav")) {
-        // no cloud storage configured — device-local mode
-        const blob = await res.blob();
-        const linesB64 = res.headers.get("X-Podcast-Lines");
-        const parsedLines: PodcastLine[] = linesB64
+        const blob = await response.blob();
+        const linesB64 = response.headers.get("X-Podcast-Lines");
+        const lines: PodcastLine[] = linesB64
           ? (JSON.parse(decodeBase64Utf8(linesB64)) as PodcastLine[])
           : [];
         const url = URL.createObjectURL(blob);
         objectUrlsRef.current.push(url);
-        patch(l, { status: "ready", audioUrl: url, lines: parsedLines });
-        await putCached(cacheKey(subject, unit.slug, l), { blob, lines: parsedLines });
+        patch(lang, { status: "ready", audioUrl: url, lines });
+        await putCached(cacheKey(subject, unit.slug, lang), { blob, lines });
         return;
       }
 
-      const data = (await res.json()) as {
+      const data = (await response.json()) as {
         url?: string;
         scriptUrl?: string | null;
         scriptOnly?: boolean;
         lines?: PodcastLine[];
-        error?: string;
       };
       if (data.url) {
-        // stored in the cloud — same file on every device
-        patch(l, {
+        patch(lang, {
           status: "ready",
           audioUrl: data.url,
           scriptUrl: data.scriptUrl ?? null,
           lines: data.lines ?? [],
         });
-        return;
+      } else if (data.scriptOnly && data.lines) {
+        patch(lang, { status: "scriptOnly", lines: data.lines });
+      } else {
+        patch(lang, { status: "error" });
       }
-      if (data.scriptOnly && data.lines) {
-        patch(l, { status: "scriptOnly", lines: data.lines });
-        return;
-      }
-      patch(l, { status: "error" });
     } catch {
-      patch(l, { status: "error" });
+      patch(lang, { status: "error" });
     }
   };
 
   const openTranscript = async () => {
-    setTranscriptOpen((o) => !o);
+    setTranscriptOpen((open) => !open);
     if (!podLang) return;
-    const s = langState[podLang];
-    if (!transcriptOpen && s.lines.length === 0 && s.scriptUrl) {
+    const state = langState[podLang];
+    if (!transcriptOpen && state.lines.length === 0 && state.scriptUrl) {
       try {
-        const r = await fetch(s.scriptUrl);
-        const lines = (await r.json()) as PodcastLine[];
-        patch(podLang, { lines });
+        const response = await fetch(state.scriptUrl);
+        patch(podLang, { lines: (await response.json()) as PodcastLine[] });
       } catch {
-        /* transcript unavailable — audio still plays */
+        /* transcript unavailable; audio remains usable */
       }
     }
   };
 
-  const saveKey = () => {
-    const k = keyInput.trim();
-    if (!k) return;
-    window.localStorage.setItem(KEY_STORAGE, k);
-    setKeyInput("");
-    setNeedsKey(false);
-    if (podLang) generate(podLang);
-  };
-
-  const cur = podLang ? langState[podLang] : null;
+  const current = podLang ? langState[podLang] : null;
   const stillDiscovering = langState.tr.status === "loading" || langState.en.status === "loading";
-
-  const langLabel = (l: PodLang) => (l === "tr" ? "Türkçe" : "English");
-  const langReady = (l: PodLang) => langState[l].status === "ready";
+  const langLabel = (lang: PodLang) => (lang === "tr" ? "Türkçe" : "English");
+  const langReady = (lang: PodLang) => langState[lang].status === "ready";
 
   return (
     <section className="rounded-2xl border border-line bg-card p-5 sm:p-6">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <h2 className="font-display text-xl font-semibold text-ink">🎧 {t("podcast")}</h2>
         <div className="flex items-center gap-2">
-          {/* language chips — always visible once something exists or a lang is chosen */}
           {(podLang || langReady("tr") || langReady("en")) && (
             <div className="flex overflow-hidden rounded-full border border-line text-xs font-semibold">
-              {(["tr", "en"] as const).map((l) => (
+              {(["tr", "en"] as const).map((lang) => (
                 <button
-                  key={l}
-                  onClick={() => setPodLang(l)}
+                  key={lang}
+                  onClick={() => setPodLang(lang)}
                   className={`px-3 py-1.5 transition-colors ${
-                    podLang === l
+                    podLang === lang
                       ? "bg-deniz text-white"
                       : "bg-paper text-ink-soft hover:bg-wash"
                   }`}
                 >
-                  {langLabel(l)}
-                  {langReady(l) ? " ✓" : ""}
+                  {langLabel(lang)}{langReady(lang) ? " ✓" : ""}
                 </button>
               ))}
             </div>
           )}
-          {cur && (cur.status === "ready" || cur.status === "scriptOnly") && podLang && (
+          {canGenerate && current && (current.status === "ready" || current.status === "scriptOnly") && podLang && (
             <button
-              onClick={() => generate(podLang, true)}
+              onClick={() => void generate(podLang, true)}
               className="rounded-full border border-line px-3 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:border-deniz/40 hover:text-deniz"
             >
               {t("regeneratePodcast")}
@@ -279,52 +258,22 @@ export function PodcastCard({ subject, unit }: { subject: string; unit: Unit }) 
         </div>
       </div>
 
-      {needsKey && (
-        <div className="mb-3 space-y-3 rounded-xl border border-amber/30 bg-amber-soft px-4 py-3 text-sm">
-          <p className="text-ink">{t("podcastNeedsKey")}</p>
-          <div className="flex gap-2">
-            <input
-              type="password"
-              value={keyInput}
-              onChange={(e) => setKeyInput(e.target.value)}
-              placeholder="AIza..."
-              className="min-w-0 flex-1 rounded-lg border border-line bg-paper px-3 py-2 font-mono text-xs"
-            />
-            <button
-              onClick={saveKey}
-              className="shrink-0 rounded-lg bg-deniz px-3 py-2 text-xs font-semibold text-white hover:bg-deniz-deep"
-            >
-              {t("saveKey")}
-            </button>
-          </div>
-          <a
-            href="https://aistudio.google.com/apikey"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block text-xs font-semibold text-deniz underline"
-          >
-            aistudio.google.com/apikey ↗
-          </a>
-        </div>
-      )}
-
       {stillDiscovering && (
         <div className="pulse-soft rounded-xl bg-wash px-4 py-3 text-sm text-ink-faint">…</div>
       )}
 
-      {/* nothing chosen yet → ask the language FIRST */}
-      {!stillDiscovering && !podLang && !needsKey && (
+      {!stillDiscovering && !podLang && canGenerate && (
         <div className="space-y-2.5">
           <p className="text-sm font-medium text-ink">{t("podcastAskLang")}</p>
           <div className="flex flex-wrap gap-2">
             <button
-              onClick={() => generate("tr")}
+              onClick={() => void generate("tr")}
               className="rounded-full bg-deniz px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
             >
               🇹🇷 Türkçe {t("podcastCreateSuffix")}
             </button>
             <button
-              onClick={() => generate("en")}
+              onClick={() => void generate("en")}
               className="rounded-full bg-deniz px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
             >
               🇬🇧 English {t("podcastCreateSuffix")}
@@ -333,30 +282,36 @@ export function PodcastCard({ subject, unit }: { subject: string; unit: Unit }) 
         </div>
       )}
 
-      {cur && podLang && (
+      {!stillDiscovering && !podLang && !canGenerate && (
+        <p className="rounded-xl bg-wash px-4 py-3 text-sm text-ink-soft">
+          {t("podcastPreparedByTeam")}
+        </p>
+      )}
+
+      {current && podLang && (
         <>
-          {cur.status === "idle" && !needsKey && (
+          {current.status === "idle" && canGenerate && (
             <button
-              onClick={() => generate(podLang)}
+              onClick={() => void generate(podLang)}
               className="rounded-full bg-deniz px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
             >
               🎧 {t("generatePodcast")} ({langLabel(podLang)})
             </button>
           )}
 
-          {cur.status === "generating" && (
+          {current.status === "generating" && (
             <div className="pulse-soft rounded-xl border border-line bg-wash px-4 py-3 text-sm text-ink-soft">
               {t("podcastGenerating")}
             </div>
           )}
 
-          {cur.status === "error" && (
+          {current.status === "error" && canGenerate && (
             <div className="space-y-3">
               <div className="rounded-xl border border-clay/30 bg-clay-soft px-4 py-3 text-sm text-clay">
                 {t("podcastError")}
               </div>
               <button
-                onClick={() => generate(podLang)}
+                onClick={() => void generate(podLang)}
                 className="rounded-full bg-deniz px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep"
               >
                 {t("generatePodcast")} ({langLabel(podLang)})
@@ -364,28 +319,28 @@ export function PodcastCard({ subject, unit }: { subject: string; unit: Unit }) 
             </div>
           )}
 
-          {(cur.status === "ready" || cur.status === "scriptOnly") && (
+          {(current.status === "ready" || current.status === "scriptOnly") && (
             <div className="space-y-3">
-              {cur.status === "ready" && cur.audioUrl && (
-                <audio controls src={cur.audioUrl} className="w-full">
+              {current.status === "ready" && current.audioUrl && (
+                <audio controls src={current.audioUrl} className="w-full">
                   <track kind="captions" />
                 </audio>
               )}
-              {(cur.lines.length > 0 || cur.scriptUrl) && (
+              {(current.lines.length > 0 || current.scriptUrl) && (
                 <div>
                   <button
-                    onClick={openTranscript}
+                    onClick={() => void openTranscript()}
                     className="text-xs font-semibold uppercase tracking-wide text-deniz hover:text-deniz-deep"
                   >
                     {transcriptOpen ? "− " : "+ "}
                     {t("podcastTranscript")}
                   </button>
-                  {transcriptOpen && cur.lines.length > 0 && (
+                  {transcriptOpen && current.lines.length > 0 && (
                     <div className="rise-in mt-2 max-h-80 space-y-2 overflow-y-auto rounded-xl bg-wash px-4 py-3 text-sm">
-                      {cur.lines.map((l, i) => (
-                        <p key={i}>
-                          <span className="font-semibold text-deniz-deep">{l.s}: </span>
-                          <span className="text-ink">{l.t}</span>
+                      {current.lines.map((line, index) => (
+                        <p key={index}>
+                          <span className="font-semibold text-deniz-deep">{line.s}: </span>
+                          <span className="text-ink">{line.t}</span>
                         </p>
                       ))}
                     </div>

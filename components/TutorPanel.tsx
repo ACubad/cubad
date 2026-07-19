@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
-import { notifyStateChanged, SYNC_APPLIED_EVENT } from "@/lib/sync";
+import { canPersistStudyState, notifyStateChanged, SYNC_APPLIED_EVENT } from "@/lib/sync";
 import type { Bi } from "@/lib/types";
 import { Md } from "./Md";
 
@@ -50,6 +50,7 @@ const MAX_MSGS = 60;
 const chatKey = (topicId: string) => `cubad:chats:${topicId}`;
 
 function loadChats(topicId: string): ChatStore {
+  if (!canPersistStudyState()) return { convos: [], activeId: null };
   try {
     const raw = window.localStorage.getItem(chatKey(topicId));
     if (raw) return JSON.parse(raw) as ChatStore;
@@ -60,6 +61,7 @@ function loadChats(topicId: string): ChatStore {
 }
 
 function saveChats(topicId: string, store: ChatStore) {
+  if (!canPersistStudyState()) return;
   try {
     const trimmed: ChatStore = {
       activeId: store.activeId,
