@@ -17,7 +17,7 @@ import { revalidateTag } from "next/cache";
 
 function chain(finalData: unknown, finalError: unknown = null) {
   const builder: Record<string, unknown> = {};
-  for (const method of ["select", "eq"]) {
+  for (const method of ["select", "eq", "or"]) {
     builder[method] = vi.fn(() => builder);
   }
   builder.order = vi.fn(async () => ({ data: finalData, error: finalError }));
@@ -50,6 +50,12 @@ describe("toSubjectMeta / toUnit (pure mapping)", () => {
       tagline: { tr: "b", en: "b" },
     };
     expect(toUnit({ content } as never)).toBe(content);
+  });
+
+  it("prefers the last published snapshot while a newer draft exists", () => {
+    const draft = { unit: 1, slug: "unit-1", tagline: { tr: "Taslak", en: "Draft" } };
+    const published = { unit: 1, slug: "unit-1", tagline: { tr: "Canlı", en: "Live" } };
+    expect(toUnit({ content: draft, published_content: published } as never)).toBe(published);
   });
 });
 
@@ -103,13 +109,16 @@ describe("getUnits", () => {
     expect(mockFrom).toHaveBeenCalledTimes(1);
   });
 
-  it("returns unit.content verbatim for each row, ordered by unit_number", async () => {
+  it("returns the public revision for each row, ordered by unit_number", async () => {
     const unitA = { unit: 1, slug: "unit-1" };
     const unitB = { unit: 2, slug: "unit-2" };
     mockFrom.mockImplementation((table: string) =>
       table === "subjects"
         ? chain({ id: "subj-1" })
-        : chain([{ content: unitA }, { content: unitB }])
+        : chain([
+            { status: "published", content: unitA, published_content: null },
+            { status: "draft", content: { unit: 2, slug: "new-draft" }, published_content: unitB },
+          ])
     );
     await expect(getUnits("hidroloji")).resolves.toEqual([unitA, unitB]);
   });
