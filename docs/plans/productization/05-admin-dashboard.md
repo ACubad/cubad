@@ -4281,6 +4281,15 @@ safely:
 
 ## Changelog / deviations
 
+- **2026-07-19 — review hardening (execution):** the implementation review identified two
+  missing boundaries. Subject publish/archive now invalidates both the subject cache and the
+  shared published-subject list, preventing a stale home/catalog list after status changes.
+  Migration `20260719191243_protect_profile_email_updates.sql` also replaces the authenticated
+  role's table-wide profile UPDATE grant with column-level grants for the existing onboarding
+  fields. The auth-trigger-maintained `profiles.email` projection is therefore not client-
+  writable, while normal owner onboarding updates still pass RLS. Clean-stack SQL and disposable
+  local/remote PostgREST probes cover the hardened behavior.
+
 - **2026-07-19 — Phase 4 preview-model reconciliation (execution):** Phase 4's merged
   first-chosen-preview architecture supersedes Task 6's stale static `is_free` control. Phase 5
   therefore does **not** create `admin_set_unit_free`, does not accept `p_is_free` in the unit

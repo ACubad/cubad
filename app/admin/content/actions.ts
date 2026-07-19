@@ -31,6 +31,7 @@ export async function setSubjectStatusAction(
   });
   if (error) throw new Error(error.message);
   revalidateContent(subject.slug);
+  revalidateContent();
   revalidatePath("/admin/content");
 }
 

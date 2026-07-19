@@ -95,6 +95,7 @@ async function main() {
   for (const [label, request] of probes) passed = (await expectDenied(label, request)) && passed;
 
   const directWrites = [
+    ["direct profile email update", student.from("profiles").update({ email: "forged@example.invalid" }).eq("user_id", authData.user.id)],
     ["direct subjects insert", student.from("subjects").insert({ slug: "probe", title: { tr: "Probe", en: "Probe" }, tagline: { tr: "Probe", en: "Probe" } })],
     ["direct access_codes insert", student.from("access_codes").insert({ code_hash: "e".repeat(64), tier_id: zero, scope_type: "all", duration_days: 30 })],
     ["direct admin_audit_log insert", student.from("admin_audit_log").insert({ action: "probe.test", entity: "probe" })],

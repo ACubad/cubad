@@ -79,6 +79,7 @@ Applied migrations are additive; no historical migration is edited.
 | `20260719152544_admin_overview_stats.sql` | six SQL aggregate KPIs in one guarded RPC | pass | applied; ledger verified |
 | `20260719152657_admin_audit_log_select_policy.sql` | read-only admin audit policy and SELECT privilege | pass | applied; ledger verified |
 | `20260719155117_preserve_published_unit_during_draft.sql` | retain the last live revision while a newer draft is edited | pass | applied; ledger verified |
+| `20260719191243_protect_profile_email_updates.sql` | restrict authenticated profile updates to onboarding-safe columns; keep auth-synced email server-owned | pass | applied; ledger verified |
 
 Remote verification after the email migration: 6 profiles, 0 blank emails, exactly one owner auth
 match, exactly one owner profile match, exactly one owner admin match, and exactly one admin profile
@@ -119,10 +120,14 @@ audit row in the same PostgreSQL function invocation.
   this handoff. Generation will return plaintext once in the authorized response only.
 - Unsupported status/revoke targets fail loudly; status changes validate per-table states and
   reject nonexistent ids instead of writing misleading audit rows.
+- Subject status mutations invalidate both the subject-specific cache and the shared published
+  subject-list cache, so publish/archive changes are visible without a redeploy.
+- Authenticated owners retain updates to the onboarding profile fields, but PostgreSQL column
+  privileges reject direct writes to the auth-synced `profiles.email` projection.
 
 ## Verification completed before PR
 
-- `npx supabase db reset`: all 28 migrations replayed from zero.
+- `npx supabase db reset`: all 29 migrations replayed from zero.
 - `supabase/tests/05-admin.sql`: signatures, email seam, every non-admin denial, audited CRUD,
   invalid-upload rollback, canonical stacking/revoke, hash-only codes, KPI aggregates, draft/live
   revision isolation, admin draft preview, and publish promotion all passed transactionally.
@@ -130,13 +135,13 @@ audit row in the same PostgreSQL function invocation.
 - `npx supabase db lint --local`: no schema errors.
 - Strict local and Cubad-remote PostgREST probes created disposable genuine students, verified
   `profiles.role = student`, and received explicit `42501` authorization denials for every admin
-  RPC and privileged direct table write. Both ended with
+  RPC, the profile-email projection, and each privileged direct table write. Both ended with
   `ALL PHASE-5 ADMIN-WRITE PROBES PASSED`; disposable remote users were deleted in `finally`.
 - `npm run lint`: zero errors and the same accepted pre-existing 8 warnings.
 - `npx vitest run`: 9 files / 59 tests passed.
 - content CLI: 2 subjects / 19 files / 56 walkthrough questions; `content OK`.
 - Next 16.2.10 production build passed with all admin routes present.
-- Cubad remote ledger matches local through `20260719155117` (28/28).
+- Cubad remote ledger matches local through `20260719191243` (29/29).
 - Playwright browser verification passed for signed-out redirect, direct student redirects,
   all implemented admin nav routes, SQL KPI rendering, invalid JSON and missing-`finalAnswer`
   no-mutation errors, draft preview, old-live-while-draft behavior, publish without redeploy,
@@ -144,8 +149,9 @@ audit row in the same PostgreSQL function invocation.
 
 ## Verification still required
 
-- Open the implementation PR; record required CI, CodeRabbit/review findings, unresolved-thread
-  audit, and the Vercel Preview smoke.
+- Finish implementation PR #17 review; record final CI, CodeRabbit findings, unresolved-thread
+  audit, and the Vercel Preview smoke. Initial build/test and Vercel Preview checks passed; two
+  review findings were fixed in the forward migration/cache invalidation follow-up.
 - Merge only after all checks pass, then record merge SHA, Production deployment id/URL, and the
   complete Production smoke result. Use a docs-only closeout PR for post-merge evidence.
 
@@ -163,7 +169,7 @@ Pending. Populate every field before Phase 5 is declared complete.
 
 ## Changelog / deviations
 
-- See the three 2026-07-19 execution entries in
+- See the four 2026-07-19 execution entries in
   `docs/plans/productization/05-admin-dashboard.md`: Phase 4 preview reconciliation and installed
-  `tsx` programmatic-loader reconciliation, plus preservation of the live unit revision while an
-  editor works on a draft.
+  `tsx` programmatic-loader reconciliation, preservation of the live unit revision while an
+  editor works on a draft, and review hardening for cache invalidation/profile email ownership.

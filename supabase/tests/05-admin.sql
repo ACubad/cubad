@@ -81,6 +81,21 @@ declare
     $q$select public.admin_overview_stats()$q$
   ];
 begin
+  update public.profiles
+  set full_name = 'Phase 5 owner update probe'
+  where user_id = 'a1111111-1111-1111-1111-111111111111';
+  if not found then
+    raise exception 'FAIL authenticated owner profile update was blocked';
+  end if;
+
+  begin
+    update public.profiles
+    set email = 'forged@example.invalid'
+    where user_id = 'a1111111-1111-1111-1111-111111111111';
+    raise exception 'FAIL authenticated owner changed the auth-synced profile email';
+  exception when insufficient_privilege then null;
+  end;
+
   foreach v_sql in array v_calls loop
     begin
       execute v_sql;
@@ -104,7 +119,7 @@ begin
     raise exception 'FAIL student direct audit insert succeeded';
   exception when insufficient_privilege then null;
   end;
-  raise notice 'PASS every admin RPC and direct privileged table write denied to student';
+  raise notice 'PASS owner profile fields remain editable while email and privileged writes are denied';
 end $$;
 reset role;
 
