@@ -42,6 +42,7 @@ const studentA = createClient(target.url, target.anonKey, clientOptions);
 const studentB = createClient(target.url, target.anonKey, clientOptions);
 const createdUserIds = [];
 const storagePaths = [];
+const createdTierIds = [];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -133,6 +134,43 @@ async function main() {
     id: randomUUID(),
   });
   expectError("student cross-user insert", spoofInsertError);
+
+  const { error: forgedProofError } = await studentB.from("payment_claims").insert({
+    ...claim,
+    id: randomUUID(),
+    user_id: fixtureB.id,
+    proof_path: `${fixtureB.id}/${randomUUID()}/forged.png`,
+  });
+  expectError("student proof_path insert", forgedProofError);
+
+  const hiddenTierId = randomUUID();
+  const { error: hiddenTierCreateError } = await service.from("tiers").insert({
+    id: hiddenTierId,
+    slug: `phase6-probe-hidden-${randomUUID()}`,
+    title: { tr: "Probe", en: "Probe" },
+    scope_type: "all",
+    duration_days: 30,
+    prices: [],
+    status: "hidden",
+  });
+  if (hiddenTierCreateError) throw new Error(`Hidden-tier fixture failed: ${hiddenTierCreateError.message}`);
+  createdTierIds.push(hiddenTierId);
+  const { error: hiddenTierError } = await studentB.from("payment_claims").insert({
+    ...claim,
+    id: randomUUID(),
+    user_id: fixtureB.id,
+    tier_id: hiddenTierId,
+  });
+  expectError("student hidden-tier claim", hiddenTierError);
+
+  const { error: invalidMoneyError } = await studentB.from("payment_claims").insert({
+    ...claim,
+    id: randomUUID(),
+    user_id: fixtureB.id,
+    amount: -1,
+    currency: "usd",
+  });
+  expectError("student invalid amount/currency", invalidMoneyError);
 
   const { error: directUpdateError } = await studentA
     .from("payment_claims")
@@ -226,6 +264,13 @@ main()
       const { error } = await service.auth.admin.deleteUser(userId);
       if (error) {
         console.error(`Disposable fixture cleanup failed: ${error.message}`);
+        process.exitCode = 1;
+      }
+    }
+    if (createdTierIds.length) {
+      const { error } = await service.from("tiers").delete().in("id", createdTierIds);
+      if (error) {
+        console.error(`Disposable tier cleanup failed: ${error.message}`);
         process.exitCode = 1;
       }
     }

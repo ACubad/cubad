@@ -3,6 +3,16 @@ import { createClient } from "@/lib/supabase/server";
 
 const STATUSES = ["pending", "approved", "rejected"] as const;
 const METHODS = ["mpesa", "tigopesa", "airtelmoney", "bank", "other"] as const;
+type ClaimRow = {
+  id: string;
+  user_id: string;
+  tier_id: string;
+  amount: number | null;
+  currency: string | null;
+  method: string;
+  status: string;
+  created_at: string;
+};
 
 export default async function AdminPaymentsPage({
   searchParams,
@@ -18,21 +28,47 @@ export default async function AdminPaymentsPage({
     : "";
   const supabase = await createClient();
 
-  let query = supabase
-    .from("payment_claims")
-    .select("id,user_id,tier_id,amount,currency,method,status,created_at")
-    .order("created_at", { ascending: false })
-    .limit(200);
-  if (status) query = query.eq("status", status);
-  if (method) query = query.eq("method", method);
-  const { data: claims, error: claimsError } = await query;
-  if (claimsError) throw new Error(`payment queue failed: ${claimsError.message}`);
-
-  const rows = [...(claims ?? [])].sort((left, right) => {
-    const leftRank = left.status === "pending" ? 0 : 1;
-    const rightRank = right.status === "pending" ? 0 : 1;
-    return leftRank - rightRank;
-  });
+  const columns = "id,user_id,tier_id,amount,currency,method,status,created_at";
+  let rows: ClaimRow[];
+  if (status) {
+    let query = supabase
+      .from("payment_claims")
+      .select(columns)
+      .eq("status", status)
+      .order("created_at", { ascending: false })
+      .limit(200);
+    if (method) query = query.eq("method", method);
+    const { data, error } = await query;
+    if (error) throw new Error(`payment queue failed: ${error.message}`);
+    rows = data ?? [];
+  } else {
+    // Fetch pending work independently so newer terminal history cannot push an old pending claim
+    // outside the queue limit. Terminal rows fill only the space left after pending work.
+    let pendingQuery = supabase
+      .from("payment_claims")
+      .select(columns)
+      .eq("status", "pending")
+      .order("created_at", { ascending: false })
+      .limit(200);
+    let terminalQuery = supabase
+      .from("payment_claims")
+      .select(columns)
+      .in("status", ["approved", "rejected"])
+      .order("created_at", { ascending: false })
+      .limit(200);
+    if (method) {
+      pendingQuery = pendingQuery.eq("method", method);
+      terminalQuery = terminalQuery.eq("method", method);
+    }
+    const [pendingResult, terminalResult] = await Promise.all([pendingQuery, terminalQuery]);
+    if (pendingResult.error) {
+      throw new Error(`pending payment queue failed: ${pendingResult.error.message}`);
+    }
+    if (terminalResult.error) {
+      throw new Error(`terminal payment queue failed: ${terminalResult.error.message}`);
+    }
+    rows = [...(pendingResult.data ?? []), ...(terminalResult.data ?? [])].slice(0, 200);
+  }
   const tierIds = [...new Set(rows.map((row) => row.tier_id as string))];
   const userIds = [...new Set(rows.map((row) => row.user_id as string))];
   const [{ data: tiers, error: tiersError }, { data: profiles, error: profilesError }] =

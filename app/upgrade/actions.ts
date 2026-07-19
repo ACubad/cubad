@@ -94,7 +94,13 @@ export async function submitClaim(
     .from("payment-proofs")
     .upload(path, bytes, { contentType: file.type, upsert: false });
   if (uploadError) {
-    await service.from("payment_claims").delete().eq("id", claim.id).eq("user_id", user.id);
+    await service
+      .from("payment_claims")
+      .delete()
+      .eq("id", claim.id)
+      .eq("user_id", user.id)
+      .eq("status", "pending")
+      .is("reviewed_at", null);
     return { error: "upload-failed" };
   }
 
@@ -108,7 +114,13 @@ export async function submitClaim(
     .maybeSingle();
   if (finalizeError || !finalized) {
     await service.storage.from("payment-proofs").remove([path]);
-    await service.from("payment_claims").delete().eq("id", claim.id).eq("user_id", user.id);
+    await service
+      .from("payment_claims")
+      .delete()
+      .eq("id", claim.id)
+      .eq("user_id", user.id)
+      .eq("status", "pending")
+      .is("reviewed_at", null);
     return { error: "finalize-failed" };
   }
 

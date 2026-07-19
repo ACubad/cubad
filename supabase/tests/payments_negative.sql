@@ -16,6 +16,14 @@ select '64000000-0000-4000-8000-000000000001',
        '63000000-0000-4000-8000-000000000001/64000000-0000-4000-8000-000000000001/proof.jpg'
 from public.tiers where slug = 'term-all';
 
+insert into public.tiers (id,slug,title,scope_type,duration_days,prices,status)
+values (
+  '64000000-0000-4000-8000-000000000099',
+  'phase6-negative-hidden',
+  jsonb_build_object('tr','Hidden','en','Hidden'),
+  'all', 30, '[]', 'hidden'
+);
+
 set local role authenticated;
 select set_config(
   'request.jwt.claims',
@@ -35,6 +43,34 @@ begin
     select '63000000-0000-4000-8000-000000000002', id, 'mpesa', 'approved'
     from public.tiers where slug = 'term-all';
     raise exception 'self-approved insert unexpectedly succeeded';
+  exception when insufficient_privilege or check_violation then null;
+  end;
+
+  begin
+    insert into public.payment_claims (user_id,tier_id,method,status,proof_path)
+    select '63000000-0000-4000-8000-000000000002', id, 'mpesa', 'pending', 'forged/proof.png'
+    from public.tiers where slug = 'term-all';
+    raise exception 'client-supplied proof_path unexpectedly succeeded';
+  exception when insufficient_privilege or check_violation then null;
+  end;
+
+  begin
+    insert into public.payment_claims (user_id,tier_id,method,status)
+    values (
+      '63000000-0000-4000-8000-000000000002',
+      '64000000-0000-4000-8000-000000000099',
+      'mpesa',
+      'pending'
+    );
+    raise exception 'hidden-tier claim unexpectedly succeeded';
+  exception when insufficient_privilege or check_violation then null;
+  end;
+
+  begin
+    insert into public.payment_claims (user_id,tier_id,method,status,amount,currency)
+    select '63000000-0000-4000-8000-000000000002', id, 'mpesa', 'pending', -1, 'usd'
+    from public.tiers where slug = 'term-all';
+    raise exception 'invalid amount/currency claim unexpectedly succeeded';
   exception when insufficient_privilege or check_violation then null;
   end;
 
