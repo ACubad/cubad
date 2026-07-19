@@ -249,7 +249,7 @@ The production code/data cutover is therefore live and verified. Keep Sprout ava
 remove its rollback variables until the two remaining owner-only checks above are recorded and the
 60-day rollback window has elapsed.
 
-### Preview environment repair and account/content-control follow-up (2026-07-19; deployment pending)
+### Preview environment repair and account/content-control follow-up (2026-07-19; deployed)
 
 - The project owner added the existing Cubad URL, anon key, and service-role key to the global
   **Preview** environment in the existing `cubad` Vercel project, without branch restrictions.
@@ -281,6 +281,22 @@ remove its rollback variables until the two remaining owner-only checks above ar
 - With explicit owner authorization, the newly created owner profile was granted `admin` in the
   existing Cubad Supabase project through the capability-scoped service-role path. Verification
   returned exactly one matching authentication account, one profile, and one admin role. No account
-  identifier or credential is recorded here. Deploy this branch and repeat the signed-in sign-out,
-  account-switch, student-403, administrator-generation, and playback checks before closing Phase 3
-  or beginning Phase 4.
+  identifier or credential is recorded here.
+- Follow-up PR [#13](https://github.com/ACubad/cubad/pull/13) passed GitHub
+  `build-and-test` (Actions run `29684730972`) and the Vercel Preview checks, then merged to `main`
+  as `7dbac7a0cb81ba12e16d85231e038d8bee7f5ebe`. CodeRabbit remained in its optional review state
+  after the required checks passed; repository protection did not require that bot, and GitHub
+  reported the exact reviewed head as mergeable. This timing decision did not bypass a required
+  build, test, or deployment gate.
+- The existing `cubad` Vercel project deployed that merge to Production as
+  `dpl_8JBH7jtPDMgnHnd1ZEwEm5cDRpjF`; the deployment reported **Ready** and retained the canonical
+  `https://cubad.vercel.app` alias. Live smoke results were: home 200, sign-in 200, unauthenticated
+  `/account` 307 to authentication, unauthenticated `/api/state` 401, configured Gemini and podcast
+  Storage reported present, anonymous `canGenerate = false`, and anonymous podcast POST 401.
+- The automated suite covers the signed-in student podcast POST 403 path. A production
+  administrator-generation call was deliberately not used as a smoke test because it would create
+  and publish a real audio object; the owner remains the quality-control gate. The remaining
+  human-only checks are a fresh signed-in browser refresh (admin controls visible), sign-out redirect,
+  account-switch isolation, deliberate administrator generation, and playback. Record those owner
+  observations before treating the rollback window as fully closed; they do not authorize Phase 4
+  work in this follow-up.
