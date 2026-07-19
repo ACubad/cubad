@@ -287,6 +287,21 @@ select set_config(
 do $$
 declare v_count int;
 begin
+  select count(*) into v_count from public.profiles;
+  if v_count <> 1 then raise exception 'FAIL profile owner select: % rows', v_count; end if;
+
+  update public.profiles set full_name = 'Phase 4 Probe' where user_id = auth.uid();
+  if not found then raise exception 'FAIL profile owner update'; end if;
+
+  begin
+    update public.profiles set role = 'admin' where user_id = auth.uid();
+    raise exception 'FAIL student changed protected profile role';
+  exception when others then
+    if sqlerrm <> 'profiles.role can only be changed by an administrator' then
+      raise;
+    end if;
+  end;
+
   select count(*) into v_count from public.access_codes;
   if v_count <> 0 then raise exception 'FAIL access-code hashes leaked'; end if;
 
@@ -300,7 +315,7 @@ begin
   exception when insufficient_privilege then
     null;
   end;
-  raise notice 'PASS student access-code secrecy, preview isolation, and entitlement write denial';
+  raise notice 'PASS profile owner access/role protection, access-code secrecy, preview isolation, and entitlement write denial';
 end $$;
 
 reset role;
