@@ -1,7 +1,7 @@
 # Phase 4 handoff - Catalog Gating, Tiers, Entitlements & Access Codes
 
-**Status:** Implementation and Cubad database rollout complete on
-`feat/phase-4-catalog-tiers-access`; PR/Preview/Production evidence is appended below.
+**Status:** Complete. Implementation PR merged, Cubad migrations are ledger-verified, and
+Production is Ready and smoke-tested.
 
 **Date:** 2026-07-19
 
@@ -126,21 +126,28 @@ is first-chosen rather than globally fixed:
 ## Pull request, CI, Preview, merge, and Production
 
 - PR: [#15 - Phase 4: catalog tiers entitlements and access codes](https://github.com/ACubad/cubad/pull/15)
-- GitHub `build-and-test`: passed in 50 seconds.
-- Vercel Preview `dpl_H4MUbSg75jJbQUggMCeqBoLPsFBd`: Ready. Protected smoke through the
+- Final GitHub `build-and-test`: passed in 46 seconds.
+- Final Vercel Preview `dpl_HfJFbjRAfcnyCczw9N1X6f9tYBbQ`: Ready. Protected smoke through the
   authenticated Vercel bypass confirmed home rendering, preview chooser/no full content for an
   unchosen unit, and the `/redeem` sign-in boundary.
 - CodeRabbit completed with six inline threads. All were fixed and revalidated: raw anonymous
   claim escalation, backslash redirect normalization, admin draft metadata, date hydration,
   explicit profile ownership filtering, and shared redirect validation. Two useful review nits
   were also included: admin raw-table parity and scheduled expired-preview cleanup.
+- The thread-aware GraphQL audit reported zero unresolved review threads before merge.
 - The suggestion to change CHECK additions to `NOT VALID` was not applied because that migration
   was already ledger-applied before review; editing applied migration history is forbidden. The
   constraints were validated successfully on both environments when applied.
 - A Vercel CLI protected-smoke attempt auto-created an empty `cubad-phase4` project before it was
   linked to the intended project. It had no deployment and was immediately deleted; Vercel then
   verified it no longer existed and that the existing `cubad` project remained.
-- Merge and Production evidence is appended after the final review cycle.
+- PR #15 merged to `main` at `7b5ba33d4cde68ed117575b88abfeb23f0d4dbbe` on
+  2026-07-19 14:07:53 UTC.
+- Vercel Production `dpl_D8AwE63jpQ4CVWm52kXxbBqGD1wN` reached Ready and serves
+  `https://cubad.vercel.app`.
+- Fresh-production smoke chose Hydrology unit 2 and received its full lesson; unit 1 remained
+  locked with no concept content; `/redeem` redirected anonymous access to sign-in; browser
+  console reported zero errors and zero warnings.
 
 ## Credential dependencies and human-only actions
 

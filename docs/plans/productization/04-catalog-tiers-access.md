@@ -2140,7 +2140,7 @@ holds against a real student token.
     --title "Phase 4 — Catalog gating, tiers, entitlements & access codes" \
     --body "Implements docs/plans/productization/04-catalog-tiers-access.md. See checklist + negative-path evidence."
   ```
-- [ ] Merge only after review (merging to `main` auto-deploys — master §8.7).
+- [x] Merge only after review (merging to `main` auto-deploys — master §8.7).
 
 ---
 
