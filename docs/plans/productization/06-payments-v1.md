@@ -3088,4 +3088,11 @@ policies/trigger are dropped). Env vars can stay; they are inert without the cod
   added in Task 6.5; rollback SQL comment aligned with §14 (no hand-numbered migration
   filenames) and its policy/function notes updated to match (2) and (8).
 
-- (no execution deviations yet)
+- **2026-07-19 (execution — encrypted Vercel environment verification):** an empty or unusable
+  value produced by `vercel env pull` is not evidence that an encrypted variable is absent or
+  invalid. Verify configured names and their target/branch scopes with `vercel env ls`, and verify
+  the value itself only through deployed runtime behavior without printing it. Branch-scoped
+  Preview variables apply only to the exact Git branch and do not carry to later feature branches.
+  During Phase 6, `RESEND_API_KEY` was confirmed configured for Production and Development, while
+  its Preview entry was scoped to `feat/phase-1-foundation` rather than
+  `feat/phase-6-payments-v1`; this distinction must be preserved in future environment audits.
