@@ -173,6 +173,76 @@ const STRINGS = {
     tr: "Podcast için (ücretsiz) bir Google Gemini API anahtarı gerekli. aistudio.google.com/apikey adresinden oluşturup buraya yapıştır — sadece tarayıcında saklanır.",
   },
 
+  /* ---------- access / paywall / redeem (Phase 4) ---------- */
+  locked: { en: "Locked", tr: "Kilitli" },
+  freePreview: { en: "Free preview", tr: "Ücretsiz önizleme" },
+  selectedPreview: { en: "Your free preview", tr: "Ücretsiz önizlemen" },
+  choosePreviewTitle: { en: "Choose this as your free lesson?", tr: "Ücretsiz dersin bu olsun mu?" },
+  choosePreviewIntro: {
+    en: "You can study one complete lesson for free. Your first choice stays with this browser and, after sign-in, with your account.",
+    tr: "Bir tam dersi ücretsiz çalışabilirsin. İlk seçimin bu tarayıcıda ve giriş yaptıktan sonra hesabında kalır.",
+  },
+  choosePreviewButton: { en: "Choose this lesson", tr: "Bu dersi seç" },
+  previewPrivacyNote: {
+    en: "Clearing browser data can reset an anonymous preview; preventing that requires an account.",
+    tr: "Tarayıcı verilerini silmek anonim önizlemeyi sıfırlayabilir; bunu önlemek için hesap gerekir.",
+  },
+  unlockAccess: { en: "Unlock access", tr: "Erişimi aç" },
+  paywallTitle: { en: "This lesson is locked", tr: "Bu ders kilitli" },
+  paywallIntro: {
+    en: "Your free lesson is already selected. Sign in or create an account, then redeem an access code to unlock more lessons.",
+    tr: "Ücretsiz dersin zaten seçildi. Daha fazla ders açmak için giriş yap veya hesap oluştur, ardından erişim kodunu kullan.",
+  },
+  choosePlan: { en: "Available access plan", tr: "Mevcut erişim planı" },
+  paymentComingSoon: {
+    en: "Online payment is not available yet. Use an access code supplied by Cubad.",
+    tr: "Çevrimiçi ödeme henüz kullanılamıyor. Cubad tarafından verilen erişim kodunu kullan.",
+  },
+  daysLabel: { en: "days", tr: "gün" },
+  iHaveCode: { en: "I have a code", tr: "Kodum var" },
+  redeemTitle: { en: "Enter your access code", tr: "Erişim kodunu gir" },
+  redeemIntro: {
+    en: "Type the code exactly as you received it. Codes are single-use per account.",
+    tr: "Kodu sana verildiği gibi yaz. Kodlar hesap başına tek kullanımlıktır.",
+  },
+  redeemPlaceholder: { en: "CBD-XXXX-XXXX", tr: "CBD-XXXX-XXXX" },
+  redeemSubmit: { en: "Redeem code", tr: "Kodu kullan" },
+  redeemPending: { en: "Redeeming…", tr: "Kullanılıyor…" },
+  redeemSuccessTitle: { en: "Access unlocked!", tr: "Erişim açıldı!" },
+  redeemSuccessBody: {
+    en: "You can now study this content on all your devices.",
+    tr: "Artık bu içeriği tüm cihazlarında çalışabilirsin.",
+  },
+  continueStudying: { en: "Continue studying", tr: "Çalışmaya devam et" },
+  accessUntil: { en: "Access until", tr: "Erişim bitişi" },
+  yourSubjects: { en: "Your subjects", tr: "Derslerin" },
+  signInToStudy: { en: "Sign in to study", tr: "Çalışmak için giriş yap" },
+  createAccountToStudy: { en: "Create account", tr: "Hesap oluştur" },
+  redeemErrInvalidCode: {
+    en: "That code is not valid. Check the spelling and try again.",
+    tr: "Bu kod geçersiz. Yazımını kontrol edip tekrar dene.",
+  },
+  redeemErrExpired: {
+    en: "This code has passed its redemption deadline.",
+    tr: "Bu kodun kullanım süresi dolmuş.",
+  },
+  redeemErrExhausted: {
+    en: "This code has reached its redemption limit.",
+    tr: "Bu kod kullanım limitine ulaşmış.",
+  },
+  redeemErrAlreadyRedeemed: {
+    en: "You have already redeemed this code.",
+    tr: "Bu kodu zaten kullandın.",
+  },
+  redeemErrRateLimited: {
+    en: "Too many attempts. Please try again in about an hour.",
+    tr: "Çok fazla deneme yapıldı. Lütfen yaklaşık bir saat sonra tekrar dene.",
+  },
+  redeemErrGeneric: {
+    en: "Something went wrong. Please try again.",
+    tr: "Bir şeyler ters gitti. Lütfen tekrar dene.",
+  },
+
   /* ---------- auth & account (Phase 2) ---------- */
   signIn: { en: "Sign in", tr: "Giriş yap" },
   signUp: { en: "Create account", tr: "Hesap oluştur" },
