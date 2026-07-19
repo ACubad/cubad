@@ -4299,6 +4299,19 @@ safely:
   package's supported programmatic `tsImport()` API from `tsx/esm/api`, preserving the locked
   `node scripts/validate-content.mjs` invocation and identical CLI output.
 
+- **2026-07-19 — published-revision preservation (execution):** browser acceptance exposed a
+  contradiction in the original single-row draft workflow: replacing a published unit's
+  `content` and setting `status = 'draft'` made the student route disappear, while Task 14
+  explicitly requires the old live tagline to remain visible until Publish. Migration
+  `20260719155117_preserve_published_unit_during_draft.sql` adds a nullable
+  `units.published_content` snapshot. Admin upload preserves the prior live JSON there while the
+  new `content` stays draft-only; `get_unit_content` returns the snapshot to an entitled/selected
+  student and the draft to an admin; raw-table RLS continues to hide the row; the public catalog
+  uses snapshot metadata; preview claiming treats the retained snapshot as a published candidate;
+  and Publish promotes `content` then clears the snapshot. A never-published draft has no snapshot
+  and stays invisible. SQL and two-session Playwright acceptance now prove old-live-while-draft,
+  admin draft preview, and immediate no-redeploy promotion.
+
 - **2026-07-16 — post-audit fixes (plan-authoring stage, before any execution):**
   1. Task 11: fixed a confirmed TS defect — `downloadCsv`'s parameter was typed with a
      non-distributing conditional (`GenerateCodesState extends { status: "ok"; codes: infer C }
