@@ -198,6 +198,11 @@ const STRINGS = {
     en: "Online payment is not available yet. Use an access code supplied by Cubad.",
     tr: "Çevrimiçi ödeme henüz kullanılamıyor. Cubad tarafından verilen erişim kodunu kullan.",
   },
+  upgradeTitle: { en: "Unlock more lessons", tr: "Daha fazla dersin kilidini aç" },
+  upgradeIntro: {
+    en: "Payments arrive in a later phase. For now, redeem an access code supplied by Cubad.",
+    tr: "Ödemeler sonraki aşamada gelecek. Şimdilik Cubad tarafından verilen erişim kodunu kullan.",
+  },
   daysLabel: { en: "days", tr: "gün" },
   iHaveCode: { en: "I have a code", tr: "Kodum var" },
   redeemTitle: { en: "Enter your access code", tr: "Erişim kodunu gir" },

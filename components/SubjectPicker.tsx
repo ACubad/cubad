@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useProgress } from "@/lib/progress";
-import type { SubjectMeta, Unit } from "@/lib/types";
+import type { UnitMeta } from "@/lib/content-db";
+import type { SubjectMeta } from "@/lib/types";
 import { ResetCard } from "./ResetCard";
 import { WaterProgress } from "./ui";
 
@@ -12,7 +13,7 @@ export function SubjectPicker({
   unitsBySubject,
 }: {
   subjects: SubjectMeta[];
-  unitsBySubject: Record<string, Unit[]>;
+  unitsBySubject: Record<string, UnitMeta[]>;
 }) {
   const { lang, t, bi } = useLang();
   const { state } = useProgress();
@@ -48,19 +49,19 @@ export function SubjectPicker({
             let done = 0;
             let total = 0;
             if (s.section_order === "walkthrough") {
-              total = units.reduce((n, u) => n + (u.questions?.length ?? 0), 0);
+              total = units.reduce((n, u) => n + u.questionIds.length, 0);
               done = units.reduce(
                 (n, u) =>
-                  n + (u.questions ?? []).filter((q) => state.q[`${s.slug}/${q.id}`]?.done).length,
+                  n + u.questionIds.filter((id) => state.q[`${s.slug}/${id}`]?.done).length,
                 0
               );
             } else {
-              total = units.reduce((n, u) => n + (u.practice?.length ?? 0), 0);
+              total = units.reduce((n, u) => n + u.practiceIds.length, 0);
               done = units.reduce(
                 (n, u) =>
                   n +
-                  (u.practice ?? []).filter(
-                    (p) => state.practice[`${s.slug}/${u.slug}/${p.id}`]?.answered
+                  u.practiceIds.filter(
+                    (id) => state.practice[`${s.slug}/${u.slug}/${id}`]?.answered
                   ).length,
                 0
               );
