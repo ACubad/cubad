@@ -3096,3 +3096,6 @@ policies/trigger are dropped). Env vars can stay; they are inert without the cod
   During Phase 6, `RESEND_API_KEY` was confirmed configured for Production and Development, while
   its Preview entry was scoped to `feat/phase-1-foundation` rather than
   `feat/phase-6-payments-v1`; this distinction must be preserved in future environment audits.
+  Closeout removed the obsolete branch-only email entries, installed the validated values for
+  Production and Development, and made `RESEND_API_KEY`, `ADMIN_NOTIFY_EMAIL`, and `EMAIL_FROM`
+  project-wide Preview variables so later feature branches inherit the complete email matrix.
