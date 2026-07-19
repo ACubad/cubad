@@ -4288,7 +4288,10 @@ safely:
   role's table-wide profile UPDATE grant with column-level grants for the existing onboarding
   fields. The auth-trigger-maintained `profiles.email` projection is therefore not client-
   writable, while normal owner onboarding updates still pass RLS. Clean-stack SQL and disposable
-  local/remote PostgREST probes cover the hardened behavior.
+  local/remote PostgREST probes cover the hardened behavior. The same review cycle also hardened
+  every validator collection iteration against non-array uploads, checks every parallel user-
+  detail query result, and corrected the SQL audit-atomicity assertion to match the logged
+  `subject.create` action and slug detail.
 
 - **2026-07-19 — Phase 4 preview-model reconciliation (execution):** Phase 4's merged
   first-chosen-preview architecture supersedes Task 6's stale static `is_free` control. Phase 5

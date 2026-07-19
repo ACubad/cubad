@@ -124,6 +124,9 @@ audit row in the same PostgreSQL function invocation.
   subject-list cache, so publish/archive changes are visible without a redeploy.
 - Authenticated owners retain updates to the onboarding profile fields, but PostgreSQL column
   privileges reject direct writes to the auth-synced `profiles.email` projection.
+- Admin user-detail parallel reads now fail loudly on any query error, malformed collection
+  fields return validation errors instead of throwing, and the audit-atomicity probe matches the
+  action/details actually written by the subject RPC.
 
 ## Verification completed before PR
 
@@ -138,7 +141,7 @@ audit row in the same PostgreSQL function invocation.
   RPC, the profile-email projection, and each privileged direct table write. Both ended with
   `ALL PHASE-5 ADMIN-WRITE PROBES PASSED`; disposable remote users were deleted in `finally`.
 - `npm run lint`: zero errors and the same accepted pre-existing 8 warnings.
-- `npx vitest run`: 9 files / 59 tests passed.
+- `npx vitest run`: 9 files / 60 tests passed.
 - content CLI: 2 subjects / 19 files / 56 walkthrough questions; `content OK`.
 - Next 16.2.10 production build passed with all admin routes present.
 - Cubad remote ledger matches local through `20260719191243` (29/29).
@@ -150,8 +153,8 @@ audit row in the same PostgreSQL function invocation.
 ## Verification still required
 
 - Finish implementation PR #17 review; record final CI, CodeRabbit findings, unresolved-thread
-  audit, and the Vercel Preview smoke. Initial build/test and Vercel Preview checks passed; two
-  review findings were fixed in the forward migration/cache invalidation follow-up.
+  audit, and the Vercel Preview smoke. Initial build/test and Vercel Preview checks passed; five
+  review findings were fixed across the cache/profile hardening and correctness follow-ups.
 - Merge only after all checks pass, then record merge SHA, Production deployment id/URL, and the
   complete Production smoke result. Use a docs-only closeout PR for post-merge evidence.
 

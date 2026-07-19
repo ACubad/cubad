@@ -10,20 +10,23 @@ interface EntitlementRow { id: string; scope_type: "all" | "track" | "subject"; 
 export default async function AdminUserDetailPage({ params }: { params: Promise<{ userId: string }> }) {
   const { supabase } = await requireAdminPage();
   const { userId } = await params;
-  const { data: profile } = await supabase.from("profiles").select("user_id, email, full_name, phone, country_code, preferred_lang, role, track_id, onboarded_at, created_at").eq("user_id", userId).single();
+  const { data: profile, error: profileError } = await supabase.from("profiles").select("user_id, email, full_name, phone, country_code, preferred_lang, role, track_id, onboarded_at, created_at").eq("user_id", userId).single();
+  if (profileError) throw new Error(profileError.message);
   if (!profile) notFound();
-  const [{ data: entitlementsData, error }, { data: redemptionsData }, { data: tiersData }, { data: tracksData }, { data: subjectsData }] = await Promise.all([
+  const [entitlementsRes, redemptionsRes, tiersRes, tracksRes, subjectsRes] = await Promise.all([
     supabase.from("entitlements").select("id, scope_type, scope_id, tier_id, starts_at, expires_at, source, revoked_at").eq("user_id", userId).order("created_at", { ascending: false }),
     supabase.from("code_redemptions").select("id, created_at, code_id").eq("user_id", userId).order("created_at", { ascending: false }),
     supabase.from("tiers").select("id, slug, title").order("sort"),
     supabase.from("tracks").select("id, title").order("sort"),
     supabase.from("subjects").select("id, title").order("sort"),
   ]);
-  if (error) throw new Error(error.message);
-  const entitlements = (entitlementsData ?? []) as EntitlementRow[];
-  const tiers = (tiersData ?? []) as { id: string; slug: string; title: Bi }[];
-  const tracks = (tracksData ?? []) as { id: string; title: Bi }[];
-  const subjects = (subjectsData ?? []) as { id: string; title: Bi }[];
+  const firstError = entitlementsRes.error ?? redemptionsRes.error ?? tiersRes.error ?? tracksRes.error ?? subjectsRes.error;
+  if (firstError) throw new Error(firstError.message);
+  const entitlements = (entitlementsRes.data ?? []) as EntitlementRow[];
+  const redemptions = redemptionsRes.data ?? [];
+  const tiers = (tiersRes.data ?? []) as { id: string; slug: string; title: Bi }[];
+  const tracks = (tracksRes.data ?? []) as { id: string; title: Bi }[];
+  const subjects = (subjectsRes.data ?? []) as { id: string; title: Bi }[];
   const titleForTier = (id: string | null) => tiers.find((tier) => tier.id === id)?.title.en ?? "—";
   const scopeLabel = (entitlement: EntitlementRow) => entitlement.scope_type === "all" ? "all" : `${entitlement.scope_type}: ${(entitlement.scope_type === "track" ? tracks : subjects).find((item) => item.id === entitlement.scope_id)?.title.en ?? entitlement.scope_id}`;
   const columns: AdminTableColumn<EntitlementRow>[] = [
@@ -48,7 +51,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
           <button className="col-span-full w-fit rounded-lg bg-deniz px-4 py-2 text-sm font-semibold text-white hover:bg-deniz-deep">Grant</button>
         </form>
       </section>
-      <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Redemptions</h2><p className="text-sm text-ink-soft">{(redemptionsData ?? []).length} code(s) redeemed by this user.</p></section>
+      <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Redemptions</h2><p className="text-sm text-ink-soft">{redemptions.length} code(s) redeemed by this user.</p></section>
       <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Payment claims</h2><p className="text-sm text-ink-soft">Phase 6 adds claim history and review controls here.</p></section>
     </div>
   );

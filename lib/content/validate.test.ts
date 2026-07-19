@@ -77,4 +77,25 @@ describe("validateUnit", () => {
     expect(result.errors).toEqual([]);
     expect(result.warnings.some((warning) => warning.includes("suspicious control char"))).toBe(true);
   });
+
+  it("returns validation errors instead of throwing for non-array collection fields", () => {
+    const unit = validWalkthroughUnit();
+    const question = unit.questions[0] as Record<string, unknown>;
+    question.given = {};
+    question.tables = "not-an-array";
+    question.charts = {};
+    question.steps = {};
+    question.traps = {};
+    question.whatIfs = {};
+
+    const result = validateUnit("walkthrough", unit);
+    expect(result.errors).toContain("unit.q[1-1]: needs >=2 steps");
+    expect(result.questionCount).toBe(1);
+
+    const malformedTopLevel = { ...validWalkthroughUnit(), questions: {} };
+    expect(validateUnit("walkthrough", malformedTopLevel)).toMatchObject({
+      errors: expect.arrayContaining(["unit: no questions"]),
+      questionCount: 0,
+    });
+  });
 });

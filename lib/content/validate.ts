@@ -13,6 +13,10 @@ export interface ValidationContext {
   warnings: string[];
 }
 
+function asArray<T = unknown>(value: unknown): T[] {
+  return Array.isArray(value) ? value : [];
+}
+
 export function isBi(value: unknown): value is Bi {
   if (!value || typeof value !== "object") return false;
   const pair = value as Partial<Bi>;
@@ -81,7 +85,7 @@ export function walkStrings(
 export function checkChart(chart: any, where: string, context: ValidationContext): void {
   if (!["bar", "line"].includes(chart?.type)) context.errors.push(`${where}.type`);
   if (!isBi(chart?.title)) context.errors.push(`${where}.title`);
-  (chart?.series ?? []).forEach((series: any, seriesIndex: number) => {
+  asArray<any>(chart?.series).forEach((series, seriesIndex) => {
     if (
       !Array.isArray(series?.points) ||
       series.points.some(
@@ -111,10 +115,10 @@ export function checkStory(story: any, where: string, context: ValidationContext
   if (!Array.isArray(story?.frames) || story.frames.length < 2) {
     context.errors.push(`${where}: needs >=2 frames`);
   }
-  (story?.frames ?? []).forEach((frame: any, frameIndex: number) => {
+  asArray<any>(story?.frames).forEach((frame, frameIndex) => {
     if (!isBi(frame?.caption)) context.errors.push(`${where}.frames[${frameIndex}].caption`);
     if (!Array.isArray(frame?.add)) context.errors.push(`${where}.frames[${frameIndex}].add`);
-    (frame?.add ?? []).forEach((element: any, elementIndex: number) => {
+    asArray<any>(frame?.add).forEach((element, elementIndex) => {
       const elementWhere = `${where}.frames[${frameIndex}].add[${elementIndex}]`;
       if (!["point", "line", "polyline", "polygon", "text", "arrow"].includes(element?.type)) {
         context.errors.push(`${elementWhere}.type "${element?.type}"`);
@@ -166,7 +170,7 @@ export function checkWalkthroughQuestions(
   ids: Set<string>,
   context: ValidationContext
 ): void {
-  (unit?.questions ?? []).forEach((question: any, questionIndex: number) => {
+  asArray<any>(unit?.questions).forEach((question, questionIndex) => {
     const questionWhere = `${where}.q[${question?.id ?? questionIndex}]`;
     if (typeof question?.id !== "string" || !/^\d+-\d+[a-z]?$/.test(question.id)) {
       context.errors.push(`${questionWhere}: bad id "${question?.id}"`);
@@ -181,13 +185,13 @@ export function checkWalkthroughQuestions(
     }
     checkBi(question?.statement, `${questionWhere}.statement`, context);
     checkBi(question?.goal, `${questionWhere}.goal`, context);
-    (question?.given ?? []).forEach((given: any, index: number) => {
+    asArray<any>(question?.given).forEach((given, index) => {
       if (typeof given?.symbol !== "string" || typeof given?.value !== "string") {
         context.errors.push(`${questionWhere}.given[${index}]`);
       }
       checkBi(given?.label, `${questionWhere}.given[${index}].label`, context);
     });
-    (question?.tables ?? []).forEach((table: any, index: number) => {
+    asArray<any>(question?.tables).forEach((table, index) => {
       if (!Array.isArray(table?.headers) || !Array.isArray(table?.rows)) {
         context.errors.push(`${questionWhere}.tables[${index}]: headers/rows`);
       } else {
@@ -197,13 +201,13 @@ export function checkWalkthroughQuestions(
       }
     });
     if (question?.chart) checkChart(question.chart, `${questionWhere}.chart`, context);
-    (question?.charts ?? []).forEach((chart: any, index: number) =>
+    asArray<any>(question?.charts).forEach((chart, index) =>
       checkChart(chart, `${questionWhere}.charts[${index}]`, context)
     );
     if (!Array.isArray(question?.steps) || question.steps.length < 2) {
       context.errors.push(`${questionWhere}: needs >=2 steps`);
     }
-    (question?.steps ?? []).forEach((step: any, stepIndex: number) => {
+    asArray<any>(question?.steps).forEach((step, stepIndex) => {
       const stepWhere = `${questionWhere}.steps[${stepIndex}]`;
       checkBi(step?.title, `${stepWhere}.title`, context);
       checkBi(step?.guiding, `${stepWhere}.guiding`, context);
@@ -215,13 +219,13 @@ export function checkWalkthroughQuestions(
       if (step?.story) checkStory(step.story, `${stepWhere}.story`, context);
     });
     checkBi(question?.finalAnswer, `${questionWhere}.finalAnswer`, context);
-    (question?.traps ?? []).forEach((trap: unknown, index: number) =>
+    asArray(question?.traps).forEach((trap, index) =>
       checkBi(trap, `${questionWhere}.traps[${index}]`, context)
     );
     if (!Array.isArray(question?.whatIfs) || question.whatIfs.length < 1) {
       context.warnings.push(`${questionWhere}: no whatIfs`);
     }
-    (question?.whatIfs ?? []).forEach((whatIf: any, index: number) => {
+    asArray<any>(question?.whatIfs).forEach((whatIf, index) => {
       checkBi(whatIf?.scenario, `${questionWhere}.whatIfs[${index}].scenario`, context);
       checkBi(whatIf?.answer, `${questionWhere}.whatIfs[${index}].answer`, context);
     });
@@ -237,7 +241,7 @@ export function checkWalkthroughUnit(
     context.errors.push(`${where}: no questions`);
   }
   checkBi(unit?.concept?.overview, `${where}.concept.overview`, context);
-  (unit?.concept?.keyFormulas ?? []).forEach((formula: any, index: number) => {
+  asArray<any>(unit?.concept?.keyFormulas).forEach((formula, index) => {
     checkBi(formula?.name, `${where}.keyFormulas[${index}].name`, context);
     if (typeof formula?.latex !== "string" || !formula.latex.trim()) {
       context.errors.push(`${where}.keyFormulas[${index}].latex missing`);
@@ -245,17 +249,17 @@ export function checkWalkthroughUnit(
     checkBi(formula?.meaning, `${where}.keyFormulas[${index}].meaning`, context);
     checkBi(formula?.whenToUse, `${where}.keyFormulas[${index}].whenToUse`, context);
   });
-  (unit?.concept?.traps ?? []).forEach((trap: unknown, index: number) =>
+  asArray(unit?.concept?.traps).forEach((trap, index) =>
     checkBi(trap, `${where}.concept.traps[${index}]`, context)
   );
   checkWalkthroughQuestions(unit, where, new Set<string>(), context);
   if (!Array.isArray(unit?.quiz) || unit.quiz.length < 4) {
     context.warnings.push(`${where}: quiz has <4 items`);
   }
-  (unit?.quiz ?? []).forEach((item: any, index: number) =>
+  asArray<any>(unit?.quiz).forEach((item, index) =>
     checkMcq(item, `${where}.quiz[${index}]`, context)
   );
-  return (unit?.questions ?? []).length;
+  return asArray(unit?.questions).length;
 }
 
 export function checkStudyUnit(unit: any, where: string, context: ValidationContext): void {
@@ -276,7 +280,7 @@ export function checkStudyUnit(unit: any, where: string, context: ValidationCont
 
   const noteIds = new Set<string>();
   if (!Array.isArray(unit?.notes) || unit.notes.length < 4) context.errors.push(`${where}.notes: need >=4`);
-  (unit?.notes ?? []).forEach((note: any, index: number) => {
+  asArray<any>(unit?.notes).forEach((note, index) => {
     const noteWhere = `${where}.notes[${index}]`;
     if (typeof note?.id !== "string" || !/^n\d+$/.test(note.id)) context.errors.push(`${noteWhere}.id: bad id "${note?.id}"`);
     if (noteIds.has(note?.id)) context.errors.push(`${noteWhere}.id: duplicate`);
@@ -288,7 +292,7 @@ export function checkStudyUnit(unit: any, where: string, context: ValidationCont
 
   const cardIds = new Set<string>();
   if (!Array.isArray(unit?.flashcards) || unit.flashcards.length < 20) context.errors.push(`${where}.flashcards: need >=20`);
-  (unit?.flashcards ?? []).forEach((card: any, index: number) => {
+  asArray<any>(unit?.flashcards).forEach((card, index) => {
     const cardWhere = `${where}.flashcards[${index}]`;
     if (typeof card?.id !== "string" || !card.id.trim()) context.errors.push(`${cardWhere}.id`);
     if (cardIds.has(card?.id)) context.errors.push(`${cardWhere}.id: duplicate`);
@@ -302,7 +306,7 @@ export function checkStudyUnit(unit: any, where: string, context: ValidationCont
   const practiceIds = new Set<string>();
   const coversSeen = new Set<string>();
   if (!Array.isArray(unit?.practice) || unit.practice.length < 15) context.errors.push(`${where}.practice: need >=15`);
-  (unit?.practice ?? []).forEach((item: any, index: number) => {
+  asArray<any>(unit?.practice).forEach((item, index) => {
     const practiceWhere = `${where}.practice[${index}]`;
     if (typeof item?.id !== "string" || !item.id.trim()) context.errors.push(`${practiceWhere}.id`);
     if (practiceIds.has(item?.id)) context.errors.push(`${practiceWhere}.id: duplicate`);

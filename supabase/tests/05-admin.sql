@@ -183,7 +183,12 @@ begin
   exception when foreign_key_violation then null;
   end;
   if exists (select 1 from public.subjects where slug = 'phase5-atomic-rollback')
-     or exists (select 1 from public.admin_audit_log where entity_id = 'phase5-atomic-rollback') then
+     or exists (
+       select 1 from public.admin_audit_log
+       where action = 'subject.create'
+         and entity = 'subjects'
+         and details->>'slug' = 'phase5-atomic-rollback'
+     ) then
     raise exception 'FAIL mutation/audit subtransaction was not atomic';
   end if;
 
