@@ -10,27 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Install PostgreSQL 17 client
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl ca-certificates
-          sudo install -d /usr/share/postgresql-common/pgdg
-          sudo curl --fail --output /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
-            https://www.postgresql.org/media/keys/ACCC4CF8.asc
-          source /etc/os-release
-          {
-            echo "Types: deb"
-            echo "URIs: https://apt.postgresql.org/pub/repos/apt"
-            echo "Suites: ${VERSION_CODENAME}-pgdg"
-            echo "Architectures: $(dpkg --print-architecture)"
-            echo "Components: main"
-            echo "Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc"
-          } | sudo tee /etc/apt/sources.list.d/pgdg.sources >/dev/null
-          sudo apt-get update
-          sudo apt-get install -y postgresql-client-17
-          echo "/usr/lib/postgresql/17/bin" >> "$GITHUB_PATH"
-          /usr/lib/postgresql/17/bin/pg_dump --version
-
       - name: Dump database
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
@@ -38,16 +17,42 @@ jobs:
           set -euo pipefail
           STAMP=$(date -u +%Y%m%d-%H%M%S)
           echo "DUMP_STAMP=$STAMP" >> "$GITHUB_ENV"
-          # Raw pg_dump keeps the CI path small and needs no Supabase CLI login.
-          pg_dump "$SUPABASE_DB_URL" --no-owner --no-privileges --format=plain \
-            --file="cubad-backup-$STAMP.sql"
-          gzip "cubad-backup-$STAMP.sql"
+          mkdir backup
+
+          # Supabase's wrapper applies the provider-specific filters required for a
+          # logical dump to restore into a fresh hosted project. Pin the CLI so the
+          # artifact format cannot drift silently between scheduled runs.
+          SUPABASE_CLI=(npx --yes supabase@2.109.1)
+          "${SUPABASE_CLI[@]}" db dump --db-url "$SUPABASE_DB_URL" \
+            --file backup/roles.sql --role-only
+          "${SUPABASE_CLI[@]}" db dump --db-url "$SUPABASE_DB_URL" \
+            --file backup/schema.sql
+          "${SUPABASE_CLI[@]}" db dump --db-url "$SUPABASE_DB_URL" \
+            --file backup/data.sql --use-copy --data-only \
+            --exclude storage.buckets_vectors \
+            --exclude storage.vector_indexes
+
+          # Preserve CLI migration history separately because the normal filtered
+          # dump intentionally excludes this provider-managed schema.
+          "${SUPABASE_CLI[@]}" db dump --db-url "$SUPABASE_DB_URL" \
+            --file backup/history_schema.sql --schema supabase_migrations
+          "${SUPABASE_CLI[@]}" db dump --db-url "$SUPABASE_DB_URL" \
+            --file backup/history_data.sql --use-copy --data-only \
+            --schema supabase_migrations
+
+          test -s backup/roles.sql
+          test -s backup/schema.sql
+          test -s backup/data.sql
+          test -s backup/history_schema.sql
+          test -s backup/history_data.sql
+          tar -czf "cubad-backup-$STAMP.tar.gz" -C backup \
+            roles.sql schema.sql data.sql history_schema.sql history_data.sql
 
       - name: Upload backup artifact
         uses: actions/upload-artifact@v4
         with:
           name: cubad-backup-${{ env.DUMP_STAMP }}
-          path: cubad-backup-${{ env.DUMP_STAMP }}.sql.gz
+          path: cubad-backup-${{ env.DUMP_STAMP }}.tar.gz
           retention-days: 14
 
       # Optional off-GitHub copy. Enable only after adding RCLONE_CONFIG_BASE64,
@@ -59,4 +64,4 @@ jobs:
       #     mkdir -p ~/.config/rclone
       #     echo "${{ secrets.RCLONE_CONFIG_BASE64 }}" | base64 -d > ~/.config/rclone/rclone.conf
       # - name: Copy to Google Drive
-      #   run: rclone copy "cubad-backup-${{ env.DUMP_STAMP }}.sql.gz" gdrive:cubad-backups/
+      #   run: rclone copy "cubad-backup-${{ env.DUMP_STAMP }}.tar.gz" gdrive:cubad-backups/
