@@ -55,6 +55,10 @@ const ERRORS: Record<string, Bi> = {
     en: "The file contents do not match the selected file type.",
   },
   "tier-unavailable": { tr: "Bu paket artık mevcut değil.", en: "This plan is no longer available." },
+  "rate-limited": {
+    tr: "Günlük ödeme bildirimi sınırına ulaştın. 24 saat sonra tekrar dene.",
+    en: "You reached the daily payment-claim limit. Try again in 24 hours.",
+  },
   "too-many-open": {
     tr: "En fazla 3 bekleyen bildirimin olabilir. Önce birini iptal et.",
     en: "You can have at most 3 pending claims. Cancel one first.",

@@ -10,6 +10,7 @@ import {
   proofMagicMatches,
   sanitizeFilename,
 } from "@/lib/payments/filename";
+import { checkRateLimit } from "@/lib/rate-limit";
 import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -59,6 +60,13 @@ export async function submitClaim(
     .eq("status", "published")
     .maybeSingle();
   if (tierError || !tier) return { error: "tier-unavailable" };
+
+  const allowed = await checkRateLimit({
+    key: `claims:user:${user.id}`,
+    max: 10,
+    windowSeconds: 60 * 60 * 24,
+  });
+  if (!allowed) return { error: "rate-limited" };
 
   // Friendly UX guard. The trigger's advisory-lock count remains authoritative under concurrency.
   const { count, error: countError } = await supabase
