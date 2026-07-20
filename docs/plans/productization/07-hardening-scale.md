@@ -168,8 +168,8 @@ correct, but not a distributed-systems-grade limiter; fine for abuse throttling 
 
 ### Task 7.2 — `lib/rate-limit.ts` server helper
 
-- [ ] If `server-only` isn't in `package.json`, `npm install server-only`.
-- [ ] Create `lib/rate-limit.ts`:
+- [x] If `server-only` isn't in `package.json`, `npm install server-only`.
+- [x] Create `lib/rate-limit.ts`:
 
 ```ts
 import "server-only";
