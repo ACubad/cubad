@@ -80,6 +80,95 @@ h1, h2, h3, .font-display {
 .prose-cubad .katex {
   font-size: 1.04em;
 }
+.prose-cubad .cubad-md-table-shell {
+  margin: 0.85rem 0;
+  max-width: 100%;
+}
+.prose-cubad .cubad-md-table-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.35rem;
+}
+.prose-cubad .cubad-md-table-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-card);
+  color: var(--color-deniz-deep);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.prose-cubad .cubad-md-table-expand:hover {
+  border-color: rgba(14, 90, 109, 0.4);
+  background: var(--color-deniz-soft);
+}
+.prose-cubad .cubad-md-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--color-line);
+  border-radius: 0.65rem;
+  background: var(--color-card);
+}
+.prose-cubad .cubad-md-table {
+  width: max-content;
+  min-width: min(46rem, 100%);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.prose-cubad .cubad-md-table-expanded {
+  min-width: max(56rem, 100%);
+  font-size: 0.9rem;
+}
+.prose-cubad .cubad-md-table th,
+.prose-cubad .cubad-md-table td {
+  min-width: 6.25rem;
+  max-width: 16rem;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  padding: 0.55rem 0.65rem;
+  vertical-align: top;
+}
+.prose-cubad .cubad-md-table th {
+  background: var(--color-wash);
+  color: var(--color-deniz-deep);
+  font-weight: 800;
+}
+.prose-cubad .cubad-md-table td {
+  background: var(--color-card);
+}
+.prose-cubad .cubad-md-table th:first-child,
+.prose-cubad .cubad-md-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 4.75rem;
+  border-left: 0;
+  box-shadow: 1px 0 0 var(--color-line);
+}
+.prose-cubad .cubad-md-table th:first-child {
+  z-index: 2;
+}
+.prose-cubad .cubad-md-table tr:last-child td {
+  border-bottom: 0;
+}
+.prose-cubad .cubad-md-table th:last-child,
+.prose-cubad .cubad-md-table td:last-child {
+  border-right: 0;
+}
+.prose-cubad .cubad-md-table p {
+  margin: 0;
+}
+.prose-cubad .cubad-md-table .katex {
+  font-size: 1em;
+}
 /* long inline formulas scroll instead of stretching the page on phones */
 .prose-cubad p:has(.katex),
 .prose-cubad li:has(.katex) {

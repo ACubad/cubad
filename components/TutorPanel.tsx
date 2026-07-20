@@ -9,47 +9,40 @@ import { Md } from "./Md";
 interface Msg {
   role: "user" | "model";
   text: string;
+  attachments?: TutorAttachment[];
 }
 
-export interface TutorResponse {
-  text?: string;
-  truncated?: boolean;
-  error?: string;
-  retryAfterSeconds?: number;
-}
-
-export function tutorErrorState(
-  error: string | undefined,
-  lang: "tr" | "en"
-): { message: string; forgetKey: boolean } {
-  if (error === "bad-key" || error === "no-key") {
-    return {
-      forgetKey: true,
-      message:
-        lang === "tr"
-          ? "Anahtar reddedildi — lütfen geçerli bir anahtar gir."
-          : "The key was rejected — please enter a valid key.",
-    };
-  }
-  if (error === "rate-limited") {
-    return {
-      forgetKey: false,
-      message:
-        lang === "tr"
-          ? "Paylaşılan eğitmen saatlik sınırına ulaştı. Bir saat sonra tekrar dene veya kendi API anahtarını kullan."
-          : "The shared tutor reached its hourly limit. Try again in an hour or use your own API key.",
-    };
-  }
-  return {
-    forgetKey: false,
-    message:
-      lang === "tr"
-        ? "Bir şeyler ters gitti; tekrar dener misin?"
-        : "Something went wrong; please try again.",
-  };
+interface TutorAttachment {
+  kind: "image";
+  mimeType: string;
+  data?: string;
+  name?: string;
+  size?: number;
 }
 
 type Provider = "gemini" | "openai";
+
+type TutorError =
+  | "bad-key"
+  | "empty-response"
+  | "invalid-attachment"
+  | "invalid-request"
+  | "model-not-found"
+  | "network"
+  | "no-key"
+  | "overloaded"
+  | "quota"
+  | "rate-limited"
+  | "upstream"
+  | "upstream-timeout";
+
+interface TutorApiResponse {
+  text?: string;
+  truncated?: boolean;
+  error?: TutorError;
+  message?: string;
+  retryAfterSeconds?: number;
+}
 
 const KEY_STORAGE: Record<Provider, string> = {
   gemini: "cubad:gemini-key",
@@ -67,6 +60,16 @@ const KEY_URLS: Record<Provider, string> = {
   gemini: "https://aistudio.google.com/apikey",
   openai: "https://platform.openai.com/api-keys",
 };
+
+const MAX_IMAGE_BYTES = 6 * 1024 * 1024;
+const IMAGE_MIME_TYPES = new Set([
+  "image/gif",
+  "image/heic",
+  "image/heif",
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+]);
 
 /* ---------- per-topic conversation persistence (localStorage) ---------- */
 
@@ -87,6 +90,21 @@ const MAX_MSGS = 60;
 
 const chatKey = (topicId: string) => `cubad:chats:${topicId}`;
 
+function messagesForStorage(messages: Msg[]): Msg[] {
+  return messages.map((m) => {
+    if (!m.attachments?.length) return m;
+    return {
+      ...m,
+      attachments: m.attachments.map(({ kind, mimeType, name, size }) => ({
+        kind,
+        mimeType,
+        name,
+        size,
+      })),
+    };
+  });
+}
+
 function loadChats(topicId: string): ChatStore {
   if (!canPersistStudyState()) return { convos: [], activeId: null };
   try {
@@ -105,7 +123,7 @@ function saveChats(topicId: string, store: ChatStore) {
       activeId: store.activeId,
       convos: store.convos
         .slice(-MAX_CONVOS)
-        .map((c) => ({ ...c, messages: c.messages.slice(-MAX_MSGS) })),
+        .map((c) => ({ ...c, messages: messagesForStorage(c.messages.slice(-MAX_MSGS)) })),
     };
     window.localStorage.setItem(chatKey(topicId), JSON.stringify(trimmed));
     notifyStateChanged(); // include chats in the next cross-device sync push
@@ -124,6 +142,91 @@ function convoLabel(c: Convo, fallback: string, locale: string): string {
     minute: "2-digit",
   });
   return `${title} · ${date}`;
+}
+
+function formatBytes(bytes?: number) {
+  if (!bytes) return "";
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function photoPrompt(lang: string) {
+  return lang === "tr"
+    ? "Bu fotoğrafı bu sorunun bağlamında açıklayabilir misin?"
+    : "Please help me understand this photo in the context of this question.";
+}
+
+function tutorErrorMessage(
+  code: TutorError | undefined,
+  lang: string,
+  providerLabel: string,
+  model: string,
+  retryAfterSeconds?: number
+) {
+  const retry = retryAfterSeconds
+    ? lang === "tr"
+      ? ` ${retryAfterSeconds} saniye sonra tekrar dene.`
+      : ` Try again in about ${retryAfterSeconds} seconds.`
+    : "";
+
+  switch (code) {
+    case "bad-key":
+    case "no-key":
+      return lang === "tr"
+        ? "Anahtar reddedildi - lütfen geçerli bir anahtar gir."
+        : "The key was rejected - please enter a valid key.";
+    case "rate-limited":
+      return lang === "tr"
+        ? "Paylaşılan eğitmen saatlik sınırına ulaştı. Bir saat sonra tekrar dene veya kendi API anahtarını kullan."
+        : "The shared tutor reached its hourly limit. Try again in an hour or use your own API key.";
+    case "quota":
+      return lang === "tr"
+        ? `${providerLabel} bu anahtar için kota/billing sınırına takıldı (${model}). AI Studio kota-billing sayfasını kontrol et veya başka bir model/anahtar dene.${retry}`
+        : `${providerLabel} hit a quota or billing limit for this key (${model}). Check AI Studio rate limits/billing or try another model/key.${retry}`;
+    case "overloaded":
+      return lang === "tr"
+        ? `${providerLabel} şu anda bu modelde yoğunluk bildiriyor (${model}). Biraz sonra tekrar dene veya ayarlardan daha hafif bir modele geç.${retry}`
+        : `${providerLabel} says this model is overloaded right now (${model}). Try again shortly or switch to a lighter model in settings.${retry}`;
+    case "model-not-found":
+      return lang === "tr"
+        ? `Bu model bu anahtar için kullanılabilir görünmüyor: ${model}. Ayarlardan gemini-2.5-flash gibi görünen bir model seç.`
+        : `This model does not look available for this key: ${model}. Pick a visible model like gemini-2.5-flash in settings.`;
+    case "invalid-attachment":
+      return lang === "tr"
+        ? "Bu fotoğraf türü veya boyutu desteklenmiyor. JPEG, PNG, WebP, GIF veya HEIC olarak 6 MB altında dene."
+        : "That photo type or size is not supported. Try JPEG, PNG, WebP, GIF, or HEIC under 6 MB.";
+    case "invalid-request":
+      return lang === "tr"
+        ? `${providerLabel} isteği reddetti. Fotoğrafı küçültmeyi veya farklı bir model seçmeyi dene.`
+        : `${providerLabel} rejected the request. Try a smaller photo or a different model.`;
+    case "upstream-timeout":
+      return lang === "tr"
+        ? `${providerLabel} zamanında cevap vermedi. Daha sonra tekrar dene veya başka bir modele geç.`
+        : `${providerLabel} did not answer before timeout. Try again later or switch models.`;
+    case "empty-response":
+      return lang === "tr"
+        ? `${providerLabel} boş cevap döndürdü. Tekrar deneyebilirsin.`
+        : `${providerLabel} returned an empty answer. Please try again.`;
+    case "network":
+      return lang === "tr" ? "Bağlantı hatası." : "Network error.";
+    default:
+      return lang === "tr"
+        ? "Bir şeyler ters gitti; tekrar dener misin?"
+        : "Something went wrong; please try again.";
+  }
+}
+
+export function tutorErrorState(
+  error: TutorError | undefined,
+  lang: "tr" | "en",
+  providerLabel = "AI",
+  model = "",
+  retryAfterSeconds?: number
+): { message: string; forgetKey: boolean } {
+  return {
+    forgetKey: error === "bad-key" || error === "no-key",
+    message: tutorErrorMessage(error, lang, providerLabel, model, retryAfterSeconds),
+  };
 }
 
 export function TutorPanel({
@@ -149,12 +252,14 @@ export function TutorPanel({
   const [showSettings, setShowSettings] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
+  const [attachment, setAttachment] = useState<TutorAttachment | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [truncated, setTruncated] = useState(false);
   const [convos, setConvos] = useState<Convo[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const busyRef = useRef(false);
 
   // restore this topic's conversations (and refresh when a sync pulls new ones)
@@ -167,6 +272,7 @@ export function TutorPanel({
         store.convos[store.convos.length - 1];
       setActiveId(active?.id ?? null);
       setMessages(active?.messages ?? []);
+      setAttachment(null);
     };
     restore();
     const onSync = () => {
@@ -199,6 +305,7 @@ export function TutorPanel({
     setActiveId(id);
     const c = convos.find((x) => x.id === id);
     setMessages(c?.messages ?? []);
+    setAttachment(null);
     saveChats(topicId, { convos, activeId: id });
   };
 
@@ -211,6 +318,7 @@ export function TutorPanel({
     setConvos(updated);
     setActiveId(c.id);
     setMessages([]);
+    setAttachment(null);
     saveChats(topicId, { convos: updated, activeId: c.id });
   };
 
@@ -220,6 +328,7 @@ export function TutorPanel({
     setConvos(updated);
     setActiveId(nextActive?.id ?? null);
     setMessages(nextActive?.messages ?? []);
+    setAttachment(null);
     saveChats(topicId, { convos: updated, activeId: nextActive?.id ?? null });
   };
 
@@ -290,13 +399,64 @@ export function TutorPanel({
     setUserKeys((prev) => ({ ...prev, [provider]: "" }));
   };
 
+  const clearAttachment = () => {
+    setAttachment(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const attachFile = (file: File | undefined) => {
+    if (!file) return;
+    const mimeType = file.type || "image/jpeg";
+    if (!IMAGE_MIME_TYPES.has(mimeType) || file.size > MAX_IMAGE_BYTES) {
+      setError(tutorErrorMessage("invalid-attachment", lang, providerLabel, model));
+      clearAttachment();
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = typeof reader.result === "string" ? reader.result : "";
+      const comma = result.indexOf(",");
+      const data = comma >= 0 ? result.slice(comma + 1) : result;
+      if (!data) {
+        setError(tutorErrorMessage("invalid-attachment", lang, providerLabel, model));
+        return;
+      }
+      setAttachment({
+        kind: "image",
+        mimeType,
+        data,
+        name: file.name,
+        size: file.size,
+      });
+      setError(null);
+      setTruncated(false);
+    };
+    reader.onerror = () => setError(tutorErrorMessage("invalid-attachment", lang, providerLabel, model));
+    reader.readAsDataURL(file);
+  };
+
   const send = async (forcedText?: string) => {
-    const text = (forcedText ?? input).trim();
-    if (!text || busy) return;
-    if (!forcedText) setInput("");
+    const selectedAttachment = forcedText ? null : attachment;
+    const rawText = (forcedText ?? input).trim();
+    const text = rawText || (selectedAttachment ? photoPrompt(lang) : "");
+    if ((!text && !selectedAttachment) || busy) return;
+    const previousInput = input;
+    const previousAttachment = attachment;
+    if (!forcedText) {
+      setInput("");
+      clearAttachment();
+    }
     setError(null);
     setTruncated(false);
-    const next: Msg[] = [...messages, { role: "user", text }];
+    const next: Msg[] = [
+      ...messages,
+      {
+        role: "user",
+        text,
+        ...(selectedAttachment ? { attachments: [selectedAttachment] } : {}),
+      },
+    ];
     persistMessages(next);
     setBusy(true);
     busyRef.current = true;
@@ -314,19 +474,34 @@ export function TutorPanel({
           userKey: userKeys[provider] || undefined,
         }),
       });
-      const data = (await res.json()) as TutorResponse;
+      const data = (await res.json()) as TutorApiResponse;
       if (!res.ok || !data.text) {
-        const errorState = tutorErrorState(data.error, lang);
+        const errorState = tutorErrorState(
+          data.error,
+          lang,
+          providerLabel,
+          model,
+          data.retryAfterSeconds
+        );
         if (errorState.forgetKey) forgetKey();
         setError(errorState.message);
         persistMessages(messages);
+        if (!forcedText) {
+          setInput(previousInput);
+          setAttachment(previousAttachment);
+        }
+        return;
       } else {
         persistMessages([...next, { role: "model", text: data.text }]);
         setTruncated(Boolean(data.truncated));
       }
     } catch {
-      setError(lang === "tr" ? "Bağlantı hatası." : "Network error.");
+      setError(tutorErrorMessage("network", lang, providerLabel, model));
       persistMessages(messages);
+      if (!forcedText) {
+        setInput(previousInput);
+        setAttachment(previousAttachment);
+      }
     } finally {
       setBusy(false);
       busyRef.current = false;
@@ -523,7 +698,23 @@ export function TutorPanel({
                       : "bg-card border border-line"
                   }`}
                 >
-                  <Md>{m.text}</Md>
+                  {m.attachments?.map((a, ix) => (
+                    <div key={`${a.name ?? a.mimeType}-${ix}`} className={m.text ? "mb-2" : ""}>
+                      {a.data ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={`data:${a.mimeType};base64,${a.data}`}
+                          alt={a.name ?? "Attached image"}
+                          className="max-h-48 w-full rounded-xl border border-white/20 object-cover"
+                        />
+                      ) : (
+                        <div className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-xs">
+                          {a.name ?? (lang === "tr" ? "Ekli fotoğraf" : "Attached photo")}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {m.text && <Md>{m.text}</Md>}
                 </div>
               ))}
 
@@ -550,10 +741,61 @@ export function TutorPanel({
             </div>
 
             <div className="border-t border-line bg-card p-3">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => attachFile(e.target.files?.[0])}
+              />
+              {attachment && (
+                <div className="mb-2 flex items-center gap-2 rounded-xl border border-line bg-paper p-2">
+                  {attachment.data && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={`data:${attachment.mimeType};base64,${attachment.data}`}
+                      alt=""
+                      className="h-12 w-12 shrink-0 rounded-lg object-cover"
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-xs font-semibold text-ink">
+                      {attachment.name ?? (lang === "tr" ? "Fotoğraf" : "Photo")}
+                    </p>
+                    <p className="text-[11px] text-ink-faint">{formatBytes(attachment.size)}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={clearAttachment}
+                    className="shrink-0 rounded-full px-2 py-1 text-sm text-ink-faint hover:bg-wash hover:text-clay"
+                    aria-label={lang === "tr" ? "Fotoğrafı kaldır" : "Remove photo"}
+                    title={lang === "tr" ? "Fotoğrafı kaldır" : "Remove photo"}
+                  >
+                    ×
+                  </button>
+                </div>
+              )}
               <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={busy || needsKey}
+                  className="shrink-0 self-end rounded-xl border border-line bg-paper px-3 py-2.5 text-sm font-semibold text-deniz transition-colors hover:border-deniz/50 hover:bg-deniz-soft disabled:opacity-40"
+                  aria-label={lang === "tr" ? "Fotoğraf ekle" : "Attach photo"}
+                  title={lang === "tr" ? "Fotoğraf ekle" : "Attach photo"}
+                >
+                  <span aria-hidden>&#128247;</span>
+                </button>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
+                  onPaste={(e) => {
+                    const file = Array.from(e.clipboardData.files).find((f) => f.type.startsWith("image/"));
+                    if (file) {
+                      e.preventDefault();
+                      attachFile(file);
+                    }
+                  }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
                       e.preventDefault();
@@ -567,7 +809,7 @@ export function TutorPanel({
                 />
                 <button
                   onClick={() => send()}
-                  disabled={busy || needsKey || !input.trim()}
+                  disabled={busy || needsKey || (!input.trim() && !attachment)}
                   className="shrink-0 self-end rounded-xl bg-deniz px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-deniz-deep disabled:opacity-40"
                 >
                   {t("send")}

@@ -86,4 +86,69 @@ describe("/api/tutor rate limiting", () => {
     expect(checkRateLimit).not.toHaveBeenCalled();
     expect(getUser).not.toHaveBeenCalled();
   });
+
+  it("forwards a valid BYOK image without charging the shared bucket", async () => {
+    const upstream = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          candidates: [{ content: { parts: [{ text: "Image explanation" }] } }],
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
+      )
+    );
+
+    const response = await POST(
+      tutorRequest({
+        userKey: "user-test-key",
+        messages: [
+          {
+            role: "user",
+            text: "Explain this",
+            attachments: [
+              {
+                kind: "image",
+                mimeType: "image/png",
+                data: "aGVsbG8=",
+                name: "diagram.png",
+                size: 5,
+              },
+            ],
+          },
+        ],
+      })
+    );
+
+    expect(response.status).toBe(200);
+    expect(checkRateLimit).not.toHaveBeenCalled();
+    const upstreamInit = upstream.mock.calls[0][1] as RequestInit;
+    const payload = JSON.parse(String(upstreamInit.body)) as {
+      contents: { parts: { inline_data?: { mime_type: string; data: string } }[] }[];
+    };
+    expect(payload.contents[0].parts[0]).toEqual({
+      inline_data: { mime_type: "image/png", data: "aGVsbG8=" },
+    });
+  });
+
+  it("rejects an invalid attachment before the limiter or provider", async () => {
+    const upstream = vi.spyOn(globalThis, "fetch");
+
+    const response = await POST(
+      tutorRequest({
+        messages: [
+          {
+            role: "user",
+            text: "Explain this",
+            attachments: [
+              { kind: "image", mimeType: "image/svg+xml", data: "not-base64" },
+            ],
+          },
+        ],
+      })
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({ error: "invalid-attachment" });
+    expect(checkRateLimit).not.toHaveBeenCalled();
+    expect(upstream).not.toHaveBeenCalled();
+  });
 });
