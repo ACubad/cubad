@@ -15,7 +15,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
   if (!profile) notFound();
   const [entitlementsRes, redemptionsRes, tiersRes, tracksRes, subjectsRes] = await Promise.all([
     supabase.from("entitlements").select("id, scope_type, scope_id, tier_id, starts_at, expires_at, source, revoked_at").eq("user_id", userId).order("created_at", { ascending: false }),
-    supabase.from("code_redemptions").select("id, created_at, code_id").eq("user_id", userId).order("created_at", { ascending: false }),
+    supabase.from("code_redemptions").select("id", { count: "exact", head: true }).eq("user_id", userId),
     supabase.from("tiers").select("id, slug, title").order("sort"),
     supabase.from("tracks").select("id, title").order("sort"),
     supabase.from("subjects").select("id, title").order("sort"),
@@ -23,7 +23,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
   const firstError = entitlementsRes.error ?? redemptionsRes.error ?? tiersRes.error ?? tracksRes.error ?? subjectsRes.error;
   if (firstError) throw new Error(firstError.message);
   const entitlements = (entitlementsRes.data ?? []) as EntitlementRow[];
-  const redemptions = redemptionsRes.data ?? [];
+  const redemptionsCount = redemptionsRes.count ?? 0;
   const tiers = (tiersRes.data ?? []) as { id: string; slug: string; title: Bi }[];
   const tracks = (tracksRes.data ?? []) as { id: string; title: Bi }[];
   const subjects = (subjectsRes.data ?? []) as { id: string; title: Bi }[];
@@ -51,7 +51,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
           <button className="col-span-full w-fit rounded-lg bg-deniz px-4 py-2 text-sm font-semibold text-white hover:bg-deniz-deep">Grant</button>
         </form>
       </section>
-      <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Redemptions</h2><p className="text-sm text-ink-soft">{redemptions.length} code(s) redeemed by this user.</p></section>
+      <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Redemptions</h2><p className="text-sm text-ink-soft">{redemptionsCount} code(s) redeemed by this user.</p></section>
       <section><h2 className="mb-2 text-sm font-semibold text-deniz-deep">Payment claims</h2><p className="text-sm text-ink-soft">Phase 6 adds claim history and review controls here.</p></section>
     </div>
   );
