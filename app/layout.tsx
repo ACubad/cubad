@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "katex/dist/katex.min.css";
 import "./globals.css";
 import { LangProvider } from "@/lib/i18n";
@@ -51,6 +53,8 @@ export default function RootLayout({
             <Footer />
           </ProgressProvider>
         </LangProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
