@@ -1,0 +1,44 @@
+name: Nightly database backup
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Install postgresql-client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+
+      - name: Dump database
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          set -euo pipefail
+          STAMP=$(date -u +%Y%m%d-%H%M%S)
+          echo "DUMP_STAMP=$STAMP" >> "$GITHUB_ENV"
+          # Raw pg_dump keeps the CI path small and needs no Supabase CLI login.
+          pg_dump "$SUPABASE_DB_URL" --no-owner --no-privileges --format=plain \
+            --file="cubad-backup-$STAMP.sql"
+          gzip "cubad-backup-$STAMP.sql"
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cubad-backup-${{ env.DUMP_STAMP }}
+          path: cubad-backup-${{ env.DUMP_STAMP }}.sql.gz
+          retention-days: 14
+
+      # Optional off-GitHub copy. Enable only after adding RCLONE_CONFIG_BASE64,
+      # containing an rclone.conf with a Drive remote named "gdrive".
+      # - name: Install rclone
+      #   run: curl https://rclone.org/install.sh | sudo bash
+      # - name: Configure rclone
+      #   run: |
+      #     mkdir -p ~/.config/rclone
+      #     echo "${{ secrets.RCLONE_CONFIG_BASE64 }}" | base64 -d > ~/.config/rclone/rclone.conf
+      # - name: Copy to Google Drive
+      #   run: rclone copy "cubad-backup-${{ env.DUMP_STAMP }}.sql.gz" gdrive:cubad-backups/
