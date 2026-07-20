@@ -1,5 +1,9 @@
 import { getUnit } from "@/lib/content-db";
-import { createClient, createServiceRoleClient } from "@/lib/supabase/server";
+import {
+  createClient,
+  createServiceRoleClient,
+  isServiceRoleConfigured,
+} from "@/lib/supabase/server";
 import type { NoteSection } from "@/lib/types";
 
 export const maxDuration = 300;
@@ -23,8 +27,7 @@ const BUCKET = "podcasts";
 // generator on the current stable Flash model; the dedicated 2.5 Preview TTS model
 // remains the supported audio-generation endpoint.
 const SCRIPT_MODEL = "gemini-3.5-flash";
-const hasStorage = () =>
-  Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+const hasStorage = () => isServiceRoleConfigured();
 
 const audioPath = (subject: string, unitSlug: string, lang: string) =>
   `${subject}/${unitSlug}/${lang}.wav`;

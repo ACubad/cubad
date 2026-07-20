@@ -46,3 +46,8 @@ export function createServiceRoleClient() {
     { auth: { persistSession: false, autoRefreshToken: false } }
   );
 }
+
+/** Keep service-role environment inspection inside this server-only module. */
+export function isServiceRoleConfigured(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+}

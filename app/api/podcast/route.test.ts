@@ -9,6 +9,7 @@ const { getUser, from, getUnit } = vi.hoisted(() => ({
 vi.mock("@/lib/supabase/server", () => ({
   createClient: async () => ({ auth: { getUser }, from }),
   createServiceRoleClient: () => ({ storage: { from: vi.fn() } }),
+  isServiceRoleConfigured: () => false,
 }));
 
 vi.mock("@/lib/content-db", () => ({ getUnit }));
