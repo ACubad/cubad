@@ -64,8 +64,8 @@ D9, §10). Every user-facing string is bilingual (`Bi = {tr, en}`) via `lib/i18n
 write" counter is exactly the race §10 warns about. One Postgres function, every call site
 shares it.
 
-- [ ] `supabase migration new rate_limiting` from `cubad/`.
-- [ ] Contents:
+- [x] `supabase migration new rate_limiting` from `cubad/`.
+- [x] Contents:
 
 ```sql
 -- Fixed-window rate limiter shared by every server-side code path. No client
@@ -150,8 +150,8 @@ select cron.schedule(
 );
 ```
 
-- [ ] `supabase db reset` locally (§8.5), then push to the real project.
-- [ ] Verify: `select * from cron.job where jobname = 'cleanup-rate-limit-events';` → one row,
+- [x] `supabase db reset` locally (§8.5), then push to the real project.
+- [x] Verify: `select * from cron.job where jobname = 'cleanup-rate-limit-events';` → one row,
       `active = true`.
 - [ ] Commit: `git add supabase/migrations/*_rate_limiting.sql && git commit -m "feat(phase7): rate_limit_events table + check_rate_limit RPC + nightly cleanup"`
 
@@ -1871,3 +1871,29 @@ behavior, so rollback is narrow per area:
       nesting so agents and linters interpret every item at the intended level.
 
 (further entries filled in by the executing agent as work proceeds)
+
+- **2026-07-20 — Phase 7 execution baseline and local-runtime blocker:**
+  1. Fetched/pruned `origin`; verified `origin/main` and the new
+     `feat/phase-7-hardening-scale` branch start at Phase 6 handoff merge
+     `0157cba0198ae671486d68c2308327033814cfda` with a clean worktree.
+  2. Verified the checkout is linked to existing Vercel project `cubad`
+     (`prj_xj7q53z2BWaCYnyqlyenxd5KrVqQ`) and active Supabase project
+     `qjcaangaxpkihxxzexpq`; no replacement infrastructure was created.
+  3. Verified all 36 local/remote migrations match through `20260719215500`.
+     A linked dry-run reports only the new additive
+     `20260720115156_rate_limiting.sql` migration pending.
+  4. Task 7.1 local replay is blocked before migrations start because Docker Desktop's
+     engine does not answer `docker version` within 20 seconds. Two attempts were made:
+     `supabase db reset` hung after its environment warning, and the direct Docker
+     health probe timed out. Only the reset/diagnostic processes started by this task
+     were stopped; existing containers and unrelated project processes were not changed.
+     Per Master §11, the migration has not been pushed and later tasks have not started.
+  5. After the operator restarted Docker Desktop, the engine reported healthy, a fresh local
+     reset replayed all 37 migrations, and the limiter smoke returned `true, true, false` with
+     exactly two stored events. The local cron row is active on `17 3 * * *`; anon and
+     authenticated have neither RPC execute privilege nor table access, while `service_role`
+     can execute both functions. The migration then applied to the existing Cubad project; the
+     ledger matches 37/37. Live PostgREST returned the same `true, true, false` sequence through
+     the service role, denied the anon RPC/table probes with 401, and cleanup proved zero rows.
+     The CLI emitted its known post-apply pg-delta certificate-cache warning after the migration
+     committed; the ledger and live behavior prove it did not roll back.
