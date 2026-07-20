@@ -341,11 +341,11 @@ check this first if tutor p95 latency misbehaves under load (Task 7.23). Never l
 **Why 12/min:** covers legitimate rapid-fire autosave bursts (quiz answers) while stopping a
 buggy client loop or scripted abuse.
 
-- [ ] Locate the file (`ls app/api | grep -i state`; master §14 registers it as
+- [x] Locate the file (`ls app/api | grep -i state`; master §14 registers it as
       `app/api/state/route.ts` (`/api/state`) — if reality differs, apply the identical guard
       right after the auth check wherever the `user_state` write lives).
-- [ ] Add: `import { checkRateLimit } from "@/lib/rate-limit";`
-- [ ] Find the point right after the auth check (expected Phase 2 shape):
+- [x] Add: `import { checkRateLimit } from "@/lib/rate-limit";`
+- [x] Find the point right after the auth check (expected Phase 2 shape):
 
 ```ts
 export async function POST(request: Request) {
@@ -369,7 +369,7 @@ export async function POST(request: Request) {
   }
 ```
 
-- [ ] Commit: `git commit -am "feat(phase7): rate-limit progress save to 12 req/min per user"`
+- [x] Commit: `git commit -am "feat(phase7): rate-limit progress save to 12 req/min per user"`
 
 **Verify:** see Task 7.8.
 

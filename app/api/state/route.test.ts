@@ -1,11 +1,15 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const getUser = vi.fn();
-const from = vi.fn();
+const { getUser, from, checkRateLimit } = vi.hoisted(() => ({
+  getUser: vi.fn(),
+  from: vi.fn(),
+  checkRateLimit: vi.fn(),
+}));
 
 vi.mock("@/lib/supabase/server", () => ({
   createClient: async () => ({ auth: { getUser }, from }),
 }));
+vi.mock("@/lib/rate-limit", () => ({ checkRateLimit }));
 
 import { GET, POST } from "./route";
 
@@ -13,6 +17,8 @@ describe("/api/state", () => {
   beforeEach(() => {
     getUser.mockReset();
     from.mockReset();
+    checkRateLimit.mockReset();
+    checkRateLimit.mockResolvedValue(true);
   });
 
   it("rejects unauthenticated reads and writes", async () => {
@@ -22,6 +28,29 @@ describe("/api/state", () => {
     await expect(
       POST(new Request("https://cubad.test/api/state", { method: "POST", body: "{}" }))
     ).resolves.toMatchObject({ status: 401 });
+    expect(from).not.toHaveBeenCalled();
+    expect(checkRateLimit).not.toHaveBeenCalled();
+  });
+
+  it("returns 429 before parsing or writing when the progress bucket is full", async () => {
+    getUser.mockResolvedValue({ data: { user: { id: "owner-id" } } });
+    checkRateLimit.mockResolvedValue(false);
+
+    const response = await POST(
+      new Request("https://cubad.test/api/state", {
+        method: "POST",
+        body: "not-json",
+      })
+    );
+
+    expect(response.status).toBe(429);
+    expect(response.headers.get("Retry-After")).toBe("60");
+    await expect(response.json()).resolves.toEqual({ error: "rate-limited" });
+    expect(checkRateLimit).toHaveBeenCalledWith({
+      key: "progress:user:owner-id",
+      max: 12,
+      windowSeconds: 60,
+    });
     expect(from).not.toHaveBeenCalled();
   });
 

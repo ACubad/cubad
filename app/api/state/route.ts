@@ -1,3 +1,4 @@
+import { checkRateLimit } from "@/lib/rate-limit";
 import { createClient } from "@/lib/supabase/server";
 
 interface StateBody {
@@ -48,6 +49,18 @@ export async function POST(request: Request) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return Response.json({ error: "unauthenticated" }, { status: 401 });
+
+  const allowed = await checkRateLimit({
+    key: `progress:user:${user.id}`,
+    max: 12,
+    windowSeconds: 60,
+  });
+  if (!allowed) {
+    return Response.json(
+      { error: "rate-limited" },
+      { status: 429, headers: { "Retry-After": "60" } }
+    );
+  }
 
   let body: StateBody;
   try {
