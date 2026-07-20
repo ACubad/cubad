@@ -26,7 +26,11 @@ react-markdown · Gemini API (tutor/podcasts, unchanged).
 
 ---
 
-## 1. Current state (verified 2026-07-12 — do not rediscover, it's all true)
+## 1. Pre-productization baseline (historical snapshot verified 2026-07-12)
+
+> This table describes the app before Phases 1–6. It is historical input, not the continuation
+> state. Use §14 and the merged phase handoffs for current contracts; do not resurrect a retired
+> route or borrowed infrastructure because it appears below.
 
 | Area | Today |
 |---|---|
@@ -533,19 +537,31 @@ override any stray older wording inside a phase doc:
 - **Content RPCs** (Phase 3 owns; Phase 4 extends gate): `get_unit_content(p_subject_slug
   text, p_unit_slug text)`, `list_units_meta(p_subject_slug text)`.
 - **`app_settings`** (key text pk, value jsonb, updated_by, updated_at — Phase 6 owns):
-  single anon-readable SELECT policy (payment instructions and the announcement banner are
-  both public-safe); writes admin-only via `set_app_setting`.
+  one public SELECT policy with an explicit key allow-list. Phase 6's final policy allows only
+  `payment_instructions`; Phase 7 must extend that allow-list to
+  `('payment_instructions', 'announcement_banner')` in a NEW migration when it adds the banner.
+  Never restore `using (true)`. Writes are service-role-only through `set_app_setting`; the
+  historical `app_settings_write_admin` policy may still exist but is inert because authenticated
+  roles have no INSERT/UPDATE/DELETE table privileges, and Phase 7 may drop that policy.
 - **`tiers.scope_id`**: exists (see §4) — null iff `scope_type='all'`; admin tier CRUD must
   set it for track/subject tiers.
 - **Progress endpoint** (Phase 2): `app/api/state/route.ts` (`/api/state`).
+- **Retired progress endpoint** (Phase 3): `/api/sync` and passcode sync were deleted after the
+  legacy migration. `/api/state` is now the only runtime progress transport; `/api/sync` must
+  remain 404.
 - **Upgrade flow routes** (Phase 6): `/upgrade`, `/upgrade/pay/[tierSlug]`,
   `/upgrade/claims`; Phase 4's paywall panel carries BOTH `redeemHref` (`/redeem?next=…`)
   and `upgradeHref` (`/upgrade?next=…`).
+- **Payment mutation transport** (Phase 6): there is NO `/api/claims` route. Claim submission and
+  cancellation are Server Actions in `app/upgrade/actions.ts`; approval, rejection, and payment-
+  instruction updates are Server Actions in `app/admin/payments/actions.ts`. Later hardening must
+  modify these actual actions rather than creating a parallel claim API.
 - **Vitest**: config discovers colocated tests — `include: ["**/*.test.ts", "**/*.test.tsx"]`
   (node_modules excluded by default), not `tests/**` only.
 - **Additional env vars beyond D15** (all legitimate): `REVALIDATE_SECRET` (Phase 3),
   `EMAIL_FROM` (Phase 6; supersedes the hardcoded sender in D10), `CRON_SECRET` (Phase 7),
-  `SUPABASE_DB_URL` (GitHub Actions secret, Phase 7), plus sprout-migration one-offs
+  `SUPABASE_DB_URL` (GitHub Actions secret, Phase 7), `NEXT_PUBLIC_SUPPORT_EMAIL` (Phase 7;
+  intentionally public, human-approved privacy/support address), plus sprout-migration one-offs
   `SPROUT_URL`/`SPROUT_SERVICE_KEY` (Phase 3 script, local only).
 - **Executing SQL runbooks/probes**: the Supabase CLI has no `db execute` subcommand — use
   `psql "$DB_URL" -f <file>` (psql meta-commands like `\set` only work there), the

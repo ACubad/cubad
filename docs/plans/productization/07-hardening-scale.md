@@ -30,27 +30,29 @@ D9, §10). Every user-facing string is bilingual (`Bi = {tr, en}`) via `lib/i18n
 ## Prerequisites
 
 - **Depends on:** Phase 6 (`06-payments-v1.md`) shipped and merged to `main`. Nothing in Phases
-  1–6 is reopened here except adding a rate-limit guard to a few existing routes + one column.
+  1–6 is reopened here except adding rate-limit guards to existing mutation transports + one
+  optional column.
 - **Branch:** `feat/phase-7-hardening-scale`, PR into `main` at the end (§8.7).
 - **Required reading:** `00-MASTER-PLAN.md` (all of it, esp. §4/§9/§10) · `AGENTS.md` (Next 16
   differs from training data — check `node_modules/next/dist/docs/` before writing any route
-  handler, cron route, or `robots.ts`/`sitemap.ts` below) · `app/api/sync/route.ts`,
-  `app/api/tutor/route.ts`, `app/api/podcast/route.ts` (this app uses plain Route Handlers for
-  every mutation — zero Server Actions exist as of Phase 6, confirmed by grep while authoring
-  this doc; Phase 7 code follows suit) · `lib/sync.ts` (the `SyncState` shape `{progress, decks,
-  chats?}` that `user_state.state` holds, D3) · `package.json` (current deps).
+  handler, health/cron route, or `robots.ts`/`sitemap.ts` below) ·
+  `app/api/tutor/route.ts`, `app/api/podcast/route.ts`, `app/api/state/route.ts` (existing Route
+  Handlers) · `app/upgrade/actions.ts`, `app/admin/payments/actions.ts` (Phase 6 Server Actions;
+  there is no `/api/claims`) · `lib/sync.ts` (the `SyncState` shape `{progress, decks, chats?}`
+  that `user_state.state` holds, D3) · `lib/email/send.ts` and `lib/email/templates.ts` (Phase 6's
+  Resend REST transport; no `resend` npm dependency) · `package.json` (current deps).
 
-### Assumptions (Phases 1–6 artifacts not directly inspectable while authoring this doc in
-parallel — verify before coding; if wrong, use the real name and note it in the Changelog)
+### Verified continuation contracts (audited against merged Phases 1–6 on 2026-07-20)
 
-| Assumption | Basis | If wrong |
+| Contract | Basis | If a future change differs |
 |---|---|---|
 | `lib/supabase/server.ts` exports `async createClient()` — cookie-bound, RLS-enforced (standard `@supabase/ssr` App Router pattern) | D2, D15 | `grep -n export lib/supabase/server.ts`, fix imports below |
-| Same file also exports `createServiceRoleClient()` — service-role, bypasses RLS | D15 | same grep; fixes Task 7.27's import |
+| Same file also exports `createServiceRoleClient()` — service-role, bypasses RLS | D15 | same grep; Task 7.2 must reuse it rather than creating a raw Supabase client |
 | Phase 2's server-progress endpoint is `app/api/state/route.ts` (`/api/state`, POST), not a Server Action | master §14 contract registry | if reality differs, apply the same 3-line guard right after the user check wherever the `user_state` write lives |
-| Phase 6's claim endpoint is `app/api/claims/route.ts` (POST) | same reasoning | same grep |
-| Phase 6 created `public.app_settings` as a generic key/value settings table | Phase 7 scope line: "banner via `app_settings` (seam from Phase 6's table)" | Task 7.34 uses `create table if not exists` — a no-op if already compatible |
-| `NEXT_PUBLIC_APP_URL` set in Vercel + `.env.local` | D15 | confirm before Task 7.32/7.33 |
+| The unauthenticated passcode `/api/sync` route was retired and deleted in Phase 3; production must continue returning 404 there | Phase 3/4 handoffs + current route tree | Task 7.3 is a non-regression assertion; do not recreate or monitor the retired route |
+| Phase 6 claim submission is the `submitClaim` Server Action in `app/upgrade/actions.ts`; there is no `/api/claims` | merged Phase 6 + master §14 | Task 7.7 returns `{ error: "rate-limited" }` and adds bilingual UI copy; do not create a duplicate API route |
+| Phase 6 created `public.app_settings`; its final public policy allow-lists only `payment_instructions`, and an older `app_settings_write_admin` policy may remain inert behind revoked mutation grants | migrations `20260719205635`, `20260719215500` | Task 7.30 extends the public allow-list in a NEW migration and drops the inert historical write policy |
+| `NEXT_PUBLIC_APP_URL` is set in Vercel Production, Development, and project-wide Preview; local presence depends on the fresh worktree's ignored `.env.local` | verified Phase 6 closeout | confirm scope with `vercel env ls`; never infer encrypted values from `vercel env pull` |
 
 ---
 
@@ -87,7 +89,7 @@ revoke all on public.rate_limit_events from anon, authenticated;
 create or replace function public.check_rate_limit(
   p_key text, p_max int, p_window interval
 ) returns boolean
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = ''
 as $$
 declare
   v_count int;
@@ -119,17 +121,22 @@ begin
 end;
 $$;
 
-grant execute on function public.check_rate_limit(text, int, interval)
-  to anon, authenticated, service_role;
+-- Never expose an arbitrary-key limiter RPC to clients: a malicious user could otherwise fill
+-- another user's bucket and deny them service. Every call goes through server code.
+revoke all on function public.check_rate_limit(text, int, interval)
+  from public, anon, authenticated;
+grant execute on function public.check_rate_limit(text, int, interval) to service_role;
 
 -- Nightly full sweep. Keeps 2 days of history (longer than any window used
 -- today) so "who got rate-limited last night?" is answerable the next day.
 create or replace function public.cleanup_rate_limit_events()
-returns void language sql security definer set search_path = public
+returns void language sql security definer set search_path = ''
 as $$
   delete from public.rate_limit_events where created_at < now() - interval '2 days';
 $$;
 
+revoke all on function public.cleanup_rate_limit_events()
+  from public, anon, authenticated;
 grant execute on function public.cleanup_rate_limit_events() to service_role;
 
 -- pg_cron is available on all Supabase plans incl. free; enable it under
@@ -166,24 +173,10 @@ correct, but not a distributed-systems-grade limiter; fine for abuse throttling 
 
 ```ts
 import "server-only";
-import { createClient } from "@supabase/supabase-js";
-
-/**
- * Minimal client used ONLY to call check_rate_limit(). Deliberate exception
- * to D15's "all Supabase access through lib/supabase/server.ts": this RPC is
- * SECURITY DEFINER and keyed by an explicit string arg — no session/cookie
- * context needed — and this helper must also work where there are no
- * request cookies at all (Vercel Cron routes). To centralize anyway, swap
- * this for `createServiceRoleClient()` — no call site below changes.
- */
-const rateLimitClient = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  { auth: { persistSession: false } }
-);
+import { createServiceRoleClient } from "@/lib/supabase/server";
 
 export interface RateLimitOptions {
-  /** Bucket key, e.g. `sync:ip:203.0.113.4` or `tutor:user:<uuid>`. */
+  /** Server-built bucket key, e.g. `tutor:user:<uuid>` or `claims:user:<uuid>`. */
   key: string;
   max: number;
   windowSeconds: number;
@@ -198,35 +191,34 @@ export async function checkRateLimit({
   key, max, windowSeconds,
 }: RateLimitOptions): Promise<boolean> {
   try {
+    // Task 7.1 grants this arbitrary-key RPC only to service_role. Exposing it to clients would
+    // let an attacker fill another user's bucket and create a denial of service.
+    const rateLimitClient = createServiceRoleClient();
     const { data, error } = await rateLimitClient.rpc("check_rate_limit", {
       p_key: key, p_max: max, p_window: `${windowSeconds} seconds`,
     });
     if (error) {
-      console.error("checkRateLimit RPC error", { key, error: error.message });
+      console.error("checkRateLimit RPC error", { namespace: key.split(":")[0], error: error.message });
       return true; // fail open
     }
-    return data === true;
+    if (typeof data !== "boolean") {
+      console.error("checkRateLimit malformed result", { namespace: key.split(":")[0] });
+      return true; // fail open on a contract mismatch too
+    }
+    return data;
   } catch (e) {
-    console.error("checkRateLimit exception", { key, error: e });
+    console.error("checkRateLimit exception", { namespace: key.split(":")[0], error: e });
     return true; // fail open
   }
 }
 
-/**
- * Best-effort client IP behind Vercel's proxy.
- * Trust caveat: valid only while Vercel is the sole edge in front of the
- * app — if a CDN is ever placed in front of Vercel, re-verify which header
- * carries the true client IP before trusting this.
- * Coarseness caveat: shared/NAT'd networks put many real users behind one
- * IP — fine for /api/sync's coarse per-IP abuse guard, not precise per-user.
- */
+/** Best-effort fallback bucket for an unauthenticated tutor request on Vercel. */
 export function clientIp(request: Request): string {
-  const xff = request.headers.get("x-forwarded-for");
-  if (xff) {
-    const first = xff.split(",")[0]?.trim();
-    if (first) return first;
-  }
-  return request.headers.get("x-real-ip")?.trim() ?? "unknown";
+  const forwarded =
+    request.headers.get("x-vercel-forwarded-for") ??
+    request.headers.get("x-forwarded-for") ??
+    request.headers.get("x-real-ip");
+  return forwarded?.split(",")[0]?.trim() || "unknown";
 }
 ```
 
@@ -236,63 +228,42 @@ export function clientIp(request: Request): string {
 calling `checkRateLimit({key:'debug', max:2, windowSeconds:30})`, hit it 3x → `true, true,
 false`, then delete the throwaway route.
 
-**Failure modes:** missing `NEXT_PUBLIC_SUPABASE_*` env vars in Vercel Production/Preview throw
-at first call. A typo'd RPC/argument name makes `data` come back `null`, and `data === true` is
-`false` — this **denies** requests silently (fail-open only covers the `error` path) — keep
-`p_key`/`p_max`/`p_window` byte-identical to Task 7.1.
+**Failure modes:** missing server Supabase variables in Vercel Production/Preview throws at first
+call and fails open. A typo'd RPC/argument name returns an error or malformed result and also fails
+open; keep `p_key`/`p_max`/`p_window` byte-identical to Task 7.1. Never downgrade this helper to an
+anon/authenticated client or grant client EXECUTE on `check_rate_limit`. Vercel currently supplies
+`x-vercel-forwarded-for` as its proxy-safe client-IP header; re-check the official request-header
+docs if the hosting/proxy topology changes.
 
 ---
 
-### Task 7.3 — Apply to `/api/sync` (per-IP 30/min)
+### Task 7.3 — Preserve the retired `/api/sync` boundary
 
-**Why:** `/api/sync` is intentionally unauthenticated (legacy passcode sync, D3/§13) — 30/min
-per IP stops a scripted passcode scan while normal multi-device sync stays comfortably under it.
+**Why:** Phase 3 removed unauthenticated passcode sync after migrating legacy data. Recreating the
+old route would restore an obsolete anonymous attack surface and split progress synchronization
+away from the authenticated `/api/state` contract.
 
-- [ ] Open `app/api/sync/route.ts`. Add: `import { checkRateLimit, clientIp } from "@/lib/rate-limit";`
-- [ ] Find:
+- [ ] Confirm `app/api/sync/route.ts` does not exist and `rg -n 'api/sync' app lib components`
+      finds no runtime fetch or link.
+- [ ] Confirm local and Production `GET /api/sync` and `POST /api/sync` return `404`.
+- [ ] Do not add a limiter, monitor, health check, or compatibility shim for this retired path.
+      The legacy Sprout data-retention decision remains the separate Task 7.27.
+- [ ] No code or commit is expected for this task unless the assertion fails; if it fails, remove
+      the regression and document why it existed before continuing.
 
-```ts
-export async function POST(request: Request) {
-  if (!SB_URL || !SB_KEY) {
-    return Response.json({ error: "sync-unavailable" }, { status: 503 });
-  }
-```
+**Verify:** the application uses only authenticated `GET/POST /api/state` via `lib/sync.ts`.
 
-  Replace with:
-
-```ts
-export async function POST(request: Request) {
-  if (!SB_URL || !SB_KEY) {
-    return Response.json({ error: "sync-unavailable" }, { status: 503 });
-  }
-
-  const ip = clientIp(request);
-  const allowed = await checkRateLimit({ key: `sync:ip:${ip}`, max: 30, windowSeconds: 60 });
-  if (!allowed) {
-    return Response.json(
-      { error: "rate-limited" },
-      { status: 429, headers: { "Retry-After": "60" } }
-    );
-  }
-```
-
-- [ ] Commit: `git commit -am "feat(phase7): rate-limit /api/sync to 30 req/min per IP"`
-
-**Verify:** see Task 7.8's consolidated probe.
-
-**Failure modes:** users sharing a NAT/campus IP share a budget — acceptable at 30/min; if it
-becomes a real complaint, raise the limit rather than keying on the passcode too (that would
-reopen a per-IP passcode-guessing budget). Insertion point is the same regardless of any Phase 3
-cutover changes to this route: first line inside `POST`, before any Supabase call.
+**Failure modes:** an old planning note is not evidence that a route is live. The Phase 3 and
+Phase 4 handoffs plus the current route tree are authoritative.
 
 ---
 
 ### Task 7.4 — Apply to tutor server-key path (per-user 20/hour; BYOK exempt)
 
-**Why:** `const key = envKey || body.userKey;` in `app/api/tutor/route.ts` means the shared env
-key is ALWAYS used when configured — BYOK only ever activates when the site has no env key for
-that provider. So "server-key path" = `Boolean(envKey)`, and gating on that single condition
-automatically exempts BYOK: a user supplying their own key spends their own quota.
+**Why:** Phase 6 currently computes `envKey || body.userKey`, so a configured shared key silently
+wins even when the student supplied BYOK. Phase 7's intended "BYOK exempt" contract requires an
+explicit BYOK-first correction: a non-empty user key spends the user's provider quota; otherwise
+the shared server key is limited.
 
 - [ ] Open `app/api/tutor/route.ts`. Add:
 
@@ -315,11 +286,18 @@ import { checkRateLimit, clientIp } from "@/lib/rate-limit";
 ```ts
   const provider: Provider = body.provider === "openai" ? "openai" : "gemini";
   const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : process.env.GEMINI_API_KEY;
-  const key = envKey || body.userKey;
+  const userKey = typeof body.userKey === "string" ? body.userKey.trim() : "";
+  const key = userKey || envKey;
   if (!key) return Response.json({ error: "no-key" }, { status: 401 });
 
-  // Rate-limit only the shared server key; BYOK spends the user's own quota.
-  const usingServerKey = Boolean(envKey);
+  const rawModel = (body.model ?? "").trim();
+  const model = /^[a-zA-Z0-9._/-]{1,64}$/.test(rawModel) ? rawModel : DEFAULT_MODELS[provider];
+  const messages = (body.messages ?? []).slice(-16);
+  if (messages.length === 0) return Response.json({ error: "empty" }, { status: 400 });
+  body.messages = messages;
+
+  // Rate-limit only the shared server key; an explicitly supplied BYOK key spends its own quota.
+  const usingServerKey = !userKey && Boolean(envKey);
   if (usingServerKey) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
@@ -327,27 +305,34 @@ import { checkRateLimit, clientIp } from "@/lib/rate-limit";
     const rlKey = user ? `tutor:user:${user.id}` : `tutor:ip:${clientIp(request)}`;
     const allowed = await checkRateLimit({ key: rlKey, max: 20, windowSeconds: 3600 });
     if (!allowed) {
-      // Reuses the existing "quota" TutorError so TutorPanel's current error
-      // UI handles this with zero frontend changes.
       return Response.json(
         {
-          error: "quota",
-          message: "Hourly tutor limit reached on the shared key. Add your own API key in Settings to keep going, or try again in an hour.",
+          error: "rate-limited",
           retryAfterSeconds: 3600,
         },
         { status: 429, headers: { "Retry-After": "3600" } }
       );
     }
-  }
+}
 ```
 
-- [ ] Commit: `git commit -am "feat(phase7): rate-limit tutor server-key path to 20 req/hour per user, BYOK exempt"`
+- [ ] Remove the original duplicate `rawModel`/`model`/`messages` validation block below the new
+      guard; it was moved up so malformed/empty requests do not consume a rate-limit event.
+- [ ] In `components/TutorPanel.tsx`, extend the parsed response shape with
+      `retryAfterSeconds?: number` and handle `data.error === "rate-limited"` before the generic
+      error. Show bilingual copy: Turkish "Paylaşılan eğitmen saatlik sınırına ulaştı. Bir saat
+      sonra tekrar dene veya kendi API anahtarını kullan." / English "The shared tutor reached
+      its hourly limit. Try again in an hour or use your own API key." Do not clear a saved BYOK
+      key for this error.
+
+- [ ] Add route/client tests covering server-key 429, BYOK-first exemption, and bilingual client
+      handling. Commit: `git commit -am "feat(phase7): rate-limit shared tutor key and honor BYOK-first"`
 
 **Verify:** see Task 7.8.
 
-**Failure modes:** if key-selection logic ever inverts (BYOK-first), recompute `usingServerKey`
-as `key === envKey`, don't keep `Boolean(envKey)` blindly. `supabase.auth.getUser()` round-trips
-to Supabase Auth — check this first if tutor p95 latency misbehaves under load (Task 7.25).
+**Failure modes:** do not restore `envKey || body.userKey`; it makes the BYOK exemption and the
+client's recovery instruction false. `supabase.auth.getUser()` round-trips to Supabase Auth —
+check this first if tutor p95 latency misbehaves under load (Task 7.23). Never log either key.
 
 ---
 
@@ -388,9 +373,9 @@ export async function POST(request: Request) {
 
 **Verify:** see Task 7.8.
 
-**Failure modes:** if the real route batches pull (read) and push (write) in one handler like
-`/api/sync` does, only guard the **push** branch — reads must stay unlimited or the
-pull-before-push union-merge flow (`lib/sync.ts`) breaks.
+**Failure modes:** guard only `POST`; `GET /api/state` must stay unlimited or the
+pull-before-push union-merge flow (`lib/sync.ts`) breaks. Do not use the retired `/api/sync`
+implementation as a template.
 
 ---
 
@@ -412,7 +397,7 @@ accident later.
 | Anonymous sign-ins | **disabled** | app never uses Supabase anonymous auth |
 | Unused SSO/Web3 providers | **disabled** | every enabled method is surface area |
 
-- [ ] Write the confirmed values into `docs/ops/runbooks.md` (Task 7.29). No separate commit —
+- [ ] Write the confirmed values into `docs/ops/runbooks.md` (Task 7.25). No separate commit —
       lands with that task's commit.
 
 **Verify:** 10 rapid disposable sign-ups from one IP (scratch project only) get rejected before
@@ -430,10 +415,11 @@ Supabase defaults.
 **Why:** stacks on Phase 6's "max 3 open claims" business rule (queue hygiene) — this stops a
 scripted burst of claim creation regardless of how many stay "open."
 
-- [ ] Locate the file (`ls app/api | grep -i claim`; assumed `app/api/claims/route.ts`).
+- [ ] Open the actual Phase 6 transport: `app/upgrade/actions.ts`. There is no `/api/claims`.
 - [ ] Add: `import { checkRateLimit } from "@/lib/rate-limit";`
-- [ ] Insert right after the auth check, BEFORE the "max 3 open claims" check (fail fast,
-      cheapest check first):
+- [ ] In `submitClaim`, insert the guard after authentication and the existing file/tier
+      validation, but BEFORE the friendly "max 3 open claims" count and before any claim/storage
+      write. This avoids charging malformed browser submissions while still stopping create spam:
 
 ```ts
 
@@ -441,61 +427,44 @@ scripted burst of claim creation regardless of how many stay "open."
     key: `claims:user:${user.id}`, max: 10, windowSeconds: 60 * 60 * 24,
   });
   if (!allowed) {
-    return Response.json(
-      { error: "rate-limited" },
-      { status: 429, headers: { "Retry-After": "86400" } }
-    );
+    return { error: "rate-limited" };
   }
 ```
+
+- [ ] Add `rate-limited` to `ClaimForm.tsx`'s `ERRORS` map with Turkish and English copy. This is
+      a Server Action state, so it intentionally does not create an HTTP 429 response or a parallel
+      API route.
 
 - [ ] Commit: `git commit -am "feat(phase7): rate-limit claim submission to 10 creates/day per user"`
 
 **Verify:** see Task 7.8.
 
-**Failure modes:** if the real code checks "max 3 open claims" first, keep that order — the
-rate limit is a ceiling, not a replacement for the business-rule error message.
+**Failure modes:** do not create `/api/claims` to satisfy the older plan wording; that would split
+one money path across two transports. The three-open-claim trigger remains the authoritative
+concurrency-safe business rule; this daily limiter is only an abuse ceiling.
 
 ---
 
-### Task 7.8 — Rate-limit probes (hammer + expect 429)
+### Task 7.8 — Rate-limit probes (route 429s + claim-action denial)
 
-**Why two techniques:** looping real `/api/sync` calls is free. Looping `/api/tutor` for real
-would burn ~20 real Gemini calls per run — wasteful. So: sync gets a real full-loop probe;
-tutor/progress/claims get a cheap, precise **pre-seed-then-single-call** probe.
+**Why:** all active limiters are authenticated. Pre-seeding each server-built bucket and making
+one real call proves the exact boundary without burning 20 real Gemini calls or creating ten
+payment claims. Run against local or a disposable Preview, never against Production.
 
-- [ ] Create `scripts/load/probe-rate-limits.sh`:
-
-```bash
-#!/usr/bin/env bash
-# Free, no external cost. Run against local dev or a disposable preview —
-# never production (writes real rows to rate_limit_events).
-set -euo pipefail
-BASE_URL="${1:-http://localhost:3000}"
-
-echo "=== /api/sync: 35 requests (limit 30/min) ==="
-for i in $(seq 1 35); do
-  code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$BASE_URL/api/sync" \
-    -H "Content-Type: application/json" -d '{"code":"probe-rl-sync"}')
-  echo "  req $i -> $code"
-done
-echo "Expected: reqs 1-30 -> 200, reqs 31-35 -> 429"
-```
-
-- [ ] `chmod +x scripts/load/probe-rate-limits.sh && ./scripts/load/probe-rate-limits.sh` →
-      confirm the last 5 lines print `429`.
-- [ ] For the authenticated limiters, run in the SQL editor (get a real test user id first:
+- [ ] Run in the SQL editor (get a disposable real test-user id first:
       `select id from auth.users where email = 'you@test.cubad.dev';`):
 
 ```sql
--- Pre-seed a bucket to exactly its limit, make ONE real curl call through the
--- app, confirm 429, then clean up.
+-- Pre-seed a bucket to exactly its limit, make ONE real call through the app,
+-- confirm the transport-specific denial, then clean up.
 
 -- tutor: 20/hour
 insert into public.rate_limit_events (key, created_at)
 select 'tutor:user:<uid>', now() from generate_series(1, 20);
 -- curl -X POST http://localhost:3000/api/tutor -H "Content-Type: application/json" \
 --   -H "Cookie: <captured session cookie, see Task 7.23>" \
---   -d '{"messages":[{"role":"user","text":"hi"}]}'   -- expect 429, {"error":"quota",...}
+--   -d '{"messages":[{"role":"user","text":"hi"}]}'
+-- expect 429, Retry-After: 3600, {"error":"rate-limited","retryAfterSeconds":3600}
 delete from public.rate_limit_events where key = 'tutor:user:<uid>';
 
 -- progress save: 12/min
@@ -507,18 +476,23 @@ delete from public.rate_limit_events where key = 'progress:user:<uid>';
 -- claim submission: 10/day
 insert into public.rate_limit_events (key, created_at)
 select 'claims:user:<uid>', now() from generate_series(1, 10);
--- curl -X POST http://localhost:3000/api/claims ... -> expect 429
+-- In a real browser/Playwright session for <uid>, submit the existing Phase 6 claim form.
+-- Expect the localized rate-limited action-state error, with no payment_claims row or proof
+-- object created. There is intentionally no /api/claims curl target.
 delete from public.rate_limit_events where key = 'claims:user:<uid>';
 ```
 
-- [ ] Commit: `git add scripts/load/probe-rate-limits.sh && git commit -m "test(phase7): rate-limit hammer probe + SQL pre-seed probes for auth'd limiters"`
+- [ ] Record the exact results and cleanup confirmation in `docs/ops/runbooks.md` (Task 7.25).
+      No standalone script or commit is required here.
 
-**Verify:** all 4 limiters return `429` exactly one request past their max; after the
-window/cleanup, the same key is allowed again (not permanently sticky).
+**Verify:** `/api/tutor` and `/api/state` return `429` at the pre-seeded limit. The claim Server
+Action returns the localized `rate-limited` state before any DB/storage mutation. After cleanup,
+the same keys are allowed again (not permanently sticky), and every disposable user/claim/object
+is removed.
 
 **Failure modes:** a pre-seed probe still returning 200 usually means a key mismatch — log the
-actual `key` the route computes and diff it byte-for-byte against what was seeded. Don't loop
-the full `/api/sync` probe repeatedly against production.
+actual `key` the transport computes and diff it byte-for-byte against what was seeded. Never run
+these stateful probes against Production.
 
 ---
 
@@ -528,14 +502,14 @@ the full `/api/sync` probe repeatedly against production.
 
 **Why:** every negative-path check from Phases 2/4/6 (RLS, storage, RPC) plus this phase's own
 audits (service-key grep, env leak audit, anon-key capability walk, advisors) belong in ONE
-runnable checklist, so the pre-launch re-run (Task 7.34) is one document, not an archaeology dig.
+runnable checklist, so the pre-launch re-run (Task 7.30) is one document, not an archaeology dig.
 
 - [ ] Create `supabase/tests/security-probes.md`:
 
 ```markdown
 # Security probe battery
 
-Run before every deploy touching RLS/storage/RPCs, and in full for Task 7.34's pre-launch
+Run before every deploy touching RLS/storage/RPCs, and in full for Task 7.30's pre-launch
 re-run. Uses ONLY the anon key + test-user JWTs — never the service role key (it bypasses RLS
 by design; testing with it proves nothing about what real users can do).
 
@@ -581,6 +555,7 @@ Confirm every printed name is in this table (update it when a new one is intenti
 | `NEXT_PUBLIC_SUPABASE_URL` | yes | project URL isn't secret |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | yes | designed to be public — RLS is the real gate |
 | `NEXT_PUBLIC_APP_URL` | yes | absolute links in email/sitemap/robots |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | yes | human-approved public contact rendered on `/privacy` (Task 7.29) |
 
 Any name NOT in this table is a new leak surface — rename it off `NEXT_PUBLIC_` if it shouldn't
 be client-visible, then re-run the grep.
@@ -588,7 +563,7 @@ be client-visible, then re-run the grep.
 ## 3. Anon-key capability walk (zero session)
 
 \`\`\`bash
-for table in tracks subjects units track_subjects tiers entitlements access_codes \\
+for table in tracks subjects units track_subjects tiers app_settings entitlements access_codes \\
              code_redemptions redemption_attempts payment_claims admin_audit_log \\
              profiles user_state legacy_sync rate_limit_events; do
   echo "== $table =="
@@ -602,6 +577,9 @@ done
   3/4 used to gate it (row policy / security-barrier view / RPC). `is_free=true` content IS
   expected visible.
 - `track_subjects`/`tiers` → published-only.
+- `app_settings` → only explicitly public keys: `payment_instructions` before Task 7.30; exactly
+  `payment_instructions` and `announcement_banner` afterward. Seed a private sentinel key with the
+  service role and prove anon/authenticated cannot read it, then remove it.
 - Every other table → **must return `[]`** with no session. Any row here is a hole.
 
 ## 4. Authenticated cross-account probes (`STUDENT_A` targeting `STUDENT_B`)
@@ -637,6 +615,11 @@ With `-H "Authorization: Bearer $USER_A_JWT"`:
 - `approve_claim(...)` called by non-admin `STUDENT_A` → rejected.
 - `approve_claim(...)` called twice by `ADMIN` on the same claim → 2nd call mints nothing extra
   (idempotency guard).
+- `check_rate_limit(...)` and `cleanup_rate_limit_events()` as anon or either student JWT →
+  permission denied; only server-side service-role calls may choose bucket keys.
+- `set_app_setting(...)` as anon, student, or admin JWT → permission denied; the admin UI reaches
+  it only through a server action using the service role, and the RPC independently validates the
+  actor UUID.
 
 ## 7. Supabase advisors
 
@@ -646,7 +629,7 @@ findings.
 | Finding | Expected here? | Action |
 |---|---|---|
 | "RLS enabled, no policy" on `rate_limit_events` | Yes, by design | none |
-| "Function has mutable search_path" | Should be zero (every SECURITY DEFINER sets `search_path=public`) | add it to the offending function |
+| "Function has mutable search_path" | Should be zero (every SECURITY DEFINER has an explicit safe path, normally `''`) | add a safe path to the offending function |
 | "Unindexed foreign key" | cross-check Task 7.17's hot-query list | add the index if it's a hot path, else note and move on |
 | "Table has RLS disabled" | should be zero | STOP — direct §9 violation |
 | "Leaked password protection disabled" | should be enabled | enable in Auth → Policies |
@@ -660,10 +643,11 @@ Record the run date + outcome in `docs/ops/runbooks.md`.
 **Verify:** every checkbox above run once against the real project, results noted inline
 (`— OK <date>` / `— FAILED: <what>`) — this is a living checklist, not a read-only doc.
 
-**Failure modes:** this doc is derived from Master §4/§6 since Phases 2/4/6's own RLS text isn't
-readable while authoring Phase 7 in parallel — if a phase deviated (its own Changelog says so),
-update the probe here to match reality. Never assert "expect N rows" for a large table without
-`Prefer: count=exact` (§9's "never count client-side").
+**Failure modes:** this battery was reconciled against the merged Phase 2/4/6 migrations and
+handoffs on 2026-07-20. If later code changes a contract, update both the probe and the owning
+handoff in the same PR; never weaken a denial merely to make a stale expectation pass. Never
+assert "expect N rows" for a large table without `Prefer: count=exact` (§9's "never count
+client-side").
 
 ---
 
@@ -695,7 +679,7 @@ base package, or `next build` may complain about the client/server boundary.
 
 ### Task 7.11 — Supabase log drains runbook (symptom → log → search)
 
-- [ ] Add to `docs/ops/runbooks.md` (Task 7.29):
+- [ ] Add to `docs/ops/runbooks.md` (Task 7.25):
 
 | Symptom | Which log | What to search |
 |---|---|---|
@@ -739,12 +723,19 @@ upload). Sentry billing is separate from Vercel/Supabase — check its free even
 
 ### Task 7.13 — Uptime checks (UptimeRobot / Cron-job.org, free tier)
 
+- [ ] Add `app/api/health/route.ts`. It must make one cheap anonymous SELECT against the existing
+      public `tracks` table, return `{"ok":true}` only when Supabase responds successfully, return
+      `{"ok":false}` with `503` on a query error, expose no row data/counts, and be
+      `dynamic = "force-dynamic"` so the monitor exercises the live dependency rather than cache.
+- [ ] Add a route test for the success and upstream-failure cases; never use the service role for
+      this public health check.
 - [ ] Sign up with `ADMIN_NOTIFY_EMAIL`.
 - [ ] Monitor 1: HTTP(s), URL = production home page, expect `200`, 5 min interval.
-- [ ] Monitor 2: **Keyword** monitor, URL = `/api/sync`, keyword `"enabled":true`, 5 min interval
-      (doubles as a Supabase connectivity check per the existing `GET` handler).
+- [ ] Monitor 2: **Keyword** monitor, URL = `/api/health`, keyword `"ok":true`, 5 min interval
+      (a live Supabase connectivity check without reviving the retired `/api/sync`).
 - [ ] Alert contact = `ADMIN_NOTIFY_EMAIL` for both. No commit (external config) — note both URLs
       in `docs/ops/runbooks.md`.
+- [ ] Commit the route and test: `git add app/api/health && git commit -m "feat(phase7): add minimal Supabase health endpoint"`.
 
 **Verify:** pause/break the target briefly, confirm an alert email arrives within the interval.
 
@@ -775,11 +766,11 @@ Manual dashboard action (Settings → Billing), no code change. Belt-and-braces:
 below (Task 7.15) gives an independent nightly copy from day one, regardless of Supabase's plan.
 ```
 
-- [ ] No separate commit — lands with Task 7.29.
+- [ ] No separate commit — lands with Task 7.25.
 
 **Verify:** current plan tier in Supabase Billing matches what's documented.
 
-**Failure modes:** "DAU > 50" needs an actual query, not vibes — see Task 7.29 for the SQL if
+**Failure modes:** "DAU > 50" needs an actual query, not vibes — see Task 7.25 for the SQL if
 the admin KPIs (Phase 5) don't already surface it.
 
 ---
@@ -881,7 +872,7 @@ order by t;
 **Drill log:** (empty — fill in after each drill)
 ```
 
-- [ ] No separate commit — lands with Task 7.29. Actually run the drill now, not just document it.
+- [ ] No separate commit — lands with Task 7.25. Actually run the drill now, not just document it.
 
 **Verify:** restore completes without SQL errors; row counts match production at backup time
 (or "close enough given elapsed time" — no table suspiciously empty).
@@ -1049,7 +1040,8 @@ export default function () {
   check(subject, { "subject 200": (r) => r.status === 200 });
   sleep(1);
 
-  // "giris" = unit-1's real slug (content/hidroloji/unit-1.json), is_free by seed default.
+  // "giris" is a real published unit slug. Anonymous visitors receive the public preview-choice
+  // or paywall shell with HTTP 200; this scenario measures that route, not protected unit content.
   const unit = http.get(`${BASE_URL}/s/hidroloji/unit/giris`, { tags: { route: "free_unit" } });
   check(unit, { "free unit 200": (r) => r.status === 200 });
   sleep(2);
@@ -1141,24 +1133,44 @@ export const options = { vus: 1, iterations: 15 }; // one user hammering its OWN
 
 export default function () {
   if (!SESSION_COOKIE) throw new Error("Set -e SESSION_COOKIE=... (see README-session.txt)");
+  const headers = { "Content-Type": "application/json", Cookie: SESSION_COOKIE };
+
+  // Use a disposable test account only. GET supplies the compare-and-swap token required by the
+  // real /api/state contract; never overwrite a real student's progress for a load probe.
+  const pulled = http.get(`${BASE_URL}/api/state`, { headers });
+  if (pulled.status !== 200) {
+    console.log(`pull -> ${pulled.status}`);
+    return;
+  }
+  const remote = pulled.json();
   const res = http.post(
     `${BASE_URL}/api/state`,
-    JSON.stringify({ progress: { q: {}, quiz: {}, practice: {} }, decks: {} }),
-    { headers: { "Content-Type": "application/json", Cookie: SESSION_COOKIE } }
+    JSON.stringify({
+      state: remote.state ?? { progress: { q: {}, quiz: {}, practice: {} }, decks: {}, chats: {} },
+      base_updated_at: remote.updated_at,
+    }),
+    { headers }
   );
   console.log(`iteration -> ${res.status}`);
   sleep(1); // ~1 req/sec => 15 requests inside one 60s window
 }
 ```
 
-- [ ] Run: `k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/load/.session-cookie)" scripts/load/scenario-c-progress-save.js`
+- [ ] Before the run, delete prior `progress:user:<uid>` rate-limit rows for the disposable account
+      and confirm its current `/api/state` GET returns 200. Run from Bash:
+      `k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/load/.session-cookie)" scripts/load/scenario-c-progress-save.js`.
+      PowerShell equivalent:
+      `$sessionCookie = Get-Content -Raw scripts/load/.session-cookie; k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE=$sessionCookie scripts/load/scenario-c-progress-save.js`.
 - [ ] Expected: iterations 1-12 print `200`, 13-15 print `429` (±1 for window-boundary jitter).
 - [ ] Commit: `git add scripts/load/scenario-c-progress-save.js && git commit -m "test(phase7): k6 scenario C - progress save hammer, confirms 12/min limiter engages"`
 
 **Verify:** console shows the 200→429 transition around request 12/13.
 
-**Failure modes:** Vercel request queueing can shift the exact transition point by one — assert
-that 429s START appearing, not the exact iteration number.
+**Failure modes:** the old illustrative body `{progress,decks}` is invalid and returns `400`
+because the real route requires a top-level `state` plus compare-and-swap `base_updated_at` for an
+existing row. Vercel request queueing can shift the exact transition point by one — assert that
+429s START appearing, not the exact iteration number. Delete the disposable account/state and its
+rate-limit rows after all scenarios.
 
 ---
 
@@ -1173,9 +1185,13 @@ k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/loa
 k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/load/.session-cookie)" scripts/load/scenario-c-progress-save.js
 ```
 
+On PowerShell, load the ignored cookie once with
+`$sessionCookie = Get-Content -Raw scripts/load/.session-cookie` and pass
+`-e SESSION_COOKIE=$sessionCookie` to Scenarios B/C; do not print it into the terminal log.
+
 - [ ] **Pass criteria:** A — `p(95)<500ms`, zero `5xx`. B — `p(95)<800ms`, zero `5xx`. C —
       limiter transition confirmed around call 12/13.
-- [ ] Record the k6 summary output into `docs/ops/runbooks.md`'s load-test section (Task 7.29)
+- [ ] Record the k6 summary output into `docs/ops/runbooks.md`'s load-test section (Task 7.25)
       as the pre-launch baseline.
 
 **Diagnosis when A/B fails p95 (in order of likelihood):**
@@ -1202,7 +1218,12 @@ k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/loa
 
 ```sql
 alter table public.entitlements
-  add column if not exists reminded_at timestamptz;
+  add column if not exists reminded_at timestamptz,
+  add column if not exists reminder_claimed_at timestamptz;
+
+create index if not exists entitlements_expiry_reminder_idx
+  on public.entitlements (expires_at)
+  where revoked_at is null and reminded_at is null;
 ```
 
   Apply (`supabase db reset` locally, then push).
@@ -1221,15 +1242,38 @@ alter table public.entitlements
   (Daily at 06:00 UTC — Vercel Hobby supports daily-granularity crons; if that's changed, any
   scheduler hitting this URL with the same header works just as well, e.g. UptimeRobot's daily
   monitor type.)
+- [ ] Reuse Phase 6's audited Resend REST transport; do not add a second email client or a new
+      `resend` dependency. Extend private `sendOne` with an optional `idempotencyKey?: string` and,
+      when present, add HTTP header `Idempotency-Key: <value>` to the existing Resend REST request.
+      Keep all existing callers unchanged. Then add this server-only wrapper:
+
+```ts
+export function sendExpiryReminder(
+  recipient: string,
+  content: EmailContent,
+  entitlementId: string
+): Promise<SendResult> {
+  return sendOne(
+    "entitlement.expiry_reminder",
+    recipient,
+    content,
+    `entitlement-expiry/${entitlementId}`
+  );
+}
+```
+
+  Resend's [idempotency-key contract](https://resend.com/docs/dashboard/emails/idempotency-keys)
+  currently retains keys for 24 hours. The database lease below is the primary overlap guard; the
+  provider key also makes an ambiguous network retry safe during that window.
+
 - [ ] Create `app/api/cron/expiry-reminders/route.ts`:
 
 ```ts
 import { createServiceRoleClient } from "@/lib/supabase/server";
-import { Resend } from "resend";
+import { sendExpiryReminder } from "@/lib/email/send";
+import { escapeHtml } from "@/lib/email/templates";
 
 export const maxDuration = 60;
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 function reminderSubject(lang: "tr" | "en") {
   return lang === "tr" ? "Erişiminiz 3 gün içinde sona eriyor" : "Your access expires in 3 days";
@@ -1257,12 +1301,14 @@ export async function GET(request: Request) {
   const HOUR = 60 * 60 * 1000;
   const windowStart = new Date(Date.now() + HOUR * (72 - 12)).toISOString();
   const windowEnd = new Date(Date.now() + HOUR * (72 + 12)).toISOString();
+  const staleClaim = new Date(Date.now() - 15 * 60 * 1000).toISOString();
 
   const { data: rows, error } = await supabase
     .from("entitlements")
-    .select("id, user_id, expires_at")
+    .select("id, user_id, expires_at, reminder_claimed_at")
     .is("revoked_at", null)
     .is("reminded_at", null)
+    .or(`reminder_claimed_at.is.null,reminder_claimed_at.lt.${staleClaim}`)
     .gte("expires_at", windowStart)
     .lte("expires_at", windowEnd);
 
@@ -1271,12 +1317,41 @@ export async function GET(request: Request) {
     return Response.json({ error: "query-failed" }, { status: 500 });
   }
 
-  let sent = 0, failed = 0;
+  const releaseClaim = async (id: string, claimAt: string) => {
+    const { error: releaseError } = await supabase
+      .from("entitlements")
+      .update({ reminder_claimed_at: null })
+      .eq("id", id)
+      .eq("reminder_claimed_at", claimAt)
+      .is("reminded_at", null);
+    if (releaseError) console.error("expiry-reminders claim release failed", id);
+  };
+
+  let sent = 0, failed = 0, skipped = 0;
   for (const row of rows ?? []) {
+    const claimAt = new Date().toISOString();
     try {
+      // Atomic compare-and-set lease: overlapping cron invocations may select the same candidate,
+      // but only one can claim it. Postgres rechecks the predicates after any row-lock wait.
+      const { data: claimed, error: claimError } = await supabase
+        .from("entitlements")
+        .update({ reminder_claimed_at: claimAt })
+        .eq("id", row.id)
+        .is("revoked_at", null)
+        .is("reminded_at", null)
+        .or(`reminder_claimed_at.is.null,reminder_claimed_at.lt.${staleClaim}`)
+        .select("id")
+        .maybeSingle();
+      if (claimError) {
+        console.error("expiry-reminders claim failed", row.id);
+        failed++;
+        continue;
+      }
+      if (!claimed) { skipped++; continue; }
+
       const { data: userResp } = await supabase.auth.admin.getUserById(row.user_id);
       const email = userResp?.user?.email;
-      if (!email) { failed++; continue; }
+      if (!email) { await releaseClaim(row.id, claimAt); failed++; continue; }
 
       const { data: profile } = await supabase
         .from("profiles")
@@ -1285,38 +1360,67 @@ export async function GET(request: Request) {
         .maybeSingle();
       const lang = profile?.preferred_lang === "en" ? "en" : "tr";
 
-      await resend.emails.send({
-        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
-        to: email,
-        subject: reminderSubject(lang),
-        text: reminderBody(lang, row.expires_at, profile?.full_name ?? ""),
-      });
+      const text = reminderBody(lang, row.expires_at, profile?.full_name ?? "");
+      const emailResult = await sendExpiryReminder(
+        email,
+        {
+          subject: reminderSubject(lang),
+          text,
+          html: `<div style="font-family:system-ui,-apple-system,Arial,sans-serif;white-space:pre-line">${escapeHtml(text)}</div>`,
+        },
+        row.id
+      );
+      if (!emailResult.ok) {
+        await releaseClaim(row.id, claimAt);
+        failed++;
+        continue; // sendOne audited the failure; a later run may retry this entitlement
+      }
 
-      await supabase.from("entitlements")
-        .update({ reminded_at: new Date().toISOString() })
-        .eq("id", row.id);
+      const { data: marked, error: markError } = await supabase
+        .from("entitlements")
+        .update({ reminded_at: new Date().toISOString(), reminder_claimed_at: null })
+        .eq("id", row.id)
+        .eq("reminder_claimed_at", claimAt)
+        .is("reminded_at", null)
+        .select("id")
+        .maybeSingle();
+      if (markError || !marked) {
+        // Do not report a send as successful unless the durable marker was committed. Keep the
+        // lease for operator inspection; retry with the same Resend idempotency key within 24h.
+        console.error("expiry-reminders durable mark failed", row.id);
+        failed++;
+        continue;
+      }
       sent++;
     } catch (e) {
       console.error("expiry-reminders send failed", row.id, e);
-      failed++; // no reminded_at set — tomorrow's run retries this row
+      await releaseClaim(row.id, claimAt);
+      failed++;
     }
   }
 
-  return Response.json({ checked: rows?.length ?? 0, sent, failed });
+  return Response.json({ checked: rows?.length ?? 0, sent, failed, skipped });
 }
 ```
 
 - [ ] Confirm `RESEND_API_KEY`/`EMAIL_FROM` are the SAME vars Phase 6 already uses for claim
-      emails — no new email infra, just a new trigger + template. Match the tone of Phase 6's
-      existing transactional copy.
-- [ ] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql vercel.json app/api/cron/expiry-reminders/route.ts && git commit -m "feat(phase7): OPTIONAL daily expiry-reminder cron (72h window, bilingual email)"`
+      emails — no new email infra. Match the tone of Phase 6's existing transactional copy.
+- [ ] Add tests proving two concurrent invocations yield one lease/send, a provider failure releases
+      the lease, a zero-row/failed durable mark does not increment `sent`, and the REST request uses
+      the stable entitlement idempotency header. Regenerate `lib/database.types.ts`.
+- [ ] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql lib/database.types.ts vercel.json lib/email/send.ts app/api/cron/expiry-reminders && git commit -m "feat(phase7): OPTIONAL leased, idempotent expiry reminders"`
 
-**Verify:** seed a test entitlement (`expires_at = now()+72h`, `reminded_at = null`), `curl -H
-"Authorization: Bearer $CRON_SECRET" .../api/cron/expiry-reminders` → `sent:1`, email arrives,
-`reminded_at` set. Re-run immediately → `checked:0` (no duplicate). Without the header → `401`.
+**Verify:** seed a test entitlement (`expires_at = now()+72h`, `reminded_at = null`), start two
+authorized requests concurrently, and confirm their combined result has exactly `sent:1`; the
+email arrives once, `reminded_at` is set, and `reminder_claimed_at` is null. Re-run immediately →
+`checked:0` (no duplicate). Without `Authorization: Bearer $CRON_SECRET` → `401`.
 
-**Failure modes:** falls back to `onboarding@resend.dev` if `EMAIL_FROM`/Task 7.28 hasn't landed
-— fine for testing, set the real value before relying on it in production.
+**Failure modes:** falls back to `onboarding@resend.dev` if `EMAIL_FROM`/Task 7.26 hasn't landed
+— fine for testing, set the real value before relying on it in production. A durable-mark failure
+leaves the lease for inspection and reports `failed`, never `sent`; retry manually with the same
+idempotency key within Resend's 24-hour window. No database transaction can atomically commit an
+external email, so the lease, checked writes, audited failure, and provider idempotency key are all
+required parts of this contract.
 
 ---
 
@@ -1490,6 +1594,11 @@ disallowed.
 
 ### Task 7.29 — Legal minimum: bilingual privacy page
 
+- [ ] Human-owned prerequisite: choose a public support/privacy email address that may be exposed
+      in page HTML. Do not silently expose `ADMIN_NOTIFY_EMAIL` and do not use a fictitious
+      `hello@cubad.app` before that domain/mailbox exists. Configure the chosen value as
+      `NEXT_PUBLIC_SUPPORT_EMAIL` in local `.env.local`, Vercel Production, Development, and
+      project-wide Preview; verify names/scopes without printing unrelated encrypted values.
 - [ ] Create `app/privacy/page.tsx`:
 
 ```tsx
@@ -1498,8 +1607,11 @@ disallowed.
 import { useLang } from "@/lib/i18n";
 import { Callout } from "@/components/ui";
 
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
+
 export default function PrivacyPage() {
   const { bi } = useLang();
+  if (!CONTACT_EMAIL) throw new Error("NEXT_PUBLIC_SUPPORT_EMAIL is required for /privacy");
   return (
     <main className="mx-auto max-w-2xl px-6 py-12 text-[#1c2b33]">
       <h1 className="mb-6 font-serif text-3xl">{bi({ tr: "Gizlilik", en: "Privacy" })}</h1>
@@ -1527,8 +1639,8 @@ export default function PrivacyPage() {
 
       <p className="mt-6">
         {bi({ tr: "Sorularınız için: ", en: "Questions: " })}
-        <a className="underline" href={`mailto:${process.env.NEXT_PUBLIC_ADMIN_CONTACT_EMAIL ?? "hello@cubad.app"}`}>
-          {process.env.NEXT_PUBLIC_ADMIN_CONTACT_EMAIL ?? "hello@cubad.app"}
+        <a className="underline" href={`mailto:${CONTACT_EMAIL}`}>
+          {CONTACT_EMAIL}
         </a>
       </p>
     </main>
@@ -1538,10 +1650,12 @@ export default function PrivacyPage() {
 
   (If `Callout`'s prop shape has changed by the time this lands, check `components/ui.tsx` and
   adjust the usage, keeping the bilingual content unchanged.)
+
 - [ ] Add a footer link to `/privacy` in `components/Footer.tsx` (bilingual label).
 - [ ] Commit: `git add app/privacy/page.tsx components/Footer.tsx && git commit -m "feat(phase7): bilingual privacy page (legal minimum for launch)"`
 
-**Verify:** page renders in both languages; linked from the footer on every page.
+**Verify:** page renders in both languages; linked from the footer on every page; the public email
+is the human-approved address in local/Preview/Production and receives a real test message.
 
 **Failure modes:** this is a minimum-viable notice, not legal advice — revisit with real counsel
 if the product later needs GDPR/KVKK-specific compliance.
@@ -1555,40 +1669,40 @@ if the product later needs GDPR/KVKK-specific compliance.
       failure.
 - [ ] Revisit Task 7.14's Pro-tier criteria (>0 paying users OR >50 DAU) — upgrade BEFORE the
       public announcement if either is already true.
-- [ ] Announcement banner via `app_settings` — **Phase 6 owns this table** (master §14: single
-      anon-readable SELECT policy `app_settings_public_read`; writes admin-only via
-      `set_app_setting`). First VERIFY it exists as Phase 6 shipped it:
+- [ ] Announcement banner via `app_settings` — **Phase 6 owns this table**. Its final public policy
+      explicitly allows only `payment_instructions`; Phase 7 must extend that allow-list without
+      making every future setting public. Writes remain service-role-only via `set_app_setting`.
+      First VERIFY the exact shipped state:
 
 ```bash
-psql "$DB_URL" -c "select policyname, cmd from pg_policies where schemaname = 'public' and tablename = 'app_settings';"
-# Expected: exactly ONE row -> app_settings_public_read | SELECT
+psql "$DB_URL" -c "select policyname, cmd, qual from pg_policies where schemaname = 'public' and tablename = 'app_settings' order by policyname;"
+# Expected public-read row: app_settings_public_read | SELECT | key IN ('payment_instructions').
+# A historical app_settings_write_admin | ALL policy may also exist; it is inert because the
+# authenticated role has no INSERT/UPDATE/DELETE table privileges. The migration below drops it.
 psql "$DB_URL" -c "\d public.app_settings"
 # Expected columns: key (text, pk), value (jsonb), updated_at, updated_by
 ```
 
-- [ ] `supabase migration new app_settings_seam` — idempotent converge-to-one-policy: a no-op
-      guard if the verification above showed Phase 6 delivered everything, a repair if it showed
-      the table or policy missing:
+- [ ] If the table/function/policy does not match the verified Phase 6 handoff, stop and diagnose;
+      do not silently recreate it. Otherwise run `supabase migration new app_settings_seam` for
+      this additive allow-list extension:
 
 ```sql
--- Phase 6 owns public.app_settings (master §14). Everything below is a
--- belt-and-braces guard that converges to Phase 6's contract: ONE
--- anon-readable SELECT policy; writes go through set_app_setting only —
--- do NOT add a direct client write policy here.
-create table if not exists public.app_settings (
-  key        text primary key,
-  value      jsonb not null,
-  updated_at timestamptz not null default now(),
-  updated_by uuid references auth.users(id)
-);
-
+-- Phase 6 owns public.app_settings (master §14). Its absence is a failed prerequisite.
+-- Phase 7 adds exactly one new public-safe key.
 alter table public.app_settings enable row level security;
 
--- Idempotent recreate — converges to exactly one SELECT policy, recreated
--- verbatim as Phase 6 defines it. Readable by anyone: the banner must
--- render for anonymous visitors too.
+revoke insert, update, delete on table public.app_settings from anon, authenticated;
+grant select on table public.app_settings to anon, authenticated;
+
+-- Drop the historical direct-admin policy. It was already inert behind revoked mutation grants,
+-- and all writes continue through the audited service-role-only set_app_setting RPC.
+drop policy if exists app_settings_write_admin on public.app_settings;
+
+-- Extend, never replace with using(true): future unrelated settings stay private by default.
 drop policy if exists app_settings_public_read on public.app_settings;
-create policy app_settings_public_read on public.app_settings for select using (true);
+create policy app_settings_public_read on public.app_settings for select
+using (key in ('payment_instructions', 'announcement_banner'));
 
 insert into public.app_settings (key, value)
 values ('announcement_banner',
@@ -1596,20 +1710,39 @@ values ('announcement_banner',
 on conflict (key) do nothing;
 ```
 
-  Apply. Add an admin-dashboard form to edit the row (toggle `enabled`, bilingual `message`,
-  `level`) — writes go through Phase 6's `set_app_setting` RPC (admin-only per §14, never a
-  direct client write); reuse Phase 5's settings editor if one exists. Read it (cached like
-  content, D12) in the root layout/landing page and render a dismissible banner via
-  `bi(value.message)` when `enabled`.
-- [ ] Commit: `git add supabase/migrations/*_app_settings_seam.sql && git commit -m "feat(phase7): launch checklist - final security re-run, Pro-tier decision, announcement banner via app_settings"`
+- [ ] Apply the migration and regenerate `lib/database.types.ts`.
+- [ ] Create `lib/settings/announcement.ts`: define/validate `{enabled:boolean, level:
+      "info"|"warning"|"success", message:{tr:string,en:string}}`. Read only the
+      `announcement_banner` row through Supabase REST with the public anon key and a cached Next
+      `fetch` tagged `announcement-banner` (60-second revalidation); return a disabled safe default
+      on malformed/missing data and log no secret/value body.
+- [ ] Create `app/admin/settings/actions.ts`: `updateAnnouncementBanner` calls
+      `requireAdminAction`, trims both messages, requires both when enabled, caps each at 500
+      characters, validates the level, writes only key `announcement_banner` via Phase 6's
+      service-role-only `set_app_setting`, then calls `updateTag("announcement-banner")`. Never add
+      direct client table writes.
+- [ ] Create `app/admin/settings/page.tsx` + `BannerSettingsForm.tsx`: protected admin editor for
+      enabled, level, Turkish message, and English message. Add `/admin/settings` to
+      `components/admin/AdminNav.tsx`; do not overload the payment-instructions form.
+- [ ] Create `components/AnnouncementBanner.tsx`: client dismissal UI with level styling and
+      bilingual `bi(message)` output. `app/layout.tsx` reads the cached setting and renders the
+      component below `Header` only when enabled; the data fetch must not make every page request
+      perform an uncached database query.
+- [ ] Add parser/action/component tests for malformed data, validation, RPC key/value, cache
+      invalidation, language rendering, and dismissal.
+- [ ] Commit every touched file, not only the migration:
+      `git add supabase/migrations/*_app_settings_seam.sql lib/database.types.ts lib/settings app/admin/settings components/AnnouncementBanner.tsx components/admin/AdminNav.tsx app/layout.tsx && git commit -m "feat(phase7): audited launch announcement banner"`.
 
-**Verify:** toggling `enabled` shows/hides the live banner within one cache cycle; security
-battery re-run shows zero unresolved failures; Pro-tier decision explicitly recorded in
-`docs/ops/runbooks.md`.
+**Verify:** toggling `enabled` shows/hides the live banner immediately after `updateTag`; both
+languages and all three levels render; dismissal hides it for the current mounted session; an
+anonymous request can read only the two allow-listed keys; security battery re-run shows zero
+unresolved failures; Pro-tier decision is explicitly recorded in `docs/ops/runbooks.md`.
 
-**Failure modes:** if Phase 6's `app_settings` has different column names, `create table if not
-exists` is a no-op and the `insert ... on conflict` fails — check `\d public.app_settings` first
-and adapt to the real shape rather than fighting it.
+**Failure modes:** `using (true)` is a security regression because this is a reusable settings
+table. If the shipped policy differs, inspect the applied Phase 6 hardening migration and preserve
+an explicit allow-list. Do not add client mutation grants or a direct write policy; the admin form
+must use `set_app_setting`. Do not put `createServiceRoleClient` in the public banner read path or
+turn the root layout into an uncached per-request DB query.
 
 ---
 
@@ -1617,15 +1750,17 @@ and adapt to the real shape rather than fighting it.
 
 - [ ] `check_rate_limit()` RPC live; `rate_limit_events` locked down (RLS, no policies, revoked
       grants); nightly cleanup scheduled.
-- [ ] All 4 limiters return `429` past their limit: `/api/sync` (30/min/IP), tutor server-key
-      (20/hour/user, BYOK exempt), progress save (12/min/user), claims (10/day/user).
+- [ ] All 3 active limiters engage past their limit: tutor server-key (20/hour/user, BYOK exempt)
+      and progress save (12/min/user) return `429`; the Phase 6 claim
+      Server Action (10/day/user) returns its localized `rate-limited` action state before writes.
 - [ ] Supabase Auth built-in rate limits reviewed/documented; anonymous sign-ins disabled.
 - [ ] `supabase/tests/security-probes.md` exists, run end-to-end at least once, all passing.
 - [ ] Supabase security + performance advisors run; zero unresolved `ERROR`-level findings.
 - [ ] Vercel Web Analytics + Speed Insights live and reporting.
 - [ ] Log-drain runbook table exists; each log tab confirmed to exist.
 - [ ] (Optional) Sentry wired with 10% sample + tunnel, or explicitly skipped.
-- [ ] Uptime monitors live on `/` and `/api/sync`, alerting to `ADMIN_NOTIFY_EMAIL`.
+- [ ] Uptime monitors live on `/` and `/api/health`, alerting to `ADMIN_NOTIFY_EMAIL`; retired
+      `/api/sync` still returns 404 and has not been recreated.
 - [ ] Backup Action has a successful manual run with a downloadable artifact.
 - [ ] Restore drill actually performed once, counts verified and logged.
 - [ ] Pro-tier criteria documented; current tier matches the decision.
@@ -1656,13 +1791,18 @@ Phase 7 is additive hardening on a fully-shipped product — nothing here change
 behavior, so rollback is narrow per area:
 
 - **Rate limiting:** remove the small, clearly-delimited guard blocks from
-  `app/api/sync/route.ts`, `app/api/tutor/route.ts`, `app/api/state/route.ts`,
-  `app/api/claims/route.ts`. The `check_rate_limit`/`rate_limit_events` migration can stay
-  (unused, harmless) or be reverted with a NEW migration dropping the function/table — never
-  edit an applied migration (§10).
+  `app/api/tutor/route.ts`, `app/api/state/route.ts`, and `app/upgrade/actions.ts`. The
+  `check_rate_limit`/`rate_limit_events` migration can stay
+  (unused, harmless) or be reverted with a NEW migration — never edit an applied migration
+  (§10). If dropping it, first iterate matching rows in `cron.job` and call
+  `cron.unschedule(jobid)` for job name `cleanup-rate-limit-events`; only then drop
+  `cleanup_rate_limit_events()`, `check_rate_limit(text,int,interval)`, and
+  `rate_limit_events` in that order. Verify the job and objects are all absent so pg_cron cannot
+  keep invoking a deleted function.
 - **Docs (security probes, runbooks):** no rollback risk, delete if unwanted.
 - **Monitoring:** remove `<Analytics/>`/`<SpeedInsights/>`/Sentry config; disable in dashboards.
-  Zero product impact.
+  Remove `app/api/health/route.ts` only if the external dependency monitor is also repointed or
+  disabled. Zero core-product impact.
 - **Backups:** disable/delete `.github/workflows/backup.yml`; no app impact (separate CI job).
 - **Indexes:** a new migration with `drop index if exists ...` if one ever hurts writes
   (unlikely at this scale); never edit the migration that created it.
@@ -1692,6 +1832,42 @@ behavior, so rollback is narrow per area:
      made the SELECT policy idempotent (`drop policy if exists` + verbatim recreate → converges
      to one policy), REMOVED the previously-planned `app_settings_admin_write` direct-write
      policy (writes go through Phase 6's `set_app_setting` RPC instead), and routed the
-     admin-dashboard form through that RPC.
+     admin-dashboard form through that RPC. **Historical only:** the `create table if not exists`
+     and generic public-read wording in this 2026-07-16 entry was superseded by the 2026-07-20
+     audit below and must not be executed.
+
+- **2026-07-20 — post-Phase-6 reality reconciliation (overrides any conflicting illustrative
+  code above or in the 2026-07-16 note):**
+  1. Phase 6 uses Server Actions for claims and admin payment mutations. All `/api/claims`
+     assumptions, curl probes, rollback paths, and the claim limiter were corrected to
+     `app/upgrade/actions.ts::submitClaim`; its denial is a localized action state, not HTTP 429.
+  2. `check_rate_limit` is service-role-only. Granting arbitrary-key EXECUTE to anon/authenticated
+     would let one client exhaust another user's bucket. `lib/rate-limit.ts` now reuses the
+     canonical service-role factory and fails open on RPC errors or malformed results.
+  3. Phase 6's final `app_settings_public_read` policy allows only `payment_instructions`; the
+     announcement migration extends that explicit allow-list to `announcement_banner`, drops the
+     inert historical direct-write policy, and never uses `using (true)`.
+  4. The optional expiry reminder reuses Phase 6's audited Resend REST transport and sets
+     `reminded_at` only after `SendResult.ok`; no second SDK/client is introduced.
+  5. Stale task-number cross-references were aligned to Tasks 7.23, 7.25, 7.26, and 7.30.
+  6. `/api/sync` was retired in Phase 3 and must remain 404. Its limiter/probe/monitor instructions
+     were removed; authenticated `/api/state` remains the sole progress transport, and uptime now
+     uses a minimal `/api/health` Supabase check.
+  7. Tutor limiting now makes BYOK-first real (`body.userKey` before the shared env key), adds an
+     explicit bilingual client 429 state, validates request content before charging the bucket,
+     and never logs either key.
+  8. The k6 progress scenario now sends the real `/api/state` `{state, base_updated_at}`
+     compare-and-swap contract with a disposable account, rather than the obsolete invalid body.
+  9. The banner task now names its reader, admin action/page, navigation, cache tag/invalidation,
+     validation, component, tests, and complete commit scope. The privacy task requires a
+     human-approved public `NEXT_PUBLIC_SUPPORT_EMAIL`; it cannot expose the admin-notify address
+     or invent a mailbox.
+  10. Post-review reconciliation aligned the tutor probe with the `rate-limited`/3600-second
+      response, made optional reminders use a conditional database lease, checked durable marker,
+      and stable Resend idempotency key, and required tests for concurrent runs/failure paths.
+  11. Limiter rollback now unschedules `cleanup-rate-limit-events` before dropping its function or
+      table, preventing recurring pg_cron failures after rollback.
+  12. The announcement implementation and commit checklists now have explicit, valid Markdown
+      nesting so agents and linters interpret every item at the intended level.
 
 (further entries filled in by the executing agent as work proceeds)
