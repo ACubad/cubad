@@ -463,7 +463,8 @@ insert into public.rate_limit_events (key, created_at)
 select 'tutor:user:<uid>', now() from generate_series(1, 20);
 -- curl -X POST http://localhost:3000/api/tutor -H "Content-Type: application/json" \
 --   -H "Cookie: <captured session cookie, see Task 7.23>" \
---   -d '{"messages":[{"role":"user","text":"hi"}]}'   -- expect 429, {"error":"quota",...}
+--   -d '{"messages":[{"role":"user","text":"hi"}]}'
+-- expect 429, Retry-After: 3600, {"error":"rate-limited","retryAfterSeconds":3600}
 delete from public.rate_limit_events where key = 'tutor:user:<uid>';
 
 -- progress save: 12/min
@@ -1217,7 +1218,12 @@ On PowerShell, load the ignored cookie once with
 
 ```sql
 alter table public.entitlements
-  add column if not exists reminded_at timestamptz;
+  add column if not exists reminded_at timestamptz,
+  add column if not exists reminder_claimed_at timestamptz;
+
+create index if not exists entitlements_expiry_reminder_idx
+  on public.entitlements (expires_at)
+  where revoked_at is null and reminded_at is null;
 ```
 
   Apply (`supabase db reset` locally, then push).
@@ -1237,17 +1243,28 @@ alter table public.entitlements
   scheduler hitting this URL with the same header works just as well, e.g. UptimeRobot's daily
   monitor type.)
 - [ ] Reuse Phase 6's audited Resend REST transport; do not add a second email client or a new
-      `resend` dependency. In `lib/email/send.ts`, add this server-only wrapper around the existing
-      private `sendOne` helper:
+      `resend` dependency. Extend private `sendOne` with an optional `idempotencyKey?: string` and,
+      when present, add HTTP header `Idempotency-Key: <value>` to the existing Resend REST request.
+      Keep all existing callers unchanged. Then add this server-only wrapper:
 
 ```ts
 export function sendExpiryReminder(
   recipient: string,
-  content: EmailContent
+  content: EmailContent,
+  entitlementId: string
 ): Promise<SendResult> {
-  return sendOne("entitlement.expiry_reminder", recipient, content);
+  return sendOne(
+    "entitlement.expiry_reminder",
+    recipient,
+    content,
+    `entitlement-expiry/${entitlementId}`
+  );
 }
 ```
+
+  Resend's [idempotency-key contract](https://resend.com/docs/dashboard/emails/idempotency-keys)
+  currently retains keys for 24 hours. The database lease below is the primary overlap guard; the
+  provider key also makes an ambiguous network retry safe during that window.
 
 - [ ] Create `app/api/cron/expiry-reminders/route.ts`:
 
@@ -1284,12 +1301,14 @@ export async function GET(request: Request) {
   const HOUR = 60 * 60 * 1000;
   const windowStart = new Date(Date.now() + HOUR * (72 - 12)).toISOString();
   const windowEnd = new Date(Date.now() + HOUR * (72 + 12)).toISOString();
+  const staleClaim = new Date(Date.now() - 15 * 60 * 1000).toISOString();
 
   const { data: rows, error } = await supabase
     .from("entitlements")
-    .select("id, user_id, expires_at")
+    .select("id, user_id, expires_at, reminder_claimed_at")
     .is("revoked_at", null)
     .is("reminded_at", null)
+    .or(`reminder_claimed_at.is.null,reminder_claimed_at.lt.${staleClaim}`)
     .gte("expires_at", windowStart)
     .lte("expires_at", windowEnd);
 
@@ -1298,12 +1317,41 @@ export async function GET(request: Request) {
     return Response.json({ error: "query-failed" }, { status: 500 });
   }
 
-  let sent = 0, failed = 0;
+  const releaseClaim = async (id: string, claimAt: string) => {
+    const { error: releaseError } = await supabase
+      .from("entitlements")
+      .update({ reminder_claimed_at: null })
+      .eq("id", id)
+      .eq("reminder_claimed_at", claimAt)
+      .is("reminded_at", null);
+    if (releaseError) console.error("expiry-reminders claim release failed", id);
+  };
+
+  let sent = 0, failed = 0, skipped = 0;
   for (const row of rows ?? []) {
+    const claimAt = new Date().toISOString();
     try {
+      // Atomic compare-and-set lease: overlapping cron invocations may select the same candidate,
+      // but only one can claim it. Postgres rechecks the predicates after any row-lock wait.
+      const { data: claimed, error: claimError } = await supabase
+        .from("entitlements")
+        .update({ reminder_claimed_at: claimAt })
+        .eq("id", row.id)
+        .is("revoked_at", null)
+        .is("reminded_at", null)
+        .or(`reminder_claimed_at.is.null,reminder_claimed_at.lt.${staleClaim}`)
+        .select("id")
+        .maybeSingle();
+      if (claimError) {
+        console.error("expiry-reminders claim failed", row.id);
+        failed++;
+        continue;
+      }
+      if (!claimed) { skipped++; continue; }
+
       const { data: userResp } = await supabase.auth.admin.getUserById(row.user_id);
       const email = userResp?.user?.email;
-      if (!email) { failed++; continue; }
+      if (!email) { await releaseClaim(row.id, claimAt); failed++; continue; }
 
       const { data: profile } = await supabase
         .from("profiles")
@@ -1313,40 +1361,66 @@ export async function GET(request: Request) {
       const lang = profile?.preferred_lang === "en" ? "en" : "tr";
 
       const text = reminderBody(lang, row.expires_at, profile?.full_name ?? "");
-      const emailResult = await sendExpiryReminder(email, {
-        subject: reminderSubject(lang),
-        text,
-        html: `<div style="font-family:system-ui,-apple-system,Arial,sans-serif;white-space:pre-line">${escapeHtml(text)}</div>`,
-      });
+      const emailResult = await sendExpiryReminder(
+        email,
+        {
+          subject: reminderSubject(lang),
+          text,
+          html: `<div style="font-family:system-ui,-apple-system,Arial,sans-serif;white-space:pre-line">${escapeHtml(text)}</div>`,
+        },
+        row.id
+      );
       if (!emailResult.ok) {
+        await releaseClaim(row.id, claimAt);
         failed++;
-        continue; // sendOne already records email.failed; leave reminded_at null for retry
+        continue; // sendOne audited the failure; a later run may retry this entitlement
       }
 
-      await supabase.from("entitlements")
-        .update({ reminded_at: new Date().toISOString() })
-        .eq("id", row.id);
+      const { data: marked, error: markError } = await supabase
+        .from("entitlements")
+        .update({ reminded_at: new Date().toISOString(), reminder_claimed_at: null })
+        .eq("id", row.id)
+        .eq("reminder_claimed_at", claimAt)
+        .is("reminded_at", null)
+        .select("id")
+        .maybeSingle();
+      if (markError || !marked) {
+        // Do not report a send as successful unless the durable marker was committed. Keep the
+        // lease for operator inspection; retry with the same Resend idempotency key within 24h.
+        console.error("expiry-reminders durable mark failed", row.id);
+        failed++;
+        continue;
+      }
       sent++;
     } catch (e) {
       console.error("expiry-reminders send failed", row.id, e);
-      failed++; // no reminded_at set — tomorrow's run retries this row
+      await releaseClaim(row.id, claimAt);
+      failed++;
     }
   }
 
-  return Response.json({ checked: rows?.length ?? 0, sent, failed });
+  return Response.json({ checked: rows?.length ?? 0, sent, failed, skipped });
 }
 ```
 
 - [ ] Confirm `RESEND_API_KEY`/`EMAIL_FROM` are the SAME vars Phase 6 already uses for claim
       emails — no new email infra. Match the tone of Phase 6's existing transactional copy.
-- [ ] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql vercel.json lib/email/send.ts app/api/cron/expiry-reminders/route.ts && git commit -m "feat(phase7): OPTIONAL daily expiry-reminder cron (72h window, bilingual email)"`
+- [ ] Add tests proving two concurrent invocations yield one lease/send, a provider failure releases
+      the lease, a zero-row/failed durable mark does not increment `sent`, and the REST request uses
+      the stable entitlement idempotency header. Regenerate `lib/database.types.ts`.
+- [ ] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql lib/database.types.ts vercel.json lib/email/send.ts app/api/cron/expiry-reminders && git commit -m "feat(phase7): OPTIONAL leased, idempotent expiry reminders"`
 
-**Verify:** seed a test entitlement (`expires_at = now()+72h`, `reminded_at = null`), `curl -H
-"Authorization: Bearer $CRON_SECRET" .../api/cron/expiry-reminders` → `sent:1`, email arrives,
-`reminded_at` set. Re-run immediately → `checked:0` (no duplicate). Without the header → `401`.
+**Verify:** seed a test entitlement (`expires_at = now()+72h`, `reminded_at = null`), start two
+authorized requests concurrently, and confirm their combined result has exactly `sent:1`; the
+email arrives once, `reminded_at` is set, and `reminder_claimed_at` is null. Re-run immediately →
+`checked:0` (no duplicate). Without `Authorization: Bearer $CRON_SECRET` → `401`.
 
 **Failure modes:** falls back to `onboarding@resend.dev` if `EMAIL_FROM`/Task 7.26 hasn't landed
-— fine for testing, set the real value before relying on it in production.
+— fine for testing, set the real value before relying on it in production. A durable-mark failure
+leaves the lease for inspection and reports `failed`, never `sent`; retry manually with the same
+idempotency key within Resend's 24-hour window. No database transaction can atomically commit an
+external email, so the lease, checked writes, audited failure, and provider idempotency key are all
+required parts of this contract.
 
 ---
 
@@ -1576,6 +1650,7 @@ export default function PrivacyPage() {
 
   (If `Callout`'s prop shape has changed by the time this lands, check `components/ui.tsx` and
   adjust the usage, keeping the bilingual content unchanged.)
+
 - [ ] Add a footer link to `/privacy` in `components/Footer.tsx` (bilingual label).
 - [ ] Commit: `git add app/privacy/page.tsx components/Footer.tsx && git commit -m "feat(phase7): bilingual privacy page (legal minimum for launch)"`
 
@@ -1635,25 +1710,26 @@ values ('announcement_banner',
 on conflict (key) do nothing;
 ```
 
-  Apply it, regenerate `lib/database.types.ts`, and implement these exact seams:
-  - `lib/settings/announcement.ts`: define/validate `{enabled:boolean, level:
-    "info"|"warning"|"success", message:{tr:string,en:string}}`. Read only the
-    `announcement_banner` row through Supabase REST with the public anon key and a cached Next
-    `fetch` tagged `announcement-banner` (60-second revalidation); return a disabled safe default
-    on malformed/missing data and log no secret/value body.
-  - `app/admin/settings/actions.ts`: `updateAnnouncementBanner` calls `requireAdminAction`, trims
-    both messages, requires both when enabled, caps each at 500 characters, validates the level,
-    writes only key `announcement_banner` via Phase 6's service-role-only `set_app_setting`, then
-    calls `updateTag("announcement-banner")`. Never add direct client table writes.
-  - `app/admin/settings/page.tsx` + `BannerSettingsForm.tsx`: protected admin editor for enabled,
-    level, Turkish message, and English message. Add `/admin/settings` to
-    `components/admin/AdminNav.tsx`; do not overload the payment-instructions form.
-  - `components/AnnouncementBanner.tsx`: client dismissal UI with level styling and bilingual
-    `bi(message)` output. `app/layout.tsx` reads the cached setting and renders the component below
-    `Header` only when enabled; the data fetch must not make every page request perform an
-    uncached database query.
-  - Add parser/action/component tests for malformed data, validation, RPC key/value, cache
-    invalidation, language rendering, and dismissal.
+- [ ] Apply the migration and regenerate `lib/database.types.ts`.
+- [ ] Create `lib/settings/announcement.ts`: define/validate `{enabled:boolean, level:
+      "info"|"warning"|"success", message:{tr:string,en:string}}`. Read only the
+      `announcement_banner` row through Supabase REST with the public anon key and a cached Next
+      `fetch` tagged `announcement-banner` (60-second revalidation); return a disabled safe default
+      on malformed/missing data and log no secret/value body.
+- [ ] Create `app/admin/settings/actions.ts`: `updateAnnouncementBanner` calls
+      `requireAdminAction`, trims both messages, requires both when enabled, caps each at 500
+      characters, validates the level, writes only key `announcement_banner` via Phase 6's
+      service-role-only `set_app_setting`, then calls `updateTag("announcement-banner")`. Never add
+      direct client table writes.
+- [ ] Create `app/admin/settings/page.tsx` + `BannerSettingsForm.tsx`: protected admin editor for
+      enabled, level, Turkish message, and English message. Add `/admin/settings` to
+      `components/admin/AdminNav.tsx`; do not overload the payment-instructions form.
+- [ ] Create `components/AnnouncementBanner.tsx`: client dismissal UI with level styling and
+      bilingual `bi(message)` output. `app/layout.tsx` reads the cached setting and renders the
+      component below `Header` only when enabled; the data fetch must not make every page request
+      perform an uncached database query.
+- [ ] Add parser/action/component tests for malformed data, validation, RPC key/value, cache
+      invalidation, language rendering, and dismissal.
 - [ ] Commit every touched file, not only the migration:
       `git add supabase/migrations/*_app_settings_seam.sql lib/database.types.ts lib/settings app/admin/settings components/AnnouncementBanner.tsx components/admin/AdminNav.tsx app/layout.tsx && git commit -m "feat(phase7): audited launch announcement banner"`.
 
@@ -1717,8 +1793,12 @@ behavior, so rollback is narrow per area:
 - **Rate limiting:** remove the small, clearly-delimited guard blocks from
   `app/api/tutor/route.ts`, `app/api/state/route.ts`, and `app/upgrade/actions.ts`. The
   `check_rate_limit`/`rate_limit_events` migration can stay
-  (unused, harmless) or be reverted with a NEW migration dropping the function/table — never
-  edit an applied migration (§10).
+  (unused, harmless) or be reverted with a NEW migration — never edit an applied migration
+  (§10). If dropping it, first iterate matching rows in `cron.job` and call
+  `cron.unschedule(jobid)` for job name `cleanup-rate-limit-events`; only then drop
+  `cleanup_rate_limit_events()`, `check_rate_limit(text,int,interval)`, and
+  `rate_limit_events` in that order. Verify the job and objects are all absent so pg_cron cannot
+  keep invoking a deleted function.
 - **Docs (security probes, runbooks):** no rollback risk, delete if unwanted.
 - **Monitoring:** remove `<Analytics/>`/`<SpeedInsights/>`/Sentry config; disable in dashboards.
   Remove `app/api/health/route.ts` only if the external dependency monitor is also repointed or
@@ -1782,5 +1862,12 @@ behavior, so rollback is narrow per area:
      validation, component, tests, and complete commit scope. The privacy task requires a
      human-approved public `NEXT_PUBLIC_SUPPORT_EMAIL`; it cannot expose the admin-notify address
      or invent a mailbox.
+  10. Post-review reconciliation aligned the tutor probe with the `rate-limited`/3600-second
+      response, made optional reminders use a conditional database lease, checked durable marker,
+      and stable Resend idempotency key, and required tests for concurrent runs/failure paths.
+  11. Limiter rollback now unschedules `cleanup-rate-limit-events` before dropping its function or
+      table, preventing recurring pg_cron failures after rollback.
+  12. The announcement implementation and commit checklists now have explicit, valid Markdown
+      nesting so agents and linters interpret every item at the intended level.
 
 (further entries filled in by the executing agent as work proceeds)
