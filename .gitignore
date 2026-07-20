@@ -43,3 +43,6 @@ next-env.d.ts
 .vercel
 .env*.local
 .playwright-cli/
+
+# Sentry Config File
+.env.sentry-build-plugin

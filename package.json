@@ -11,6 +11,7 @@
     "seed:content": "node --env-file=.env.local scripts/seed-content.mjs"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.67.0",
     "@supabase/ssr": "^0.12.3",
     "@supabase/supabase-js": "^2.110.7",
     "@vercel/analytics": "^2.0.1",
