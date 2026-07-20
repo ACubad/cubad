@@ -1,3 +1,6 @@
+import { checkRateLimit, clientIp } from "@/lib/rate-limit";
+import { createClient } from "@/lib/supabase/server";
+
 const DEFAULT_MODELS = {
   gemini: "gemini-3.5-flash",
   openai: "gpt-5-mini",
@@ -133,15 +136,40 @@ export async function POST(request: Request) {
 
   const provider: Provider = body.provider === "openai" ? "openai" : "gemini";
   const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : process.env.GEMINI_API_KEY;
-  const key = envKey || body.userKey;
+  const userKey = typeof body.userKey === "string" ? body.userKey.trim() : "";
+  const key = userKey || envKey;
   if (!key) return Response.json({ error: "no-key" }, { status: 401 });
 
   const rawModel = (body.model ?? "").trim();
   const model = /^[a-zA-Z0-9._/-]{1,64}$/.test(rawModel) ? rawModel : DEFAULT_MODELS[provider];
 
-  const messages = (body.messages ?? []).slice(-16);
+  const messages = (Array.isArray(body.messages) ? body.messages : []).slice(-16);
   if (messages.length === 0) return Response.json({ error: "empty" }, { status: 400 });
   body.messages = messages;
+
+  // A supplied BYOK key spends the student's own provider quota. Only the
+  // shared server key consumes the Cubad bucket.
+  const usingServerKey = !userKey && Boolean(envKey);
+  if (usingServerKey) {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    const rateLimitKey = user
+      ? `tutor:user:${user.id}`
+      : `tutor:ip:${clientIp(request)}`;
+    const allowed = await checkRateLimit({
+      key: rateLimitKey,
+      max: 20,
+      windowSeconds: 3_600,
+    });
+    if (!allowed) {
+      return Response.json(
+        { error: "rate-limited", retryAfterSeconds: 3_600 },
+        { status: 429, headers: { "Retry-After": "3600" } }
+      );
+    }
+  }
 
   try {
     const result =

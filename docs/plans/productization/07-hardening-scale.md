@@ -243,10 +243,10 @@ docs if the hosting/proxy topology changes.
 old route would restore an obsolete anonymous attack surface and split progress synchronization
 away from the authenticated `/api/state` contract.
 
-- [ ] Confirm `app/api/sync/route.ts` does not exist and `rg -n 'api/sync' app lib components`
+- [x] Confirm `app/api/sync/route.ts` does not exist and `rg -n 'api/sync' app lib components`
       finds no runtime fetch or link.
-- [ ] Confirm local and Production `GET /api/sync` and `POST /api/sync` return `404`.
-- [ ] Do not add a limiter, monitor, health check, or compatibility shim for this retired path.
+- [x] Confirm local and Production `GET /api/sync` and `POST /api/sync` return `404`.
+- [x] Do not add a limiter, monitor, health check, or compatibility shim for this retired path.
       The legacy Sprout data-retention decision remains the separate Task 7.27.
 - [ ] No code or commit is expected for this task unless the assertion fails; if it fails, remove
       the regression and document why it existed before continuing.
@@ -265,14 +265,14 @@ wins even when the student supplied BYOK. Phase 7's intended "BYOK exempt" contr
 explicit BYOK-first correction: a non-empty user key spends the user's provider quota; otherwise
 the shared server key is limited.
 
-- [ ] Open `app/api/tutor/route.ts`. Add:
+- [x] Open `app/api/tutor/route.ts`. Add:
 
 ```ts
 import { createClient } from "@/lib/supabase/server";
 import { checkRateLimit, clientIp } from "@/lib/rate-limit";
 ```
 
-- [ ] Find:
+- [x] Find:
 
 ```ts
   const provider: Provider = body.provider === "openai" ? "openai" : "gemini";
@@ -316,16 +316,16 @@ import { checkRateLimit, clientIp } from "@/lib/rate-limit";
 }
 ```
 
-- [ ] Remove the original duplicate `rawModel`/`model`/`messages` validation block below the new
+- [x] Remove the original duplicate `rawModel`/`model`/`messages` validation block below the new
       guard; it was moved up so malformed/empty requests do not consume a rate-limit event.
-- [ ] In `components/TutorPanel.tsx`, extend the parsed response shape with
+- [x] In `components/TutorPanel.tsx`, extend the parsed response shape with
       `retryAfterSeconds?: number` and handle `data.error === "rate-limited"` before the generic
       error. Show bilingual copy: Turkish "Paylaşılan eğitmen saatlik sınırına ulaştı. Bir saat
       sonra tekrar dene veya kendi API anahtarını kullan." / English "The shared tutor reached
       its hourly limit. Try again in an hour or use your own API key." Do not clear a saved BYOK
       key for this error.
 
-- [ ] Add route/client tests covering server-key 429, BYOK-first exemption, and bilingual client
+- [x] Add route/client tests covering server-key 429, BYOK-first exemption, and bilingual client
       handling. Commit: `git commit -am "feat(phase7): rate-limit shared tutor key and honor BYOK-first"`
 
 **Verify:** see Task 7.8.

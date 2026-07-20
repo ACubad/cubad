@@ -11,6 +11,44 @@ interface Msg {
   text: string;
 }
 
+export interface TutorResponse {
+  text?: string;
+  truncated?: boolean;
+  error?: string;
+  retryAfterSeconds?: number;
+}
+
+export function tutorErrorState(
+  error: string | undefined,
+  lang: "tr" | "en"
+): { message: string; forgetKey: boolean } {
+  if (error === "bad-key" || error === "no-key") {
+    return {
+      forgetKey: true,
+      message:
+        lang === "tr"
+          ? "Anahtar reddedildi — lütfen geçerli bir anahtar gir."
+          : "The key was rejected — please enter a valid key.",
+    };
+  }
+  if (error === "rate-limited") {
+    return {
+      forgetKey: false,
+      message:
+        lang === "tr"
+          ? "Paylaşılan eğitmen saatlik sınırına ulaştı. Bir saat sonra tekrar dene veya kendi API anahtarını kullan."
+          : "The shared tutor reached its hourly limit. Try again in an hour or use your own API key.",
+    };
+  }
+  return {
+    forgetKey: false,
+    message:
+      lang === "tr"
+        ? "Bir şeyler ters gitti; tekrar dener misin?"
+        : "Something went wrong; please try again.",
+  };
+}
+
 type Provider = "gemini" | "openai";
 
 const KEY_STORAGE: Record<Provider, string> = {
@@ -276,22 +314,11 @@ export function TutorPanel({
           userKey: userKeys[provider] || undefined,
         }),
       });
-      const data = (await res.json()) as { text?: string; truncated?: boolean; error?: string };
+      const data = (await res.json()) as TutorResponse;
       if (!res.ok || !data.text) {
-        if (data.error === "bad-key" || data.error === "no-key") {
-          forgetKey();
-          setError(
-            lang === "tr"
-              ? "Anahtar reddedildi — lütfen geçerli bir anahtar gir."
-              : "The key was rejected — please enter a valid key."
-          );
-        } else {
-          setError(
-            lang === "tr"
-              ? "Bir şeyler ters gitti; tekrar dener misin?"
-              : "Something went wrong; please try again."
-          );
-        }
+        const errorState = tutorErrorState(data.error, lang);
+        if (errorState.forgetKey) forgetKey();
+        setError(errorState.message);
         persistMessages(messages);
       } else {
         persistMessages([...next, { role: "model", text: data.text }]);
