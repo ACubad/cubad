@@ -43,6 +43,7 @@ next-env.d.ts
 .vercel
 .env*.local
 .playwright-cli/
+scripts/load/.session-cookie
 
 # Sentry Config File
 .env.sentry-build-plugin
