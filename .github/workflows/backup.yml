@@ -10,8 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Install postgresql-client
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Install PostgreSQL 17 client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl ca-certificates
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl --fail --output /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
+            https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          source /etc/os-release
+          {
+            echo "Types: deb"
+            echo "URIs: https://apt.postgresql.org/pub/repos/apt"
+            echo "Suites: ${VERSION_CODENAME}-pgdg"
+            echo "Architectures: $(dpkg --print-architecture)"
+            echo "Components: main"
+            echo "Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc"
+          } | sudo tee /etc/apt/sources.list.d/pgdg.sources >/dev/null
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client-17
+          pg_dump --version
 
       - name: Dump database
         env:
