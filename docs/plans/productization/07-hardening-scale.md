@@ -153,7 +153,7 @@ select cron.schedule(
 - [x] `supabase db reset` locally (§8.5), then push to the real project.
 - [x] Verify: `select * from cron.job where jobname = 'cleanup-rate-limit-events';` → one row,
       `active = true`.
-- [ ] Commit: `git add supabase/migrations/*_rate_limiting.sql && git commit -m "feat(phase7): rate_limit_events table + check_rate_limit RPC + nightly cleanup"`
+- [x] Commit: `git add supabase/migrations/*_rate_limiting.sql && git commit -m "feat(phase7): rate_limit_events table + check_rate_limit RPC + nightly cleanup"`
 
 **Verify:** `select check_rate_limit('smoke', 2, interval '1 min');` → `true, true, false` on 3
 successive calls; `select count(*) from rate_limit_events where key='smoke';` → `2` (the denied
@@ -222,7 +222,7 @@ export function clientIp(request: Request): string {
 }
 ```
 
-- [ ] Commit: `git commit -am "feat(phase7): lib/rate-limit.ts shared limiter helper"`
+- [x] Commit: `git commit -am "feat(phase7): lib/rate-limit.ts shared limiter helper"`
 
 **Verify:** `npm run build` compiles clean. Temporarily add `app/api/_debug-ratelimit/route.ts`
 calling `checkRateLimit({key:'debug', max:2, windowSeconds:30})`, hit it 3x → `true, true,
@@ -248,7 +248,7 @@ away from the authenticated `/api/state` contract.
 - [x] Confirm local and Production `GET /api/sync` and `POST /api/sync` return `404`.
 - [x] Do not add a limiter, monitor, health check, or compatibility shim for this retired path.
       The legacy Sprout data-retention decision remains the separate Task 7.27.
-- [ ] No code or commit is expected for this task unless the assertion fails; if it fails, remove
+- [x] No code or commit is expected for this task unless the assertion fails; if it fails, remove
       the regression and document why it existed before continuing.
 
 **Verify:** the application uses only authenticated `GET/POST /api/state` via `lib/sync.ts`.
@@ -385,7 +385,7 @@ implementation as a template.
 reimplement it, just confirm it's sane and document what "sane" means so it isn't disabled by
 accident later.
 
-- [ ] Dashboard → Authentication → Rate Limits (labels may shift between releases — search for
+- [x] Dashboard → Authentication → Rate Limits (labels may shift between releases — search for
       these concepts if relabeled). Confirm/set:
 
 | Setting | Recommended | Why |
@@ -397,7 +397,7 @@ accident later.
 | Anonymous sign-ins | **disabled** | app never uses Supabase anonymous auth |
 | Unused SSO/Web3 providers | **disabled** | every enabled method is surface area |
 
-- [ ] Write the confirmed values into `docs/ops/runbooks.md` (Task 7.25). No separate commit —
+- [x] Write the confirmed values into `docs/ops/runbooks.md` (Task 7.25). No separate commit —
       lands with that task's commit.
 
 **Verify:** 10 rapid disposable sign-ups from one IP (scratch project only) get rejected before
@@ -415,9 +415,9 @@ Supabase defaults.
 **Why:** stacks on Phase 6's "max 3 open claims" business rule (queue hygiene) — this stops a
 scripted burst of claim creation regardless of how many stay "open."
 
-- [ ] Open the actual Phase 6 transport: `app/upgrade/actions.ts`. There is no `/api/claims`.
-- [ ] Add: `import { checkRateLimit } from "@/lib/rate-limit";`
-- [ ] In `submitClaim`, insert the guard after authentication and the existing file/tier
+- [x] Open the actual Phase 6 transport: `app/upgrade/actions.ts`. There is no `/api/claims`.
+- [x] Add: `import { checkRateLimit } from "@/lib/rate-limit";`
+- [x] In `submitClaim`, insert the guard after authentication and the existing file/tier
       validation, but BEFORE the friendly "max 3 open claims" count and before any claim/storage
       write. This avoids charging malformed browser submissions while still stopping create spam:
 
@@ -431,11 +431,11 @@ scripted burst of claim creation regardless of how many stay "open."
   }
 ```
 
-- [ ] Add `rate-limited` to `ClaimForm.tsx`'s `ERRORS` map with Turkish and English copy. This is
+- [x] Add `rate-limited` to `ClaimForm.tsx`'s `ERRORS` map with Turkish and English copy. This is
       a Server Action state, so it intentionally does not create an HTTP 429 response or a parallel
       API route.
 
-- [ ] Commit: `git commit -am "feat(phase7): rate-limit claim submission to 10 creates/day per user"`
+- [x] Commit: `git commit -am "feat(phase7): rate-limit claim submission to 10 creates/day per user"`
 
 **Verify:** see Task 7.8.
 
@@ -451,7 +451,7 @@ concurrency-safe business rule; this daily limiter is only an abuse ceiling.
 one real call proves the exact boundary without burning 20 real Gemini calls or creating ten
 payment claims. Run against local or a disposable Preview, never against Production.
 
-- [ ] Run in the SQL editor (get a disposable real test-user id first:
+- [x] Run in the SQL editor (get a disposable real test-user id first:
       `select id from auth.users where email = 'you@test.cubad.dev';`):
 
 ```sql
@@ -482,7 +482,7 @@ select 'claims:user:<uid>', now() from generate_series(1, 10);
 delete from public.rate_limit_events where key = 'claims:user:<uid>';
 ```
 
-- [ ] Record the exact results and cleanup confirmation in `docs/ops/runbooks.md` (Task 7.25).
+- [x] Record the exact results and cleanup confirmation in `docs/ops/runbooks.md` (Task 7.25).
       No standalone script or commit is required here.
 
 **Verify:** `/api/tutor` and `/api/state` return `429` at the pre-seeded limit. The claim Server
@@ -504,7 +504,7 @@ these stateful probes against Production.
 audits (service-key grep, env leak audit, anon-key capability walk, advisors) belong in ONE
 runnable checklist, so the pre-launch re-run (Task 7.30) is one document, not an archaeology dig.
 
-- [ ] Create `supabase/tests/security-probes.md`:
+- [x] Create `supabase/tests/security-probes.md`:
 
 ```markdown
 # Security probe battery
@@ -638,7 +638,7 @@ findings.
 Record the run date + outcome in `docs/ops/runbooks.md`.
 ```
 
-- [ ] Commit: `git add supabase/tests/security-probes.md && git commit -m "test(phase7): consolidated security probe battery (RLS, storage, RPC, advisors)"`
+- [x] Commit: `git add supabase/tests/security-probes.md && git commit -m "test(phase7): consolidated security probe battery (RLS, storage, RPC, advisors)"`
 
 **Verify:** every checkbox above run once against the real project, results noted inline
 (`— OK <date>` / `— FAILED: <what>`) — this is a living checklist, not a read-only doc.
@@ -655,8 +655,8 @@ client-side").
 
 ### Task 7.10 — Vercel Web Analytics + Speed Insights
 
-- [ ] `npm install @vercel/analytics @vercel/speed-insights`
-- [ ] In `app/layout.tsx`, inside the root `<body>`:
+- [x] `npm install @vercel/analytics @vercel/speed-insights`
+- [x] In `app/layout.tsx`, inside the root `<body>`:
 
 ```tsx
 import { Analytics } from "@vercel/analytics/next";
@@ -666,9 +666,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 <SpeedInsights />
 ```
 
-- [ ] Vercel dashboard → Analytics tab → enable (free tier 2,500 events/mo). Speed Insights tab
-      → enable.
-- [ ] Commit: `git commit -am "feat(phase7): enable Vercel Web Analytics + Speed Insights"`
+- [x] Vercel dashboard → Analytics tab → enable on the included Hobby allowance.
+- [x] Vercel dashboard → Speed Insights decision: the owner explicitly approved moving the
+      Hobby team's one-project slot from `rangeeli` to `cubad` on 2026-07-20. `rangeeli` is now
+      disabled and `cubad` is enabled; no paid upgrade was selected.
+- [x] Commit: `git commit -am "feat(phase7): enable Vercel Web Analytics + Speed Insights"`
 
 **Verify:** deploy, browse a few pages, confirm events/Core Web Vitals appear within minutes.
 
@@ -679,7 +681,7 @@ base package, or `next build` may complain about the client/server boundary.
 
 ### Task 7.11 — Supabase log drains runbook (symptom → log → search)
 
-- [ ] Add to `docs/ops/runbooks.md` (Task 7.25):
+- [x] Add to `docs/ops/runbooks.md` (Task 7.25):
 
 | Symptom | Which log | What to search |
 |---|---|---|
@@ -704,14 +706,16 @@ incident notes immediately.
 its catch block, captured by Vercel's own function logs (Task 7.11). Add Sentry once log-grepping
 by hand gets too slow.
 
-- [ ] `npx @sentry/wizard@latest -i nextjs` (generates client/server/edge configs, wraps
+- [x] `npx @sentry/wizard@latest -i nextjs` (generates client/server/edge configs, wraps
       `next.config.ts`).
-- [ ] In each config: `Sentry.init({ dsn: "<DSN>", tracesSampleRate: 0.1, /* ... */ });`
-- [ ] In `withSentryConfig(...)` options, set `tunnelRoute: "/monitoring"` — proxies Sentry
+- [x] In each config: `Sentry.init({ dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+      tracesSampleRate: 0.1, sendDefaultPii: false, /* ... */ });`
+- [x] In `withSentryConfig(...)` options, set `tunnelRoute: "/monitoring"` — proxies Sentry
       ingest through your own domain so ad-blockers (which commonly block `*.sentry.io`) don't
       silently drop error reports.
-- [ ] Add `SENTRY_AUTH_TOKEN` to Vercel env vars per the wizard.
-- [ ] Commit: `git commit -am "feat(phase7): OPTIONAL Sentry error tracking, 10% sample rate, ad-blocker tunnel"`
+- [x] Add `SENTRY_AUTH_TOKEN` to Vercel env vars per the wizard. Both it and
+      `NEXT_PUBLIC_SENTRY_DSN` are encrypted and scoped to Production, Preview, and Development.
+- [x] Commit: `git commit -am "feat(phase7): OPTIONAL Sentry error tracking, 10% sample rate, ad-blocker tunnel"`
 
 **Verify:** trigger a deliberate error, confirm it appears in Sentry within a minute; confirm
 Network tab requests go to `/monitoring`, not `ingest.sentry.io`.
@@ -723,19 +727,19 @@ upload). Sentry billing is separate from Vercel/Supabase — check its free even
 
 ### Task 7.13 — Uptime checks (UptimeRobot / Cron-job.org, free tier)
 
-- [ ] Add `app/api/health/route.ts`. It must make one cheap anonymous SELECT against the existing
+- [x] Add `app/api/health/route.ts`. It must make one cheap anonymous SELECT against the existing
       public `tracks` table, return `{"ok":true}` only when Supabase responds successfully, return
       `{"ok":false}` with `503` on a query error, expose no row data/counts, and be
       `dynamic = "force-dynamic"` so the monitor exercises the live dependency rather than cache.
-- [ ] Add a route test for the success and upstream-failure cases; never use the service role for
+- [x] Add a route test for the success and upstream-failure cases; never use the service role for
       this public health check.
-- [ ] Sign up with `ADMIN_NOTIFY_EMAIL`.
-- [ ] Monitor 1: HTTP(s), URL = production home page, expect `200`, 5 min interval.
-- [ ] Monitor 2: **Keyword** monitor, URL = `/api/health`, keyword `"ok":true`, 5 min interval
+- [x] Sign up with `ADMIN_NOTIFY_EMAIL`.
+- [x] Monitor 1: HTTP(s), URL = production home page, expect `200`, 5 min interval.
+- [x] Monitor 2: **Keyword** monitor, URL = `/api/health`, keyword `"ok":true`, 5 min interval
       (a live Supabase connectivity check without reviving the retired `/api/sync`).
-- [ ] Alert contact = `ADMIN_NOTIFY_EMAIL` for both. No commit (external config) — note both URLs
+- [x] Alert contact = `ADMIN_NOTIFY_EMAIL` for both. No commit (external config) — note both URLs
       in `docs/ops/runbooks.md`.
-- [ ] Commit the route and test: `git add app/api/health && git commit -m "feat(phase7): add minimal Supabase health endpoint"`.
+- [x] Commit the route and test: `git add app/api/health && git commit -m "feat(phase7): add minimal Supabase health endpoint"`.
 
 **Verify:** pause/break the target briefly, confirm an alert email arrives within the interval.
 
@@ -748,7 +752,7 @@ pre-revenue, revisit later (Pro = 1 min intervals).
 
 ### Task 7.14 — Document backup tiers + Pro upgrade decision point
 
-- [ ] Add to `docs/ops/runbooks.md`:
+- [x] Add to `docs/ops/runbooks.md`:
 
 ```markdown
 ## Backups
@@ -766,7 +770,7 @@ Manual dashboard action (Settings → Billing), no code change. Belt-and-braces:
 below (Task 7.15) gives an independent nightly copy from day one, regardless of Supabase's plan.
 ```
 
-- [ ] No separate commit — lands with Task 7.25.
+- [x] No separate commit — lands with Task 7.25.
 
 **Verify:** current plan tier in Supabase Billing matches what's documented.
 
@@ -777,10 +781,10 @@ the admin KPIs (Phase 5) don't already surface it.
 
 ### Task 7.15 — `.github/workflows/backup.yml`
 
-- [ ] Get the **direct** (port `5432`, session-mode — NOT the `6543` transaction pooler,
+- [x] Get the **direct** (port `5432`, session-mode — NOT the `6543` transaction pooler,
       `pg_dump` needs session-level features) connection string from Supabase → Settings →
       Database → Connection string. Add as GitHub secret `SUPABASE_DB_URL`.
-- [ ] Create `.github/workflows/backup.yml`:
+- [x] Create `.github/workflows/backup.yml`:
 
 ```yaml
 name: Nightly database backup
@@ -831,8 +835,8 @@ jobs:
       #   run: rclone copy "cubad-backup-${{ env.DUMP_STAMP }}.sql.gz" gdrive:cubad-backups/
 ```
 
-- [ ] Commit: `git add .github/workflows/backup.yml && git commit -m "ci(phase7): nightly pg_dump backup to a 14-day GitHub Actions artifact"`
-- [ ] Trigger once manually (Actions → this workflow → Run workflow) before trusting the schedule.
+- [x] Commit: `git add .github/workflows/backup.yml && git commit -m "ci(phase7): nightly pg_dump backup to a 14-day GitHub Actions artifact"`
+- [x] Trigger once manually (Actions → this workflow → Run workflow) before trusting the schedule.
 
 **Verify:** manual run succeeds; artifact downloads, non-empty, `gunzip -t` reports no errors.
 
@@ -844,7 +848,7 @@ secret too or backups silently fail — check the Actions run history periodical
 
 ### Task 7.16 — Restore drill runbook
 
-- [ ] Add to `docs/ops/runbooks.md`:
+- [x] Add to `docs/ops/runbooks.md`:
 
 ```markdown
 ## Restore drill (run once now, and after any real incident)
@@ -872,7 +876,7 @@ order by t;
 **Drill log:** (empty — fill in after each drill)
 ```
 
-- [ ] No separate commit — lands with Task 7.25. Actually run the drill now, not just document it.
+- [x] No separate commit — lands with Task 7.25. Actually run the drill now, not just document it.
 
 **Verify:** restore completes without SQL errors; row counts match production at backup time
 (or "close enough given elapsed time" — no table suspiciously empty).
@@ -900,7 +904,7 @@ lines from the dump.
 | Tracks carrying a subject (reverse of `track_subjects`'s `(track_id, subject_id)` PK) | none | **missing** |
 | A user's redemption history | none beyond `(code_id, user_id)` unique | **missing** |
 
-- [ ] `supabase migration new perf_indexes`:
+- [x] `supabase migration new perf_indexes`:
 
 ```sql
 -- Small tables at this stage (hundreds-to-low-thousands of rows) — plain
@@ -921,9 +925,9 @@ create index if not exists code_redemptions_user_idx
   on public.code_redemptions (user_id);
 ```
 
-- [ ] `supabase db reset` locally, then apply. Commit:
+- [x] `supabase db reset` locally, then apply. Commit:
       `git add supabase/migrations/*_perf_indexes.sql && git commit -m "perf(phase7): add indexes for audit log recency, unit status, track reverse lookup, redemption history"`
-- [ ] **Aggregate hygiene** (Master §9: gating/KPI aggregates run IN SQL, never JS `.reduce()`
+- [x] **Aggregate hygiene** (Master §9: gating/KPI aggregates run IN SQL, never JS `.reduce()`
       over fetched rows — PostgREST caps at 1000 rows and silently truncates):
       `grep -rn "\.reduce(\|\.length\b" app/admin --include="*.ts*"` — for every hit, confirm
       it's operating on an already-scoped, already-paginated result for display, not computing a
@@ -943,17 +947,17 @@ access/money hits as high priority.
 
 ### Task 7.18 — Next.js bundle + image/asset audit
 
-- [ ] `npm run build` from `cubad/`, read the Route table (`○`=static, `●`=SSG,
+- [x] `npm run build` from `cubad/`, read the Route table (`○`=static, `●`=SSG,
       `ƒ`=dynamic; "First Load JS" = client JS incl. shared chunks). Normal for this app: a
       shared baseline (~100-150KB gzipped for React 19 + Next 16) plus heavier deltas on
       `react-markdown`/`rehype-katex` routes (unit/walkthrough pages) — expected, not a
       regression. Flag: any route jumping >~50KB with no matching feature added, or any route
       >~300KB First Load JS.
-- [ ] Optional deeper dive only if something looks wrong: `npm install -D @next/bundle-analyzer`,
-      wrap `next.config.ts` with `require('@next/bundle-analyzer')({enabled: process.env.ANALYZE
-      === 'true'})(...)`, run `ANALYZE=true npm run build` for a treemap. No permanent dependency
-      unless kept.
-- [ ] Image/asset confirmation (no changes expected): podcast files still serve from the new
+- [x] Optional deeper dive: because Next 16 removed build-time size columns, use its built-in
+      `npx next experimental-analyze --output` for the closest supported route/module evidence.
+      Do not add the older `@next/bundle-analyzer` dependency unless a future investigation needs
+      Webpack-specific output.
+- [x] Image/asset confirmation (no changes expected): podcast files still serve from the new
       project's public `podcasts` bucket (D4); `katex/dist/katex.min.css`'s `.woff2` fonts still
       load `200`/`304` (Network tab on a unit page with math), not `404`.
 
@@ -971,12 +975,12 @@ audit.
 
 ### Task 7.19 — Install k6, scaffold `scripts/load/`
 
-- [ ] Install k6 (`winget install k6` / `brew install k6` / see
+- [x] Install k6 (`winget install k6` / `brew install k6` / see
       [k6.io/docs/get-started/installation](https://k6.io/docs/get-started/installation)) — a
       standalone binary, not an npm dependency.
-- [ ] Create `scripts/load/`. Add to `.gitignore`: `scripts/load/.session-cookie` (holds a real
+- [x] Create `scripts/load/`. Add to `.gitignore`: `scripts/load/.session-cookie` (holds a real
       captured session cookie — never commit it).
-- [ ] Document the cookie-capture method once, in `scripts/load/README-session.txt`:
+- [x] Document the cookie-capture method once, in `scripts/load/README-session.txt`:
 
 ```text
 How to get a session cookie for the k6 authenticated scenarios (B and C):
@@ -991,7 +995,7 @@ How to get a session cookie for the k6 authenticated scenarios (B and C):
    browser session does. For runs longer than ~1hr, re-capture before the run.
 ```
 
-- [ ] Commit: `git add .gitignore scripts/load/README-session.txt && git commit -m "chore(phase7): scaffold scripts/load/ for k6 load tests"`
+- [x] Commit: `git add .gitignore scripts/load/README-session.txt && git commit -m "chore(phase7): scaffold scripts/load/ for k6 load tests"`
 
 **Verify:** `k6 version` prints a version.
 
@@ -1003,7 +1007,7 @@ of all sessions") and re-capture.
 
 ### Task 7.20 — Scenario A: anonymous browse (50 VUs, 2 min)
 
-- [ ] Create `scripts/load/scenario-a-anonymous-browse.js`:
+- [x] Create `scripts/load/scenario-a-anonymous-browse.js`:
 
 ```js
 import http from "k6/http";
@@ -1048,7 +1052,7 @@ export default function () {
 }
 ```
 
-- [ ] Commit: `git add scripts/load/scenario-a-anonymous-browse.js && git commit -m "test(phase7): k6 scenario A - anonymous browse, 50 VUs"`
+- [x] Commit: `git add scripts/load/scenario-a-anonymous-browse.js && git commit -m "test(phase7): k6 scenario A - anonymous browse, 50 VUs"`
 
 **Verify/failure modes:** run in Task 7.23 alongside the others. If Phase 6 walled off even
 catalog browsing (Master §6 "any study surface → sign-up wall" could have been widened),
@@ -1063,7 +1067,7 @@ failure.
 header on plain GETs — no attempt to script the login flow itself in k6. This load-tests page
 rendering under the entitlement-check + caching model (D12), which is the actual scale concern.
 
-- [ ] Create `scripts/load/scenario-b-authed-study.js`:
+- [x] Create `scripts/load/scenario-b-authed-study.js`:
 
 ```js
 import http from "k6/http";
@@ -1106,7 +1110,7 @@ export default function () {
 }
 ```
 
-- [ ] Commit: `git add scripts/load/scenario-b-authed-study.js && git commit -m "test(phase7): k6 scenario B - authed study loop, 50 VUs, captured session cookie"`
+- [x] Commit: `git add scripts/load/scenario-b-authed-study.js && git commit -m "test(phase7): k6 scenario B - authed study loop, 50 VUs, captured session cookie"`
 
 **Verify:** run in Task 7.23.
 
@@ -1120,7 +1124,7 @@ re-capture, not an app bug.
 
 ### Task 7.22 — Scenario C: progress-save hammering (verifies the 12/min limiter)
 
-- [ ] Create `scripts/load/scenario-c-progress-save.js`:
+- [x] Create `scripts/load/scenario-c-progress-save.js`:
 
 ```js
 import http from "k6/http";
@@ -1156,13 +1160,13 @@ export default function () {
 }
 ```
 
-- [ ] Before the run, delete prior `progress:user:<uid>` rate-limit rows for the disposable account
+- [x] Before the run, delete prior `progress:user:<uid>` rate-limit rows for the disposable account
       and confirm its current `/api/state` GET returns 200. Run from Bash:
       `k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE="$(cat scripts/load/.session-cookie)" scripts/load/scenario-c-progress-save.js`.
       PowerShell equivalent:
       `$sessionCookie = Get-Content -Raw scripts/load/.session-cookie; k6 run -e BASE_URL=https://cubad.vercel.app -e SESSION_COOKIE=$sessionCookie scripts/load/scenario-c-progress-save.js`.
-- [ ] Expected: iterations 1-12 print `200`, 13-15 print `429` (±1 for window-boundary jitter).
-- [ ] Commit: `git add scripts/load/scenario-c-progress-save.js && git commit -m "test(phase7): k6 scenario C - progress save hammer, confirms 12/min limiter engages"`
+- [x] Expected: iterations 1-12 print `200`, 13-15 print `429` (±1 for window-boundary jitter).
+- [x] Commit: `git add scripts/load/scenario-c-progress-save.js && git commit -m "test(phase7): k6 scenario C - progress save hammer, confirms 12/min limiter engages"`
 
 **Verify:** console shows the 200→429 transition around request 12/13.
 
@@ -1176,7 +1180,7 @@ rate-limit rows after all scenarios.
 
 ### Task 7.23 — Run all scenarios, pass criteria, failure diagnosis
 
-- [ ] Run against the deployed Vercel URL (Hobby tier), never `localhost` (no cold starts/real
+- [x] Run against the deployed Vercel URL (Hobby tier), never `localhost` (no cold starts/real
       latency/concurrency limits locally, so pass/fail there is meaningless):
 
 ```bash
@@ -1189,9 +1193,15 @@ On PowerShell, load the ignored cookie once with
 `$sessionCookie = Get-Content -Raw scripts/load/.session-cookie` and pass
 `-e SESSION_COOKIE=$sessionCookie` to Scenarios B/C; do not print it into the terminal log.
 
-- [ ] **Pass criteria:** A — `p(95)<500ms`, zero `5xx`. B — `p(95)<800ms`, zero `5xx`. C —
+- [x] **Pass criteria:** A — `p(95)<500ms`, zero `5xx`. B — `p(95)<800ms`, zero `5xx`. C —
       limiter transition confirmed around call 12/13.
-- [ ] Record the k6 summary output into `docs/ops/runbooks.md`'s load-test section (Task 7.25)
+- [x] Scenario A pass: after diagnosing and correcting a Vercel/Supabase region mismatch, the
+      production rerun completed 3,036/3,036 checks with zero failed requests. Route p95 was
+      243.71 ms for `/`, 270.41 ms for `/s/hidroloji`, and 274.28 ms for the free unit.
+- [x] Scenarios B/C runtime gate: a confirmed disposable student and session were generated only
+      for the run, never printed or committed, and deleted with verified zero profile/state/limiter
+      residue afterward.
+- [x] Record the k6 summary output into `docs/ops/runbooks.md`'s load-test section (Task 7.25)
       as the pre-launch baseline.
 
 **Diagnosis when A/B fails p95 (in order of likelihood):**
@@ -1203,7 +1213,7 @@ On PowerShell, load the ignored cookie once with
 2. Vercel cold starts — check the function-duration graph; a spike only during ramp-up, not the
    steady-state stage, self-resolves and isn't a real problem.
 3. Entitlement check not using its index — re-run Task 7.17's `explain analyze` technique.
-- [ ] Fix genuine issues as their own small task, re-run the affected scenario, note in the
+- [x] Fix genuine issues as their own small task, re-run the affected scenario, note in the
       Changelog.
 
 **Failure modes:** see above — the recurring one is judging pass/fail against `localhost`.
@@ -1214,7 +1224,7 @@ On PowerShell, load the ignored cookie once with
 
 ### Task 7.24 — Migration + cron route + bilingual email
 
-- [ ] `supabase migration new entitlements_reminded_at`:
+- [x] `supabase migration new entitlements_reminded_at`:
 
 ```sql
 alter table public.entitlements
@@ -1227,9 +1237,9 @@ create index if not exists entitlements_expiry_reminder_idx
 ```
 
   Apply (`supabase db reset` locally, then push).
-- [ ] Add `CRON_SECRET` to Vercel env vars (`openssl rand -hex 32`) — Vercel auto-attaches
+- [x] Add `CRON_SECRET` to Vercel env vars (`openssl rand -hex 32`) — Vercel auto-attaches
       `Authorization: Bearer <CRON_SECRET>` to its own scheduled hits of routes in `vercel.json`.
-- [ ] Add/edit `vercel.json` at `cubad/` root:
+- [x] Add/edit `vercel.json` at `cubad/` root:
 
 ```json
 {
@@ -1242,7 +1252,7 @@ create index if not exists entitlements_expiry_reminder_idx
   (Daily at 06:00 UTC — Vercel Hobby supports daily-granularity crons; if that's changed, any
   scheduler hitting this URL with the same header works just as well, e.g. UptimeRobot's daily
   monitor type.)
-- [ ] Reuse Phase 6's audited Resend REST transport; do not add a second email client or a new
+- [x] Reuse Phase 6's audited Resend REST transport; do not add a second email client or a new
       `resend` dependency. Extend private `sendOne` with an optional `idempotencyKey?: string` and,
       when present, add HTTP header `Idempotency-Key: <value>` to the existing Resend REST request.
       Keep all existing callers unchanged. Then add this server-only wrapper:
@@ -1266,7 +1276,7 @@ export function sendExpiryReminder(
   currently retains keys for 24 hours. The database lease below is the primary overlap guard; the
   provider key also makes an ambiguous network retry safe during that window.
 
-- [ ] Create `app/api/cron/expiry-reminders/route.ts`:
+- [x] Create `app/api/cron/expiry-reminders/route.ts`:
 
 ```ts
 import { createServiceRoleClient } from "@/lib/supabase/server";
@@ -1403,17 +1413,25 @@ export async function GET(request: Request) {
 }
 ```
 
-- [ ] Confirm `RESEND_API_KEY`/`EMAIL_FROM` are the SAME vars Phase 6 already uses for claim
+- [x] Confirm `RESEND_API_KEY`/`EMAIL_FROM` are the SAME vars Phase 6 already uses for claim
       emails — no new email infra. Match the tone of Phase 6's existing transactional copy.
-- [ ] Add tests proving two concurrent invocations yield one lease/send, a provider failure releases
+- [x] Add tests proving two concurrent invocations yield one lease/send, a provider failure releases
       the lease, a zero-row/failed durable mark does not increment `sent`, and the REST request uses
       the stable entitlement idempotency header. Regenerate `lib/database.types.ts`.
-- [ ] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql lib/database.types.ts vercel.json lib/email/send.ts app/api/cron/expiry-reminders && git commit -m "feat(phase7): OPTIONAL leased, idempotent expiry reminders"`
+- [x] Commit: `git add supabase/migrations/*_entitlements_reminded_at.sql lib/database.types.ts vercel.json lib/email/send.ts app/api/cron/expiry-reminders && git commit -m "feat(phase7): OPTIONAL leased, idempotent expiry reminders"`
 
 **Verify:** seed a test entitlement (`expires_at = now()+72h`, `reminded_at = null`), start two
 authorized requests concurrently, and confirm their combined result has exactly `sent:1`; the
 email arrives once, `reminded_at` is set, and `reminder_claimed_at` is null. Re-run immediately →
 `checked:0` (no duplicate). Without `Authorization: Bearer $CRON_SECRET` → `401`.
+
+**Evidence (2026-07-21):** Migration `20260721051521` reset locally, pushed, and appeared in remote
+history. Vercel lists `CRON_SECRET` for Production/Preview (sensitive) and Development (encrypted),
+and deployment `dpl_DZzPGNp4QCgFUL5Veg6k9GfnzE6j` registered the daily route. All 101 tests,
+TypeScript, lint (11 existing warnings, zero errors), a local production build, and the Vercel build
+passed. Two live authorized requests returned 200 with combined `sent:1`, `failed:0`; the marker was
+durable, the immediate rerun returned `checked:0`, the unauthenticated request returned 401, and
+the seeded entitlement plus all temporary secret artifacts were deleted and verified absent.
 
 **Failure modes:** falls back to `onboarding@resend.dev` if `EMAIL_FROM`/Task 7.26 hasn't landed
 — fine for testing, set the real value before relying on it in production. A durable-mark failure
@@ -1428,7 +1446,7 @@ required parts of this contract.
 
 ### Task 7.25 — `docs/ops/runbooks.md`
 
-- [ ] Create `docs/ops/runbooks.md`, assembling the sections already authored in Tasks 7.6, 7.11,
+- [x] Create `docs/ops/runbooks.md`, assembling the sections already authored in Tasks 7.6, 7.11,
       7.13, 7.14, 7.16, 7.23, in that order, PLUS the incident runbooks below:
 
 ```markdown
@@ -1509,9 +1527,14 @@ per the Master §13 cutover pattern.
 **Decommission log:** (empty)
 ```
 
-- [ ] Commit: `git add docs/ops/runbooks.md && git commit -m "docs(phase7): ops runbooks - content/codes/email incidents, restore, key rotation, sprout decommission"`
+- [x] Commit: `git add docs/ops/runbooks.md && git commit -m "docs(phase7): ops runbooks - content/codes/email incidents, restore, key rotation, sprout decommission"`
 
 **Verify:** every SQL snippet run once against a real (or read-only production) DB, no typos.
+
+**Evidence (2026-07-21):** The entitlement, normalized access-code lookup, redemption-history, and
+rate-limit-window queries parsed and ran against the reset local schema with `ON_ERROR_STOP=1`.
+The backup count and restore commands had already run successfully against real hosted databases
+during Task 7.16. Commit `d56b0df` contains the assembled runbook and incident procedures.
 
 **Failure modes:** will drift as Phases 2-6's exact implementations solidify — treat "confirm X
 matches Y" as a prompt to go check, not a guarantee.
@@ -1748,25 +1771,26 @@ turn the root layout into an uncached per-request DB query.
 
 ## Phase acceptance checklist
 
-- [ ] `check_rate_limit()` RPC live; `rate_limit_events` locked down (RLS, no policies, revoked
+- [x] `check_rate_limit()` RPC live; `rate_limit_events` locked down (RLS, no policies, revoked
       grants); nightly cleanup scheduled.
-- [ ] All 3 active limiters engage past their limit: tutor server-key (20/hour/user, BYOK exempt)
+- [x] All 3 active limiters engage past their limit: tutor server-key (20/hour/user, BYOK exempt)
       and progress save (12/min/user) return `429`; the Phase 6 claim
       Server Action (10/day/user) returns its localized `rate-limited` action state before writes.
-- [ ] Supabase Auth built-in rate limits reviewed/documented; anonymous sign-ins disabled.
-- [ ] `supabase/tests/security-probes.md` exists, run end-to-end at least once, all passing.
-- [ ] Supabase security + performance advisors run; zero unresolved `ERROR`-level findings.
-- [ ] Vercel Web Analytics + Speed Insights live and reporting.
-- [ ] Log-drain runbook table exists; each log tab confirmed to exist.
-- [ ] (Optional) Sentry wired with 10% sample + tunnel, or explicitly skipped.
-- [ ] Uptime monitors live on `/` and `/api/health`, alerting to `ADMIN_NOTIFY_EMAIL`; retired
+- [x] Supabase Auth built-in rate limits reviewed/documented; anonymous sign-ins disabled.
+- [x] `supabase/tests/security-probes.md` exists, run end-to-end at least once, all passing.
+- [x] Supabase security + performance advisors run; zero unresolved `ERROR`-level findings.
+- [x] Vercel Web Analytics and Speed Insights are enabled for `cubad`; the free Speed Insights
+      slot was explicitly moved from `rangeeli` without a paid upgrade.
+- [x] Log-drain runbook table exists; each current dashboard log collection confirmed to exist.
+- [x] (Optional) Sentry wired to its distinct `cubad` project with 10% sample + tunnel.
+- [x] Uptime monitors live on `/` and `/api/health`, alerting to `ADMIN_NOTIFY_EMAIL`; retired
       `/api/sync` still returns 404 and has not been recreated.
-- [ ] Backup Action has a successful manual run with a downloadable artifact.
-- [ ] Restore drill actually performed once, counts verified and logged.
-- [ ] Pro-tier criteria documented; current tier matches the decision.
-- [ ] `perf_indexes` migration applied; each index confirmed used via `explain analyze`.
-- [ ] Bundle + image/asset audit baseline recorded.
-- [ ] No client-side `.reduce()`/`.length` computing a gating or KPI total.
+- [x] Backup Action has a successful manual run with a downloadable artifact.
+- [x] Restore drill actually performed once, counts verified and logged.
+- [x] Pro-tier criteria documented; current tier matches the decision.
+- [x] `perf_indexes` migration applied; each index confirmed used via `explain analyze`.
+- [x] Bundle + image/asset audit baseline recorded.
+- [x] No client-side `.reduce()`/`.length` computing a gating or KPI total.
 - [ ] All 3 k6 scenarios run against the real Vercel deployment; A/B p95 thresholds met, zero
       5xx, C's rate-limit transition confirmed.
 - [ ] (Optional) Expiry-reminder cron live and tested end-to-end, or explicitly skipped.
@@ -1897,3 +1921,292 @@ behavior, so rollback is narrow per area:
      the service role, denied the anon RPC/table probes with 401, and cleanup proved zero rows.
      The CLI emitted its known post-apply pg-delta certificate-cache warning after the migration
      committed; the ledger and live behavior prove it did not roll back.
+
+- **2026-07-20 — Task 7.6 Auth limit verification and correction:**
+  1. Re-verified the existing project in the signed-in Supabase dashboard: email sends were
+     2/hour; token refreshes were 150/5 minutes; token verifications were 30/5 minutes; and
+     sign-ups/sign-ins were 30/5 minutes. The organization badge showed Pro.
+  2. Re-verified provider state: email/password is enabled with confirmation required;
+     anonymous sign-ins and Web3 Wallet are disabled, as are the unused phone, SSO/social, and
+     custom providers.
+  3. An authenticated Management API read returned the same numeric values. Because Phase 2's
+     custom Resend SMTP is already live, changed only `rate_limit_email_sent` to 30/hour through
+     the documented single-field Management API PATCH, then re-read the config and confirmed
+     30/150/30/30 with the dormant anonymous/Web3 ceilings unchanged.
+  4. Mirrored the 30/hour value in `supabase/config.toml` so a future config push cannot silently
+     restore the built-in-provider 2/hour default. No token or SMTP value was printed or written.
+     The scratch-project ten-signup burst was not run: no scratch project exists, creating a
+     replacement project is prohibited, and the dashboard/provider controls plus Management API
+     supplied the required production configuration evidence without creating junk accounts.
+
+- **2026-07-20 — Task 7.7 claim-action limiter:**
+  1. Added the 10-creates/day per-user limiter to the existing `submitClaim` Server Action after
+     authentication, proof validation, and published-tier authorization, but before the pending
+     count, claim insert, storage upload, or service-role client creation. No `/api/claims` route
+     was added.
+  2. Added bilingual `rate-limited` action-state copy and a regression test proving a full bucket
+     returns before any claim/storage write. The focused Vitest test, focused ESLint run, and
+     `npx tsc --noEmit` all passed.
+
+- **2026-07-20 — Task 7.8 rate-limit boundary probes:**
+  1. Pre-seeded the tutor and progress buckets against the local Supabase stack and made one real
+     authenticated request to each local route. Tutor returned `429` with `Retry-After: 3600` and
+     the retry-seconds body; progress returned `429` with `Retry-After: 60` and the stable error
+     body.
+  2. Submitted the existing claim form in a real local browser session with a full claim bucket.
+     The localized daily-limit state appeared before any claim or proof-object write.
+  3. Deleted every seeded row and confirmed each namespace allowed the next direct limiter call.
+     Removed both disposable users and verified zero remaining profiles, claims, proof objects,
+     or limiter rows. No production quota or production data was touched.
+
+- **2026-07-20 — Task 7.9 consolidated security battery:**
+  1. Added the living probe battery and completed 78 sanitized assertions against the existing
+     Supabase project, plus the Phase 4–6 transaction-scoped SQL suites locally. Cross-account
+     RLS, public/private storage, RPC grants, redemption branches, approval idempotency, and
+     fixture cleanup all passed.
+  2. Confined the podcast route's service-key presence check to `lib/supabase/server.ts`; its
+     focused route tests, ESLint, and TypeScript passed. The public env-var audit found only the
+     documented Supabase/App URL names.
+  3. Security and performance advisors both returned zero `ERROR` findings. Enabled leaked-
+     password protection on the existing Pro project and confirmed its warning disappeared;
+     this added no service or spend. Final cleanup found zero probe users, tiers, sentinels, or
+     public probe objects.
+
+- **2026-07-20 — Task 7.10 analytics integration (dashboard gate pending):**
+  1. Installed `@vercel/analytics@2.0.1` and `@vercel/speed-insights@2.0.0` and mounted their
+     documented Next.js components in the root body. ESLint, TypeScript, and the production build
+     passed.
+  2. Enabled Web Analytics using the included Hobby option; no paid Pro option was selected.
+  3. Speed Insights could not be enabled because this Hobby team already uses its one-project
+     allowance on `rangeeli`. The dashboard offered an upgrade, so work stopped at the explicit
+     paid-service gate without changing the other project or incurring spend. The owner then
+     initially selected the skip option for launch. Later the same day, the owner explicitly
+     approved switching the free slot: the authenticated Vercel API confirmed `rangeeli` inactive
+     with historical data retained and `cubad` active with data collection ready. No paid plan
+     or second slot was added. The required follow-up production deployment completed, and the
+     deployed Speed Insights script route returned `200`; the dashboard will populate after real
+     visitor data arrives.
+
+- **2026-07-20 — Task 7.11 Supabase log navigation:**
+  1. Added the symptom-to-log search table to the operations runbook.
+  2. Verified the current signed-in dashboard labels: unified Logs exposes API Gateway, Postgres,
+     PostgREST, Auth, Storage, Edge Functions, and Cron (plus pooler/realtime collections), while
+     Query Performance lives under Observability.
+  3. Reconciled the runbook's older “API/Edge Logs” shorthand to those current labels without
+     changing the incident-search behavior.
+
+- **2026-07-20 — Task 7.12 Sentry error tracking:**
+  1. The owner approved enabling Sentry. Created a distinct `cubad` project inside the existing
+     Cubad organization; the Contento-owned `javascript-nextjs` project was left untouched.
+  2. Added the Next.js client, Node, Edge, request-error, router-transition, and global-error
+     integrations with a 10% trace sample, default PII disabled, HTTP bodies disabled, and the
+     `/monitoring` first-party tunnel.
+  3. Configured encrypted DSN and source-map token variables for all three Vercel environments.
+     ESLint, TypeScript, and the production build (including the post-compile source-map step)
+     passed. A disposable browser error reached the SDK wrapper and a sanitized verification
+     event was accepted by Sentry ingestion. The production deploy uploaded source maps to the
+     `cubad` Sentry project, and a malformed-envelope probe reached `/monitoring` (upstream `401`,
+     not a route `404`); all temporary route/env artifacts were removed.
+
+- **2026-07-20 — Task 7.13 health endpoint:**
+  1. Added a force-dynamic public health route that performs a one-row anonymous `tracks` query,
+     returns only `{ "ok": true }`, and degrades to a data-free `503` response on query or
+     transport failure. It never constructs or imports a service-role client.
+  2. Added success and upstream-failure route tests. The focused tests, focused ESLint, and
+     TypeScript all passed before commit. The committed route was deployed to production and
+     returned `200 { "ok": true }`; `/` returned `200` and retired `/api/sync` remained `404`.
+  3. Created two free-tier UptimeRobot monitors at five-minute intervals: an HTTP `200` check for
+     the production home page and a keyword check for `"ok":true` on `/api/health`. Both reported
+     `Up` on 2026-07-20. The keyword rule was corrected to open an incident only when the healthy
+     text is absent. Its initial inverted-rule incident delivered successfully to the configured
+     `ADMIN_NOTIFY_EMAIL` contact and recovered after the corrected check, verifying the alert path
+     without exposing the mailbox address. No paid plan was selected.
+
+- **2026-07-20 — Task 7.14 backup tiers and decision point:**
+  1. Added the backup-tier operating guidance and explicit upgrade triggers to the operations
+     runbook. The existing Supabase organization had already been verified as Pro in Billing and
+     through the authenticated Management API, so the documented current tier matches reality.
+  2. No purchase, upgrade, or other billing change was initiated. Point-in-time recovery remains
+     an optional paid add-on and is not assumed to be enabled.
+
+- **2026-07-20 — Task 7.15 nightly database backup:**
+  1. Added and pushed the scheduled/manual GitHub Actions workflow with 14-day artifact retention.
+     The database password was rotated with owner confirmation only after repository, local-env,
+     Vercel, and GitHub-secret audits found no existing password-based Cubad connection. The new
+     session-pooler port-5432 URL is stored only as encrypted `SUPABASE_DB_URL`; no secret value was
+     printed or written to the repository.
+  2. The initial smoke run identified a PostgreSQL server/client mismatch (hosted 17.6 versus the
+     runner's default 16). Commits `a36e82a` and `d1129d5` install the official PostgreSQL 17 client
+     and select its `pg_dump` through `GITHUB_PATH`.
+  3. Branch-isolated run `29766873055` completed all steps in 1m12s and uploaded a non-empty 1.1 MB
+     SQL gzip artifact retained until 2026-08-03. A local download passed `gzip -t`; its temporary
+     smoke branch/worktree were removed without merging Phase 7 early.
+  4. Task 7.16 found that the valid raw archive was not directly portable to a fresh hosted project:
+     it included provider-owned `pg_cron`, Realtime, and Vault internals that the project database
+     role cannot replay. This disproved the plan's claim that raw `pg_dump` and `supabase db dump`
+     are equivalent for hosted-project recovery.
+  5. Commit `5343784` replaced the raw dump with the supported Supabase CLI 2.109.1 split format:
+     filtered roles/schema/data plus separately preserved migration history in a tar-gzip archive.
+     Manual run `29770143515` succeeded in 2m1s; its downloaded 1,078,090-byte archive passed the
+     integrity/listing check and contained exactly the five expected non-empty files.
+
+- **2026-07-20 — Task 7.16 restore drill:**
+  1. Created an isolated paid scratch project only after explicit owner approval, captured a
+     sanitized production-at-backup baseline (2 subjects, 19 units, 6 profiles, 0 entitlements),
+     and restored the run `29766873055` artifact into a separate scratch database with
+     `ON_ERROR_STOP=1`. Only incompatible provider-owned blocks were mechanically excluded; the
+     empty Vault data block contained no application data.
+  2. The resulting restore log contained no SQL errors and all four row counts matched exactly. A
+     non-content spot-check confirmed the sampled unit was object JSON with the required
+     `unit`/`slug`/bilingual-`title` contract and at least one renderable section.
+  3. Generated the corrected Supabase-filtered five-file format from the same restored snapshot and
+     restored it into the scratch project's default hosted database with no SQL errors. Counts and
+     the content-contract check matched again; migration history matched 37 of 37 rows.
+  4. Deleted the secure scratch project and verified it absent from the project list. The earlier
+     accidentally exposed, empty scratch project had also been deleted before use. All downloaded
+     dumps, restore copies, logs, and DPAPI-encrypted temporary credential metadata were moved to
+     the Windows Recycle Bin. No production credential was printed or exposed.
+
+- **2026-07-20 — Task 7.17 database index and aggregate audit:**
+  1. Added `20260720190718_perf_indexes.sql` with the four planned indexes. A full local
+     `supabase db reset` applied all migrations successfully. Local `EXPLAIN ANALYZE` selected
+     `admin_audit_log_created_at_idx` and `units_subject_status_idx` with direct Index Scans, and
+     `track_subjects_subject_idx` and `code_redemptions_user_idx` with Bitmap Index Scans.
+  2. Applied the migration to production after a one-migration dry run. Although the CLI emitted a
+     non-fatal post-apply pg-delta catalog-cache warning about a missing temporary certificate, the
+     remote migration history records `20260720190718` and a fresh remote public-schema dump
+     independently confirmed all four index definitions.
+  3. Audited every `.reduce()`/`.length` hit under `app/admin`. Overview KPIs already come from the
+     SQL `admin_overview_stats()` aggregate; remaining lengths are bounded input validation,
+     page-size/emptiness UI, or scoped lookup guards. Replaced the one unbounded redemption-row
+     fetch used only for `redemptions.length` with PostgREST's exact head-only SQL count.
+  4. Focused ESLint, TypeScript, `git diff --check`, and all 96 Vitest tests passed. Commits
+     `199b651` and `f855791` keep the index migration and aggregate-hygiene correction separate.
+
+- **2026-07-20 — Task 7.18 bundle and asset baseline:**
+  1. Read the installed Next.js 16.2.10 CLI documentation before interpreting the build. It states
+     that JavaScript bundle-size metrics were removed from `next build` in Next 16, so the plan's
+     expected First Load JS columns no longer exist. The production build passed and reported 41
+     App Router entries: 4 static and 37 dynamic, plus middleware.
+  2. Used Next 16's built-in `next experimental-analyze --output` instead of installing the older
+     optional `@next/bundle-analyzer`. Summing and gzip-compressing each route manifest's unique
+     client entry chunks produced a closest-equivalent baseline. Three math-heavy routes sit at the
+     plan's flag threshold: unit page 302.2 KB, admin unit preview 302.1 KB, and question walkthrough
+     300.1 KB gzip. The dominant route-specific chunk is 195.4 KB gzip and contains the expected
+     `react-markdown`/KaTeX stack; this is recorded as a baseline, not treated as an unexplained
+     regression.
+  3. A known stored Construction Management podcast returned HTTP 200 with `audio/wav` from the
+     Cubad Supabase project's public `/storage/v1/object/public/podcasts/` path. On a fresh rendered
+     Hydrology math unit, the browser observed both required KaTeX `.woff2` resources; browser asset
+     downloads completed 2/2 with zero failures and direct HEAD checks returned HTTP 200 with
+     `font/woff2`.
+  4. No dependency or application-code change was needed. Temporary browser-downloaded font copies
+     were moved to the Windows Recycle Bin.
+
+- **2026-07-20 — Task 7.19 k6 scaffold:**
+  1. Installed the free standalone Grafana k6 2.1.0 Windows binary through winget; no npm package or
+     paid service was added. `k6 version` reports the expected Windows amd64 build.
+  2. Added `scripts/load/.session-cookie` to `.gitignore` and documented the disposable-account,
+     chunked-cookie, expiry, and compromise-response procedure in `README-session.txt`. No live
+     cookie file or value was created or printed.
+  3. `git check-ignore` confirmed the exact cookie path is ignored, `git diff --check` passed, and
+     commit `a03ad50` contains only the scaffold files.
+
+- **2026-07-20 — Task 7.20 anonymous load scenario:**
+  1. Added the 0→50→50→0 VU anonymous browse scenario for production `/`, `/s/hidroloji`, and the
+     real `/s/hidroloji/unit/giris` preview/paywall shell, with route-specific 500 ms p95 and 1%
+     failure-rate thresholds.
+  2. `k6 inspect` parsed the ramping-VU configuration and all four thresholds successfully;
+     `git diff --check` passed. Commit `6bc17d0` contains only Scenario A. The actual production
+     load run remains intentionally deferred to Task 7.23.
+
+- **2026-07-20 — Task 7.21 authenticated load scenario:**
+  1. Added the 50-VU authenticated account/unit loop with the planned 800 ms p95 and 1% failure
+     thresholds. The script accepts a Cookie header only through `SESSION_COOKIE`; no cookie or
+     account identifier is embedded in source.
+  2. `k6 inspect` parsed the ramp and thresholds without requiring a session, and `git diff --check`
+     passed. Commit `4821bfd` contains only Scenario B. Runtime verification remains in Task 7.23
+     after the disposable-account cookie is captured through the documented human flow.
+
+- **2026-07-20 — Task 7.22 progress-save load scenario (runtime gate pending):**
+  1. Added the one-VU, 15-iteration progress-save hammer using the production route's real GET then
+     compare-and-swap POST contract. It accepts only an environment-supplied disposable-account
+     cookie and does not embed or print session material.
+  2. `k6 inspect` confirmed the one-VU/15-iteration configuration and `git diff --check` passed.
+     Commit `a445658` contains only Scenario C. The 200→429 runtime transition and pre-run limiter
+     cleanup remain unchecked until the disposable account/session human gate is satisfied.
+
+- **2026-07-20 — Task 7.23 Scenario A run and region correction:**
+  1. The first production run failed only its latency thresholds: home p95 10.24 s, subject p95
+     9.76 s, and free-unit p95 5.33 s. The failure rate remained below threshold at 0.18%
+     (2/1,059 requests, both timeouts), with no HTTP 5xx response observed.
+  2. Confirmed the content loaders already use matching `unstable_cache`/`revalidateTag` tags, so
+     the planned missing-cache diagnosis did not identify a defect. Response headers instead
+     showed `fra1::iad1`: requests entered through Frankfurt but dynamic functions executed in
+     Washington, D.C., while the production Supabase project is in `eu-central-1`.
+  3. Added a single-region `vercel.json` placement in `fra1`, committed as `18df2aa`, deployed it
+     to the existing Cubad production project, and verified `x-vercel-id` changed to
+     `fra1::fra1`. No new project, plan upgrade, or paid service was introduced.
+  4. The exact 50-VU, two-minute Scenario A rerun then passed: 3,036/3,036 checks, 0.00% failed
+     requests, overall p95 265.93 ms, and route p95 values of 243.71/270.41/274.28 ms for
+     home/subject/free unit.
+
+- **2026-07-20 — Tasks 7.21–7.23 authenticated load completion:**
+  1. Generated a confirmed, onboarded disposable student and an ignored local session without
+     sending email or printing credentials. Both authenticated target routes returned 200 before
+     load. The first Scenario B run had 0.00% failures and 1,878/1,878 passing checks, but failed
+     latency at p95 2.34 s. A post-run probe isolated the slow path to `/account`; the unit route
+     remained materially faster.
+  2. The account page had serialized its authenticated profile, static track catalog, and active
+     entitlement-expiry reads. Commit `924a33f` starts those independent reads concurrently without
+     changing authentication, RLS, service-role boundaries, redirects, or rendered data. Focused
+     ESLint, TypeScript, all 96 tests, and the Vercel production build passed.
+  3. The exact Scenario B rerun passed with p95 381 ms, 0.00% failed requests, and 2,584/2,584
+     checks at 50 VUs. Scenario C then returned 200 for writes 1–12 and 429 for writes 13–15,
+     confirming the 12/minute limiter at the exact expected boundary.
+  4. Deleted the disposable Auth user and verified its profile, user-state, and limiter rows were
+     all absent. The ignored session file was also deleted.
+
+- **2026-07-20 — Supabase API-key incident containment during Task 7.23 cleanup:**
+  1. A Supabase CLI telemetry-shutdown timeout caused Node's synchronous child-process exception
+     to include captured stdout containing the legacy service-role API key in the tool log. The
+     value was never copied into source, documentation, Git history, or a terminal command.
+  2. Immediately migrated all 14 Cubad Vercel destinations (Production, Development, general
+     Preview, and four branch-specific Preview overrides) plus both GitHub Actions secrets from
+     legacy JWT API keys to the project's existing publishable/secret key pair. Preserved Sprout
+     variables were not changed.
+  3. Redeployed Production, verified the new publishable and secret keys independently, then
+     disabled Cubad's legacy API keys through the Management API. Re-verification succeeded with
+     legacy access disabled: health returned `{"ok":true}`, public home/subject routes returned
+     200, and a fresh authenticated `/account` smoke returned 200. GitHub CI rerun `29739510877`
+     also passed install, lint, content validation, all tests, and build using the replacement
+     repository secrets.
+  4. Deleted the second smoke user with verified zero profile/state/limiter residue. The temporary
+     helper and environment download were moved to the Windows Recycle Bin. The JWT signing secret
+     was not rotated, so existing user sessions were not deliberately invalidated.
+
+- **2026-07-21 — Task 7.24 optional expiry reminders enabled:**
+  1. Added the two reminder-state columns and partial expiry index in migration `20260721051521`;
+     local reset and the linked production push passed, and remote migration history matches.
+  2. Reused the existing Resend REST transport with a stable per-entitlement `Idempotency-Key`.
+     The protected daily route uses a 15-minute compare-and-set lease, releases it on provider
+     failure, and counts a send only after the durable marker commits. The route also fails closed
+     when `CRON_SECRET` is absent.
+  3. Configured one generated Vercel cron secret without printing it, preserved Frankfurt function
+     placement, and added the 06:00 UTC daily schedule. Production deployment
+     `dpl_DZzPGNp4QCgFUL5Veg6k9GfnzE6j` built successfully and activated the route.
+  4. All 101 tests passed, including concurrency, provider-failure release, failed durable marking,
+     and Resend header coverage. TypeScript and the local production build passed; lint retained
+     only 11 existing warnings. A live two-request probe produced exactly one send and zero
+     failures, committed and re-read the marker, returned zero work on rerun and 401 without auth,
+     then removed and verified the disposable entitlement. Temporary plaintext/encrypted test
+     artifacts were deleted.
+
+- **2026-07-21 — Task 7.25 operations runbooks:**
+  1. Committed the assembled production runbook as `d56b0df`, including auth limits, rate-limit and
+     security probes, telemetry, Sentry, log navigation, uptime, backup/restore, load baselines,
+     API-key containment, expiry reminders, content/code/email incidents, service-key rotation,
+     and delayed Sprout decommission.
+  2. Executed the new entitlement and access-code diagnostic SQL against the reset local database
+     with stop-on-error enabled. Task 7.16 already supplied successful real hosted-database evidence
+     for the restore/count snippets. No production mutation was needed for runbook verification.

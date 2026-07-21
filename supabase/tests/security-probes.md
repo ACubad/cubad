@@ -54,6 +54,7 @@ rg -o "NEXT_PUBLIC_[A-Z0-9_]+" app lib components -g "*.ts" -g "*.tsx" |
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Project URL is public. |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Designed for clients; RLS is the data boundary. |
 | `NEXT_PUBLIC_APP_URL` | Yes | Used for absolute application links. |
+| `NEXT_PUBLIC_SENTRY_DSN` | Yes | Public ingestion endpoint identifier; Sentry auth remains server/CI-only. |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Yes, once approved | Human-approved public contact for `/privacy`; absent on this run. |
 
 Any unlisted name is a new leak surface and must be reviewed before shipping.
