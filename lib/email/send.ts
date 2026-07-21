@@ -34,7 +34,12 @@ async function recordFailure(kind: string, recipient: string, error: string): Pr
   }
 }
 
-async function sendOne(kind: string, recipient: string, content: EmailContent): Promise<SendResult> {
+async function sendOne(
+  kind: string,
+  recipient: string,
+  content: EmailContent,
+  idempotencyKey?: string
+): Promise<SendResult> {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM || "onboarding@resend.dev";
   if (!key) {
@@ -47,12 +52,15 @@ async function sendOne(kind: string, recipient: string, content: EmailContent): 
   }
 
   try {
+    const headers: Record<string, string> = {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    };
+    if (idempotencyKey) headers["Idempotency-Key"] = idempotencyKey;
+
     const response = await fetch(RESEND_ENDPOINT, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({
         from,
         to: [recipient],
@@ -99,4 +107,17 @@ export function sendClaimRejected(
   input: Parameters<typeof tmplClaimRejected>[1]
 ): Promise<SendResult> {
   return sendOne("claim.rejected", recipient, tmplClaimRejected(lang, input));
+}
+
+export function sendExpiryReminder(
+  recipient: string,
+  content: EmailContent,
+  entitlementId: string
+): Promise<SendResult> {
+  return sendOne(
+    "entitlement.expiry_reminder",
+    recipient,
+    content,
+    `entitlement-expiry/${entitlementId}`
+  );
 }

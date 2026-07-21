@@ -7,11 +7,6 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
-  __InternalSupabase: {
-    PostgrestVersion: "14.5"
-  }
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -222,6 +217,8 @@ export type Database = {
           created_at: string
           expires_at: string
           id: string
+          reminded_at: string | null
+          reminder_claimed_at: string | null
           revoked_at: string | null
           scope_id: string | null
           scope_type: string
@@ -235,6 +232,8 @@ export type Database = {
           created_at?: string
           expires_at: string
           id?: string
+          reminded_at?: string | null
+          reminder_claimed_at?: string | null
           revoked_at?: string | null
           scope_id?: string | null
           scope_type: string
@@ -248,6 +247,8 @@ export type Database = {
           created_at?: string
           expires_at?: string
           id?: string
+          reminded_at?: string | null
+          reminder_claimed_at?: string | null
           revoked_at?: string | null
           scope_id?: string | null
           scope_type?: string
@@ -393,6 +394,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      rate_limit_events: {
+        Row: {
+          created_at: string
+          id: number
+          key: string
+        }
+        Insert: {
+          created_at?: string
+          id?: never
+          key: string
+        }
+        Update: {
+          created_at?: string
+          id?: never
+          key?: string
+        }
+        Relationships: []
       }
       redemption_attempts: {
         Row: {
@@ -755,10 +774,15 @@ export type Database = {
         }
         Returns: Json
       }
+      check_rate_limit: {
+        Args: { p_key: string; p_max: number; p_window: string }
+        Returns: boolean
+      }
       claim_unit_preview: {
         Args: { p_preview_hash?: string; p_unit_id?: string }
         Returns: string
       }
+      cleanup_rate_limit_events: { Args: never; Returns: undefined }
       get_current_preview_unit: { Args: never; Returns: string }
       get_unit_content: {
         Args: { p_subject_slug: string; p_unit_slug: string }
